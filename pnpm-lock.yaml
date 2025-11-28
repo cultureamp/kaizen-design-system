@@ -487,8 +487,8 @@ importers:
         specifier: 1.79.6
         version: 1.79.6
       serialize-query-params:
-        specifier: ^2.0.2
-        version: 2.0.2
+        specifier: ^2.0.3
+        version: 2.0.3
       svgo:
         specifier: ^3.3.2
         version: 3.3.2
@@ -9261,8 +9261,8 @@ packages:
   sentence-case@3.0.4:
     resolution: {integrity: sha512-8LS0JInaQMCRoQ7YUytAo/xUu5W2XnQxV2HI/6uM6U7CITS1RqPElr30V6uIqyMKM9lJGRVFy5/4CuzcixNYSg==}
 
-  serialize-query-params@2.0.2:
-    resolution: {integrity: sha512-1chMo1dST4pFA9RDXAtF0Rbjaut4is7bzFbI1Z26IuMub68pNCILku85aYmeFhvnY//BXUPUhoRMjYcsT93J/Q==}
+  serialize-query-params@2.0.3:
+    resolution: {integrity: sha512-PyDK5dkxtWa9jo9qJDy19x/haAcTQnUfIGsCXIv53HlgTCH5pC2KHIqrtM+VOruqRmH2XwYZZyn7BNHN0W58EQ==}
 
   set-blocking@2.0.0:
     resolution: {integrity: sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==}
@@ -21563,7 +21563,7 @@ snapshots:
       tslib: 2.8.1
       upper-case-first: 2.0.2
 
-  serialize-query-params@2.0.2: {}
+  serialize-query-params@2.0.3: {}
 
   set-blocking@2.0.0: {}
 
