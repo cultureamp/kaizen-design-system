@@ -142,6 +142,7 @@ export const updateKaioImports =
         const importIndex = statements.findIndex(
           (s) =>
             ts.isImportDeclaration(s) &&
+            s.moduleSpecifier &&
             (s.moduleSpecifier as ts.StringLiteral).text === moduleSpecifier,
         )
 
@@ -171,6 +172,7 @@ export const updateKaioImports =
         const importIndex = statements.findIndex(
           (s) =>
             ts.isImportDeclaration(s) &&
+            s.moduleSpecifier &&
             (s.moduleSpecifier as ts.StringLiteral).text === newModuleSpecifier,
         )
 
@@ -178,6 +180,7 @@ export const updateKaioImports =
           const fallbackKaioImportIdx = statements.findIndex(
             (s) =>
               ts.isImportDeclaration(s) &&
+              s.moduleSpecifier &&
               (s.moduleSpecifier as ts.StringLiteral).text.includes('@kaizen/components'),
           )
 
@@ -186,7 +189,10 @@ export const updateKaioImports =
             importsToAdd.get(newModuleSpecifier)!,
             newModuleSpecifier,
           )
-          statements.splice(fallbackKaioImportIdx + 1, 0, newImport)
+          
+          // If no kaizen imports found, add at the beginning of imports
+          const insertIndex = fallbackKaioImportIdx === -1 ? 0 : fallbackKaioImportIdx + 1
+          statements.splice(insertIndex, 0, newImport)
           return
         }
 
