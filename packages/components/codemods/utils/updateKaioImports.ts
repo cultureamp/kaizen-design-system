@@ -189,7 +189,7 @@ export const updateKaioImports =
             importsToAdd.get(newModuleSpecifier)!,
             newModuleSpecifier,
           )
-          
+
           // If no kaizen imports found, add at the beginning of imports
           const insertIndex = fallbackKaioImportIdx === -1 ? 0 : fallbackKaioImportIdx + 1
           statements.splice(insertIndex, 0, newImport)
