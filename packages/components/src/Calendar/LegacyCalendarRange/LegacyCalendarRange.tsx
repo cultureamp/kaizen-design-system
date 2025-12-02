@@ -60,10 +60,24 @@ export const LegacyCalendarRange = ({
         components={{
           Chevron: (props) => {
             if (props.orientation === 'left') {
-              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+              return (
+                <Icon
+                  name="arrow_back"
+                  isPresentational
+                  shouldMirrorInRTL
+                  className={styles.chevronIcon}
+                />
+              )
             }
 
-            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+            return (
+              <Icon
+                name="arrow_forward"
+                isPresentational
+                shouldMirrorInRTL
+                className={styles.chevronIcon}
+              />
+            )
           },
         }}
         locale={locale}
