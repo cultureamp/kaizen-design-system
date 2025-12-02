@@ -120,8 +120,7 @@ export const Select = React.forwardRef<any, SelectProps>(
 Select.displayName = 'Select'
 
 interface AsyncProps
-  extends ReactAsyncSelectProps<any, boolean, any>,
-    ReactSelectProps<any, boolean, any> {}
+  extends ReactAsyncSelectProps<any, boolean, any>, ReactSelectProps<any, boolean, any> {}
 
 export const AsyncSelect = React.forwardRef(
   ({ className: propsClassName, placeholder, ...props }: AsyncProps, ref: React.Ref<any>) => (
