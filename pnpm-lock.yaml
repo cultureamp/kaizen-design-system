@@ -8218,18 +8218,8 @@ packages:
     resolution: {integrity: sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==}
     engines: {node: '>=10'}
 
-  playwright-core@1.56.1:
-    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   playwright-core@1.57.0:
     resolution: {integrity: sha512-agTcKlMw/mjBWOnD6kFZttAAGHgi/Nw0CZ2o6JqWSbMlI219lAFLZZCyqByTsvVAJq5XA5H8cA6PrvBRpBWEuQ==}
-    engines: {node: '>=18'}
-    hasBin: true
-
-  playwright@1.56.1:
-    resolution: {integrity: sha512-aFi5B0WovBHTEvpM3DzXTUaeN6eN0qWnTkKx4NQaH4Wvcmc153PdaY2UBdSYKaGYw+UyWXSVyxDUg5DoPEttjw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -14520,8 +14510,8 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 3.0.1(jest@30.2.0(@types/node@22.19.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.1))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.1)(typescript@5.9.3)))
       nyc: 15.1.0
-      playwright: 1.56.1
-      playwright-core: 1.56.1
+      playwright: 1.57.0
+      playwright-core: 1.57.0
       rimraf: 3.0.2
       storybook: 8.6.12(prettier@3.7.3)
       uuid: 8.3.2
@@ -20245,15 +20235,7 @@ snapshots:
     dependencies:
       find-up: 5.0.0
 
-  playwright-core@1.56.1: {}
-
   playwright-core@1.57.0: {}
-
-  playwright@1.56.1:
-    dependencies:
-      playwright-core: 1.56.1
-    optionalDependencies:
-      fsevents: 2.3.2
 
   playwright@1.57.0:
     dependencies:
