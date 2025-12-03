@@ -12,6 +12,8 @@ export type CalendarSingleElement = HTMLDivElement
 export type CalendarSingleProps = {
   id?: string
   onMount?: (calendarElement: CalendarSingleElement) => void
+  /** Exposes the react-day-picker component prop. Please be aware, consumers using this will have to guarentee functions as expected */
+  components?: PropsBase['components']
 } & OverrideClassName<Omit<PropsSingle & Omit<PropsBase, 'mode'>, 'mode'>>
 
 export const CalendarSingle = ({
@@ -22,6 +24,7 @@ export const CalendarSingle = ({
   defaultMonth,
   weekStartsOn,
   locale = enAU,
+  components = {},
   ...restProps
 }: CalendarSingleProps): JSX.Element => {
   const calendarRef = useRef<CalendarSingleElement>(null)
@@ -52,11 +55,26 @@ export const CalendarSingle = ({
         components={{
           Chevron: (props) => {
             if (props.orientation === 'left') {
-              return <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+              return (
+                <Icon
+                  name="arrow_back"
+                  isPresentational
+                  shouldMirrorInRTL
+                  className={styles.chevronIcon}
+                />
+              )
             }
 
-            return <Icon name="arrow_forward" isPresentational shouldMirrorInRTL />
+            return (
+              <Icon
+                name="arrow_forward"
+                isPresentational
+                shouldMirrorInRTL
+                className={styles.chevronIcon}
+              />
+            )
           },
+          ...components,
         }}
         locale={locale}
         {...restProps}
