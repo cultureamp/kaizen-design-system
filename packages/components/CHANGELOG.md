@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.1
+
+### Patch Changes
+
+- [#6305](https://github.com/cultureamp/kaizen-design-system/pull/6305) [`e6150d8`](https://github.com/cultureamp/kaizen-design-system/commit/e6150d8a38d4a6995ac920be55b71d8903986af4) - set point-events to non on all chevron icons within DatePickers.
+
 ## 2.2.0
 
 ### Minor Changes
