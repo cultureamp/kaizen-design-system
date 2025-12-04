@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.2.2
+
+### Patch Changes
+
+- [#6260](https://github.com/cultureamp/kaizen-design-system/pull/6260) [`3e74282`](https://github.com/cultureamp/kaizen-design-system/commit/3e74282f1c5756356dcea59d6ef716dcbbc9e880) - Update deps and linting fixes
+  - replace usages of grid-column-gap to column-gap
+  - replace CSS use of clip to clip-path
+  - replace usages of word-wrap to overflow-wrap
+  - update Toolbar and updateKaioImports conditional checks
+
 ## 2.2.1
 
 ### Patch Changes
