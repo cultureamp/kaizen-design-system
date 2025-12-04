@@ -15,9 +15,10 @@ const transformGuidanceBlock = (sourceFile: TransformSourceArgs['sourceFile']): 
   })
 }
 
-describe('transformActionsToButtonNext()', () => {
-  it('imports Button from the /next path and transforms all button-like actions prop into a Button component', () => {
-    const inputAst = parseJsx(`
+describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
+  describe('basic transformation', () => {
+    it('imports Button from the /next path and transforms all button-like actions prop into a Button component', () => {
+      const inputAst = parseJsx(`
       import { GuidanceBlock } from "@kaizen/components"
       <GuidanceBlock
         layout="default"
@@ -34,7 +35,7 @@ describe('transformActionsToButtonNext()', () => {
           },
         }}
       />`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       import { GuidanceBlock } from "@kaizen/components"
       import { Button } from "@kaizen/components/next"
       <GuidanceBlock
@@ -45,10 +46,11 @@ describe('transformActionsToButtonNext()', () => {
         />
       `)
 
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
-  })
-  it('imports and transforms all button-like and link-like actions prop into a Button and LinkButton', () => {
-    const inputAst = parseJsx(`
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
+
+    it('imports and transforms all button-like and link-like actions prop into a Button and LinkButton', () => {
+      const inputAst = parseJsx(`
       import { GuidanceBlock } from "@kaizen/components"
       <GuidanceBlock
         layout="default"
@@ -65,7 +67,7 @@ describe('transformActionsToButtonNext()', () => {
           },
         }}
       />`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       import { GuidanceBlock, LinkButton } from "@kaizen/components"
       import { Button } from "@kaizen/components/next"
       <GuidanceBlock
@@ -76,10 +78,11 @@ describe('transformActionsToButtonNext()', () => {
         />
       `)
 
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
-  })
-  it('does not redeclare imports if found', () => {
-    const inputAst = parseJsx(`
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
+
+    it('does not redeclare imports if found', () => {
+      const inputAst = parseJsx(`
       import { GuidanceBlock } from "@kaizen/components"
       import { Button } from "@kaizen/components/next"
       const MockLayout = () => (
@@ -102,7 +105,7 @@ describe('transformActionsToButtonNext()', () => {
         <Button onPress={() => alert('page click 1')} variant="primary" size="large">Page button</Button>
       </>
       )`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       import { GuidanceBlock, LinkButton } from "@kaizen/components"
       import { Button } from "@kaizen/components/next"
       const MockLayout = () => (
@@ -117,11 +120,14 @@ describe('transformActionsToButtonNext()', () => {
       </>
       )`)
 
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
   })
-  // When withActionButtonArrow not explicitly set to true, add arrow icon actionsSlot secondary Button
-  it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is not explicitly set', () => {
-    const inputAst = parseJsx(`
+
+  describe('arrow icon handling', () => {
+    // When withActionButtonArrow not explicitly set to true, add arrow icon actionsSlot secondary Button
+    it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is not explicitly set', () => {
+      const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -137,7 +143,7 @@ describe('transformActionsToButtonNext()', () => {
           },
         }}
       />`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -145,12 +151,13 @@ describe('transformActionsToButtonNext()', () => {
         actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}>Secondary action</LinkButton></>}
         />
       `)
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
-  })
 
-  // When withActionButtonArrow is explicitly true, add arrow icon to actionsSlot secondary Button
-  it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is true', () => {
-    const inputAst = parseJsx(`
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
+
+    // When withActionButtonArrow is explicitly true, add arrow icon to actionsSlot secondary Button
+    it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is true', () => {
+      const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -167,7 +174,7 @@ describe('transformActionsToButtonNext()', () => {
           },
         }}
       />`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -177,12 +184,12 @@ describe('transformActionsToButtonNext()', () => {
         />
       `)
 
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
-  })
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
 
-  // When withActionButtonArrow is explicitly false, do not add arrow icon to actionsSlot secondary Button
-  it('does not add arrow icon to actionsSlot secondary Button when withActionButtonArrow is false', () => {
-    const inputAst = parseJsx(`
+    // When withActionButtonArrow is explicitly false, do not add arrow icon to actionsSlot secondary Button
+    it('does not add arrow icon to actionsSlot secondary Button when withActionButtonArrow is false', () => {
+      const inputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -199,7 +206,7 @@ describe('transformActionsToButtonNext()', () => {
           },
         }}
       />`)
-    const outputAst = parseJsx(`
+      const outputAst = parseJsx(`
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -209,6 +216,7 @@ describe('transformActionsToButtonNext()', () => {
         />
       `)
 
-    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
   })
 })
