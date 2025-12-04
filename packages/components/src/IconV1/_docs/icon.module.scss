@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: repeat(6, 150px);
     grid-template-rows: min-content;
-    grid-gap: var(--spacing-8);
+    gap: var(--spacing-8);
     margin: 0;
     padding: 0;
     list-style: none;

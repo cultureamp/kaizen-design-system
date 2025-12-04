@@ -61,7 +61,7 @@
     border: $border-solid-border-width $border-solid-border-style $color-gray-500;
     background: $color-white;
     border-radius: $border-solid-border-radius;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     &:hover,
     &:focus-within {

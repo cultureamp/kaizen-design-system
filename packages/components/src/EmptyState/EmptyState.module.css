@@ -46,7 +46,7 @@
       );
     grid-template-rows: minmax(auto, var(--empty-state-illustration-max-height)) auto;
     padding: var(--spacing-24);
-    grid-column-gap: var(--spacing-32);
+    column-gap: var(--spacing-32);
   }
 
   .illustrationContainer {
@@ -79,8 +79,8 @@
     .content {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
-      grid-column-gap: unset;
-      grid-row-gap: var(--spacing-24);
+      column-gap: unset;
+      row-gap: var(--spacing-24);
       padding: var(--spacing-24);
     }
 
