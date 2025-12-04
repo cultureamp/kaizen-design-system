@@ -119,4 +119,96 @@ describe('transformActionsToButtonNext()', () => {
 
     expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
   })
+  // When withActionButtonArrow not explicitly set to true, add arrow icon actionsSlot secondary Button
+  it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is not explicitly set', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        actions={{
+          primary: {
+            label: 'Primary action',
+            onClick: () => alert('click 1'),
+          },
+          secondary: {
+            label: 'Secondary action',
+            href: "#secondary"
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}>Secondary action</LinkButton></>}
+        />
+      `)
+    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+  })
+
+  // When withActionButtonArrow is explicitly true, add arrow icon to actionsSlot secondary Button
+  it('adds arrow icon to actionsSlot secondary Button when withActionButtonArrow is true', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        withActionButtonArrow={true}
+        actions={{
+          primary: {
+            label: 'Primary action',
+            onClick: () => alert('click 1'),
+          },
+          secondary: {
+            label: 'Secondary action',
+            href: "#secondary"
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        withActionButtonArrow={true}
+        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational />}>Secondary action</LinkButton></>}
+        />
+      `)
+
+    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+  })
+
+  // When withActionButtonArrow is explicitly false, do not add arrow icon to actionsSlot secondary Button
+  it('does not add arrow icon to actionsSlot secondary Button when withActionButtonArrow is false', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        withActionButtonArrow={false}
+        actions={{
+          primary: {
+            label: 'Primary action',
+            onClick: () => alert('click 1'),
+          },
+          secondary: {
+            label: 'Secondary action',
+            href: "#secondary"
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        layout="default"
+        illustration={<Informative alt="" />}
+        content={<div>Test</div>}
+        withActionButtonArrow={false}
+        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
+        />
+      `)
+
+    expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+  })
 })
