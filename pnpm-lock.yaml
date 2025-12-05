@@ -378,8 +378,8 @@ importers:
         specifier: ^2.13.6
         version: 2.13.6(@types/react@18.3.27)(react@19.2.0)
       react-focus-on:
-        specifier: ^3.10.0
-        version: 3.10.0(@types/react@18.3.27)(react@19.2.0)
+        specifier: ^3.10.1
+        version: 3.10.1(@types/react@18.3.27)(react@19.2.0)
       react-popper:
         specifier: ^2.3.0
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -1231,11 +1231,6 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
-    peerDependenciesMeta:
-      '@cultureamp/next-head-hook':
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/frontend-env@2.1.6':
     resolution: {integrity: sha512-6FYwQ08fTns6zMjRC74M2wSah8bMBSVsMxRBYmq7KWQOyYT/Jb7/BPpcrFjPaBzvnoKBLQ06TrbykCcZOkGRSA==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.6/e7375ab88fbc9f9770f2094896a6dc5185094165}
@@ -1247,9 +1242,6 @@ packages:
       '@cultureamp/frontend-apis': '>=13 || ~0.0.0'
       next: '>=13.5.0'
       react: ^18.3.1 || ^19.0.0
-    peerDependenciesMeta:
-      next:
-        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -1266,9 +1258,6 @@ packages:
       ts-patch: ^3.3.0
       tslib: '>=2.8.1'
       typescript: ^5.9.3
-    peerDependenciesMeta:
-      ts-patch:
-        optional: true
 
   '@cultureamp/redirect-to-login@2.0.3':
     resolution: {integrity: sha512-OFJffYRJbB3e0LO3daRZuP7dMhvpQbmiQNu/lnlWWqi5YCCdAgjoozC7feQFqwDBbtPcTHxt4qcJ8Do3RbRs5Q==, tarball: https://npm.pkg.github.com/download/@cultureamp/redirect-to-login/2.0.3/26afa69493a04cb23a5333dccf5b922afd4a333c}
@@ -7174,6 +7163,7 @@ packages:
   next@15.2.5:
     resolution: {integrity: sha512-LlqS8ljc7RWR3riUwxB5+14v7ULAa5EuLUyarD/sFgXPd6Hmmscg8DXcu9hDdh5atybrIDVBrFhjDpRIQo/4pQ==}
     engines: {node: ^18.18.0 || ^19.8.0 || >= 20.0.0}
+    deprecated: This version has a security vulnerability. Please upgrade to a patched version. See https://nextjs.org/blog/CVE-2025-66478 for more details.
     hasBin: true
     peerDependencies:
       '@opentelemetry/api': ^1.1.0
@@ -8283,8 +8273,17 @@ packages:
       '@types/react':
         optional: true
 
-  react-focus-on@3.10.0:
-    resolution: {integrity: sha512-r2yQchO6QfV5zB3J4Gj6cTYBoxD369vkt0oKj1NJLA5ChQzxjko6V/dqQ7nvmaUBm5pHC+pa8tzHT9jtsVRFMQ==}
+  react-focus-lock@2.13.7:
+    resolution: {integrity: sha512-20lpZHEQrXPb+pp1tzd4ULL6DyO5D2KnR0G69tTDdydrmNhU7pdFmbQUYVyHUgp+xN29IuFR0PVuhOmvaZL9Og==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  react-focus-on@3.10.1:
+    resolution: {integrity: sha512-WI145u8xtD7Tc0GcfgwudY2mktxukTlrhC2pB2qfQSfpFpLh42eq9ZQOKjQ/Sn6Ac22i/hjSeHi2rfdLY+XWkQ==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -10843,6 +10842,7 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6))(react@19.2.0)(typescript@5.9.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.6
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.2.0)
@@ -10857,6 +10857,7 @@ snapshots:
       js-yaml: 4.1.1
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.9.3)
+      next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.2.0
@@ -10865,9 +10866,6 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
-    optionalDependencies:
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6))
-      next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -10896,12 +10894,11 @@ snapshots:
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.2.1
       limiter-es6-compat: 2.1.2
+      next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)
       react: 19.2.0
       react-intl: 7.1.14(react@19.2.0)(typescript@5.9.3)
       smartling-api-sdk-nodejs: 2.11.0(encoding@0.1.13)
       yargs: 17.7.2
-    optionalDependencies:
-      next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -10923,7 +10920,6 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.79.6)
       react: 18.3.1
-    optional: true
 
   '@cultureamp/package-bundler@2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.4.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.53.3)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.1)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
@@ -10942,11 +10938,10 @@ snapshots:
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.1.2(rollup@4.53.3)
       rollup-plugin-postcss: 4.0.2(patch_hash=836fcc1589cec479ceeedbf1fdb7616a567f9e006c2919d065db1577d9345382)(postcss@8.5.6)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.1)(typescript@5.9.3))
+      ts-patch: 3.3.0
       tslib: 2.8.1
       typescript: 5.9.3
       typescript-transform-paths: 3.5.5(typescript@5.9.3)
-    optionalDependencies:
-      ts-patch: 3.3.0
     transitivePeerDependencies:
       - '@babel/core'
       - '@types/babel__core'
@@ -11764,8 +11759,7 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
-  '@next/env@15.2.5':
-    optional: true
+  '@next/env@15.2.5': {}
 
   '@next/swc-darwin-arm64@15.2.5':
     optional: true
@@ -14743,7 +14737,6 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
-    optional: true
 
   cac@6.7.14: {}
 
@@ -18211,7 +18204,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -19221,7 +19213,6 @@ snapshots:
       nanoid: 3.3.11
       picocolors: 1.1.1
       source-map-js: 1.2.1
-    optional: true
 
   postcss@8.5.6:
     dependencies:
@@ -19538,11 +19529,23 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.27
 
-  react-focus-on@3.10.0(@types/react@18.3.27)(react@19.2.0):
+  react-focus-lock@2.13.7(@types/react@18.3.27)(react@19.2.0):
+    dependencies:
+      '@babel/runtime': 7.25.0
+      focus-lock: 1.3.6
+      prop-types: 15.8.1
+      react: 19.2.0
+      react-clientside-effect: 1.2.7(react@19.2.0)
+      use-callback-ref: 1.3.3(@types/react@18.3.27)(react@19.2.0)
+      use-sidecar: 1.1.3(@types/react@18.3.27)(react@19.2.0)
+    optionalDependencies:
+      '@types/react': 18.3.27
+
+  react-focus-on@3.10.1(@types/react@18.3.27)(react@19.2.0):
     dependencies:
       aria-hidden: 1.2.6
       react: 19.2.0
-      react-focus-lock: 2.13.6(@types/react@18.3.27)(react@19.2.0)
+      react-focus-lock: 2.13.7(@types/react@18.3.27)(react@19.2.0)
       react-remove-scroll: 2.7.0(@types/react@18.3.27)(react@19.2.0)
       react-style-singleton: 2.2.3(@types/react@18.3.27)(react@19.2.0)
       tslib: 2.8.1
@@ -19682,7 +19685,6 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
-    optional: true
 
   react@19.2.0: {}
 
@@ -20244,8 +20246,7 @@ snapshots:
       readable-stream: 3.6.2
       xtend: 4.0.2
 
-  streamsearch@1.1.0:
-    optional: true
+  streamsearch@1.1.0: {}
 
   strict-event-emitter@0.5.1: {}
 
@@ -20389,7 +20390,6 @@ snapshots:
       react: 19.2.0
     optionalDependencies:
       '@babel/core': 7.28.5
-    optional: true
 
   stylehacks@5.1.1(postcss@8.5.6):
     dependencies:
