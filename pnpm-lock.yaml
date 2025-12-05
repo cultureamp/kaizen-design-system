@@ -378,8 +378,8 @@ importers:
         specifier: ^2.13.6
         version: 2.13.6(@types/react@18.3.27)(react@19.2.0)
       react-focus-on:
-        specifier: ^3.10.0
-        version: 3.10.0(@types/react@18.3.27)(react@19.2.0)
+        specifier: ^3.10.1
+        version: 3.10.1(@types/react@18.3.27)(react@19.2.0)
       react-popper:
         specifier: ^2.3.0
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -8315,8 +8315,17 @@ packages:
       '@types/react':
         optional: true
 
-  react-focus-on@3.10.0:
-    resolution: {integrity: sha512-r2yQchO6QfV5zB3J4Gj6cTYBoxD369vkt0oKj1NJLA5ChQzxjko6V/dqQ7nvmaUBm5pHC+pa8tzHT9jtsVRFMQ==}
+  react-focus-lock@2.13.7:
+    resolution: {integrity: sha512-20lpZHEQrXPb+pp1tzd4ULL6DyO5D2KnR0G69tTDdydrmNhU7pdFmbQUYVyHUgp+xN29IuFR0PVuhOmvaZL9Og==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  react-focus-on@3.10.1:
+    resolution: {integrity: sha512-WI145u8xtD7Tc0GcfgwudY2mktxukTlrhC2pB2qfQSfpFpLh42eq9ZQOKjQ/Sn6Ac22i/hjSeHi2rfdLY+XWkQ==}
     engines: {node: '>=8.5.0'}
     peerDependencies:
       '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -19501,11 +19510,23 @@ snapshots:
     optionalDependencies:
       '@types/react': 18.3.27
 
-  react-focus-on@3.10.0(@types/react@18.3.27)(react@19.2.0):
+  react-focus-lock@2.13.7(@types/react@18.3.27)(react@19.2.0):
+    dependencies:
+      '@babel/runtime': 7.25.0
+      focus-lock: 1.3.6
+      prop-types: 15.8.1
+      react: 19.2.0
+      react-clientside-effect: 1.2.7(react@19.2.0)
+      use-callback-ref: 1.3.3(@types/react@18.3.27)(react@19.2.0)
+      use-sidecar: 1.1.3(@types/react@18.3.27)(react@19.2.0)
+    optionalDependencies:
+      '@types/react': 18.3.27
+
+  react-focus-on@3.10.1(@types/react@18.3.27)(react@19.2.0):
     dependencies:
       aria-hidden: 1.2.6
       react: 19.2.0
-      react-focus-lock: 2.13.6(@types/react@18.3.27)(react@19.2.0)
+      react-focus-lock: 2.13.7(@types/react@18.3.27)(react@19.2.0)
       react-remove-scroll: 2.7.0(@types/react@18.3.27)(react@19.2.0)
       react-style-singleton: 2.2.3(@types/react@18.3.27)(react@19.2.0)
       tslib: 2.8.1
