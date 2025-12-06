@@ -31,7 +31,7 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "devDependencies": {
-    "@cultureamp/package-bundler": "^2.4.4",
+    "@cultureamp/package-bundler": "^3.0.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "classnames": "^2.5.1",
     "react": "^19.2.0",
