@@ -57,12 +57,12 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 1px; // needed to correctly position the active tab label :after element
+    margin-bottom: 1px;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 1px; // needed to correctly position the active tab label :after element
+    margin-bottom: 1px;
   }
 
   %titleBlockInner {
@@ -577,6 +577,15 @@
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
         inset: $focus-ring-offset;
+      }
+    }
+
+    @include title-block-medium-and-small {
+      display: none;
+
+      // Note: This media query is necessary to override the above on tablets and handheld devices
+      @media only screen and (hover: none) {
+        display: flex;
       }
     }
 
