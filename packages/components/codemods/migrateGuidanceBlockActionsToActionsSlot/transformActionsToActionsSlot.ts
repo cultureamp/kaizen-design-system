@@ -13,6 +13,7 @@ type GuidanceBlockTransformedActions = {
  */
 export const transformActionsToActionsSlot = (
   node: ts.ObjectLiteralExpression,
+  hasActionButtonArrow: boolean,
 ): GuidanceBlockTransformedActions | undefined => {
   if (ts.isObjectLiteralExpression(node)) {
     const newImports: (string | undefined)[] = []
@@ -30,10 +31,13 @@ export const transformActionsToActionsSlot = (
 
     if (primaryAction) {
       const actionValue = primaryAction.initializer as ts.ObjectLiteralExpression
+
       const transformedComponent = transformV1ButtonPropsToButtonOrLinkButton(
         actionValue,
         'secondary',
+        hasActionButtonArrow,
       )
+
       primaryButton = transformedComponent.component
       newImports.push(transformedComponent.import)
     }
@@ -60,6 +64,11 @@ export const transformActionsToActionsSlot = (
           ),
         ),
       )
+
+      // Add Icon import if arrow icon was added
+      if (hasActionButtonArrow) {
+        newImports.push('Icon')
+      }
 
       return {
         actionsSlotAttr: newActionsSlotAttr,
