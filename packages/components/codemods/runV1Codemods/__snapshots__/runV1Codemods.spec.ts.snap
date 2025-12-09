@@ -4,7 +4,7 @@ exports[`runV1Codemods > MockComponentDir Snapshot Tests > should transform Mock
 {
   "MockComponent.tsx": "// @ts-nocheck this is a mock file - we can ignore this
 import React from 'react';
-import { BrandMoment, Card, GlobalNotification, GuidanceBlock, Informative, ProgressBar, Well, LinkButton } from '@kaizen/components';
+import { BrandMoment, Card, GlobalNotification, GuidanceBlock, Informative, ProgressBar, Well, LinkButton, Icon } from '@kaizen/components';
 import { Button } from "@kaizen/components/next";
 import { MockSubcomponent } from './subcomponents/MockSubcomponent';
 
@@ -13,7 +13,7 @@ export const MockComponent = (): JSX.Element => {
       <GuidanceBlock illustration={<Informative alt=""/>} text={{
             title: 'This is the call to action title',
             description: 'Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.',
-        }} actionsSlot={<><Button onPress={() => undefined} variant="secondary" size="large">Action!</Button><LinkButton href='/cancel' variant="tertiary" size="large">Cancel</LinkButton></>}/>
+        }} actionsSlot={<><Button onPress={() => undefined} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Action!</Button><LinkButton href='/cancel' variant="tertiary" size="large">Cancel</LinkButton></>}/>
       <BrandMoment variant="success">
         <div>Success message</div>
       </BrandMoment>
