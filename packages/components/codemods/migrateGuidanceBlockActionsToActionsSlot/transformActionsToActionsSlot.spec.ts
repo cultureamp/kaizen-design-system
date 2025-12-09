@@ -19,6 +19,7 @@ export const mockedTransformer =
             if (propName === 'actions') {
               const transformedActions = transformActionsToActionsSlot(
                 propValue.getChildren()[1] as ts.ObjectLiteralExpression,
+                true,
               )
 
               return transformedActions?.actionsSlotAttr
@@ -74,7 +75,7 @@ describe('transformActionsToActionsSlot()', () => {
         layout="default"
         illustration={<Informative alt="" />}
         content={<div>Test</div>}
-        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
+        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
         />
       `)
 

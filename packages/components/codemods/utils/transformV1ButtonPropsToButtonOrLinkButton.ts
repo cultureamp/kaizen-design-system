@@ -91,6 +91,7 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
   let hasSizeProp = false
   let hasVariant = false
   let hasLinkAttr = false
+  let hasIconProp = false
 
   const newProps = buttonProps.properties.reduce<ts.JsxAttributeLike[]>((acc, currentProp) => {
     const propName = currentProp?.name?.getText()
@@ -127,6 +128,10 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 
       if (propName === 'size') {
         hasSizeProp = true
+      }
+
+      if (propName === 'icon') {
+        hasIconProp = true
       }
 
       if (propName === 'href') {
@@ -186,7 +191,8 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
     newProps.push(createStringProp('size', 'large'))
   }
 
-  if (addArrowIcon) {
+  // Only add arrow icon if addArrowIcon is true AND there's no existing icon prop
+  if (addArrowIcon && !hasIconProp) {
     const iconProp = ts.factory.createJsxAttribute(
       ts.factory.createIdentifier('icon'),
       ts.factory.createJsxExpression(
