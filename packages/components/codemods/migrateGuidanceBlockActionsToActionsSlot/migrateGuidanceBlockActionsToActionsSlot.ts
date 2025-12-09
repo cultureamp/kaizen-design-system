@@ -41,7 +41,7 @@ export const migrateGuidanceBlockActionsToActionsSlot =
           tagName === 'GuidanceBlock' ||
           tagImportAttributes.importModuleName === 'GuidanceBlock'
         ) {
-          // Added flag to add arrow-forward icon to new primary button, to minimise visual changes
+          // Added flag to add arrow-forward icon to the secondary-variant Button created from the primary action, to minimise visual changes
           let hasActionButtonArrow: boolean = true
 
           const componentProps: ts.JsxAttributeLike[] = node.attributes.properties.reduce<
