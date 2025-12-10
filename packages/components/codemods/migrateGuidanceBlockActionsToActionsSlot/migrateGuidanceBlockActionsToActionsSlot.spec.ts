@@ -17,7 +17,7 @@ const transformGuidanceBlock = (sourceFile: TransformSourceArgs['sourceFile']): 
 
 describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
   describe('basic transformation', () => {
-    it('imports Button from the /next path and transforms all button-like actions prop into a Button component', () => {
+    it('imports Button and transforms all button-like actions prop into a Button component', () => {
       const inputAst = parseJsx(`
       import { GuidanceBlock } from "@kaizen/components"
       <GuidanceBlock
@@ -36,8 +36,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
         }}
       />`)
       const outputAst = parseJsx(`
-      import { GuidanceBlock, Icon } from "@kaizen/components"
-      import { Button } from "@kaizen/components/next"
+      import { GuidanceBlock, Button, Icon } from "@kaizen/components"
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -68,8 +67,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
         }}
       />`)
       const outputAst = parseJsx(`
-      import { GuidanceBlock, LinkButton, Icon } from "@kaizen/components"
-      import { Button } from "@kaizen/components/next"
+      import {GuidanceBlock, Button, LinkButton, Icon } from "@kaizen/components"
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -83,8 +81,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
 
     it('does not redeclare imports if found', () => {
       const inputAst = parseJsx(`
-      import { GuidanceBlock } from "@kaizen/components"
-      import { Button } from "@kaizen/components/next"
+      import { Button, GuidanceBlock } from "@kaizen/components"
       const MockLayout = () => (
       <>
         <GuidanceBlock
@@ -106,8 +103,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
       </>
       )`)
       const outputAst = parseJsx(`
-      import { GuidanceBlock, LinkButton, Icon } from "@kaizen/components"
-      import { Button } from "@kaizen/components/next"
+      import { Button, GuidanceBlock, LinkButton, Icon } from "@kaizen/components"
       const MockLayout = () => (
       <>
         <GuidanceBlock
@@ -119,6 +115,29 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
         <Button onPress={() => alert('page click 1')} variant="primary" size="large">Page button</Button>
       </>
       )`)
+
+      expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
+    })
+
+    it('preserves custom icon components without adding Icon import', () => {
+      const inputAst = parseJsx(`
+          import { GuidanceBlock } from "@kaizen/components"
+          <GuidanceBlock
+            actions={{
+              primary: {
+                label: 'Action',
+                onClick: () => {},
+                icon: <MyCustomIcon />,
+                iconPosition: 'end',
+              },
+            }}
+          />`)
+      const outputAst = parseJsx(`
+          import { GuidanceBlock, Button } from "@kaizen/components"
+          <GuidanceBlock
+            actionsSlot={<><Button onPress={() => {}} icon={<MyCustomIcon />} iconPosition='end' variant="secondary" size="large">Action</Button></>}
+          />
+          `)
 
       expect(transformGuidanceBlock(inputAst)).toBe(printAst(outputAst))
     })
@@ -144,8 +163,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
           }}
         />`)
         const outputAst = parseJsx(`
-        import { GuidanceBlock, LinkButton, Icon } from "@kaizen/components"
-        import { Button } from "@kaizen/components/next"
+        import { GuidanceBlock, LinkButton, Button, Icon } from "@kaizen/components"        
         <GuidanceBlock
           layout="default"
           illustration={<Informative alt="" />}
@@ -178,8 +196,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
           }}
         />`)
         const outputAst = parseJsx(`
-        import { GuidanceBlock, LinkButton, Icon } from "@kaizen/components"
-        import { Button } from "@kaizen/components/next"
+        import { GuidanceBlock, Button, LinkButton, Icon } from "@kaizen/components"
         <GuidanceBlock
           layout="default"
           illustration={<Informative alt="" />}
@@ -212,8 +229,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
         }}
       />`)
         const outputAst = parseJsx(`
-      import { GuidanceBlock, LinkButton } from "@kaizen/components"
-      import { Button } from "@kaizen/components/next"
+      import { GuidanceBlock, Button, LinkButton } from "@kaizen/components"
       <GuidanceBlock
         layout="default"
         illustration={<Informative alt="" />}
@@ -244,8 +260,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
             />
           `)
         const outputAst = parseJsx(`
-            import { GuidanceBlock, Icon } from "@kaizen/components"
-            import { Button } from "@kaizen/components/next"
+            import { GuidanceBlock, Button, Icon } from "@kaizen/components"
             <GuidanceBlock
               layout="default"
               illustration={<Informative alt="" />}
@@ -274,8 +289,7 @@ describe('migrateGuidanceBlockActionsToActionsSlot()', () => {
             />
           `)
         const outputAst = parseJsx(`
-            import { GuidanceBlock, Icon } from "@kaizen/components"
-            import { Button } from "@kaizen/components/next"
+            import {GuidanceBlock, Button, Icon } from "@kaizen/components"
             <GuidanceBlock
               layout="default"
               illustration={<Informative alt="" />}
