@@ -8,7 +8,7 @@ import {
 } from '../utils'
 import { transformActionsToActionsSlot } from './transformActionsToActionsSlot'
 
-const BUTTON_IMPORT_DESTINATION = '@kaizen/components/next'
+const BUTTON_IMPORT_DESTINATION = '@kaizen/components'
 const LINKBUTTON_IMPORT_DESTINATION = '@kaizen/components'
 const ICON_IMPORT_DESTINATION = '@kaizen/components'
 
