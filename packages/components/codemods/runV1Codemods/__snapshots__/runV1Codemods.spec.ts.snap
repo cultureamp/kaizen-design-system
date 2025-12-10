@@ -4,8 +4,7 @@ exports[`runV1Codemods > MockComponentDir Snapshot Tests > should transform Mock
 {
   "MockComponent.tsx": "// @ts-nocheck this is a mock file - we can ignore this
 import React from 'react';
-import { BrandMoment, Card, GlobalNotification, GuidanceBlock, Informative, ProgressBar, Well, LinkButton, Icon } from '@kaizen/components';
-import { Button } from "@kaizen/components/next";
+import { BrandMoment, Card, GlobalNotification, GuidanceBlock, Informative, ProgressBar, Well, Button, LinkButton, Icon } from '@kaizen/components';
 import { MockSubcomponent } from './subcomponents/MockSubcomponent';
 
 export const MockComponent = (): JSX.Element => {
