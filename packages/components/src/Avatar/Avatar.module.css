@@ -95,6 +95,7 @@
     font-family: var(--typography-heading-1-font-family);
     font-weight: var(--typography-heading-1-font-weight);
     letter-spacing: var(--typography-heading-3-letter-spacing);
+    overflow-wrap: normal;
   }
 
   .initials.longName::before {
