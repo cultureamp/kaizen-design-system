@@ -84,11 +84,14 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
   buttonProps: ts.ObjectLiteralExpression,
   /** optional override for the variant type if needed, ie: primary or secondary actions*/
   variantOverride?: string,
+  /** whether to add an arrow icon to the button */
+  addArrowIcon?: boolean,
 ): TransformButtonProp => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
   let hasVariant = false
   let hasLinkAttr = false
+  let hasIconProp = false
 
   const newProps = buttonProps.properties.reduce<ts.JsxAttributeLike[]>((acc, currentProp) => {
     const propName = currentProp?.name?.getText()
@@ -125,6 +128,10 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 
       if (propName === 'size') {
         hasSizeProp = true
+      }
+
+      if (propName === 'icon') {
+        hasIconProp = true
       }
 
       if (propName === 'href') {
@@ -182,6 +189,39 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 
   if (!hasSizeProp) {
     newProps.push(createStringProp('size', 'large'))
+  }
+
+  // Only add arrow icon if addArrowIcon is true AND there's no existing icon prop
+  if (addArrowIcon && !hasIconProp) {
+    const iconProp = ts.factory.createJsxAttribute(
+      ts.factory.createIdentifier('icon'),
+      ts.factory.createJsxExpression(
+        undefined,
+        ts.factory.createJsxSelfClosingElement(
+          ts.factory.createIdentifier('Icon'),
+          undefined,
+          ts.factory.createJsxAttributes([
+            ts.factory.createJsxAttribute(
+              ts.factory.createIdentifier('name'),
+              ts.factory.createStringLiteral('arrow_forward'),
+            ),
+            ts.factory.createJsxAttribute(
+              ts.factory.createIdentifier('shouldMirrorInRTL'),
+              undefined,
+            ),
+            ts.factory.createJsxAttribute(
+              ts.factory.createIdentifier('isPresentational'),
+              undefined,
+            ),
+          ]),
+        ),
+      ),
+    )
+    const iconPositionProp = ts.factory.createJsxAttribute(
+      ts.factory.createIdentifier('iconPosition'),
+      ts.factory.createStringLiteral('end'),
+    )
+    newProps.push(iconProp, iconPositionProp)
   }
 
   return {

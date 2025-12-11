@@ -13,9 +13,11 @@ type GuidanceBlockTransformedActions = {
  */
 export const transformActionsToActionsSlot = (
   node: ts.ObjectLiteralExpression,
+  hasActionButtonArrow: boolean,
 ): GuidanceBlockTransformedActions | undefined => {
   if (ts.isObjectLiteralExpression(node)) {
     const newImports: (string | undefined)[] = []
+    let arrowIconWasAdded = false
 
     const primaryAction = node.properties.find((prop) => prop?.name?.getText() === 'primary') as
       | ts.PropertyAssignment
@@ -30,10 +32,23 @@ export const transformActionsToActionsSlot = (
 
     if (primaryAction) {
       const actionValue = primaryAction.initializer as ts.ObjectLiteralExpression
+
+      // Check if icon prop already exists
+      const hasExistingIcon = actionValue.properties.some(
+        (prop) => prop?.name?.getText() === 'icon',
+      )
+
       const transformedComponent = transformV1ButtonPropsToButtonOrLinkButton(
         actionValue,
         'secondary',
+        hasActionButtonArrow,
       )
+
+      // Track if arrow icon was actually added (only if hasActionButtonArrow is true and no existing icon)
+      if (hasActionButtonArrow && !hasExistingIcon) {
+        arrowIconWasAdded = true
+      }
+
       primaryButton = transformedComponent.component
       newImports.push(transformedComponent.import)
     }
@@ -60,6 +75,11 @@ export const transformActionsToActionsSlot = (
           ),
         ),
       )
+
+      // Add Icon import if arrow icon was added
+      if (arrowIconWasAdded) {
+        newImports.push('Icon')
+      }
 
       return {
         actionsSlotAttr: newActionsSlotAttr,
