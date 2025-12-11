@@ -57,12 +57,10 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 1px;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 1px;
   }
 
   %titleBlockInner {
@@ -359,8 +357,11 @@
   .rowBelowSeparatorInnerContent {
     display: flex;
     width: 100%;
-    margin-top: -$title-block-separator-height;
     justify-content: space-between;
+
+    @include title-block-small {
+      height: $tab-container-height-small;
+    }
   }
 
   .titleAndAdjacent {
