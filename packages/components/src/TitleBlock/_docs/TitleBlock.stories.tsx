@@ -116,11 +116,38 @@ export const Viewports: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1079, 1365, 1366],
+      viewports: [1079, 1365, 1366, 760, 360],
     },
   },
 }
 
+export const WithNoSecondaryOverflow: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366, 760, 360],
+    },
+  },
+  args: {
+    title: 'Test no secondary overflow menu items',
+    secondaryOverflowMenuItems: undefined,
+  },
+}
 export const HasLongTitle: Story = {
   parameters: {
     viewport: {
@@ -140,7 +167,7 @@ export const HasLongTitle: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1365, 1366],
+      viewports: [1365, 1366, 760, 360],
     },
   },
   args: { title: 'A long title with over thirty characters' },
@@ -156,13 +183,33 @@ export const LightVariant: Story = {
     viewport: {
       viewports: {
         default: {
-          name: 'Above or equal to 1366',
+          name: 'desktop (above or equal to 1366)',
           styles: { width: '1366px', height: '800px' },
           type: 'desktop',
         },
-        under1366: {
-          name: 'Under 1366',
+        desktopSm: {
+          name: 'desktop-sm (1024 - 1365)',
           styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+        tablet: {
+          name: 'tablet (672 - 1023)',
+          styles: { width: '1023px', height: '800px' },
+          type: 'desktop',
+        },
+        mobileResponsive: {
+          name: 'mobile-responsive (512 - 671)',
+          styles: { width: '671px', height: '800px' },
+          type: 'desktop',
+        },
+        mobile: {
+          name: 'mobile (361 - 512)',
+          styles: { width: '511px', height: '800px' },
+          type: 'desktop',
+        },
+        mobileXs: {
+          name: 'mobile (under 360)',
+          styles: { width: '360px', height: '800px' },
           type: 'desktop',
         },
       },
@@ -170,7 +217,7 @@ export const LightVariant: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1365, 1366],
+      viewports: [1365, 1366, 760, 360],
     },
   },
   args: {
