@@ -121,6 +121,33 @@ export const Viewports: Story = {
   },
 }
 
+export const WithNoSecondaryOverflow: Story = {
+  parameters: {
+    viewport: {
+      viewports: {
+        default: {
+          name: 'Above or equal to 1366',
+          styles: { width: '1366px', height: '800px' },
+          type: 'desktop',
+        },
+        under1366: {
+          name: 'Under 1366',
+          styles: { width: '1365px', height: '800px' },
+          type: 'desktop',
+        },
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: {
+      disable: false,
+      viewports: [1365, 1366, 760, 360],
+    },
+  },
+  args: {
+    title: 'Test no secondary overflow menu items',
+    secondaryOverflowMenuItems: undefined,
+  },
+}
 export const HasLongTitle: Story = {
   parameters: {
     viewport: {
@@ -140,7 +167,7 @@ export const HasLongTitle: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1365, 1366],
+      viewports: [1365, 1366, 760, 360],
     },
   },
   args: { title: 'A long title with over thirty characters' },

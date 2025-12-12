@@ -56,9 +56,10 @@ const renderCombinedSecondaryOverflowMenu = (
     ? convertSecondaryActionsToMenuItems(secondaryActions)
     : []
   const overflowItems = secondaryOverflowMenuItems ?? []
-  // Only render if we have at least one secondary action AND at least one overflow item to avoid duplicating single menus
-  if (secondaryConverted.length === 0 || overflowItems.length === 0) return undefined
+
+  if (secondaryConverted.length === 0 && overflowItems.length === 0) return undefined
   const combined = [...secondaryConverted, ...overflowItems]
+
   return (
     <div className={styles.secondaryOverflowCombinedMenu}>
       <Menu

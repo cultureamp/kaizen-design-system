@@ -541,6 +541,10 @@
         display: flex;
       }
     }
+
+    @include title-block-small {
+      margin-top: -3px;
+    }
   }
 
   .breadcrumb {
