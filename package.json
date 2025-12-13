@@ -55,7 +55,7 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^22.19.1",
+    "@types/node": "^22.19.2",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
     "@vitest/eslint-plugin": "^1.5.1",
