@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.4
+
+### Patch Changes
+
+- [#6330](https://github.com/cultureamp/kaizen-design-system/pull/6330) [`6496d22`](https://github.com/cultureamp/kaizen-design-system/commit/6496d229c22a49d5a5cd2133715805515eb8ac67) - Upgrading GuidanceBlock codemod for V3 KAIO Readiness
+
 ## 2.2.3
 
 ### Patch Changes
