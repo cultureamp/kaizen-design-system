@@ -64,9 +64,9 @@ export const transformButtonProp = (
       return oldValue ? createStringProp('size', buttonSizeMap[oldValue]) : undefined
     }
     case 'primary':
-      return createStringProp('variant', 'primary')
+      return null
     case 'secondary':
-      return createStringProp('variant', 'tertiary')
+      return null
     case 'destructive':
       return null
     default:
@@ -89,7 +89,6 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
 ): TransformButtonProp => {
   let childrenValue: ts.JsxAttributeValue | undefined
   let hasSizeProp = false
-  let hasVariant = false
   let hasLinkAttr = false
   let hasIconProp = false
 
@@ -120,10 +119,6 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
           createStringProp('target', '_blank'),
           createStringProp('rel', 'noopener noreferrer'),
         ]
-      }
-
-      if (propName === 'primary' || propName === 'secondary' || variantOverride) {
-        hasVariant = true
       }
 
       if (propName === 'size') {
@@ -179,13 +174,8 @@ export const transformV1ButtonPropsToButtonOrLinkButton = (
     return acc
   }, [])
 
-  if (!hasVariant) {
-    newProps.push(createStringProp('variant', 'secondary'))
-  }
-
-  if (variantOverride) {
-    newProps.push(createStringProp('variant', variantOverride))
-  }
+  // Always add variant from variantOverride, or default to 'secondary'
+  newProps.push(createStringProp('variant', variantOverride ?? 'secondary'))
 
   if (!hasSizeProp) {
     newProps.push(createStringProp('size', 'large'))
