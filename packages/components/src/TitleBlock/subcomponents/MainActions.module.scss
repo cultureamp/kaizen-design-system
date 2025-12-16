@@ -26,8 +26,7 @@
         padding-left: 2.5rem;
       }
 
-      // note: this is 415 to prevent overflow of larger buttons
-      @media (max-width: 415px) {
+      @media (max-width: 360px) {
         .defaultActionButton {
           display: none;
           margin-inline-end: 0;

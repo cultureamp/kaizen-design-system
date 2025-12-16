@@ -247,7 +247,7 @@
 
     @include ca-margin($end: $spacing-xs);
 
-    @media (max-width: 511px) {
+    @media (max-width: 759px) {
       display: flex;
       align-items: center;
     }
@@ -585,10 +585,9 @@
       }
     }
 
-    @include title-block-medium-and-small {
+    @media (max-width: 1024px) {
       display: none;
 
-      // Note: This media query is necessary to override the above on tablets and handheld devices
       @media only screen and (hover: none) {
         display: flex;
       }
@@ -624,6 +623,7 @@
   }
 
   .breadcrumbTextLink {
+    display: none;
     // We are using visually hidden here instead of display:none so that a screen reader
     // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
     @include visually-hidden;
@@ -726,7 +726,7 @@
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
 
-    @include title-block-medium-and-small {
+    @media (max-width: 1024px) {
       display: none;
     }
   }
@@ -739,7 +739,7 @@
   height: 20px;
 
   @include title-block-medium-and-small {
-    @media (min-width: 512px) {
+    @media (min-width: 760px) and (hover: none) {
       display: flex;
     }
   }
