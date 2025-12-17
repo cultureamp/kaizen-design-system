@@ -97,7 +97,7 @@
     display: flex;
     width: 100%;
     align-items: center;
-    min-height: $ca-grid * 3.5;
+    // min-height: $ca-grid * 3.5;
     justify-content: space-between;
     border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -244,18 +244,20 @@
 
   .hamburger {
     display: none;
+    background-color: rgb(34, 255, 0);
 
     @media (max-width: 1079px) {
-      @container (max-width: 1079px) {
-        display: flex;
-        align-items: center;
-      }
+      // @container (max-width: 1079px) {
+      display: flex;
+      align-items: center;
+      // }
     }
-    @media (min-width: 1079px) {
-      @container (max-width: 1079px) {
-        display: none;
-      }
-    }
+
+    // @media (min-width: 1080px) {
+    //   @container (max-width: 1080px) {
+    //     display: none;
+    //   }
+    // }
   }
 
   .subtitle {
@@ -590,24 +592,42 @@
       }
     }
 
-    @include title-block-medium-and-small {
-      display: none;
+    //  @media only screen {
+    //   @container (max-width: #{$breadcrumb-breakpoint-width}) {
 
-      // Note: This media query is necessary to override the above on tablets and handheld devices
-      @media only screen and (hover: none) {
-        display: flex;
-      }
-    }
-
-    @media only screen {
-      @container (max-width: #{$breadcrumb-breakpoint-width}) {
+    @media (min-width: 1065px) {
+      @container (min-width: 1064px) {
         position: relative;
         transform: translateY(0);
         margin-inline: 0 var(--spacing-12);
-
-        @include ca-position($start: 0);
       }
     }
+
+    // @media (max-width: 1080px) {
+    //   @container (max-width: 1080px) {
+    //     display: none;
+    //   }
+    // }
+
+    // @media (min-width: 1080px) {
+    //   @container (max-width: 1080px) {
+    //     display: flex;
+    //   }
+    // }
+
+    // @include title-block-medium-and-small {
+    //   display: none;
+    // }
+
+    // @media only screen {
+    //   @container (max-width: #{$breadcrumb-breakpoint-width}) {
+    //     position: relative;
+    //     transform: translateY(0);
+    //     margin-inline: 0 var(--spacing-12);
+
+    //     @include ca-position($start: 0);
+    //   }
+    // }
   }
 
   @mixin visually-hidden {
@@ -731,9 +751,9 @@
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
 
-    @include title-block-medium-and-small {
-      display: none;
-    }
+    // @include title-block-medium-and-small {
+    //   display: none;
+    // }
   }
   /* stylelint-enable no-descending-specificity */
 }
@@ -742,12 +762,6 @@
   display: none;
   width: 20px;
   height: 20px;
-
-  @include title-block-medium-and-small {
-    @media (min-width: 512px) {
-      display: flex;
-    }
-  }
 }
 
 @keyframes slide-fade {
