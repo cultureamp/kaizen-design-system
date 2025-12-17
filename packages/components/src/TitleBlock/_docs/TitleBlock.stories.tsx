@@ -112,7 +112,7 @@ export const Viewports: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -136,7 +136,7 @@ export const WithNoSecondaryOverflow: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -163,7 +163,7 @@ export const HasLongTitle: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -213,7 +213,7 @@ export const LightVariant: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -249,7 +249,7 @@ export const AdminVariant: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,
@@ -284,7 +284,7 @@ export const EducationVariant: Story = {
           type: 'desktop',
         },
       },
-      defaultViewport: 'default',
+      // defaultViewport: 'default',
     },
     chromatic: {
       disable: false,

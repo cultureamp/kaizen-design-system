@@ -10,7 +10,6 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-on-medium-and-small: 12px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
@@ -72,7 +71,16 @@
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
     @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+      padding-right: 20px;
+      margin: 0;
+
+      @media (max-width: 1079px) {
+        padding-left: 20px;
+      }
+
+      @media (max-width: 759px) {
+        padding-left: 0;
+      }
     }
   }
 
@@ -93,11 +101,11 @@
   }
 
   .titleRowInnerContent {
+    padding-block: 20px;
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
-    min-height: $ca-grid * 3.5;
     justify-content: space-between;
     border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -245,7 +253,10 @@
   .hamburger {
     display: none;
 
-    @include ca-margin($end: $spacing-xs);
+    @media (max-width: 1079px) {
+      display: flex;
+      align-items: center;
+    }
 
     @media (max-width: 759px) {
       display: flex;
@@ -585,12 +596,8 @@
       }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1079px) {
       display: none;
-
-      @media only screen and (hover: none) {
-        display: flex;
-      }
     }
 
     @media only screen {
@@ -726,7 +733,7 @@
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 1079px) {
       display: none;
     }
   }
@@ -737,12 +744,6 @@
   display: none;
   width: 20px;
   height: 20px;
-
-  @include title-block-medium-and-small {
-    @media (min-width: 760px) and (hover: none) {
-      display: flex;
-    }
-  }
 }
 
 @keyframes slide-fade {

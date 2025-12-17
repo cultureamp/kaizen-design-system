@@ -14,17 +14,9 @@
       margin-inline-end: 0;
     }
 
-    @include ca-margin($start: calc(#{$ca-grid} / 2));
-
-    @include title-block-xsmall {
-      padding-top: 12px;
+    @include title-block-small {
       justify-content: flex-start;
-      padding-left: 1.25rem;
-
-      @media (max-width: 511px) {
-        padding-top: 0;
-        padding-left: 2.5rem;
-      }
+      padding-left: 2.75rem;
 
       @media (max-width: 360px) {
         .defaultActionButton {
