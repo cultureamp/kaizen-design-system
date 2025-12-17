@@ -41,3 +41,26 @@
     @content;
   }
 }
+
+@mixin title-block-media-and-container-match($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @container (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// 1080 - navbar not visible
+// need hamburger
+// 1080 +
+
+@mixin title-block-media-min-container-max($media-min, $container-max) {
+  @media (min-width: $media-min) {
+    @container (max-width: $container-max) {
+      @content;
+    }
+  }
+}
+
+// @include title-block-media-min-container-max(1080px, 1079px) {
+// }

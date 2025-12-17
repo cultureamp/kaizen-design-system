@@ -72,7 +72,7 @@
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
     @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+      margin: 0;
     }
   }
 
@@ -245,11 +245,16 @@
   .hamburger {
     display: none;
 
-    @include ca-margin($end: $spacing-xs);
-
-    @media (max-width: 511px) {
-      display: flex;
-      align-items: center;
+    @media (max-width: 1079px) {
+      @container (max-width: 1079px) {
+        display: flex;
+        align-items: center;
+      }
+    }
+    @media (min-width: 1079px) {
+      @container (max-width: 1079px) {
+        display: none;
+      }
     }
   }
 
