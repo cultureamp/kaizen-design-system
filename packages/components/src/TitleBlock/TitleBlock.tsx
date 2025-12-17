@@ -8,7 +8,6 @@ import { Select } from '~components/Select'
 import { Tag } from '~components/Tag'
 import { useMediaQueries } from '~components/utils/useMediaQueries'
 import { MainActions } from './subcomponents/MainActions'
-import { MobileActions } from './subcomponents/MobileActions'
 import { SecondaryActions } from './subcomponents/SecondaryActions'
 import {
   type NavigationTabs,
@@ -18,7 +17,7 @@ import {
   type TitleBlockProps,
   type TitleBlockVariant,
 } from './types'
-import { createTabletOverflowMenuItems, isReversed } from './utils'
+import { isReversed } from './utils'
 import styles from './TitleBlock.module.scss'
 
 const renderTag = (surveyStatus: SurveyStatus): ReactNode => {
@@ -156,6 +155,9 @@ const Breadcrumb = ({
       <div className={styles.circle}>
         <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
       </div>
+      <div className={styles.staticIcon}>
+        <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
+      </div>
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
@@ -258,7 +260,6 @@ export const TitleBlock = ({
   sectionTitleDescriptionAutomationId = 'TitleBlock__SectionTitleDescription',
   breadcrumbAutomationId = 'TitleBlock__Breadcrumb',
   breadcrumbTextAutomationId = 'TitleBlock__BreadcrumbText',
-  autoHideMobileActionsMenu = false,
 }: TitleBlockProps): JSX.Element => {
   const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
   const collapseNavigationArea =
@@ -343,19 +344,13 @@ export const TitleBlock = ({
                   </>
                 </div>
               </div>
-              {(primaryAction ??
-                defaultAction ??
-                secondaryActions ??
-                secondaryOverflowMenuItems) && (
+              {(primaryAction ?? defaultAction ?? secondaryActions) && (
                 <MainActions
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
+                  secondaryActions={secondaryActions}
+                  secondaryOverflowMenuItems={secondaryOverflowMenuItems}
                   reversed={isReversed(variant)}
-                  overflowMenuItems={createTabletOverflowMenuItems(
-                    secondaryActions,
-                    secondaryOverflowMenuItems,
-                  )}
-                  showOverflowMenu={isSmallOrMediumViewport}
                 />
               )}
             </div>
@@ -395,18 +390,6 @@ export const TitleBlock = ({
             </div>
           </div>
         </div>
-        <MobileActions
-          primaryAction={primaryAction}
-          defaultAction={defaultAction}
-          secondaryActions={secondaryActions}
-          secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-          drawerHandleLabelIconPosition={
-            primaryAction && 'iconPosition' in primaryAction
-              ? primaryAction.iconPosition
-              : undefined
-          }
-          autoHide={autoHideMobileActionsMenu}
-        />
       </div>
     </>
   )

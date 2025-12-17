@@ -10,11 +10,10 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-on-medium-and-small: 12px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
-  $title-block-separator-height: 0.1875rem;
+  $title-block-separator-height: 0.083rem;
   $tab-container-height-default: $ca-grid * 3;
   $tab-container-height-small: $ca-grid * 2.5;
   $tab-container-height-default-collapsed: 0;
@@ -57,12 +56,10 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
   }
 
   %titleBlockInner {
@@ -74,7 +71,16 @@
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
     @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+      padding-right: 20px;
+      margin: 0;
+
+      @media (max-width: 1079px) {
+        padding-left: 20px;
+      }
+
+      @media (max-width: 759px) {
+        padding-left: 0;
+      }
     }
   }
 
@@ -84,6 +90,10 @@
 
   .lightVariant .titleRowInner {
     border-bottom: 1px solid $color-gray-300;
+
+    @include title-block-xsmall {
+      padding-bottom: 12px;
+    }
   }
 
   .rowBelowSeparatorInner {
@@ -91,11 +101,11 @@
   }
 
   .titleRowInnerContent {
+    padding-block: 20px;
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
-    min-height: $ca-grid * 3.5;
     justify-content: space-between;
     border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -111,6 +121,10 @@
 
     @include title-block-medium-and-small {
       border-bottom: none;
+    }
+
+    @include title-block-xsmall {
+      flex-wrap: wrap;
     }
   }
 
@@ -202,10 +216,10 @@
     }
 
     @include title-block-medium-and-small {
-      font-size: $typography-heading-4-font-size;
-      line-height: $typography-heading-4-line-height;
-      letter-spacing: $typography-heading-4-letter-spacing;
-      padding: 0;
+      font-size: $typography-heading-3-font-size;
+      line-height: $typography-heading-3-line-height;
+      letter-spacing: $typography-heading-3-letter-spacing;
+      padding: 8px 0;
     }
   }
 
@@ -239,9 +253,7 @@
   .hamburger {
     display: none;
 
-    @include ca-margin($end: $spacing-xs);
-
-    @include title-block-medium-and-small {
+    @media (max-width: 1079px) {
       display: flex;
       align-items: center;
     }
@@ -351,8 +363,11 @@
   .rowBelowSeparatorInnerContent {
     display: flex;
     width: 100%;
-    margin-top: -$title-block-separator-height;
     justify-content: space-between;
+
+    @include title-block-small {
+      height: $tab-container-height-small;
+    }
   }
 
   .titleAndAdjacent {
@@ -518,8 +533,23 @@
       color: $color-blue-500;
     }
 
-    @include title-block-medium-and-small {
+    .secondaryOverflowCombinedMenu {
       display: none;
+    }
+
+    @include title-block-medium-and-small {
+      .secondaryButtonContainer,
+      .secondaryOverflowMenu {
+        display: none;
+      }
+
+      .secondaryOverflowCombinedMenu {
+        display: flex;
+      }
+    }
+
+    @include title-block-small {
+      margin-top: -3px;
     }
   }
 
@@ -561,6 +591,10 @@
       }
     }
 
+    @media (max-width: 1079px) {
+      display: none;
+    }
+
     @media only screen {
       @container (max-width: #{$breadcrumb-breakpoint-width}) {
         position: relative;
@@ -569,10 +603,6 @@
 
         @include ca-position($start: 0);
       }
-    }
-
-    @include title-block-medium-and-small {
-      display: none;
     }
   }
 
@@ -595,6 +625,7 @@
   }
 
   .breadcrumbTextLink {
+    display: none;
     // We are using visually hidden here instead of display:none so that a screen reader
     // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
     @include visually-hidden;
@@ -696,8 +727,18 @@
       color: $color-blue-500;
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
+
+    @media (max-width: 1079px) {
+      display: none;
+    }
   }
   /* stylelint-enable no-descending-specificity */
+}
+
+.staticIcon {
+  display: none;
+  width: 20px;
+  height: 20px;
 }
 
 @keyframes slide-fade {
