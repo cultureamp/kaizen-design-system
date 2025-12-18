@@ -8,8 +8,9 @@ import {
 } from '../utils'
 import { transformActionsToActionsSlot } from './transformActionsToActionsSlot'
 
-const BUTTON_IMPORT_DESTINATION = '@kaizen/components/next'
+const BUTTON_IMPORT_DESTINATION = '@kaizen/components'
 const LINKBUTTON_IMPORT_DESTINATION = '@kaizen/components'
+const ICON_IMPORT_DESTINATION = '@kaizen/components'
 
 export const migrateGuidanceBlockActionsToActionsSlot =
   (tagsMap: TagImportAttributesMap): ts.TransformerFactory<ts.SourceFile> =>
@@ -40,6 +41,9 @@ export const migrateGuidanceBlockActionsToActionsSlot =
           tagName === 'GuidanceBlock' ||
           tagImportAttributes.importModuleName === 'GuidanceBlock'
         ) {
+          // Added flag to add arrow-forward icon to the secondary-variant Button created from the primary action, to minimise visual changes
+          let hasActionButtonArrow: boolean = true
+
           const componentProps: ts.JsxAttributeLike[] = node.attributes.properties.reduce<
             ts.JsxAttributeLike[]
           >((guidanceBlockProps, prop) => {
@@ -47,9 +51,23 @@ export const migrateGuidanceBlockActionsToActionsSlot =
               const propName = prop.name.getText()
               const propValue = prop.initializer as ts.JsxExpression
 
+              if (propName === 'withActionButtonArrow') {
+                if (propValue?.expression?.kind === ts.SyntaxKind.FalseKeyword) {
+                  hasActionButtonArrow = false
+                } else {
+                  hasActionButtonArrow = true
+                }
+                return guidanceBlockProps
+              }
+
+              if (propName === 'secondaryDismiss') {
+                return guidanceBlockProps
+              }
+
               if (propName === 'actions') {
                 const transformedActions = transformActionsToActionsSlot(
                   propValue.getChildren()[1] as ts.ObjectLiteralExpression,
+                  hasActionButtonArrow,
                 )
 
                 if (transformedActions?.importsToAdd) {
@@ -70,6 +88,11 @@ export const migrateGuidanceBlockActionsToActionsSlot =
                           importedTargetLinkButtonTagName !== 'LinkButton'
                             ? importedTargetLinkButtonTagName
                             : undefined,
+                      })
+                    }
+                    if (importToAdd === 'Icon') {
+                      setImportToAdd(importsToAdd, ICON_IMPORT_DESTINATION, {
+                        componentName: 'Icon',
                       })
                     }
                   })
