@@ -249,9 +249,8 @@
 
     @include ca-margin($end: $spacing-xs);
 
-    @media (max-width: 511px) {
+    @include title-block-medium-and-small {
       display: flex;
-      align-items: center;
     }
   }
 
@@ -723,12 +722,6 @@
   display: none;
   width: 20px;
   height: 20px;
-
-  @include title-block-medium-and-small {
-    @media (min-width: 512px) {
-      display: flex;
-    }
-  }
 }
 
 @keyframes slide-fade {
