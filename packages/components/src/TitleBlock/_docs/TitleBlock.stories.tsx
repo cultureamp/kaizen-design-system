@@ -116,7 +116,7 @@ export const Viewports: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1079, 1365, 1366],
+      viewports: [1079, 1365, 1366, 360, 320],
     },
   },
 }
@@ -190,7 +190,7 @@ export const LightVariant: Story = {
     },
     chromatic: {
       disable: false,
-      viewports: [1365, 1366],
+      viewports: [1079, 1365, 1366, 360, 320],
     },
   },
   args: {
