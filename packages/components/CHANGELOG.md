@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.2.4
+
+### Patch Changes
+
+- [#6330](https://github.com/cultureamp/kaizen-design-system/pull/6330) [`6496d22`](https://github.com/cultureamp/kaizen-design-system/commit/6496d229c22a49d5a5cd2133715805515eb8ac67) - Upgrading GuidanceBlock codemod for V3 KAIO Readiness
+
+## 2.2.3
+
+### Patch Changes
+
+- [#6331](https://github.com/cultureamp/kaizen-design-system/pull/6331) [`8742d54`](https://github.com/cultureamp/kaizen-design-system/commit/8742d5498c228e916dccf6902e4151236d797034) - Ensure avatar initials don't wrap
+
 ## 2.2.2
 
 ### Patch Changes

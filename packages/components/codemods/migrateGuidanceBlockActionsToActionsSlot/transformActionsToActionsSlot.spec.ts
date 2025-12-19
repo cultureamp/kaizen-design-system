@@ -19,6 +19,7 @@ export const mockedTransformer =
             if (propName === 'actions') {
               const transformedActions = transformActionsToActionsSlot(
                 propValue.getChildren()[1] as ts.ObjectLiteralExpression,
+                true,
               )
 
               return transformedActions?.actionsSlotAttr
@@ -74,7 +75,7 @@ describe('transformActionsToActionsSlot()', () => {
         layout="default"
         illustration={<Informative alt="" />}
         content={<div>Test</div>}
-        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
+        actionsSlot={<><Button onPress={() => alert('click 1')} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Primary action</Button><LinkButton href="#secondary" variant="tertiary" size="large">Secondary action</LinkButton></>}
         />
       `)
 
@@ -192,5 +193,110 @@ describe('transformActionsToActionsSlot()', () => {
     expect(transformInput(inputAst).replace(/\s+/g, ' ')).toBe(
       printAst(outputAst).replace(/\s+/g, ' '),
     )
+  })
+
+  it('removes primary: true and applies variantOverride as secondary for primary actions', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        actions={{
+          primary: {
+            label: 'Action',
+            onClick: () => {},
+            primary: true,
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        actionsSlot={<><Button onPress={() => {}} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Action</Button></>}
+      />
+      `)
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+
+  it('removes secondary: true and applies variantOverride as secondary for primary actions', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        actions={{
+          primary: {
+            label: 'Action',
+            onClick: () => {},
+            secondary: true,
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        actionsSlot={<><Button onPress={() => {}} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Action</Button></>}
+      />
+      `)
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+
+  it('removes primary: true and applies variantOverride as tertiary for secondary actions', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        actions={{
+          secondary: {
+            label: 'Secondary Action',
+            onClick: () => {},
+            primary: true,
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        actionsSlot={<><Button onPress={() => {}} variant="tertiary" size="large">Secondary Action</Button></>}
+      />
+      `)
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+
+  it('removes secondary: true and applies variantOverride as tertiary for secondary actions', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        actions={{
+          secondary: {
+            label: 'Secondary Action',
+            onClick: () => {},
+            secondary: true,
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        actionsSlot={<><Button onPress={() => {}} variant="tertiary" size="large">Secondary Action</Button></>}
+      />
+      `)
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
+  })
+
+  it('applies correct variants for both primary and secondary actions with primary: true', () => {
+    const inputAst = parseJsx(`
+      <GuidanceBlock
+        actions={{
+          primary: {
+            label: 'Primary',
+            onClick: () => {},
+            primary: true,
+          },
+          secondary: {
+            label: 'Secondary',
+            onClick: () => {},
+            primary: true,
+          },
+        }}
+      />`)
+    const outputAst = parseJsx(`
+      <GuidanceBlock
+        actionsSlot={<><Button onPress={() => {}} variant="secondary" size="large" icon={<Icon name="arrow_forward" shouldMirrorInRTL isPresentational/>} iconPosition="end">Primary</Button><Button onPress={() => {}} variant="tertiary" size="large">Secondary</Button></>}
+      />
+      `)
+
+    expect(transformInput(inputAst)).toBe(printAst(outputAst))
   })
 })

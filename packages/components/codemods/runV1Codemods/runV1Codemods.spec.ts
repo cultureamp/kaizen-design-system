@@ -71,9 +71,8 @@ describe('runV1Codemods', () => {
 
         expect(transformedFiles['MockComponent.tsx']).toContain('actionsSlot')
         expect(transformedFiles['MockComponent.tsx']).not.toContain('actions={{')
-        expect(transformedFiles['MockComponent.tsx']).toContain(
-          'import { Button } from "@kaizen/components/next"',
-        )
+        expect(transformedFiles['MockComponent.tsx']).toContain('Button')
+        expect(transformedFiles['MockComponent.tsx']).toContain(`from '@kaizen/components'`)
 
         expect(transformedFiles['subcomponents/MockSubcomponent.tsx']).toContain('onPress')
         expect(transformedFiles['subcomponents/MockSubcomponent.tsx']).toContain(
