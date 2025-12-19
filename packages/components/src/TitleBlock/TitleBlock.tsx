@@ -155,9 +155,6 @@ const Breadcrumb = ({
       <div className={styles.circle}>
         <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
       </div>
-      <div className={styles.staticIcon}>
-        <Icon name="arrow_back" isPresentational shouldMirrorInRTL />
-      </div>
       <span
         className={styles.breadcrumbTextLink}
         data-automation-id={textAutomationId}
