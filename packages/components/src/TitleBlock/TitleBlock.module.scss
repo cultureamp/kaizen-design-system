@@ -84,6 +84,10 @@
 
   .lightVariant .titleRowInner {
     border-bottom: 1px solid $color-gray-300;
+
+    @include title-block-xsmall {
+      padding-bottom: 12px;
+    }
   }
 
   .rowBelowSeparatorInner {
@@ -111,6 +115,10 @@
 
     @include title-block-medium-and-small {
       border-bottom: none;
+    }
+
+    @include title-block-xsmall {
+      flex-wrap: wrap;
     }
   }
 
@@ -202,10 +210,10 @@
     }
 
     @include title-block-medium-and-small {
-      font-size: $typography-heading-4-font-size;
-      line-height: $typography-heading-4-line-height;
-      letter-spacing: $typography-heading-4-letter-spacing;
-      padding: 0;
+      font-size: $typography-heading-3-font-size;
+      line-height: $typography-heading-3-line-height;
+      letter-spacing: $typography-heading-3-letter-spacing;
+      padding: 8px 0;
     }
   }
 
@@ -243,7 +251,6 @@
 
     @include title-block-medium-and-small {
       display: flex;
-      align-items: center;
     }
   }
 
@@ -518,8 +525,19 @@
       color: $color-blue-500;
     }
 
-    @include title-block-medium-and-small {
+    .secondaryOverflowCombinedMenu {
       display: none;
+    }
+
+    @include title-block-medium-and-small {
+      .secondaryButtonContainer,
+      .secondaryOverflowMenu {
+        display: none;
+      }
+
+      .secondaryOverflowCombinedMenu {
+        display: flex;
+      }
     }
   }
 
@@ -569,10 +587,6 @@
 
         @include ca-position($start: 0);
       }
-    }
-
-    @include title-block-medium-and-small {
-      display: none;
     }
   }
 
@@ -695,6 +709,10 @@
       border-color: $color-blue-500;
       color: $color-blue-500;
       background-color: rgba($color-blue-500-rgb, 0.1);
+    }
+
+    @include title-block-medium-and-small {
+      display: none;
     }
   }
   /* stylelint-enable no-descending-specificity */
