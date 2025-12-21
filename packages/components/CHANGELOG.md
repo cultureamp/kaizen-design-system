@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.3.0
+
+### Minor Changes
+
+- [#6343](https://github.com/cultureamp/kaizen-design-system/pull/6343) [`4e7bd45`](https://github.com/cultureamp/kaizen-design-system/commit/4e7bd45acd8667c493635948eacde68bb7eac770) - Update TitleBlock to remove the drawer UI in mobile and it is now replaced with collapsed buttons within the main titleblock
+
 ## 2.2.4
 
 ### Patch Changes
