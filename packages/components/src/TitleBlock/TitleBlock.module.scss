@@ -14,7 +14,7 @@
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
-  $title-block-separator-height: 0.1875rem;
+  $title-block-separator-height: 0.083rem;
   $tab-container-height-default: $ca-grid * 3;
   $tab-container-height-small: $ca-grid * 2.5;
   $tab-container-height-default-collapsed: 0;
@@ -57,12 +57,12 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: 1px;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: 1px;
   }
 
   %titleBlockInner {
