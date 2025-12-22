@@ -14,7 +14,7 @@
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
-  $title-block-separator-height: 0.1875rem;
+  $title-block-separator-height: 0.063rem;
   $tab-container-height-default: $ca-grid * 3;
   $tab-container-height-small: $ca-grid * 2.5;
   $tab-container-height-default-collapsed: 0;
@@ -48,21 +48,29 @@
     }
   }
 
-  .titleRow,
-  .rowBelowSeparator {
+  .titleRow {
     display: flex;
     width: 100%;
     justify-content: center;
   }
+  .rowBelowSeparator {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    @include title-block-small {
+      height: $tab-container-height-small;
+    }
+  }
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: $title-block-separator-height;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: $title-block-separator-height;
   }
 
   %titleBlockInner {
@@ -92,6 +100,9 @@
 
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
+    @include title-block-small {
+      height: $tab-container-height-small;
+    }
   }
 
   .titleRowInnerContent {
@@ -360,6 +371,9 @@
     width: 100%;
     margin-top: -$title-block-separator-height;
     justify-content: space-between;
+    @include title-block-small {
+      height: $tab-container-height-small;
+    }
   }
 
   .titleAndAdjacent {
@@ -425,6 +439,8 @@
   .navigationTabScrollerContainer {
     .hasNavigationTabs & {
       @include title-block-small {
+        margin-top: $title-block-separator-height;
+        height: $tab-container-height-small;
         display: block;
         overflow-x: scroll;
         scrollbar-width: none;
