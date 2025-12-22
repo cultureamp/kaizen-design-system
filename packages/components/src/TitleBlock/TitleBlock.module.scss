@@ -53,6 +53,7 @@
     width: 100%;
     justify-content: center;
   }
+
   .rowBelowSeparator {
     display: flex;
     width: 100%;
@@ -100,6 +101,7 @@
 
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
+
     @include title-block-small {
       height: $tab-container-height-small;
     }
@@ -371,6 +373,7 @@
     width: 100%;
     margin-top: -$title-block-separator-height;
     justify-content: space-between;
+
     @include title-block-small {
       height: $tab-container-height-small;
     }
