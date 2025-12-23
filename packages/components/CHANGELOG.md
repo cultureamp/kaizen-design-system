@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.3.1
+
+### Patch Changes
+
+- [#6351](https://github.com/cultureamp/kaizen-design-system/pull/6351) [`31f021a`](https://github.com/cultureamp/kaizen-design-system/commit/31f021a555c0a0d19fb7d9d4ca11f62f980f5880) - TitleBlock update Tab navigation to be aligned in mobile view and decrease separator height
+
 ## 2.3.0
 
 ### Minor Changes
