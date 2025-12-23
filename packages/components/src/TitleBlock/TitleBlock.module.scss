@@ -258,13 +258,17 @@
   }
 
   .hamburger {
-    display: none;
-
     @include ca-margin($end: $spacing-xs);
 
-    @include title-block-medium-and-small {
-      display: flex;
+    display: flex;
+
+    @include title-block-media-at-1080 {
+      display: none;
     }
+
+    // @include title-block-medium-and-small {
+    //   display: flex;
+    // }
   }
 
   .subtitle {
@@ -564,7 +568,6 @@
     @include button-reset;
 
     cursor: pointer;
-    display: flex;
     position: absolute;
     align-items: center;
     top: 50%;
@@ -598,14 +601,24 @@
       }
     }
 
-    @media only screen {
-      @container (max-width: #{$breadcrumb-breakpoint-width}) {
-        position: relative;
-        transform: translateY(0);
-        margin-inline: 0 var(--spacing-12);
+    display: none;
 
-        @include ca-position($start: 0);
-      }
+    @include title-block-media-mixed-width {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
+    }
+
+    @include title-block-container-1440 {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
     }
   }
 
@@ -728,10 +741,6 @@
       border-color: $color-blue-500;
       color: $color-blue-500;
       background-color: rgba($color-blue-500-rgb, 0.1);
-    }
-
-    @include title-block-medium-and-small {
-      display: none;
     }
   }
   /* stylelint-enable no-descending-specificity */
