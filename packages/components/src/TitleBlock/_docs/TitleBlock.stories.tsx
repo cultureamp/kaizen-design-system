@@ -140,7 +140,6 @@ export const Viewports: Story = {
     chromatic: chromaticViewports,
   },
 }
-
 export const WithTabNavigation: Story = {
   parameters: {
     viewport: viewports,
