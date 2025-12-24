@@ -140,6 +140,7 @@ export const Viewports: Story = {
     chromatic: chromaticViewports,
   },
 }
+
 export const WithTabNavigation: Story = {
   parameters: {
     viewport: viewports,
@@ -164,6 +165,18 @@ export const WithTabNavigation: Story = {
       thirdNavigationLink.focus()
       expect(thirdNavigationLink).toHaveFocus()
     })
+  },
+}
+export const WithAvatar: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    avatar: {
+      avatarSrc: 'somethingfake',
+      fullName: 'Harper Piper',
+    },
   },
 }
 

@@ -243,10 +243,6 @@
       max-width: 100%;
     }
 
-    @container (min-width: #{$layout-breakpoints-large}) {
-      display: block;
-    }
-
     &.withBorder {
       border: 3px solid $color-white;
       border-radius: 50%;
@@ -255,6 +251,13 @@
     .hasLongTitle & {
       display: none;
     }
+
+    @include title-block-media-mixed-width {
+      display: block;
+    }
+    @include title-block-min-container-1080 {
+      display: block;
+    }
   }
 
   .hamburger {
@@ -262,13 +265,9 @@
 
     display: flex;
 
-    @include title-block-media-at-1080 {
+    @include title-block-min-media-1080 {
       display: none;
     }
-
-    // @include title-block-medium-and-small {
-    //   display: flex;
-    // }
   }
 
   .subtitle {
@@ -612,7 +611,7 @@
       @include ca-position($start: 0);
     }
 
-    @include title-block-container-1440 {
+    @include title-block-min-container-1080 {
       display: flex;
       position: relative;
       transform: translateY(0);

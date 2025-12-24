@@ -42,22 +42,23 @@
   }
 }
 
-@mixin title-block-media-at-1080 {
-  @media (min-width: 1080px) {
+@mixin title-block-min-media-1080 {
+  @media (min-width: #{$layout-breakpoints-large}) {
     @content;
   }
 }
 
-@mixin title-block-container-1440 {
-  @container (min-width: 1440px) {
+@mixin title-block-min-container-1080 {
+  @container (min-width: #{$layout-breakpoints-large}) {
     @content;
   }
 }
 
-// This emulates a scenario in which the the appchrome is in use and the CP is open
 @mixin title-block-media-mixed-width {
-  @media (min-width: 1080px) and (max-width: 1439px) {
-    // Note: There is adiff of 15px between the media and container query
+  // 1080
+  @media (min-width: #{$layout-breakpoints-large}) and (max-width: 1095px) {
+    // Note: There is a diff of 15px between the media and container query
+    // at full width
     @container (min-width: 1065px) {
       @content;
     }
