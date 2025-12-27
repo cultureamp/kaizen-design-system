@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
+import { expect, waitFor, within } from '@storybook/test'
 import { Icon } from '~components/Icon'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { StickerSheet } from '~storybook/components/StickerSheet'
@@ -25,6 +26,47 @@ const SECONDARY_ACTIONS = [
     label: 'Secondary action',
   },
 ]
+
+const viewports = {
+  viewports: {
+    default: {
+      name: 'desktop (above or equal to 1366)',
+      styles: { width: '1366px', height: '800px' },
+      type: 'desktop',
+    },
+    desktopSm: {
+      name: 'desktop-sm (1024 - 1365)',
+      styles: { width: '1365px', height: '800px' },
+      type: 'desktop',
+    },
+    tablet: {
+      name: 'tablet (672 - 1023)',
+      styles: { width: '1023px', height: '800px' },
+      type: 'desktop',
+    },
+    mobileResponsive: {
+      name: 'mobile-responsive (512 - 671)',
+      styles: { width: '671px', height: '800px' },
+      type: 'desktop',
+    },
+    mobile: {
+      name: 'mobile (361 - 512)',
+      styles: { width: '511px', height: '800px' },
+      type: 'desktop',
+    },
+    mobileXs: {
+      name: 'mobile (under 360)',
+      styles: { width: '360px', height: '800px' },
+      type: 'desktop',
+    },
+  },
+  defaultViewport: 'default',
+}
+
+const chromaticViewports = {
+  disable: false,
+  viewports: [1366, 1365, 1079, 360, 320],
+}
 
 const meta = {
   title: 'Components/TitleBlock',
@@ -94,54 +136,41 @@ export const Playground: Story = {
 
 export const Viewports: Story = {
   parameters: {
-    viewport: {
-      viewports: {
-        default: {
-          name: 'Above or equal to 1366',
-          styles: { width: '1366px', height: '800px' },
-          type: 'desktop',
-        },
-        under1366: {
-          name: 'Under 1366',
-          styles: { width: '1365px', height: '800px' },
-          type: 'desktop',
-        },
-        mediumSmall: {
-          name: 'Medium and small',
-          styles: { width: '1079px', height: '800px' },
-          type: 'desktop',
-        },
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1079, 1365, 1366, 360, 320],
-    },
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+}
+export const WithTabNavigation: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+
+    const TabNavigation = await canvas.findByRole('navigation', {
+      name: 'Page title',
+    })
+
+    await step('Navigation Tab is present', async () => {
+      await waitFor(() => expect(TabNavigation).toBeInTheDocument())
+    })
+
+    await step('Navigation is focusable', async () => {
+      const NavigationList = canvas.getByRole('list')
+      const listItems = within(NavigationList).getAllByRole('listitem')
+
+      const thirdNavigationLink = within(listItems[2]).getByRole('link')
+      thirdNavigationLink.focus()
+      expect(thirdNavigationLink).toHaveFocus()
+    })
   },
 }
 
 export const HasLongTitle: Story = {
   parameters: {
-    viewport: {
-      viewports: {
-        default: {
-          name: 'Above or equal to 1366',
-          styles: { width: '1366px', height: '800px' },
-          type: 'desktop',
-        },
-        under1366: {
-          name: 'Under 1366',
-          styles: { width: '1365px', height: '800px' },
-          type: 'desktop',
-        },
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1365, 1366],
-    },
+    viewport: viewports,
+    chromatic: chromaticViewports,
   },
   args: { title: 'A long title with over thirty characters' },
 }
@@ -153,45 +182,8 @@ export const LightVariant: Story = {
         sourceState: 'shown',
       },
     },
-    viewport: {
-      viewports: {
-        default: {
-          name: 'desktop (above or equal to 1366)',
-          styles: { width: '1366px', height: '800px' },
-          type: 'desktop',
-        },
-        desktopSm: {
-          name: 'desktop-sm (1024 - 1365)',
-          styles: { width: '1365px', height: '800px' },
-          type: 'desktop',
-        },
-        tablet: {
-          name: 'tablet (672 - 1023)',
-          styles: { width: '1023px', height: '800px' },
-          type: 'desktop',
-        },
-        mobileResponsive: {
-          name: 'mobile-responsive (512 - 671)',
-          styles: { width: '671px', height: '800px' },
-          type: 'desktop',
-        },
-        mobile: {
-          name: 'mobile (361 - 512)',
-          styles: { width: '511px', height: '800px' },
-          type: 'desktop',
-        },
-        mobileXs: {
-          name: 'mobile (under 360)',
-          styles: { width: '360px', height: '800px' },
-          type: 'desktop',
-        },
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1079, 1365, 1366, 360, 320],
-    },
+    viewport: viewports,
+    chromatic: chromaticViewports,
   },
   args: {
     variant: 'light',
@@ -209,25 +201,8 @@ export const LightVariant: Story = {
 
 export const AdminVariant: Story = {
   parameters: {
-    viewport: {
-      viewports: {
-        default: {
-          name: 'Above or equal to 1366',
-          styles: { width: '1366px', height: '800px' },
-          type: 'desktop',
-        },
-        under1366: {
-          name: 'Under 1366',
-          styles: { width: '1365px', height: '800px' },
-          type: 'desktop',
-        },
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1365, 1366],
-    },
+    viewport: viewports,
+    chromatic: chromaticViewports,
   },
   args: {
     variant: 'admin',
@@ -244,25 +219,8 @@ export const AdminVariant: Story = {
 
 export const EducationVariant: Story = {
   parameters: {
-    viewport: {
-      viewports: {
-        default: {
-          name: 'Above or equal to 1366',
-          styles: { width: '1366px', height: '800px' },
-          type: 'desktop',
-        },
-        under1366: {
-          name: 'Under 1366',
-          styles: { width: '1365px', height: '800px' },
-          type: 'desktop',
-        },
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: {
-      disable: false,
-      viewports: [1365, 1366],
-    },
+    viewport: viewports,
+    chromatic: chromaticViewports,
   },
   args: {
     variant: 'education',
