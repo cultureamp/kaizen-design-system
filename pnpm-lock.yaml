@@ -410,7 +410,7 @@ importers:
         version: 2.15.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.79.6)))(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.79.6))(react@19.2.3)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.7))(next@15.2.5(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.79.6))(react@19.2.3)(ts-jest@29.2.4(@babel/core@7.28.5)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.28.5))(esbuild@0.27.1)(jest@30.2.0(@types/node@22.19.3)(esbuild-register@3.6.0(esbuild@0.27.1))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^2.4.4
-        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.5.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
+        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.6.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -460,8 +460,8 @@ importers:
         specifier: ^16.1.1
         version: 16.1.1(postcss@8.5.6)
       postcss-preset-env:
-        specifier: ^10.5.0
-        version: 10.5.0(postcss@8.5.6)
+        specifier: ^10.6.0
+        version: 10.6.0(postcss@8.5.6)
       postcss-scss:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.6)
@@ -521,7 +521,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^2.4.4
-        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.5.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
+        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.6.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
       '@types/color-string':
         specifier: ^1.5.5
         version: 1.5.5
@@ -576,7 +576,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^2.4.4
-        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.5.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
+        version: 2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.6.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.19(tsx@4.21.0))
@@ -1160,6 +1160,12 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
+  '@csstools/postcss-property-rule-prelude-list@1.0.0':
+    resolution: {integrity: sha512-IxuQjUXq19fobgmSSvUDO7fVwijDJaZMvWQugxfEUxmjBeDCVaDuMpsZ31MsTm5xbnhA+ElDi0+rQ7sQQGisFA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      postcss: ^8.4
+
   '@csstools/postcss-random-function@2.0.1':
     resolution: {integrity: sha512-q+FQaNiRBhnoSNo+GzqGOIBKoHQ43lYz0ICrV+UudfWnEF6ksS6DsBIJSISKQT2Bvu3g4k6r7t0zYrk5pDlo8w==}
     engines: {node: '>=18'}
@@ -1186,6 +1192,12 @@ packages:
 
   '@csstools/postcss-stepped-value-functions@4.0.9':
     resolution: {integrity: sha512-h9btycWrsex4dNLeQfyU3y3w40LMQooJWFMm/SK9lrKguHDcFl4VMkncKKoXi2z5rM9YGWbUQABI8BT2UydIcA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      postcss: ^8.4
+
+  '@csstools/postcss-syntax-descriptor-syntax-production@1.0.1':
+    resolution: {integrity: sha512-GneqQWefjM//f4hJ/Kbox0C6f2T7+pi4/fqTqOFGTL3EjnvOReTqO1qUQ30CaUjkwjYq9qZ41hzarrAxCc4gow==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -5166,8 +5178,8 @@ packages:
   css.escape@1.5.1:
     resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
 
-  cssdb@8.5.2:
-    resolution: {integrity: sha512-Pmoj9RmD8RIoIzA2EQWO4D4RMeDts0tgAH0VXdlNdxjuBGI3a9wMOIcUwaPNmD4r2qtIa06gqkIf7sECl+cBCg==}
+  cssdb@8.6.0:
+    resolution: {integrity: sha512-7ZrRi/Z3cRL1d5I8RuXEWAkRFP3J4GeQRiyVknI4KC70RAU8hT4LysUZDe0y+fYNOktCbxE8sOPUOhyR12UqGQ==}
 
   cssesc@3.0.0:
     resolution: {integrity: sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==}
@@ -8328,8 +8340,8 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  postcss-preset-env@10.5.0:
-    resolution: {integrity: sha512-xgxFQPAPxeWmsgy8cR7GM1PGAL/smA5E9qU7K//D4vucS01es3M0fDujhDJn3kY8Ip7/vVYcecbe1yY+vBo3qQ==}
+  postcss-preset-env@10.6.0:
+    resolution: {integrity: sha512-+LzpUSLCGHUdlZ1YZP7lp7w1MjxInJRSG0uaLyk/V/BM17iU2B7xTO7I8x3uk0WQAcLLh/ffqKzOzfaBvG7Fdw==}
     engines: {node: '>=18'}
     peerDependencies:
       postcss: ^8.4
@@ -10113,6 +10125,7 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -11038,6 +11051,12 @@ snapshots:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
+  '@csstools/postcss-property-rule-prelude-list@1.0.0(postcss@8.5.6)':
+    dependencies:
+      '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
+      postcss: 8.5.6
+
   '@csstools/postcss-random-function@2.0.1(postcss@8.5.6)':
     dependencies:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
@@ -11070,6 +11089,11 @@ snapshots:
     dependencies:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
+      '@csstools/css-tokenizer': 3.0.4
+      postcss: 8.5.6
+
+  '@csstools/postcss-syntax-descriptor-syntax-production@1.0.1(postcss@8.5.6)':
+    dependencies:
       '@csstools/css-tokenizer': 3.0.4
       postcss: 8.5.6
 
@@ -11199,7 +11223,7 @@ snapshots:
       next: 15.2.5(@babel/core@7.28.5)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.79.6)
       react: 18.3.1
 
-  '@cultureamp/package-bundler@2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.5.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)':
+  '@cultureamp/package-bundler@2.4.4(@babel/core@7.28.5)(@types/babel__core@7.20.5)(postcss-preset-env@10.6.0(postcss@8.5.6))(postcss@8.5.6)(rollup@4.54.0)(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.3)(typescript@5.9.3))(ts-patch@3.3.0)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.27.1(@babel/core@7.28.5)
       '@rollup/plugin-alias': 5.1.1(rollup@4.54.0)
@@ -11211,7 +11235,7 @@ snapshots:
       babel-plugin-pure-static-props: 0.2.0(@babel/core@7.28.5)
       concat-cli: 4.0.0
       postcss: 8.5.6
-      postcss-preset-env: 10.5.0(postcss@8.5.6)
+      postcss-preset-env: 10.6.0(postcss@8.5.6)
       rollup: 4.54.0
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.1.2(rollup@4.54.0)
@@ -15711,7 +15735,7 @@ snapshots:
 
   css.escape@1.5.1: {}
 
-  cssdb@8.5.2: {}
+  cssdb@8.6.0: {}
 
   cssesc@3.0.0: {}
 
@@ -19715,7 +19739,7 @@ snapshots:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  postcss-preset-env@10.5.0(postcss@8.5.6):
+  postcss-preset-env@10.6.0(postcss@8.5.6):
     dependencies:
       '@csstools/postcss-alpha-function': 1.0.1(postcss@8.5.6)
       '@csstools/postcss-cascade-layers': 5.0.2(postcss@8.5.6)
@@ -19746,11 +19770,13 @@ snapshots:
       '@csstools/postcss-oklab-function': 4.0.12(postcss@8.5.6)
       '@csstools/postcss-position-area-property': 1.0.0(postcss@8.5.6)
       '@csstools/postcss-progressive-custom-properties': 4.2.1(postcss@8.5.6)
+      '@csstools/postcss-property-rule-prelude-list': 1.0.0(postcss@8.5.6)
       '@csstools/postcss-random-function': 2.0.1(postcss@8.5.6)
       '@csstools/postcss-relative-color-syntax': 3.0.12(postcss@8.5.6)
       '@csstools/postcss-scope-pseudo-class': 4.0.1(postcss@8.5.6)
       '@csstools/postcss-sign-functions': 1.1.4(postcss@8.5.6)
       '@csstools/postcss-stepped-value-functions': 4.0.9(postcss@8.5.6)
+      '@csstools/postcss-syntax-descriptor-syntax-production': 1.0.1(postcss@8.5.6)
       '@csstools/postcss-system-ui-font-family': 1.0.0(postcss@8.5.6)
       '@csstools/postcss-text-decoration-shorthand': 4.0.3(postcss@8.5.6)
       '@csstools/postcss-trigonometric-functions': 4.0.9(postcss@8.5.6)
@@ -19760,7 +19786,7 @@ snapshots:
       css-blank-pseudo: 7.0.1(postcss@8.5.6)
       css-has-pseudo: 7.0.3(postcss@8.5.6)
       css-prefers-color-scheme: 10.0.0(postcss@8.5.6)
-      cssdb: 8.5.2
+      cssdb: 8.6.0
       postcss: 8.5.6
       postcss-attribute-case-insensitive: 7.0.1(postcss@8.5.6)
       postcss-clamp: 4.1.0(postcss@8.5.6)
