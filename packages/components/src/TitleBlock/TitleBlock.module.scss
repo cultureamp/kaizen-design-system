@@ -10,7 +10,8 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-on-medium-and-small: 12px;
+  $title-block-margin-width-default: 24px;
+  $title-block-margin-width-on-medium-and-small: 20px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
@@ -76,7 +77,7 @@
 
   %titleBlockInner {
     max-width: $layout-content-max-width;
-    margin: 0 $layout-content-side-margin;
+    margin-inline: $title-block-margin-width-default;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -204,9 +205,19 @@
   }
 
   .titleTextOverride.titleTextOverride {
-    padding: 4px 0;
+    font-size: $typography-heading-3-font-size;
+    line-height: $typography-heading-3-line-height;
+    letter-spacing: $typography-heading-3-letter-spacing;
+    padding: 8px 0;
 
-    @include title-block-under-1366 {
+    @include title-block-media-mixed-width {
+      font-size: $typography-heading-2-font-size;
+      line-height: $typography-heading-2-line-height;
+      letter-spacing: $typography-heading-2-letter-spacing;
+      padding: 2px 0;
+    }
+
+    @include title-block-min-container-1080 {
       font-size: $typography-heading-2-font-size;
       line-height: $typography-heading-2-line-height;
       letter-spacing: $typography-heading-2-letter-spacing;
@@ -214,19 +225,19 @@
     }
 
     .hasLongTitle & {
-      @include title-block-under-1366 {
+      @include title-block-media-mixed-width {
         font-size: $typography-heading-3-font-size;
         line-height: $typography-heading-3-line-height;
         letter-spacing: $typography-heading-3-letter-spacing;
         padding: 2px 0;
       }
-    }
 
-    @include title-block-medium-and-small {
-      font-size: $typography-heading-3-font-size;
-      line-height: $typography-heading-3-line-height;
-      letter-spacing: $typography-heading-3-letter-spacing;
-      padding: 8px 0;
+      @include title-block-min-container-1080 {
+        font-size: $typography-heading-3-font-size;
+        line-height: $typography-heading-3-line-height;
+        letter-spacing: $typography-heading-3-letter-spacing;
+        padding: 2px 0;
+      }
     }
   }
 
@@ -403,12 +414,16 @@
   }
 
   .tag {
-    display: flex;
+    display: none;
     align-items: center;
     margin-inline: var(--spacing-12) 0;
 
-    @include title-block-medium-and-small {
-      display: none;
+    @include title-block-media-mixed-width {
+      display: flex;
+    }
+
+    @include title-block-min-container-1080 {
+      display: flex;
     }
 
     + .pageSwitcherSelectNextToTitle {

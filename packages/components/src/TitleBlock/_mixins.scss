@@ -58,7 +58,6 @@
   // 1080
   @media (min-width: #{$layout-breakpoints-large}) and (max-width: 1095px) {
     // Note: There is a diff of 15px between the media and container query
-    // at full width
     @container (min-width: 1065px) {
       @content;
     }

@@ -166,18 +166,6 @@ export const WithTabNavigation: Story = {
     })
   },
 }
-export const WithAvatar: Story = {
-  parameters: {
-    viewport: viewports,
-    chromatic: chromaticViewports,
-  },
-  args: {
-    avatar: {
-      avatarSrc: 'somethingfake',
-      fullName: 'Harper Piper',
-    },
-  },
-}
 
 export const HasLongTitle: Story = {
   parameters: {
