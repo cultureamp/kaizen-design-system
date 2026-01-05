@@ -10,8 +10,8 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-default: 24px;
-  $title-block-margin-width-on-medium-and-small: 20px;
+  $title-block-margin-width-default: 20px;
+  $title-block-margin-width-above-1080: 24px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
@@ -77,14 +77,14 @@
 
   %titleBlockInner {
     max-width: $layout-content-max-width;
-    margin-inline: $title-block-margin-width-default;
+    margin: 0 $title-block-margin-width-default 0 0;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
-    @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+    @include title-block-min-media-1080 {
+      margin-inline: $title-block-margin-width-above-1080;
     }
   }
 
@@ -100,8 +100,17 @@
     }
   }
 
+  %rowBelowSeparatorInnerMarginOverride {
+    margin: 0 $title-block-margin-width-default 0 12px;
+
+    @include title-block-min-media-1080 {
+      margin-inline: $title-block-margin-width-above-1080;
+    }
+  }
+
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
+    @extend %rowBelowSeparatorInnerMarginOverride;
 
     @include title-block-small {
       height: $tab-container-height-small;
