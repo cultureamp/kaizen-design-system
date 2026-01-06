@@ -244,7 +244,7 @@
         padding: 2px 0;
       }
 
-      @include title-block-min-container-1080 {
+      @container (min-width: #{$layout-breakpoints-large}) and (max-width: 1365px) {
         font-size: $typography-heading-3-font-size;
         line-height: $typography-heading-3-line-height;
         letter-spacing: $typography-heading-3-letter-spacing;
