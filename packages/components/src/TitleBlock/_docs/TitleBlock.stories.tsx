@@ -83,8 +83,9 @@ const meta = {
       fullName: 'Blanca Wheeler',
     },
     primaryAction: {
-      label: 'Primary link',
-      icon: <Icon name="add" isPresentational />,
+      // label: 'Primary link',
+      label: 'Coach',
+      // icon: <Icon name="add" isPresentational />,
       disabled: true,
       href: '#',
     },
@@ -187,7 +188,9 @@ export const LightVariant: Story = {
   },
   args: {
     variant: 'light',
-    title: 'Light TitleBlock',
+    title:
+      // 'Harper Jones somethi',
+      'Harper Jones something very long s s something very long ssomething very long ssomething very long s',
     navigationTabs: [
       <NavigationTab key="1" variant="light" text="Label" href="#" active />,
       <NavigationTab key="2" variant="light" text="Label" href="#" />,

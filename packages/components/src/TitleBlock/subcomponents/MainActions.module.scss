@@ -4,39 +4,26 @@
 @layer kz-components {
   .mainActionsContainer {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-grow: 1;
+    gap: 12px; // TODO centralise $title-block-gap-default;
+    align-self: flex-start;
     flex-shrink: 0;
+
+    @include title-block-under-576 {
+      justify-content: flex-start;
+      margin-left: 50px;
+    }
 
     .defaultActionButtonMinimized {
       display: none;
-      margin-inline-end: 0;
     }
 
-    @include ca-margin($start: calc(#{$ca-grid} / 2));
-
-    @include title-block-xsmall {
-      padding-top: 12px;
-      justify-content: flex-start;
-      padding-left: 1.25rem;
-
-      @media (max-width: 511px) {
-        padding-top: 0;
-        padding-left: 2.75rem;
+    @media (max-width: 360px) {
+      .defaultActionButton {
+        display: none;
       }
 
-      @media (max-width: 360px) {
-        .defaultActionButton {
-          display: none;
-          margin-inline-end: 0;
-        }
-
-        .defaultActionButtonMinimized {
-          display: flex;
-          margin-inline-end: 3px;
-          margin-left: -1.25rem;
-        }
+      .defaultActionButtonMinimized {
+        display: flex;
       }
     }
   }
