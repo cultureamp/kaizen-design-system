@@ -98,10 +98,6 @@
 
   .lightVariant .titleRowInner {
     border-bottom: 1px solid $color-gray-300;
-
-    @include title-block-xsmall {
-      padding-bottom: 12px;
-    }
   }
 
   %rowBelowSeparatorInnerMarginOverride {
@@ -166,8 +162,8 @@
     text-overflow: ellipsis;
     display: -webkit-box;
     line-clamp: 3;
-    -webkit-line-clamp: 3; // TODO double check need for safari??? or mozilla??
-    -webkit-box-orient: vertical; //  TODO DO as above
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
   .titleAndSubtitle {
