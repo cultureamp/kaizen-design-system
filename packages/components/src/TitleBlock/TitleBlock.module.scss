@@ -10,8 +10,9 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-spacing-width-default: 20px;
-  $title-block-spacing-width-above-1080: 24px;
+  $title-block-spacing-default: 20px;
+  $title-block-spacing-above-1080: 24px;
+  $title-block-gap-default: 12px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
@@ -50,6 +51,7 @@
   }
 
   .titleRow {
+    box-sizing: border-box;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -82,11 +84,11 @@
     flex-direction: column;
     width: 100%;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
-    padding: 0 $title-block-spacing-width-default 0 0;
+    padding: 0 $title-block-spacing-default 0 0;
 
     @include title-block-min-media-1080 {
       padding: 0;
-      margin-inline: $title-block-spacing-width-above-1080;
+      margin-inline: $title-block-spacing-above-1080;
     }
   }
 
@@ -103,11 +105,11 @@
   }
 
   %rowBelowSeparatorInnerMarginOverride {
-    padding: 0 $title-block-spacing-width-default 0 12px;
+    padding: 0 $title-block-spacing-default 0 12px;
 
     @include title-block-min-media-1080 {
       padding: 0;
-      margin-inline: $title-block-spacing-width-above-1080;
+      margin-inline: $title-block-spacing-above-1080;
     }
   }
 
@@ -121,11 +123,13 @@
   }
 
   .titleRowInnerContent {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
-    min-height: $ca-grid * 3.5;
+    gap: $title-block-gap-default;
+    padding-block: $title-block-spacing-default 19px;
     justify-content: space-between;
     border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -143,13 +147,12 @@
       border-bottom: none;
     }
 
-    @include title-block-xsmall {
+    @include title-block-under-576 {
       flex-wrap: wrap;
     }
   }
 
   .title {
-    display: flex;
     align-items: center;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
@@ -158,6 +161,13 @@
     @include title-block-under-1366 {
       width: 100%;
     }
+    // truncation
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3; // TODO double check need for safari??? or mozilla??
+    -webkit-box-orient: vertical; //  TODO DO as above
   }
 
   .titleAndSubtitle {
@@ -285,9 +295,9 @@
   }
 
   .hamburger {
-    @include ca-margin($end: $spacing-xs);
-
     display: flex;
+    align-self: self-start;
+    // @include ca-margin($end: $spacing-xs);
 
     @include title-block-min-media-1080 {
       display: none;
@@ -603,7 +613,7 @@
 
     @include ca-position($start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid}));
 
-    align-self: normal;
+    align-self: self-start;
 
     &:hover .breadcrumbTextLink {
       text-decoration: underline;
