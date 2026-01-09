@@ -10,7 +10,8 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-on-medium-and-small: 12px;
+  $title-block-spacing-width-default: 20px;
+  $title-block-spacing-width-above-1080: 24px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
@@ -75,15 +76,17 @@
   }
 
   %titleBlockInner {
+    box-sizing: border-box;
     max-width: $layout-content-max-width;
-    margin: 0 $layout-content-side-margin;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    padding: 0 $title-block-spacing-width-default 0 0;
 
-    @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+    @include title-block-min-media-1080 {
+      padding: 0;
+      margin-inline: $title-block-spacing-width-above-1080;
     }
   }
 
@@ -99,8 +102,18 @@
     }
   }
 
+  %rowBelowSeparatorInnerMarginOverride {
+    padding: 0 $title-block-spacing-width-default 0 12px;
+
+    @include title-block-min-media-1080 {
+      padding: 0;
+      margin-inline: $title-block-spacing-width-above-1080;
+    }
+  }
+
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
+    @extend %rowBelowSeparatorInnerMarginOverride;
 
     @include title-block-small {
       height: $tab-container-height-small;
@@ -204,9 +217,19 @@
   }
 
   .titleTextOverride.titleTextOverride {
-    padding: 4px 0;
+    font-size: $typography-heading-3-font-size;
+    line-height: $typography-heading-3-line-height;
+    letter-spacing: $typography-heading-3-letter-spacing;
+    padding: 8px 0;
 
-    @include title-block-under-1366 {
+    @include title-block-media-mixed-width {
+      font-size: $typography-heading-2-font-size;
+      line-height: $typography-heading-2-line-height;
+      letter-spacing: $typography-heading-2-letter-spacing;
+      padding: 2px 0;
+    }
+
+    @include title-block-min-container-1080 {
       font-size: $typography-heading-2-font-size;
       line-height: $typography-heading-2-line-height;
       letter-spacing: $typography-heading-2-letter-spacing;
@@ -214,19 +237,19 @@
     }
 
     .hasLongTitle & {
-      @include title-block-under-1366 {
+      @include title-block-media-mixed-width {
         font-size: $typography-heading-3-font-size;
         line-height: $typography-heading-3-line-height;
         letter-spacing: $typography-heading-3-letter-spacing;
         padding: 2px 0;
       }
-    }
 
-    @include title-block-medium-and-small {
-      font-size: $typography-heading-3-font-size;
-      line-height: $typography-heading-3-line-height;
-      letter-spacing: $typography-heading-3-letter-spacing;
-      padding: 8px 0;
+      @container (min-width: #{$layout-breakpoints-large}) and (max-width: 1365px) {
+        font-size: $typography-heading-3-font-size;
+        line-height: $typography-heading-3-line-height;
+        letter-spacing: $typography-heading-3-letter-spacing;
+        padding: 2px 0;
+      }
     }
   }
 
@@ -243,10 +266,6 @@
       max-width: 100%;
     }
 
-    @container (min-width: #{$layout-breakpoints-large}) {
-      display: block;
-    }
-
     &.withBorder {
       border: 3px solid $color-white;
       border-radius: 50%;
@@ -255,15 +274,23 @@
     .hasLongTitle & {
       display: none;
     }
+
+    @include title-block-media-mixed-width {
+      display: block;
+    }
+
+    @include title-block-min-container-1080 {
+      display: block;
+    }
   }
 
   .hamburger {
-    display: none;
-
     @include ca-margin($end: $spacing-xs);
 
-    @include title-block-medium-and-small {
-      display: flex;
+    display: flex;
+
+    @include title-block-min-media-1080 {
+      display: none;
     }
   }
 
@@ -399,12 +426,16 @@
   }
 
   .tag {
-    display: flex;
+    display: none;
     align-items: center;
     margin-inline: var(--spacing-12) 0;
 
-    @include title-block-medium-and-small {
-      display: none;
+    @include title-block-media-mixed-width {
+      display: flex;
+    }
+
+    @include title-block-min-container-1080 {
+      display: flex;
     }
 
     + .pageSwitcherSelectNextToTitle {
@@ -564,7 +595,6 @@
     @include button-reset;
 
     cursor: pointer;
-    display: flex;
     position: absolute;
     align-items: center;
     top: 50%;
@@ -598,14 +628,24 @@
       }
     }
 
-    @media only screen {
-      @container (max-width: #{$breadcrumb-breakpoint-width}) {
-        position: relative;
-        transform: translateY(0);
-        margin-inline: 0 var(--spacing-12);
+    display: none;
 
-        @include ca-position($start: 0);
-      }
+    @include title-block-media-mixed-width {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
+    }
+
+    @include title-block-min-container-1080 {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
     }
   }
 
@@ -728,10 +768,6 @@
       border-color: $color-blue-500;
       color: $color-blue-500;
       background-color: rgba($color-blue-500-rgb, 0.1);
-    }
-
-    @include title-block-medium-and-small {
-      display: none;
     }
   }
   /* stylelint-enable no-descending-specificity */
