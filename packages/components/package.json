@@ -135,7 +135,7 @@
     "react-select": "^5.10.2",
     "react-textfit": "^1.1.1",
     "resize-observer-polyfill": "^1.5.1",
-    "use-debounce": "^10.0.6",
+    "use-debounce": "^10.1.0",
     "uuid": "^13.0.0"
   },
   "dependenciesComments": {
