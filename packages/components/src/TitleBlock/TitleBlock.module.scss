@@ -153,11 +153,6 @@
     align-items: center;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
-    // Applying width 100% when the title is *not* long and is followed by a subtitle
-    // causes misalignment of both.
-    @include title-block-under-1366 {
-      width: 100%;
-    }
     // truncation
     overflow: hidden;
     text-overflow: ellipsis;
@@ -165,6 +160,12 @@
     line-clamp: 3;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+
+    // Applying width 100% when the title is *not* long and is followed by a subtitle
+    // causes misalignment of both.
+    @include title-block-under-1366 {
+      width: 100%;
+    }
   }
 
   .titleAndSubtitle {
