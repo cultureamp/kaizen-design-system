@@ -145,6 +145,7 @@
 
     @include title-block-under-576 {
       flex-wrap: wrap;
+      gap: 4px;
     }
   }
 
