@@ -101,7 +101,7 @@
   }
 
   %rowBelowSeparatorInnerMarginOverride {
-    padding: 0 $title-block-spacing-default 0 12px;
+    padding: 0 4px 0 12px;
 
     @include title-block-min-media-1080 {
       padding: 0;
@@ -295,7 +295,6 @@
   .hamburger {
     display: flex;
     align-self: self-start;
-    // @include ca-margin($end: $spacing-xs);
 
     @include title-block-min-media-1080 {
       display: none;
