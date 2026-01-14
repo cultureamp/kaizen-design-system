@@ -13,7 +13,7 @@
     @include title-block-under-576 {
       justify-content: flex-start;
       // offset: hamburger menu button is 48px wide
-      margin-left: 48px;
+      margin-inline-start: 48px;
     }
 
     .defaultActionButtonMinimized {
@@ -29,7 +29,7 @@
 
       .defaultActionButtonMinimized {
         display: flex;
-        margin-right: 8px;
+        margin-inline-end: 8px;
       }
     }
   }

@@ -434,3 +434,18 @@ export const StickerSheetSurveyStatus: Story = {
     </StickerSheet>
   ),
 }
+
+export const WithSection: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    title: 'A extra long title with over thirty characters so it truncates in a mobile viewport',
+    variant: 'light',
+    sectionTitle: 'Section title',
+    sectionTitleDescription: 'Description of section can go here',
+    navigationTabs: undefined,
+    surveyStatus: undefined,
+  },
+}
