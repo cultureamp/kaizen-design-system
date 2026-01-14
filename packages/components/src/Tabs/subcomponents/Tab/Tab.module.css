@@ -6,7 +6,7 @@
     border-bottom: 0;
     border-top-left-radius: var(--border-borderless-border-radius);
     border-top-right-radius: var(--border-borderless-border-radius);
-    background: var(--color-white);
+    background: transparent;
     white-space: nowrap;
     text-decoration: none;
     padding: var(--spacing-md) var(--spacing-md);
