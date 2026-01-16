@@ -63,3 +63,10 @@
     }
   }
 }
+
+// 576 is the specified breakpoint from design to wrap the primary actions
+@mixin title-block-under-576 {
+  @container (max-width: 576px) {
+    @content;
+  }
+}

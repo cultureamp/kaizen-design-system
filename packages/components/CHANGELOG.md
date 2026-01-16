@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.3.2
+
+### Patch Changes
+
+- [#6352](https://github.com/cultureamp/kaizen-design-system/pull/6352) [`7d49d50`](https://github.com/cultureamp/kaizen-design-system/commit/7d49d509c1a1cf5e3d39ba3ea340525e25a62221) - Fix hamburger menu and breadcrumb to be compatible within AppChrome scenarios
+
+- [#6362](https://github.com/cultureamp/kaizen-design-system/pull/6362) [`32dbbdf`](https://github.com/cultureamp/kaizen-design-system/commit/32dbbdf96d19c57bacbc96ec7f8ec67c9aab2f1a) - Fix TitleBlock title alignment and wrapping
+
+- [#6363](https://github.com/cultureamp/kaizen-design-system/pull/6363) [`4102ee7`](https://github.com/cultureamp/kaizen-design-system/commit/4102ee7bb830e046c9c27cda40ede62ec1d09486) - Fix tab background color to transparent
+
+- [#6352](https://github.com/cultureamp/kaizen-design-system/pull/6352) [`7d49d50`](https://github.com/cultureamp/kaizen-design-system/commit/7d49d509c1a1cf5e3d39ba3ea340525e25a62221) - TitleBlock update Tab navigation to be aligned in mobile view and decrease separator height
+
 ## 2.3.1
 
 ### Patch Changes
