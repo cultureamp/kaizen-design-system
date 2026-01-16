@@ -144,7 +144,7 @@
   "devDependencies": {
     "@cultureamp/frontend-apis": "13.3.0",
     "@cultureamp/i18n-react-intl": "^2.15.1",
-    "@cultureamp/package-bundler": "^2.4.4",
+    "@cultureamp/package-bundler": "^4.0.1",
     "@kaizen/design-tokens": "workspace:*",
     "@testing-library/dom": "^10.4.1",
     "@types/jest-axe": "^3.5.9",
