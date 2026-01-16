@@ -63,7 +63,7 @@
     justify-content: center;
 
     @include title-block-small {
-      height: $tab-container-height-small;
+      max-height: $tab-container-height-small;
     }
   }
 
@@ -113,9 +113,12 @@
     @extend %titleBlockInner;
     @extend %rowBelowSeparatorInnerMarginOverride;
 
-    @include title-block-small {
-      height: $tab-container-height-small;
-    }
+    // @include title-block-small {
+    //   height: $tab-container-height-small;
+    //   // .collapseNavigationArea & {
+    //   //   display: none;
+    //   // }
+    // }
   }
 
   .titleRowInnerContent {

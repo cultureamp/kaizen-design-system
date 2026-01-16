@@ -301,6 +301,98 @@ export const StickerSheetVariants: Story = {
     </StickerSheet>
   ),
 }
+export const StickerSheetVariantsWithSection: Story = {
+  name: 'Sticker Sheet (Variants With Section)',
+  render: () => (
+    <StickerSheet title="TitleBlock Variants">
+      <StickerSheet.Row header="Default (Purple background)">
+        <TitleBlock
+          title="Default Variant"
+          subtitle="This is the default purple variant with white text"
+          sectionTitle="Section title"
+          sectionTitleDescription="Description of section can go here"
+          navigationTabs={undefined}
+          surveyStatus={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Education (Purple background)">
+        <TitleBlock
+          variant="education"
+          title="Education Variant"
+          subtitle="This is the education variant with purple background"
+          sectionTitle="Section title"
+          sectionTitleDescription="Description of section can go here"
+          navigationTabs={undefined}
+          surveyStatus={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Admin (White background)">
+        <TitleBlock
+          variant="admin"
+          title="Admin Variant"
+          subtitle="This is the admin variant with white background"
+          sectionTitle="Section title"
+          sectionTitleDescription="Description of section can go here"
+          navigationTabs={undefined}
+          surveyStatus={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Light (White background)">
+        <TitleBlock
+          variant="light"
+          title="Light Variant"
+          subtitle="This is the light variant with clean white background"
+          sectionTitle="Section title"
+          sectionTitleDescription="Description of section can go here"
+          navigationTabs={undefined}
+          surveyStatus={undefined}
+        />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
+}
+export const StickerSheetVariantsWithTitleOnly: Story = {
+  name: 'Sticker Sheet (Variants With Title Only)',
+  render: () => (
+    <StickerSheet title="TitleBlock Variants">
+      <StickerSheet.Row header="Default">
+        <TitleBlock
+          title="Default Variant"
+          subtitle={undefined}
+          breadcrumb={undefined}
+          navigationTabs={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Education">
+        <TitleBlock
+          variant="education"
+          title="Education Variant"
+          subtitle={undefined}
+          breadcrumb={undefined}
+          navigationTabs={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Admin">
+        <TitleBlock
+          variant="admin"
+          title="Admin Variant"
+          subtitle={undefined}
+          breadcrumb={undefined}
+          navigationTabs={undefined}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Light">
+        <TitleBlock
+          variant="light"
+          title="Light Variant"
+          subtitle={undefined}
+          breadcrumb={undefined}
+          navigationTabs={undefined}
+        />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
+}
 
 export const StickerSheetBreadcrumbs: Story = {
   name: 'Sticker Sheet (Breadcrumb)',
@@ -447,5 +539,47 @@ export const WithSection: Story = {
     sectionTitleDescription: 'Description of section can go here',
     navigationTabs: undefined,
     surveyStatus: undefined,
+  },
+}
+export const WithTitleOnly: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    title: 'Page title',
+    // variant: 'light',
+    // sectionTitle: 'Section title',
+    // sectionTitleDescription: 'Description of section can go here',
+    navigationTabs: undefined,
+    surveyStatus: undefined,
+    primaryAction: undefined,
+    defaultAction: undefined,
+    secondaryActions: undefined,
+    secondaryOverflowMenuItems: undefined,
+    breadcrumb: undefined,
+    avatar: undefined,
+    collapseNavigationAreaWhenPossible: true,
+  },
+}
+export const WithTitleOnlyLight: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    title: 'Page title',
+    variant: 'light',
+    sectionTitle: undefined,
+    sectionTitleDescription: undefined,
+    navigationTabs: undefined,
+    surveyStatus: undefined,
+    primaryAction: undefined,
+    defaultAction: undefined,
+    secondaryActions: undefined,
+    secondaryOverflowMenuItems: undefined,
+    breadcrumb: undefined,
+    avatar: undefined,
+    // collapseNavigationAreaWhenPossible: true,
   },
 }
