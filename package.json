@@ -78,7 +78,7 @@
     "rimraf": "^6.1.2",
     "storybook-addon-pseudo-states": "^4.0.4",
     "stylelint": "^16.26.1",
-    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard": "^40.0.0",
     "stylelint-config-standard-scss": "^16.0.0",
     "turbo": "^2.7.4",
     "typescript": "^5.9.3",
