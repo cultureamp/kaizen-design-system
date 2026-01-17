@@ -124,7 +124,7 @@
     "prosemirror-state": "^1.4.4",
     "prosemirror-transform": "^1.10.5",
     "prosemirror-utils": "^1.2.2",
-    "prosemirror-view": "^1.41.4",
+    "prosemirror-view": "^1.41.5",
     "react-animate-height": "^3.2.3",
     "react-aria": "^3.41.1",
     "react-aria-components": "^1.10.1",
