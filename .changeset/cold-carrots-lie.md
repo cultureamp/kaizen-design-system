@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Fix mobile content below separator
+Fix Titleblock second tier content visiable in mobile, fix spacing around section.
