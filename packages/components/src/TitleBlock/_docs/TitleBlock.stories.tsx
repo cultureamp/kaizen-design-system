@@ -606,7 +606,6 @@ export const WithSection: Story = {
   },
   args: {
     title: 'A extra long title with over thirty characters so it truncates in a mobile viewport',
-    variant: 'light',
     sectionTitle: 'Section title',
     sectionTitleDescription: 'Description of section can go here',
     navigationTabs: undefined,
@@ -620,7 +619,6 @@ export const WithCustomSectionTitleOnly: Story = {
   },
   args: {
     title: 'Page title',
-    variant: 'light',
     renderSectionTitle: () => (
       <div>
         <Heading className="m-0">Custom Section Title</Heading>
