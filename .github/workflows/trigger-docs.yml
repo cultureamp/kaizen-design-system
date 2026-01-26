@@ -1,0 +1,22 @@
+name: Trigger Documentation Generation
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (upload artifacts instead of creating PR)"
+        type: boolean
+        default: false
+
+jobs:
+  trigger-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Trigger Documentation Generation
+        uses: cultureamp/enchiridion/.github/actions/trigger-docs@main
+        with:
+          published_packages: "*"
+          buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
+          dry_run: ${{ inputs.dry_run }}
