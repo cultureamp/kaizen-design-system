@@ -30,6 +30,13 @@ jobs:
           version: pnpm ci:version
           publish: pnpm ci:publish
 
+      - name: Trigger Documentation Generation
+        if: steps.changesets.outputs.published == 'true'
+        uses: cultureamp/enchiridion/.github/actions/trigger-docs@main
+        with:
+          published_packages: ${{ steps.changesets.outputs.publishedPackages }}
+          buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
+
   notify-slack:
     runs-on: ubuntu-latest
     timeout-minutes: 5
