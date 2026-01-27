@@ -15,5 +15,5 @@
 */
 body {
   container-type: inline-size;
-  min-height: 100vh;
+  min-height: auto;
 }
