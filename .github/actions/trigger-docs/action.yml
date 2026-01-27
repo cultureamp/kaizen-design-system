@@ -1,20 +1,20 @@
-name: "Trigger Enchiridion Docs Generation"
-description: "Triggers Enchiridion Buildkite pipeline to generate documentation for published packages"
+name: 'Trigger Enchiridion Docs Generation'
+description: 'Triggers Enchiridion Buildkite pipeline to generate documentation for published packages'
 
 inputs:
   published_packages:
     description: 'JSON array of published packages from changesets (e.g., [{"name": "@scope/pkg", "version": "1.0.0"}]) or "*" to trigger for all packages in .enchiridion.toml'
     required: true
   buildkite_webhook_url:
-    description: "Buildkite pipeline trigger webhook URL (use org secret ENCHIRIDION_BUILDKITE_WEBHOOK_URL)"
+    description: 'Buildkite pipeline trigger webhook URL (use org secret ENCHIRIDION_BUILDKITE_WEBHOOK_URL)'
     required: true
   dry_run:
-    description: "If true, uploads artifacts instead of creating a PR (for testing)"
+    description: 'If true, uploads artifacts instead of creating a PR (for testing)'
     required: false
-    default: "false"
+    default: 'false'
 
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - name: Extract packages from config (if wildcard)
       if: inputs.published_packages == '*'

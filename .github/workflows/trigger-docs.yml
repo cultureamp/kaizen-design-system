@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: "Dry run (upload artifacts instead of creating PR)"
+        description: 'Dry run (upload artifacts instead of creating PR)'
         type: boolean
         default: false
 
@@ -17,6 +17,6 @@ jobs:
       - name: Trigger Documentation Generation
         uses: ./.github/actions/trigger-docs
         with:
-          published_packages: "*"
+          published_packages: '*'
           buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
           dry_run: ${{ inputs.dry_run }}
