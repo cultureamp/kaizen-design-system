@@ -32,7 +32,7 @@ jobs:
 
       - name: Trigger Documentation Generation
         if: steps.changesets.outputs.published == 'true'
-        uses: cultureamp/enchiridion/.github/actions/trigger-docs@main
+        uses: ./.github/actions/trigger-docs
         with:
           published_packages: ${{ steps.changesets.outputs.publishedPackages }}
           buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
