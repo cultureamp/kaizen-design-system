@@ -13,7 +13,19 @@
   - `min-height` is applied because styles like `background-color` are applied to the `html` element by default.
     When applying `container-type` stops being the case.
 */
-body {
+html {
+  /* a size or inline-size container */
   container-type: inline-size;
-  min-height: auto;
+}
+
+html,
+body {
+  /* body and html both size to the viewport */
+  height: 100vh;
+}
+
+body {
+  /* body is the root scroller */
+  /* this value doesn't propagate */
+  overflow: auto;
 }
