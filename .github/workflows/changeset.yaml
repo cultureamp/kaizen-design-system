@@ -3,7 +3,7 @@ name: Changeset
 on:
   push:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   version:
@@ -25,14 +25,14 @@ jobs:
       - uses: changesets/action@v1
         id: changesets
         with:
-          title: 'Changeset: Version packages'
-          commit: 'version packages'
+          title: "Changeset: Version packages"
+          commit: "version packages"
           version: pnpm ci:version
           publish: pnpm ci:publish
 
       - name: Trigger Documentation Generation
         if: steps.changesets.outputs.published == 'true'
-        uses: cultureamp/enchiridion/.github/actions/trigger-docs@main
+        uses: ./.github/actions/trigger-docs
         with:
           published_packages: ${{ steps.changesets.outputs.publishedPackages }}
           buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
@@ -50,7 +50,7 @@ jobs:
       - name: Send
         uses: slackapi/slack-github-action@v1.24.0
         with:
-          channel-id: 'C02NUQ27G56'
+          channel-id: "C02NUQ27G56"
           slack-message: ${{ env.PUBLISHED == 'true' && 'Packages have been published' || 'Publishing failed' }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
