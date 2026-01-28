@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.3.3
+
+### Patch Changes
+
+- [#6368](https://github.com/cultureamp/kaizen-design-system/pull/6368) [`181878b`](https://github.com/cultureamp/kaizen-design-system/commit/181878bf3a5ffcb2ad4d1970c196bb1bcf42a58d) - Fix Titleblock second tier content visiable in mobile, fix spacing around section.
+
 ## 2.3.2
 
 ### Patch Changes
