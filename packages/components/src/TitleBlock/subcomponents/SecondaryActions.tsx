@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import { Button, IconButton } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { Menu, MenuList } from '~components/MenuV1'
@@ -16,6 +17,7 @@ type Props = {
 }
 
 const renderSecondaryOverflowMenu = (
+  menuLabel: string,
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean,
 ): JSX.Element | undefined => {
@@ -28,7 +30,7 @@ const renderSecondaryOverflowMenu = (
           <Button
             secondary
             reversed={reversed}
-            label="Menu"
+            label={menuLabel}
             data-automation-id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
             data-testid={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
             icon={<Icon name="keyboard_arrow_down" isPresentational />}
@@ -48,6 +50,7 @@ const renderSecondaryOverflowMenu = (
 
 // New: combined overflow menu (secondary actions converted + overflow menu items)
 const renderCombinedSecondaryOverflowMenu = (
+  combinedMenuLabel: string,
   secondaryActions?: SecondaryActionsProps,
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean,
@@ -66,7 +69,7 @@ const renderCombinedSecondaryOverflowMenu = (
         align="right"
         button={
           <IconButton
-            label="Open combined secondary + overflow menu"
+            label={combinedMenuLabel}
             reversed={reversed}
             icon={<Icon name="more_horiz" isPresentational />}
             id={`${TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}__combined`}
@@ -92,7 +95,22 @@ export const SecondaryActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: Props): JSX.Element | null => {
+  const { formatMessage } = useIntl()
+
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
+
+  const menuLabel = formatMessage({
+    id: 'kzTitleBlock.overflowMenuLabel',
+    defaultMessage: 'Menu',
+    description: 'Label for the dropdown menu which displays additional action items',
+  })
+
+  const combinedMenuLabel = formatMessage({
+    id: 'kzTitleBlock.combinedOverflowMenuLabel',
+    defaultMessage: 'Open combined secondary + overflow menu',
+    description:
+      'Label for the dropdown menu which displays additional action items and secondary actions',
+  })
 
   const secondaryActionsAsToolbarItems = secondaryActions
     ? secondaryActions.map((action, i) => {
@@ -148,8 +166,9 @@ export const SecondaryActions = ({
       })
     : []
 
-  const overflowMenu = renderSecondaryOverflowMenu(secondaryOverflowMenuItems, reversed)
+  const overflowMenu = renderSecondaryOverflowMenu(menuLabel, secondaryOverflowMenuItems, reversed)
   const combinedOverflowMenu = renderCombinedSecondaryOverflowMenu(
+    combinedMenuLabel,
     secondaryActions,
     secondaryOverflowMenuItems,
     reversed,
