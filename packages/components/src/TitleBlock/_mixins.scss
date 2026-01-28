@@ -35,3 +35,38 @@
     @content;
   }
 }
+
+@mixin title-block-xsmall {
+  @container (max-width: 511px) {
+    @content;
+  }
+}
+
+@mixin title-block-min-media-1080 {
+  @media (min-width: #{$layout-breakpoints-large}) {
+    @content;
+  }
+}
+
+@mixin title-block-min-container-1080 {
+  @container (min-width: #{$layout-breakpoints-large}) {
+    @content;
+  }
+}
+
+@mixin title-block-media-mixed-width {
+  // 1080
+  @media (min-width: #{$layout-breakpoints-large}) and (max-width: 1095px) {
+    // Note: There is a diff of 15px between the media and container query
+    @container (min-width: 1065px) {
+      @content;
+    }
+  }
+}
+
+// 576 is the specified breakpoint from design to wrap the primary actions
+@mixin title-block-under-576 {
+  @container (max-width: 576px) {
+    @content;
+  }
+}

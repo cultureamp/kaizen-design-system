@@ -21,6 +21,7 @@ export const Toolbar = ({ items, noGap = false, automationId }: ToolbarProps): J
   if (!items || items?.length === 0) {
     return <></>
   }
+
   return (
     <div className={styles.toolbar} data-automation-id={automationId} data-testid={automationId}>
       {items.map((item) => (

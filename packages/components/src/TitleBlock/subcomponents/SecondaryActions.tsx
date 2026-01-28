@@ -5,6 +5,7 @@ import { Menu, MenuList } from '~components/MenuV1'
 import styles from '../TitleBlock.module.scss'
 import { TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID } from '../constants'
 import { type SecondaryActionsProps, type TitleBlockMenuItemProps } from '../types'
+import { convertSecondaryActionsToMenuItems } from '../utils'
 import { TitleBlockMenuItem } from './TitleBlockMenuItem'
 import { Toolbar } from './Toolbar'
 
@@ -18,25 +19,67 @@ const renderSecondaryOverflowMenu = (
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean,
 ): JSX.Element | undefined => {
-  if (!secondaryOverflowMenuItems) return undefined
+  if (!secondaryOverflowMenuItems || secondaryOverflowMenuItems.length === 0) return undefined
   return (
-    <Menu
-      align="right"
-      button={
-        <IconButton
-          label="Open secondary menu"
-          reversed={reversed}
-          icon={<Icon name="more_horiz" isPresentational />}
-          id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
-        />
-      }
-    >
-      <MenuList>
-        {secondaryOverflowMenuItems.map((menuItem, i) => (
-          <TitleBlockMenuItem key={i} {...menuItem} />
-        ))}
-      </MenuList>
-    </Menu>
+    <div className={styles.secondaryOverflowMenu}>
+      <Menu
+        align="right"
+        button={
+          <Button
+            secondary
+            reversed={reversed}
+            label="Menu"
+            data-automation-id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
+            data-testid={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
+            icon={<Icon name="keyboard_arrow_down" isPresentational />}
+            iconPosition={'end'}
+          />
+        }
+      >
+        <MenuList>
+          {secondaryOverflowMenuItems.map((menuItem, i) => (
+            <TitleBlockMenuItem key={i} {...menuItem} />
+          ))}
+        </MenuList>
+      </Menu>
+    </div>
+  )
+}
+
+// New: combined overflow menu (secondary actions converted + overflow menu items)
+const renderCombinedSecondaryOverflowMenu = (
+  secondaryActions?: SecondaryActionsProps,
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
+  reversed?: boolean,
+): JSX.Element | undefined => {
+  const secondaryConverted = secondaryActions
+    ? convertSecondaryActionsToMenuItems(secondaryActions)
+    : []
+  const overflowItems = secondaryOverflowMenuItems ?? []
+
+  if (secondaryConverted.length === 0 && overflowItems.length === 0) return undefined
+  const combined = [...secondaryConverted, ...overflowItems]
+
+  return (
+    <div className={styles.secondaryOverflowCombinedMenu}>
+      <Menu
+        align="right"
+        button={
+          <IconButton
+            label="Open combined secondary + overflow menu"
+            reversed={reversed}
+            icon={<Icon name="more_horiz" isPresentational />}
+            id={`${TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}__combined`}
+          />
+        }
+      >
+        <MenuList>
+          {combined.map((menuItem, i) => (
+            <TitleBlockMenuItem key={i} {...menuItem} />
+          ))}
+        </MenuList>
+      </Menu>
+    </div>
   )
 }
 
@@ -55,26 +98,28 @@ export const SecondaryActions = ({
     ? secondaryActions.map((action, i) => {
         if ('menuItems' in action) {
           return {
-            key: `${i}`, // We shouldn't use an index here, see note above
+            key: `titleblock_secondary_action_${i}`,
             node: (
-              <Menu
-                align="right"
-                button={
-                  <Button
-                    secondary
-                    label={action.label}
-                    reversed={reversed}
-                    icon={<Icon name="keyboard_arrow_down" isPresentational />}
-                    iconPosition="end"
-                  />
-                }
-              >
-                <MenuList>
-                  {action.menuItems.map((menuItem, i2) => (
-                    <TitleBlockMenuItem key={i2} {...menuItem} />
-                  ))}
-                </MenuList>
-              </Menu>
+              <div className={styles.secondaryButtonContainer}>
+                <Menu
+                  align="right"
+                  button={
+                    <Button
+                      secondary
+                      label={action.label}
+                      reversed={reversed}
+                      icon={<Icon name="keyboard_arrow_down" isPresentational />}
+                      iconPosition="end"
+                    />
+                  }
+                >
+                  <MenuList>
+                    {action.menuItems.map((menuItem, i2) => (
+                      <TitleBlockMenuItem key={i2} {...menuItem} />
+                    ))}
+                  </MenuList>
+                </Menu>
+              </div>
             ),
           }
         } else {
@@ -86,15 +131,17 @@ export const SecondaryActions = ({
             )
           }
           return {
-            key: `${i}`, // We shouldn't use an index here, see note above
+            key: `${i}`,
             node: (
-              <Button
-                secondary
-                reversed={reversed}
-                {...action}
-                data-automation-id="title-block-secondary-actions-button"
-                data-testid="title-block-secondary-actions-button"
-              />
+              <div className={styles.secondaryButtonContainer}>
+                <Button
+                  secondary
+                  reversed={reversed}
+                  {...action}
+                  data-automation-id="title-block-secondary-actions-button"
+                  data-testid="title-block-secondary-actions-button"
+                />
+              </div>
             ),
           }
         }
@@ -102,6 +149,11 @@ export const SecondaryActions = ({
     : []
 
   const overflowMenu = renderSecondaryOverflowMenu(secondaryOverflowMenuItems, reversed)
+  const combinedOverflowMenu = renderCombinedSecondaryOverflowMenu(
+    secondaryActions,
+    secondaryOverflowMenuItems,
+    reversed,
+  )
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
@@ -110,6 +162,14 @@ export const SecondaryActions = ({
           {
             key: 'overflowMenu',
             node: overflowMenu,
+          },
+        ]
+      : []),
+    ...(combinedOverflowMenu
+      ? [
+          {
+            key: 'combinedOverflowMenu',
+            node: combinedOverflowMenu,
           },
         ]
       : []),

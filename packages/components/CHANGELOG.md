@@ -1,5 +1,57 @@
 # Change Log
 
+## 2.3.3
+
+### Patch Changes
+
+- [#6368](https://github.com/cultureamp/kaizen-design-system/pull/6368) [`181878b`](https://github.com/cultureamp/kaizen-design-system/commit/181878bf3a5ffcb2ad4d1970c196bb1bcf42a58d) - Fix Titleblock second tier content visiable in mobile, fix spacing around section.
+
+## 2.3.2
+
+### Patch Changes
+
+- [#6352](https://github.com/cultureamp/kaizen-design-system/pull/6352) [`7d49d50`](https://github.com/cultureamp/kaizen-design-system/commit/7d49d509c1a1cf5e3d39ba3ea340525e25a62221) - Fix hamburger menu and breadcrumb to be compatible within AppChrome scenarios
+
+- [#6362](https://github.com/cultureamp/kaizen-design-system/pull/6362) [`32dbbdf`](https://github.com/cultureamp/kaizen-design-system/commit/32dbbdf96d19c57bacbc96ec7f8ec67c9aab2f1a) - Fix TitleBlock title alignment and wrapping
+
+- [#6363](https://github.com/cultureamp/kaizen-design-system/pull/6363) [`4102ee7`](https://github.com/cultureamp/kaizen-design-system/commit/4102ee7bb830e046c9c27cda40ede62ec1d09486) - Fix tab background color to transparent
+
+- [#6352](https://github.com/cultureamp/kaizen-design-system/pull/6352) [`7d49d50`](https://github.com/cultureamp/kaizen-design-system/commit/7d49d509c1a1cf5e3d39ba3ea340525e25a62221) - TitleBlock update Tab navigation to be aligned in mobile view and decrease separator height
+
+## 2.3.1
+
+### Patch Changes
+
+- [#6351](https://github.com/cultureamp/kaizen-design-system/pull/6351) [`31f021a`](https://github.com/cultureamp/kaizen-design-system/commit/31f021a555c0a0d19fb7d9d4ca11f62f980f5880) - TitleBlock update Tab navigation to be aligned in mobile view and decrease separator height
+
+## 2.3.0
+
+### Minor Changes
+
+- [#6343](https://github.com/cultureamp/kaizen-design-system/pull/6343) [`4e7bd45`](https://github.com/cultureamp/kaizen-design-system/commit/4e7bd45acd8667c493635948eacde68bb7eac770) - Update TitleBlock to remove the drawer UI in mobile and it is now replaced with collapsed buttons within the main titleblock
+
+## 2.2.4
+
+### Patch Changes
+
+- [#6330](https://github.com/cultureamp/kaizen-design-system/pull/6330) [`6496d22`](https://github.com/cultureamp/kaizen-design-system/commit/6496d229c22a49d5a5cd2133715805515eb8ac67) - Upgrading GuidanceBlock codemod for V3 KAIO Readiness
+
+## 2.2.3
+
+### Patch Changes
+
+- [#6331](https://github.com/cultureamp/kaizen-design-system/pull/6331) [`8742d54`](https://github.com/cultureamp/kaizen-design-system/commit/8742d5498c228e916dccf6902e4151236d797034) - Ensure avatar initials don't wrap
+
+## 2.2.2
+
+### Patch Changes
+
+- [#6260](https://github.com/cultureamp/kaizen-design-system/pull/6260) [`3e74282`](https://github.com/cultureamp/kaizen-design-system/commit/3e74282f1c5756356dcea59d6ef716dcbbc9e880) - Update deps and linting fixes
+  - replace usages of grid-column-gap to column-gap
+  - replace CSS use of clip to clip-path
+  - replace usages of word-wrap to overflow-wrap
+  - update Toolbar and updateKaioImports conditional checks
+
 ## 2.2.1
 
 ### Patch Changes

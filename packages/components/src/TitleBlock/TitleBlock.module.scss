@@ -10,11 +10,13 @@
 @import './variables';
 
 @layer kz-components {
-  $title-block-margin-width-on-medium-and-small: 12px;
+  $title-block-spacing-default: 20px;
+  $title-block-spacing-above-1080: 24px;
+  $title-block-gap-default: 12px;
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
-  $title-block-separator-height: 0.1875rem;
+  $title-block-separator-height: 0.063rem;
   $tab-container-height-default: $ca-grid * 3;
   $tab-container-height-small: $ca-grid * 2.5;
   $tab-container-height-default-collapsed: 0;
@@ -48,7 +50,13 @@
     }
   }
 
-  .titleRow,
+  .titleRow {
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+
   .rowBelowSeparator {
     display: flex;
     width: 100%;
@@ -57,24 +65,26 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: $title-block-separator-height;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: 3px; // needed to correctly position the active tab label :after element
+    margin-bottom: $title-block-separator-height;
   }
 
   %titleBlockInner {
+    box-sizing: border-box;
     max-width: $layout-content-max-width;
-    margin: 0 $layout-content-side-margin;
     display: flex;
     flex-direction: column;
     width: 100%;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    padding: 0 $title-block-spacing-default 0 0;
 
-    @include title-block-medium-and-small {
-      margin: 0 $title-block-margin-width-on-medium-and-small;
+    @include title-block-min-media-1080 {
+      padding: 0;
+      margin-inline: $title-block-spacing-above-1080;
     }
   }
 
@@ -86,16 +96,28 @@
     border-bottom: 1px solid $color-gray-300;
   }
 
+  %rowBelowSeparatorInnerMarginOverride {
+    padding: 0 4px 0 12px;
+
+    @include title-block-min-media-1080 {
+      padding: 0;
+      margin-inline: $title-block-spacing-above-1080;
+    }
+  }
+
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
+    @extend %rowBelowSeparatorInnerMarginOverride;
   }
 
   .titleRowInnerContent {
+    box-sizing: border-box;
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
-    min-height: $ca-grid * 3.5;
+    gap: $title-block-gap-default;
+    padding-block: $title-block-spacing-default 19px;
     justify-content: space-between;
     border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
 
@@ -112,12 +134,24 @@
     @include title-block-medium-and-small {
       border-bottom: none;
     }
+
+    @include title-block-under-576 {
+      flex-wrap: wrap;
+      gap: 4px;
+    }
   }
 
   .title {
-    display: flex;
     align-items: center;
     min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+
+    // truncation
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 
     // Applying width 100% when the title is *not* long and is followed by a subtitle
     // causes misalignment of both.
@@ -134,7 +168,7 @@
 
     .hasSubtitle & {
       @include title-block-under-1366 {
-        transform: translateY(-0.3833em);
+        transform: translateY(-12px);
       }
     }
   }
@@ -183,34 +217,65 @@
   }
 
   .titleTextOverride.titleTextOverride {
-    padding: 4px 0;
+    font-size: $typography-heading-3-font-size;
+    line-height: $typography-heading-3-line-height;
+    letter-spacing: $typography-heading-3-letter-spacing;
+    margin: 8px 0;
 
-    @include title-block-under-1366 {
+    .hasSubtitle & {
+      margin-bottom: 0;
+    }
+
+    @include title-block-media-mixed-width {
       font-size: $typography-heading-2-font-size;
       line-height: $typography-heading-2-line-height;
       letter-spacing: $typography-heading-2-letter-spacing;
-      padding: 2px 0;
-    }
+      margin: 2px 0;
 
-    .hasLongTitle & {
-      @include title-block-under-1366 {
-        font-size: $typography-heading-3-font-size;
-        line-height: $typography-heading-3-line-height;
-        letter-spacing: $typography-heading-3-letter-spacing;
-        padding: 2px 0;
+      .hasSubtitle & {
+        margin-bottom: 0;
       }
     }
 
-    @include title-block-medium-and-small {
-      font-size: $typography-heading-4-font-size;
-      line-height: $typography-heading-4-line-height;
-      letter-spacing: $typography-heading-4-letter-spacing;
-      padding: 0;
+    @include title-block-min-container-1080 {
+      font-size: $typography-heading-2-font-size;
+      line-height: $typography-heading-2-line-height;
+      letter-spacing: $typography-heading-2-letter-spacing;
+      margin: 2px 0;
+
+      .hasSubtitle & {
+        margin-bottom: 0;
+      }
+    }
+
+    .hasLongTitle & {
+      @include title-block-media-mixed-width {
+        font-size: $typography-heading-3-font-size;
+        line-height: $typography-heading-3-line-height;
+        letter-spacing: $typography-heading-3-letter-spacing;
+        margin: 2px 0;
+
+        .hasSubtitle & {
+          margin-bottom: 0;
+        }
+      }
+
+      @container (min-width: #{$layout-breakpoints-large}) and (max-width: 1365px) {
+        font-size: $typography-heading-3-font-size;
+        line-height: $typography-heading-3-line-height;
+        letter-spacing: $typography-heading-3-letter-spacing;
+        margin: 2px 0;
+
+        .hasSubtitle & {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 
   .avatar {
     display: none;
+    align-self: self-start;
     box-sizing: border-box;
     overflow: hidden;
     height: $ca-grid * 2;
@@ -222,10 +287,6 @@
       max-width: 100%;
     }
 
-    @container (min-width: #{$layout-breakpoints-large}) {
-      display: block;
-    }
-
     &.withBorder {
       border: 3px solid $color-white;
       border-radius: 50%;
@@ -234,16 +295,22 @@
     .hasLongTitle & {
       display: none;
     }
+
+    @include title-block-media-mixed-width {
+      display: block;
+    }
+
+    @include title-block-min-container-1080 {
+      display: block;
+    }
   }
 
   .hamburger {
-    display: none;
+    display: flex;
+    align-self: self-start;
 
-    @include ca-margin($end: $spacing-xs);
-
-    @include title-block-medium-and-small {
-      display: flex;
-      align-items: center;
+    @include title-block-min-media-1080 {
+      display: none;
     }
   }
 
@@ -292,17 +359,32 @@
   .sectionTitleContainer {
     display: flex;
     align-items: center;
-    padding: calc(#{$ca-grid} * 3 / 4) 0;
+    padding-block: 9px;
+    padding-inline-end: 8px; // 20 take 12 result in 8 extra padding needed in section versus tabs UI
+
+    @include title-block-min-container-1080 {
+      padding-block: 17px;
+    }
+  }
+
+  .sectionTitle {
+    display: block;
   }
 
   .sectionTitleInner {
     display: flex;
     flex-direction: column;
+    row-gap: 4px;
+
+    @include title-block-min-container-1080 {
+      flex-direction: row;
+      align-items: center;
+      column-gap: $title-block-gap-default;
+    }
   }
 
   .sectionTitleOverride.sectionTitleOverride {
     white-space: nowrap;
-    margin-inline: 0 var(--spacing-24);
     font-family: $typography-heading-2-font-family;
     font-weight: $typography-heading-2-font-weight;
     font-size: $typography-heading-2-font-size;
@@ -326,10 +408,6 @@
     }
   }
 
-  .sectionTitle {
-    display: block;
-  }
-
   .sectionTitleDescription {
     color: $color-white;
     max-width: 780px;
@@ -338,10 +416,6 @@
     font-size: $typography-paragraph-small-font-size;
     line-height: $typography-paragraph-small-line-height;
     letter-spacing: $typography-paragraph-small-letter-spacing;
-
-    .sectionTitle + & {
-      margin-top: var(--spacing-6);
-    }
 
     &.dark {
       color: rgba($color-purple-800-rgb, 0.7);
@@ -375,12 +449,16 @@
   }
 
   .tag {
-    display: flex;
+    display: none;
     align-items: center;
     margin-inline: var(--spacing-12) 0;
 
-    @include title-block-medium-and-small {
-      display: none;
+    @include title-block-media-mixed-width {
+      display: flex;
+    }
+
+    @include title-block-min-container-1080 {
+      display: flex;
     }
 
     + .pageSwitcherSelectNextToTitle {
@@ -418,6 +496,8 @@
   .navigationTabScrollerContainer {
     .hasNavigationTabs & {
       @include title-block-small {
+        margin-top: $title-block-separator-height;
+        height: $tab-container-height-small;
         display: block;
         overflow-x: scroll;
         scrollbar-width: none;
@@ -503,11 +583,6 @@
   // but the variants prevent us from breaking this out.
   .secondaryActionsContainer {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: (calc(#{$ca-grid} / 2)) 0;
-
-    @include ca-margin($start: $ca-grid * 1.5);
 
     // To be removed eventually – the Dropdown does not
     // currently set its own color, and we want it
@@ -518,8 +593,19 @@
       color: $color-blue-500;
     }
 
-    @include title-block-medium-and-small {
+    .secondaryOverflowCombinedMenu {
       display: none;
+    }
+
+    @include title-block-medium-and-small {
+      .secondaryButtonContainer,
+      .secondaryOverflowMenu {
+        display: none;
+      }
+
+      .secondaryOverflowCombinedMenu {
+        display: flex;
+      }
     }
   }
 
@@ -527,7 +613,6 @@
     @include button-reset;
 
     cursor: pointer;
-    display: flex;
     position: absolute;
     align-items: center;
     top: 50%;
@@ -536,7 +621,7 @@
 
     @include ca-position($start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid}));
 
-    align-self: normal;
+    align-self: self-start;
 
     &:hover .breadcrumbTextLink {
       text-decoration: underline;
@@ -561,18 +646,24 @@
       }
     }
 
-    @media only screen {
-      @container (max-width: #{$breadcrumb-breakpoint-width}) {
-        position: relative;
-        transform: translateY(0);
-        margin-inline: 0 var(--spacing-12);
+    display: none;
 
-        @include ca-position($start: 0);
-      }
+    @include title-block-media-mixed-width {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
     }
 
-    @include title-block-medium-and-small {
-      display: none;
+    @include title-block-min-container-1080 {
+      display: flex;
+      position: relative;
+      transform: translateY(0);
+      margin-inline: 0 var(--spacing-12);
+
+      @include ca-position($start: 0);
     }
   }
 

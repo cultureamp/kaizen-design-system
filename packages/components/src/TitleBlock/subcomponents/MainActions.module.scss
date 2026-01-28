@@ -4,15 +4,33 @@
 @layer kz-components {
   .mainActionsContainer {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-grow: 1;
+    align-self: flex-start;
     flex-shrink: 0;
+    // 8px gap between default and primary actions
+    // 4px needs to applied as 3rd empty div for minimized default action has gap applied also
+    gap: 4px;
 
-    @include ca-margin($start: calc(#{$ca-grid} / 2));
+    @include title-block-under-576 {
+      justify-content: flex-start;
+      // offset: hamburger menu button is 48px wide
+      margin-inline-start: 48px;
+    }
 
-    @include title-block-small {
+    .defaultActionButtonMinimized {
       display: none;
+    }
+
+    @media (max-width: 360px) {
+      gap: 0;
+
+      .defaultActionButton {
+        display: none;
+      }
+
+      .defaultActionButtonMinimized {
+        display: flex;
+        margin-inline-end: 8px;
+      }
     }
   }
 }
