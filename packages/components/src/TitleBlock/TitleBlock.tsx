@@ -376,7 +376,10 @@ export const TitleBlock = ({
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
+              {!sectionTitle &&
+                !sectionTitleDescription &&
+                !renderSectionTitle &&
+                renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
               {(secondaryActions ?? secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}
