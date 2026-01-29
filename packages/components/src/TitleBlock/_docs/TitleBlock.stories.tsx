@@ -302,10 +302,10 @@ export const StickerSheetVariants: Story = {
     </StickerSheet>
   ),
 }
-export const StickerSheetDefaultAvatar: Story = {
+export const StickerSheetWithDefaultAvatar: Story = {
   name: 'Sticker Sheet (DefaultAvatar)',
   render: () => (
-    <StickerSheet title="TitleBlock Variants">
+    <StickerSheet title="TitleBlock Variants With Default Avatar">
       <StickerSheet.Row header="Default (Purple background)">
         <TitleBlock title="Default Variant" avatar={{ fullName: 'Blanca Wheeler' }} />
       </StickerSheet.Row>
