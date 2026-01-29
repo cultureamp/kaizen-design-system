@@ -302,6 +302,29 @@ export const StickerSheetVariants: Story = {
     </StickerSheet>
   ),
 }
+export const StickerSheetWithDefaultAvatar: Story = {
+  name: 'Sticker Sheet (DefaultAvatar)',
+  render: () => (
+    <StickerSheet title="TitleBlock Variants With Default Avatar">
+      <StickerSheet.Row header="Default (Purple background)">
+        <TitleBlock title="Default Variant" avatar={{ fullName: 'Blanca Wheeler' }} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Education (Blue background)">
+        <TitleBlock
+          variant="education"
+          title="Education Variant"
+          avatar={{ fullName: 'Blanca Wheeler' }}
+        />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Admin (White background)">
+        <TitleBlock variant="admin" title="Admin Variant" avatar={{ fullName: 'Blanca Wheeler' }} />
+      </StickerSheet.Row>
+      <StickerSheet.Row header="Light (White background)">
+        <TitleBlock variant="light" title="Light Variant" avatar={{ fullName: 'Blanca Wheeler' }} />
+      </StickerSheet.Row>
+    </StickerSheet>
+  ),
+}
 export const StickerSheetVariantsWithSection: Story = {
   name: 'Sticker Sheet (Variants With Section)',
   render: () => (
@@ -651,6 +674,7 @@ export const WithTitleCollapseNavigationAreaWhenPossible: Story = {
     collapseNavigationAreaWhenPossible: true,
   },
 }
+
 export const WithOnlySecondaryActions: Story = {
   parameters: {
     viewport: viewports,
