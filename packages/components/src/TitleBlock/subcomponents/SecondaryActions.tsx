@@ -17,6 +17,7 @@ type Props = {
 }
 
 const renderSecondaryOverflowMenu = (
+  menuAriaLabel: string,
   menuLabel: string,
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean,
@@ -31,6 +32,7 @@ const renderSecondaryOverflowMenu = (
             secondary
             reversed={reversed}
             label={menuLabel}
+            aria-label={menuAriaLabel}
             data-automation-id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
             data-testid={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
             icon={<Icon name="keyboard_arrow_down" isPresentational />}
@@ -105,6 +107,12 @@ export const SecondaryActions = ({
     description: 'Label for the dropdown menu which displays additional action items',
   })
 
+  const menuAriaLabel = formatMessage({
+    id: 'kzTitleBlock.overflowMenuAriaLabel',
+    defaultMessage: 'Opens overflow menu',
+    description: 'Aria Label for the dropdown menu which displays additional action items',
+  })
+
   const combinedMenuLabel = formatMessage({
     id: 'kzTitleBlock.combinedOverflowMenuLabel',
     defaultMessage: 'Open combined secondary and overflow menu',
@@ -166,7 +174,12 @@ export const SecondaryActions = ({
       })
     : []
 
-  const overflowMenu = renderSecondaryOverflowMenu(menuLabel, secondaryOverflowMenuItems, reversed)
+  const overflowMenu = renderSecondaryOverflowMenu(
+    menuAriaLabel,
+    menuLabel,
+    secondaryOverflowMenuItems,
+    reversed,
+  )
   const combinedOverflowMenu = renderCombinedSecondaryOverflowMenu(
     combinedMenuLabel,
     secondaryActions,
