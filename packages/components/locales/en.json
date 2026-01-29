@@ -229,9 +229,17 @@
     "description": "Label for the dropdown menu which displays additional action items and secondary actions",
     "message": "Open combined secondary + overflow menu"
   },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel": {
+    "description": "Label for the dropdown menu which displays the default action item",
+    "message": "Open default action overflow menu"
+  },
   "kzTitleBlock.overflowMenuLabel": {
     "description": "Label for the dropdown menu which displays additional action items",
     "message": "Menu"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel": {
+    "description": "Label for the dropdown menu which displays additional actions",
+    "message": "Open secondary and overflow menu"
   },
   "singleSelect.chevronButton": {
     "description": "Aria label text for the SingleSelect button to open and close suggestions list",
