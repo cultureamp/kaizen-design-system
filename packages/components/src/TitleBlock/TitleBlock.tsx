@@ -308,7 +308,7 @@ export const TitleBlock = ({
                           onClick={handleHamburgerClick}
                           icon={<Icon name="menu" isPresentational />}
                           label={formatMessage({
-                            id: 'kzTitleBlock.HamburgerMenuLabel',
+                            id: 'kzTitleBlock.hamburgerMenuLabel',
                             defaultMessage: 'Open menu',
                             description:
                               'Label for the dropdown menu which displays navigation items',

@@ -221,10 +221,6 @@
     "description": "Prompts user to interact with button to hide information",
     "message": "Hide information:"
   },
-  "kzTitleBlock.HamburgerMenuLabel": {
-    "description": "Label for the dropdown menu which displays navigation items",
-    "message": "Open menu"
-  },
   "kzTitleBlock.combinedOverflowMenuLabel": {
     "description": "Label for the dropdown menu which displays additional action items and secondary actions",
     "message": "Open combined secondary and overflow menu"
@@ -232,6 +228,10 @@
   "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel": {
     "description": "Label for the dropdown menu which displays the default action item",
     "message": "Open default action overflow menu"
+  },
+  "kzTitleBlock.hamburgerMenuLabel": {
+    "description": "Label for the dropdown menu which displays navigation items",
+    "message": "Open menu"
   },
   "kzTitleBlock.overflowMenuLabel": {
     "description": "Label for the dropdown menu which displays additional action items",
