@@ -227,7 +227,7 @@
   },
   "kzTitleBlock.combinedOverflowMenuLabel": {
     "description": "Label for the dropdown menu which displays additional action items and secondary actions",
-    "message": "Open combined secondary + overflow menu"
+    "message": "Open combined secondary and overflow menu"
   },
   "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel": {
     "description": "Label for the dropdown menu which displays the default action item",

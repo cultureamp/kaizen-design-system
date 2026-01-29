@@ -107,7 +107,7 @@ export const SecondaryActions = ({
 
   const combinedMenuLabel = formatMessage({
     id: 'kzTitleBlock.combinedOverflowMenuLabel',
-    defaultMessage: 'Open combined secondary + overflow menu',
+    defaultMessage: 'Open combined secondary and overflow menu',
     description:
       'Label for the dropdown menu which displays additional action items and secondary actions',
   })
