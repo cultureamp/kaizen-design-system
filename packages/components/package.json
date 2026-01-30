@@ -89,7 +89,7 @@
     "clean:dist": "rimraf 'dist'"
   },
   "dependencies": {
-    "@floating-ui/react-dom": "^2.1.6",
+    "@floating-ui/react-dom": "^2.1.7",
     "@headlessui/react": "^2.2.9",
     "@internationalized/date": "^3.8.2",
     "@popperjs/core": "^2.11.8",
