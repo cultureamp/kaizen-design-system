@@ -1,4 +1,5 @@
 import React, { type ReactNode } from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Avatar } from '~components/Avatar'
 import { IconButton } from '~components/ButtonV1'
@@ -266,6 +267,7 @@ export const TitleBlock = ({
     queries: { isSmall, isMedium },
   } = useMediaQueries()
   const isSmallOrMediumViewport = isMedium || isSmall
+  const { formatMessage } = useIntl()
   return (
     <>
       <div
@@ -305,7 +307,12 @@ export const TitleBlock = ({
                         <IconButton
                           onClick={handleHamburgerClick}
                           icon={<Icon name="menu" isPresentational />}
-                          label="Open menu"
+                          label={formatMessage({
+                            id: 'kzTitleBlock.hamburgerMenuLabel',
+                            defaultMessage: 'Open menu',
+                            description:
+                              'Label for the dropdown menu which displays navigation items',
+                          })}
                           reversed={isReversed(variant)}
                         />
                       </div>
@@ -376,7 +383,10 @@ export const TitleBlock = ({
                   </div>
                 </div>
               )}
-              {renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
+              {!sectionTitle &&
+                !sectionTitleDescription &&
+                !renderSectionTitle &&
+                renderNavigationTabs(navigationTabs, collapseNavigationArea, title)}
               {(secondaryActions ?? secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

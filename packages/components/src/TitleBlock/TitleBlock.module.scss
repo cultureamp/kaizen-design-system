@@ -61,10 +61,6 @@
     display: flex;
     width: 100%;
     justify-content: center;
-
-    @include title-block-small {
-      height: $tab-container-height-small;
-    }
   }
 
   .lightVariant .titleRow {
@@ -112,10 +108,6 @@
   .rowBelowSeparatorInner {
     @extend %titleBlockInner;
     @extend %rowBelowSeparatorInnerMarginOverride;
-
-    @include title-block-small {
-      height: $tab-container-height-small;
-    }
   }
 
   .titleRowInnerContent {
@@ -285,7 +277,6 @@
     display: none;
     align-self: self-start;
     box-sizing: border-box;
-    overflow: hidden;
     height: $ca-grid * 2;
     width: $ca-grid * 2;
 
@@ -296,6 +287,7 @@
     }
 
     &.withBorder {
+      overflow: hidden;
       border: 3px solid $color-white;
       border-radius: 50%;
     }
@@ -367,7 +359,12 @@
   .sectionTitleContainer {
     display: flex;
     align-items: center;
+    padding-block: 9px;
     padding-inline-end: 8px; // 20 take 12 result in 8 extra padding needed in section versus tabs UI
+
+    @include title-block-min-container-1080 {
+      padding-block: 17px;
+    }
   }
 
   .sectionTitle {
@@ -377,6 +374,7 @@
   .sectionTitleInner {
     display: flex;
     flex-direction: column;
+    row-gap: 4px;
 
     @include title-block-min-container-1080 {
       flex-direction: row;

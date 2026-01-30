@@ -1,0 +1,80 @@
+name: 'Trigger Enchiridion Docs Generation'
+description: 'Triggers Enchiridion Buildkite pipeline to generate documentation for published packages'
+
+inputs:
+  published_packages:
+    description: 'JSON array of published packages from changesets (e.g., [{"name": "@scope/pkg", "version": "1.0.0"}]) or "*" to trigger for all packages in .enchiridion.toml'
+    required: true
+  buildkite_webhook_url:
+    description: 'Buildkite pipeline trigger webhook URL (use org secret ENCHIRIDION_BUILDKITE_WEBHOOK_URL)'
+    required: true
+  dry_run:
+    description: 'If true, uploads artifacts instead of creating a PR (for testing)'
+    required: false
+    default: 'false'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Extract packages from config (if wildcard)
+      if: inputs.published_packages == '*'
+      uses: mikefarah/yq@master
+      id: extract_packages
+      with:
+        cmd: yq -o=json '.packages[].name' .enchiridion.toml
+
+    - name: Trigger Buildkite for each package
+      shell: bash
+      env:
+        BUILDKITE_WEBHOOK_URL: ${{ inputs.buildkite_webhook_url }}
+        PUBLISHED_PACKAGES: ${{ inputs.published_packages }}
+        EXTRACTED_PACKAGES: ${{ steps.extract_packages.outputs.result }}
+        SOURCE_REPO: ${{ github.repository }}
+        DRY_RUN: ${{ inputs.dry_run }}
+      run: |
+        echo "Triggering Enchiridion for published packages..."
+
+        trigger_build() {
+          local package_name="$1"
+          local package_version="$2"
+          
+          local payload
+          payload=$(jq -n \
+            --arg source_repo "${SOURCE_REPO}" \
+            --arg package_name "${package_name}" \
+            --arg package_version "${package_version}" \
+            --arg dry_run "${DRY_RUN}" \
+            '{
+              source_repo: $source_repo,
+              package_name: $package_name,
+              package_version: $package_version,
+              dry_run: $dry_run
+            }')
+          
+          curl -sf -X POST "${BUILDKITE_WEBHOOK_URL}" \
+            -H "Content-Type: application/json" \
+            -d "${payload}"
+          
+          echo "  -> Triggered successfully"
+        }
+
+        if [ "${PUBLISHED_PACKAGES}" = "*" ]; then
+          echo "Wildcard detected - triggering for all packages in .enchiridion.toml"
+          
+          # Parse package names extracted by yq (one per line in JSON format)
+          echo "${EXTRACTED_PACKAGES}" | jq -r '.' | while read -r PACKAGE_NAME; do
+            echo "Triggering build for ${PACKAGE_NAME} (no version specified)"
+            trigger_build "${PACKAGE_NAME}" ""
+          done
+        else
+          # Parse JSON array and trigger a build for each package
+          echo "${PUBLISHED_PACKAGES}" | jq -c '.[]' | while read -r pkg; do
+            PACKAGE_NAME=$(echo "${pkg}" | jq -r '.name')
+            PACKAGE_VERSION=$(echo "${pkg}" | jq -r '.version')
+            
+            echo "Triggering build for ${PACKAGE_NAME}@${PACKAGE_VERSION}"
+            trigger_build "${PACKAGE_NAME}" "${PACKAGE_VERSION}"
+          done
+        fi
+
+        echo "All builds triggered!"

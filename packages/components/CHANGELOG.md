@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.3.4
+
+### Patch Changes
+
+- [#6392](https://github.com/cultureamp/kaizen-design-system/pull/6392) [`8c8a833`](https://github.com/cultureamp/kaizen-design-system/commit/8c8a83385adaf7dfdc99f1e216b7486008b0ff88) - TitleBlock add translations
+
+- [#6393](https://github.com/cultureamp/kaizen-design-system/pull/6393) [`3dd6647`](https://github.com/cultureamp/kaizen-design-system/commit/3dd664735bfc8615b509435253bebc660f9dd34e) - TitleBlock uplift remove shadow when using default avatar
+
+## 2.3.3
+
+### Patch Changes
+
+- [#6368](https://github.com/cultureamp/kaizen-design-system/pull/6368) [`181878b`](https://github.com/cultureamp/kaizen-design-system/commit/181878bf3a5ffcb2ad4d1970c196bb1bcf42a58d) - Fix Titleblock second tier content visiable in mobile, fix spacing around section.
+
 ## 2.3.2
 
 ### Patch Changes
