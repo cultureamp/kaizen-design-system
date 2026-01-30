@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import { Button, IconButton } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { Menu, MenuList } from '~components/MenuV1'
@@ -24,6 +25,7 @@ type MainActionsProps = {
 }
 
 const renderSecondaryAndOverflowMenu = (
+  secondaryAndOverflowMenuLabel: string,
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean,
 ): JSX.Element | undefined => {
@@ -33,7 +35,7 @@ const renderSecondaryAndOverflowMenu = (
       align="right"
       button={
         <IconButton
-          label={'Open secondary and overflow menu'}
+          label={secondaryAndOverflowMenuLabel}
           reversed={reversed}
           icon={<Icon name="more_horiz" isPresentational />}
           id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
@@ -57,6 +59,13 @@ export const MainActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: MainActionsProps): JSX.Element => {
+  const { formatMessage } = useIntl()
+
+  const secondaryAndOverflowMenuLabel = formatMessage({
+    id: 'kzTitleBlock.secondaryAndOverflowMenuLabel',
+    defaultMessage: 'Open secondary and overflow menu',
+    description: 'Label for the dropdown menu which displays additional actions',
+  })
   let items
 
   // Build combined secondary + overflow menu items once, to be spread into the toolbar items
@@ -97,7 +106,7 @@ export const MainActions = ({
   if (allMenuItems.length > 0) {
     secondaryAndOverflowMenu.push({
       key: 'overflowMenu',
-      node: renderSecondaryAndOverflowMenu(allMenuItems, reversed)!,
+      node: renderSecondaryAndOverflowMenu(secondaryAndOverflowMenuLabel, allMenuItems, reversed)!,
     })
   }
 
@@ -130,7 +139,12 @@ export const MainActions = ({
                 align="right"
                 button={
                   <IconButton
-                    label={'Open default action overflow menu'}
+                    label={formatMessage({
+                      id: 'kzTitleBlock.defaultActionMinimizedOverflowMenuLabel',
+                      defaultMessage: 'Open default action overflow menu',
+                      description:
+                        'Label for the dropdown menu which displays the default action item',
+                    })}
                     reversed={reversed}
                     icon={<Icon name="more_horiz" isPresentational />}
                     id={TITLE_BLOCK_ZEN_SECONDARY_MENU_HTML_ID}
