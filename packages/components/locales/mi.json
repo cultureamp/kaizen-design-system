@@ -220,6 +220,30 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Huna mōhiohio:"
   },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "Open combined secondary and overflow menu"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "Open default action overflow menu"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "Huaki tahua"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "Opens overflow menu"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "Tahua"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "Open secondary and overflow menu"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Whakaatu whakaaro mo {field}"
@@ -227,9 +251,5 @@
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
     "message" : "Ūkui kōwhiringa: {field}"
-  },
-  "splitButton.dropdownButton.label" : {
-    "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "Ngā mahi tāpiri"
   }
 }

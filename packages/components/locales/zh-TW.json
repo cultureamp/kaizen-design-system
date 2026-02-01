@@ -220,6 +220,30 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "隱藏資訊："
   },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "開啟複合副選單和溢出選單"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "開啟預設動作溢出選單"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "開啟功能表"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "開啟溢出選單"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "功能表"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "開啟副選單和溢出選單"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "顯示對 {field} 的建議"
@@ -227,9 +251,5 @@
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
     "message" : "清除選擇：{field}"
-  },
-  "splitButton.dropdownButton.label" : {
-    "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "其他行動"
   }
 }

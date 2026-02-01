@@ -220,6 +220,30 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Skjul oplysninger:"
   },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "Åbn kombineret sekundær og overløbsmenu"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "Åbn standardoverløbsmenu for handlinger"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "Åbn menu"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "Åbner overløbsmenuen"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "Menu"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "Åbn sekundær og overløbsmenu"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Vis forslag for {field}"
@@ -227,9 +251,5 @@
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
     "message" : "Ryd valg: {field}"
-  },
-  "splitButton.dropdownButton.label" : {
-    "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "Yderligere handlinger"
   }
 }
