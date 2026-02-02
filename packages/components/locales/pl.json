@@ -234,7 +234,7 @@
   },
   "kzTitleBlock.overflowMenuAriaLabel" : {
     "description" : "Aria Label for the dropdown menu which displays additional action items",
-    "message" : "Opens overflow menu"
+    "message" : "Otwiera menu nadmiarowe"
   },
   "kzTitleBlock.overflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items",

@@ -234,7 +234,7 @@
   },
   "kzTitleBlock.overflowMenuAriaLabel" : {
     "description" : "Aria Label for the dropdown menu which displays additional action items",
-    "message" : "Opens overflow menu"
+    "message" : "オーバーフローメニューを開く"
   },
   "kzTitleBlock.overflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items",
@@ -242,7 +242,7 @@
   },
   "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional actions",
-    "message" : "Open secondary and overflow menu"
+    "message" : "セカンダリメニューとオーバーフローメニューを開く"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",

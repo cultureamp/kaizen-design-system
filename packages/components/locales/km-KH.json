@@ -222,11 +222,11 @@
   },
   "kzTitleBlock.combinedOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
-    "message" : "Open combined secondary and overflow menu"
+    "message" : "បើកម៉ឺនុយបន្ទាប់បន្សំ និងម៉ឺនុយដែលហៀរចេញរួមបញ្ចូលគ្នា"
   },
   "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays the default action item",
-    "message" : "Open default action overflow menu"
+    "message" : "បើកម៉ឺនុយដែលហៀរចេញសកម្មភាពលំនាំដើម"
   },
   "kzTitleBlock.hamburgerMenuLabel" : {
     "description" : "Label for the dropdown menu which displays navigation items",
@@ -234,7 +234,7 @@
   },
   "kzTitleBlock.overflowMenuAriaLabel" : {
     "description" : "Aria Label for the dropdown menu which displays additional action items",
-    "message" : "Opens overflow menu"
+    "message" : "បើកម៉ឺនុយដែលហៀរចេញ"
   },
   "kzTitleBlock.overflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items",
@@ -242,7 +242,7 @@
   },
   "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional actions",
-    "message" : "Open secondary and overflow menu"
+    "message" : "បើកម៉ឺនុយបន្ទាប់បន្សំ និងម៉ឺនុយដែលហៀរចេញ"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
