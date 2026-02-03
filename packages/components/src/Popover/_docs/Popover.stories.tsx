@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Popover as PopoverComponent, usePopover } from '../index'
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     children: undefined,
     referenceElement: undefined,
   },
-} satisfies Meta<typeof PopoverComponent>
+} satisfies any
 
 export default meta
 

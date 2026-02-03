@@ -1,6 +1,6 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta } from '@storybook/react'
+import { action } from 'storybook/actions'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { EditableRichTextContent } from '../index'
 import defaultContent from './defaultContent.json'
@@ -8,7 +8,7 @@ import defaultContent from './defaultContent.json'
 const meta = {
   title: 'Components/RichTextEditor/EditableRichTextContent',
   component: EditableRichTextContent,
-} satisfies Meta<typeof EditableRichTextContent>
+} satisfies any
 
 export default meta
 

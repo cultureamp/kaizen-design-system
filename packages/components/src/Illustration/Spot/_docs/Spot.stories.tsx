@@ -1,12 +1,12 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Text } from '~components/Text'
 import { CompanyDetails } from '../index'
 
 const meta = {
   title: 'Components/Illustrations/Spot',
   component: CompanyDetails,
-} satisfies Meta<typeof CompanyDetails>
+} satisfies any
 
 export default meta
 

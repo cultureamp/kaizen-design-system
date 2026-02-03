@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
+// import { type Meta, type StoryFn } from "storybook"
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 
@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 type QueryInfoProps = {
   selector: string
@@ -31,7 +31,7 @@ const QueryInfo = ({ selector, selectorValue, children }: QueryInfoProps): React
   </div>
 )
 
-export const MediaQueries: StoryFn = () => (
+export const MediaQueries: any = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
       These breakpoints activate <em>over</em> a certain screen width. Meaning that bg-blue-400 will
@@ -46,7 +46,7 @@ export const MediaQueries: StoryFn = () => (
   </div>
 )
 
-export const ArbitraryMediaQueries: StoryFn = () => (
+export const ArbitraryMediaQueries: any = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="text-center">
       Bespoke, one-off media queries can be created with arbitrary values. See the{' '}

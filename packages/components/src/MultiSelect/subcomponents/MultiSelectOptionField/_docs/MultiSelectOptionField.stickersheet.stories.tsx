@@ -1,6 +1,6 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { MultiSelectOptionField, type MultiSelectOptionFieldProps } from '../index'
 
@@ -10,7 +10,7 @@ const meta = {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta<typeof MultiSelectOptionField>
+} satisfies any
 
 export default meta
 

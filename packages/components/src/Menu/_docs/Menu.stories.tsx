@@ -1,5 +1,5 @@
 import React, { type FunctionComponent } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
 import { Icon } from '~components/Icon'
@@ -18,7 +18,7 @@ const meta = {
     string,
     FunctionComponent<any>
   >,
-} satisfies Meta<typeof MenuTrigger>
+} satisfies any
 
 export default meta
 

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { ToggleSwitchField } from '../ToggleSwitchField'
 
 const meta = {
@@ -7,7 +7,7 @@ const meta = {
   args: {
     labelText: 'Toggle me',
   },
-} satisfies Meta<typeof ToggleSwitchField>
+} satisfies any
 
 export default meta
 
@@ -24,6 +24,10 @@ export const Playground: Story = {
 }
 
 export const Reversed: Story = {
-  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { reversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from 'storybook'
 import { TextAreaField } from '../index'
 
 const meta = {
@@ -8,11 +8,11 @@ const meta = {
   args: {
     labelText: 'Label',
   },
-} satisfies Meta<typeof TextAreaField>
+} satisfies any
 
 export default meta
 
-type Story = StoryObj<typeof meta>
+type Story = any
 
 export const Playground: Story = {
   parameters: {

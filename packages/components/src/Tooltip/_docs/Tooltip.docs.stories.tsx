@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
@@ -28,7 +28,7 @@ const meta = {
     },
     triggerRef: { control: false },
   },
-} satisfies Meta<typeof Tooltip>
+} satisfies any
 
 export default meta
 

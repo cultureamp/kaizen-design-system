@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { VideoPlayer } from './index'
 
@@ -9,7 +9,7 @@ export default {
     controls: { disable: true },
     chromatic: { disable: false },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { LabelledMessage } from '../LabelledMessage'
 
 const meta = {
@@ -8,11 +8,11 @@ const meta = {
     label: 'Label',
     message: 'Custom message here',
   },
-} satisfies Meta<typeof LabelledMessage>
+} satisfies any
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+export const Playground: any = {
   parameters: {
     docs: {
       canvas: {

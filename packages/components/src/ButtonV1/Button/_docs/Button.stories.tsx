@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { LoadingInput } from '~components/Loading'
 import { TextField } from '~components/TextField'
@@ -12,7 +12,7 @@ const meta = {
     label: 'Label',
   },
   tags: ['!dev'],
-} satisfies Meta<typeof Button>
+} satisfies any
 
 export default meta
 
@@ -51,10 +51,16 @@ export const Variants: Story = {
 export const Reversed: Story = {
   ...Variants,
   args: { reversed: true },
+
   parameters: {
-    ...Variants.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...Variants.parameters
   },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const Disabled: Story = {

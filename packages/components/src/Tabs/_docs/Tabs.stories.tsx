@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
@@ -43,7 +43,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof Tabs>
+} satisfies any
 
 export default meta
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Input, type InputProps } from '../index'
@@ -22,7 +22,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 const InputExampleGroup = (props: InputProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
@@ -92,8 +92,12 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

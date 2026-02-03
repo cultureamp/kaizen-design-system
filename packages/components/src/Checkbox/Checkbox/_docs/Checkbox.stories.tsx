@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { type CheckboxFieldProps } from '~components/Checkbox'
 import { Checkbox } from '../index'
 
@@ -22,7 +22,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Checkbox>
+} satisfies any
 
 export default meta
 

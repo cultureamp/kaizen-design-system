@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { LikertScale, type LikertScaleProps } from '../index'
 import { type Scale } from '../types'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const scale: Scale = [
   {
@@ -134,19 +134,23 @@ export const StickerBlueSheetDefault: Story = {
 export const StickerSheetClassicalReversed: Story = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Classical Reversed)',
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
-  },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetBlueReversed: Story = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Blue Reversed)',
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
-  },
   args: { isReversed: true, colorSchema: 'blue' },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetRTL: Story = {

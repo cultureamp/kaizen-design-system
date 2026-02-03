@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Label, type LabelProps } from '../index'
 import { BlockLabelTypes, InlineLabelTypes } from '../types'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 type WrapperProps = LabelProps & {
   'data-sb-a11y-color-contrast-disable'?: boolean
@@ -157,8 +157,12 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

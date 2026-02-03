@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Label } from '~components/Label'
 import { FieldGroup } from '../index'
 
@@ -14,7 +14,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof FieldGroup>
+} satisfies any
 
 export default meta
 

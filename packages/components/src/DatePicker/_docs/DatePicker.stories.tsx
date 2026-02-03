@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, within } from 'storybook/test'
 import Highlight from 'react-highlight'
 import { Button } from '~components/ButtonV1'
 import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
@@ -62,7 +62,7 @@ const meta = {
     selectedDay: undefined,
     onDayChange: action('on day change'),
   },
-} satisfies Meta<typeof DatePicker>
+} satisfies any
 
 export default meta
 

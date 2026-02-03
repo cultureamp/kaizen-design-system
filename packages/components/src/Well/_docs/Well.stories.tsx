@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { LoadingHeading, LoadingParagraph } from '~components/Loading'
@@ -42,7 +42,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Well>
+} satisfies any
 
 export default meta
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import { within } from '@storybook/test'
+import { type Meta } from 'storybook'
+import { within } from 'storybook/test'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange, type CalendarRangeProps } from '../../index'
 
@@ -21,7 +21,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 const CalendarRangeWrapper = (props: Partial<CalendarRangeProps>): JSX.Element => (
   <div data-testid={props.id}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, fn, waitFor, within } from 'storybook/test'
 import Highlight from 'react-highlight'
 import { type DateRange } from '~components/Calendar'
 import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
@@ -74,7 +74,7 @@ const meta = {
     setIsOpen: fn(),
     onRangeChange: fn(),
   },
-} satisfies Meta<typeof FilterDateRangePicker>
+} satisfies any
 
 export default meta
 

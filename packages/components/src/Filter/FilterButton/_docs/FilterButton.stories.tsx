@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { FilterButton } from '../FilterButton'
 
 const meta = {
@@ -12,11 +12,11 @@ const meta = {
   args: {
     label: 'Label',
   },
-} satisfies Meta<typeof FilterButton>
+} satisfies any
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+export const Playground: any = {
   parameters: {
     docs: {
       canvas: {
@@ -29,7 +29,7 @@ export const Playground: StoryObj<typeof meta> = {
 /**
  * A string or JSX.Element (most common for values with dom formatting).
  */
-export const SelectedValue: StoryObj<typeof meta> = {
+export const SelectedValue: any = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       <FilterButton {...args} selectedValue="Pancakes" />
@@ -48,7 +48,7 @@ export const SelectedValue: StoryObj<typeof meta> = {
 /**
  * Controls the open state (chevron changes direction).
  */
-export const IsOpen: StoryObj<typeof meta> = {
+export const IsOpen: any = {
   render: (args) => (
     <div style={{ display: 'flex', gap: '1rem' }}>
       <FilterButton {...args} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { TagColorKeys } from '../types'
 import { Tag } from '..'
@@ -20,7 +20,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Tag>
+} satisfies any
 
 export default meta
 

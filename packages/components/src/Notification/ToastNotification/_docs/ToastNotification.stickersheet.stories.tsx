@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Link } from '~components/Link'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { ToastNotification } from '../ToastNotification'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false, delay: 600 },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (

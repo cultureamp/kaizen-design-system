@@ -1,6 +1,6 @@
 import React from 'react'
 import { autoPlacement, offset, size } from '@floating-ui/react-dom'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CalendarRange } from '../../CalendarRange'
 import { CalendarSingle } from '../../CalendarSingle'
@@ -37,7 +37,7 @@ export default {
       defaultViewport: 'ViewportFull',
     },
   },
-} satisfies Meta
+} satisfies any
 
 const CalendarPopoverExample = ({
   children,

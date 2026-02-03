@@ -1,5 +1,4 @@
 import React, { type HTMLAttributes } from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
 import colorString from 'color-string'
 import { Heading } from '~components/Heading'
 import { tokens } from '~design-tokens/js'
@@ -13,7 +12,7 @@ export default {
     },
     docsLayout: 'fullPage',
   },
-} satisfies Meta
+}
 
 /**
  * Use this for showing a simple horizontal or vertical stack of elements, with the support of padding/gaps between each of them.
@@ -96,7 +95,7 @@ const ComponentsSection = ({ children }: { children: React.ReactNode }): JSX.Ele
   </div>
 )
 
-export const ColorTokens: StoryFn = () => (
+export const ColorTokens: any = () => (
   <div style={{ padding: tokens.spacing[24] }}>
     <Stack horizontal gapSize={48}>
       <ComponentsSection>

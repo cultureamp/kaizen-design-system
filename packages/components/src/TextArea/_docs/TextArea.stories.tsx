@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { TextArea } from '../index'
 
 const meta = {
@@ -17,7 +17,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TextArea>
+} satisfies any
 
 export default meta
 

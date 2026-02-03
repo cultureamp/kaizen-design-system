@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Link } from '~components/Link'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { GlobalNotification, type GlobalNotificationProps } from '../GlobalNotification'
@@ -14,7 +14,7 @@ export default {
       timeout: 1000,
     },
   },
-} satisfies Meta
+} satisfies any
 
 const variants = [
   {

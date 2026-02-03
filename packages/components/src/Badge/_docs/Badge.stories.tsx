@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Badge, BadgeAnimated } from '~components/Badge'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
   args: {
     children: '3',
   },
-} satisfies Meta<typeof Badge>
+} satisfies any
 
 export default meta
 

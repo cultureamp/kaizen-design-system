@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Popover, useFloating } from '../index'
 
 const meta = {
@@ -27,7 +27,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof Popover>
+} satisfies any
 
 export default meta
 

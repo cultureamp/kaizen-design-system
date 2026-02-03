@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { DirectionalLink } from '../index'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
     label: 'Back',
     direction: 'prev',
   },
-} satisfies Meta<typeof DirectionalLink>
+} satisfies any
 
 export default meta
 

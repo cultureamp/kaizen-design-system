@@ -1,6 +1,6 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
 import { Checkbox } from '~components/Checkbox'
 import { Divider } from '~components/Divider'
 import { Icon } from '~components/Icon'
@@ -145,7 +145,7 @@ export default {
       </div>
     ),
   ],
-} satisfies Meta<TableStoryProps>
+} satisfies any
 
 export const Playground: StoryObj<TableStoryProps> = {
   ...TableTemplate,

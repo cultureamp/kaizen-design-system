@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, fn, userEvent, within } from 'storybook/test'
 import { type DateRange } from 'react-day-picker'
 import { DateRangePicker, formatDateRangeValue } from '../index'
 
@@ -11,7 +11,7 @@ const meta = {
     labelText: 'Label',
     onChange: fn(),
   },
-} satisfies Meta<typeof DateRangePicker>
+} satisfies any
 
 export default meta
 

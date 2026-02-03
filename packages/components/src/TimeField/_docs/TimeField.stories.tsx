@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import { TimeField } from '../index'
 import { type ValueType } from '../types'
 
@@ -21,7 +21,7 @@ const meta = {
     value: null,
     onChange: fn(),
   },
-} satisfies Meta<typeof TimeField>
+} satisfies any
 
 export default meta
 

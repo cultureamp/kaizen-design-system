@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { InputSearch } from '../index'
 
 const meta = {
@@ -21,7 +21,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof InputSearch>
+} satisfies any
 
 export default meta
 

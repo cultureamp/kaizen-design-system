@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { usePopover, type PopoverProps } from '../index'
 import { popoverPlacements } from '../types'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false, diffThreshold: 1 },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const PopoverWrapper = (
   props: Omit<PopoverProps, 'children' | 'referenceElement'>,

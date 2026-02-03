@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import { within } from '@storybook/test'
+import { type Meta } from 'storybook'
+import { within } from 'storybook/test'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Button, type ButtonSizes, type ButtonVariants } from '../index'
@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const variants = ['primary', 'secondary', 'tertiary'] satisfies ButtonVariants[]
 const sizes = ['small', 'medium', 'large'] satisfies ButtonSizes[]

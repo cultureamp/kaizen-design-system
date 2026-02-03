@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -143,7 +143,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const engagementSpots = [
   {

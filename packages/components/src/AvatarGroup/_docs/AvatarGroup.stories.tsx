@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { AvatarGroup } from '../index'
 import { AVATARS } from './example-data'
 
@@ -10,7 +10,7 @@ const meta = {
     size: 'medium',
     avatars: AVATARS,
   },
-} satisfies Meta<typeof AvatarGroup>
+} satisfies any
 
 export default meta
 

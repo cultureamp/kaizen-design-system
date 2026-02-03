@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { FieldMessage } from '../index'
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     message:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullasemper odio vitae sem gravida rutrum.',
   },
-} satisfies Meta<typeof FieldMessage>
+} satisfies any
 
 export default meta
 
@@ -58,8 +58,12 @@ export const Success: Story = {
 
 export const Reversed: Story = {
   args: { reversed: true, status: 'error' },
-  parameters: { backgrounds: { default: 'Purple 700' } },
   name: 'reversed',
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const Position: Story = {

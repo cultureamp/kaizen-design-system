@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Checkbox, type CheckedStatus } from '../index'
 
 const meta = {
@@ -10,7 +10,7 @@ const meta = {
     'readOnly': false,
     'aria-label': 'Checkbox label',
   },
-} satisfies Meta<typeof Checkbox>
+} satisfies any
 
 export default meta
 

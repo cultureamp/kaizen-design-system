@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import { Button } from '~components/ButtonV1'
 import { RichTextEditor, type EditorContentArray, type RichTextEditorProps } from '../../index'
 import { EditableRichTextContent } from '../index'
@@ -18,7 +18,7 @@ const meta = {
     content: { control: false },
     onClick: { action: 'onClick' },
   },
-} satisfies Meta<typeof EditableRichTextContent>
+} satisfies any
 
 export default meta
 

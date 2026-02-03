@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import isChromatic from 'chromatic'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { SingleSelect } from '../index'
@@ -19,7 +19,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
@@ -164,11 +164,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...StickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

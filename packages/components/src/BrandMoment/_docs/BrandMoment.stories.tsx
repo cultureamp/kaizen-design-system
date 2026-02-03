@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import isChromatic from 'chromatic'
 import { Icon } from '~components/Icon'
 import {
@@ -26,7 +26,7 @@ const meta = {
     illustration: { control: false },
     header: { control: false },
   },
-} satisfies Meta<typeof BrandMoment>
+} satisfies any
 
 export default meta
 

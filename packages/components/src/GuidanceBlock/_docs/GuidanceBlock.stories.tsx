@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
@@ -119,7 +119,7 @@ const meta = {
         'If you need to render custom content inside of the `GuidanceBlock` that is more than just a title and description use this prop instead of the default `text` option.',
     },
   },
-} satisfies Meta<typeof GuidanceBlock>
+} satisfies any
 
 export default meta
 

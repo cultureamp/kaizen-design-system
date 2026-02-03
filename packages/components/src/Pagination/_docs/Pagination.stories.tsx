@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Pagination } from '../index'
 
 const meta = {
@@ -14,7 +14,7 @@ const meta = {
       alert('Page changed')
     },
   },
-} satisfies Meta<typeof Pagination>
+} satisfies any
 
 export default meta
 

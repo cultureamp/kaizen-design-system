@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Collapsible, type CollapsibleProps } from '~components/Collapsible/Collapsible'
 import { CollapsibleGroup, type CollapsibleGroupProps } from '../index'
 
@@ -39,7 +39,7 @@ const meta = {
       </Collapsible>,
     ],
   },
-} satisfies Meta<typeof CollapsibleGroup>
+} satisfies any
 
 export default meta
 

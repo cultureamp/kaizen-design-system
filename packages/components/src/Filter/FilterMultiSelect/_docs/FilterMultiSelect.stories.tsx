@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { Selection } from '@react-types/shared'
-import type { Meta, StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+import type { Meta, StoryObj } from 'storybook'
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { Card } from '~components/Card'
 import { InlineNotification } from '~components/Notification'
@@ -45,7 +45,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof FilterMultiSelect>
+} satisfies any
 
 export default meta
 

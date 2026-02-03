@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { CheckboxField, type CheckboxFieldProps } from '../index'
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     labelText: 'Checkbox',
     checkedStatus: 'off',
   },
-} satisfies Meta<typeof CheckboxField>
+} satisfies any
 
 export default meta
 

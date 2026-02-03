@@ -1,6 +1,6 @@
 import React from 'react'
 import { LOCALE_REGIONS } from '@cultureamp/i18n-react-intl'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { CalendarSingle } from '~components/Calendar'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { getLocale } from '../utils/getLocale'
@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 export const UtilGetLocale: StickerSheetStory = {
   // Skip running this with test-storybook (still runs in Chromatic) as it times out

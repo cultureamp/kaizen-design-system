@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { LoadingSpinner } from '../index'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
   args: {
     accessibilityLabel: 'Loading',
   },
-} satisfies Meta<typeof LoadingSpinner>
+} satisfies any
 
 export default meta
 

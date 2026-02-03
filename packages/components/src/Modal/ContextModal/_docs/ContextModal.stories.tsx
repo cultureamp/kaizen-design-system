@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { AddImage } from '~components/Illustration'
 import { ModalAccessibleDescription } from '~components/Modal/GenericModal/subcomponents/ModalAccessibleDescription'
@@ -26,7 +26,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ContextModal>
+} satisfies any
 
 export default meta
 

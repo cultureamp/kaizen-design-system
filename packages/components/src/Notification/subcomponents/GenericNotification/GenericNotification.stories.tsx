@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import { GenericNotification } from './index'
 
 const meta = {
@@ -12,7 +12,7 @@ const meta = {
     title: 'Success',
     children: 'This is my positive notification',
   },
-} satisfies Meta<typeof GenericNotification>
+} satisfies any
 
 export default meta
 

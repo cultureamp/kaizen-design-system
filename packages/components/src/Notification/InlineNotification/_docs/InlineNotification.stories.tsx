@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { InlineNotification } from '../InlineNotification'
 
 const meta = {
@@ -21,11 +21,11 @@ const meta = {
       timeout: 1000,
     },
   },
-} satisfies Meta<typeof InlineNotification>
+} satisfies any
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+export const Playground: any = {
   parameters: {
     docs: {
       canvas: {
@@ -38,7 +38,7 @@ export const Playground: StoryObj<typeof meta> = {
 /**
  * `persistent` notification will remain on screen and cannot be removed by the user. This will also remove the fly in animation on page load
  */
-export const Persistent: StoryObj<typeof meta> = {
+export const Persistent: any = {
   args: {
     persistent: true,
     variant: 'warning',
@@ -53,7 +53,7 @@ export const Persistent: StoryObj<typeof meta> = {
 
 /**
  * `forceMultiline` will break child content onto a new line, regardless of content width. Without this prop, child content will be next to the heading until it stretches past its maximum content width. */
-export const ForceMultilineDemo: StoryObj<typeof meta> = {
+export const ForceMultilineDemo: any = {
   args: {
     forceMultiline: true,
     children: 'Even with a small amount of text',
@@ -62,7 +62,7 @@ export const ForceMultilineDemo: StoryObj<typeof meta> = {
 
 /**
  * Without the `forceMultiline` prop, child content must exceed the maximum width of the container before it breaks onto a new line. */
-export const ContentMultilineDemo: StoryObj<typeof meta> = {
+export const ContentMultilineDemo: any = {
   args: {
     forceMultiline: true,
     children:

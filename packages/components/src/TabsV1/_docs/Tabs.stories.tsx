@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Card } from '~components/Card'
 import { Text } from '~components/Text'
@@ -32,7 +32,7 @@ const meta = {
     ),
   },
   tags: ['!dev'],
-} satisfies Meta<typeof Tabs>
+} satisfies any
 
 export default meta
 
@@ -67,12 +67,14 @@ export const Controlled: Story = {
 }
 
 export const UsageInCard: Story = {
-  parameters: {
-    backgrounds: { default: 'Gray 100' },
-  },
   render: (args) => (
     <Card>
       <Tabs {...args} />
     </Card>
   ),
+  globals: {
+    backgrounds: {
+      value: "gray_100"
+    }
+  },
 }

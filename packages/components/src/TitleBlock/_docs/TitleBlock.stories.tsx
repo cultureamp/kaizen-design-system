@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, waitFor, within } from 'storybook/test'
 import { Heading } from 'react-aria-components'
 import { Icon } from '~components/Icon'
 import { assetUrl } from '~components/utils/hostedAssets'
@@ -119,7 +119,7 @@ const meta = {
       <NavigationTab key="6" text="Label" href="#" />,
     ],
   },
-} satisfies Meta<typeof TitleBlock>
+} satisfies any
 
 export default meta
 

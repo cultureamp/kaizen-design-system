@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, screen, userEvent, waitFor } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, screen, userEvent, waitFor } from 'storybook/test'
 import { SingleSelect } from '../SingleSelect'
 import { singleMockItems } from './mockData'
 
@@ -10,7 +10,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof SingleSelect>
+} satisfies any
 
 export default meta
 

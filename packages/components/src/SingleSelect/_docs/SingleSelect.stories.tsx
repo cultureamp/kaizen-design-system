@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import { Button } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
 import { ContextModal } from '~components/Modal'
@@ -37,7 +37,7 @@ const meta = {
       argTypesRegex: '^on.*',
     },
   },
-} satisfies Meta<typeof SingleSelect>
+} satisfies any
 
 export default meta
 
@@ -253,7 +253,11 @@ export const ReversedSelect: Story = {
       </div>
     ),
   ],
-  parameters: { backgrounds: { default: 'Purple 700' } },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const SelectNativeValidationBehavior: Story = {

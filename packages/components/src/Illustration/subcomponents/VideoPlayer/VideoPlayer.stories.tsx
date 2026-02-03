@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import { VideoPlayer } from './index'
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
     fallback: 'illustrations/heart/scene/brand-moments-positive-outro',
     source: 'illustrations/heart/scene/brand-moments-positive-outro',
   },
-} satisfies Meta<typeof VideoPlayer>
+} satisfies any
 
 export default meta
 

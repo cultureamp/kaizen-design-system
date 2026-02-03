@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
+// import { type Meta, type StoryFn } from "storybook"
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 
@@ -14,7 +14,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 type ContainerQueryInfoProps = {
   selector: string
@@ -41,7 +41,7 @@ const ContainerQueryInfo = ({
   </div>
 )
 
-export const ContainerQueries: StoryFn = () => (
+export const ContainerQueries: any = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Container query breakpoints activate based on the <em>container&apos;s</em> width, not the
@@ -63,7 +63,7 @@ export const ContainerQueries: StoryFn = () => (
   </div>
 )
 
-export const ArbitraryContainerQueries: StoryFn = () => (
+export const ArbitraryContainerQueries: any = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Custom container query breakpoints can be created with arbitrary values.
@@ -87,7 +87,7 @@ export const ArbitraryContainerQueries: StoryFn = () => (
   </div>
 )
 
-export const NamedContainers: StoryFn = () => (
+export const NamedContainers: any = () => (
   <div className="py-32">
     <Heading tag="p" variant="heading-4" classNameOverride="mb-16">
       Named containers allow you to query specific containers by name, useful when you have nested

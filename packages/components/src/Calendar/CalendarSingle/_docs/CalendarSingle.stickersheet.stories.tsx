@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import { within } from '@storybook/test'
+import { type Meta } from 'storybook'
+import { within } from 'storybook/test'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import styles from '../../baseCalendarClassNames.module.scss'
 import { CalendarSingle, type CalendarSingleProps } from '../index'
@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const CalendarSingleExample = (props: Partial<CalendarSingleProps>): JSX.Element => (
   <div data-testid={props.id}>

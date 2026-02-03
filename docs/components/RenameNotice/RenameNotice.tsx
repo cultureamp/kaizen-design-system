@@ -1,5 +1,5 @@
 import React from 'react'
-import { Unstyled } from '@storybook/blocks'
+import { Unstyled } from '@storybook/addon-docs/blocks'
 import { InlineNotification } from '~components/Notification'
 import { LinkTo } from '../LinkTo'
 

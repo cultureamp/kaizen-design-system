@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
+// import { type Meta, type StoryFn } from "storybook"
 import classnames from 'classnames'
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
@@ -25,9 +25,9 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
-export const Margin: StoryFn = () => (
+export const Margin: any = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="margin"
     classKeyValues={classEntries}

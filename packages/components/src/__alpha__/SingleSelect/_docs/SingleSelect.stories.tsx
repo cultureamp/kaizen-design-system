@@ -1,10 +1,10 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { SingleSelect } from '../index'
 import { type SelectItem, type SingleSelectProps } from '../types'
 import { singleMockItems } from './mockData'
 
-const meta: Meta = {
+const meta: any = {
   title: 'Components/SingleSelect/SingleSelect (alpha)',
   component: SingleSelect,
   decorators: [

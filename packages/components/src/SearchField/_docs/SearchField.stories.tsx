@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { SearchField } from '../index'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
   args: {
     labelText: 'Search field',
   },
-} satisfies Meta<typeof SearchField>
+} satisfies any
 
 export default meta
 

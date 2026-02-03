@@ -1,5 +1,5 @@
 import React from 'react'
-import { Unstyled } from '@storybook/blocks'
+import { Unstyled } from '@storybook/addon-docs/blocks'
 import classnames from 'classnames'
 import Highlight from 'react-highlight'
 

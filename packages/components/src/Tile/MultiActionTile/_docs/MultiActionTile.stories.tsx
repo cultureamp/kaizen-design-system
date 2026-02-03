@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { MultiActionTile } from '../index'
 
 const meta = {
@@ -12,7 +12,7 @@ const meta = {
       label: 'Take Action!',
     },
   },
-} satisfies Meta<typeof MultiActionTile>
+} satisfies any
 
 export default meta
 

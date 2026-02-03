@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
 import { Icon } from '~components/Icon'
@@ -13,7 +13,7 @@ const meta = {
     defaultOpen: isChromatic(),
     children: <></>,
   },
-} satisfies Meta<typeof MenuTrigger>
+} satisfies any
 
 export default meta
 

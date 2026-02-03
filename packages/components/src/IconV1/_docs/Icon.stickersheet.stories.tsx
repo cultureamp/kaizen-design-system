@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import * as ICONS from '~components/IconV1'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 

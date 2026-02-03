@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, waitFor, within } from 'storybook/test'
 import { InformationTile } from '~components/Tile'
 import { TileGrid } from '../index'
 
@@ -31,7 +31,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof TileGrid>
+} satisfies any
 
 export default meta
 

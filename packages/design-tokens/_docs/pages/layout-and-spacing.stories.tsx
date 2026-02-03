@@ -1,17 +1,14 @@
 import React from 'react'
-import { type Meta, type StoryFn, type StoryObj } from '@storybook/react'
 import { Button } from '~components/ButtonV1'
 import { tokens } from '~design-tokens/js'
 
 const meta = {
   title: 'Guides/Layout and spacing',
-} satisfies Meta
+}
 
 export default meta
 
-type Story = StoryObj<typeof meta>
-
-export const SpacingTokens: StoryFn = () => {
+export const SpacingTokens: any = () => {
   const keyValuePairs = Object.entries(tokens.spacing)
 
   return (
@@ -49,7 +46,7 @@ const marginExampleSource = `
 </div>
 `
 
-export const MarginExample: Story = {
+export const MarginExample: any = {
   render: () => (
     <div className="flex">
       <div className="mr-12">

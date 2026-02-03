@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { InputRange } from '../index'
 
@@ -25,7 +25,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (

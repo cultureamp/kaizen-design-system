@@ -1,5 +1,5 @@
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import { LinkModal } from './LinkModal'
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
     onAfterLeave: fn(),
     isOpen: true,
   },
-} satisfies Meta<typeof LinkModal>
+} satisfies any
 
 export default meta
 

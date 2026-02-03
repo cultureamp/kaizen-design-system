@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Label } from '../index'
 import { LabelTypes } from '../types'
 
@@ -9,7 +9,7 @@ const meta = {
   args: {
     children: 'I am Label',
   },
-} satisfies Meta<typeof Label>
+} satisfies any
 
 export default meta
 

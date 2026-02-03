@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
@@ -18,7 +18,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const GENERIC_PROPS = {
   illustration: <Informative alt="" />,

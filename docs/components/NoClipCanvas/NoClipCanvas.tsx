@@ -1,5 +1,5 @@
 import React, { useId, useState } from 'react'
-import { Source, Story, Unstyled, type SourceProps } from '@storybook/blocks'
+import { Source, Story, Unstyled, type SourceProps } from '@storybook/addon-docs/blocks'
 import classnames from 'classnames'
 import styles from './NoClipCanvas.module.scss'
 

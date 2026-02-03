@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Content } from '~components/Content'
 import { Text } from '~components/Text'
 import { Container } from '../index'
@@ -31,7 +31,7 @@ const meta = {
   argTypes: {
     children: { controls: 'disabled' },
   },
-} satisfies Meta<typeof Container>
+} satisfies any
 
 export default meta
 

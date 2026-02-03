@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type StoryObj } from '@storybook/react'
-import { expect, userEvent, within } from '@storybook/test'
+import { type StoryObj } from 'storybook'
+import { expect, userEvent, within } from 'storybook/test'
 import { FilterButton, type FilterButtonProps } from '~components/Filter/FilterButton'
 import { FilterDatePicker } from '../FilterDatePicker'
 

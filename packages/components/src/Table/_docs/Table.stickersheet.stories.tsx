@@ -1,6 +1,6 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -49,7 +49,7 @@ export default {
       </div>
     ),
   ],
-} satisfies Meta
+} satisfies any
 
 const TableTemplate: StoryObj<StickerSheetStory> = {
   render: ({ isReversed }) => (
@@ -615,11 +615,18 @@ export const StickerSheetRTL: StoryObj<StickerSheetStory> = {
 export const StickerSheetReversed: StoryObj<StickerSheetStory> = {
   ...TableTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...TableTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...TableTemplate.parameters
   },
+
   args: {
     isReversed: true,
   },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }

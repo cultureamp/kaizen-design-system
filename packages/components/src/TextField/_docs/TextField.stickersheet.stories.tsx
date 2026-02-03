@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { InputStatus, InputTypes } from '~components/Input'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TextField, type TextFieldProps } from '../index'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const TextFieldExampleGroup = (props: TextFieldProps): JSX.Element => (
   <ul className="grid gap-16 list-none p-0 m-0">
@@ -91,11 +91,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...StickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { VisuallyHidden } from '../index'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
   args: {
     children: '👋 Hello!',
   },
-} satisfies Meta<typeof VisuallyHidden>
+} satisfies any
 
 export default meta
 

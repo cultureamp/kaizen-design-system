@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FieldMessage } from '../index'
 
@@ -13,7 +13,7 @@ export default {
     message:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullasemper odio vitae sem gravida rutrum.',
   },
-} satisfies Meta<typeof FieldMessage>
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed, ...otherProps }) => (
@@ -36,8 +36,12 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: { backgrounds: { default: 'Purple 700' } },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

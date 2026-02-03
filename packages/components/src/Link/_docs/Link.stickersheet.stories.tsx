@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import { within } from '@storybook/test'
+import { type Meta } from 'storybook'
+import { within } from 'storybook/test'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Link, type LinkProps } from '../Link'
@@ -12,7 +12,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const variants = ['primary', 'secondary'] satisfies LinkProps['variant'][]
 const sizes = ['extra-small', 'small', 'body', 'intro-lede'] satisfies LinkProps['size'][]

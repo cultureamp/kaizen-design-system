@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Button } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -13,7 +13,7 @@ export default {
     controls: { disable: true },
   },
   tags: ['!dev'],
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (

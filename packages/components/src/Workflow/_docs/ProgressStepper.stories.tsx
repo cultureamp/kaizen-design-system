@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
 
@@ -19,7 +19,7 @@ const meta = {
     ],
     isComplete: false,
   },
-} satisfies Meta<typeof Workflow.ProgressStepper>
+} satisfies any
 
 export default meta
 

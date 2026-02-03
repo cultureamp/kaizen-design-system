@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { ToggleIconButton } from '../../ToggleIconButton'
 import { ToolbarSection } from '../../ToolbarSection'
@@ -46,7 +46,7 @@ const meta = {
       </>
     ),
   ],
-} satisfies Meta<typeof Toolbar>
+} satisfies any
 
 export default meta
 

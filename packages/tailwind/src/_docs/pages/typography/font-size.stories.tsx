@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StoryFn } from '@storybook/react'
+// import { type StoryFn } from 'storybook'
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
@@ -26,7 +26,7 @@ export default {
   },
 }
 
-export const FontSize: StoryFn = () => (
+export const FontSize: any = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="font-size"
     classKeyValues={classEntries}

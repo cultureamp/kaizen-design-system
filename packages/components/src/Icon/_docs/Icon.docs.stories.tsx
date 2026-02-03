@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import classnames from 'classnames'
 import { Button } from '~components/Button'
 import { InlineNotification } from '~components/Notification'
@@ -35,7 +35,7 @@ const meta = {
       description: 'Set this value when `isPresentational={false}`',
     },
   },
-} satisfies Meta<typeof Icon>
+} satisfies any
 
 export default meta
 

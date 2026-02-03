@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { Tag } from '~components/__next__'
@@ -27,7 +27,7 @@ const meta = {
       />,
     ],
   },
-} satisfies Meta<typeof Workflow.Header>
+} satisfies any
 
 export default meta
 

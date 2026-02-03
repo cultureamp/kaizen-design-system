@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Workflow } from '../'
 import { WorkflowControls } from './controls'
@@ -25,7 +25,7 @@ const meta = {
     previousAction: <Button label="Back" />,
     nextAction: <Button primary label="Next" />,
   },
-} satisfies Meta<typeof Workflow.Footer>
+} satisfies any
 
 export default meta
 

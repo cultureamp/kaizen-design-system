@@ -1,11 +1,11 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 
 import { GenericModal, ModalAccessibleLabel, ModalBody, ModalHeader } from '../index'
 
-const meta: Meta<typeof GenericModal> = {
+const meta: any = {
   title: 'Components/Modals/GenericModal (primitive)/Tests',
   component: GenericModal,
 }

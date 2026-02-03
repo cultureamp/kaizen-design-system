@@ -1,7 +1,7 @@
 // This file is used by storybook to register installed addons.
 // See: https://storybook.js.org/docs/addons/using-addons/
 import React from 'react'
-import { addons } from '@storybook/manager-api'
+import { addons } from 'storybook/manager-api'
 import { tokens } from '@kaizen/design-tokens/src/js'
 import KaizenTheme from '../theme'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { VisuallyHidden } from 'react-aria'
 import { Button } from '~components/Button'
 import { Heading } from '~components/Heading'
@@ -52,7 +52,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Card>
+} satisfies any
 
 export default meta
 

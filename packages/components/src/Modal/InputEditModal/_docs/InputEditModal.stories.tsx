@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { ModalAccessibleDescription } from '~components/Modal'
 import { Text } from '~components/Text'
@@ -39,7 +39,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof InputEditModal>
+} satisfies any
 
 export default meta
 

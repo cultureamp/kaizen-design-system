@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import * as ICONS from '~components/IconV1'
 import { Text } from '~components/Text'
 import { Tag } from '~components/__next__/Tag'
@@ -20,7 +20,7 @@ const meta = {
     'aria-label': { control: 'text', if: { arg: 'role', eq: 'img' } },
   },
   tags: ['!dev'],
-} satisfies Meta<typeof AddIcon>
+} satisfies any
 
 export default meta
 

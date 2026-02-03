@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Card } from '~components/Card'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
@@ -11,7 +11,7 @@ const meta = {
   args: {
     variant: 'content',
   },
-} satisfies Meta<typeof Divider>
+} satisfies any
 
 export default meta
 

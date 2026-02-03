@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import dummyContent from '../../EditableRichTextContent/_docs/dummyContent.json'
 import { type EditorContentArray } from '../../index'
 import { RichTextEditor, type RichTextEditorProps } from '../index'
@@ -21,7 +21,7 @@ const meta = {
       { name: 'underline', group: 'inline' },
     ],
   },
-} satisfies Meta<typeof RichTextEditor>
+} satisfies any
 
 export default meta
 

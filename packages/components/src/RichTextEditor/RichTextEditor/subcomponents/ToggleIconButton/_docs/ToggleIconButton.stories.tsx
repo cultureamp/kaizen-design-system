@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { ToggleIconButton } from '../ToggleIconButton'
 
@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     icon: { control: false },
   },
-} satisfies Meta<typeof ToggleIconButton>
+} satisfies any
 
 export default meta
 

@@ -1,13 +1,17 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
-  "packages": ["nodejs@20.15.1"],
+  "packages": [
+    "nodejs@24.12.0"
+  ],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "1",
     "STORYBOOK_PORT": "6006"
   },
   "shell": {
     "scripts": {
-      "setup": ["pnpm install"]
+      "setup": [
+        "pnpm install"
+      ]
     }
   }
 }

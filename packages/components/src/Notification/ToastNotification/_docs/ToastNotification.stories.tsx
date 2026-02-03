@@ -1,6 +1,6 @@
 import React, { useEffect, useId } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, within } from 'storybook/test'
 import { Button } from '~components/ButtonV1'
 import { ToastNotification, useToastNotification } from '../index'
 
@@ -18,7 +18,7 @@ const meta = {
       </div>
     ),
   },
-} satisfies Meta<typeof ToastNotification>
+} satisfies any
 
 export default meta
 

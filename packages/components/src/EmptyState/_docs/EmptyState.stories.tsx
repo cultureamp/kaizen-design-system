@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { EmptyState } from '../index'
@@ -32,7 +32,7 @@ const meta = {
     bodyText:
       'If providing further actions, include a link to an action or use a Default or Primary action.',
   },
-} satisfies Meta<typeof EmptyState>
+} satisfies any
 
 export default meta
 

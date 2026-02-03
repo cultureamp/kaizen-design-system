@@ -1,6 +1,6 @@
 import React from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
 import { Badge } from '~components/Badge'
 import { EmptyState } from '~components/EmptyState'
 import { Icon } from '~components/Icon'
@@ -27,7 +27,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Button>
+} satisfies any
 
 export default meta
 
@@ -60,10 +60,16 @@ export const ButtonVariantsReversed: Story = {
       <Button {...args} variant="tertiary" />
     </ReversedColors>
   ),
+
   parameters: {
-    reverseColors: true,
-    backgrounds: { default: 'Purple 700' },
+    reverseColors: true
   },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const ButtonSizes: Story = {
@@ -110,8 +116,10 @@ export const ReversedButton: Story = {
       <Button {...args} />
     </ReversedColors>
   ),
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
   },
 }
 

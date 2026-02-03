@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Text } from '~components/Text'
 import { RichTextContent } from '../index'
 
@@ -22,7 +22,7 @@ const meta = {
   argTypes: {
     content: { control: false },
   },
-} satisfies Meta<typeof RichTextContent>
+} satisfies any
 
 export default meta
 

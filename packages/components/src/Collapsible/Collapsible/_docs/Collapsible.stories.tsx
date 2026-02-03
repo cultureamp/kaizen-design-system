@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
@@ -21,7 +21,7 @@ const meta = {
   parameters: {
     backgrounds: { default: 'Gray 100' },
   },
-} satisfies Meta<typeof Collapsible>
+} satisfies any
 
 export default meta
 
@@ -31,14 +31,20 @@ export const Playground: Story = {
   args: {
     title: 'Single Collapsible',
   },
+
   parameters: {
-    backgrounds: { default: 'Gray 100' },
     docs: {
       canvas: {
         sourceState: 'shown',
       },
-    },
+    }
   },
+
+  globals: {
+    backgrounds: {
+      value: "gray_100"
+    }
+  }
 }
 
 export const NoPadding: Story = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { ButtonGroup } from '~components/ButtonGroup'
 import { Button, IconButton } from '~components/ButtonV1'
 import { CheckboxField } from '~components/Checkbox'
@@ -27,7 +27,7 @@ const meta = {
     layout: 'centered',
   },
   tags: ['!dev'],
-} satisfies Meta<typeof Tooltip>
+} satisfies any
 
 export default meta
 

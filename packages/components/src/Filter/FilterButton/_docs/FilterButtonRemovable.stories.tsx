@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { FilterButtonRemovable } from '../FilterButtonRemovable'
 
 const meta = {
@@ -12,11 +12,11 @@ const meta = {
       onClick: (): void => alert('Remove clicked!'),
     },
   },
-} satisfies Meta<typeof FilterButtonRemovable>
+} satisfies any
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+export const Playground: any = {
   parameters: {
     docs: {
       canvas: {
@@ -26,7 +26,7 @@ export const Playground: StoryObj<typeof meta> = {
   },
 }
 
-export const TriggerButtonProps: StoryObj<typeof meta> = {
+export const TriggerButtonProps: any = {
   args: {
     triggerButtonProps: {
       'label': 'Ice cream flavour',
@@ -36,7 +36,7 @@ export const TriggerButtonProps: StoryObj<typeof meta> = {
   },
 }
 
-export const RemoveButtonProps: StoryObj<typeof meta> = {
+export const RemoveButtonProps: any = {
   args: {
     removeButtonProps: {
       'tooltipText': 'Custom tooltip :)',

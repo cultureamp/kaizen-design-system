@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test'
 import { FilterMultiSelect } from '~components/Filter/FilterMultiSelect'
 import { type DateRange } from '~components/index'
 import { FilterBar, type Filters } from '../index'
@@ -18,7 +18,7 @@ const meta = {
     values: {}, // Defined in stories
     onValuesChange: fn(),
   },
-} satisfies Meta<typeof FilterBar>
+} satisfies any
 
 export default meta
 

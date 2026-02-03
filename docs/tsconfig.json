@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "jsx": "react",
     "esModuleInterop": true,
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strictNullChecks": true,

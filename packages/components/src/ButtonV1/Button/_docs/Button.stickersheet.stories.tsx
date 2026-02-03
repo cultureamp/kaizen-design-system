@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Button, type ButtonProps } from '../index'
@@ -11,7 +11,7 @@ export default {
     controls: { disable: true },
   },
   tags: ['!dev'],
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => {
@@ -282,11 +282,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...StickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetRTL: StickerSheetStory = {
@@ -309,11 +316,18 @@ export const StickerSheetWorkingDefault: StickerSheetStory = {
 export const StickerSheetWorkingReversed: StickerSheetStory = {
   ...WorkingStickerSheetTemplate,
   name: 'Sticker Sheet Working (Reversed)',
+
   parameters: {
-    ...WorkingStickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...WorkingStickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetWorkingRTL: StickerSheetStory = {

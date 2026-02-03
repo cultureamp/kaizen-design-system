@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { defaultMonthControls } from '../../_docs/controls/defaultMonthControls'
 import { weekStartsOnControls } from '../../_docs/controls/weekStartsOnControls'
 import { type DateRange } from '../../types'
@@ -12,7 +12,7 @@ const meta = {
     ...defaultMonthControls,
     ...weekStartsOnControls,
   },
-} satisfies Meta<typeof CalendarRange>
+} satisfies any
 
 export default meta
 

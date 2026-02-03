@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StoryFn } from '@storybook/react'
+// import { type StoryFn } from 'storybook'
 import { Button } from '~components/ButtonV1'
 import { Card } from '~components/Card'
 import { Container } from '~components/Container'
@@ -12,13 +12,13 @@ export default {
   title: 'Guides/Tailwind/Working with Tailwind',
 }
 
-export const TailwindExampleSpacingAndLayouts: StoryFn = () => (
+export const TailwindExampleSpacingAndLayouts: any = () => (
   <div className="flex justify-center border-solid p-16">
     <Button label="Kaizen Button" primary />
   </div>
 )
 
-export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
+export const TailwindExampleSpacingAndLayoutsComplex: any = () => (
   <>
     <Container>
       <Content>
@@ -59,7 +59,7 @@ export const TailwindExampleSpacingAndLayoutsComplex: StoryFn = () => (
   </>
 )
 
-export const TailwindExampleClassNameOverrideMargin: StoryFn = () => (
+export const TailwindExampleClassNameOverrideMargin: any = () => (
   <div className="flex justify-center">
     {/* Adds margin-right: 24px */}
     <Card classNameOverride="mr-24">
@@ -77,13 +77,13 @@ export const TailwindExampleClassNameOverrideMargin: StoryFn = () => (
   </div>
 )
 
-export const TailwindExampleClassNameOverrideHeading: StoryFn = () => (
+export const TailwindExampleClassNameOverrideHeading: any = () => (
   <Heading variant="heading-1" classNameOverride="first-letter:capitalize">
     capitalize me with tailwind
   </Heading>
 )
 
-export const TailwindExampleSnowflake: StoryFn = () => (
+export const TailwindExampleSnowflake: any = () => (
   <div className="flex justify-center">
     <div className="w-[250px] rounded border-dashed border-red-500 bg-blue-100">
       <p className="m-0 p-12 pl-16 font-family-paragraph text-blue-500 text-center">

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { Link } from '~components/index'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { InlineNotification, type InlineNotificationProps } from '../InlineNotification'
@@ -14,7 +14,7 @@ export default {
       timeout: 1000,
     },
   },
-} satisfies Meta
+} satisfies any
 
 const DEFAULT_PROPS = {
   children: (

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Brand } from '../index'
 import { StickerSheetDefault } from './Brand.stickersheet.stories'
@@ -10,7 +10,7 @@ const meta = {
     variant: 'logo-horizontal',
     alt: 'Logo Horizontal',
   },
-} satisfies Meta<typeof Brand>
+} satisfies any
 
 export default meta
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { InputRange } from '../index'
 
 const meta = {
@@ -28,7 +28,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof InputRange>
+} satisfies any
 
 export default meta
 

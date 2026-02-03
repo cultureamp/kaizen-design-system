@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { action } from '@storybook/addon-actions'
-import { type Meta } from '@storybook/react'
-import { userEvent, within } from '@storybook/test'
+import { action } from 'storybook/actions'
+import { type Meta } from 'storybook'
+import { userEvent, within } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { type DateRange } from '~components/Calendar'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -23,7 +23,7 @@ export default {
       timeout: 3000,
     },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {

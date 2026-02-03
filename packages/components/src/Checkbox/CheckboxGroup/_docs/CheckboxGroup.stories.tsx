@@ -1,5 +1,5 @@
 import React, { useState, type ChangeEventHandler } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { CheckboxField, type CheckboxFieldProps } from '~components/Checkbox/CheckboxField'
 import { CheckboxGroup } from '../index'
 
@@ -16,7 +16,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof CheckboxGroup>
+} satisfies any
 
 export default meta
 

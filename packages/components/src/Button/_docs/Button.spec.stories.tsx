@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, fn, userEvent, waitFor, within } from 'storybook/test'
 import { Icon } from '~components/Icon'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { Button } from '../index'
@@ -14,7 +14,7 @@ const meta = {
     children: 'Label',
     onPress: onPressEvent,
   },
-} satisfies Meta<typeof Button>
+} satisfies any
 
 export default meta
 

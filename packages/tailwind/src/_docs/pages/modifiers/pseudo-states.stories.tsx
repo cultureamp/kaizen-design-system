@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
+// import { type Meta, type StoryFn } from "storybook"
 import { StickerSheet } from '~storybook/components/StickerSheet'
 
 export default {
@@ -14,9 +14,9 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
-export const PseudoSelectors: StoryFn = () => (
+export const PseudoSelectors: any = () => (
   <StickerSheet headers={['Utility Class', 'Compiled CSS', 'Example']}>
     <StickerSheet.Row header="hover">
       <p className="font-family-paragraph">hover:bg-blue-200</p>

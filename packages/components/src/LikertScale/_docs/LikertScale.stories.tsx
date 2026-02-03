@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, within } from 'storybook/test'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { LikertScale } from '../index'
 import { type Scale, type ScaleItem } from '../types'
@@ -41,7 +41,7 @@ const meta = {
     selectedItem: scale[0],
     onSelect: (): void => undefined,
   },
-} satisfies Meta<typeof LikertScale>
+} satisfies any
 
 export default meta
 

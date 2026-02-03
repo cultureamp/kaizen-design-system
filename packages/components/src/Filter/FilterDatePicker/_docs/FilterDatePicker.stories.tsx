@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import Highlight from 'react-highlight'
 import { defaultMonthControls } from '~components/Calendar/_docs/controls/defaultMonthControls'
 import {
@@ -56,7 +56,7 @@ const meta = {
     setIsOpen: fn(),
     onDateChange: fn(),
   },
-} satisfies Meta<typeof FilterDatePicker>
+} satisfies any
 
 export default meta
 

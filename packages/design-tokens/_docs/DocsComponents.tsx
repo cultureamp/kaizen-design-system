@@ -1,5 +1,5 @@
 import React from 'react'
-import { Unstyled } from '@storybook/blocks'
+// import { Unstyled } from '@storybook/blocks'
 import { toCustomMediaQueriesArray } from 'object-to-css-variables'
 import Highlight from 'react-highlight'
 import { Card } from '~components/Card'
@@ -20,7 +20,7 @@ export const CodeBlock = (props: {
   caption?: React.ReactNode
   code: string
 }): JSX.Element => (
-  <Unstyled>
+  <>
     <div className="py-8">
       <Card>
         <div className={styles.codeWrapper}>
@@ -34,7 +34,7 @@ export const CodeBlock = (props: {
         </div>
       )}
     </div>
-  </Unstyled>
+  </>
 )
 
 const TabbedCodeBlocks = ({

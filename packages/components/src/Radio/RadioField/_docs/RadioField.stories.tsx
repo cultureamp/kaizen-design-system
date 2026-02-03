@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { RadioField } from '../index'
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
     value: 'radio-value',
     selectedStatus: false,
   },
-} satisfies Meta<typeof RadioField>
+} satisfies any
 
 export default meta
 

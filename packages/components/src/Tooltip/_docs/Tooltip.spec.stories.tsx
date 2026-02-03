@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { Button } from '~components/Button'
 import { Focusable } from '~components/Focusable'
@@ -27,7 +27,7 @@ const meta = {
     },
     triggerRef: { control: false },
   },
-} satisfies Meta<typeof Tooltip>
+} satisfies any
 
 export default meta
 

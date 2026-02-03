@@ -1,5 +1,5 @@
 import React from 'react'
-import { type StoryFn } from '@storybook/react'
+// import { type StoryFn } from 'storybook'
 import classnames from 'classnames'
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { flattenEntries } from '~tailwind/_docs/utils/flattenEntries'
@@ -23,7 +23,7 @@ export default {
   },
 }
 
-export const TextColor: StoryFn = () => (
+export const TextColor: any = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="color"
     classKeyValues={classEntries}

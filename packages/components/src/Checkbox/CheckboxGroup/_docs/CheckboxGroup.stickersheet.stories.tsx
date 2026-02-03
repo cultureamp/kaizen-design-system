@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { CheckboxField } from '~components/Checkbox/CheckboxField'
 import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const CheckboxGroupWrapped = ({
   labelText,
@@ -54,10 +54,12 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
-  },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

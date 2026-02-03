@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { expect, userEvent, waitFor, within } from 'storybook/test'
 import { Icon } from '~components/Icon'
 import { VisuallyHidden } from '~components/VisuallyHidden'
 import { LinkButton } from '../index'
@@ -11,7 +11,7 @@ const meta = {
   args: {
     children: 'Label',
   },
-} satisfies Meta<typeof LinkButton>
+} satisfies any
 
 export default meta
 

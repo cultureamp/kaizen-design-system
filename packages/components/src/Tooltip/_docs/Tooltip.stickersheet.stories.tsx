@@ -1,5 +1,5 @@
 import React from 'react'
-import { composeStories, type Meta, type StoryObj } from '@storybook/react'
+import { composeStories, type Meta, type StoryObj } from 'storybook'
 import { ReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import * as testStories from './Tooltip.spec.stories'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const Stories = composeStories(testStories)
 

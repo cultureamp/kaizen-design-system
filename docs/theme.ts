@@ -1,5 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import { create, type ThemeVars } from '@storybook/theming'
+import { create, type ThemeVars } from 'storybook/theming'
 import { tokens } from '@kaizen/design-tokens/js'
 const colors = tokens.color
 

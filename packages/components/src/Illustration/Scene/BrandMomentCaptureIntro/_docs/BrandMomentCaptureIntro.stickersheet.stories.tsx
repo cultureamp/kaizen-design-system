@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { BrandMomentCaptureIntro } from '../index'
 
@@ -9,7 +9,7 @@ export default {
     chromatic: { disable: false, delay: 400 },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (

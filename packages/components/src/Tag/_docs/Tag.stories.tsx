@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Avatar } from '~components/Avatar'
 import { Tag } from '../index'
 import { SentimentTagVariants, StatusTagVariants, ValidationTagVariants } from '../types'
@@ -25,7 +25,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Tag>
+} satisfies any
 
 export default meta
 

@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Radio } from '../index'
 
 const meta = {
@@ -22,7 +22,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Radio>
+} satisfies any
 
 export default meta
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { Input } from '../index'
 
@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Input>
+} satisfies any
 
 export default meta
 

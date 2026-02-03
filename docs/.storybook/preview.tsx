@@ -4,8 +4,8 @@ import './preview.css'
 import './tailwind-build.css'
 
 import React, { useEffect } from 'react'
-import { decorators as bgDecorators } from '@storybook/addon-backgrounds/preview'
-import { type Decorator, type Preview } from '@storybook/react'
+import { decorators as bgDecorators } from 'storybook/backgrounds/preview'
+import { type Decorator, type Preview } from 'storybook'
 import { KaizenProvider } from '~components/KaizenProvider'
 import { I18nProvider } from '~components/__libs__/react-aria-components'
 import { ReversedColors } from '~components/utils'
@@ -80,8 +80,7 @@ const decorators: Preview['decorators'] = [
 const preview = {
   parameters: {
     backgrounds: {
-      default: 'White',
-      values: backgrounds,
+      options: {}
     },
     docs: {
       toc: {
@@ -206,8 +205,15 @@ const preview = {
       },
     },
   },
+
   globalTypes,
   decorators,
+
+  initialGlobals: {
+    backgrounds: {
+      value: 'white'
+    }
+  }
 } satisfies Preview
 
 export default preview

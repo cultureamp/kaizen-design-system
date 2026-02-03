@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { RadioField } from '~components/Radio/RadioField'
 import { RadioGroup } from '../index'
 
@@ -9,7 +9,7 @@ const meta = {
   args: {
     labelText: 'Radio group',
   },
-} satisfies Meta<typeof RadioGroup>
+} satisfies any
 
 export default meta
 

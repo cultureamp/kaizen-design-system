@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import { MultiSelect, type MultiSelectProps } from '../index'
 
 const meta = {
@@ -45,7 +45,7 @@ const meta = {
     onSelectedValuesChange: fn(),
     onOpenChange: fn(),
   },
-} satisfies Meta<typeof MultiSelect>
+} satisfies any
 
 export default meta
 

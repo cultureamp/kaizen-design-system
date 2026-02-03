@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { DocsContainer, DocsContext, type DocsContainerProps } from '@storybook/blocks'
+import { DocsContainer, DocsContext, type DocsContainerProps } from '@storybook/addon-docs/blocks'
 import { BackToTop } from './BackToTop'
 import { Content, DocsWrapper, Main } from './Layout'
 

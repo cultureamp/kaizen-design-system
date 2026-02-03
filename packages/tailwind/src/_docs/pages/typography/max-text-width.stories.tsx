@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryFn } from '@storybook/react'
+// import { type Meta, type StoryFn } from "storybook"
 import { TailwindStoryTemplate } from '~tailwind/_docs/utils/TailwindStoryTemplate'
 import { utilityDescription } from '~tailwind/_docs/utils/utilityDescription'
 import { kaizenTailwindTheme } from '~tailwind/tailwind-presets'
@@ -24,7 +24,7 @@ export default {
       },
     },
   },
-} satisfies Meta
+} satisfies any
 
 const fontClasses = {
   'max-w-paragraph-lede': 'text-paragraph-lede leading-paragraph-lede',
@@ -36,7 +36,7 @@ const fontClasses = {
 const getFontClass = (utilityClass: string): string =>
   fontClasses[utilityClass as keyof typeof fontClasses] || ''
 
-export const MaxTextWidth: StoryFn = () => (
+export const MaxTextWidth: any = () => (
   <TailwindStoryTemplate
     compiledCssPropertyName="max-width"
     classKeyValues={classEntries}

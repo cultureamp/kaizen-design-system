@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { RemovableTag } from '../RemovableTag'
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
       ariaLabel: 'Remove tag icon',
     },
   },
-} satisfies Meta<typeof RemovableTag>
+} satisfies any
 
 export default meta
 

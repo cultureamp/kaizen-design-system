@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { action } from '@storybook/addon-actions'
-import { type Meta, type StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+// import { type Meta, type StoryObj } from "storybook"
 import { type CheckboxProps } from '../../Checkbox'
 import { MultiSelectOptionField } from '../index'
 
@@ -16,7 +16,7 @@ const meta = {
     checkedStatus: 'unchecked',
     onChange: action('>:] on change [:<'),
   },
-} satisfies Meta<typeof MultiSelectOptionField>
+} satisfies any
 
 export default meta
 

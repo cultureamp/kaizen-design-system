@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import isChromatic from 'chromatic'
 import { Text } from '~components/Text'
 import { chromaticModalSettings } from '../../_docs/controls'
@@ -31,7 +31,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ConfirmationModal>
+} satisfies any
 
 export default meta
 

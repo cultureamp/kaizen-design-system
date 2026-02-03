@@ -1,5 +1,5 @@
 import React, { type HTMLAttributes } from 'react'
-import { Unstyled } from '@storybook/blocks'
+import { Unstyled } from '@storybook/addon-docs/blocks'
 import classNames from 'classnames'
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'

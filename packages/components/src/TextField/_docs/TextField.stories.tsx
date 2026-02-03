@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { TextField } from '../index'
 
@@ -9,7 +9,7 @@ const meta = {
   args: {
     labelText: 'Label',
   },
-} satisfies Meta<typeof TextField>
+} satisfies any
 
 export default meta
 

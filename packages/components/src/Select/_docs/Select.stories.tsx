@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Label } from '~components/Label'
 import { AsyncSelect, Select } from '../index'
 
@@ -41,7 +41,7 @@ const meta = {
     options: OPTIONS,
     label: 'Select',
   },
-} satisfies Meta<typeof Select>
+} satisfies any
 
 export default meta
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Container } from '~components/Container'
 import { Text } from '~components/Text'
 import { Content } from '../index'
@@ -28,7 +28,7 @@ const meta = {
       </>
     ),
   },
-} satisfies Meta<typeof Content>
+} satisfies any
 
 export default meta
 

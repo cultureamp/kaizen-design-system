@@ -1,6 +1,6 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
-import { within } from '@storybook/test'
+import { type Meta } from 'storybook'
+import { within } from 'storybook/test'
 import { Heading } from '~components/Heading'
 import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -12,7 +12,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const CollapsibleWrapped = (args: Omit<CollapsibleProps, 'children'>): JSX.Element => (
   <Collapsible open {...args}>

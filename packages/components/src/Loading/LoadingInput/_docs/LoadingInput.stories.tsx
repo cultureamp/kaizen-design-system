@@ -1,12 +1,12 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { LoadingHeading } from '~components/Loading'
 import { LoadingInput } from '../index'
 
 const meta = {
   title: 'Components/Loading states/LoadingInput',
   component: LoadingInput,
-} satisfies Meta<typeof LoadingInput>
+} satisfies any
 
 export default meta
 
@@ -29,10 +29,16 @@ export const Animated: Story = {
 
 export const Reversed: Story = {
   args: { isReversed: true },
+
   parameters: {
-    backgrounds: { default: 'Purple 700' },
-    chromatic: { disable: false },
+    chromatic: { disable: false }
   },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 const TextControlExampleTemplate: Story = {

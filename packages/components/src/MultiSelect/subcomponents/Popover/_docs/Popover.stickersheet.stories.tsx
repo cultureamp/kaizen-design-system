@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import classnames from 'classnames'
 import { Heading } from '~components/Heading'
 import { type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -11,7 +11,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const PopoverTemplate = (args: Partial<Omit<PopoverProps, 'refs'>>): JSX.Element => {
   const [isOpen, setIsOpen] = useState<boolean>(true)

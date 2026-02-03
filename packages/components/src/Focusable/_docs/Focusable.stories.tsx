@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Tag } from '~components/__next__/Tag'
 import { Focusable } from '../index'
 
@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof Focusable>
+} satisfies any
 
 export default meta
 

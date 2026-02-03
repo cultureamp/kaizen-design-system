@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import type { ButtonProps } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -12,7 +12,7 @@ export default {
     controls: { disable: true },
   },
   tags: ['!dev'],
-} satisfies Meta
+} satisfies any
 
 const WORKING_PROPS: ButtonProps = {
   label: 'Label',
@@ -112,11 +112,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...StickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

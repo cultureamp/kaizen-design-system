@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { DirectionalLink, type DirectionalLinkProps } from '../index'
 
@@ -9,7 +9,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const DIRECTIONAL_LINK_PROPS: {
   title: string
@@ -77,11 +77,18 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
+
   parameters: {
-    ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    ...StickerSheetTemplate.parameters
   },
+
   args: { isReversed: true },
+
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  }
 }
 
 export const StickerSheetRTL: StickerSheetStory = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import isChromatic from 'chromatic/isChromatic'
 import { IconButton } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
@@ -18,7 +18,7 @@ export default {
     isInitiallyVisible: IS_CHROMATIC,
   },
   tags: ['!dev'],
-} satisfies Meta
+} satisfies any
 
 const cellStyle = {
   padding: '0 50px',

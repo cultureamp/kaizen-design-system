@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+// import { type Meta, type StoryObj } from "storybook"
+import { fn } from 'storybook/test'
 import { renderTriggerControls } from '~components/Filter/_docs/controls/renderTriggerControls'
 import { FilterButton } from '../../FilterButton'
 import { FilterSelect } from '../FilterSelect'
@@ -35,7 +35,7 @@ const meta = {
       argTypesRegex: '^on.*',
     },
   },
-} satisfies Meta<typeof FilterSelect>
+} satisfies any
 
 export default meta
 

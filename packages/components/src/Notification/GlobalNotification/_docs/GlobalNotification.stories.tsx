@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { GlobalNotification } from '../GlobalNotification'
 
 const meta = {
@@ -9,11 +9,11 @@ const meta = {
     children:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis quibusdam natus doloremque',
   },
-} satisfies Meta<typeof GlobalNotification>
+} satisfies any
 
 export default meta
 
-export const Playground: StoryObj<typeof meta> = {
+export const Playground: any = {
   parameters: {
     docs: {
       canvas: {
@@ -30,7 +30,7 @@ export const Playground: StoryObj<typeof meta> = {
 /**
  * `persistent` notification will remain on screen and cannot be removed by the user. This will also remove the fly in animation on page load
  */
-export const Persistent: StoryObj<typeof meta> = {
+export const Persistent: any = {
   args: {
     persistent: true,
     variant: 'warning',

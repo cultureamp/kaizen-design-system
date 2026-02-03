@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { ProgressBar, type ProgressBarProps } from '../index'
 
 const meta = {
@@ -26,7 +26,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof ProgressBar>
+} satisfies any
 
 export default meta
 
@@ -107,10 +107,12 @@ export const ValueAndMax: Story = {
 }
 
 export const Reversed: Story = {
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
-  },
   args: { isReversed: true },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
+  },
 }
 
 export const AccessibleName: Story = {

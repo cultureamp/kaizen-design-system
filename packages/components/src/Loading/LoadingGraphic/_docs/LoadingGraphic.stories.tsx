@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Avatar } from '~components/Avatar'
 import { Icon } from '~components/Icon'
 import { BrandMomentPositiveOutro, Informative } from '~components/Illustration'
@@ -12,7 +12,7 @@ const meta = {
   args: {
     size: 'xlarge',
   },
-} satisfies Meta<typeof LoadingGraphic>
+} satisfies any
 
 export default meta
 
@@ -34,8 +34,10 @@ export const Animated: Story = {
 
 export const Reversed: Story = {
   args: { isReversed: true },
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
   },
 }
 

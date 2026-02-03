@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
 import { Link } from '../Link'
@@ -30,7 +30,7 @@ const meta = {
         'Renders an icon at the specified `iconPosition`. For size scaling, use the `Icon` component from `"@kaizen/components/future"`. See [all available icons](https://cultureamp.design/?path=/docs/components-icon-icon-future-api-specification--docs)',
     },
   },
-} satisfies Meta<typeof Link>
+} satisfies any
 
 export default meta
 

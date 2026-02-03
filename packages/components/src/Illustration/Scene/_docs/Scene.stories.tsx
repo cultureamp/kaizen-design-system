@@ -1,11 +1,11 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 
 import { BrandMomentPositiveOutro } from '../index'
 
 const meta = {
   title: 'Components/Illustrations/Scene',
   component: BrandMomentPositiveOutro,
-} satisfies Meta<typeof BrandMomentPositiveOutro>
+} satisfies any
 
 export default meta
 

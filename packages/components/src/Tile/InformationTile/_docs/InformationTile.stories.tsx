@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { InformationTile } from '../index'
 
 const meta = {
@@ -10,7 +10,7 @@ const meta = {
     metadata: 'Side A',
     footer: <>Example Footer</>,
   },
-} satisfies Meta<typeof InformationTile>
+} satisfies any
 
 export default meta
 

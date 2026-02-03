@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { enAU } from 'date-fns/locale'
 import { type DateRange } from 'react-day-picker'
 import {
@@ -15,7 +15,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const DateRangePickerTemplate = (props: Partial<DateRangePickerProps>): JSX.Element => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({

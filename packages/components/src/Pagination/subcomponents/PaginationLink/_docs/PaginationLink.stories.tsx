@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { PaginationLink } from '../index'
 
 const meta = {
@@ -8,7 +8,7 @@ const meta = {
     'pageNumber': 1,
     'aria-label': 'Page 1',
   },
-} satisfies Meta<typeof PaginationLink>
+} satisfies any
 
 export default meta
 

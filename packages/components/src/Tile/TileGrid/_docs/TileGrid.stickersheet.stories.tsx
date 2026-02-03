@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import { InformationTile } from '~components/Tile'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { TileGrid } from '../index'
@@ -10,7 +10,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (

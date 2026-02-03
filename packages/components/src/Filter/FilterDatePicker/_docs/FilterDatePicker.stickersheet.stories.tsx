@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StaticIntlProvider } from '@cultureamp/i18n-react-intl'
-import { action } from '@storybook/addon-actions'
-import { type Meta } from '@storybook/react'
+import { action } from 'storybook/actions'
+import { type Meta } from 'storybook'
 import isChromatic from 'chromatic'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../../FilterButton'
@@ -16,7 +16,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {

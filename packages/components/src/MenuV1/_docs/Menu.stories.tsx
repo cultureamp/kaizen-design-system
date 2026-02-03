@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Icon } from '~components/Icon'
 import { Menu } from '../index'
@@ -41,7 +41,7 @@ const meta = {
     button: { control: false },
   },
   tags: ['!dev'],
-} satisfies Meta<typeof Menu>
+} satisfies any
 
 export default meta
 

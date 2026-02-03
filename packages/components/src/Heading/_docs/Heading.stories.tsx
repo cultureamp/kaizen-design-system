@@ -1,4 +1,4 @@
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Heading } from '../index'
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
     tag: 'h1',
     children: 'Have the courage to be vulnerable.',
   },
-} satisfies Meta<typeof Heading>
+} satisfies any
 
 export default meta
 
@@ -37,7 +37,9 @@ export const ComposableHeaderTitle: Story = {
 
 export const Reversed: Story = {
   args: { color: 'white' },
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
   },
 }

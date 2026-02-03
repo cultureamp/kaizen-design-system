@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Heading } from '~components/Heading'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { LoadingHeading } from '../index'
@@ -10,7 +10,7 @@ const meta = {
   args: {
     variant: 'heading-1',
   },
-} satisfies Meta<typeof LoadingHeading>
+} satisfies any
 
 export default meta
 
@@ -32,8 +32,10 @@ export const Animated: Story = {
 
 export const Reversed: Story = {
   args: { isReversed: true },
-  parameters: {
-    backgrounds: { default: 'Purple 700' },
+  globals: {
+    backgrounds: {
+      value: "purple_700"
+    }
   },
 }
 

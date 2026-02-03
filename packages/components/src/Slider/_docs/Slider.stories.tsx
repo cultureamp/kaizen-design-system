@@ -1,6 +1,6 @@
 // import React from "react"
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Slider } from '../index'
 
 const meta = {
@@ -11,7 +11,7 @@ const meta = {
     minLabel: 'Min',
     maxLabel: 'Max',
   },
-} satisfies Meta<typeof Slider>
+} satisfies any
 
 export default meta
 

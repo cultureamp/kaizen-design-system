@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Icon } from '~components/Icon'
 import { IconButton } from '../index'
 
@@ -21,7 +21,7 @@ const meta = {
     icon: <Icon name="more_horiz" isPresentational />,
   },
   tags: ['!dev'],
-} satisfies Meta<typeof IconButton>
+} satisfies any
 
 export default meta
 

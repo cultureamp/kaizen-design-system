@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { type Meta } from '@storybook/react'
+import { type Meta } from 'storybook'
 import isChromatic from 'chromatic'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { FilterButton } from '../../FilterButton'
@@ -20,7 +20,7 @@ export default {
     chromatic: { disable: false },
     controls: { disable: true },
   },
-} satisfies Meta
+} satisfies any
 
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => {

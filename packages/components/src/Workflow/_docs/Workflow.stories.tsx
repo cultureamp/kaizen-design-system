@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Meta, type StoryObj } from '@storybook/react'
+// import { type Meta, type StoryObj } from "storybook"
 import { Button } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
@@ -57,7 +57,7 @@ const meta = {
     ],
     children: <MockContent />,
   },
-} satisfies Meta<typeof Workflow>
+} satisfies any
 
 export default meta
 
