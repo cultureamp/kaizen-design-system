@@ -4,8 +4,7 @@ import './preview.css'
 import './tailwind-build.css'
 
 import React, { useEffect } from 'react'
-import { decorators as bgDecorators } from 'storybook/backgrounds/preview'
-import { type Decorator, type Preview } from 'storybook'
+import type { DecoratorFunction, ProjectAnnotations } from 'storybook/internal/csf'
 import { KaizenProvider } from '~components/KaizenProvider'
 import { I18nProvider } from '~components/__libs__/react-aria-components'
 import { ReversedColors } from '~components/utils'
@@ -13,9 +12,7 @@ import { DefaultDocsContainer } from '../components/DocsContainer'
 import { backgrounds } from '../utils/backgrounds'
 import { globalA11yRules } from '../utils/global-a11y-rules'
 
-const [, withBackground] = bgDecorators
-
-const globalTypes: Preview['globalTypes'] = {
+const globalTypes: ProjectAnnotations['globalTypes'] = {
   textDirection: {
     name: 'Text direction',
     description: '',
@@ -27,7 +24,7 @@ const globalTypes: Preview['globalTypes'] = {
   },
 }
 
-const RACDecorator: Decorator = (Story, context) => {
+const RACDecorator: DecoratorFunction = (Story, context) => {
   const dir = context.parameters.textDirection ?? context.globals.textDirection
 
   useEffect(() => {
@@ -41,13 +38,13 @@ const RACDecorator: Decorator = (Story, context) => {
   )
 }
 
-const KaizenProviderDecorator: Decorator = (Story) => (
+const KaizenProviderDecorator: DecoratorFunction = (Story) => (
   <KaizenProvider>
     <Story />
   </KaizenProvider>
 )
 
-const decorators: Preview['decorators'] = [
+const decorators: ProjectAnnotations['decorators'] = [
   RACDecorator,
   KaizenProviderDecorator,
   // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
@@ -63,16 +60,12 @@ const decorators: Preview['decorators'] = [
         : 'White'
     }
 
-    return withBackground(
-      () =>
-        context.parameters.reverseColors ? (
-          <ReversedColors>
-            <Story />
-          </ReversedColors>
-        ) : (
-          <Story />
-        ),
-      context,
+    return context.parameters.reverseColors ? (
+      <ReversedColors>
+        <Story />
+      </ReversedColors>
+    ) : (
+      <Story />
     )
   },
 ]
@@ -80,7 +73,7 @@ const decorators: Preview['decorators'] = [
 const preview = {
   parameters: {
     backgrounds: {
-      options: {}
+      values: backgrounds,
     },
     docs: {
       toc: {
@@ -214,6 +207,6 @@ const preview = {
       value: 'white'
     }
   }
-} satisfies Preview
+} satisfies ProjectAnnotations
 
 export default preview
