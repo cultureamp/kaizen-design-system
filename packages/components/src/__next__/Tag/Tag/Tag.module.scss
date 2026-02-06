@@ -14,6 +14,7 @@
     font-weight: $typography-paragraph-small-font-weight;
     line-height: $typography-paragraph-small-line-height;
     white-space: nowrap;
+    min-height: $spacing-20;
   }
 
   .iconContainer {
