@@ -245,6 +245,10 @@
     "description": "Label for the dropdown menu which displays additional actions",
     "message": "Open secondary and overflow menu"
   },
+  "select.clearButtonAlt": {
+    "description": "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message": "Clear selection: {field}"
+  },
   "singleSelect.chevronButton": {
     "description": "Aria label text for the SingleSelect button to open and close suggestions list",
     "message": "Show suggestions for {field}"
