@@ -34,9 +34,9 @@
     "@cultureamp/package-bundler": "^4.0.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "classnames": "^2.5.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
-    "rollup": "^4.57.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "rollup": "^4.57.1",
     "tailwindcss": "^3.4.19",
     "tslib": "^2.8.1"
   },
