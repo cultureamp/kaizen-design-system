@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.3.6
+
+### Patch Changes
+
+- [#6401](https://github.com/cultureamp/kaizen-design-system/pull/6401) [`f9ccaf0`](https://github.com/cultureamp/kaizen-design-system/commit/f9ccaf08035d87d9239b08fcc13bdf13edb1c9ac) - Tag: Add minimum height, allows for consistant sizing between Tag with and without icon
+
+## 2.3.5
+
+### Patch Changes
+
+- [#6399](https://github.com/cultureamp/kaizen-design-system/pull/6399) [`a5d58cf`](https://github.com/cultureamp/kaizen-design-system/commit/a5d58cfc3974ffe8adc18caf6c4bfa0c8e568e36) - Translation updates
+
 ## 2.3.4
 
 ### Patch Changes
