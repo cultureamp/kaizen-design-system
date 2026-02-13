@@ -220,6 +220,30 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "जानकारी छिपाएं:"
   },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "संयुक्त द्वितीयक और ओवरफ़्लो मेनू खोलो"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "डिफ़ॉल्ट एक्शन ओवरफ़्लो मेनू खोलो"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "मेन्यू खोलें"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "ओवरफ़्लो मेनू खोलता है"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "मीनू"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "द्वितीयक और ओवरफ़्लो मेनू खोलो"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "{field} के लिए सुझाव दिखाएँ"
@@ -227,9 +251,5 @@
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
     "message" : "चयन मिटाओ: {field}"
-  },
-  "splitButton.dropdownButton.label" : {
-    "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "अतिरिक्त कार्यवाईयां"
   }
 }

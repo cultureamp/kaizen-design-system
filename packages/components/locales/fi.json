@@ -220,6 +220,30 @@
     "description" : "Prompts user to interact with button to hide information",
     "message" : "Piilota tiedot:"
   },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "Avaa yhdistetty toissijainen ja ylivuotovalikko"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "Avaa oletustoimintojen ylivuotovalikko"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "Avaa valikko"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "Avaa ylivuotovalikko"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "Valikko"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "Avaa toissijainen ja ylivuotovalikko"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "Näytä ehdotuksia kohteelle {field}"
@@ -227,9 +251,5 @@
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
     "message" : "Tyhjennä valinta: {field}"
-  },
-  "splitButton.dropdownButton.label" : {
-    "description" : "Label for a dropdown menu holding additional actions",
-    "message" : "Lisätoimet"
   }
 }
