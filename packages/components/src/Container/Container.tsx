@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 import { type ContentProps } from '~components/Content'
-import styles from './Container.module.scss'
+import styles from './Container.module.css'
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3086156812/Layout Guidance} |
