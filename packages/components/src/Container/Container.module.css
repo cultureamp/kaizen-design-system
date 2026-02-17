@@ -1,16 +1,15 @@
 @layer kz-components {
-    .container {
-        display: flex;
-        width: 100%;
-        justify-content: center;
+  .container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 
-        * {
-
-            &,
-            &::after,
-            &::before {
-                box-sizing: border-box;
-            }
-        }
+    * {
+      &,
+      &::after,
+      &::before {
+        box-sizing: border-box;
+      }
     }
+  }
 }
