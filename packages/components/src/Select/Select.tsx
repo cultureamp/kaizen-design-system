@@ -1,4 +1,5 @@
 import React, { useId, useState } from 'react'
+import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import ReactSelect, {
   components,
@@ -6,6 +7,7 @@ import ReactSelect, {
   type Props as ReactSelectProps,
 } from 'react-select'
 import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
+import { ClearButton } from '~components/ClearButton'
 import { FieldMessage } from '~components/FieldMessage'
 import { Icon } from '~components/Icon'
 import { Label } from '~components/Label'
@@ -140,7 +142,7 @@ export const AsyncSelect = React.forwardRef(
         MultiValue,
         IndicatorsContainer,
         ValueContainer,
-        ClearIndicator: undefined,
+        ClearIndicator,
         IndicatorSeparator: null,
         LoadingMessage,
       }}
@@ -235,8 +237,21 @@ const Input: typeof components.Input = (props) => (
 const ValueContainer: typeof components.ValueContainer = (props) => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
-const ClearIndicator: typeof components.ClearIndicator = (props) => (
-  <components.ClearIndicator {...props} className={styles.clearIndicator}>
-    <Icon name="cancel" isPresentational isFilled />
-  </components.ClearIndicator>
-)
+const ClearIndicator: typeof components.ClearIndicator = (props) => {
+  const { formatMessage } = useIntl()
+  return (
+    <ClearButton
+      onClick={props.clearValue}
+      classNameOverride={styles.clearIndicator}
+      aria-label={formatMessage(
+        {
+          id: 'select.clearButtonAlt',
+          defaultMessage: 'Clear selection: {field}',
+          description:
+            'Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.',
+        },
+        { field: props.selectProps['aria-label'] },
+      )}
+    />
+  )
+}
