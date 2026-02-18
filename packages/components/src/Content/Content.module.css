@@ -1,0 +1,17 @@
+@import url('~@kaizen/design-tokens/css/variables.css');
+@import url('./_variables.css');
+
+@layer kz-components {
+  .content {
+    max-width: var(--layout-content-max-width);
+    margin: 0 var(--layout-content-side-margin);
+    width: 100%;
+
+    /* Setting a min-width: 0 will maintain the gutter margins when the inner contents has something wider than the page (e.g. scrollable table) */
+    min-width: 0;
+
+    @media (width <= calc(var(--layout-breakpoints-large) - 1px)) {
+      margin: 0 var(--content-margin-width-on-medium-and-small);
+    }
+  }
+}
