@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React, { useCallback, useId, useMemo } from 'react'
 import { Time } from '@internationalized/date'
 import { useTimeField } from '@react-aria/datepicker'
 import { I18nProvider } from '@react-aria/i18n'
@@ -60,16 +60,21 @@ const TimeFieldComponent = ({
   const reactId = useId()
   const id = propsId ?? reactId
 
-  const handleOnChange = (timeValue: TimeValue | null): void => {
-    if (timeValue === null) {
-      return onChange(null)
-    }
-    onChange({ hour: timeValue.hour, minutes: timeValue.minute })
-  }
+  const handleOnChange = useCallback(
+    (timeValue: TimeValue | null): void => {
+      if (timeValue === null) {
+        return onChange(null)
+      }
+      onChange({ hour: timeValue.hour, minutes: timeValue.minute })
+    },
+    [onChange],
+  )
+
+  const timeValue = useMemo(() => (value ? new Time(value.hour, value.minutes) : null), [value])
 
   const state = useTimeFieldState({
     ...restProps,
-    value: value ? new Time(value.hour, value.minutes) : null,
+    value: timeValue,
     onChange: handleOnChange,
     isDisabled,
     hideTimeZone: true,
