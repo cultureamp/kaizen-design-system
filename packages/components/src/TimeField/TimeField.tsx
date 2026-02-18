@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React, { useId, useMemo } from 'react'
 import { Time } from '@internationalized/date'
 import { useTimeField } from '@react-aria/datepicker'
 import { I18nProvider } from '@react-aria/i18n'
@@ -67,9 +67,11 @@ const TimeFieldComponent = ({
     onChange({ hour: timeValue.hour, minutes: timeValue.minute })
   }
 
+  const timeValue = useMemo(() => (value ? new Time(value.hour, value.minutes) : null), [value])
+
   const state = useTimeFieldState({
     ...restProps,
-    value: value ? new Time(value.hour, value.minutes) : null,
+    value: timeValue,
     onChange: handleOnChange,
     isDisabled,
     hideTimeZone: true,
