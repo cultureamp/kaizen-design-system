@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.3.7
+
+### Patch Changes
+
+- [#6403](https://github.com/cultureamp/kaizen-design-system/pull/6403) [`364edb5`](https://github.com/cultureamp/kaizen-design-system/commit/364edb5477efe4fb2f1051f63bd9973880f2e5c2) - TB update border, improve responsiveness
+
+- [#6415](https://github.com/cultureamp/kaizen-design-system/pull/6415) [`74e62c2`](https://github.com/cultureamp/kaizen-design-system/commit/74e62c23829794af9b163c354924c1e6c33e026b) - Update container component to use CSS from SCSS
+
 ## 2.3.6
 
 ### Patch Changes
