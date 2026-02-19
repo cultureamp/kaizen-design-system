@@ -4,7 +4,7 @@ import { Avatar, type AvatarProps } from '~components/Avatar'
 import { Icon } from '~components/Icon'
 import { LiveIcon } from './subcomponents/LiveIcon/LiveIcon'
 import { type TagVariants } from './types'
-import styles from './Tag.module.scss'
+import styles from './Tag.module.css'
 
 export type TagWithAvatarProps = Omit<DefaultTagProps, 'variant'> & {
   variant: 'profile'

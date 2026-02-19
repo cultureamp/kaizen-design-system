@@ -1,0 +1,12 @@
+@layer kz-components {
+    .buttonReset {
+      appearance: none;
+      display: inline;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+}
