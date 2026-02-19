@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { Container } from '~components/Container'
 import { Text } from '~components/Text'
 import { Content } from '../index'
+import { viewport } from '@popperjs/core'
 
 const meta = {
   title: 'Pages/Content',
@@ -51,7 +52,7 @@ export const Example: Story = {
     </Container>
   ),
   parameters: {
-    chromatic: { disable: false },
+    chromatic: { disable: false, viewport: [1079, 1080] },
     docs: {
       canvas: {
         sourceState: 'shown',
