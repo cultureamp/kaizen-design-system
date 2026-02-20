@@ -7,6 +7,10 @@ import { Content } from '../index'
 const meta = {
   title: 'Pages/Content',
   component: Content,
+  parameters: {
+    chromatic: { disable: false },
+    layout: 'fullscreen',
+  },
   args: {
     children: (
       <>
