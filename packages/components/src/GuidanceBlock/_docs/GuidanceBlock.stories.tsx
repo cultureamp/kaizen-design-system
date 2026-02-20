@@ -39,9 +39,6 @@ const meta = {
     illustration: <Informative alt="" />,
   },
   argTypes: {
-    actions: {
-      control: false,
-    },
     illustrationType: {
       description:
         'Sets the how the width and aspect ratio will respond to the Illustration passed in.',
@@ -138,41 +135,6 @@ export const Playground: Story = {
   },
 }
 
-export const Actions: Story = {
-  args: {
-    content: <ContentComponent />,
-    actions: {
-      primary: {
-        label: 'Label',
-        onClick: () => alert('tada: 🎉'),
-      },
-      secondary: {
-        label: 'Label',
-        href: '#',
-      },
-    },
-  },
-}
-
-export const Tooltip: Story = {
-  args: {
-    content: <ContentComponent />,
-    actions: {
-      primary: {
-        label: 'Label',
-        onClick: () => alert('tada: 🎉'),
-        tooltip: {
-          text: 'Opens in a new tab',
-          mood: 'cautionary',
-        },
-      },
-      secondary: {
-        label: 'Label',
-        href: '#',
-      },
-    },
-  },
-}
 
 export const CustomContent: Story = {
   args: {
@@ -212,57 +174,6 @@ export const Variants: Story = {
   args: {
     text: defaultText,
   },
-}
-
-export const ActionsVsActionsSlot: Story = {
-  args: {
-    layout: 'default',
-    illustration: <Informative alt="" />,
-    content: <ContentComponent />,
-    actions: {
-      dismiss: {
-        onClick: () => {
-          alert('Dismissed')
-        },
-      },
-      primary: {
-        label: 'Label',
-        onClick: () => alert('tada: 🎉'),
-      },
-      secondary: {
-        label: 'Label',
-        href: '#',
-      },
-    },
-    secondaryDismiss: true,
-  },
-  render: (args) => (
-    <div className="flex flex-col gap-16">
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<ContentComponent />}
-        actions={args.actions}
-        secondaryDismiss
-      />
-      <GuidanceBlock
-        layout="default"
-        illustration={<Informative alt="" />}
-        content={<ContentComponent />}
-        secondaryDismiss={true}
-        actionsSlot={
-          <>
-            <Button size="large" onPress={() => alert('tada: 🎉')} slot="primary">
-              Label
-            </Button>
-            <Button variant="tertiary" size="large" onPress={() => alert('tada: 🎉')}>
-              Label
-            </Button>
-          </>
-        }
-      />
-    </div>
-  ),
 }
 
 export const ActionsSlot: Story = {
