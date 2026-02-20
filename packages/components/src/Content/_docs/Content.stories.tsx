@@ -7,10 +7,6 @@ import { Content } from '../index'
 const meta = {
   title: 'Pages/Content',
   component: Content,
-  parameters: {
-    chromatic: { disable: false },
-    layout: 'fullscreen',
-  },
   args: {
     children: (
       <>
@@ -55,24 +51,7 @@ export const Example: Story = {
     </Container>
   ),
   parameters: {
-    viewport: {
-      default: {
-        name: 'Desktop',
-        styles: {
-          width: '1200px',
-        },
-        type: 'desktop',
-      },
-      desktopSmall: {
-        name: 'Desktop small',
-        styles: {
-          width: '1079px',
-        },
-        type: 'desktop',
-      },
-      defaultViewport: 'default',
-    },
-    chromatic: { disable: false, viewport: [1079, 1200] },
+    chromatic: { disable: false, viewports: [1079, 1200] },
     docs: {
       canvas: {
         sourceState: 'shown',
