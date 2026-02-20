@@ -3,11 +3,11 @@
   Use different tokens with different opacities across the Zen and Heart themes, by assuming that when Zen is applied there won't be any CSS variables declared.
   */
 
-  .root {
+  :root {
     --dt-content-border-color: rgb(
       var(--color-gray-600-rgb),
       0.1
-    ); /* CHECK ON MONDAY - NOT WORKING */
+    );
   }
 
   .wrapper {
@@ -26,7 +26,7 @@
   .content,
   .menuSeparator {
     border-top: 1px solid;
-    border-color: rgb(var(--color-gray-600-rgb), 0.1);
+    border-color: var(--dt-content-border-color);
   }
 
   .canvas {
