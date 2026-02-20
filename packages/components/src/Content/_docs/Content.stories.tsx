@@ -51,7 +51,24 @@ export const Example: Story = {
     </Container>
   ),
   parameters: {
-    chromatic: { disable: false, viewport: [1079, 1080] },
+    viewport: {
+      default: {
+        name: 'Desktop',
+        styles: {
+          width: '1200px',
+        },
+        type: 'desktop',
+      },
+      desktopSmall: {
+        name: 'Desktop small',
+        styles: {
+          width: '1079px',
+        },
+        type: 'desktop',
+      },
+      defaultViewport: 'default',
+    },
+    chromatic: { disable: false, viewport: [1079, 1200] },
     docs: {
       canvas: {
         sourceState: 'shown',
