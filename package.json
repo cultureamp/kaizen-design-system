@@ -72,7 +72,7 @@
     "eslint-plugin-storybook": "^0.12.0",
     "globals": "^16.5.0",
     "node-fetch": "^3.3.2",
-    "playwright": "^1.57.0",
+    "playwright": "^1.58.2",
     "plop": "^4.0.5",
     "prettier": "^3.8.1",
     "rimraf": "^6.1.3",
