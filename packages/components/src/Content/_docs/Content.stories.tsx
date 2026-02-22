@@ -51,7 +51,7 @@ export const Example: Story = {
     </Container>
   ),
   parameters: {
-    chromatic: { disable: false },
+    chromatic: { disable: false, viewports: [1079, 1200] },
     docs: {
       canvas: {
         sourceState: 'shown',
