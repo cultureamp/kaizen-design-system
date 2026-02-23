@@ -67,7 +67,10 @@ const TimeFieldComponent = ({
     onChange({ hour: timeValue.hour, minutes: timeValue.minute })
   }
 
-  const timeValue = useMemo(() => (value ? new Time(value.hour, value.minutes) : null), [value])
+  const timeValue = useMemo(
+    () => (value ? new Time(value.hour, value.minutes) : null),
+    [value?.hour, value?.minutes],
+  )
 
   const state = useTimeFieldState({
     ...restProps,
