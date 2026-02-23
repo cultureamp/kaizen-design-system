@@ -4,7 +4,7 @@
   */
 
   :root {
-    --dt-content-border-color: rgb(var(--color-gray-600-rgb), 0.1);
+    --dt-content-border-color: rgb(var(--color-gray-600-rgb) / 10%);
   }
 
   .wrapper {
@@ -22,8 +22,7 @@
 
   .content,
   .menuSeparator {
-    border-top: 1px solid;
-    border-color: var(--dt-content-border-color);
+    border-top: 1px solid var(--dt-content-border-color);
   }
 
   .canvas {
@@ -33,12 +32,10 @@
   }
 
   .reversed {
-    border-color: rgb(var(--color-white-rgb), 0.1);
+    border-color: rgb(var(--color-white-rgb) / 10%);
   }
 
   .menuSeparator {
-    /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
-
     margin: 5px 0;
   }
 }
