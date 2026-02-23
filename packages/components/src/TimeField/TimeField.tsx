@@ -69,6 +69,7 @@ const TimeFieldComponent = ({
 
   const timeValue = useMemo(
     () => (value ? new Time(value.hour, value.minutes) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [value?.hour, value?.minutes],
   )
 
