@@ -35,12 +35,14 @@ export type SelectProps = {
    * @default false
    */
   fullWidth?: boolean
-  /**
-   * @deprecated Use of placeholder text goes against our a11y standards.
-   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
-   */
-  placeholder?: string
-} & ReactSelectProps<any, boolean>
+} & Omit<ReactSelectProps<any, boolean>, 'placeholder'>
+
+// react-select defaults to showing "Select..." placeholder text, which goes against our a11y
+// standards — use `label` for the field name and `description` for help text instead.
+// `noPlaceholderText` overrides the default string; `NullPlaceholder` removes the empty DOM node
+// that react-select still renders even when the text is empty.
+const noPlaceholderText = ''
+const NullPlaceholder = (): null => null
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
@@ -57,7 +59,6 @@ export const Select = React.forwardRef<any, SelectProps>(
       description,
       fullWidth: propsFullWidth,
       className: propsClassName,
-      placeholder,
       ...props
     },
     ref,
@@ -92,10 +93,10 @@ export const Select = React.forwardRef<any, SelectProps>(
           {...props}
           ref={ref}
           aria-labelledby={labelId}
-          placeholder={placeholder ?? ''}
+          placeholder={noPlaceholderText}
           components={{
             Control,
-            Placeholder,
+            Placeholder: NullPlaceholder,
             DropdownIndicator,
             Menu,
             GroupHeading,
@@ -120,17 +121,19 @@ export const Select = React.forwardRef<any, SelectProps>(
 Select.displayName = 'Select'
 
 interface AsyncProps
-  extends ReactAsyncSelectProps<any, boolean, any>, ReactSelectProps<any, boolean, any> {}
+  extends
+    Omit<ReactAsyncSelectProps<any, boolean, any>, 'placeholder'>,
+    Omit<ReactSelectProps<any, boolean, any>, 'placeholder'> {}
 
 export const AsyncSelect = React.forwardRef(
-  ({ className: propsClassName, placeholder, ...props }: AsyncProps, ref: React.Ref<any>) => (
+  ({ className: propsClassName, ...props }: AsyncProps, ref: React.Ref<any>) => (
     <Async
       {...props}
       ref={ref}
-      placeholder={placeholder ?? ''}
+      placeholder={noPlaceholderText}
       components={{
         Control,
-        Placeholder,
+        Placeholder: NullPlaceholder,
         DropdownIndicator,
         Menu,
         Option,
@@ -161,12 +164,6 @@ const Control: typeof components.Control = (props) => (
       )}
     />
   </div>
-)
-
-const Placeholder: typeof components.Placeholder = (props) => (
-  <components.Placeholder {...props} className={styles.placeholderOverrides}>
-    <span className={styles.placeholder}>{props.children}</span>
-  </components.Placeholder>
 )
 
 const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
