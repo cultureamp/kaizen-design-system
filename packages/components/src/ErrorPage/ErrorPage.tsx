@@ -7,7 +7,7 @@ import { BrandMomentError } from '~components/Illustration'
 import { Text } from '~components/Text'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { useErrorMessages, type ErrorStatuses } from './hooks'
-import styles from './ErrorPage.module.scss'
+import styles from './ErrorPage.module.css'
 
 const getMailToHref = (code: ErrorStatuses): string => {
   const supportEmail = 'support@cultureamp.com'
