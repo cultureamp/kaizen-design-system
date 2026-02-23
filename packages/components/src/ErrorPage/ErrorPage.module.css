@@ -1,0 +1,5 @@
+@layer kz-components {
+  .paragraphPadding {
+    padding: var(--spacing-24) 0;
+  }
+}
