@@ -84,7 +84,7 @@ export const ContextModal = ({
     : {}
 
   if (onConfirm) {
-    const confirmAction = { label: confirmLabel, onClick: onConfirm }
+    const confirmAction = { label: confirmLabel, onClick: onConfirm, primary: true }
     footerActions.push({ ...confirmAction, ...workingProps })
   }
 
@@ -133,7 +133,6 @@ export const ContextModal = ({
         <ModalFooter
           variant={image ? 'context' : undefined}
           actions={footerActions}
-          appearance="primary"
           unpadded={unpadded}
         />
       </div>
