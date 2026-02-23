@@ -130,6 +130,9 @@ importers:
       prettier:
         specifier: ^3.7.3
         version: 3.7.3
+      react:
+        specifier: ^19.2.0
+        version: 19.2.0
       rimraf:
         specifier: ^6.1.2
         version: 6.1.2

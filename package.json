@@ -75,6 +75,7 @@
     "playwright": "^1.57.0",
     "plop": "^4.0.4",
     "prettier": "^3.7.3",
+    "react": "^19.2.0",
     "rimraf": "^6.1.2",
     "storybook-addon-pseudo-states": "^4.0.4",
     "stylelint": "^16.26.1",
