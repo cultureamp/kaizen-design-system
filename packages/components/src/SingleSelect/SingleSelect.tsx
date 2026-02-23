@@ -10,7 +10,6 @@ import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popo
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectProvider } from './context'
 import {
-  ListBox,
   ListBoxSection,
   ListItem,
   Option,
@@ -217,7 +216,3 @@ SingleSelect.Section = ListBoxSection
 SingleSelect.SectionDivider = SectionDivider
 SingleSelect.Option = Option
 SingleSelect.ItemDefaultRender = ListItem
-
-// @deprecated Legacy exported aliases
-SingleSelect.TriggerButton = SelectToggle
-SingleSelect.ListBox = ListBox
