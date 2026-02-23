@@ -135,7 +135,6 @@ export const Playground: Story = {
   },
 }
 
-
 export const CustomContent: Story = {
   args: {
     content: <ContentComponent />,
