@@ -84,7 +84,7 @@ export const ContextModal = ({
     : {}
 
   if (onConfirm) {
-    const confirmAction = { label: confirmLabel, onClick: onConfirm, primary: true }
+    const confirmAction = { label: confirmLabel, onClick: onConfirm }
     footerActions.push({ ...confirmAction, ...workingProps })
   }
 

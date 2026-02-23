@@ -46,9 +46,8 @@ export const ModalFooter = ({
           <div className={styles.actionButton} key={index}>
             <Button
               type="button"
-              primary={index === 0 && action.primary}
-              destructive={index === 0 && action.destructive}
-              secondary={index > 0}
+              primary={index === 0 && !action.destructive && !action.secondary}
+              secondary={index > 0 && !action.destructive && !action.primary}
               fullWidth={queries.isSmall}
               {...action}
             />
