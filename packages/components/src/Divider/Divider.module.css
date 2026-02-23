@@ -4,7 +4,7 @@
   */
 
   :root {
-    --dt-content-border-color: rgb(var(--color-gray-600-rgb) / 10%);
+    --dt-content-border-color: rgb(var(--color-gray-600-rgb), 0.1);
   }
 
   .wrapper {
@@ -32,7 +32,7 @@
   }
 
   .reversed {
-    border-color: rgb(var(--color-white-rgb) / 10%);
+    border-color: rgb(var(--color-white-rgb), 0.1);
   }
 
   .menuSeparator {
