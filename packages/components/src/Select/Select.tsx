@@ -1,6 +1,7 @@
 import React, { useId, useState } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
+import { useButton } from 'react-aria'
 import ReactSelect, {
   components,
   type NoticeProps,
@@ -239,9 +240,11 @@ const ValueContainer: typeof components.ValueContainer = (props) => (
 )
 const ClearIndicator: typeof components.ClearIndicator = (props) => {
   const { formatMessage } = useIntl()
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const { buttonProps } = useButton({ ...props, onClick: props.clearValue }, buttonRef)
   return (
     <ClearButton
-      onClick={props.clearValue}
+      {...buttonProps}
       classNameOverride={styles.clearIndicator}
       aria-label={formatMessage(
         {
