@@ -1,7 +1,7 @@
 import { createElement, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Heading.module.scss'
+import styles from './Heading.module.css'
 
 const VARIANTS_24PX_OR_GREATER = ['display-0', 'heading-1', 'heading-2']
 
