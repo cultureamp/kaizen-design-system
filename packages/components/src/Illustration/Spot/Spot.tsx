@@ -27,6 +27,12 @@ const createSpotIllustration =
 /* prettier-ignore */ export const Assertive = createSpotIllustration("moods-assertive.svg")
 
 /**
+ * Template Library / PCD
+ */
+/* prettier-ignore */ export const PCDSurvey = createSpotIllustration("template-library-pcq-survey-full.svg")
+/* prettier-ignore */ export const PCDPulseSurvey = createSpotIllustration("template-library-pcq-survey-pulse.svg")
+
+/**
  * Template Library / Engagement
  */
 /* prettier-ignore */ export const BenefitsSurvey = createSpotIllustration("template-library-benefits-survey.svg")

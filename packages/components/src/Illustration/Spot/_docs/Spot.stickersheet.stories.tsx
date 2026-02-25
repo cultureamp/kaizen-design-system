@@ -79,6 +79,8 @@ import {
   NewYork,
   Objective,
   OneOnOne,
+  PCDPulseSurvey,
+  PCDSurvey,
   PaperPen,
   PartialImport,
   PerformanceDiagnostics,
@@ -144,6 +146,17 @@ export default {
     controls: { disable: true },
   },
 } satisfies Meta
+
+const performanceCultureDiagnosticSpots = [
+  {
+    Component: PCDSurvey,
+    name: 'PCDSurvey',
+  },
+  {
+    Component: PCDPulseSurvey,
+    name: 'PCDPulseSurvey',
+  },
+]
 
 const engagementSpots = [
   {
@@ -706,6 +719,15 @@ const IllustrationExampleTile = ({
 const StickerSheetTemplate: StickerSheetStory = {
   render: () => (
     <div className="grid gap-24">
+      <div>
+        <Heading variant="heading-3">Performance Culture Diagnostic</Heading>
+        <div className="flex flex-wrap ">
+          {performanceCultureDiagnosticSpots.map((props, i) => (
+            <IllustrationExampleTile key={`engagement-${i}`} {...props} />
+          ))}
+        </div>
+      </div>
+
       <div>
         <Heading variant="heading-3">Engagement</Heading>
         <div className="flex flex-wrap ">
