@@ -1,5 +1,4 @@
 import React, { useId, useState } from 'react'
-import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { useButton } from 'react-aria'
 import ReactSelect, {
@@ -239,22 +238,7 @@ const ValueContainer: typeof components.ValueContainer = (props) => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
 const ClearIndicator: typeof components.ClearIndicator = (props) => {
-  const { formatMessage } = useIntl()
   const buttonRef = React.useRef<HTMLButtonElement>(null)
   const { buttonProps } = useButton({ ...props, onClick: props.clearValue }, buttonRef)
-  return (
-    <ClearButton
-      {...buttonProps}
-      classNameOverride={styles.clearIndicator}
-      aria-label={formatMessage(
-        {
-          id: 'select.clearButtonAlt',
-          defaultMessage: 'Clear selection: {field}',
-          description:
-            'Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.',
-        },
-        { field: props.selectProps['aria-label'] },
-      )}
-    />
-  )
+  return <ClearButton {...buttonProps} classNameOverride={styles.clearIndicator} />
 }
