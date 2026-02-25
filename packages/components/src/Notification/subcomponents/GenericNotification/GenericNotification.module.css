@@ -2,12 +2,8 @@
   --border-width: var(--border-width-1);
   --notification-vertical-padding: calc(var(--spacing-6) - var(--border-width));
   --notification-fade-out: opacity 200ms ease;
-  --notification-collapse-height:
-    margin-top 200ms ease,
-    margin-bottom 200ms ease;
-  --notification-collapse-height-delayed:
-    margin-top 200ms ease 200ms,
-    margin-bottom 200ms ease;
+  --notification-collapse-height: margin-top 200ms ease, margin-bottom 200ms ease;
+  --notification-collapse-height-delayed: margin-top 200ms ease 200ms, margin-bottom 200ms ease;
   --notification-pop-up: transform 200ms ease-out;
   --notification-slide-right: transform 300ms ease-out;
 }
@@ -38,7 +34,8 @@
     width: auto;
     min-height: 46px;
     padding: var(--notification-vertical-padding) var(--spacing-12);
-    transition: var(--notification-fade-out), var(--notification-pop-up), var(--notification-collapse-height);
+    transition:
+      var(--notification-fade-out), var(--notification-pop-up), var(--notification-collapse-height);
   }
 
   .toast {
@@ -47,7 +44,9 @@
     box-shadow: var(--shadow-small-box-shadow);
     max-width: 100%;
     padding: var(--notification-vertical-padding) 10px;
-    transition: var(--notification-fade-out), var(--notification-slide-right), var(--notification-collapse-height-delayed);
+    transition:
+      var(--notification-fade-out), var(--notification-slide-right),
+      var(--notification-collapse-height-delayed);
     will-change: transform;
   }
 
@@ -133,13 +132,13 @@
     opacity: 1;
   }
 
-
-
   /* Structure: .icon (from %ca-notification__icon) */
   .icon {
     align-items: flex-start;
     box-sizing: content-box;
-    color: var(--icon-color); /* Defines the color of the icon based on the notification type line 73 */
+    color: var(
+      --icon-color
+    ); /* Defines the color of the icon based on the notification type line 73 */
   }
 
   .inline .icon,
@@ -180,10 +179,10 @@
   }
 
   .inline .textContainer {
-  /*
+    /*
   Inline notifications often fade onto a white background.
   Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.  
-  */    
+  */
     transition: var(--notification-fade-out);
   }
 
@@ -392,5 +391,5 @@
     background: none;
     border: none;
     padding: 0;
-  }  
+  }
 }
