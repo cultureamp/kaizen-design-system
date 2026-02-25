@@ -16,7 +16,7 @@
   $breadcrumb-circle-width: 48px;
   $breadcrumb-breakpoint-width: $layout-content-max-width + $layout-content-side-margin * 2 +
     $breadcrumb-circle-width * 2.25;
-  $title-block-separator-height: 0.063rem;
+  $title-block-separator-height: 0.0625rem;
   $tab-container-height-default: $ca-grid * 3;
   $tab-container-height-small: $ca-grid * 2.5;
   $tab-container-height-default-collapsed: 0;
@@ -65,12 +65,10 @@
 
   .lightVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: $title-block-separator-height;
   }
 
   .adminVariant .titleRow {
     background-color: $color-white;
-    margin-bottom: $title-block-separator-height;
   }
 
   %titleBlockInner {
@@ -93,7 +91,7 @@
   }
 
   .lightVariant .titleRowInner {
-    border-bottom: 1px solid $color-gray-300;
+    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 $color-gray-300;
   }
 
   %rowBelowSeparatorInnerMarginOverride {
@@ -112,27 +110,33 @@
 
   .titleRowInnerContent {
     box-sizing: border-box;
+    min-height: 88px;
     position: relative;
     display: flex;
     width: 100%;
     align-items: center;
     gap: $title-block-gap-default;
-    padding-block: $title-block-spacing-default 19px;
+    padding-block: $title-block-spacing-default;
     justify-content: space-between;
-    border-bottom: $title-block-separator-height solid rgba($color-white-rgb, 0.1);
+    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 rgba($color-white-rgb, 0.1);
 
     .educationVariant & {
-      border-bottom-color: rgba($color-purple-700-rgb, 0.2);
+      box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0
+        rgba($color-purple-700-rgb, 0.2);
     }
 
     .lightVariant &,
     .adminVariant &,
     .collapseNavigationArea & {
-      border-bottom-color: transparent;
+      box-shadow: none;
     }
 
     @include title-block-medium-and-small {
-      border-bottom: none;
+      box-shadow: none;
+
+      .educationVariant & {
+        box-shadow: none;
+      }
     }
 
     @include title-block-under-576 {
@@ -425,7 +429,6 @@
   .rowBelowSeparatorInnerContent {
     display: flex;
     width: 100%;
-    margin-top: -$title-block-separator-height;
     justify-content: space-between;
   }
 
@@ -496,7 +499,6 @@
   .navigationTabScrollerContainer {
     .hasNavigationTabs & {
       @include title-block-small {
-        margin-top: $title-block-separator-height;
         height: $tab-container-height-small;
         display: block;
         overflow-x: scroll;
@@ -529,7 +531,7 @@
     @include title-block-small {
       display: block;
       position: absolute;
-      top: $tab-container-height-small - $title-block-separator-height;
+      top: $tab-container-height-small;
       width: $tab-container-height-small;
       height: $tab-container-height-small;
       background: linear-gradient(0deg, $color-purple-600, rgba($color-purple-600-rgb, 0));

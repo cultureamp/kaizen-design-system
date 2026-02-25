@@ -1,0 +1,217 @@
+@layer kz-components {
+  .root {
+    --medium: calc(var(--spacing-md) * 1.25);
+    --small: var(--spacing-md);
+
+    margin-inline-end: calc(var(--spacing-md) * 0.5);
+    font-size: var(--typography-paragraph-small-font-size);
+    font-weight: var(--typography-paragraph-small-font-weight);
+    letter-spacing: var(--typography-paragraph-small-letter-spacing);
+    color: var(--color-purple-800);
+    display: inline-block;
+    border: var(--border-borderless-border-width) var(--border-borderless-border-style)
+      var(--border-borderless-border-color);
+    border-radius: calc(var(--spacing-md) * 0.75);
+    padding: 0 calc(var(--spacing-md) * 0.4);
+    box-sizing: border-box;
+
+    &.profile {
+      padding-left: calc(var(--spacing-md) * 0.2);
+    }
+  }
+
+  .layoutContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .validationIcon {
+    align-items: center;
+    display: flex;
+    color: var(--color-white);
+    margin-inline: calc(var(--spacing-md) * -0.15) var(--spacing-xs);
+  }
+
+  .profile {
+    margin-inline: calc(var(--spacing-md) * -0.15) var(--spacing-xs);
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .textContent {
+    margin-top: -1px;
+    font-family: var(--typography-paragraph-small-font-family);
+    font-weight: var(--typography-paragraph-small-font-weight);
+    font-size: var(--typography-paragraph-small-font-size);
+    line-height: var(--typography-paragraph-small-line-height);
+    letter-spacing: var(--typography-paragraph-small-letter-spacing);
+    white-space: nowrap;
+  }
+
+  .iconWrapper {
+    --icon-size: 16;
+
+    position: relative;
+    height: 16px;
+    width: 16px;
+  }
+
+  .dismissButton {
+    /* Replace @include button-reset to reset button's style */
+    appearance: none;
+    background: transparent;
+    font: inherit;
+    margin: 0;
+    border: none;
+
+    /* Original style */
+    position: relative;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 var(--spacing-xs);
+    margin-inline: -0.225rem -0.6625rem;
+    color: rgb(var(--color-purple-800-rgb), 0.7);
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-purple-800);
+    }
+
+    &:active {
+      color: var(--color-purple-800);
+    }
+
+    svg {
+      position: relative;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-visible .iconWrapper {
+      color: var(--color-purple-800);
+
+      &::after {
+        --focus-ring-offset: calc((var(--border-focus-ring-border-width)));
+
+        content: '';
+        position: absolute;
+        background: transparent;
+        border-radius: 50%;
+        border-width: var(--border-focus-ring-border-width);
+        border-style: var(--border-focus-ring-border-style);
+        border-color: var(--color-blue-500);
+        inset: calc(-1 * var(--focus-ring-offset));
+      }
+    }
+  }
+
+  .background {
+    /*
+    As our icons are only one-tone, this span places
+    a white background under the dismissible icon to
+    give the illusion of a background colour that is
+    different to the rest of the tag
+    */
+    position: absolute;
+    display: inline-block;
+    width: calc(var(--spacing-xs) + 0.125rem); /* optical adjustment */
+    height: calc(var(--spacing-xs) + 0.125rem); /* optical adjustment */
+    background-color: white;
+    left: 10px;
+    top: 10px;
+  }
+
+  .truncate {
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+  }
+
+  .inline {
+    margin: 0;
+  }
+
+  .medium {
+    height: var(--medium);
+  }
+
+  .small {
+    height: var(--small);
+  }
+
+  .default {
+    background-color: var(--color-gray-300);
+  }
+
+  .sentimentPositive {
+    background-color: var(--color-green-100);
+  }
+
+  .sentimentNeutral {
+    background-color: var(--color-gray-300);
+  }
+
+  .sentimentNegative {
+    background-color: var(--color-red-100);
+  }
+
+  .sentimentNone {
+    background-color: var(--color-white);
+    border-color: var(--color-gray-300);
+  }
+
+  .validationPositive {
+    background-color: var(--color-green-100);
+
+    .validationIcon {
+      color: var(--color-green-500);
+    }
+  }
+
+  .validationInformative {
+    background-color: var(--color-blue-100);
+
+    .validationIcon {
+      color: var(--color-blue-500);
+    }
+  }
+
+  .validationNegative {
+    background-color: var(--color-red-100);
+
+    .validationIcon {
+      color: var(--color-red-500);
+    }
+  }
+
+  .validationCautionary {
+    background-color: var(--color-yellow-100);
+
+    .validationIcon {
+      color: var(--color-yellow-700);
+    }
+  }
+
+  .statusLive {
+    background-color: var(--color-green-100);
+    color: var(--color-purple-800);
+  }
+
+  .statusAction {
+    background-color: var(--color-orange-100);
+    color: var(--color-purple-800);
+  }
+
+  .statusClosed {
+    background-color: var(--color-red-100);
+  }
+
+  .statusDraft {
+    background-color: var(--color-blue-100);
+    color: var(--color-purple-800);
+  }
+}
