@@ -7,7 +7,7 @@ import {
   type ToggleSwitchProps,
   type ToggledStatus,
 } from '../ToggleSwitch/ToggleSwitch'
-import styles from './ToggleSwitchField.module.scss'
+import styles from './ToggleSwitchField.module.css'
 
 export type ToggleSwitchFieldProps = {
   labelText: React.ReactNode
