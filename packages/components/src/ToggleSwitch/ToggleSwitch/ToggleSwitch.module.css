@@ -8,11 +8,11 @@
     /* Reset checkbox */
     opacity: 0;
     position: absolute;
-  }
 
-  :global(.ideal-sans) .checkbox {
-    /* This is to override bootstrap styles. Remove when appropriate */
-    position: absolute;
+    :global(.ideal-sans) & {
+      /* This is to override bootstrap styles. Remove when appropriate */
+      position: absolute;
+    }
   }
 
   .track {
