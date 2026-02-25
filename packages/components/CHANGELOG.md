@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.4.0
+
+### Minor Changes
+
+- [#6434](https://github.com/cultureamp/kaizen-design-system/pull/6434) [`d65186b`](https://github.com/cultureamp/kaizen-design-system/commit/d65186baf174220be2ef0c5611f0955a2a9ff8f9) - Add PCD spot illustrations
+
+### Patch Changes
+
+- [#6427](https://github.com/cultureamp/kaizen-design-system/pull/6427) [`42b8739`](https://github.com/cultureamp/kaizen-design-system/commit/42b87390eacc38a01d64bb2e48be70519231e7b1) - Update VisuallyHidden component to CSS from SCSS
+
+- [#6420](https://github.com/cultureamp/kaizen-design-system/pull/6420) [`9624165`](https://github.com/cultureamp/kaizen-design-system/commit/96241657a2e66bc879df2a27b7291ce72d71ea5e) - Update Tag component to CSS from SCSS
+
+- [#6426](https://github.com/cultureamp/kaizen-design-system/pull/6426) [`697d678`](https://github.com/cultureamp/kaizen-design-system/commit/697d67820585d8fc18a8fb067d66e48d90bcfbd4) - Update Divider component to CSS from SCSS
+
+- [#6419](https://github.com/cultureamp/kaizen-design-system/pull/6419) [`fd082e9`](https://github.com/cultureamp/kaizen-design-system/commit/fd082e9964d3388c94550cd71f5810ecfacb15f9) - fix: TimeField infinite rerenders when value is set.
+
+- [#6418](https://github.com/cultureamp/kaizen-design-system/pull/6418) [`aecca8a`](https://github.com/cultureamp/kaizen-design-system/commit/aecca8adbdfb4581eb3c711fdeb5a0116af48a0a) - Update Content component to use CSS from SCSS
+
+- [#6428](https://github.com/cultureamp/kaizen-design-system/pull/6428) [`1ecce0f`](https://github.com/cultureamp/kaizen-design-system/commit/1ecce0feb1b41db807d7511d069ff0a6d81543e5) - Update ErrorPage component to CSS from SCSS
+
 ## 2.3.7
 
 ### Patch Changes
