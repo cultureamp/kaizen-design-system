@@ -1,0 +1,396 @@
+:root {
+  --border-width: var(--border-width-1);
+  --notification-vertical-padding: calc(var(--spacing-6) - var(--border-width));
+  --notification-fade-out: opacity 200ms ease;
+  --notification-collapse-height:
+    margin-top 200ms ease,
+    margin-bottom 200ms ease;
+  --notification-collapse-height-delayed:
+    margin-top 200ms ease 200ms,
+    margin-bottom 200ms ease;
+  --notification-pop-up: transform 200ms ease-out;
+  --notification-slide-right: transform 300ms ease-out;
+}
+
+@layer kz-components {
+  /* Replace @extend %ca-notification from SCSS */
+  .notification {
+    display: flex;
+    box-sizing: border-box;
+    pointer-events: all;
+
+    &:focus {
+      outline-offset: 1px;
+      outline: 2px solid var(--color-blue-500);
+    }
+  }
+
+  /* Variants */
+  .inline,
+  .toast {
+    margin-bottom: var(--spacing-24);
+    border-width: var(--border-width);
+    border-style: solid;
+    border-radius: var(--border-solid-border-radius);
+  }
+
+  .inline {
+    width: auto;
+    min-height: 46px;
+    padding: var(--notification-vertical-padding) var(--spacing-12);
+    transition: var(--notification-fade-out), var(--notification-pop-up), var(--notification-collapse-height);
+  }
+
+  .toast {
+    container-type: inline-size;
+    width: 25rem;
+    box-shadow: var(--shadow-small-box-shadow);
+    max-width: 100%;
+    padding: var(--notification-vertical-padding) 10px;
+    transition: var(--notification-fade-out), var(--notification-slide-right), var(--notification-collapse-height-delayed);
+    will-change: transform;
+  }
+
+  .global {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-width: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding-top: var(--spacing-16);
+    padding-bottom: var(--spacing-16);
+    padding-inline-start: var(--spacing-8);
+    transition: var(--notification-collapse-height);
+    position: relative;
+    z-index: 1030;
+  }
+
+  /* Types (colors) */
+  .success {
+    background: var(--color-green-100);
+    border-color: var(--color-green-500);
+    color: var(--color-purple-800);
+
+    --icon-color: var(--color-green-500);
+  }
+
+  .informative {
+    background: var(--color-blue-100);
+    border-color: var(--color-blue-500);
+    color: var(--color-purple-800);
+
+    --icon-color: var(--color-blue-500);
+  }
+
+  .cautionary,
+  .security {
+    background: var(--color-yellow-100);
+    border-color: var(--color-yellow-700);
+    color: var(--color-purple-800);
+
+    --icon-color: var(--color-yellow-700);
+  }
+
+  .warning {
+    background: var(--color-red-100);
+    border-color: var(--color-red-500);
+    color: var(--color-purple-800);
+
+    --icon-color: var(--color-red-500);
+  }
+
+  /* Hidden state */
+  .hidden {
+    opacity: 0;
+  }
+
+  .hidden.inline,
+  .hidden.global {
+    margin-bottom: 0;
+  }
+
+  .hidden.inline {
+    /*
+    When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+    We want it moving the fastest when it is the furthest off screen.
+    */
+    transition-timing-function: ease-in;
+    transform: translateY(-50%);
+  }
+
+  .hidden.toast {
+    /*
+    When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+    We want it moving the fastest when it is the furthest off screen.
+    */
+    transition-timing-function: ease-in;
+    transform: translateX(50%);
+  }
+
+  .hidden.global {
+    z-index: 1029;
+    opacity: 1;
+  }
+
+
+
+  /* Structure: .icon (from %ca-notification__icon) */
+  .icon {
+    align-items: flex-start;
+    box-sizing: content-box;
+    color: var(--icon-color); /* Defines the color of the icon based on the notification type line 73 */
+  }
+
+  .inline .icon,
+  .toast .icon {
+    width: 22px;
+    height: 22px;
+    font-size: 22px;
+    margin-top: var(--spacing-6);
+  }
+
+  .global .icon {
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+  }
+
+  /* Structure: .textContainer (from %ca-notification__text-container) */
+  .textContainer {
+    box-sizing: content-box;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 0;
+  }
+
+  .inline .textContainer,
+  .toast .textContainer {
+    margin-inline-start: var(--spacing-6);
+  }
+
+  .toast .textContainer {
+    max-width: calc(100% - var(--spacing-48));
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .global .textContainer {
+    margin-inline-start: var(--spacing-8);
+  }
+
+  .inline .textContainer {
+  /*
+  Inline notifications often fade onto a white background.
+  Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.  
+  */    
+    transition: var(--notification-fade-out);
+  }
+
+  .forceMultiline {
+    flex-direction: column;
+  }
+
+  /* Structure: .title (from %ca-notification__title) */
+  .title {
+    position: relative;
+    font-family: var(--typography-heading-6-font-family);
+    font-weight: var(--typography-heading-6-font-weight);
+    font-size: var(--typography-heading-6-font-size);
+    line-height: var(--typography-heading-6-line-height);
+    letter-spacing: var(--typography-heading-6-letter-spacing);
+    margin: 0;
+    padding-right: 6px;
+
+    /* overriding Bootstrap style that changes h6s to text-transform: uppercase */
+    text-transform: none;
+    color: inherit;
+    top: 0.37em;
+  }
+
+  /* line 51 */
+  .notificationTitle {
+    top: 0.42em;
+    position: relative;
+    margin-inline-end: var(--spacing-6);
+    line-height: var(--typography-heading-6-line-height);
+  }
+
+  @container (max-width: 25rem) {
+    .notificationTitle {
+      width: 100%;
+    }
+  }
+
+  /* Structure: .text (from %ca-notification__text) */
+  .text {
+    position: relative;
+    font-family: var(--typography-paragraph-small-font-family);
+    font-weight: var(--typography-paragraph-small-font-weight);
+    font-size: var(--typography-paragraph-small-font-size);
+    line-height: var(--typography-paragraph-small-line-height);
+    letter-spacing: var(--typography-paragraph-small-letter-spacing);
+    margin: 0;
+    color: inherit;
+
+    a[href]:not([data-rac]) {
+      border-bottom: var(--spacing-1) solid var(--color-blue-500);
+      text-decoration: none;
+      color: var(--color-blue-500);
+
+      &:hover {
+        text-decoration: none;
+        color: var(--color-blue-600);
+        border-bottom: var(--spacing-1) solid var(--color-blue-600);
+      }
+    }
+
+    strong {
+      font-weight: var(--typography-button-secondary-font-weight);
+    }
+
+    p {
+      font-weight: inherit;
+    }
+  }
+
+  .inline .text,
+  .toast .text {
+    position: relative;
+    font-family: var(--typography-paragraph-small-font-family);
+    font-weight: var(--typography-paragraph-small-font-weight);
+    font-size: var(--typography-paragraph-small-font-size);
+    line-height: var(--typography-paragraph-small-line-height);
+    letter-spacing: var(--typography-paragraph-small-letter-spacing);
+
+    /*
+    When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
+    When they are both on a single line it ensures both are 1 grid unit tall.
+    */
+    margin-top: var(--spacing-6);
+    flex: 0 1 auto;
+    padding-bottom: var(--spacing-12);
+    top: 0.21em;
+  }
+
+  .toast .text {
+    width: 100%;
+  }
+
+  .global .text {
+    position: static;
+    font-weight: var(--typography-paragraph-body-font-weight);
+    font-size: var(--typography-paragraph-body-font-size);
+    line-height: var(--typography-paragraph-body-line-height);
+    letter-spacing: var(--typography-paragraph-body-letter-spacing);
+  }
+
+  /* Structure: .cancel (from %ca-notification__cancel) */
+  .cancel {
+    cursor: pointer;
+    appearance: none;
+    transition: none;
+    transform: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font: inherit;
+    color: var(--color-purple-800);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-solid-border-radius);
+
+    .icon {
+      opacity: 0.7;
+      transition: var(--animation-duration-fast) opacity;
+    }
+
+    &:disabled,
+    &.disabled {
+      .icon {
+        opacity: 0.3;
+      }
+    }
+
+    &:not(:disabled, .disabled) {
+      &:hover,
+      &:focus,
+      &.hover {
+        .icon {
+          opacity: 1;
+        }
+      }
+
+      &:active,
+      &.active {
+        .icon {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &:focus-visible {
+      outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
+        var(--color-blue-500);
+      outline-offset: -4px;
+    }
+  }
+
+  .inline .cancel,
+  .toast .cancel {
+    width: var(--spacing-48);
+    height: var(--spacing-48);
+    margin-top: calc(-1 * var(--spacing-6));
+    margin-bottom: calc(-1 * var(--spacing-6));
+  }
+
+  .inline .cancel {
+    margin-inline-end: calc(-1 * var(--spacing-12));
+  }
+
+  .toast .cancel {
+    margin-inline-end: -10px;
+  }
+
+  .global .cancel {
+    width: var(--spacing-48);
+    height: var(--spacing-48);
+    margin-top: calc(-1 * var(--spacing-24));
+    margin-bottom: calc(-1 * var(--spacing-24));
+  }
+
+  /* Structure: .cancelLabel (from %ca-notification__cancel__label) */
+  .cancelLabel {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: rect(0 0 0 0);
+    border: 0;
+  }
+
+  /* Modifiers */
+  .noBottomMargin {
+    margin-bottom: 0;
+  }
+
+  .persistent {
+    transition: none;
+  }
+
+  /* This is only for inline notifications */
+  .subtle {
+    background: none;
+    border: none;
+    padding: 0;
+  }  
+}
