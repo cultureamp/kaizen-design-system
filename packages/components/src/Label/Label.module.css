@@ -1,6 +1,7 @@
 @layer kz-components {
   :root {
-    --label-start-margin: $spacing-xs;
+    --label-start-margin: var(--spacing-xs);
+    --dt-color-form-text-color: var(--color-purple-800);
   }
 
   .label {
@@ -19,14 +20,6 @@
 
   .reversed {
     color: var(--color-white);
-
-    a {
-      color: var(--color-white);
-
-      &:hover {
-        text-decoration: none;
-      }
-    }
   }
 
   .disabled {
