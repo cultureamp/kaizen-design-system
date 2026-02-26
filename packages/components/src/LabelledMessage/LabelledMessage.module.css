@@ -1,0 +1,10 @@
+@layer kz-components {
+  .labelledMessage {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+
+  .labelSeparator {
+    margin-inline-end: var(--spacing-6);
+  }
+}
