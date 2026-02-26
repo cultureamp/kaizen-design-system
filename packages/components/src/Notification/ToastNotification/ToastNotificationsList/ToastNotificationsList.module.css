@@ -5,7 +5,7 @@
     align-items: flex-end;
     overflow: hidden;
     padding-bottom: 0;
-    padding-top: calc(160px + 12px);
+    padding-top: 172px;
     position: fixed;
     right: var(--spacing-md);
     top: 0;
