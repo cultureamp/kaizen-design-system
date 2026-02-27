@@ -1,5 +1,25 @@
 # Change Log
 
+## 2.5.0
+
+### Minor Changes
+
+- [#6404](https://github.com/cultureamp/kaizen-design-system/pull/6404) [`bbafc10`](https://github.com/cultureamp/kaizen-design-system/commit/bbafc10695e2a8ca458a10fb34213ef704cb4809) - feat: Add clearable functionality to AsyncSelect
+
+### Patch Changes
+
+- [#6432](https://github.com/cultureamp/kaizen-design-system/pull/6432) [`82dfc74`](https://github.com/cultureamp/kaizen-design-system/commit/82dfc746c0a7c9425f680ce3591dd920cfd06edc) - Update Tooltip component to CSS from SCSS
+
+- [#6431](https://github.com/cultureamp/kaizen-design-system/pull/6431) [`2777427`](https://github.com/cultureamp/kaizen-design-system/commit/2777427fa154c55d28cc598ef2d6273ce56dff65) - Update Heading component to CSS from SCSS
+
+- [#6430](https://github.com/cultureamp/kaizen-design-system/pull/6430) [`9fb1464`](https://github.com/cultureamp/kaizen-design-system/commit/9fb146436e0a56d6299c6c585991903e833e2848) - Update Text component to CSS from SCSS
+
+- [#6433](https://github.com/cultureamp/kaizen-design-system/pull/6433) [`3a41773`](https://github.com/cultureamp/kaizen-design-system/commit/3a417730c1f7f35dd6901c1c3b36ddcd1f322184) - Update ToggleSwitch to CSS from SCSS
+
+- [#6436](https://github.com/cultureamp/kaizen-design-system/pull/6436) [`fd321e7`](https://github.com/cultureamp/kaizen-design-system/commit/fd321e78cc51cadcd95f4edfd1788b772db356ad) - Update Notification component, which includes GenericNotification, ToastNotification, InlineNotification and sub components, to CSS from SCSS
+
+- [#6438](https://github.com/cultureamp/kaizen-design-system/pull/6438) [`e03a190`](https://github.com/cultureamp/kaizen-design-system/commit/e03a190fe938ec9ed6b1b7ab5af09d7fff4334ce) - Update Label and LabelledMessage components to CSS from SCSS
+
 ## 2.4.0
 
 ### Minor Changes
