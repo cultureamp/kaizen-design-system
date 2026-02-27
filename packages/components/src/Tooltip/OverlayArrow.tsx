@@ -3,7 +3,7 @@ import { OverlayArrow as RACOverlayArrow, type OverlayArrowProps } from 'react-a
 import { useReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 
-import styles from './OverlayArrow.module.scss'
+import styles from './OverlayArrow.module.css'
 
 export { type OverlayArrowProps }
 
