@@ -244,6 +244,10 @@
     "description" : "Label for the dropdown menu which displays additional actions",
     "message" : "បើកម៉ឺនុយបន្ទាប់បន្សំ និងម៉ឺនុយដែលហៀរចេញ"
   },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "ជម្រះការជ្រើសរើស៖ {field}"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "បង្ហាញការផ្ដល់យោបល់នានាសម្រាប់ {field}"

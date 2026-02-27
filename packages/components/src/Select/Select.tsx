@@ -1,11 +1,13 @@
 import React, { useId, useState } from 'react'
 import classnames from 'classnames'
+import { useButton } from 'react-aria'
 import ReactSelect, {
   components,
   type NoticeProps,
   type Props as ReactSelectProps,
 } from 'react-select'
 import Async, { type AsyncProps as ReactAsyncSelectProps } from 'react-select/async'
+import { ClearButton } from '~components/ClearButton'
 import { FieldMessage } from '~components/FieldMessage'
 import { Icon } from '~components/Icon'
 import { Label } from '~components/Label'
@@ -143,7 +145,7 @@ export const AsyncSelect = React.forwardRef(
         MultiValue,
         IndicatorsContainer,
         ValueContainer,
-        ClearIndicator: undefined,
+        ClearIndicator,
         IndicatorSeparator: null,
         LoadingMessage,
       }}
@@ -232,8 +234,8 @@ const Input: typeof components.Input = (props) => (
 const ValueContainer: typeof components.ValueContainer = (props) => (
   <components.ValueContainer {...props} className={styles.valueContainer} />
 )
-const ClearIndicator: typeof components.ClearIndicator = (props) => (
-  <components.ClearIndicator {...props} className={styles.clearIndicator}>
-    <Icon name="cancel" isPresentational isFilled />
-  </components.ClearIndicator>
-)
+const ClearIndicator: typeof components.ClearIndicator = (props) => {
+  const buttonRef = React.useRef<HTMLButtonElement>(null)
+  const { buttonProps } = useButton({ ...props, onClick: props.clearValue }, buttonRef)
+  return <ClearButton {...buttonProps} classNameOverride={styles.clearIndicator} />
+}

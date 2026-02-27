@@ -1,7 +1,7 @@
 import { createElement, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Text.module.scss'
+import styles from './Text.module.css'
 
 export type TextVariants = 'intro-lede' | 'body' | 'small' | 'extra-small'
 

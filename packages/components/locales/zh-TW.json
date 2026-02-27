@@ -244,6 +244,10 @@
     "description" : "Label for the dropdown menu which displays additional actions",
     "message" : "開啟副選單和溢出選單"
   },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "清除選擇：{field}"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "顯示對 {field} 的建議"
