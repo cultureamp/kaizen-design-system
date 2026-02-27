@@ -1,6 +1,6 @@
 import React from 'react'
 import { Icon } from '~components/Icon'
-import styles from '../GenericNotification/GenericNotification.module.scss'
+import styles from '../GenericNotification/GenericNotification.module.css'
 
 type CancelButtonProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void

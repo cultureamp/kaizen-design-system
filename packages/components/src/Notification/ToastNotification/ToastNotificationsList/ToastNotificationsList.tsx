@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useToastNotificationContext } from '../context/ToastNotificationContext'
 import { ToastNotificationsMap } from './subcomponents/ToastNotificationsMap'
-import styles from './ToastNotificationsList.module.scss'
+import styles from './ToastNotificationsList.module.css'
 
 const toastNotificationListId = 'toast-notifications-list'
 

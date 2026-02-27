@@ -7,7 +7,7 @@ import { isRefObject } from '~components/utils/isRefObject'
 import { CancelButton } from '../CancelButton'
 import { NotificationHeading } from '../NotificationHeading'
 import { NotificationIconVariant } from '../NotificationIcon'
-import styles from './GenericNotification.module.scss'
+import styles from './GenericNotification.module.css'
 
 type GenericNotificationBase = {
   style: 'global' | 'inline' | 'toast'
