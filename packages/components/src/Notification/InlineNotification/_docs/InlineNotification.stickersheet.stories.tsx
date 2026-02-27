@@ -7,7 +7,7 @@ import { InlineNotification, type InlineNotificationProps } from '../InlineNotif
 export default {
   title: 'Components/Notifications/InlineNotification',
   parameters: {
-    chromatic: { disable: false },
+    chromatic: { disable: false, viewports: [767, 1079, 1200] },
     controls: { disable: true },
     a11y: {
       // Fade-in animation has colour contrast issues.
