@@ -6,7 +6,7 @@ import {
   GenericNotification,
   type GenericNotificationVariant,
 } from '../subcomponents/GenericNotification'
-import styles from '../subcomponents/GenericNotification/GenericNotification.module.scss'
+import styles from '../subcomponents/GenericNotification/GenericNotification.module.css'
 
 export type InlineNotificationBase = {
   children?: React.ReactNode

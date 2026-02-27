@@ -1,5 +1,45 @@
 # Change Log
 
+## 2.5.0
+
+### Minor Changes
+
+- [#6404](https://github.com/cultureamp/kaizen-design-system/pull/6404) [`bbafc10`](https://github.com/cultureamp/kaizen-design-system/commit/bbafc10695e2a8ca458a10fb34213ef704cb4809) - feat: Add clearable functionality to AsyncSelect
+
+### Patch Changes
+
+- [#6432](https://github.com/cultureamp/kaizen-design-system/pull/6432) [`82dfc74`](https://github.com/cultureamp/kaizen-design-system/commit/82dfc746c0a7c9425f680ce3591dd920cfd06edc) - Update Tooltip component to CSS from SCSS
+
+- [#6431](https://github.com/cultureamp/kaizen-design-system/pull/6431) [`2777427`](https://github.com/cultureamp/kaizen-design-system/commit/2777427fa154c55d28cc598ef2d6273ce56dff65) - Update Heading component to CSS from SCSS
+
+- [#6430](https://github.com/cultureamp/kaizen-design-system/pull/6430) [`9fb1464`](https://github.com/cultureamp/kaizen-design-system/commit/9fb146436e0a56d6299c6c585991903e833e2848) - Update Text component to CSS from SCSS
+
+- [#6433](https://github.com/cultureamp/kaizen-design-system/pull/6433) [`3a41773`](https://github.com/cultureamp/kaizen-design-system/commit/3a417730c1f7f35dd6901c1c3b36ddcd1f322184) - Update ToggleSwitch to CSS from SCSS
+
+- [#6436](https://github.com/cultureamp/kaizen-design-system/pull/6436) [`fd321e7`](https://github.com/cultureamp/kaizen-design-system/commit/fd321e78cc51cadcd95f4edfd1788b772db356ad) - Update Notification component, which includes GenericNotification, ToastNotification, InlineNotification and sub components, to CSS from SCSS
+
+- [#6438](https://github.com/cultureamp/kaizen-design-system/pull/6438) [`e03a190`](https://github.com/cultureamp/kaizen-design-system/commit/e03a190fe938ec9ed6b1b7ab5af09d7fff4334ce) - Update Label and LabelledMessage components to CSS from SCSS
+
+## 2.4.0
+
+### Minor Changes
+
+- [#6434](https://github.com/cultureamp/kaizen-design-system/pull/6434) [`d65186b`](https://github.com/cultureamp/kaizen-design-system/commit/d65186baf174220be2ef0c5611f0955a2a9ff8f9) - Add PCD spot illustrations
+
+### Patch Changes
+
+- [#6427](https://github.com/cultureamp/kaizen-design-system/pull/6427) [`42b8739`](https://github.com/cultureamp/kaizen-design-system/commit/42b87390eacc38a01d64bb2e48be70519231e7b1) - Update VisuallyHidden component to CSS from SCSS
+
+- [#6420](https://github.com/cultureamp/kaizen-design-system/pull/6420) [`9624165`](https://github.com/cultureamp/kaizen-design-system/commit/96241657a2e66bc879df2a27b7291ce72d71ea5e) - Update Tag component to CSS from SCSS
+
+- [#6426](https://github.com/cultureamp/kaizen-design-system/pull/6426) [`697d678`](https://github.com/cultureamp/kaizen-design-system/commit/697d67820585d8fc18a8fb067d66e48d90bcfbd4) - Update Divider component to CSS from SCSS
+
+- [#6419](https://github.com/cultureamp/kaizen-design-system/pull/6419) [`fd082e9`](https://github.com/cultureamp/kaizen-design-system/commit/fd082e9964d3388c94550cd71f5810ecfacb15f9) - fix: TimeField infinite rerenders when value is set.
+
+- [#6418](https://github.com/cultureamp/kaizen-design-system/pull/6418) [`aecca8a`](https://github.com/cultureamp/kaizen-design-system/commit/aecca8adbdfb4581eb3c711fdeb5a0116af48a0a) - Update Content component to use CSS from SCSS
+
+- [#6428](https://github.com/cultureamp/kaizen-design-system/pull/6428) [`1ecce0f`](https://github.com/cultureamp/kaizen-design-system/commit/1ecce0feb1b41db807d7511d069ff0a6d81543e5) - Update ErrorPage component to CSS from SCSS
+
 ## 2.3.7
 
 ### Patch Changes

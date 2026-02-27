@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './LabelledMessage.module.scss'
+import styles from './LabelledMessage.module.css'
 
 export type LabelledMessageProps = {
   label: string | React.ReactElement

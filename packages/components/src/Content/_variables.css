@@ -1,0 +1,5 @@
+/* This replicates the layout max-width logic in
+ packages/components/TitleBlock/TitleBlock.module.scss */
+:root {
+  --content-margin-width-on-medium-and-small: 12px;
+}

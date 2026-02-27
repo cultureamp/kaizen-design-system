@@ -10,7 +10,7 @@ import { VisuallyHidden } from '~components/VisuallyHidden'
 import { useReversedColors } from '~components/utils'
 import { mergeClassNames } from '~components/utils/mergeClassNames'
 import { OverlayArrow } from './OverlayArrow'
-import styles from './Tooltip.module.scss'
+import styles from './Tooltip.module.css'
 
 export { TooltipContext }
 

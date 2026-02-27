@@ -1,5 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
+import { Link } from '~components/Link'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { Label, type LabelProps } from '../index'
 import { BlockLabelTypes, InlineLabelTypes } from '../types'
@@ -35,12 +36,14 @@ const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
     labelText={
       <span data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}>
         {labelText}{' '}
-        <a
+        <Link
           href="/"
+          isInline={true}
+          {...(props.reversed ? { variant: 'white' } : {})}
           data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
         >
           a
-        </a>
+        </Link>
       </span>
     }
   >
@@ -55,12 +58,14 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
       labelText={
         <span data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}>
           {labelText}{' '}
-          <a
+          <Link
             href="/"
+            isInline={true}
+            {...(props.reversed ? { variant: 'white' } : {})}
             data-sb-a11y-color-contrast-disable={props['data-sb-a11y-color-contrast-disable']}
           >
             anchor
-          </a>
+          </Link>
         </span>
       }
     />

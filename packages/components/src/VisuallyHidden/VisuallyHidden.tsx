@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './VisuallyHidden.module.scss'
+import styles from './VisuallyHidden.module.css'
 
 export type VisuallyHiddenProps = {
   children: ReactNode
