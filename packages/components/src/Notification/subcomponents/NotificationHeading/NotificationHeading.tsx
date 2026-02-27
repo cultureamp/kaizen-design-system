@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, type HeadingProps } from '~components/Heading'
-import styles from '../GenericNotification/GenericNotification.module.scss'
+import styles from '../GenericNotification/GenericNotification.module.css'
 
 type NotificationHeadingProps = {
   titleProp?: HeadingProps['children']

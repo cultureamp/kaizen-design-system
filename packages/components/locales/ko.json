@@ -244,6 +244,10 @@
     "description" : "Label for the dropdown menu which displays additional actions",
     "message" : "보조 및 오버플로 메뉴 열기"
   },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "선택 취소: {field}"
+  },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
     "message" : "{field}에 대한 제안 표시"
