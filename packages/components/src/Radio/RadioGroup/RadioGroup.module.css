@@ -1,0 +1,26 @@
+@layer kz-components {
+  .radioGroupLabel {
+    margin-bottom: var(--spacing-sm);
+
+    label {
+      :global(.ideal-sans) & {
+        /* This is to override bootstrap styles. Remove when appropriate */
+        padding-top: 0;
+      }
+    }
+
+    &.reversed {
+      color: var(--color-white);
+    }
+  }
+
+  .radioGroupContainer {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-sm);
+
+    &.noBottomMargin {
+      margin-bottom: 0;
+    }
+  }
+}
