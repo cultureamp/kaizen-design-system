@@ -11,13 +11,7 @@ import { TimeSegment } from './subcomponents/TimeSegment'
 import { type StatusType, type TimeValue, type ValueType } from './types'
 import styles from './TimeField.module.scss'
 
-type OmittedTimeFieldProps =
-  | 'errorMessage'
-  | 'validationState'
-  | 'value'
-  | 'onChange'
-  | 'label'
-  | 'hideTimeZone'
+type OmittedTimeFieldProps = 'errorMessage' | 'value' | 'onChange' | 'label' | 'hideTimeZone'
 
 export type TimeFieldProps = {
   id?: string
