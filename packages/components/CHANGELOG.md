@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.5.1
+
+### Patch Changes
+
+- [`2615c96`](https://github.com/cultureamp/kaizen-design-system/commit/2615c96e7607cab4e8bce78069635174e92fa101) - fix: Content component - use existing spacing token instead of undefined custom variable
+
+  The Content component's SCSS to CSS conversion in v2.4.0 introduced a bug where it referenced an undefined CSS variable `--content-margin-width-on-medium-and-small` for margins on medium/small viewports (≤1079px). This fix replaces the undefined variable with the existing `--spacing-12` design token (12px), ensuring margins are applied correctly across all viewport sizes.
+
 ## 2.5.0
 
 ### Minor Changes
