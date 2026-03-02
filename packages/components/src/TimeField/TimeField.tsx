@@ -80,7 +80,6 @@ const TimeFieldComponent = ({
     isDisabled,
     hideTimeZone: true,
     locale,
-    validationState: status === 'default' ? 'valid' : 'invalid',
   })
 
   const hasError = !!validationMessage && status === 'error'
@@ -111,7 +110,7 @@ const TimeFieldComponent = ({
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
-            state.validationState === 'invalid' && styles.error,
+            status === 'error' && styles.error,
           )}
         >
           {state.segments.map((segment, i) => {

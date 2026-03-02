@@ -63,10 +63,6 @@
     }
   }
 
-  .placeholder {
-    color: rgb($color-purple-800-rgb, 0.7);
-  }
-
   .error {
     border: $border-solid-border-width $border-solid-border-style $color-red-500;
   }
@@ -86,10 +82,6 @@
     border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.8);
     background-color: transparent;
     color: $color-white;
-
-    &.placeholder {
-      color: rgba($color-white-rgb, 0.65);
-    }
 
     &.selectToggle .icon {
       color: rgb(255, 255, 255, 0.8);

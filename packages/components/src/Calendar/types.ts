@@ -5,6 +5,24 @@ export type { DateInterval, DateRange }
 
 export type DisabledDays = DayPickerProps['disabled']
 
+export type DeprecatedReactDayPickerProps =
+  | 'fromDate'
+  | 'fromMonth'
+  | 'fromYear'
+  | 'toDate'
+  | 'toMonth'
+  | 'toYear'
+  | 'initialFocus'
+  | 'onDayKeyUp'
+  | 'onDayKeyPress'
+  | 'onDayPointerEnter'
+  | 'onDayPointerLeave'
+  | 'onDayTouchCancel'
+  | 'onDayTouchEnd'
+  | 'onDayTouchMove'
+  | 'onDayTouchStart'
+  | 'onWeekNumberClick'
+
 export type DisabledDayMatchers = {
   /**
    * Accepts an array of singluar dates and disables them.
