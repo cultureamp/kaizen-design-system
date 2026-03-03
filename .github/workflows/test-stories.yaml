@@ -48,13 +48,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-      - name: Install Playwright
-        run: pnpm dlx playwright install --with-deps
+      - name: Install Playwright browsers (and OS deps)
+        run: pnpm exec playwright install --with-deps
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
-      - name: Install Playwright browser
-        run: pnpm exec playwright install
       - name: Storybook tests (1/3)
         run: pnpm turbo test:storybook --filter=@docs/storybook -- --shard 1/3
 
