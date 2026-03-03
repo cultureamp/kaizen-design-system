@@ -44,7 +44,6 @@
   // Selected = Checked or Indeterminate
   .selected {
     background: $color-gray-500;
-    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     background-color: $color-gray-500;
 
     &:hover,
