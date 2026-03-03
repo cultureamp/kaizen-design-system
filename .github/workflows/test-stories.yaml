@@ -53,6 +53,7 @@ jobs:
       - uses: ./.github/actions/run-storybook
         with:
           artifactName: ${{ env.ARTIFACT_NAME }}
+          path: './docs/storybook-static'
       - name: Storybook tests (1/3)
         run: pnpm turbo test:storybook --filter=@docs/storybook -- --shard 1/3
 
