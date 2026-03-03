@@ -4,6 +4,7 @@ import { DayPicker, type PropsBase, type PropsSingle } from 'react-day-picker'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { type DeprecatedReactDayPickerProps } from '../types'
 import { isInvalidDate, isValidWeekStartsOn } from '../utils'
 import styles from './CalendarSingle.module.scss'
 
@@ -14,7 +15,9 @@ export type CalendarSingleProps = {
   onMount?: (calendarElement: CalendarSingleElement) => void
   /** Exposes the react-day-picker component prop. Please be aware, consumers using this will have to guarentee functions as expected */
   components?: PropsBase['components']
-} & OverrideClassName<Omit<PropsSingle & Omit<PropsBase, 'mode'>, 'mode'>>
+} & OverrideClassName<
+  Omit<PropsSingle & Omit<PropsBase, 'mode'>, 'mode' | DeprecatedReactDayPickerProps>
+>
 
 export const CalendarSingle = ({
   id,
