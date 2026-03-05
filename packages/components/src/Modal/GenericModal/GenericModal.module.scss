@@ -127,13 +127,6 @@
     padding-inline-end: 15px !important; /* stylelint-disable-line declaration-no-important */
   }
 
-  // Fix: react-remove-scroll-bar only locks body, but the scrollbar is on html element
-  // We need to lock both html and body to properly remove the scrollbar
-  :global(html:has(body[data-scroll-locked])) {
-    /* Tech debt - this !important existed before Stylelint rules */
-    overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
-  }
-
   .hide {
     opacity: 0%;
     pointer-events: none;
