@@ -5,14 +5,14 @@
     word-break: normal;
     margin-bottom: var(--spacing-sm);
 
-    & label {
+    label {
       -webkit-tap-highlight-color: transparent;
-    }
 
-    :global(.ideal-sans) & label {
-      /* This is to override bootstrap styles. Remove when appropriate */
-      font-size: var(--typography-paragraph-body-font-size);
-      padding-top: 0;
+      :global(.ideal-sans) & {
+        /* This is to override bootstrap styles. Remove when appropriate */
+        font-size: var(--typography-paragraph-body-font-size);
+        padding-top: 0;
+      }
     }
 
     &.selected label {
