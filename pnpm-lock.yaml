@@ -131,7 +131,7 @@ importers:
         specifier: ^3.8.1
         version: 3.8.1
       react:
-        specifier: ^19.2.0
+        specifier: ^19.2.4
         version: 19.2.4
       rimraf:
         specifier: ^6.1.3
