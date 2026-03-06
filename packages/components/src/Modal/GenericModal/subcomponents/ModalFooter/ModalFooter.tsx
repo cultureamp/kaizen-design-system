@@ -18,10 +18,6 @@ export type ModalFooterProps = {
   'variant'?: ActionsVariantProps
   'unpadded'?: boolean
   'actions': ButtonProps[]
-  /**
-   * @deprecated we are no longer supporting different appearances for ModalFooter, instead there will only be a single default appearance set by the Button.
-   */
-  'appearance'?: 'primary' | 'destructive'
   'data-testid'?: string
   'alignStart'?: boolean
 } & HTMLAttributes<HTMLDivElement>
@@ -29,7 +25,6 @@ export type ModalFooterProps = {
 export const ModalFooter = ({
   unpadded,
   actions,
-  appearance = 'primary',
   alignStart,
   variant,
   ...props
@@ -51,9 +46,8 @@ export const ModalFooter = ({
           <div className={styles.actionButton} key={index}>
             <Button
               type="button"
-              primary={index === 0 && appearance === 'primary'}
-              destructive={index === 0 && appearance === 'destructive'}
-              secondary={index > 0}
+              primary={index === 0 && !action.destructive && !action.secondary}
+              secondary={index > 0 && !action.destructive && !action.primary}
               fullWidth={queries.isSmall}
               {...action}
             />

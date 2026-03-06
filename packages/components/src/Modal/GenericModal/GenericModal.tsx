@@ -5,7 +5,6 @@ import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import { useIsClientReady } from '../../utils/useIsClientReady'
 
-import { warn } from '../util/console'
 import { ModalContext } from './context/ModalContext'
 import styles from './GenericModal.module.scss'
 
@@ -63,9 +62,9 @@ export const GenericModal = ({
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
     if (!document.getElementById(labelledByID)) {
-      warn(
-        `When using the Modal component, you must provide a label for the modal.
-        Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`,
+      // eslint-disable-next-line no-console
+      console.warn(
+        'When using the Modal component, you must provide a label for the modal. Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.',
       )
     }
   }

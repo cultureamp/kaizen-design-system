@@ -18,9 +18,6 @@
     box-shadow: var(--shadow-small-box-shadow);
     position: relative;
     top: -1px;
-    transition:
-      opacity var(--animation-duration-slow) ease,
-      margin-top var(--animation-duration-fast) var(--animation-duration-slow) ease;
     color: var(--color-purple-800);
 
     @media (width >= 1024px) {
@@ -128,11 +125,6 @@
       width: 100%;
       margin-top: var(--spacing-6);
     }
-  }
-
-  .hidden {
-    opacity: 0;
-    margin-bottom: 0;
   }
 
   .headingWrapper {
