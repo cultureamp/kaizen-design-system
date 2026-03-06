@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "2.5.0",
+  "version": "3.0.1",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -28,9 +28,7 @@
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
-  "sideEffects": [
-    "styles.css"
-  ],
+  "sideEffects": ["styles.css"],
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -134,7 +132,6 @@
     "react-popper": "^2.3.0",
     "react-select": "^5.10.2",
     "react-textfit": "^1.1.1",
-    "resize-observer-polyfill": "^1.5.1",
     "use-debounce": "^10.1.0",
     "uuid": "^13.0.0"
   },

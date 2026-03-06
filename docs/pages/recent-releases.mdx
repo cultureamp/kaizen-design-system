@@ -4,6 +4,189 @@ import { Meta, Markdown } from '@storybook/blocks'
 
 # Recent major releases
 
+## `@kaizen/components@v3`
+
+March 2, 2026
+
+### Deprecated props being removed
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Prop</th>
+      <th>Codemod</th>
+      <th>Reason/Migration guide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colSpan={4}>`GuidanceBlock` deprecated props</td>
+    </tr>
+    <tr>
+      <td>`GuidanceBlock`</td>
+      <td>`actions`</td>
+      <td rowSpan={3}>`migrateGuidanceBlockActionsToActionsSlot`</td>
+      <td rowSpan={3}>
+        Deprecated in v1 - [Migration
+        guide](/?path=/docs/components-guidanceblock-migration-guide--docs)
+      </td>
+    </tr>
+    <tr>
+      <td>`GuidanceBlock`</td>
+      <td>`secondaryDismiss`</td>
+    </tr>
+    <tr>
+      <td>`GuidanceBlock`</td>
+      <td>`withActionButtonArrow`</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>`placeholder` prop removal</td>
+    </tr>
+    <tr>
+      <td>`Input`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+      <td rowSpan={8}>
+        Use of placeholder text goes against our a11y standards. Use the `labelText` prop to provide
+        a concise name, and the `description` prop for any help text.
+      </td>
+    </tr>
+    <tr>
+      <td>`TextArea`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`TextAreaField`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`TextField`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`SingleSelect`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`SelectToggle`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`DatePicker`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>`Select`</td>
+      <td>`placeholder`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>Button props</td>
+    </tr>
+    <tr>
+      <td>`Button`</td>
+      <td>`isReversed`</td>
+      <td>-</td>
+      <td rowSpan={2}>
+        Use the ReversedColors Provider instead. This is here to support gradual migration to the
+        ReversedColors Provider and will take precedence if a value is provided.
+      </td>
+    </tr>
+    <tr>
+      <td>`LinkButton`</td>
+      <td>`isReversed`</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>Modal and field props</td>
+    </tr>
+    <tr>
+      <td>`ModalFooter`</td>
+      <td>`appearance`</td>
+      <td>-</td>
+      <td>
+        We are no longer supporting different appearances for ModalFooter, instead there will only
+        be a single default appearance set by the Button.
+      </td>
+    </tr>
+    <tr>
+      <td>`TimeField`</td>
+      <td>`validationState`</td>
+      <td>No usage as of 20 Oct 2025</td>
+      <td>Remove usage</td>
+    </tr>
+    <tr>
+      <td colSpan={4}>Calendar props</td>
+    </tr>
+    <tr>
+      <td>`CalendarRange`</td>
+      <td rowSpan={2}>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li>`fromDate`</li>
+          <li>`fromMonth`</li>
+          <li>`fromYear`</li>
+          <li>`toDate`</li>
+          <li>`toMonth`</li>
+          <li>`toYear`</li>
+          <li>`initialFocus`</li>
+          <li>`onDayKeyUp`</li>
+          <li>`onDayKeyPress`</li>
+          <li>`onDayPointerEnter`</li>
+          <li>`onDayPointerLeave`</li>
+          <li>`onDayTouchCancel`</li>
+          <li>`onDayTouchEnd`</li>
+          <li>`onDayTouchMove`</li>
+          <li>`onDayTouchStart`</li>
+          <li>`onWeekNumberClick`</li>
+        </ul>
+      </td>
+      <td rowSpan={2}>No usage as of 20 Oct 2025</td>
+      <td rowSpan={2}>React Day Picker has had these props deprecated</td>
+    </tr>
+    <tr>
+      <td>`CalendarSingle`</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deleted utils and exports
+
+<table>
+  <thead>
+    <tr>
+      <th>Util/Export</th>
+      <th>Reason</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`warn` util in `Modal/util/console.ts`</td>
+      <td>No longer needed</td>
+    </tr>
+    <tr>
+      <td>`useResizeObserver`</td>
+      <td>
+        Use native
+        [`ResizeObserver`](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) DOM API
+        instead
+      </td>
+    </tr>
+    <tr>
+      <td>`SingleSelect` deprecated exports: `ListBox`, `TriggerButton`</td>
+      <td>Legacy exported aliases</td>
+    </tr>
+  </tbody>
+</table>
+
+A codemod will be provided to make the migration off these.
+
 ## `@kaizen/components@v2`
 
 September 1, 2025

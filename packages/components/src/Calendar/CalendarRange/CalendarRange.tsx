@@ -4,6 +4,7 @@ import { DayPicker, type PropsBase, type PropsRange } from 'react-day-picker'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { baseCalendarClassNames } from '../baseCalendarClassNames'
+import { type DeprecatedReactDayPickerProps } from '../types'
 import { isInvalidDate } from '../utils'
 import styles from './CalendarRange.module.scss'
 
@@ -13,7 +14,9 @@ export type CalendarRangeProps = {
   id?: string
   onMount?: (calendarElement: CalendarRangeElement) => void
   hasDivider?: boolean
-} & OverrideClassName<Omit<PropsRange & Omit<PropsBase, 'mode'>, 'mode'>>
+} & OverrideClassName<
+  Omit<PropsRange & Omit<PropsBase, 'mode'>, 'mode' | DeprecatedReactDayPickerProps>
+>
 
 export const CalendarRange = ({
   id,
