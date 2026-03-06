@@ -22,11 +22,6 @@ export type ButtonUIProps = {
   iconPosition?: 'start' | 'end'
   /** Controls if the button inherits width from its parent. @default "false" */
   isFullWidth?: boolean
-  /**
-   * Controls the reversed style of Button
-   * @deprecated Use the ReversedColors Provider instead. This is here to support gradual migration to the ReversedColors Provider and will take precedence if a value is provided. {@link https://cultureamp.design/?path=/docs/actions-button-button-next-api-specification--docs#variants}
-   */
-  isReversed?: boolean
 }
 
 export type ButtonProps = ButtonUIProps &
@@ -51,13 +46,11 @@ export const Button = forwardRef(
       isPending,
       hasHiddenPendingLabel: propsHasHiddenPendingLabel = false,
       pendingLabel,
-      isReversed,
       ...restProps
     }: ButtonProps,
     ref: React.ForwardedRef<HTMLButtonElement>,
   ) => {
-    const shouldUseReverse = useReversedColors()
-    const isReversedVariant = isReversed ?? shouldUseReverse
+    const isReversedVariant = useReversedColors()
     const pendingProps: PendingButtonProps = isPending
       ? {
           isPending,

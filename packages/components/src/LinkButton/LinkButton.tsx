@@ -25,13 +25,11 @@ export const LinkButton = forwardRef(
       isFullWidth = false,
       isDisabled,
       className,
-      isReversed,
       ...otherProps
     }: LinkButtonProps,
     ref: React.ForwardedRef<HTMLAnchorElement>,
   ) => {
-    const shouldUseReverse = useReversedColors()
-    const isReversedVariant = isReversed ?? shouldUseReverse
+    const isReversedVariant = useReversedColors()
 
     return (
       <RACLink

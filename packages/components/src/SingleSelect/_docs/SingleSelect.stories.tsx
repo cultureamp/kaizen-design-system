@@ -6,6 +6,7 @@ import { FieldMessage } from '~components/FieldMessage'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
 import { SingleSelect } from '../SingleSelect'
+import { SelectToggle } from '../subcomponents'
 import { type SingleSelectOption } from '../types'
 import { groupedMockItems, mixedMockItemsDisabled, singleMockItems } from './mockData'
 
@@ -125,13 +126,15 @@ export const AdditionalProperties: Story = {
 }
 
 const sourceCodeCustomiseTrigger = `
+import { SelectToggle } from '@kaizen/components/subcomponents'
+
 <SingleSelect
-  trigger={props => <SingleSelect.TriggerButton {...props} id="select--custom-trigger" />}
+  trigger={props => <SelectToggle {...props} id="select--custom-trigger" />}
 />
 `
 export const CustomiseTrigger: Story = {
   args: {
-    trigger: (props) => <SingleSelect.TriggerButton {...props} id="select--custom-trigger" />,
+    trigger: (props) => <SelectToggle {...props} id="select--custom-trigger" />,
   },
   parameters: {
     docs: {

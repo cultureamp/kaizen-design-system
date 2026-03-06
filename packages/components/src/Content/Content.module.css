@@ -9,7 +9,7 @@
 
     /* Currently unable to do media query equations so using a fixed value instead */
     @media (width <= 1079px) {
-      margin: 0 var(--content-margin-width-on-medium-and-small);
+      margin: 0 var(--spacing-12);
     }
   }
 }

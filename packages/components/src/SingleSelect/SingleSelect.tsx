@@ -10,7 +10,6 @@ import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popo
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectProvider } from './context'
 import {
-  ListBox,
   ListBoxSection,
   ListItem,
   Option,
@@ -70,15 +69,10 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
    */
   portalContainerId?: string
   /**
-   * @deprecated Use of placeholder text goes against our a11y standards.
-   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
-   */
-  placeholder?: string
-  /**
    * Handler that is called when the selection changes.
    */
   onSelectionChange?: (key: Key) => void
-} & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps>>
+} & OverrideClassName<Omit<AriaSelectProps<Option>, OmittedAriaSelectProps | 'placeholder'>>
 
 /**
  * {@link https://cultureamp.atlassian.net/wiki/spaces/DesignSystem/pages/3081896474/Select Guidance} |
@@ -98,7 +92,6 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
   classNameOverride,
   selectedKey,
   description,
-  placeholder = '',
   isDisabled,
   onSelectionChange,
   portalContainerId,
@@ -121,7 +114,6 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
     disabledKeys: disabledKeys,
     selectedKey: typeof selectedKey === 'number' ? selectedKey.toString() : selectedKey,
     description,
-    placeholder,
     isDisabled,
     isRequired,
     onSelectionChange: onSelectionChange ? (key) => onSelectionChange(key!) : undefined,
@@ -158,7 +150,6 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
     'value': state?.selectedItem?.rendered,
     valueProps,
     'isOpen': state.isOpen,
-    placeholder,
     status,
     'isDisabled': triggerProps.isDisabled,
     isReversed,
@@ -225,7 +216,3 @@ SingleSelect.Section = ListBoxSection
 SingleSelect.SectionDivider = SectionDivider
 SingleSelect.Option = Option
 SingleSelect.ItemDefaultRender = ListItem
-
-// @deprecated Legacy exported aliases
-SingleSelect.TriggerButton = SelectToggle
-SingleSelect.ListBox = ListBox
