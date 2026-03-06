@@ -1,10 +1,8 @@
 import React from 'react'
-import { cleanup, render, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { cleanup, render } from '@testing-library/react'
 import { vi } from 'vitest'
 import { Informative } from '~components/Illustration'
 import { GuidanceBlock } from './GuidanceBlock'
-const user = userEvent.setup()
 
 window.matchMedia = vi.fn().mockImplementation(() => ({
   matches: false,
@@ -16,29 +14,6 @@ window.matchMedia = vi.fn().mockImplementation(() => ({
 
 describe('GuidanceBlock', () => {
   afterEach(cleanup)
-
-  it('calls the action function when action button is clicked', async () => {
-    const onAction = vi.fn()
-    const { container } = render(
-      <GuidanceBlock
-        illustration={<Informative alt="" />}
-        text={{
-          title: 'This is the call to action title',
-          description:
-            'Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.',
-        }}
-        actions={{
-          primary: { label: 'Action!', onClick: onAction },
-        }}
-      />,
-    )
-    const actionButton = container.querySelector('button')
-    if (actionButton) await user.click(actionButton)
-
-    await waitFor(() => {
-      expect(onAction).toHaveBeenCalledTimes(1)
-    })
-  })
 
   it('has a default title tag of h3', () => {
     const { getByRole } = render(

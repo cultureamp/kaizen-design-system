@@ -2,7 +2,7 @@ import React, { useId, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Label } from '~components/Label'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './RadioGroup.module.scss'
+import styles from './RadioGroup.module.css'
 
 export type RadioGroupProps = OverrideClassName<HTMLAttributes<HTMLDivElement>> & {
   'children'?: React.ReactNode

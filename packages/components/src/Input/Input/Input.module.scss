@@ -8,7 +8,6 @@
   $input-height: 48px;
   $input-base-padding-horizontal: $spacing-sm;
   $input-icon-size: 1.25rem; // 20px
-  $input-placeholder-opacity: 0.5;
   $input-disabled-background: $color-gray-300;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;
@@ -45,28 +44,16 @@
     width: 100%;
     margin-bottom: 2px;
 
-    @include form-input-placeholder {
-      opacity: 100%;
-    }
-
     &:focus:not([disabled]),
     &:hover:focus:not([disabled]) {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-500);
       outline-offset: 1px;
-
-      @include form-input-placeholder {
-        opacity: 0%;
-      }
     }
 
     &.disabled {
       &:not(.reversed) {
         background: $input-disabled-background;
-      }
-
-      @include form-input-placeholder {
-        color: rgba($color-purple-800-rgb, $input-disabled-opacity);
       }
     }
   }
@@ -204,11 +191,6 @@
     display: flex;
     align-items: center;
 
-    @include form-input-placeholder {
-      color: $color-purple-800;
-      opacity: $input-placeholder-opacity;
-    }
-
     @include form-input-focus-state {
       background-color: $color-gray-200;
     }
@@ -221,10 +203,6 @@
       background-color: $color-white;
       border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
       color: rgba($color-purple-800-rgb, $input-disabled-opacity);
-
-      @include form-input-placeholder {
-        opacity: $input-disabled-opacity;
-      }
     }
 
     &:not(.error, .caution) {
@@ -261,11 +239,6 @@
     background: transparent;
     color: $color-white;
 
-    @include form-input-placeholder {
-      color: $color-white;
-      opacity: $input-placeholder-opacity;
-    }
-
     @include form-input-focus-state {
       background: rgba($color-white-rgb, 0.1);
     }
@@ -289,10 +262,6 @@
     &.disabled {
       background: transparent;
       color: rgba($color-white-rgb, $input-disabled-opacity);
-
-      @include form-input-placeholder {
-        opacity: $input-disabled-opacity;
-      }
     }
 
     &.error {

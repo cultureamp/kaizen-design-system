@@ -13,17 +13,12 @@ export type SelectToggleProps = {
   /** Props for the element representing the selected value. */
   valueProps: DOMAttributes<FocusableElement>
   isOpen?: boolean
-  /**
-   * @deprecated Use of placeholder text goes against our a11y standards.
-   * Use the `labelText` prop to provide a concise name, and the `description` prop for any help text.
-   */
-  placeholder?: string
   /** Updates the styling of the validation. */
   status?: 'error' | 'caution'
   isDisabled?: boolean
   /** Use the `reversed` styles. */
   isReversed?: boolean
-} & OverrideClassName<HTMLAttributes<HTMLButtonElement>>
+} & OverrideClassName<Omit<HTMLAttributes<HTMLButtonElement>, 'placeholder'>>
 
 export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProps>(
   (
@@ -33,7 +28,6 @@ export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProp
       value,
       valueProps,
       isOpen,
-      placeholder = 'Select',
       status,
       isDisabled,
       isReversed,
@@ -55,7 +49,6 @@ export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProp
         ref={ref}
         className={classnames(
           styles.selectToggle,
-          (value === null || value === undefined) && styles.placeholder,
           status === 'error' && styles.error,
           status === 'caution' && styles.caution,
           isDisabled && styles.disabled,
@@ -64,7 +57,7 @@ export const SelectToggle = React.forwardRef<HTMLButtonElement, SelectToggleProp
         )}
       >
         <span {...valueProps} className={styles.value}>
-          {value ?? placeholder}
+          {value}
         </span>
         <Icon
           name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
