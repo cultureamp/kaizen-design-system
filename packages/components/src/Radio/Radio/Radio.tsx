@@ -1,7 +1,7 @@
 import React, { type InputHTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Radio.module.scss'
+import styles from './Radio.module.css'
 
 export type RadioProps = OverrideClassName<
   Omit<InputHTMLAttributes<HTMLInputElement>, 'id' | 'name' | 'value' | 'checked' | 'type'>

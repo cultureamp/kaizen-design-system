@@ -102,7 +102,12 @@ export const ConfirmationModal = ({
   const footerActions: ButtonProps[] = []
 
   if (onConfirm) {
-    const confirmAction = { label: confirmLabel, onClick: onConfirm }
+    const confirmAction = {
+      label: confirmLabel,
+      onClick: onConfirm,
+      destructive: variant === 'warning',
+      primary: variant !== 'warning',
+    }
     const workingProps = confirmWorking
       ? {
           working: true,
@@ -154,11 +159,7 @@ export const ConfirmationModal = ({
             <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
           </div>
         </ModalBody>
-        <ModalFooter
-          actions={footerActions}
-          appearance={variant == 'warning' ? 'destructive' : 'primary'}
-          unpadded={unpadded}
-        />
+        <ModalFooter actions={footerActions} unpadded={unpadded} />
       </div>
     </GenericModal>
   )

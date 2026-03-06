@@ -114,7 +114,7 @@ pre code {
     }
   }
 
-  :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
+  :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p, table p)) {
     margin: 0 0 var(--spacing-16);
     font-family: var(--typography-paragraph-body-font-family);
     font-weight: var(--typography-paragraph-body-font-weight);
@@ -151,7 +151,7 @@ pre code {
     font: inherit;
   }
 
-  :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+  :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, table li)) {
     margin: 0;
     padding: 0;
     font-family: var(--typography-paragraph-body-font-family);
