@@ -2,7 +2,7 @@ import React, { useId } from 'react'
 import classnames from 'classnames'
 import { Label } from '~components/Label'
 import { Radio, type RadioProps } from '../Radio/Radio'
-import styles from './RadioField.module.scss'
+import styles from './RadioField.module.css'
 
 export type RadioFieldProps = Omit<RadioProps, 'id'> & {
   'id'?: string

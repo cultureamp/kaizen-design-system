@@ -44,6 +44,7 @@
   // Selected = Checked or Indeterminate
   .selected {
     background: $color-gray-500;
+    // To do: fix this in the CSS uplift
     /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     background-color: $color-gray-500;
 
