@@ -18,7 +18,7 @@ importers:
     devDependencies:
       '@changesets/cli':
         specifier: ^2.30.0
-        version: 2.30.0(@types/node@22.19.13)
+        version: 2.30.0(@types/node@22.19.15)
       '@cultureamp/changelog-github':
         specifier: ^0.1.1
         version: 0.1.1(encoding@0.1.13)
@@ -122,8 +122,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       playwright:
-        specifier: ^1.57.0
-        version: 1.57.0
+        specifier: ^1.58.2
+        version: 1.58.2
       plop:
         specifier: ^4.0.5
         version: 4.0.5(@types/node@22.19.15)
@@ -226,7 +226,7 @@ importers:
         version: 5.1.4(vite@7.3.1(@types/node@22.19.15)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.21.0)(yaml@2.5.0))
       axe-playwright:
         specifier: ^2.2.2
-        version: 2.2.2(playwright@1.57.0)
+        version: 2.2.2(playwright@1.58.2)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -239,6 +239,9 @@ importers:
       jest-axe:
         specifier: ^10.0.0
         version: 10.0.0
+      playwright:
+        specifier: ^1.58.2
+        version: 1.58.2
       react-highlight:
         specifier: ^0.15.0
         version: 0.15.0
@@ -7953,8 +7956,13 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.57.0:
-    resolution: {integrity: sha512-ilYQj1s8sr2ppEJ2YVadYBN0Mb3mdo9J0wQ+UuDhzYqURwSoW4n1Xs5vs7ORwgDGmyEh33tRMeS8KhdkMoLXQw==}
+  playwright-core@1.58.2:
+    resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  playwright@1.58.2:
+    resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -10702,7 +10710,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@changesets/cli@2.30.0(@types/node@22.19.13)':
+  '@changesets/cli@2.30.0(@types/node@22.19.15)':
     dependencies:
       '@changesets/apply-release-plan': 7.1.0
       '@changesets/assemble-release-plan': 6.0.9
@@ -11846,7 +11854,7 @@ snapshots:
     dependencies:
       string-width: 5.1.2
       string-width-cjs: string-width@4.2.3
-      strip-ansi: 7.2.0
+      strip-ansi: 7.1.0
       strip-ansi-cjs: strip-ansi@6.0.1
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
@@ -13936,7 +13944,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 3.0.1(jest@30.2.0(@types/node@22.19.15)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.1))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.15)(typescript@5.9.3)))
       nyc: 15.1.0
-      playwright: 1.57.0
+      playwright: 1.58.2
       playwright-core: 1.57.0
       rimraf: 3.0.2
       storybook: 8.6.12(prettier@3.8.1)
@@ -15017,14 +15025,14 @@ snapshots:
       axe-core: 4.10.3
       mustache: 4.2.0
 
-  axe-playwright@2.2.2(playwright@1.57.0):
+  axe-playwright@2.2.2(playwright@1.58.2):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.10.3
       axe-html-reporter: 2.2.11(axe-core@4.10.3)
       junit-report-builder: 5.1.1
       picocolors: 1.1.1
-      playwright: 1.57.0
+      playwright: 1.58.2
 
   axios@1.7.4:
     dependencies:
@@ -19372,9 +19380,11 @@ snapshots:
 
   playwright-core@1.57.0: {}
 
-  playwright@1.57.0:
+  playwright-core@1.58.2: {}
+
+  playwright@1.58.2:
     dependencies:
-      playwright-core: 1.57.0
+      playwright-core: 1.58.2
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -20964,13 +20974,13 @@ snapshots:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 9.2.2
-      strip-ansi: 7.2.0
+      strip-ansi: 7.1.0
 
   string-width@6.1.0:
     dependencies:
       eastasianwidth: 0.2.0
       emoji-regex: 10.3.0
-      strip-ansi: 7.2.0
+      strip-ansi: 7.1.0
 
   string-width@8.2.0:
     dependencies:
@@ -22134,7 +22144,7 @@ snapshots:
     dependencies:
       ansi-styles: 6.2.1
       string-width: 5.1.2
-      strip-ansi: 7.2.0
+      strip-ansi: 7.1.0
 
   wrappy@1.0.2: {}
 
