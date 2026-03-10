@@ -239,6 +239,9 @@ importers:
       jest-axe:
         specifier: ^10.0.0
         version: 10.0.0
+      playwright:
+        specifier: ^1.58.2
+        version: 1.58.2
       react-highlight:
         specifier: ^0.15.0
         version: 0.15.0
@@ -7958,11 +7961,6 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.57.0:
-    resolution: {integrity: sha512-ilYQj1s8sr2ppEJ2YVadYBN0Mb3mdo9J0wQ+UuDhzYqURwSoW4n1Xs5vs7ORwgDGmyEh33tRMeS8KhdkMoLXQw==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   playwright@1.58.2:
     resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
     engines: {node: '>=18'}
@@ -13958,7 +13956,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 3.0.1(jest@30.2.0(@types/node@22.19.15)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.1))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.15)(typescript@5.9.3)))
       nyc: 15.1.0
-      playwright: 1.57.0
+      playwright: 1.58.2
       playwright-core: 1.57.0
       rimraf: 3.0.2
       storybook: 8.6.12(prettier@3.8.1)
@@ -19395,12 +19393,6 @@ snapshots:
   playwright-core@1.57.0: {}
 
   playwright-core@1.58.2: {}
-
-  playwright@1.57.0:
-    dependencies:
-      playwright-core: 1.57.0
-    optionalDependencies:
-      fsevents: 2.3.2
 
   playwright@1.58.2:
     dependencies:
