@@ -1,5 +1,16 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- [#6439](https://github.com/cultureamp/kaizen-design-system/pull/6439) [`8e5a466`](https://github.com/cultureamp/kaizen-design-system/commit/8e5a46668e60d226aabf374bfd07e325f3adc9d1) - Update Radio component to CSS from SCSS
+
+- [#6327](https://github.com/cultureamp/kaizen-design-system/pull/6327) [`147d15f`](https://github.com/cultureamp/kaizen-design-system/commit/147d15fc3d429ea694caddad54113091bfc07018) - - Update dependencies: @types/node to ^22.19.13,eslint-plugin-mdx to ^3.7.0,chromatic to v15,postcss-preset-env to v11,stylelint to v17,stylelint-config-standard to v40,stylelint-config-standard-scss to v17,vite to v7.
+  - Update bypass rule for `Checkbox` subcomponent in `MultiSelect` component &rarr: will fix this in the CSS uplift
+
+- [#6452](https://github.com/cultureamp/kaizen-design-system/pull/6452) [`e6b9146`](https://github.com/cultureamp/kaizen-design-system/commit/e6b9146f0f5d4e01dca2acfa611890606583fb23) - Fixed an issue where modal scrollbar on html element is not removed by the remove scroll bar library.
+
 ## 3.0.1
 
 ### Patch Changes
