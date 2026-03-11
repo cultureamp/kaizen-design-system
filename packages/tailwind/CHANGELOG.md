@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.5.3
+
+### Patch Changes
+
+- [#6327](https://github.com/cultureamp/kaizen-design-system/pull/6327) [`147d15f`](https://github.com/cultureamp/kaizen-design-system/commit/147d15fc3d429ea694caddad54113091bfc07018) - - Update dependencies: @types/node to ^22.19.13,eslint-plugin-mdx to ^3.7.0,chromatic to v15,postcss-preset-env to v11,stylelint to v17,stylelint-config-standard to v40,stylelint-config-standard-scss to v17,vite to v7.
+  - Update bypass rule for `Checkbox` subcomponent in `MultiSelect` component &rarr: will fix this in the CSS uplift
+- Updated dependencies [[`147d15f`](https://github.com/cultureamp/kaizen-design-system/commit/147d15fc3d429ea694caddad54113091bfc07018)]:
+  - @kaizen/design-tokens@11.0.1
+
 ## 1.5.2
 
 ### Patch Changes
