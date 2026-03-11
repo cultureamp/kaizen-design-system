@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.5.2
+
+### Patch Changes
+
+- [#6463](https://github.com/cultureamp/kaizen-design-system/pull/6463) [`53cf1bf`](https://github.com/cultureamp/kaizen-design-system/commit/53cf1bffc8cdd436399ac598e9903ad713dc873c) - Fixed an issue where modal scrollbar on html element is not removed by the remove scroll bar library.
+
 ## 2.5.1
 
 ### Patch Changes
