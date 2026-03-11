@@ -81,9 +81,12 @@ export const XButtonClearsSelection: Story = {
   args: { ...args, isComboBox: true },
   play: async () => {
     const input = screen.getByRole('combobox')
+    const trigger = screen.getByRole('button')
 
     await userEvent.type(input, 'short')
+    await userEvent.click(trigger)
     const options = await screen.findAllByRole('option')
+    expect(options[0]).toBeVisible()
     await userEvent.click(options[0])
 
     const clearButton = await screen.findByRole('button', {
