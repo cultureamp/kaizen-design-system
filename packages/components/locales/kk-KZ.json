@@ -1,0 +1,259 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
+  },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "Date is invalid"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} is an invalid date"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "Cannot be earlier than the selection in \"{startDateFieldLabel}\""
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} is not available, try another date"
+  },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Input format"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "Select date from calendar for:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "Add filters"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "Clear all filters"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "Clear all"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "Remove filter - {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "Date"
+  },
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' field",
+    "message" : "Date from"
+  },
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'date to' field",
+    "message" : "Date to"
+  },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filter options by search query"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Search…"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Select all"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Clear search"
+  },
+  "kz.rte.bold" : {
+    "description" : "Label for the \"Bold\" button in a text editor",
+    "message" : "Bold"
+  },
+  "kz.rte.bullet_list" : {
+    "description" : "Label for the \"Bullet list\" button in a text editor",
+    "message" : "Bullet list"
+  },
+  "kz.rte.decrease_indent" : {
+    "description" : "Label for the \"Decrease indent\" button in a text editor",
+    "message" : "Decrease indent"
+  },
+  "kz.rte.increase_indent" : {
+    "description" : "Label for the \"Increase indent\" button in a text editor",
+    "message" : "Increase indent"
+  },
+  "kz.rte.italic" : {
+    "description" : "Label for the \"Italic\" button in a text editor",
+    "message" : "Italic"
+  },
+  "kz.rte.link" : {
+    "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
+    "message" : "Link"
+  },
+  "kz.rte.numbered_list" : {
+    "description" : "Label for the \"Numbered list\" button in a text editor",
+    "message" : "Numbered list"
+  },
+  "kz.rte.toolbar.aria_label" : {
+    "description" : "Label for the text formatting toolbar in a Rich Text Editor",
+    "message" : "Text formatting"
+  },
+  "kz.rte.underline" : {
+    "description" : "Label for the \"Underline\" button in a text editor",
+    "message" : "Underline"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "Contact support"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Problem loading page right now. Try again or head home."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Problem loading page"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Page not found"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Something's gone wrong on our side"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Change couldn't be made"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Something's gone wrong on our side"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Error code {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Go to Home"
+  },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "View more information:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Hide information:"
+  },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "Open combined secondary and overflow menu"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "Open default action overflow menu"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "Open menu"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "Opens overflow menu"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "Menu"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "Open secondary and overflow menu"
+  },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "Clear selection: {field}"
+  },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Show suggestions for {field}"
+  },
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "Clear selection: {field}"
+  }
+}
