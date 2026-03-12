@@ -78,9 +78,13 @@ export const KeyboardEscapeClosesPopover: Story = {
 }
 
 export const XButtonClearsSelection: Story = {
-  args: { ...args, isComboBox: true, defaultSelectedKey: singleMockItems[0].key },
+  args: { ...args, isComboBox: true },
   play: async () => {
     const input = screen.getByRole('combobox')
+
+    await userEvent.type(input, 'short')
+    const options = await screen.findAllByRole('option')
+    await userEvent.click(options[0])
 
     const clearButton = await screen.findByRole('button', {
       name: 'Clear selection: Choose a coffee',
