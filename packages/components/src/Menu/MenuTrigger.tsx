@@ -83,6 +83,8 @@ export const MenuTrigger = ({ onOpenChange, ...props }: MenuTriggerProps): JSX.E
           activePress.current = null
           document.removeEventListener('pointermove', onPointerMove)
           document.removeEventListener('pointercancel', cleanup)
+          document.removeEventListener('pointerdown', cleanup)
+          document.removeEventListener('pointerup', blockPointerUp, { capture: true })
           cancelOpenSequence.current = null
         }
 
@@ -102,13 +104,14 @@ export const MenuTrigger = ({ onOpenChange, ...props }: MenuTriggerProps): JSX.E
           const dx = e.clientX - startX
           const dy = e.clientY - startY
           if (dx * dx + dy * dy > DRAG_THRESHOLD_PX * DRAG_THRESHOLD_PX) {
-            document.removeEventListener('pointerup', blockPointerUp, { capture: true })
             cleanup()
           }
         }
         document.addEventListener('pointermove', onPointerMove)
         // Also cancel if the pointer is forcibly ended (e.g. scroll takeover, touch interrupted).
         document.addEventListener('pointercancel', cleanup, { once: true })
+        // Or if another pointer is pressed. This is another safe guard.
+        document.addEventListener('pointerdown', cleanup, { once: true })
 
         // Store cleanup for this sequence — overwritten each open, called on unmount.
         cancelOpenSequence.current = () => {
