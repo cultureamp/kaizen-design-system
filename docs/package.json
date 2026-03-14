@@ -1,7 +1,7 @@
 {
   "name": "@docs/storybook",
   "private": true,
-  "version": "0.2.8",
+  "version": "0.2.9",
   "type": "module",
   "scripts": {
     "lint:ts": "tsc --noEmit",
@@ -33,10 +33,11 @@
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/jest-axe": "^3.5.9",
     "@types/react-highlight": "^0.12.8",
-    "@vitejs/plugin-react": "^5.1.4",
+    "@vitejs/plugin-react": "^5.2.0",
     "axe-playwright": "^2.2.2",
+    "playwright": "^1.58.2",
     "classnames": "^2.5.1",
-    "globals": "^16.5.0",
+    "globals": "^17.4.0",
     "highlight.js": "^11.11.1",
     "jest-axe": "^10.0.0",
     "react-highlight": "^0.15.0",
