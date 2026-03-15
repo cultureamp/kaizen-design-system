@@ -230,7 +230,7 @@
   },
   "kzTitleBlock.hamburgerMenuLabel" : {
     "description" : "Label for the dropdown menu which displays navigation items",
-    "message" : "Open menu"
+    "message" : "Мәзірді ашу"
   },
   "kzTitleBlock.overflowMenuAriaLabel" : {
     "description" : "Aria Label for the dropdown menu which displays additional action items",
