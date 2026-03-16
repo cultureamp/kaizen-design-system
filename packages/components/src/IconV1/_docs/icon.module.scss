@@ -21,13 +21,13 @@
     padding: var(--spacing-16);
     width: 100%;
     height: 100%;
-    background-color: var(--color-gray-100);
+    background-color: var(--color-grey-warm-010);
     border-radius: var(--border-solid-border-radius);
     word-break: break-all;
     cursor: pointer;
 
     &:hover {
-      background-color: var(--color-gray-200);
+      background-color: var(--color-grey-warm-050);
     }
   }
 

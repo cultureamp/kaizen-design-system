@@ -9,12 +9,12 @@
     position: relative;
     display: inline-flex;
     border-radius: 50%;
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
 
     &:focus,
     &:focus-visible {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: 1px;
     }
 
@@ -28,9 +28,9 @@
     &:hover,
     &:focus,
     &:focus-visible {
-      background-color: rgba($color-gray-600-rgb, 0.2);
+      background-color: oklch(from $color-grey-cool-700 l c h / 0.2);
       cursor: pointer;
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
   }
 }

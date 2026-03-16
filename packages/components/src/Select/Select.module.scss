@@ -22,7 +22,7 @@
 
 // Should match the values for the Input component
 $input-height: 48px;
-$focus-border-color: $color-blue-500;
+$focus-border-color: $color-blue-600;
 
 %focus-border {
   $focus-ring-offset: calc((#{$border-focus-ring-border-width} * -2) - 1px);
@@ -43,7 +43,7 @@ $focus-border-color: $color-blue-500;
   font-size: $typography-paragraph-body-font-size;
   line-height: $typography-paragraph-body-line-height;
   letter-spacing: $typography-paragraph-body-letter-spacing;
-  color: $color-purple-800;
+  color: $color-purple-950;
 }
 
 /* stylelint-disable no-descending-specificity */
@@ -54,16 +54,16 @@ $focus-border-color: $color-blue-500;
   }
 
   .dropdownIndicator {
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
 
     &:hover {
-      color: rgba($color-purple-800-rgb, 0.7);
+      color: oklch(from $color-purple-950 l c h / 0.7);
     }
   }
 
   .control {
     min-height: $input-height;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
     border-radius: $border-solid-border-radius;
 
     &.disabled {
@@ -71,8 +71,8 @@ $focus-border-color: $color-blue-500;
     }
 
     &:hover {
-      border-color: $color-gray-600;
-      background-color: $color-gray-100;
+      border-color: $color-grey-cool-700;
+      background-color: $color-grey-warm-010;
       cursor: pointer;
     }
 
@@ -126,7 +126,7 @@ $focus-border-color: $color-blue-500;
     line-height: $typography-heading-6-line-height;
     letter-spacing: $typography-heading-6-letter-spacing;
     text-transform: capitalize;
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
   }
 
   .option {
@@ -140,24 +140,24 @@ $focus-border-color: $color-blue-500;
   }
 
   .focusedOption {
-    background-color: $color-blue-100;
-    color: $color-blue-500;
+    background-color: $color-blue-050;
+    color: $color-blue-600;
     border-color: $focus-border-color;
 
     &.disabledOption {
-      color: $color-purple-800;
-      border-color: $color-gray-500;
+      color: $color-purple-950;
+      border-color: $color-grey-cool-500;
       background: transparent;
     }
 
     &:active {
-      background-color: $color-blue-100;
+      background-color: $color-blue-050;
     }
   }
 
   .selectedOption {
     font-weight: $typography-paragraph-bold-font-weight;
-    color: $color-blue-500;
+    color: $color-blue-600;
 
     &:not(.focusedOption) {
       background-color: transparent;
@@ -193,7 +193,7 @@ $focus-border-color: $color-blue-500;
 
   &.error {
     .control {
-      border: $border-solid-border-width $border-solid-border-style $color-red-500;
+      border: $border-solid-border-width $border-solid-border-style $color-red-600;
     }
   }
 
@@ -206,7 +206,7 @@ $focus-border-color: $color-blue-500;
         border-radius: $border-borderless-border-radius;
 
         &:hover {
-          background: rgba($color-white-rgb, 0.2);
+          background: oklch(from $color-white l c h / 0.2);
         }
 
         &.disabled {
@@ -237,11 +237,11 @@ $focus-border-color: $color-blue-500;
         border-radius: $border-borderless-border-radius;
 
         .singleValue {
-          color: $color-blue-500;
+          color: $color-blue-600;
         }
 
         &:hover {
-          background: $color-blue-100;
+          background: $color-blue-050;
         }
 
         &.disabled {
@@ -249,7 +249,7 @@ $focus-border-color: $color-blue-500;
         }
 
         &.focusedControl {
-          background: $color-blue-100;
+          background: $color-blue-050;
 
           &::after {
             @extend %focus-border;
@@ -258,20 +258,20 @@ $focus-border-color: $color-blue-500;
       }
 
       .dropdownIndicator {
-        color: $color-blue-500;
+        color: $color-blue-600;
       }
     }
 
     &.reversed {
       .control {
-        background: rgba($color-white-rgb, 0.1);
+        background: oklch(from $color-white l c h / 0.1);
         color: $color-white;
         border: $border-borderless-border-width $border-borderless-border-style
           $border-borderless-border-color;
         border-radius: $border-borderless-border-radius;
 
         &:hover {
-          background: rgba($color-white-rgb, 0.2);
+          background: oklch(from $color-white l c h / 0.2);
         }
 
         &.disabled {

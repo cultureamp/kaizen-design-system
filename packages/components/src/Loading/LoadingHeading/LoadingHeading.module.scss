@@ -6,7 +6,7 @@
   .loadingHeading {
     @extend %loadingBase;
 
-    background-color: rgba($color-gray-500-rgb, 0.2);
+    background-color: oklch(from $color-grey-cool-500 l c h / 0.2);
   }
 
   .isAnimated {
@@ -49,14 +49,14 @@
   }
 
   .isReversed {
-    background-color: rgba($color-white-rgb, 0.2);
+    background-color: oklch(from $color-white l c h / 0.2);
   }
 
   .link {
-    background-color: rgba($color-blue-500-rgb, 0.2);
+    background-color: oklch(from $color-blue-600 l c h / 0.2);
 
     &.isReversed {
-      background-color: rgba($color-white-rgb, 0.65);
+      background-color: oklch(from $color-white l c h / 0.65);
     }
   }
 }

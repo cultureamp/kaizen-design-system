@@ -14,7 +14,7 @@
     width: 100%;
     background-color: var(--color-white);
     border-radius: 0.4375rem;
-    border: var(--spacing-2) solid var(--color-gray-500);
+    border: var(--spacing-2) solid var(--color-grey-cool-500);
     box-sizing: border-box;
   }
 
@@ -29,16 +29,16 @@
   .secondary:not(.disabled, .readOnly) {
     border-radius: 0.4375rem 0.4375rem 0 0;
     border: 2px solid transparent;
-    border-bottom: var(--spacing-2) solid var(--color-gray-400);
+    border-bottom: var(--spacing-2) solid var(--color-grey-warm-200);
   }
 
   .secondary:not(.disabled, .readOnly):hover {
-    border: var(--spacing-2) solid var(--color-gray-600);
+    border: var(--spacing-2) solid var(--color-grey-cool-700);
     border-radius: 0.4375rem;
   }
 
   .secondary:not(.disabled, .readOnly):focus-within {
-    border: var(--spacing-2) solid var(--color-gray-600);
+    border: var(--spacing-2) solid var(--color-grey-cool-700);
     border-radius: 0.4375rem;
   }
 
@@ -59,28 +59,28 @@
 
   .disabled {
     pointer-events: none;
-    border: var(--spacing-2) solid var(--color-gray-300);
-    background-color: var(--color-gray-100);
+    border: var(--spacing-2) solid var(--color-grey-warm-100);
+    background-color: var(--color-grey-warm-010);
 
     .input {
-      background-color: var(--color-gray-100);
-      color: var(--color-gray-500);
+      background-color: var(--color-grey-warm-010);
+      color: var(--color-grey-cool-500);
     }
   }
 
   .readOnly {
     pointer-events: none;
-    background-color: var(--color-gray-200);
-    border: var(--spacing-2) solid var(--color-gray-200);
+    background-color: var(--color-grey-warm-050);
+    border: var(--spacing-2) solid var(--color-grey-warm-050);
 
     .input {
-      background-color: var(--color-gray-200);
+      background-color: var(--color-grey-warm-050);
     }
   }
 
   .trigger:focus-within {
     outline-offset: var(--spacing-2);
-    outline: var(--spacing-2) solid var(--color-blue-500);
+    outline: var(--spacing-2) solid var(--color-blue-600);
     background-color: var(--color-white);
     border-radius: 0.4375rem;
 
@@ -90,11 +90,11 @@
   }
 
   .trigger:hover:not(:focus-within) {
-    border-color: var(--color-gray-600);
-    background-color: var(--color-gray-200);
+    border-color: var(--color-grey-cool-700);
+    background-color: var(--color-grey-warm-050);
 
     .input {
-      background-color: var(--color-gray-200);
+      background-color: var(--color-grey-warm-050);
     }
   }
 
@@ -113,7 +113,7 @@
   }
 
   .clearButton:focus-visible {
-    outline: var(--spacing-2) solid var(--color-blue-500);
+    outline: var(--spacing-2) solid var(--color-blue-600);
     border-radius: 50%;
   }
 

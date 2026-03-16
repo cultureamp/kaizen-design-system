@@ -16,9 +16,24 @@ import type { CSSProperties as ReactCSSProperties } from 'react'
  * */
 type KaizenCSSProperties = ReactCSSProperties
 
-type Hex = string
-// Once TypeScript is upgraded in the repo, you can use Lowercase<>
-// type Hex = Lowercase<string>
+type ColorValue = string
+// Color values can be hex (#ffffff) or OKLCH (oklch(96.04% 0.0137 247.97))
+
+/** 12-step color palette (010-950) using OKLCH format */
+type ColorPalette12Step = {
+  '010': ColorValue
+  '050': ColorValue
+  '100': ColorValue
+  '200': ColorValue
+  '300': ColorValue
+  '400': ColorValue
+  '500': ColorValue
+  '600': ColorValue
+  '700': ColorValue
+  '800': ColorValue
+  '900': ColorValue
+  '950': ColorValue
+}
 
 export type TypographyFont = {
   fontFamily: KaizenCSSProperties['fontFamily']
@@ -77,75 +92,23 @@ export type TokenStructure = {
     }
   }
   color: {
-    purple: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-      '800': Hex
-    }
-    blue: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-    }
-    green: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-    }
-    yellow: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-    }
-    red: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-    }
-    orange: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-      '700': Hex
-    }
-    gray: {
-      '100': Hex
-      '200': Hex
-      '300': Hex
-      '400': Hex
-      '500': Hex
-      '600': Hex
-    }
-    white: Hex
-    black: Hex
+    blue: ColorPalette12Step
+    cyan: ColorPalette12Step
+    green: ColorPalette12Step
+    'grey-cool': ColorPalette12Step
+    'grey-warm': ColorPalette12Step
+    lime: ColorPalette12Step
+    orange: ColorPalette12Step
+    pink: ColorPalette12Step
+    purple: ColorPalette12Step
+    red: ColorPalette12Step
+    yellow: ColorPalette12Step
+    white: ColorValue
+    black: ColorValue
   }
   dataViz: {
-    favorable: Hex
-    unfavorable: Hex
+    favorable: ColorValue
+    unfavorable: ColorValue
   }
   layout: {
     contentMaxWidth: string

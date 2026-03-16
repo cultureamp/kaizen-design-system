@@ -17,7 +17,7 @@
 
     &:focus {
       outline-offset: 1px;
-      outline: 2px solid var(--color-blue-500);
+      outline: 2px solid var(--color-blue-600);
     }
   }
 
@@ -67,36 +67,36 @@
 
   /* Types (colors) */
   .success {
-    background: var(--color-green-100);
+    background: var(--color-green-050);
     border-color: var(--color-green-500);
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
 
     --icon-color: var(--color-green-500);
   }
 
   .informative {
-    background: var(--color-blue-100);
-    border-color: var(--color-blue-500);
-    color: var(--color-purple-800);
+    background: var(--color-blue-050);
+    border-color: var(--color-blue-600);
+    color: var(--color-purple-950);
 
-    --icon-color: var(--color-blue-500);
+    --icon-color: var(--color-blue-600);
   }
 
   .cautionary,
   .security {
-    background: var(--color-yellow-100);
-    border-color: var(--color-yellow-700);
-    color: var(--color-purple-800);
+    background: var(--color-yellow-010);
+    border-color: var(--color-yellow-600);
+    color: var(--color-purple-950);
 
-    --icon-color: var(--color-yellow-700);
+    --icon-color: var(--color-yellow-600);
   }
 
   .warning {
-    background: var(--color-red-100);
-    border-color: var(--color-red-500);
-    color: var(--color-purple-800);
+    background: var(--color-red-050);
+    border-color: var(--color-red-600);
+    color: var(--color-purple-950);
 
-    --icon-color: var(--color-red-500);
+    --icon-color: var(--color-red-600);
   }
 
   /* Hidden state */
@@ -230,14 +230,14 @@
     color: inherit;
 
     a[href]:not([data-rac]) {
-      border-bottom: var(--spacing-1) solid var(--color-blue-500);
+      border-bottom: var(--spacing-1) solid var(--color-blue-600);
       text-decoration: none;
-      color: var(--color-blue-500);
+      color: var(--color-blue-600);
 
       &:hover {
         text-decoration: none;
-        color: var(--color-blue-600);
-        border-bottom: var(--spacing-1) solid var(--color-blue-600);
+        color: var(--color-blue-800);
+        border-bottom: var(--spacing-1) solid var(--color-blue-800);
       }
     }
 
@@ -292,7 +292,7 @@
     border: none;
     background: transparent;
     font: inherit;
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
     position: relative;
     display: flex;
     align-items: center;
@@ -334,7 +334,7 @@
 
     &:focus-visible {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: -4px;
     }
   }

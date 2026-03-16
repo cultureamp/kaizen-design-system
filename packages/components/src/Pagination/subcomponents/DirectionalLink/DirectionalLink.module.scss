@@ -7,7 +7,7 @@
   %directional-link {
     border: $border-solid-border-width solid $color-blue-300;
 
-    @include enabled-pseudo-states-variant($color-blue-100, $color-blue-400);
+    @include enabled-pseudo-states-variant($color-blue-050, $color-blue-500);
 
     &:disabled {
       border-color: $color-blue-300;

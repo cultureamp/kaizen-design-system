@@ -5,12 +5,12 @@
   .loadingGraphic {
     @extend %loadingBase;
 
-    background-color: rgba($color-gray-600-rgb, 0.1);
+    background-color: oklch(from $color-grey-cool-700 l c h / 0.1);
     border-radius: 50%;
   }
 
   .isReversed {
-    background-color: rgba($color-white-rgb, 0.1);
+    background-color: oklch(from $color-white l c h / 0.1);
   }
 
   .isAnimated {

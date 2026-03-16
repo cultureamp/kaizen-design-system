@@ -42,12 +42,12 @@
   }
 
   .dark {
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
     opacity: 1;
   }
 
   .dark-reduced-opacity {
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
     opacity: 0.7;
   }
 
@@ -66,6 +66,6 @@
   }
 
   .negative {
-    color: var(--color-red-600);
+    color: var(--color-red-700);
   }
 }

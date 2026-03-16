@@ -20,7 +20,7 @@
     bottom: 1rem;
     /* stylelint-disable declaration-no-important */
     background-color: $color-white !important;
-    border: 1px solid $color-gray-400;
+    border: 1px solid $color-grey-warm-200;
     transition: all $animation-duration-immediate;
 
     @media (hover: none) and (pointer: coarse) {
@@ -28,14 +28,14 @@
     }
 
     svg {
-      color: $color-purple-800;
+      color: $color-purple-950;
       opacity: 70%;
     }
 
     &:hover,
     &:focus {
       opacity: 100%;
-      background-color: $color-gray-200 !important;
+      background-color: $color-grey-warm-050 !important;
 
       svg {
         opacity: 100%;

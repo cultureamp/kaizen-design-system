@@ -66,7 +66,7 @@ const StickerSheetTemplate: Story = {
 
       <StickerSheet title="Long text wrap">
         <StickerSheet.Row>
-          <div className=" w-280 border-solid border-gray-500 border">
+          <div className=" w-280 border-solid border-grey-cool-500 border">
             <MultiSelectOptionField
               id="id--john-long-name"
               onChange={action('long name option clicked')}

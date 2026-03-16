@@ -21,7 +21,7 @@
     align-items: center;
     height: $button-height;
     width: 100%;
-    color: $color-purple-800;
+    color: $color-purple-950;
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
     font-weight: $typography-paragraph-body-font-weight;
@@ -30,20 +30,20 @@
     text-align: start;
     background-color: $color-white;
     background-clip: padding-box;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
     border-radius: $border-solid-border-radius;
     margin-top: $spacing-6;
     padding: 0 $button-base-padding-horizontal;
 
     &:focus-visible:not([disabled]),
     &:hover:not([disabled]) {
-      background-color: $color-gray-200;
-      border-color: $color-gray-600;
-      color: $color-purple-800;
+      background-color: $color-grey-warm-050;
+      border-color: $color-grey-cool-700;
+      color: $color-purple-950;
     }
 
     &:focus-visible:not([disabled]) {
-      outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+      outline: $color-blue-600 $border-focus-ring-border-style $border-focus-ring-border-width;
       outline-offset: 1px;
     }
 
@@ -54,8 +54,8 @@
     &.disabled {
       background: $color-white;
       opacity: $disabled-opacity;
-      color: rgba($color-purple-800-rgb, $placeholder-opacity);
-      border-color: rgba($color-gray-500-rgb, 0.7);
+      color: oklch(from $color-purple-950 l c h / $placeholder-opacity);
+      border-color: oklch(from $color-grey-cool-500 l c h / 0.7);
     }
 
     .value {
@@ -80,7 +80,7 @@
     .startIconAdornment {
       @include vertically-center-icon;
 
-      color: $color-purple-800;
+      color: $color-purple-950;
       opacity: $disabled-opacity;
       inset-inline: $spacing-sm auto;
     }

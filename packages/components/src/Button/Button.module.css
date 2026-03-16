@@ -14,10 +14,10 @@
     --button-padding-y: calc(var(--spacing-8) - var(--button-border-width));
     --button-padding-x: calc(var(--spacing-16) - var(--button-border-width));
 
-    background-color: var(--button-bg-color, var(--color-blue-500));
+    background-color: var(--button-bg-color, var(--color-blue-600));
     border: var(--button-border-width) solid;
     border-radius: var(--border-solid-border-radius);
-    border-color: var(--button-border-color, var(--color-blue-500));
+    border-color: var(--button-border-color, var(--color-blue-600));
     box-sizing: border-box;
     color: var(--button-text-color, var(--color-white));
     display: inline-flex;
@@ -34,29 +34,29 @@
     padding: var(--button-padding-y) var(--button-padding-x);
 
     &[data-hovered] {
-      --button-bg-color: var(--color-blue-600);
-      --button-border-color: var(--color-blue-600);
+      --button-bg-color: var(--color-blue-800);
+      --button-border-color: var(--color-blue-800);
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-blue-700);
-      --button-border-color: var(--color-blue-700);
+      --button-bg-color: var(--color-blue-900);
+      --button-border-color: var(--color-blue-900);
     }
 
     &[data-pending] {
-      --button-bg-color: var(--color-blue-700);
-      --button-border-color: var(--color-blue-700);
+      --button-bg-color: var(--color-blue-900);
+      --button-border-color: var(--color-blue-900);
     }
 
     &.isDisabled {
-      --button-bg-color: var(--color-gray-400);
-      --button-border-color: var(--color-gray-400);
+      --button-bg-color: var(--color-grey-warm-200);
+      --button-border-color: var(--color-grey-warm-200);
       --button-text-color: var(--color-white);
     }
 
     &[data-focus-visible] {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: 1px;
     }
   }
@@ -99,40 +99,40 @@
 
   .secondary {
     --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-gray-500);
-    --button-text-color: var(--color-purple-800);
+    --button-border-color: var(--color-grey-cool-500);
+    --button-text-color: var(--color-purple-950);
 
     &[data-hovered] {
-      --button-bg-color: var(--color-gray-200);
-      --button-border-color: var(--color-gray-600);
+      --button-bg-color: var(--color-grey-warm-050);
+      --button-border-color: var(--color-grey-cool-700);
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-gray-300);
+      --button-bg-color: var(--color-grey-warm-100);
       --button-border-color: var(--color-black);
     }
 
     &[data-pending] {
-      --button-bg-color: var(--color-gray-300);
+      --button-bg-color: var(--color-grey-warm-100);
       --button-border-color: var(--color-black);
     }
 
     &.isDisabled {
       --button-bg-color: var(--color-white);
-      --button-border-color: var(--color-gray-400);
-      --button-text-color: var(--color-gray-400);
+      --button-border-color: var(--color-grey-warm-200);
+      --button-text-color: var(--color-grey-warm-200);
     }
   }
 
   .tertiary {
     --button-bg-color: transparent;
     --button-border-color: transparent;
-    --button-text-color: var(--color-purple-800);
+    --button-text-color: var(--color-purple-950);
 
     &[data-hovered],
     &[data-pressed],
     &[data-pending] {
-      --button-text-color: var(--color-blue-500);
+      --button-text-color: var(--color-blue-600);
     }
 
     &[data-hovered] {
@@ -141,19 +141,19 @@
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-blue-100);
-      --button-border-color: var(--color-blue-100);
+      --button-bg-color: var(--color-blue-050);
+      --button-border-color: var(--color-blue-050);
     }
 
     &[data-pending] {
-      --button-bg-color: var(--color-blue-100);
-      --button-border-color: var(--color-blue-100);
+      --button-bg-color: var(--color-blue-050);
+      --button-border-color: var(--color-blue-050);
     }
 
     &.isDisabled {
       --button-bg-color: transparent;
       --button-border-color: transparent;
-      --button-text-color: var(--color-gray-400);
+      --button-text-color: var(--color-grey-warm-200);
     }
   }
 
@@ -168,16 +168,16 @@
   .primaryReversed {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
-    --button-text-color: var(--color-purple-800);
+    --button-text-color: var(--color-purple-950);
 
     &[data-hovered] {
-      --button-bg-color: var(--color-gray-200);
-      --button-border-color: var(--color-gray-200);
+      --button-bg-color: var(--color-grey-warm-050);
+      --button-border-color: var(--color-grey-warm-050);
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-gray-300);
-      --button-border-color: var(--color-gray-300);
+      --button-bg-color: var(--color-grey-warm-100);
+      --button-border-color: var(--color-grey-warm-100);
     }
 
     &[data-pending] {

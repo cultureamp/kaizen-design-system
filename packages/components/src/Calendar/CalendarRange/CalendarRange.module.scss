@@ -25,7 +25,7 @@
         position: absolute;
         content: '';
         inset: calc(-1 * #{$spacing-md}) 0;
-        border-inline-start: 1px solid $color-gray-300;
+        border-inline-start: 1px solid $color-grey-warm-100;
       }
     }
 
@@ -43,22 +43,22 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    color: $color-purple-800;
+    color: $color-purple-950;
     top: -0.25rem;
   }
 
   .dayRangeStart,
   .dayRangeEnd {
-    background-color: $color-blue-500;
+    background-color: $color-blue-600;
     color: $color-white;
   }
 
   .dayRangeMiddle {
-    background-color: $color-blue-100;
-    color: $color-blue-500;
+    background-color: $color-blue-050;
+    color: $color-blue-600;
 
     & [class*='_button_'] {
-      color: $color-blue-500;
+      color: $color-blue-600;
     }
   }
 

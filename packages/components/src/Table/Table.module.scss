@@ -13,7 +13,7 @@
 
   @mixin anchor-reset {
     text-decoration: none;
-    color: $color-purple-800;
+    color: $color-purple-950;
     display: block;
   }
 
@@ -115,7 +115,7 @@
         content: '';
         position: absolute;
         background: transparent;
-        border-color: $color-blue-500;
+        border-color: $color-blue-600;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
         border-radius: $border-focus-ring-border-radius;
@@ -127,7 +127,7 @@
     color: $color-white;
 
     &:focus-visible::after {
-      border-color: $color-blue-100;
+      border-color: $color-blue-050;
     }
   }
 
@@ -147,16 +147,16 @@
   }
 
   .headerRowCellTooltipIcon {
-    color: $color-blue-500;
+    color: $color-blue-600;
     margin-inline-end: $spacing-xs;
   }
 
   .headerRowCellIcon {
-    color: rgb($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
     height: 20px;
 
     .headerRowCellActive & {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
 
     .headerRowCellButtonReversed & {
@@ -172,7 +172,7 @@
     // This is an optical hack to stop the card shadow from overlapping over
     // the proceeding cards
     box-shadow: 0 4px 6px rgb(53, 55, 74, 0.04);
-    border: solid 1px rgb($color-purple-700-rgb, 0.1);
+    border: solid 1px oklch(from $color-purple-900 l c h / 0.1);
     transition:
       box-shadow $animation-duration-rapid,
       border-color $animation-duration-rapid,
@@ -212,7 +212,7 @@
         content: '';
         position: absolute;
         background: transparent;
-        border-color: $color-blue-500;
+        border-color: $color-blue-600;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
         border-radius: inherit;
@@ -245,7 +245,7 @@
     border-color: $border-borderless-border-color;
     box-shadow: none;
     border-radius: $border-solid-border-radius;
-    background-color: $color-gray-300;
+    background-color: $color-grey-warm-100;
     margin-bottom: $spacing-sm;
   }
 
@@ -273,7 +273,7 @@
 
     &:focus,
     &:hover {
-      background-color: $color-gray-100;
+      background-color: $color-grey-warm-010;
     }
   }
 

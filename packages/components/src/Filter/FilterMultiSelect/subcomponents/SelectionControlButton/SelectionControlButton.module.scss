@@ -25,7 +25,7 @@
     font-size: $typography-button-secondary-font-size;
     line-height: $typography-button-secondary-line-height;
     letter-spacing: $typography-button-secondary-letter-spacing;
-    color: $color-blue-500;
+    color: $color-blue-600;
 
     &:focus {
       outline: none;
@@ -35,7 +35,7 @@
     &:active,
     &:focus {
       &:not(.isDisabled) {
-        background-color: $color-blue-100;
+        background-color: $color-blue-050;
       }
     }
 
@@ -48,14 +48,14 @@
       border-radius: $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
-      border-color: $color-blue-500;
+      border-color: $color-blue-600;
       inset: calc(-1 * #{$focus-ring-offset});
     }
 
     // TODO: copied from Calendar button since the design is not settled
     &.isDisabled {
       pointer-events: none;
-      color: rgba($color-purple-800-rgb, 0.3);
+      color: oklch(from $color-purple-950 l c h / 0.3);
       opacity: 100%;
 
       &:focus {
@@ -64,7 +64,7 @@
       }
 
       &:focus-visible::after {
-        border-color: $color-gray-400;
+        border-color: $color-grey-warm-200;
       }
     }
   }

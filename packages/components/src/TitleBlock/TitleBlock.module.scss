@@ -91,7 +91,7 @@
   }
 
   .lightVariant .titleRowInner {
-    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 $color-gray-300;
+    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 $color-grey-warm-100;
   }
 
   %rowBelowSeparatorInnerMarginOverride {
@@ -118,11 +118,11 @@
     gap: $title-block-gap-default;
     padding-block: $title-block-spacing-default;
     justify-content: space-between;
-    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 rgba($color-white-rgb, 0.1);
+    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 oklch(from $color-white l c h / 0.1);
 
     .educationVariant & {
       box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0
-        rgba($color-purple-700-rgb, 0.2);
+        oklch(from $color-purple-900 l c h / 0.2);
     }
 
     .lightVariant &,
@@ -331,11 +331,11 @@
     margin-inline: var(--spacing-12) 0;
 
     .lightVariant & {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
 
     .adminVariant & {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
 
     @include title-block-under-1366 {
@@ -422,7 +422,7 @@
     letter-spacing: $typography-paragraph-small-letter-spacing;
 
     &.dark {
-      color: rgba($color-purple-800-rgb, 0.7);
+      color: oklch(from $color-purple-950 l c h / 0.7);
     }
   }
 
@@ -534,25 +534,25 @@
       top: $tab-container-height-small;
       width: $tab-container-height-small;
       height: $tab-container-height-small;
-      background: linear-gradient(0deg, $color-purple-600, rgba($color-purple-600-rgb, 0));
+      background: linear-gradient(0deg, $color-purple-800, oklch(from $color-purple-800 l c h / 0));
       z-index: 1;
     }
 
     .lightVariant & {
       @include title-block-small {
-        background: linear-gradient(0deg, $color-gray-100, rgba($color-gray-100-rgb, 0));
+        background: linear-gradient(0deg, $color-grey-warm-010, oklch(from $color-grey-warm-010 l c h / 0));
       }
     }
 
     .adminVariant & {
       @include title-block-small {
-        background: linear-gradient(0deg, $color-gray-100, rgba($color-gray-100-rgb, 0));
+        background: linear-gradient(0deg, $color-grey-warm-010, oklch(from $color-grey-warm-010 l c h / 0));
       }
     }
 
     .educationVariant & {
       @include title-block-small {
-        background: linear-gradient(0deg, $color-blue-200, rgba($color-blue-200-rgb, 0));
+        background: linear-gradient(0deg, $color-blue-200, oklch(from $color-blue-200 l c h / 0));
       }
     }
   }
@@ -592,7 +592,7 @@
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-blue-500;
+      color: $color-blue-600;
     }
 
     .secondaryOverflowCombinedMenu {
@@ -740,7 +740,7 @@
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
   }
 
@@ -752,7 +752,7 @@
     width: $breadcrumb-circle-width;
     height: $breadcrumb-circle-width;
     color: $color-white;
-    border-color: rgba($color-white-rgb, 0.5);
+    border-color: oklch(from $color-white l c h / 0.5);
     border-width: 2px;
     border-radius: 50%;
     border-style: solid;
@@ -768,13 +768,13 @@
       transform: scale(1.1);
       border-color: $color-white;
       color: $color-white;
-      background-color: rgba($color-white-rgb, 0.1);
+      background-color: oklch(from $color-white l c h / 0.1);
     }
 
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-blue-500;
+      color: $color-blue-600;
       border-color: $color-blue-300;
       border-width: $border-width;
     }
@@ -785,9 +785,9 @@
     .educationVariant .breadcrumb:focus &,
     .adminVariant .breadcrumb:hover &,
     .adminVariant .breadcrumb:focus & {
-      border-color: $color-blue-500;
-      color: $color-blue-500;
-      background-color: rgba($color-blue-500-rgb, 0.1);
+      border-color: $color-blue-600;
+      color: $color-blue-600;
+      background-color: oklch(from $color-blue-600 l c h / 0.1);
     }
   }
   /* stylelint-enable no-descending-specificity */

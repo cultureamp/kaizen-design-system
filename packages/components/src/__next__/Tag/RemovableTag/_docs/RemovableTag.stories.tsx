@@ -33,6 +33,6 @@ export const Children: Story = {
 
 export const ClassNameOverride: Story = {
   args: {
-    classNameOverride: 'border-red-500 border-solid border-',
+    classNameOverride: 'border-red-600 border-solid border-',
   },
 }

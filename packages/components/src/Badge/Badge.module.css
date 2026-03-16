@@ -1,7 +1,7 @@
 @layer kz-components {
   .badge {
     border-radius: var(--spacing-12);
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
     display: inline-block;
     position: relative;
     font-family: var(--typography-paragraph-extra-small-font-family);
@@ -12,7 +12,7 @@
     padding: 1px var(--spacing-6);
     min-width: 8px;
     text-align: center;
-    background-color: var(--badge-background-color, var(--color-gray-300));
+    background-color: var(--badge-background-color, var(--color-grey-warm-100));
   }
 
   .reversed {
@@ -22,13 +22,13 @@
   }
 
   .reversed.active {
-    --badge-background-color: var(--color-green-300);
+    --badge-background-color: var(--color-green-200);
 
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
   }
 
   .reversed.dark {
-    --badge-background-color: var(--color-purple-700);
+    --badge-background-color: var(--color-purple-900);
 
     color: var(--color-white);
   }
@@ -45,7 +45,7 @@
   }
 
   .active {
-    --badge-background-color: var(--color-blue-500);
+    --badge-background-color: var(--color-blue-600);
 
     color: var(--color-white);
   }
@@ -53,11 +53,11 @@
   .dark {
     --badge-background-color: rgb(var(--color-purple-700-rgb), 0.1);
 
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
   }
 
   .dot {
-    --badge-background-color: var(--color-green-300);
+    --badge-background-color: var(--color-green-200);
 
     padding: var(--spacing-6);
     min-width: unset;
@@ -92,7 +92,7 @@
   }
 
   .animationOn .badge.active {
-    --badge-background-color: var(--color-blue-500);
+    --badge-background-color: var(--color-blue-600);
 
     color: var(--color-white);
   }

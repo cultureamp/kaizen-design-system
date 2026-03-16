@@ -50,15 +50,15 @@
     font-size: var(--typography-paragraph-small-font-size);
     line-height: var(--typography-paragraph-small-line-height);
     font-weight: var(--typography-paragraph-bold-font-weight);
-    color: var(--color-gray-600);
+    color: var(--color-grey-cool-700);
   }
 
   .stepName.isCurrent {
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
   }
 
   .stepIcon {
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
     position: absolute;
     width: var(--progress-stepper-indicator-size);
     height: var(--progress-stepper-indicator-size);
@@ -77,7 +77,7 @@
     position: absolute;
     flex-grow: 1;
     min-width: calc(100% - var(--spacing-24));
-    border: solid var(--spacing-1) var(--color-gray-300);
+    border: solid var(--spacing-1) var(--color-grey-warm-100);
     margin: 0;
     border-radius: var(--border-solid-border-radius);
     inset-inline-start: 100%;

@@ -79,6 +79,6 @@ export const IconStory: StoryObj = {
 
 export const ClassNameOverride: StoryObj = {
   args: {
-    classNameOverride: 'border-red-500 border-solid border',
+    classNameOverride: 'border-red-600 border-solid border',
   },
 }

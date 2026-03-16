@@ -89,7 +89,7 @@
       width: 155px;
       height: 155px;
       margin: 0 auto;
-      color: $color-purple-800;
+      color: $color-purple-950;
 
       @media (max-width: $layout-breakpoints-medium) {
         width: 86px;
@@ -110,27 +110,27 @@
   // variant styles
   // --------------------------------
   .success {
-    background-color: var(--color-green-100);
+    background-color: var(--color-green-050);
 
     --spot-icon-color: var(--color-green-500);
   }
 
   .informative {
-    background-color: var(--color-blue-100);
+    background-color: var(--color-blue-050);
 
-    --spot-icon-color: var(--color-blue-500);
+    --spot-icon-color: var(--color-blue-600);
   }
 
   .warning {
-    background-color: var(--color-red-100);
+    background-color: var(--color-red-050);
 
-    --spot-icon-color: var(--color-red-500);
+    --spot-icon-color: var(--color-red-600);
   }
 
   .cautionary {
-    background-color: var(--color-yellow-100);
+    background-color: var(--color-yellow-010);
 
-    --spot-icon-color: var(--color-yellow-700);
+    --spot-icon-color: var(--color-yellow-600);
   }
 
   // --------------------------------

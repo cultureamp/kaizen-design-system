@@ -21,7 +21,7 @@
         background-color: transparent;
         color: inherit;
 
-        @include enabled-pseudo-states-variant($background-color: $color-gray-200);
+        @include enabled-pseudo-states-variant($background-color: $color-grey-warm-050);
       }
     }
 

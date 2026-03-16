@@ -38,7 +38,7 @@ export const Playground: Story = {
 
 export const ApplyColour: Story = {
   render: (args) => (
-    <div className="text-blue-500">
+    <div className="text-blue-600">
       <AddIcon {...args} />
     </div>
   ),

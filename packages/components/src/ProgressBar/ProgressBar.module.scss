@@ -5,7 +5,7 @@
   $height: 10px;
 
   .subtext {
-    color: $color-purple-800;
+    color: $color-purple-950;
     padding-top: $spacing-6;
     text-align: center;
     opacity: 80%;
@@ -13,7 +13,7 @@
 
   .progressBackground {
     width: 100%;
-    background: $color-gray-300;
+    background: $color-grey-warm-100;
     border-radius: $height;
     height: $height;
     overflow: hidden;
@@ -33,11 +33,11 @@
   // Colors
   // ------------------------------
   .blue {
-    --progressbar-background-color: var(--color-blue-400);
+    --progressbar-background-color: var(--color-blue-500);
   }
 
   .green {
-    --progressbar-background-color: var(--color-green-400);
+    --progressbar-background-color: var(--color-green-300);
   }
 
   .red {
@@ -45,7 +45,7 @@
   }
 
   .yellow {
-    --progressbar-background-color: var(--color-yellow-400);
+    --progressbar-background-color: var(--color-yellow-200);
   }
 
   .isAnimating {

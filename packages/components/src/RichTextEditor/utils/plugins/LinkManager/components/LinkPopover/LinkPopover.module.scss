@@ -25,6 +25,6 @@
 
   .popoverActions {
     padding-inline: $spacing-4 $spacing-4;
-    border-left: 1px solid rgba($color-gray-600-rgb, 0.1);
+    border-left: 1px solid oklch(from $color-grey-cool-700 l c h / 0.1);
   }
 }

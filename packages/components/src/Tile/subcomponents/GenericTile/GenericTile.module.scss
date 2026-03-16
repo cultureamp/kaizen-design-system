@@ -66,21 +66,21 @@
   }
 
   .faceBack {
-    --generic-tile-border-color: var(--color-blue-400);
-    --generic-tile-background-color: var(--color-blue-100);
+    --generic-tile-border-color: var(--color-blue-500);
+    --generic-tile-background-color: var(--color-blue-050);
 
     padding-top: $tilePaddingTop;
     transform: rotateY(180deg);
   }
 
   .default {
-    --generic-tile-border-color: var(--color-gray-500);
+    --generic-tile-border-color: var(--color-grey-cool-500);
     --generic-tile-background-color: var(--color-white);
   }
 
   .expert-advice {
-    --generic-tile-border-color: var(--color-purple-400);
-    --generic-tile-background-color: var(--color-purple-100);
+    --generic-tile-border-color: var(--color-purple-500);
+    --generic-tile-background-color: var(--color-purple-050);
   }
 
   .isFlipped {
@@ -101,7 +101,7 @@
     inset-block-start: 0;
     inset-inline-end: 0;
     position: absolute;
-    color: rgba($color-purple-800-rgb, 0.5);
+    color: oklch(from $color-purple-950 l c h / 0.5);
   }
 
   .information {

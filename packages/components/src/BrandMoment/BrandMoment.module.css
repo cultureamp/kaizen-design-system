@@ -10,24 +10,24 @@
 
   /** @deprecated */
   .positive {
-    --brand-moment-background-color: var(--color-green-100);
+    --brand-moment-background-color: var(--color-green-050);
   }
 
   .negative {
-    --brand-moment-background-color: var(--color-red-100);
+    --brand-moment-background-color: var(--color-red-050);
   }
 
   /** end @deprecated */
   .informative {
-    --brand-moment-background-color: var(--color-blue-100);
+    --brand-moment-background-color: var(--color-blue-050);
   }
 
   .success {
-    --brand-moment-background-color: var(--color-green-100);
+    --brand-moment-background-color: var(--color-green-050);
   }
 
   .warning {
-    --brand-moment-background-color: var(--color-red-100);
+    --brand-moment-background-color: var(--color-red-050);
   }
 
   .container {
@@ -150,8 +150,8 @@
   .footerInner {
     display: flex;
     flex-direction: column;
-    border-block-start: 1px solid var(--color-purple-800);
-    border-inline-start: 1px solid var(--color-purple-800);
+    border-block-start: 1px solid var(--color-purple-950);
+    border-inline-start: 1px solid var(--color-purple-950);
     padding: var(--spacing-12) var(--spacing-24);
     margin-block-end: var(--spacing-32);
   }

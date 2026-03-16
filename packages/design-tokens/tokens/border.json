@@ -8,8 +8,6 @@
       "borderStyle": "var(--border-solid-border-style, solid)",
       "borderStyle-id": "--border-solid-border-style",
       "borderColor": "var(--border-solid-border-color, #e1e2ea)",
-      "borderColor-rgb": "var(--border-solid-border-color-rgb, 225, 226, 234)",
-      "borderColor-rgb-id": "--border-solid-border-color-rgb",
       "borderColor-id": "--border-solid-border-color"
     },
     "dashed": {
@@ -28,8 +26,6 @@
       "borderStyle": "var(--border-borderless-border-style, solid)",
       "borderStyle-id": "--border-borderless-border-style",
       "borderColor": "var(--border-borderless-border-color, transparent)",
-      "borderColor-rgb": "var(--border-borderless-border-color-rgb, 0, 0, 0)",
-      "borderColor-rgb-id": "--border-borderless-border-color-rgb",
       "borderColor-id": "--border-borderless-border-color"
     },
     "focusRing": {

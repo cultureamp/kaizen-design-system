@@ -3,14 +3,10 @@ import { objectPathToCssVarIdentifier } from './cssVariables'
 import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
-
  * Make a map of CSS variables -> values in a consistent way.
  * Use this to, for example, create a CSS file that declares each theme variable on the `:root` pseudo element.
  *
  * It is paramount that this function defines every variable that {@link makeCssVariableTheme} expects to be defined.
- * Otherwise, it's possible that a CSS variable token (something that looks like var(--color-purple-100-rgb)) won't have a matching defined
- * CSS variable like `--color-purple-100-rgb: 123, 123, 123;`
- *
  *
  * For example:
  * Input:
@@ -18,7 +14,7 @@ import { mapLeafsOfObject } from './mapLeafsOfObject'
  * {
  *      color: {
  *        whatever: {
- *          100: "#ff0022"
+ *          100: "oklch(93.30% 0.0210 313.83)"
  *        }
  *      }
  * }
@@ -26,7 +22,7 @@ import { mapLeafsOfObject } from './mapLeafsOfObject'
  * Output:
  * ```
  * {
- *  "--color-whatever-100": "#ff0022"
+ *  "--color-whatever-100": "oklch(93.30% 0.0210 313.83)"
  * }
  */
 export function makeCssVariableDefinitionsMap(

@@ -51,7 +51,7 @@
         content: '';
         position: absolute;
         background: transparent;
-        border-color: $color-blue-500;
+        border-color: $color-blue-600;
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
@@ -68,7 +68,7 @@
         &.disabled,
         &.working {
           &::after {
-            border-color: $color-gray-400;
+            border-color: $color-grey-warm-200;
           }
         }
       }
@@ -81,7 +81,7 @@
 
       &:focus-visible {
         &::after {
-          border-color: $color-purple-800;
+          border-color: $color-purple-950;
         }
       }
     }
@@ -96,47 +96,47 @@
 
   %variant-default {
     background-color: $color-white;
-    border-color: $color-gray-500;
-    color: $color-purple-800;
+    border-color: $color-grey-cool-500;
+    color: $color-purple-950;
 
-    @include enabled-pseudo-states-variant($color-gray-200, $color-gray-600);
+    @include enabled-pseudo-states-variant($color-grey-warm-050, $color-grey-cool-700);
 
     &.reversed {
       background-color: transparent;
-      border-color: rgba($color-white-rgb, 0.65);
+      border-color: oklch(from $color-white l c h / 0.65);
       color: $color-white;
 
-      @include enabled-pseudo-states-variant(rgba($color-white-rgb, 0.1), $color-white);
+      @include enabled-pseudo-states-variant(oklch(from $color-white l c h / 0.1), $color-white);
     }
   }
 
   %variant-primary {
-    background-color: $color-blue-500;
+    background-color: $color-blue-600;
     border-color: $border-borderless-border-color;
     color: $color-white;
 
-    @include enabled-pseudo-states-variant($color-blue-600, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-blue-800, $border-borderless-border-color);
 
     &.reversed {
-      background-color: $color-green-300;
+      background-color: $color-green-200;
       border-color: $border-borderless-border-color;
-      color: $color-purple-800;
+      color: $color-purple-950;
 
-      @include enabled-pseudo-states-variant($color-green-400, $border-borderless-border-color);
+      @include enabled-pseudo-states-variant($color-green-300, $border-borderless-border-color);
     }
   }
 
   %variant-destructive {
-    background-color: $color-red-500;
+    background-color: $color-red-600;
     border-color: $border-borderless-border-color;
     color: $color-white;
 
-    @include enabled-pseudo-states-variant($color-red-600, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-red-700, $border-borderless-border-color);
 
     &.reversed {
       background-color: $color-red-300;
       border-color: $border-borderless-border-color;
-      color: $color-purple-800;
+      color: $color-purple-950;
 
       @include enabled-pseudo-states-variant($color-red-400, $border-borderless-border-color);
     }
@@ -150,9 +150,9 @@
     letter-spacing: $typography-button-secondary-letter-spacing;
     background-color: transparent;
     border-color: $border-borderless-border-color;
-    color: $color-blue-500;
+    color: $color-blue-600;
 
-    @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-blue-050, $border-borderless-border-color);
 
     #{$className--content} {
       padding-left: calc(#{$spacing-sm} - #{$border-solid-border-width});
@@ -164,16 +164,16 @@
       color: $color-white;
 
       @include enabled-pseudo-states-variant(
-        rgba($color-white-rgb, 0.2),
+        oklch(from $color-white l c h / 0.2),
         $border-borderless-border-color
       );
     }
   }
 
   %variant-secondary-destructive {
-    color: $color-red-600;
+    color: $color-red-700;
 
-    @include enabled-pseudo-states-variant($color-red-100, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-red-050, $border-borderless-border-color);
   }
 
   %variant-small {

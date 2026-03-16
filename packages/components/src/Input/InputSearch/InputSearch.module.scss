@@ -65,7 +65,7 @@
 
     &:focus {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: 1px;
     }
   }
@@ -107,26 +107,26 @@
   // Default
   .default {
     #{$classname--input} {
-      border-color: $color-gray-500;
+      border-color: $color-grey-cool-500;
       background-color: $color-white;
-      color: $color-purple-800;
+      color: $color-purple-950;
 
       @include form-input-placeholder {
-        color: $color-purple-800;
+        color: $color-purple-950;
         opacity: $input-placeholder-opacity--default;
       }
     }
 
     .startIconAdornment {
-      color: $color-purple-800;
+      color: $color-purple-950;
       opacity: $start-icon-opacity--default;
     }
 
     &:hover,
     &:focus-within {
       #{$classname--input} {
-        border-color: $color-gray-600;
-        background-color: $color-gray-200;
+        border-color: $color-grey-cool-700;
+        background-color: $color-grey-warm-050;
 
         @include form-input-placeholder {
           opacity: 100%;
@@ -143,17 +143,17 @@
   .secondary {
     #{$classname--input} {
       border-color: transparent;
-      background-color: $color-gray-200;
-      color: $color-purple-800;
+      background-color: $color-grey-warm-050;
+      color: $color-purple-950;
 
       @include form-input-placeholder {
-        color: $color-purple-800;
+        color: $color-purple-950;
         opacity: $input-placeholder-opacity--default;
       }
     }
 
     .startIconAdornment {
-      color: $color-purple-800;
+      color: $color-purple-950;
       opacity: $start-icon-opacity--default;
     }
 
@@ -161,7 +161,7 @@
     &:focus-within {
       #{$classname--input} {
         border-color: transparent;
-        background-color: $color-gray-300;
+        background-color: $color-grey-warm-100;
 
         @include form-input-placeholder {
           opacity: 100%;
@@ -177,7 +177,7 @@
   // Reversed
   .reversed {
     #{$classname--input} {
-      background: rgba($color-white-rgb, 0.1);
+      background: oklch(from $color-white l c h / 0.1);
       color: $color-white;
 
       @include form-input-placeholder {
@@ -199,13 +199,13 @@
     &:focus-within {
       #{$classname--input} {
         border-color: transparent;
-        background-color: rgba($color-white-rgb, 0.2);
+        background-color: oklch(from $color-white l c h / 0.2);
       }
     }
 
     &.default {
       #{$classname--input} {
-        border-color: rgba($color-white-rgb, 0.65);
+        border-color: oklch(from $color-white l c h / 0.65);
       }
     }
   }

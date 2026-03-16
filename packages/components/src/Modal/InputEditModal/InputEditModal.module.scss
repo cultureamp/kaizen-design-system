@@ -28,7 +28,7 @@
   }
 
   .header {
-    color: $color-purple-800;
+    color: $color-purple-950;
     text-align: start;
 
     &.padded {
@@ -41,7 +41,7 @@
   }
 
   .body {
-    background: $color-gray-200;
+    background: $color-grey-warm-050;
 
     &.padded {
       padding: $spacing-md $spacing-lg $spacing-md $spacing-lg;

@@ -18,7 +18,7 @@
     box-shadow: var(--shadow-small-box-shadow);
     position: relative;
     top: -1px;
-    color: var(--color-purple-800);
+    color: var(--color-purple-950);
 
     @media (width >= 1024px) {
       min-height: calc(12rem - calc(var(--banner-padding) * 2));
@@ -132,34 +132,34 @@
   }
 
   .default {
-    border-color: var(--color-gray-500);
+    border-color: var(--color-grey-cool-500);
     background: var(--color-white);
   }
 
   .positive {
     border-color: var(--color-green-500);
-    background: var(--color-green-100);
+    background: var(--color-green-050);
   }
 
   .negative,
   .assertive {
-    border-color: var(--color-red-500);
-    background: var(--color-red-100);
+    border-color: var(--color-red-600);
+    background: var(--color-red-050);
   }
 
   .informative {
-    border-color: var(--color-blue-400);
-    background: var(--color-blue-100);
+    border-color: var(--color-blue-500);
+    background: var(--color-blue-050);
   }
 
   .cautionary {
-    border-color: var(--color-yellow-700);
-    background: var(--color-yellow-100);
+    border-color: var(--color-yellow-600);
+    background: var(--color-yellow-010);
   }
 
   .prominent {
-    border-color: var(--color-purple-400);
-    background: var(--color-purple-100);
+    border-color: var(--color-purple-500);
+    background: var(--color-purple-050);
   }
 
   .inline,

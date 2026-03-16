@@ -41,7 +41,7 @@ export const Playground: Story = {
     props.variant !== 'white' ? (
       <Link {...props} />
     ) : (
-      <div className="flex p-12 bg-purple-600">
+      <div className="flex p-12 bg-purple-800">
         {' '}
         <Link {...props} />
       </div>

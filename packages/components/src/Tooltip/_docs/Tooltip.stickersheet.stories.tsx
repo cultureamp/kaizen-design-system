@@ -23,7 +23,7 @@ export const Standard: StoryObj = {
           key={index}
           className={mergeClassNames(
             'flex items-center justify-center min-h-[10rem]',
-            Story.parameters.reverseColors ? 'bg-purple-700' : '',
+            Story.parameters.reverseColors ? 'bg-purple-900' : '',
           )}
         >
           <ReversedColors isReversed={!!Story.parameters.reverseColors}>

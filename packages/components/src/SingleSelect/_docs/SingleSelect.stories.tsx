@@ -168,9 +168,9 @@ export const PortalContainer: Story = {
     const handleClose = (): void => setIsOpen(false)
     return (
       <>
-        <div className=" h-[500px] mb-24 block bg-gray-100 flex flex-col gap-16 justify-center items-center">
+        <div className=" h-[500px] mb-24 block bg-grey-warm-010 flex flex-col gap-16 justify-center items-center">
           Page content
-          <button type="button" className="border border-gray-500" onClick={handleOpen}>
+          <button type="button" className="border border-grey-cool-500" onClick={handleOpen}>
             Open Modal
           </button>
           <ContextModal
@@ -179,7 +179,7 @@ export const PortalContainer: Story = {
             onDismiss={handleClose}
             title="Select test"
           >
-            <div className="flex gap-24 bg-gray-200 p-12" id={portalContainerId}>
+            <div className="flex gap-24 bg-grey-warm-050 p-12" id={portalContainerId}>
               <SingleSelect
                 {...args}
                 label="Select within a modal"
@@ -251,7 +251,7 @@ export const ReversedSelect: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="bg-purple-700 p-16">
+      <div className="bg-purple-900 p-16">
         <Story />
       </div>
     ),

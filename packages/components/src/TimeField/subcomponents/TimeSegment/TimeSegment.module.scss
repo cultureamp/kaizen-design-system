@@ -12,9 +12,9 @@
   .timeSegment {
     display: block;
     text-align: end;
-    background-color: $color-gray-300;
+    background-color: $color-grey-warm-100;
     border-radius: 3px;
-    color: $color-purple-800;
+    color: $color-purple-950;
 
     &:hover {
       background-color: $color-white;
@@ -22,7 +22,7 @@
 
     &:focus-visible {
       color: white;
-      background: $color-blue-500;
+      background: $color-blue-600;
       outline: none;
     }
   }
@@ -32,7 +32,7 @@
   }
 
   .placeholder {
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
   }
 
   .literal {

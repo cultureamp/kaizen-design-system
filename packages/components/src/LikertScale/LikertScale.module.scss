@@ -24,17 +24,17 @@
   $desktop-rater-width: 220px;
   $desktop-rater-height: 63px;
 
-  $classical-first: $color-yellow-300;
-  $classical-second: $color-yellow-400;
+  $classical-first: $color-yellow-100;
+  $classical-second: $color-yellow-200;
   $classical-third: $color-orange-400;
   $classical-fourth: $color-orange-500;
-  $classical-fifth: $color-red-500;
+  $classical-fifth: $color-red-600;
 
-  $blue-first: $color-blue-100;
+  $blue-first: $color-blue-050;
   $blue-second: $color-blue-200;
   $blue-third: $color-blue-300;
-  $blue-fourth: $color-blue-400;
-  $blue-fifth: $color-blue-500;
+  $blue-fourth: $color-blue-500;
+  $blue-fifth: $color-blue-600;
 
   @mixin pop {
     -webkit-animation: pop cubic-bezier(0, 0.94, 0.32, 1) 0.7s 1;
@@ -70,7 +70,7 @@
 
     &.reversed.rated .likertItem.unselected .likertItemFill {
       background-color: transparent;
-      border-color: rgba($color-white-rgb, 0.65);
+      border-color: oklch(from $color-white l c h / 0.65);
     }
 
     :where(.likertItem4, .likertItem5) .check {
@@ -89,7 +89,7 @@
 
   .likertItem:focus-visible .likertItemFill {
     outline-offset: 1px;
-    outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+    outline: $color-blue-600 $border-focus-ring-border-style $border-focus-ring-border-width;
   }
 
   .reversed .likertItem:focus-visible .likertItemFill {
@@ -245,7 +245,7 @@
       background 0.1s,
       border-color 0.1s;
     height: $block-height;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
 
     &:hover {
       transition:
@@ -267,7 +267,7 @@
   }
 
   .reversed .likertItemFill {
-    border-color: rgba($color-white-rgb, 0.65);
+    border-color: oklch(from $color-white l c h / 0.65);
   }
 
   .check {

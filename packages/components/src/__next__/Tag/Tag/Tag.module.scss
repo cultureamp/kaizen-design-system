@@ -22,21 +22,21 @@
   }
 
   .gray {
-    background-color: $color-gray-300;
-    color: $color-purple-800;
+    background-color: $color-grey-warm-100;
+    color: $color-purple-950;
   }
 
   .blue {
-    background-color: $color-blue-100;
-    color: $color-blue-700;
+    background-color: $color-blue-050;
+    color: $color-blue-900;
 
     .iconContainer {
-      color: $color-blue-500;
+      color: $color-blue-600;
     }
   }
 
   .green {
-    background-color: $color-green-100;
+    background-color: $color-green-050;
     color: $color-green-700;
 
     .iconContainer {
@@ -45,16 +45,16 @@
   }
 
   .yellow {
-    background-color: $color-yellow-100;
-    color: $color-yellow-700;
+    background-color: $color-yellow-010;
+    color: $color-yellow-600;
 
     .iconContainer {
-      color: $color-yellow-700;
+      color: $color-yellow-600;
     }
   }
 
   .orange {
-    background-color: $color-orange-100;
+    background-color: $color-orange-050;
     color: $color-orange-700;
 
     .iconContainer {
@@ -63,20 +63,20 @@
   }
 
   .red {
-    background-color: $color-red-100;
-    color: $color-red-700;
+    background-color: $color-red-050;
+    color: $color-red-800;
 
     .iconContainer {
-      color: $color-red-500;
+      color: $color-red-600;
     }
   }
 
   .purple {
-    background-color: $color-purple-100;
-    color: $color-purple-700;
+    background-color: $color-purple-050;
+    color: $color-purple-900;
 
     .iconContainer {
-      color: $color-purple-500;
+      color: $color-purple-600;
     }
   }
 }

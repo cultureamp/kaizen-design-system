@@ -6,21 +6,21 @@
   .loadingParagraph {
     @extend %loadingBase;
 
-    background-color: $color-gray-300;
+    background-color: $color-grey-warm-100;
     height: calc(#{$spacing-md} * 0.625);
     margin-bottom: calc(#{$spacing-md} * 0.5);
   }
 
   .isReversed {
-    background-color: rgba($color-white-rgb, 0.1);
+    background-color: oklch(from $color-white l c h / 0.1);
   }
 
   .isLink {
-    background-color: rgba($color-blue-500-rgb, 0.2);
+    background-color: oklch(from $color-blue-600 l c h / 0.2);
   }
 
   .isLink.isReversed {
-    background-color: rgba($color-white-rgb, 0.65);
+    background-color: oklch(from $color-white l c h / 0.65);
   }
 
   .isAnimated {

@@ -1,11 +1,11 @@
 @import '~@kaizen/design-tokens/sass/color';
 
 // General purpose tokens
-$dt-color-form-border-color: $color-gray-500;
-$dt-color-form-border-color-hover: $color-gray-600;
-$dt-color-form-text-color: $color-purple-800;
+$dt-color-form-border-color: $color-grey-cool-500;
+$dt-color-form-border-color-hover: $color-grey-cool-700;
+$dt-color-form-text-color: $color-purple-950;
 $dt-color-form-text-color-reversed: $color-white;
-$dt-color-form-text-color-label: rgba($color-purple-800-rgb, 0.75);
-$dt-color-form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
-$dt-color-form-color-icon-reversed: $color-gray-600;
-$dt-color-form-text-color-placeholder: rgba($color-purple-800-rgb, 0.7);
+$dt-color-form-text-color-label: oklch(from $color-purple-950 l c h / 0.75);
+$dt-color-form-text-color-label-reversed: oklch(from $color-white l c h / 0.8);
+$dt-color-form-color-icon-reversed: $color-grey-cool-700;
+$dt-color-form-text-color-placeholder: oklch(from $color-purple-950 l c h / 0.7);

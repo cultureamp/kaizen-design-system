@@ -1,6 +1,6 @@
 @layer kz-components {
   .link {
-    color: var(--link-text-color, var(--color-blue-500));
+    color: var(--link-text-color, var(--color-blue-600));
     font-family: var(--typography-paragraph-body-font-family);
     font-size: var(--link-font-size, inherit);
     line-height: var(--link-line-height, inherit);
@@ -13,12 +13,12 @@
 
   .link[data-focus-visible] {
     outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-      var(--color-blue-500);
+      var(--color-blue-600);
     outline-offset: 3px;
   }
 
   .isUnderlined {
-    border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
+    border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-600));
   }
 
   .icon > * {
@@ -35,19 +35,19 @@
   }
 
   .primary[data-hovered] {
-    --link-text-color: var(--color-blue-600);
+    --link-text-color: var(--color-blue-800);
   }
 
   .primary[data-pressed] {
-    --link-text-color: var(--color-blue-700);
+    --link-text-color: var(--color-blue-900);
   }
 
   .secondary {
-    --link-text-color: var(--color-purple-800);
+    --link-text-color: var(--color-purple-950);
   }
 
   .secondary[data-hovered] {
-    --link-text-color: var(--color-gray-600);
+    --link-text-color: var(--color-grey-cool-700);
   }
 
   .secondary[data-pressed] {
@@ -107,7 +107,7 @@
   }
 
   .link.isDisabled {
-    --link-text-color: var(--color-gray-400);
+    --link-text-color: var(--color-grey-warm-200);
   }
 
   .reversed.isDisabled {

@@ -18,7 +18,7 @@
   }
 
   .listItem.focused {
-    border: var(--spacing-2) solid var(--color-blue-500);
+    border: var(--spacing-2) solid var(--color-blue-600);
   }
 
   .listItem.focused:hover {
@@ -26,11 +26,11 @@
   }
 
   .listItem:hover {
-    background-color: var(--color-gray-200);
+    background-color: var(--color-grey-warm-050);
   }
 
   .listItem.focused:active {
-    background-color: var(--color-gray-300);
+    background-color: var(--color-grey-warm-100);
   }
 
   .startSelection {
@@ -38,7 +38,7 @@
   }
 
   .selected {
-    background-color: var(--color-blue-100);
+    background-color: var(--color-blue-050);
     border: var(--spacing-2) solid transparent;
   }
 
@@ -47,11 +47,11 @@
   }
 
   .selected:active {
-    background-color: var(--color-blue-100);
+    background-color: var(--color-blue-050);
   }
 
   .disabled {
-    color: var(--color-gray-500);
+    color: var(--color-grey-cool-500);
   }
 
   .disabled:hover {
@@ -59,7 +59,7 @@
   }
 
   .iconChecked {
-    color: var(--color-blue-500);
+    color: var(--color-blue-600);
   }
 
   .itemContent {

@@ -1,7 +1,7 @@
 @layer kz-components {
   :root {
     --label-start-margin: var(--spacing-xs);
-    --dt-color-form-text-color: var(--color-purple-800);
+    --dt-color-form-text-color: var(--color-purple-950);
   }
 
   .label {

@@ -1,6 +1,5 @@
 import React, { type HTMLAttributes } from 'react'
 import { type Meta, type StoryFn } from '@storybook/react'
-import colorString from 'color-string'
 import { Heading } from '~components/Heading'
 import { tokens } from '~design-tokens/js'
 
@@ -44,40 +43,28 @@ const Stack = ({
 /**
  * A component to show a simple color block with a name
  */
-const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Element | null => {
-  const parsedColor = colorString.get(color)
-
-  if (!parsedColor) return null
-
-  return (
-    <div style={{ display: 'flex', alignItems: 'center' }}>
-      <h4 style={{ ...tokens.typography.heading4, writingMode: 'vertical-lr' }}>{name}</h4>
-
-      <div
-        style={{
-          width: '20rem',
-          height: '10rem',
-          backgroundColor: color,
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Heading variant="heading-5" tag="span">
-          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
-            {colorString.to.hex(...(parsedColor.value as Parameters<typeof colorString.to.hex>))}
-          </span>
-        </Heading>
-        <Heading variant="heading-5" tag="span">
-          <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>
-            {colorString.to.rgb(...(parsedColor.value as Parameters<typeof colorString.to.hex>))}
-          </span>
-        </Heading>
-      </div>
+const ColorDemo = ({ color, name }: { color: string; name?: string }): JSX.Element => (
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <h4 style={{ ...tokens.typography.heading4, writingMode: 'vertical-lr', minWidth: '3rem' }}>
+      {name}
+    </h4>
+    <div
+      style={{
+        width: '20rem',
+        height: '5rem',
+        backgroundColor: color,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <Heading variant="heading-6" tag="span">
+        <span style={{ color, filter: 'invert(1) grayscale(1) contrast(100)' }}>{color}</span>
+      </Heading>
     </div>
-  )
-}
+  </div>
+)
 
 /**
  * A section of components, displayed as a column, with some styles such as a top and left border, a heading/title, and `contain: content` to ensure nothing bleeds out of it such as fixed or absolute positioned elements.
@@ -96,86 +83,39 @@ const ComponentsSection = ({ children }: { children: React.ReactNode }): JSX.Ele
   </div>
 )
 
+const ColorPaletteDemo = ({
+  name,
+  palette,
+}: {
+  name: string
+  palette: Record<string, string>
+}): JSX.Element => (
+  <Stack gapSize={12}>
+    <Heading variant="heading-3">{name}</Heading>
+    {Object.entries(palette).map(([step, color]) => (
+      <ColorDemo key={step} name={step} color={color} />
+    ))}
+  </Stack>
+)
+
 export const ColorTokens: StoryFn = () => (
   <div style={{ padding: tokens.spacing[24] }}>
     <Stack horizontal gapSize={48}>
       <ComponentsSection>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Purple</Heading>
-          <ColorDemo name="100" color={tokens.color.purple[100]} />
-          <ColorDemo name="200" color={tokens.color.purple[200]} />
-          <ColorDemo name="300" color={tokens.color.purple[300]} />
-          <ColorDemo name="400" color={tokens.color.purple[400]} />
-          <ColorDemo name="500" color={tokens.color.purple[500]} />
-          <ColorDemo name="600" color={tokens.color.purple[600]} />
-          <ColorDemo name="700" color={tokens.color.purple[700]} />
-          <ColorDemo name="800" color={tokens.color.purple[800]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Blue</Heading>
-          <ColorDemo name="100" color={tokens.color.blue[100]} />
-          <ColorDemo name="200" color={tokens.color.blue[200]} />
-          <ColorDemo name="300" color={tokens.color.blue[300]} />
-          <ColorDemo name="400" color={tokens.color.blue[400]} />
-          <ColorDemo name="500" color={tokens.color.blue[500]} />
-          <ColorDemo name="600" color={tokens.color.blue[600]} />
-          <ColorDemo name="700" color={tokens.color.blue[700]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Red</Heading>
-          <ColorDemo name="100" color={tokens.color.red[100]} />
-          <ColorDemo name="200" color={tokens.color.red[200]} />
-          <ColorDemo name="300" color={tokens.color.red[300]} />
-          <ColorDemo name="400" color={tokens.color.red[400]} />
-          <ColorDemo name="500" color={tokens.color.red[500]} />
-          <ColorDemo name="600" color={tokens.color.red[600]} />
-          <ColorDemo name="700" color={tokens.color.red[700]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Orange</Heading>
-          <ColorDemo name="100" color={tokens.color.orange[100]} />
-          <ColorDemo name="200" color={tokens.color.orange[200]} />
-          <ColorDemo name="300" color={tokens.color.orange[300]} />
-          <ColorDemo name="400" color={tokens.color.orange[400]} />
-          <ColorDemo name="500" color={tokens.color.orange[500]} />
-          <ColorDemo name="600" color={tokens.color.orange[600]} />
-          <ColorDemo name="700" color={tokens.color.orange[700]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Green</Heading>
-          <ColorDemo name="100" color={tokens.color.green[100]} />
-          <ColorDemo name="200" color={tokens.color.green[200]} />
-          <ColorDemo name="300" color={tokens.color.green[300]} />
-          <ColorDemo name="400" color={tokens.color.green[400]} />
-          <ColorDemo name="500" color={tokens.color.green[500]} />
-          <ColorDemo name="600" color={tokens.color.green[600]} />
-          <ColorDemo name="700" color={tokens.color.green[700]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Yellow</Heading>
-          <ColorDemo name="100" color={tokens.color.yellow[100]} />
-          <ColorDemo name="200" color={tokens.color.yellow[200]} />
-          <ColorDemo name="300" color={tokens.color.yellow[300]} />
-          <ColorDemo name="400" color={tokens.color.yellow[400]} />
-          <ColorDemo name="500" color={tokens.color.yellow[500]} />
-          <ColorDemo name="600" color={tokens.color.yellow[600]} />
-          <ColorDemo name="700" color={tokens.color.yellow[700]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">Gray</Heading>
-          <ColorDemo name="100" color={tokens.color.gray[100]} />
-          <ColorDemo name="200" color={tokens.color.gray[200]} />
-          <ColorDemo name="300" color={tokens.color.gray[300]} />
-          <ColorDemo name="400" color={tokens.color.gray[400]} />
-          <ColorDemo name="500" color={tokens.color.gray[500]} />
-          <ColorDemo name="600" color={tokens.color.gray[600]} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">White</Heading>
+        <ColorPaletteDemo name="Purple" palette={tokens.color.purple} />
+        <ColorPaletteDemo name="Blue" palette={tokens.color.blue} />
+        <ColorPaletteDemo name="Cyan" palette={tokens.color.cyan} />
+        <ColorPaletteDemo name="Green" palette={tokens.color.green} />
+        <ColorPaletteDemo name="Lime" palette={tokens.color.lime} />
+        <ColorPaletteDemo name="Yellow" palette={tokens.color.yellow} />
+        <ColorPaletteDemo name="Orange" palette={tokens.color.orange} />
+        <ColorPaletteDemo name="Red" palette={tokens.color.red} />
+        <ColorPaletteDemo name="Pink" palette={tokens.color.pink} />
+        <ColorPaletteDemo name="Grey Cool" palette={tokens.color['grey-cool']} />
+        <ColorPaletteDemo name="Grey Warm" palette={tokens.color['grey-warm']} />
+        <Stack gapSize={12}>
+          <Heading variant="heading-3">White / Black</Heading>
           <ColorDemo name="White" color={tokens.color.white} />
-        </Stack>
-        <Stack gapSize={24}>
-          <Heading variant="heading-3">black</Heading>
           <ColorDemo name="Black" color={tokens.color.black} />
         </Stack>
       </ComponentsSection>

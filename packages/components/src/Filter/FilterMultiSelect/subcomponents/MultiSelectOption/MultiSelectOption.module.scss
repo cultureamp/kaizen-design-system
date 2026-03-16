@@ -11,7 +11,7 @@
     height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
     width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
     border: $border-solid-border-width $border-solid-border-style;
-    border-color: $color-gray-500;
+    border-color: $color-grey-cool-500;
     border-radius: $border-solid-border-radius;
     display: inline-flex;
     justify-content: center;
@@ -39,21 +39,21 @@
     &:hover,
     &:active,
     &:focus {
-      background-color: $color-blue-100;
+      background-color: $color-blue-050;
 
       .badge {
         background-color: $color-white;
       }
 
       .icon {
-        border-color: $color-gray-600;
-        background-color: $color-gray-200;
+        border-color: $color-grey-cool-700;
+        background-color: $color-grey-warm-050;
       }
     }
 
     &.isFocused,
     &:focus-visible {
-      background-color: $color-blue-100;
+      background-color: $color-blue-050;
 
       &::after {
         $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
@@ -61,7 +61,7 @@
         content: '';
         position: absolute;
         background: transparent;
-        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-600;
         border-radius: $border-focus-ring-border-radius;
         inset: calc(-1 * #{$focus-ring-offset});
         z-index: 1; // show border when sibling option is hovered
@@ -79,11 +79,11 @@
 
     &:hover {
       .icon {
-        border-color: $color-gray-500;
+        border-color: $color-grey-cool-500;
       }
 
       .badge {
-        background-color: $color-gray-300;
+        background-color: $color-grey-warm-100;
       }
     }
   }
@@ -99,7 +99,7 @@
     font-weight: $typography-paragraph-bold-font-weight;
 
     &.icon {
-      background-color: $color-gray-500;
+      background-color: $color-grey-cool-500;
       color: $color-white;
     }
 
@@ -107,7 +107,7 @@
     &:active,
     &:focus {
       .icon {
-        background-color: $color-gray-600;
+        background-color: $color-grey-cool-700;
       }
     }
   }

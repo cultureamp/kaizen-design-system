@@ -12,7 +12,7 @@
   /* stylelint-disable-next-line declaration-no-important */
   white-space: pre-wrap !important; // Override unlayered TipTap styles from within kz-components layer
   box-sizing: content-box;
-  color: $color-purple-800;
+  color: $color-purple-950;
 
   > p {
     margin: 0 0 $spacing-16;
@@ -39,7 +39,7 @@
   }
 
   a {
-    color: $color-blue-500;
+    color: $color-blue-600;
 
     &:hover {
       text-decoration: none;

@@ -23,7 +23,7 @@
 
     #{$className--content} {
       height: auto;
-      color: $color-blue-500;
+      color: $color-blue-600;
     }
 
     &.reversed {
@@ -38,7 +38,7 @@
     font-size: $typography-button-secondary-font-size;
     border-color: $border-borderless-border-color;
 
-    @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-blue-050, $border-borderless-border-color);
 
     #{$className--content} {
       justify-content: center;
@@ -54,11 +54,11 @@
   }
 
   %pagination-link--active {
-    background-color: $color-blue-500;
+    background-color: $color-blue-600;
     border-color: $border-borderless-border-color;
     cursor: initial;
 
-    @include enabled-pseudo-states-variant($color-blue-500, $border-borderless-border-color);
+    @include enabled-pseudo-states-variant($color-blue-600, $border-borderless-border-color);
 
     &:not(:disabled) {
       &:active {
@@ -76,7 +76,7 @@
       @include enabled-pseudo-states-variant($color-white);
 
       #{$className--content} {
-        color: $color-purple-800;
+        color: $color-purple-950;
       }
     }
   }
