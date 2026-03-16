@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+- [#6466](https://github.com/cultureamp/kaizen-design-system/pull/6466) [`cbcbe55`](https://github.com/cultureamp/kaizen-design-system/commit/cbcbe5501f42598c912e540db3560e07f6edc56d) - Update `ClearButton` component to use CSS from SCSS
+
+- [#6486](https://github.com/cultureamp/kaizen-design-system/pull/6486) [`a51f34a`](https://github.com/cultureamp/kaizen-design-system/commit/a51f34a02e53fde32c108986ac59f126cae7bfe7) - Updates package build to Node.js 20.20.0
+
+- [#6456](https://github.com/cultureamp/kaizen-design-system/pull/6456) [`6885212`](https://github.com/cultureamp/kaizen-design-system/commit/6885212b94e9ce2ec6bd38955e4f70a022180339) - Update dependencies
+
 ## 3.0.2
 
 ### Patch Changes
