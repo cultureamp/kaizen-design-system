@@ -2,7 +2,7 @@ import React, { type ButtonHTMLAttributes } from 'react'
 import classnames from 'classnames'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './ClearButton.module.scss'
+import styles from './ClearButton.module.css'
 
 export type ClearButtonProps = {
   isReversed?: boolean

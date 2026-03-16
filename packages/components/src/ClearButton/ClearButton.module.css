@@ -1,11 +1,13 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '../../styles/utils/button-reset';
-
 @layer kz-components {
   .clearButton {
-    @include button-reset;
-
+    /* Button reset */
+    appearance: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    border: none;
     position: relative;
     display: inline-flex;
     border-radius: 100%;
@@ -22,20 +24,20 @@
   }
 
   .default {
-    color: $color-gray-500;
+    color: var(--color-gray-500);
 
     &:hover,
     &:focus-visible {
-      color: $color-purple-800;
+      color: var(--color-purple-800);
     }
   }
 
   .reversed {
-    color: rgba($color-white-rgb, 0.8);
+    color: rgb(var(--color-white-rgb), 0.8);
 
     &:hover,
     &:focus-visible {
-      color: $color-white;
+      color: var(--color-white);
     }
 
     &:focus-visible {
