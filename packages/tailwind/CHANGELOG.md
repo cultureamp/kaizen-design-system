@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.5.4
+
+### Patch Changes
+
+- [#6486](https://github.com/cultureamp/kaizen-design-system/pull/6486) [`a51f34a`](https://github.com/cultureamp/kaizen-design-system/commit/a51f34a02e53fde32c108986ac59f126cae7bfe7) - Updates package build to Node.js 20.20.0
+
+- Updated dependencies [[`a51f34a`](https://github.com/cultureamp/kaizen-design-system/commit/a51f34a02e53fde32c108986ac59f126cae7bfe7), [`6885212`](https://github.com/cultureamp/kaizen-design-system/commit/6885212b94e9ce2ec6bd38955e4f70a022180339)]:
+  - @kaizen/design-tokens@11.0.2
+
 ## 1.5.3
 
 ### Patch Changes
