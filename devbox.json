@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/.schema/devbox.schema.json",
-  "packages": ["nodejs@20.15.1"],
+  "packages": ["nodejs@20.20.0"],
   "env": {
     "DEVBOX_COREPACK_ENABLED": "1",
     "STORYBOOK_PORT": "6006"

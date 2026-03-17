@@ -1,6 +1,6 @@
 ## Important: Request PR reviews on Slack
 
-Please reach out to the design system team on Slack in `#prod_design_system` for PR reviews. GitHub notifications (e.g. from tagging a person) are not actively monitored.
+Please reach out to the design system team on Slack in `#help_design_system` for PR reviews. GitHub notifications (e.g. from tagging a person) are not actively monitored.
 
 ## Why
 
