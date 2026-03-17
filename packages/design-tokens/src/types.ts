@@ -92,19 +92,19 @@ export type TokenStructure = {
     }
   }
   color: {
-    blue: ColorPalette12Step
-    cyan: ColorPalette12Step
-    green: ColorPalette12Step
+    'blue': ColorPalette12Step
+    'cyan': ColorPalette12Step
+    'green': ColorPalette12Step
     'grey-cool': ColorPalette12Step
     'grey-warm': ColorPalette12Step
-    lime: ColorPalette12Step
-    orange: ColorPalette12Step
-    pink: ColorPalette12Step
-    purple: ColorPalette12Step
-    red: ColorPalette12Step
-    yellow: ColorPalette12Step
-    white: ColorValue
-    black: ColorValue
+    'lime': ColorPalette12Step
+    'orange': ColorPalette12Step
+    'pink': ColorPalette12Step
+    'purple': ColorPalette12Step
+    'red': ColorPalette12Step
+    'yellow': ColorPalette12Step
+    'white': ColorValue
+    'black': ColorValue
   }
   dataViz: {
     favorable: ColorValue

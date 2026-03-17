@@ -79,7 +79,8 @@
   }
 
   .reversed {
-    border: $border-solid-border-width $border-solid-border-style oklch(from $color-white l c h / 0.8);
+    border: $border-solid-border-width $border-solid-border-style
+      oklch(from $color-white l c h / 0.8);
     background-color: transparent;
     color: $color-white;
 

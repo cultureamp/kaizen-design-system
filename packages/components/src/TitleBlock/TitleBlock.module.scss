@@ -118,7 +118,8 @@
     gap: $title-block-gap-default;
     padding-block: $title-block-spacing-default;
     justify-content: space-between;
-    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0 oklch(from $color-white l c h / 0.1);
+    box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0
+      oklch(from $color-white l c h / 0.1);
 
     .educationVariant & {
       box-shadow: inset 0 calc(-1 * $title-block-separator-height) 0 0
@@ -540,13 +541,21 @@
 
     .lightVariant & {
       @include title-block-small {
-        background: linear-gradient(0deg, $color-grey-warm-010, oklch(from $color-grey-warm-010 l c h / 0));
+        background: linear-gradient(
+          0deg,
+          $color-grey-warm-010,
+          oklch(from $color-grey-warm-010 l c h / 0)
+        );
       }
     }
 
     .adminVariant & {
       @include title-block-small {
-        background: linear-gradient(0deg, $color-grey-warm-010, oklch(from $color-grey-warm-010 l c h / 0));
+        background: linear-gradient(
+          0deg,
+          $color-grey-warm-010,
+          oklch(from $color-grey-warm-010 l c h / 0)
+        );
       }
     }
 

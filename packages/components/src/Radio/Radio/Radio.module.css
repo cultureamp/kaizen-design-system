@@ -46,7 +46,8 @@
     height: var(--radio-size);
     width: var(--radio-size);
     top: 0;
-    border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-grey-cool-500);
+    border: var(--border-solid-border-width) var(--border-solid-border-style)
+      var(--color-grey-cool-500);
     box-sizing: border-box;
     border-radius: 50%;
 
