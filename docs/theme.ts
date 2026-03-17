@@ -7,27 +7,27 @@ const colors = tokens.color
 // storybook/manager-head.html or storybook/manager.tsx
 const theme: ThemeVars = create({
   base: 'light',
-  colorSecondary: colors.purple['600'],
+  colorSecondary: colors.purple['800'],
   // UI
-  appBg: colors.purple['100'],
+  appBg: colors.purple['050'],
   appContentBg: colors.white,
-  appBorderColor: colors.gray['300'],
+  appBorderColor: colors['grey-warm']['100'],
   appBorderRadius: 7,
   // Typography
   fontBase: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
   fontCode: 'monospace',
   // Text colors
-  textColor: colors.purple['800'],
+  textColor: colors['grey-cool']['950'],
   textInverseColor: colors.white,
   textMutedColor: 'rgba(85, 75, 95)',
   // Toolbar default and active colors
-  barTextColor: colors.gray['600'],
-  barSelectedColor: colors.purple['600'],
+  barTextColor: colors['grey-cool']['700'],
+  barSelectedColor: colors.purple['800'],
   barBg: colors.white,
   // Form colors
   inputBg: colors.white,
-  inputBorder: colors.gray['500'],
-  inputTextColor: colors.gray['600'],
+  inputBorder: colors['grey-cool']['500'],
+  inputTextColor: colors['grey-cool']['700'],
   inputBorderRadius: 20,
   brandTitle: 'Kaizen Storybook',
   brandImage: './static/media/kaizen-badge.svg',

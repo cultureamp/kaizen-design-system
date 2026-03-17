@@ -2,12 +2,12 @@ import { tokens } from '@kaizen/design-tokens/js'
 
 export const backgrounds = [
   { name: 'White', value: tokens.color.white },
-  { name: 'Gray 100', value: tokens.color.gray['100'] },
-  { name: 'Gray 300', value: tokens.color.gray['300'] },
-  { name: 'Purple 700', value: tokens.color.purple['700'] },
-  { name: 'Blue 500', value: tokens.color.blue['500'] },
+  { name: 'Grey Warm 010', value: tokens.color['grey-warm']['010'] },
+  { name: 'Grey Warm 100', value: tokens.color['grey-warm']['100'] },
+  { name: 'Purple 900', value: tokens.color.purple['900'] },
+  { name: 'Blue 600', value: tokens.color.blue['600'] },
   { name: 'Green 500', value: tokens.color.green['500'] },
-  { name: 'Yellow 500', value: tokens.color.yellow['500'] },
+  { name: 'Yellow 200', value: tokens.color.yellow['200'] },
   { name: 'Orange 500', value: tokens.color.orange['500'] },
-  { name: 'Red 500', value: tokens.color.red['500'] },
+  { name: 'Red 600', value: tokens.color.red['600'] },
 ]
