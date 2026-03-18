@@ -11,23 +11,23 @@ const theme: ThemeVars = create({
   // UI
   appBg: colors.purple['050'],
   appContentBg: colors.white,
-  appBorderColor: colors['grey-warm']['100'],
+  appBorderColor: colors['gray-warm']['100'],
   appBorderRadius: 7,
   // Typography
   fontBase: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif',
   fontCode: 'monospace',
   // Text colors
-  textColor: colors['grey-cool']['950'],
+  textColor: colors['gray-cool']['950'],
   textInverseColor: colors.white,
   textMutedColor: 'rgba(85, 75, 95)',
   // Toolbar default and active colors
-  barTextColor: colors['grey-cool']['700'],
+  barTextColor: colors['gray-cool']['700'],
   barSelectedColor: colors.purple['800'],
   barBg: colors.white,
   // Form colors
   inputBg: colors.white,
-  inputBorder: colors['grey-cool']['500'],
-  inputTextColor: colors['grey-cool']['700'],
+  inputBorder: colors['gray-cool']['500'],
+  inputTextColor: colors['gray-cool']['700'],
   inputBorderRadius: 20,
   brandTitle: 'Kaizen Storybook',
   brandImage: './static/media/kaizen-badge.svg',

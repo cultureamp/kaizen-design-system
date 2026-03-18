@@ -15,12 +15,12 @@
 
   .white {
     --background-color: var(--color-white);
-    --border-color: var(--color-grey-cool-500);
+    --border-color: var(--color-gray-cool-500);
   }
 
   .gray {
-    --background-color: var(--color-grey-warm-050);
-    --border-color: var(--color-grey-cool-500);
+    --background-color: var(--color-gray-warm-050);
+    --border-color: var(--color-gray-cool-500);
   }
 
   .blue {

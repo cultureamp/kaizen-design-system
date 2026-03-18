@@ -22,7 +22,7 @@
   .textarea,
   .wrapperAutogrow::after {
     border: var(--border-solid-border-width) var(--border-solid-border-style)
-      var(--color-grey-cool-500);
+      var(--color-gray-cool-500);
     border-radius: var(--border-solid-border-radius);
     padding: var(--spacing-sm);
     box-sizing: border-box;
@@ -38,7 +38,7 @@
   .textarea {
     display: block;
     border: var(--border-solid-border-width) var(--border-solid-border-style)
-      var(--color-grey-cool-500);
+      var(--color-gray-cool-500);
     border-radius: var(--border-solid-border-radius);
     padding: var(--spacing-sm);
     resize: vertical;
@@ -69,8 +69,8 @@
     &:focus:not([disabled]),
     &:hover:not([disabled]),
     &:hover:focus:not([disabled]) {
-      background-color: var(--color-grey-warm-050);
-      border-color: var(--color-grey-cool-700);
+      background-color: var(--color-gray-warm-050);
+      border-color: var(--color-gray-cool-700);
     }
 
     &.error {

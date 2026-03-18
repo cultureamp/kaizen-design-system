@@ -59,13 +59,13 @@ const COLOR_MAPPINGS = {
   // Orange
   'orange-100': 'orange-050',
 
-  // Gray -> grey-warm/grey-cool split
-  'gray-100': 'grey-warm-010',
-  'gray-200': 'grey-warm-050',
-  'gray-300': 'grey-warm-100',
-  'gray-400': 'grey-warm-200',
-  'gray-500': 'grey-cool-500',
-  'gray-600': 'grey-cool-700',
+  // Gray -> gray-warm/gray-cool split
+  'gray-100': 'gray-warm-010',
+  'gray-200': 'gray-warm-050',
+  'gray-300': 'gray-warm-100',
+  'gray-400': 'gray-warm-200',
+  'gray-500': 'gray-cool-500',
+  'gray-600': 'gray-cool-700',
 }
 
 /**
@@ -163,7 +163,7 @@ function migrateContent(content, filePath) {
     }
 
     // Replace all placeholders with actual values
-    // Matches color names like: blue-050, grey-warm-010, purple-950
+    // Matches color names like: blue-050, gray-warm-010, purple-950
     const placeholderPattern = new RegExp(
       `${PLACEHOLDER_PREFIX}([a-zA-Z-]+-\\d+)${PLACEHOLDER_SUFFIX}`,
       'g',

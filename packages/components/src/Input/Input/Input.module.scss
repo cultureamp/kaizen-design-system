@@ -8,7 +8,7 @@
   $input-height: 48px;
   $input-base-padding-horizontal: $spacing-sm;
   $input-icon-size: 1.25rem; // 20px
-  $input-disabled-background: $color-grey-warm-100;
+  $input-disabled-background: $color-gray-warm-100;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;
   $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75));
@@ -192,7 +192,7 @@
     align-items: center;
 
     @include form-input-focus-state {
-      background-color: $color-grey-warm-050;
+      background-color: $color-gray-warm-050;
     }
 
     &:focus + .focusRing {
@@ -201,19 +201,19 @@
 
     &.disabled {
       background-color: $color-white;
-      border-color: oklch(from $color-grey-cool-500 l c h / $input-disabled-opacity);
+      border-color: oklch(from $color-gray-cool-500 l c h / $input-disabled-opacity);
       color: oklch(from $color-purple-950 l c h / $input-disabled-opacity);
     }
 
     &:not(.error, .caution) {
-      border-color: $color-grey-cool-500;
+      border-color: $color-gray-cool-500;
 
       &:disabled {
-        border-color: oklch(from $color-grey-cool-500 l c h / $input-disabled-opacity);
+        border-color: oklch(from $color-gray-cool-500 l c h / $input-disabled-opacity);
       }
 
       @include form-input-focus-state {
-        border-color: $color-grey-cool-700;
+        border-color: $color-gray-cool-700;
       }
     }
 

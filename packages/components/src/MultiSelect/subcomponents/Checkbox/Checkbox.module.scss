@@ -13,14 +13,14 @@
     min-width: $checkbox-size;
     width: $checkbox-size;
     height: $checkbox-size;
-    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     background: $color-white;
 
     &:hover,
     &:focus-within {
-      background: $color-grey-warm-050;
-      border-color: $color-grey-cool-700;
+      background: $color-gray-warm-050;
+      border-color: $color-gray-cool-700;
     }
 
     &:focus-within {
@@ -43,15 +43,15 @@
 
   // Selected = Checked or Indeterminate
   .selected {
-    background: $color-grey-cool-500;
+    background: $color-gray-cool-500;
     // To do: fix this in the CSS uplift
     /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
-    background-color: $color-grey-cool-500;
+    background-color: $color-gray-cool-500;
 
     &:hover,
     &:focus-within {
-      background: $color-grey-cool-700;
-      border-color: $color-grey-cool-700;
+      background: $color-gray-cool-700;
+      border-color: $color-gray-cool-700;
     }
   }
 

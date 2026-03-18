@@ -26,10 +26,10 @@ export const Playground: Story = {
 }
 
 const InlineFormControl = (): JSX.Element => (
-  <span className="inline-block w-16 h-16 bg-grey-cool-500"></span>
+  <span className="inline-block w-16 h-16 bg-gray-cool-500"></span>
 )
 const BlockFormControl = (): JSX.Element => (
-  <span className="block w-200 h-16 bg-grey-cool-500"></span>
+  <span className="block w-200 h-16 bg-gray-cool-500"></span>
 )
 
 export const InlineControls: Story = {

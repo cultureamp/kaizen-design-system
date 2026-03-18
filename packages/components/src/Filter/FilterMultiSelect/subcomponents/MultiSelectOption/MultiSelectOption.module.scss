@@ -11,7 +11,7 @@
     height: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
     width: calc(#{$iconAndBadgeHeight} - #{$border-solid-border-width} * 2);
     border: $border-solid-border-width $border-solid-border-style;
-    border-color: $color-grey-cool-500;
+    border-color: $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     display: inline-flex;
     justify-content: center;
@@ -46,8 +46,8 @@
       }
 
       .icon {
-        border-color: $color-grey-cool-700;
-        background-color: $color-grey-warm-050;
+        border-color: $color-gray-cool-700;
+        background-color: $color-gray-warm-050;
       }
     }
 
@@ -79,11 +79,11 @@
 
     &:hover {
       .icon {
-        border-color: $color-grey-cool-500;
+        border-color: $color-gray-cool-500;
       }
 
       .badge {
-        background-color: $color-grey-warm-100;
+        background-color: $color-gray-warm-100;
       }
     }
   }
@@ -99,7 +99,7 @@
     font-weight: $typography-paragraph-bold-font-weight;
 
     &.icon {
-      background-color: $color-grey-cool-500;
+      background-color: $color-gray-cool-500;
       color: $color-white;
     }
 
@@ -107,7 +107,7 @@
     &:active,
     &:focus {
       .icon {
-        background-color: $color-grey-cool-700;
+        background-color: $color-gray-cool-700;
       }
     }
   }

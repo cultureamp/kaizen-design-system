@@ -6,7 +6,7 @@
     border-radius: var(--border-solid-border-radius);
     box-shadow: var(--card-box-shadow);
 
-    --card-border-color: var(--color-grey-cool-500);
+    --card-border-color: var(--color-gray-cool-500);
     --card-background-color: var(--color-white);
     --card-box-shadow: var(--shadow-small-box-shadow);
   }
@@ -21,8 +21,8 @@
   }
 
   .gray {
-    --card-background-color: var(--color-grey-warm-050);
-    --card-border-color: var(--color-grey-cool-500);
+    --card-background-color: var(--color-gray-warm-050);
+    --card-border-color: var(--color-gray-cool-500);
   }
 
   .green {
@@ -47,7 +47,7 @@
 
   .white {
     --card-background-color: var(--color-white);
-    --card-border-color: var(--color-grey-cool-500);
+    --card-border-color: var(--color-gray-cool-500);
   }
 
   .yellow {

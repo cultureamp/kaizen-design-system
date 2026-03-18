@@ -47,7 +47,7 @@
   }
 
   .secondary[data-hovered] {
-    --link-text-color: var(--color-grey-cool-700);
+    --link-text-color: var(--color-gray-cool-700);
   }
 
   .secondary[data-pressed] {
@@ -107,7 +107,7 @@
   }
 
   .link.isDisabled {
-    --link-text-color: var(--color-grey-warm-200);
+    --link-text-color: var(--color-gray-warm-200);
   }
 
   .reversed.isDisabled {

@@ -5,7 +5,7 @@
   .loadingInput {
     @extend %loadingBase;
 
-    background-color: oklch(from $color-grey-cool-700 l c h / 0.1);
+    background-color: oklch(from $color-gray-cool-700 l c h / 0.1);
   }
 
   .isAnimated {

@@ -8,7 +8,7 @@
     position: relative;
     display: inline-flex;
     width: 100%;
-    border: $border-solid-border-style $border-solid-border-width $color-grey-cool-500;
+    border: $border-solid-border-style $border-solid-border-width $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     flex-direction: row-reverse;
     padding: calc(#{$spacing-12} - #{$border-solid-border-width});
@@ -16,8 +16,8 @@
 
     &:hover,
     &:focus-within {
-      border-color: $color-grey-cool-700;
-      background-color: $color-grey-warm-050;
+      border-color: $color-gray-cool-700;
+      background-color: $color-gray-warm-050;
     }
 
     &.error {
@@ -68,7 +68,7 @@
     margin-inline-end: $spacing-12;
 
     &.hasSelectedItems {
-      border-inline-end-color: oklch(from $color-grey-cool-700 l c h / 0.2);
+      border-inline-end-color: oklch(from $color-gray-cool-700 l c h / 0.2);
     }
   }
 

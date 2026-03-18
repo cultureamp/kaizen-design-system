@@ -111,8 +111,8 @@ export const ColorTokens: StoryFn = () => (
         <ColorPaletteDemo name="Orange" palette={tokens.color.orange} />
         <ColorPaletteDemo name="Red" palette={tokens.color.red} />
         <ColorPaletteDemo name="Pink" palette={tokens.color.pink} />
-        <ColorPaletteDemo name="Grey Cool" palette={tokens.color['grey-cool']} />
-        <ColorPaletteDemo name="Grey Warm" palette={tokens.color['grey-warm']} />
+        <ColorPaletteDemo name="Grey Cool" palette={tokens.color['gray-cool']} />
+        <ColorPaletteDemo name="Grey Warm" palette={tokens.color['gray-warm']} />
         <Stack gapSize={12}>
           <Heading variant="heading-3">White / Black</Heading>
           <ColorDemo name="White" color={tokens.color.white} />

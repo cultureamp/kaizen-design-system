@@ -39,10 +39,10 @@ describe('makeCssVariableDefinitionsMap()', () => {
       '--color-green-200': 'oklch(85.16% 0.0852 175.92)',
       '--color-yellow-100': 'oklch(91.96% 0.1314 95.60)',
       '--color-yellow-200': 'oklch(86.45% 0.1651 88.30)',
-      '--color-grey-cool-100': 'oklch(92.97% 0.0026 228.79)',
-      '--color-grey-cool-200': 'oklch(86.17% 0.0036 219.54)',
-      '--color-grey-warm-100': 'oklch(93.23% 0.0128 63.91)',
-      '--color-grey-warm-200': 'oklch(86.21% 0.0095 52.08)',
+      '--color-gray-cool-100': 'oklch(92.97% 0.0026 228.79)',
+      '--color-gray-cool-200': 'oklch(86.17% 0.0036 219.54)',
+      '--color-gray-warm-100': 'oklch(93.23% 0.0128 63.91)',
+      '--color-gray-warm-200': 'oklch(86.21% 0.0095 52.08)',
     })
   })
 })

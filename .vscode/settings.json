@@ -33,5 +33,6 @@ Happy linting! 💖
     "classNames\\(([^)]*)\\)",
     "clsx\\(([^)]*)\\)",
     "csx\\(([^)]*)\\)"
-  ]
+  ],
+  "snyk.advanced.autoSelectOrganization": true
 }

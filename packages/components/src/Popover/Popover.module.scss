@@ -56,7 +56,7 @@
     padding-inline: calc(var(--spacing-16) - var(--border-width));
   }
 
-  $default-box-border-color: var(--color-grey-cool-500);
+  $default-box-border-color: var(--color-gray-cool-500);
 
   .defaultBox {
     @extend %box;

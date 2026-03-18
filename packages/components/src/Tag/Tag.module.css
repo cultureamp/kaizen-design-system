@@ -144,7 +144,7 @@
   }
 
   .default {
-    background-color: var(--color-grey-warm-100);
+    background-color: var(--color-gray-warm-100);
   }
 
   .sentimentPositive {
@@ -152,7 +152,7 @@
   }
 
   .sentimentNeutral {
-    background-color: var(--color-grey-warm-100);
+    background-color: var(--color-gray-warm-100);
   }
 
   .sentimentNegative {
@@ -161,7 +161,7 @@
 
   .sentimentNone {
     background-color: var(--color-white);
-    border-color: var(--color-grey-warm-100);
+    border-color: var(--color-gray-warm-100);
   }
 
   .validationPositive {

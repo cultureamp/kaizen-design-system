@@ -43,17 +43,17 @@ describe('makeCSSVariableTheme()', () => {
           200: 'var(--color-orange-200, oklch(86.91% 0.0749 44.43))',
           '200-id': '--color-orange-200',
         },
-        'grey-cool': {
-          100: 'var(--color-grey-cool-100, oklch(92.97% 0.0026 228.79))',
-          '100-id': '--color-grey-cool-100',
-          200: 'var(--color-grey-cool-200, oklch(86.17% 0.0036 219.54))',
-          '200-id': '--color-grey-cool-200',
+        'gray-cool': {
+          100: 'var(--color-gray-cool-100, oklch(92.97% 0.0026 228.79))',
+          '100-id': '--color-gray-cool-100',
+          200: 'var(--color-gray-cool-200, oklch(86.17% 0.0036 219.54))',
+          '200-id': '--color-gray-cool-200',
         },
-        'grey-warm': {
-          100: 'var(--color-grey-warm-100, oklch(93.23% 0.0128 63.91))',
-          '100-id': '--color-grey-warm-100',
-          200: 'var(--color-grey-warm-200, oklch(86.21% 0.0095 52.08))',
-          '200-id': '--color-grey-warm-200',
+        'gray-warm': {
+          100: 'var(--color-gray-warm-100, oklch(93.23% 0.0128 63.91))',
+          '100-id': '--color-gray-warm-100',
+          200: 'var(--color-gray-warm-200, oklch(86.21% 0.0095 52.08))',
+          '200-id': '--color-gray-warm-200',
         },
       },
       border: {

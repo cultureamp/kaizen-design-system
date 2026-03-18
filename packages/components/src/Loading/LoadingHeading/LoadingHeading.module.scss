@@ -6,7 +6,7 @@
   .loadingHeading {
     @extend %loadingBase;
 
-    background-color: oklch(from $color-grey-cool-500 l c h / 0.2);
+    background-color: oklch(from $color-gray-cool-500 l c h / 0.2);
   }
 
   .isAnimated {

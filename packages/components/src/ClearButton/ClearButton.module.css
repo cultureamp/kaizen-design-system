@@ -24,7 +24,7 @@
   }
 
   .default {
-    color: var(--color-grey-cool-500);
+    color: var(--color-gray-cool-500);
 
     &:hover,
     &:focus-visible {

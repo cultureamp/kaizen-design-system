@@ -107,7 +107,7 @@
   // Default
   .default {
     #{$classname--input} {
-      border-color: $color-grey-cool-500;
+      border-color: $color-gray-cool-500;
       background-color: $color-white;
       color: $color-purple-950;
 
@@ -125,8 +125,8 @@
     &:hover,
     &:focus-within {
       #{$classname--input} {
-        border-color: $color-grey-cool-700;
-        background-color: $color-grey-warm-050;
+        border-color: $color-gray-cool-700;
+        background-color: $color-gray-warm-050;
 
         @include form-input-placeholder {
           opacity: 100%;
@@ -143,7 +143,7 @@
   .secondary {
     #{$classname--input} {
       border-color: transparent;
-      background-color: $color-grey-warm-050;
+      background-color: $color-gray-warm-050;
       color: $color-purple-950;
 
       @include form-input-placeholder {
@@ -161,7 +161,7 @@
     &:focus-within {
       #{$classname--input} {
         border-color: transparent;
-        background-color: $color-grey-warm-100;
+        background-color: $color-gray-warm-100;
 
         @include form-input-placeholder {
           opacity: 100%;

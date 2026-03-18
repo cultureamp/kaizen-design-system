@@ -26,11 +26,11 @@
   }
 
   .listItem:hover {
-    background-color: var(--color-grey-warm-050);
+    background-color: var(--color-gray-warm-050);
   }
 
   .listItem.focused:active {
-    background-color: var(--color-grey-warm-100);
+    background-color: var(--color-gray-warm-100);
   }
 
   .startSelection {
@@ -51,7 +51,7 @@
   }
 
   .disabled {
-    color: var(--color-grey-cool-500);
+    color: var(--color-gray-cool-500);
   }
 
   .disabled:hover {

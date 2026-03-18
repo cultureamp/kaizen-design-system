@@ -49,8 +49,8 @@
     }
 
     &.isDisabled {
-      --button-bg-color: var(--color-grey-warm-200);
-      --button-border-color: var(--color-grey-warm-200);
+      --button-bg-color: var(--color-gray-warm-200);
+      --button-border-color: var(--color-gray-warm-200);
       --button-text-color: var(--color-white);
     }
 
@@ -99,28 +99,28 @@
 
   .secondary {
     --button-bg-color: var(--color-white);
-    --button-border-color: var(--color-grey-cool-500);
+    --button-border-color: var(--color-gray-cool-500);
     --button-text-color: var(--color-purple-950);
 
     &[data-hovered] {
-      --button-bg-color: var(--color-grey-warm-050);
-      --button-border-color: var(--color-grey-cool-700);
+      --button-bg-color: var(--color-gray-warm-050);
+      --button-border-color: var(--color-gray-cool-700);
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-grey-warm-100);
+      --button-bg-color: var(--color-gray-warm-100);
       --button-border-color: var(--color-black);
     }
 
     &[data-pending] {
-      --button-bg-color: var(--color-grey-warm-100);
+      --button-bg-color: var(--color-gray-warm-100);
       --button-border-color: var(--color-black);
     }
 
     &.isDisabled {
       --button-bg-color: var(--color-white);
-      --button-border-color: var(--color-grey-warm-200);
-      --button-text-color: var(--color-grey-warm-200);
+      --button-border-color: var(--color-gray-warm-200);
+      --button-text-color: var(--color-gray-warm-200);
     }
   }
 
@@ -153,7 +153,7 @@
     &.isDisabled {
       --button-bg-color: transparent;
       --button-border-color: transparent;
-      --button-text-color: var(--color-grey-warm-200);
+      --button-text-color: var(--color-gray-warm-200);
     }
   }
 
@@ -171,13 +171,13 @@
     --button-text-color: var(--color-purple-950);
 
     &[data-hovered] {
-      --button-bg-color: var(--color-grey-warm-050);
-      --button-border-color: var(--color-grey-warm-050);
+      --button-bg-color: var(--color-gray-warm-050);
+      --button-border-color: var(--color-gray-warm-050);
     }
 
     &[data-pressed] {
-      --button-bg-color: var(--color-grey-warm-100);
-      --button-border-color: var(--color-grey-warm-100);
+      --button-bg-color: var(--color-gray-warm-100);
+      --button-border-color: var(--color-gray-warm-100);
     }
 
     &[data-pending] {

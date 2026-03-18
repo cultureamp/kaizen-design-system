@@ -10,7 +10,7 @@
 
 TL;DR: Color palette updated to OKLCH format with expanded 12-step scales.
 Legacy color names remapped (e.g., `purple-800` → `purple-950`, `gray-*` →
-`grey-warm-*`/`grey-cool-*`). RGB variants removed - use
+`gray-warm-*`/`gray-cool-*`). RGB variants removed - use
 `oklch(from $color l c h / alpha)` for transparency. Run migration script: `node scripts/migrate-colors.mjs [path]`.
 
 #### In detail

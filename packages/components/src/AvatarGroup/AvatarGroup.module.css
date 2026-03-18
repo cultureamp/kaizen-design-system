@@ -9,7 +9,7 @@
   .AvatarCounter {
     direction: ltr;
     align-items: center;
-    background: var(--color-grey-warm-100);
+    background: var(--color-gray-warm-100);
     border: 3px solid var(--color-white);
     border-radius: 100%;
     box-sizing: border-box;

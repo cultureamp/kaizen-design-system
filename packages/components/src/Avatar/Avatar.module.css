@@ -2,7 +2,7 @@
   .wrapper {
     --avatar-x-y: 1.5rem;
 
-    background: var(--color-grey-warm-100);
+    background: var(--color-gray-warm-100);
     border-radius: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -44,7 +44,7 @@
   }
 
   .otherUser {
-    background: var(--color-grey-warm-100);
+    background: var(--color-gray-warm-100);
   }
 
   .company {

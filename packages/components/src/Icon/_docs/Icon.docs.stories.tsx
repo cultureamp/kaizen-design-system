@@ -162,7 +162,7 @@ const IconSetButton = ({
         className={classnames(
           'flex flex-col justify-center items-center gap-16',
           'cursor-pointer h-full w-full p-16 rounded',
-          'bg-grey-warm-010 hover:bg-grey-warm-050',
+          'bg-gray-warm-010 hover:bg-gray-warm-050',
         )}
       >
         {copied ? (

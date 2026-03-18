@@ -10,7 +10,7 @@
   }
 
   .icon {
-    color: $color-grey-cool-500;
+    color: $color-gray-cool-500;
   }
 
   .selectToggle {
@@ -27,7 +27,7 @@
     width: 100%;
     min-width: 0;
     margin-top: $spacing-xs;
-    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     background-color: $color-white;
     padding-block: calc(#{$spacing-12} - #{$border-solid-border-width});
@@ -44,22 +44,22 @@
     &:active,
     &:focus {
       .icon {
-        color: $color-grey-cool-700;
+        color: $color-gray-cool-700;
       }
     }
 
     &:active,
     &:hover {
-      background-color: $color-grey-warm-050;
-      border-color: $color-grey-cool-700;
+      background-color: $color-gray-warm-050;
+      border-color: $color-gray-cool-700;
     }
 
     &:focus {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-600);
       outline-offset: 1px;
-      background-color: $color-grey-warm-050;
-      border-color: $color-grey-cool-700;
+      background-color: $color-gray-warm-050;
+      border-color: $color-gray-cool-700;
     }
   }
 
@@ -72,9 +72,9 @@
   }
 
   .disabled {
-    border: $border-solid-border-width $border-solid-border-style $color-grey-warm-100;
-    background-color: $color-grey-warm-010;
-    color: $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-warm-100;
+    background-color: $color-gray-warm-010;
+    color: $color-gray-cool-500;
     pointer-events: none;
   }
 

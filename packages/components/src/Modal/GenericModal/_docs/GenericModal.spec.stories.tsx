@@ -23,7 +23,7 @@ export const TestBase: Story = {
       <>
         <button
           type="button"
-          className="border border-grey-cool-500 relative z-10"
+          className="border border-gray-cool-500 relative z-10"
           onClick={() => setIsOpen(true)}
         >
           Open Modal

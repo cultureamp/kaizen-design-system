@@ -15,7 +15,7 @@
     width: 100%;
     background-color: var(--color-white);
     border-radius: var(--spacing-8);
-    border: var(--spacing-2) solid var(--color-grey-cool-500);
+    border: var(--spacing-2) solid var(--color-gray-cool-500);
   }
 
   .trigger:focus-visible {
@@ -25,40 +25,40 @@
   }
 
   .trigger:hover:not(.disabled) {
-    border-color: var(--color-grey-cool-700);
-    background-color: var(--color-grey-warm-050);
+    border-color: var(--color-gray-cool-700);
+    background-color: var(--color-gray-warm-050);
   }
 
   .secondary:not(.disabled, .readOnly) {
     border: 2px solid transparent;
-    border-bottom: var(--spacing-2) solid var(--color-grey-warm-200);
+    border-bottom: var(--spacing-2) solid var(--color-gray-warm-200);
     border-radius: 0.4375rem 0.4375rem 0 0;
   }
 
   .secondary:not(.disabled, .readOnly):hover {
-    border: var(--spacing-2) solid var(--color-grey-cool-700);
+    border: var(--spacing-2) solid var(--color-gray-cool-700);
     border-radius: 0.4375rem;
   }
 
   .secondary:not(.disabled, .readOnly):focus-within {
-    border: var(--spacing-2) solid var(--color-grey-cool-500);
+    border: var(--spacing-2) solid var(--color-gray-cool-500);
     border-radius: 0.4375rem;
   }
 
   .disabled {
     pointer-events: none;
-    border: var(--spacing-2) solid var(--color-grey-warm-100);
-    background-color: var(--color-grey-warm-010);
+    border: var(--spacing-2) solid var(--color-gray-warm-100);
+    background-color: var(--color-gray-warm-010);
   }
 
   .disabledText {
-    color: var(--color-grey-cool-500);
+    color: var(--color-gray-cool-500);
   }
 
   .readOnly {
     pointer-events: none;
-    background-color: var(--color-grey-warm-050);
-    border: var(--spacing-2) solid var(--color-grey-warm-050);
+    background-color: var(--color-gray-warm-050);
+    border: var(--spacing-2) solid var(--color-gray-warm-050);
   }
 
   .small {

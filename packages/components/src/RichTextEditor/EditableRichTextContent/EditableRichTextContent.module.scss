@@ -14,7 +14,7 @@
     padding: calc($spacing-12 - $border-solid-border-width);
     position: relative;
     border-radius: $border-solid-border-radius;
-    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-cool-500;
     transition:
       background-color $animation-duration-immediate,
       border-color $animation-duration-immediate;
@@ -23,11 +23,11 @@
   }
 
   .editableContainer:hover :global(.ProseMirror) {
-    background-color: $color-grey-warm-050;
+    background-color: $color-gray-warm-050;
   }
 
   .editableContainer .hiddenButton:focus-within + * > :global(.ProseMirror) {
-    background-color: $color-grey-warm-050;
+    background-color: $color-gray-warm-050;
 
     &::before {
       $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);

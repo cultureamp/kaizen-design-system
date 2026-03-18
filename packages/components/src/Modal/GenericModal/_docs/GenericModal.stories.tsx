@@ -24,7 +24,7 @@ export const Playground: Story = {
       <>
         <button
           type="button"
-          className="border border-grey-cool-500"
+          className="border border-gray-cool-500"
           onClick={() => setIsOpen(true)}
         >
           Open Modal

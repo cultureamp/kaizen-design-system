@@ -132,7 +132,7 @@
   }
 
   .default {
-    border-color: var(--color-grey-cool-500);
+    border-color: var(--color-gray-cool-500);
     background: var(--color-white);
   }
 

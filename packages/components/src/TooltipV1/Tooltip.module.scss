@@ -32,7 +32,7 @@
 
     &.default {
       background-color: $color-white;
-      border-color: var(--color-grey-cool-500);
+      border-color: var(--color-gray-cool-500);
     }
 
     &.informative {
@@ -109,7 +109,7 @@
   .arrowMain {
     // before styles
     &.default::before {
-      border-top: $arrow-height solid var(--color-grey-cool-500);
+      border-top: $arrow-height solid var(--color-gray-cool-500);
     }
 
     &.informative::before {
@@ -154,7 +154,7 @@
   }
 
   .arrowShadow::before {
-    border-top: 0 solid $color-grey-warm-100;
+    border-top: 0 solid $color-gray-warm-100;
   }
 
   // Triangle portion is a little darker to bring out shadow

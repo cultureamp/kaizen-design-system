@@ -54,7 +54,7 @@ const InputModalTemplate: Story = {
 
     return (
       <>
-        <button type="button" className="border border-grey-cool-500" onClick={handleOpen}>
+        <button type="button" className="border border-gray-cool-500" onClick={handleOpen}>
           Open Modal
         </button>
         <InputEditModal {...args} isOpen={isOpen} onSubmit={handleClose} onDismiss={handleClose} />
@@ -99,7 +99,7 @@ export const OnAfterEnter: Story = {
 
     return (
       <>
-        <button type="button" className="border border-grey-cool-500" onClick={handleOpen}>
+        <button type="button" className="border border-gray-cool-500" onClick={handleOpen}>
           Create a link
         </button>
         <InputEditModal

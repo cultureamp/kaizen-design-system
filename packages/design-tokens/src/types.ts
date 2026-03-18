@@ -95,8 +95,8 @@ export type TokenStructure = {
     'blue': ColorPalette12Step
     'cyan': ColorPalette12Step
     'green': ColorPalette12Step
-    'grey-cool': ColorPalette12Step
-    'grey-warm': ColorPalette12Step
+    'gray-cool': ColorPalette12Step
+    'gray-warm': ColorPalette12Step
     'lime': ColorPalette12Step
     'orange': ColorPalette12Step
     'pink': ColorPalette12Step

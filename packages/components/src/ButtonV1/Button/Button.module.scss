@@ -68,7 +68,7 @@
         &.disabled,
         &.working {
           &::after {
-            border-color: $color-grey-warm-200;
+            border-color: $color-gray-warm-200;
           }
         }
       }
@@ -96,10 +96,10 @@
 
   %variant-default {
     background-color: $color-white;
-    border-color: $color-grey-cool-500;
+    border-color: $color-gray-cool-500;
     color: $color-purple-950;
 
-    @include enabled-pseudo-states-variant($color-grey-warm-050, $color-grey-cool-700);
+    @include enabled-pseudo-states-variant($color-gray-warm-050, $color-gray-cool-700);
 
     &.reversed {
       background-color: transparent;

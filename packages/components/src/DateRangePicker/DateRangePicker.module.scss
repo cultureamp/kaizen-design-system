@@ -30,15 +30,15 @@
     text-align: start;
     background-color: $color-white;
     background-clip: padding-box;
-    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     margin-top: $spacing-6;
     padding: 0 $button-base-padding-horizontal;
 
     &:focus-visible:not([disabled]),
     &:hover:not([disabled]) {
-      background-color: $color-grey-warm-050;
-      border-color: $color-grey-cool-700;
+      background-color: $color-gray-warm-050;
+      border-color: $color-gray-cool-700;
       color: $color-purple-950;
     }
 
@@ -55,7 +55,7 @@
       background: $color-white;
       opacity: $disabled-opacity;
       color: oklch(from $color-purple-950 l c h / $placeholder-opacity);
-      border-color: oklch(from $color-grey-cool-500 l c h / 0.7);
+      border-color: oklch(from $color-gray-cool-500 l c h / 0.7);
     }
 
     .value {

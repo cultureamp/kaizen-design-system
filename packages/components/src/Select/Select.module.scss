@@ -63,7 +63,7 @@ $focus-border-color: $color-blue-600;
 
   .control {
     min-height: $input-height;
-    border: $border-solid-border-width $border-solid-border-style $color-grey-cool-500;
+    border: $border-solid-border-width $border-solid-border-style $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
 
     &.disabled {
@@ -71,8 +71,8 @@ $focus-border-color: $color-blue-600;
     }
 
     &:hover {
-      border-color: $color-grey-cool-700;
-      background-color: $color-grey-warm-010;
+      border-color: $color-gray-cool-700;
+      background-color: $color-gray-warm-010;
       cursor: pointer;
     }
 
@@ -146,7 +146,7 @@ $focus-border-color: $color-blue-600;
 
     &.disabledOption {
       color: $color-purple-950;
-      border-color: $color-grey-cool-500;
+      border-color: $color-gray-cool-500;
       background: transparent;
     }
 
