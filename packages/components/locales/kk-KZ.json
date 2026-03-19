@@ -11,135 +11,135 @@
   },
   "date.validation.invalidDate" : {
     "description" : "Error message when the user enters an invalid date and we do not know their input value",
-    "message" : "Date is invalid"
+    "message" : "Күн жарамсыз"
   },
   "date.validation.invalidDateWithValue" : {
     "description" : "Error message when the user enters an invalid date and we know their input value",
-    "message" : "{inputValue} is an invalid date"
+    "message" : "{inputValue} — жарамсыз күн"
   },
   "date.validation.rangeEndBeforeRangeStart" : {
     "description" : "Error message when the user tries to select an end date earlier than the start date",
-    "message" : "Cannot be earlier than the selection in \"{startDateFieldLabel}\""
+    "message" : "«{startDateFieldLabel}» ішіндегі таңдаудан бұрын болмауы керек"
   },
   "date.validation.unavailableDate" : {
     "description" : "Error message when the user tries to select a date that is unavailable",
-    "message" : "{inputValue} is not available, try another date"
+    "message" : "{inputValue} қолжетімді емес, басқа күнді таңдап көріңіз"
   },
   "dateInputDescription.inputFormat" : {
     "description" : "Label for the 'Input format' field",
-    "message" : "Input format"
+    "message" : "Енгізу форматы"
   },
   "datePicker.calendarLabelDescription" : {
     "description" : "Label for the search input",
-    "message" : "Select date from calendar for:"
+    "message" : "Күнтізбеден күнді таңдаңыз:"
   },
   "filterBar.addFiltersMenu.buttonLabel" : {
     "description" : "Menu button label to show additional available filter options",
-    "message" : "Add filters"
+    "message" : "Сүзгілерді қосу"
   },
   "filterBar.clearAllButton.ariaLabel" : {
     "description" : "Button aria-label to clear all values within the filter bar",
-    "message" : "Clear all filters"
+    "message" : "Барлық сүзгіні тазалау"
   },
   "filterBar.clearAllButton.label" : {
     "description" : "Button label to clear all values within the filter bar",
-    "message" : "Clear all"
+    "message" : "Барлығын тазалау"
   },
   "filterButton.removable.removeButtonLabel" : {
     "description" : "Button label to remove a single filter from the filter bar",
-    "message" : "Remove filter - {filterLabel}"
+    "message" : "Сүзгіні алып тастау — {filterLabel}"
   },
   "filterDatePickerDateInputField.dateInputLabelFallback" : {
     "description" : "Default label for date input field",
-    "message" : "Date"
+    "message" : "Күні"
   },
   "filterDateRangePicker.dateFrom" : {
     "description" : "Label for the 'Date from' field",
-    "message" : "Date from"
+    "message" : "Күні"
   },
   "filterDateRangePicker.dateTo" : {
     "description" : "Label for the 'date to' field",
-    "message" : "Date to"
+    "message" : "Күні"
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "<VisuallyHidden>Таңдауларды</VisuallyHidden> тазалау"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",
-    "message" : "<Badge>{count}</Badge><VisuallyHidden> available</VisuallyHidden>"
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> қолжетімді</VisuallyHidden>"
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "Іздеу сұрауы бойынша сүзгілеу нұсқалары"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
-    "message" : "Search…"
+    "message" : "Ізделіп жатыр..."
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
-    "message" : "Select all"
+    "message" : "Барлығын таңдау"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
-    "message" : "Clear search"
+    "message" : "Іздеуді тазалау"
   },
   "kz.rte.bold" : {
     "description" : "Label for the \"Bold\" button in a text editor",
-    "message" : "Bold"
+    "message" : "Қалың"
   },
   "kz.rte.bullet_list" : {
     "description" : "Label for the \"Bullet list\" button in a text editor",
-    "message" : "Bullet list"
+    "message" : "Белгіленген тізім"
   },
   "kz.rte.decrease_indent" : {
     "description" : "Label for the \"Decrease indent\" button in a text editor",
-    "message" : "Decrease indent"
+    "message" : "Шегіністі азайту"
   },
   "kz.rte.increase_indent" : {
     "description" : "Label for the \"Increase indent\" button in a text editor",
-    "message" : "Increase indent"
+    "message" : "Шегіністі ұлғайту"
   },
   "kz.rte.italic" : {
     "description" : "Label for the \"Italic\" button in a text editor",
-    "message" : "Italic"
+    "message" : "Көлбеу"
   },
   "kz.rte.link" : {
     "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
-    "message" : "Link"
+    "message" : "Сілтеме"
   },
   "kz.rte.numbered_list" : {
     "description" : "Label for the \"Numbered list\" button in a text editor",
-    "message" : "Numbered list"
+    "message" : "Нөмірленген тізім"
   },
   "kz.rte.toolbar.aria_label" : {
     "description" : "Label for the text formatting toolbar in a Rich Text Editor",
-    "message" : "Text formatting"
+    "message" : "Мәтінді форматтау"
   },
   "kz.rte.underline" : {
     "description" : "Label for the \"Underline\" button in a text editor",
-    "message" : "Underline"
+    "message" : "Астын сызу"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
-    "message" : "Contact support"
+    "message" : "Қолдау көрсету қызметіне хабарласу"
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Problem loading page right now. Try again or head home."
+    "message" : "Қазір бетті жүктеуге қатысты ақау бар. Әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "Бетті жүктеу кезінде ақау пайда болды"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Осы бетті көре алатыныңызды тексере алмаймыз. Қайтып оралып, әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Бұл бетті көру мүмкін емес"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
@@ -147,15 +147,15 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Бұл бетті көру мүмкін емес"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Кешіріңіз, бірақ сіз іздеп жатқан бетті таба алмадық. Қайтып оралып, әрекетті қайталап көріңіз немесе Басты бетке өтіңіз."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "Бет табылмады"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -163,15 +163,15 @@
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Біз жақтан бірдеңе дұрыс болмады"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but your change couldn't be made. Go back and try again, or head to Home"
+    "message" : "Өзгеріс жасау мүмкін болмайды. Қайтып оралып, әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "Өзгертуді енгізу мүмкін болмады"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -179,54 +179,54 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Біз жақтан бірдеңе дұрыс болмады"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Осы үшін кешірім сұраймыз. Қайта оралып, әрекетті қайталап көруді ұсынамыз."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Бұл бетті көру мүмкін емес"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Кешірім сұраймыз. Қайта оралып, әрекетті қайталап көруді ұсынамыз."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Бұл бетті көру мүмкін емес"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Кешірім сұраймыз. Қайта оралып, әрекетті қайталап көруді ұсынамыз."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Бұл бетті көру мүмкін емес"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Қате коды: {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
-    "message" : "Go to Home"
+    "message" : "Басты бетке оралу"
   },
   "kzGenericTile.infoButtonLabel" : {
     "description" : "Prompts user to interact with button to reveal more information",
-    "message" : "View more information:"
+    "message" : "Қосымша ақпаратты қарау:"
   },
   "kzGenericTile.infoButtonReturnLabel" : {
     "description" : "Prompts user to interact with button to hide information",
-    "message" : "Hide information:"
+    "message" : "Ақпаратты жасыру:"
   },
   "kzTitleBlock.combinedOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
-    "message" : "Open combined secondary and overflow menu"
+    "message" : "Біріктірілген қосалқы және қосымша мәзірді ашу"
   },
   "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays the default action item",
-    "message" : "Open default action overflow menu"
+    "message" : "Әдепкі әрекеттің қосымша мәзірін ашу"
   },
   "kzTitleBlock.hamburgerMenuLabel" : {
     "description" : "Label for the dropdown menu which displays navigation items",
@@ -234,26 +234,26 @@
   },
   "kzTitleBlock.overflowMenuAriaLabel" : {
     "description" : "Aria Label for the dropdown menu which displays additional action items",
-    "message" : "Opens overflow menu"
+    "message" : "Қосымша мәзірді ашады"
   },
   "kzTitleBlock.overflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional action items",
-    "message" : "Menu"
+    "message" : "Мәзір"
   },
   "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
     "description" : "Label for the dropdown menu which displays additional actions",
-    "message" : "Open secondary and overflow menu"
+    "message" : "Қосымша және артық мәзірді ашыңыз"
   },
   "select.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
-    "message" : "Clear selection: {field}"
+    "message" : "Таңдауды тазалау: {field}"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
-    "message" : "Show suggestions for {field}"
+    "message" : "{field} үшін ұсыныстарды көрсету"
   },
   "singleSelect.clearButtonAlt_v2" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
-    "message" : "Clear selection: {field}"
+    "message" : "Таңдауды тазалау: {field}"
   }
 }
