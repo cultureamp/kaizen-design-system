@@ -96,18 +96,23 @@ function migrateContent(content, filePath) {
     const originalLine = line
 
     // Handle rgba($color-*-rgb, alpha) and rgb($color-*-rgb, alpha) -> oklch(from $color-* l c h / alpha)
+    // Also handles Sass module syntax: rgba(color.$color-*-rgb, alpha)
     if (isSass) {
       // Pattern: rgba($color-NAME-rgb, ALPHA) or rgb($color-NAME-rgb, ALPHA)
-      const rgbaPattern = /rgba?\(\$color-([a-zA-Z]+-\d+)-rgb,\s*([^)]+)\)/g
-      line = line.replace(rgbaPattern, (match, colorName, alpha) => {
+      // Also matches: rgba(color.$color-NAME-rgb, ALPHA) for Sass module imports
+      const rgbaPattern = /rgba?\((color\.)?\$color-([a-zA-Z]+-\d+)-rgb,\s*([^)]+)\)/g
+      line = line.replace(rgbaPattern, (match, namespace, colorName, alpha) => {
         const newColorName = COLOR_MAPPINGS[colorName] || colorName
-        return `oklch(from $color-${PLACEHOLDER_PREFIX}${newColorName}${PLACEHOLDER_SUFFIX} l c h / ${alpha.trim()})`
+        const prefix = namespace || ''
+        return `oklch(from ${prefix}$color-${PLACEHOLDER_PREFIX}${newColorName}${PLACEHOLDER_SUFFIX} l c h / ${alpha.trim()})`
       })
 
       // Pattern for white: rgba($color-white-rgb, ALPHA) or rgb($color-white-rgb, ALPHA)
-      const rgbaWhitePattern = /rgba?\(\$color-white-rgb,\s*([^)]+)\)/g
-      line = line.replace(rgbaWhitePattern, (match, alpha) => {
-        return `oklch(from $color-white l c h / ${alpha.trim()})`
+      // Also matches: rgba(color.$color-white-rgb, ALPHA) for Sass module imports
+      const rgbaWhitePattern = /rgba?\((color\.)?\$color-white-rgb,\s*([^)]+)\)/g
+      line = line.replace(rgbaWhitePattern, (match, namespace, alpha) => {
+        const prefix = namespace || ''
+        return `oklch(from ${prefix}$color-white l c h / ${alpha.trim()})`
       })
     }
 
