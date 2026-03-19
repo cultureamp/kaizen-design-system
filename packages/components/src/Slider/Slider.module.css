@@ -1,0 +1,44 @@
+@layer kz-components {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .labelWrapper {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .label {
+    margin-bottom: var(--spacing-4);
+  }
+
+  @media (width >= 768px) {
+    .labelInline {
+      &.wrapper {
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .labelWrapper {
+        flex: 1;
+      }
+
+      .inputWrapper {
+        flex-basis: 50%;
+      }
+    }
+  }
+
+  .descriptionDisabled {
+    opacity: 0.3;
+  }
+
+  .readOnlyMessage {
+    text-align: center;
+    font-family: var(--typography-paragraph-small-font-family);
+    font-size: var(--typography-paragraph-small-font-size);
+    font-weight: var(--typography-paragraph-bold-font-weight);
+    line-height: var(--typography-paragraph-body-line-height);
+    letter-spacing: var(--typography-paragraph-body-letter-spacing);
+  }
+}
