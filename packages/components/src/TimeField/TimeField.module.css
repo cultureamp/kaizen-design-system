@@ -42,19 +42,17 @@
     }
   }
 
-  .input:focus-within {
-    .focusRing {
-      --focus-ring-offset: 3px;
+  .input:focus-within .focusRing {
+    --focus-ring-offset: 3px;
 
-      position: absolute;
-      background: transparent;
-      border-radius: var(--border-focus-ring-border-radius);
-      border-width: var(--border-focus-ring-border-width);
-      border-style: var(--border-focus-ring-border-style);
-      border-color: var(--color-blue-500);
-      inset: calc(-1 * var(--focus-ring-offset));
-      pointer-events: none;
-    }
+    position: absolute;
+    background: transparent;
+    border-radius: var(--border-focus-ring-border-radius);
+    border-width: var(--border-focus-ring-border-width);
+    border-style: var(--border-focus-ring-border-style);
+    border-color: var(--color-blue-500);
+    inset: calc(-1 * var(--focus-ring-offset));
+    pointer-events: none;
   }
 
   .isDisabled {

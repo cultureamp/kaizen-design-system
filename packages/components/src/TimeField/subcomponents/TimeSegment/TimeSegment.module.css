@@ -44,6 +44,6 @@
   }
 
   .dayPeriod {
-    margin-right: var(--spacing-1);
+    margin-right: 4px;
   }
 }
