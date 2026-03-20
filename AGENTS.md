@@ -44,7 +44,9 @@ When acting on Renovate PRs / dashboards:
 
 1. Identify target:
 
-- Look for rollup PRs and dashboard issue for this repo
+- Look for:
+  - Rollup PRs with branch name `renovate/rollup`
+  - Renovate "Dependency Dashboard" [issue](https://github.com/cultureamp/kaizen-design-system/issues/2039)
 - Focus first on patch or minor updates that:
   - Not marked as major
   - Have reasonable confidence scores if present
@@ -103,27 +105,23 @@ When acting on Renovate PRs / dashboards:
 When acting in this repo, agents would:
 
 1. Bias toward safety and clarify:
-
-- Make conservative changes
-- Prefer explicit comments and clear commit messages
+   - Make conservative changes
+   - Prefer explicit comments and clear commit messages
 
 2. Respect existing workflow:
-
-- Use `pnpm`, Changesets and existing CI workflows
-- Don't introduce new tolling without human approval
+   - Use `pnpm`, Changesets and existing CI workflows
+   - Don't introduce new tolling without human approval
 
 3. Surface uncerstainty:
-
-- If you are unsure about:
-  - Risk level of a dependency update
-  - How a change affects consumers
-- Then:
-  - Leave a comment in the PR summarising your understanding with open questions
-  - Avoid merging without human review
+   - If you are unsure about:
+     - Risk level of a dependency update
+     - How a change affects consumers
+   - Then:
+     - Leave a comment in the PR summarising your understanding with open questions
+     - Avoid merging without human review
 
 4. Log decisions:
    For any non-trivial decision (skipping an update or parking a major bump), record:
-
-- What you decided
-- Why
-- Links to relevant docs, tickets or Slack threads (if available)
+   - What you decided
+   - Why
+   - Links to relevant docs, tickets or Slack threads (if available)
