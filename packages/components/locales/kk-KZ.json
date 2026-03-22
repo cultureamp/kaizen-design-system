@@ -143,7 +143,7 @@
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "Осы бетті көру үшін рұқсатыңыз жоқ сияқты. Қайтып оралып, әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
@@ -159,7 +159,7 @@
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Жүйемізде ақау бар, сондықтан бұл бетті көрсету мүмкін емес. Қайтып оралып, әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
@@ -175,7 +175,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Жүйемізде ақау бар, сондықтан бұл бетті көрсету мүмкін емес. Қайтып оралып, әрекетті қайталап көріңіз немесе «Басты бет» бөліміне өтіңіз."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
