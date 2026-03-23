@@ -45,4 +45,10 @@
   .item[data-disabled] {
     opacity: 0.3;
   }
+
+  /* To do: Fix later, testing first */
+  .item[data-active] {
+    font-weight: var(--typography-paragraph-body-bold-font-weight);
+    color: var(--color-blue-500);
+  }
 }

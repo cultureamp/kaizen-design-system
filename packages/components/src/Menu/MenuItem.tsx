@@ -11,6 +11,7 @@ export type MenuItemProps = RACMenuItemProps & {
    * Provides positioning for an icon to the left of the menu item content
    */
   icon?: ReactNode
+  active?: boolean
 }
 
 /**
@@ -24,6 +25,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         ref={ref}
         className={mergeClassNames(styles.item, className)}
         textValue={determinedTextValue}
+        aria-current={props.active ? 'page' : undefined}
         {...props}
       >
         {typeof children === 'string' && icon ? (
