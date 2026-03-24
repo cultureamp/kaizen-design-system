@@ -1,7 +1,7 @@
 import React, { useId } from 'react'
 import { InputSearch, type InputSearchProps } from '~components/Input/InputSearch'
 import { Label } from '~components/Label'
-import styles from './SearchField.module.scss'
+import styles from './SearchField.module.css'
 
 export type SearchFieldProps = Omit<InputSearchProps, 'id'> & {
   id?: string
