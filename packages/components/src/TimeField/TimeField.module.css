@@ -26,7 +26,8 @@
     align-items: center;
     background-color: var(--color-white);
     background-clip: padding-box;
-    border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-cool-500);
+    border: var(--border-solid-border-width) var(--border-solid-border-style)
+      var(--color-gray-cool-500);
     border-radius: var(--border-solid-border-radius);
     font-size: var(--typography-paragraph-body-font-size);
     line-height: var(--typography-paragraph-body-line-height);
