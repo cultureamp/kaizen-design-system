@@ -1,3 +1,5 @@
+<!-- kaizen-design-system/deps-update-playbook -->
+
 # Dependency updates playbook
 
 Use this section when performing dependency update
@@ -125,3 +127,5 @@ When acting in this repo, agents would:
    - What you decided
    - Why
    - Links to relevant docs, tickets or Slack threads (if available)
+
+<!-- end kaizen-design-system/deps-update-playbook -->
