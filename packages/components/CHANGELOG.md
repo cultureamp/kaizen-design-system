@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+- [#6488](https://github.com/cultureamp/kaizen-design-system/pull/6488) [`7ec7302`](https://github.com/cultureamp/kaizen-design-system/commit/7ec7302b8488b49237887e8c5c6adc92dfb2df9f) - Update `Slider` component to use CSS from SCSS
+
+- [#6489](https://github.com/cultureamp/kaizen-design-system/pull/6489) [`17addb4`](https://github.com/cultureamp/kaizen-design-system/commit/17addb4b7b1c45fcf53edf5252d644fbc977b860) - Translation updates
+
+- [#6491](https://github.com/cultureamp/kaizen-design-system/pull/6491) [`dc3f782`](https://github.com/cultureamp/kaizen-design-system/commit/dc3f782d2170568e1b9405f4bab0d41fb0c829ff) - Update `TimeField` component to CSS from SCSS
+
+- [#6485](https://github.com/cultureamp/kaizen-design-system/pull/6485) [`0799ebb`](https://github.com/cultureamp/kaizen-design-system/commit/0799ebb7fb1c8586b4b91b08e1f13eb55549ce2f) - dependency updates
+
 ## 3.0.3
 
 ### Patch Changes
