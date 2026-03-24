@@ -57,6 +57,7 @@ export const Filter = ({
       {isRefLoaded && isOpen && (
         <FocusOn
           scrollLock={false}
+          preventScrollOnFocus={true}
           onClickOutside={(): void => setIsOpen(false)}
           onEscapeKey={(): void => setIsOpen(false)}
         >
