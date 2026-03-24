@@ -4,7 +4,7 @@ import { FieldGroup } from '~components/FieldGroup'
 import { InputRange, type InputRangeProps } from '~components/Input/InputRange'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
-import styles from './Slider.module.scss'
+import styles from './Slider.module.css'
 
 export type SliderFieldProps = {
   id?: string
