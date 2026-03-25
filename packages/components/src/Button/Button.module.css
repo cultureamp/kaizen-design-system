@@ -100,7 +100,7 @@
   .secondary {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-gray-cool-500);
-    --button-text-color: var(--color-purple-950);
+    --button-text-color: var(--color-gray-cool-950);
 
     &[data-hovered] {
       --button-bg-color: var(--color-gray-warm-050);
@@ -127,7 +127,7 @@
   .tertiary {
     --button-bg-color: transparent;
     --button-border-color: transparent;
-    --button-text-color: var(--color-purple-950);
+    --button-text-color: var(--color-gray-cool-950);
 
     &[data-hovered],
     &[data-pressed],
@@ -168,7 +168,7 @@
   .primaryReversed {
     --button-bg-color: var(--color-white);
     --button-border-color: var(--color-white);
-    --button-text-color: var(--color-purple-950);
+    --button-text-color: var(--color-gray-cool-950);
 
     &[data-hovered] {
       --button-bg-color: var(--color-gray-warm-050);
@@ -188,7 +188,7 @@
     &.isDisabled {
       --button-bg-color: rgb(var(--color-white-rgb), 0.2);
       --button-border-color: transparent;
-      --button-text-color: rgb(var(--color-purple-800-rgb), 0.7);
+      --button-text-color: oklch(from var(--color-gray-cool-950) l c h / 70%);
     }
   }
 

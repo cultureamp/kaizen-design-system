@@ -135,7 +135,7 @@ export const StickerSheetClassicalReversed: Story = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Classical Reversed)',
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: { isReversed: true },
 }
@@ -144,7 +144,7 @@ export const StickerSheetBlueReversed: Story = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Blue Reversed)',
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: { isReversed: true, colorSchema: 'blue' },
 }

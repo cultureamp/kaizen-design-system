@@ -62,7 +62,7 @@ export const ButtonVariantsReversed: Story = {
   ),
   parameters: {
     reverseColors: true,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
 }
 
@@ -111,7 +111,7 @@ export const ReversedButton: Story = {
     </ReversedColors>
   ),
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
 }
 

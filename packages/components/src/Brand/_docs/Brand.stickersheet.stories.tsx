@@ -42,6 +42,6 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: { backgrounds: { default: 'Purple 700' } },
+  parameters: { backgrounds: { default: 'Purple 900' } },
   args: { isReversed: true },
 }

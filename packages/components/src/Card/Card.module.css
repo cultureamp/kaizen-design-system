@@ -1,6 +1,6 @@
 @layer kz-components {
   .wrapper {
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
     border: var(--border-width-1) solid var(--card-border-color);
     background-color: var(--card-background-color);
     border-radius: var(--border-solid-border-radius);

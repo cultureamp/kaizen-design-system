@@ -14,7 +14,7 @@
     text-align: end;
     background-color: var(--color-gray-warm-100);
     border-radius: 3px;
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
 
     &:hover {
       background-color: var(--color-white);
@@ -32,7 +32,7 @@
   }
 
   .placeholder {
-    color: oklch(from var(--color-purple-950) l c h / 70%);
+    color: oklch(from var(--color-gray-cool-950) l c h / 70%);
   }
 
   .literal {

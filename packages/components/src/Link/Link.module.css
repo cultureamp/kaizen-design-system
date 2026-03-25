@@ -43,7 +43,7 @@
   }
 
   .secondary {
-    --link-text-color: var(--color-purple-950);
+    --link-text-color: var(--color-gray-cool-950);
   }
 
   .secondary[data-hovered] {

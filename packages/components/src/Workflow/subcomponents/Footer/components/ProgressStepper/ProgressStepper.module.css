@@ -54,11 +54,11 @@
   }
 
   .stepName.isCurrent {
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
   }
 
   .stepIcon {
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
     position: absolute;
     width: var(--progress-stepper-indicator-size);
     height: var(--progress-stepper-indicator-size);

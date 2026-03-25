@@ -256,7 +256,7 @@ export const ReversedSelect: Story = {
       </div>
     ),
   ],
-  parameters: { backgrounds: { default: 'Purple 700' } },
+  parameters: { backgrounds: { default: 'Purple 900' } },
 }
 
 export const SelectNativeValidationBehavior: Story = {

@@ -284,7 +284,7 @@ export const StickerSheetReversed: StickerSheetStory = {
   name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...StickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: { isReversed: true },
 }
@@ -311,7 +311,7 @@ export const StickerSheetWorkingReversed: StickerSheetStory = {
   name: 'Sticker Sheet Working (Reversed)',
   parameters: {
     ...WorkingStickerSheetTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: { isReversed: true },
 }

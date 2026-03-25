@@ -28,7 +28,7 @@
 
     &:hover,
     &:focus-visible {
-      color: var(--color-purple-950);
+      color: var(--color-gray-cool-950);
     }
   }
 

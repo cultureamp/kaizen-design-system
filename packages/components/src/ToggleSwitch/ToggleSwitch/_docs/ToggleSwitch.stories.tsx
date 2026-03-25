@@ -34,6 +34,6 @@ export const Playground: Story = {
 }
 
 export const Reversed: Story = {
-  parameters: { backgrounds: { default: 'Purple 700' } },
+  parameters: { backgrounds: { default: 'Purple 900' } },
   args: { reversed: true },
 }

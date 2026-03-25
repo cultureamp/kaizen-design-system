@@ -50,7 +50,7 @@ const KaizenProviderDecorator: Decorator = (Story) => (
 const decorators: Preview['decorators'] = [
   RACDecorator,
   KaizenProviderDecorator,
-  // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 700
+  // reverseColor parameter wraps story in ReversedColors context and sets default background to Purple 900
   (Story, context) => {
     if (
       // set in top toolbar
@@ -59,7 +59,7 @@ const decorators: Preview['decorators'] = [
       !context.moduleExport?.parameters?.backgrounds
     ) {
       context.parameters.backgrounds.default = context.parameters.reverseColors
-        ? 'Purple 700'
+        ? 'Purple 900'
         : 'White'
     }
 

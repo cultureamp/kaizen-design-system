@@ -1,7 +1,7 @@
 @layer kz-components {
   .badge {
     border-radius: var(--spacing-12);
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
     display: inline-block;
     position: relative;
     font-family: var(--typography-paragraph-extra-small-font-family);
@@ -24,7 +24,7 @@
   .reversed.active {
     --badge-background-color: var(--color-green-200);
 
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
   }
 
   .reversed.dark {
@@ -51,9 +51,9 @@
   }
 
   .dark {
-    --badge-background-color: rgb(var(--color-purple-700-rgb), 0.1);
+    --badge-background-color: oklch(from var(--color-purple-900) l c h / 10%);
 
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
   }
 
   .dot {
@@ -88,7 +88,7 @@
   }
 
   .animationOn .badge.dark {
-    --badge-background-color: rgb(var(--color-purple-700-rgb), 0.2);
+    --badge-background-color: oklch(from var(--color-purple-900) l c h / 20%);
   }
 
   .animationOn .badge.active {

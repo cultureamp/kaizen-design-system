@@ -108,7 +108,7 @@ export const ValueAndMax: Story = {
 
 export const Reversed: Story = {
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: { isReversed: true },
 }

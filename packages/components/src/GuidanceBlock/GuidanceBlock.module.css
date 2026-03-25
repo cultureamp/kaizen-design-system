@@ -18,7 +18,7 @@
     box-shadow: var(--shadow-small-box-shadow);
     position: relative;
     top: -1px;
-    color: var(--color-purple-950);
+    color: var(--color-gray-cool-950);
 
     @media (width >= 1024px) {
       min-height: calc(12rem - calc(var(--banner-padding) * 2));

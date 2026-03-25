@@ -4,7 +4,7 @@
   */
 
   :root {
-    --dt-content-border-color: rgb(var(--color-gray-600-rgb), 0.1);
+    --dt-content-border-color: oklch(from var(--color-gray-cool-700) l c h / 10%);
   }
 
   .wrapper {

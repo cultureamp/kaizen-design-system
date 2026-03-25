@@ -19,7 +19,7 @@
 
     &.reversed {
       background-color: var(--color-white);
-      color: var(--color-purple-950);
+      color: var(--color-gray-cool-950);
     }
 
     &[data-placement='top'] {
