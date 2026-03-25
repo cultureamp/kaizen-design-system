@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.0.5
+
+### Patch Changes
+
+- [#6514](https://github.com/cultureamp/kaizen-design-system/pull/6514) [`6a5c0f2`](https://github.com/cultureamp/kaizen-design-system/commit/6a5c0f21cdb21339580a24f7c90dc9ba6c291efd) - Upddate `Focusable` and `SearchField` components to CSS from SCSS
+
+- [#6517](https://github.com/cultureamp/kaizen-design-system/pull/6517) [`4b4e429`](https://github.com/cultureamp/kaizen-design-system/commit/4b4e42959ce5628c17d7dffa8a45458c9b2de637) - fix: prevent `MenuTrigger` click-through by clipping overflow on `MenuPopover`
+
+- [#6516](https://github.com/cultureamp/kaizen-design-system/pull/6516) [`5aa2872`](https://github.com/cultureamp/kaizen-design-system/commit/5aa28723c59f7b0e061d44ef855b11b540da58ee) - Fix FilterSelect component scrolling to top of the page on initial open when on a larger page
+
 ## 3.0.4
 
 ### Patch Changes
