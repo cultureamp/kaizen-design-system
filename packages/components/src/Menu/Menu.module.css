@@ -1,14 +1,13 @@
 @layer kz-components {
   .menu {
-    background-color: var(--color-white);
     color: var(--color-purple-800);
     width: 248px;
+    flex: 1 1 auto;
+    min-height: 0;
     max-height: 22rem;
     overflow: auto;
     padding-block: var(--spacing-6);
     outline: none;
-    border-radius: var(--border-solid-border-radius);
-    box-shadow: var(--shadow-large-box-shadow);
   }
 
   .menu :global(.react-aria-Header) {
