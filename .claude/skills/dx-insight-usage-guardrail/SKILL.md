@@ -1,6 +1,6 @@
 ---
 name: dx-insight-usage-guardrail
-description: Checks if changes in dependencies or APIs in widely consumed repos (`kaizen-design-system`, `unified-home` and shared packages) are likely to cause problems.
+description: Checks deps update in widely consumed repos will cause problems or not.
 ---
 
 ## `dx-insights` Usage Guardrail
