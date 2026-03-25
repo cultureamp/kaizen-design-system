@@ -2,8 +2,8 @@
 @import '~@kaizen/design-tokens/sass/color';
 
 @layer kz-components {
-  $thumb-color: $color-blue-500;
-  $thumb-color-hover: $color-blue-600;
+  $thumb-color: $color-blue-600;
+  $thumb-color-hover: $color-blue-800;
   $thumb-radius: 100%;
   $thumb-border-width: 4px;
   $thumb-border-color: $color-white;
@@ -13,7 +13,7 @@
   $thumb-width-with-border: $thumb-width + ($thumb-border-width * 2);
 
   // The range
-  $track-color: $color-gray-500;
+  $track-color: $color-gray-cool-500;
   $track-radius: 4px;
 
   @mixin track {
@@ -71,7 +71,7 @@
     }
 
     &:focus-visible {
-      outline: 2px solid $color-blue-500;
+      outline: 2px solid $color-blue-600;
     }
 
     &::-webkit-slider-runnable-track {

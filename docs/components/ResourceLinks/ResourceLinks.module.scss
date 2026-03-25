@@ -6,14 +6,14 @@ $gap: $spacing-6;
 
 .resourceLinkContainer {
   &:not(:first-child) {
-    border-left: 1.5px solid $color-gray-500;
+    border-left: 1.5px solid $color-gray-cool-500;
     padding-left: $gap;
   }
 }
 
 .resourceLink {
   text-decoration: none;
-  color: $color-blue-400;
+  color: $color-blue-500;
 }
 
 .resourceLinks {

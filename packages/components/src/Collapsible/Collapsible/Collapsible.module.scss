@@ -5,8 +5,8 @@
 @import '~@kaizen/design-tokens/sass/animation';
 
 @layer kz-components {
-  $heading-active-color: $color-gray-200;
-  $divider-color: rgba($color-gray-600-rgb, 0.2);
+  $heading-active-color: $color-gray-warm-050;
+  $divider-color: oklch(from $color-gray-cool-700 l c h / 0.2);
   $container-border-width: var(--border-width-1);
 
   // We need a full border radius on this container element, then have classes
@@ -14,7 +14,7 @@
   .container {
     background-color: $color-white;
     box-shadow: $shadow-small-box-shadow;
-    border: $container-border-width var(--border-solid-border-style) var(--color-gray-500);
+    border: $container-border-width var(--border-solid-border-style) var(--color-gray-cool-500);
     border-radius: $border-borderless-border-radius;
   }
 

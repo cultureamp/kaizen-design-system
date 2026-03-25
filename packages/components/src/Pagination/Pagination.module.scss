@@ -26,7 +26,7 @@
     border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-300;
     margin: 0 5px;
     background-color: transparent;
-    color: $color-blue-500;
+    color: $color-blue-600;
     box-sizing: border-box;
 
     &:disabled {
@@ -35,7 +35,7 @@
     }
 
     &:hover {
-      background-color: $color-blue-100;
+      background-color: $color-blue-050;
     }
 
     &:focus {
@@ -46,7 +46,7 @@
       }
 
       .pageIndicatorFocusRing {
-        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-600;
       }
     }
   }

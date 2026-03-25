@@ -4,17 +4,15 @@ import { objectPathToCssVarFunction } from './cssVariables'
 import { mapLeafsOfObject } from './mapLeafsOfObject'
 
 /**
- * This function could use a new name during a breaking change
- *
- * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys with R, G, B triple values, and
- * convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy.
+ * Given a Theme (the source of truth), add extra properties (like `-id` suffixed keys) and
+ * convert the leaf values to CSS variables like `var(--parent1key-parent2key-leafkey)`.
  *
  * Example:
  * ```
  * {
  *    color: {
  *        purple: {
- *          100: "#f0f1f4"
+ *          100: "oklch(93.30% 0.0210 313.83)"
  *        }
  *    }
  * }
@@ -24,10 +22,8 @@ import { mapLeafsOfObject } from './mapLeafsOfObject'
  * {
  *    color: {
  *        purple: {
- *          100: "var(--color-purple-100, "#f0f1f4")",
- *          "100-rgb": "var(--color-purple-100-rgb, 240, 241, 244)",
- *          "100-id": "--color-purple-100",
- *          "100-rgb-id": "--color-purple-100-rgb"
+ *          100: "var(--color-purple-100, oklch(93.30% 0.0210 313.83))",
+ *          "100-id": "--color-purple-100"
  *        }
  *    }
  * }

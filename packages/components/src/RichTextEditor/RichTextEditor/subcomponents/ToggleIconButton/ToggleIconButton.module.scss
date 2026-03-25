@@ -28,33 +28,33 @@
       border-radius: $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
-      border-color: $color-blue-500;
+      border-color: $color-blue-600;
       inset: calc(-1 * #{$focus-ring-offset});
     }
   }
 
   .default {
     background-color: $color-white;
-    color: $color-purple-800;
+    color: $color-purple-950;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-gray-200;
+      background-color: $color-gray-warm-050;
     }
 
     &.active {
-      background-color: $color-gray-300;
-      color: $color-purple-800;
+      background-color: $color-gray-warm-100;
+      color: $color-purple-950;
     }
   }
 
   .secondary {
     background-color: $color-white;
-    color: $color-blue-500;
+    color: $color-blue-600;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-blue-100;
+      background-color: $color-blue-050;
     }
 
     &.active {
@@ -63,40 +63,40 @@
   }
 
   .primary {
-    background-color: $color-blue-500;
+    background-color: $color-blue-600;
     color: $color-white;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-blue-600;
+      background-color: $color-blue-800;
     }
 
     &.active {
-      background-color: $color-blue-700;
+      background-color: $color-blue-900;
     }
   }
 
   .destructive {
-    background-color: $color-red-500;
+    background-color: $color-red-600;
     color: $color-white;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-red-600;
+      background-color: $color-red-700;
     }
 
     &.active {
-      background-color: $color-red-700;
+      background-color: $color-red-800;
     }
   }
 
   .secondary-destructive {
     background-color: $color-white;
-    color: $color-red-600;
+    color: $color-red-700;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-red-100;
+      background-color: $color-red-050;
     }
 
     &.active {
@@ -109,12 +109,12 @@
     pointer-events: none;
 
     &:focus-visible::after {
-      color: rgba($color-purple-800-rgb, 0.3);
+      color: oklch(from $color-purple-950 l c h / 0.3);
       outline-offset: -2px;
       background-color: transparent;
       border-color: transparent;
       opacity: 100%;
-      outline: $color-purple-800 $border-solid-border-style $border-focus-ring-border-width;
+      outline: $color-purple-950 $border-solid-border-style $border-focus-ring-border-width;
     }
   }
 }

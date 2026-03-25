@@ -1,7 +1,7 @@
 @layer kz-components {
   .menu {
     background-color: var(--color-white);
-    color: var(--color-purple-800);
+    color: var(--color-gray-cool-950);
     width: 248px;
     max-height: 22rem;
     overflow: auto;

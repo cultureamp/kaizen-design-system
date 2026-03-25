@@ -5,7 +5,7 @@
     font-weight: var(--typography-paragraph-body-font-weight);
     line-height: var(--typography-paragraph-body-line-height);
     letter-spacing: var(--typography-paragraph-body-letter-spacing);
-    color: var(--color-purple-800-rgb);
+    color: var(--color-gray-cool-950);
   }
 
   .wrapperAutogrow {
@@ -21,7 +21,8 @@
   /* these properties need to be set on both for autogrow to work properly */
   .textarea,
   .wrapperAutogrow::after {
-    border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
+    border: var(--border-solid-border-width) var(--border-solid-border-style)
+      var(--color-gray-cool-500);
     border-radius: var(--border-solid-border-radius);
     padding: var(--spacing-sm);
     box-sizing: border-box;
@@ -36,19 +37,20 @@
 
   .textarea {
     display: block;
-    border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
+    border: var(--border-solid-border-width) var(--border-solid-border-style)
+      var(--color-gray-cool-500);
     border-radius: var(--border-solid-border-radius);
     padding: var(--spacing-sm);
     resize: vertical;
 
     &:focus {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: 1px;
     }
 
     &:disabled {
-      border-color: rgb(var(--color-gray-500-rgb), 0.3);
+      border-color: oklch(from var(--color-gray-cool-500) l c h / 30%);
       resize: none;
     }
   }
@@ -60,41 +62,41 @@
   .default {
     &:not(.error, .caution) {
       &:disabled {
-        border-color: rgb(var(--color-gray-500-rgb), 0.3);
+        border-color: oklch(from var(--color-gray-cool-500) l c h / 30%);
       }
     }
 
     &:focus:not([disabled]),
     &:hover:not([disabled]),
     &:hover:focus:not([disabled]) {
-      background-color: var(--color-gray-200);
-      border-color: var(--color-gray-600);
+      background-color: var(--color-gray-warm-050);
+      border-color: var(--color-gray-cool-700);
     }
 
     &.error {
-      border-color: var(--color-red-500);
+      border-color: var(--color-red-600);
 
       &:focus:not([disabled]),
       &:hover:not([disabled]),
       &:hover:focus:not([disabled]) {
-        border-color: var(--color-red-500);
+        border-color: var(--color-red-600);
       }
     }
 
     &.caution {
-      border-color: var(--color-yellow-600);
+      border-color: var(--color-yellow-400);
 
       &:focus:not([disabled]),
       &:hover:not([disabled]),
       &:hover:focus:not([disabled]) {
-        border-color: var(--color-yellow-600);
+        border-color: var(--color-yellow-400);
       }
     }
 
     &.disabled {
       background-color: var(--color-white);
-      border-color: rgb(var(--color-gray-500-rgb), 0.3);
-      color: rgb(var(--color-purple-800-rgb), 0.3);
+      border-color: oklch(from var(--color-gray-cool-500) l c h / 30%);
+      color: oklch(from var(--color-gray-cool-950) l c h / 30%);
     }
   }
 
@@ -125,12 +127,12 @@
     }
 
     &.caution {
-      border-color: var(--color-yellow-400);
+      border-color: var(--color-yellow-200);
 
       &:focus:not([disabled]),
       &:hover:not([disabled]),
       &:hover:focus:not([disabled]) {
-        border-color: var(--color-yellow-400);
+        border-color: var(--color-yellow-200);
       }
     }
 

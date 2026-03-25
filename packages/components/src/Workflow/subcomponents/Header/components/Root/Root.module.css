@@ -9,7 +9,7 @@
     text-align: center;
     padding: var(--spacing-24);
     gap: var(--spacing-16);
-    border-bottom: 2px solid rgb(var(--color-gray-600-rgb), 0.1);
+    border-bottom: 2px solid oklch(from var(--color-gray-cool-700) l c h / 10%);
 
     @media (width >= 768px) {
       align-items: start;

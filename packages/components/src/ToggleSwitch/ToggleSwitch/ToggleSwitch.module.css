@@ -17,7 +17,7 @@
 
   .track {
     position: relative;
-    background-color: var(--color-gray-500);
+    background-color: var(--color-gray-cool-500);
     border: var(--border-borderless-border-width) var(--border-borderless-border-style)
       var(--border-borderless-border-color);
     border-radius: var(--spacing-md);
@@ -34,14 +34,14 @@
     .checkbox:not(.disabled):focus + &,
     .checkbox:not(.disabled):hover:focus + & {
       border-color: transparent;
-      outline: 2px solid var(--color-blue-500);
+      outline: 2px solid var(--color-blue-600);
       outline-offset: var(--focus-ring-offset);
-      background-color: var(--color-gray-600);
+      background-color: var(--color-gray-cool-700);
     }
 
     .checkbox:not(.disabled) + &:hover,
     label:hover .checkbox:not(.disabled) + & {
-      background-color: var(--color-gray-600);
+      background-color: var(--color-gray-cool-700);
     }
 
     /* stylelint-enable no-descending-specificity */

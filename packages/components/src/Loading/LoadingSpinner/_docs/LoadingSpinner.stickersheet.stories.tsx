@@ -21,7 +21,7 @@ const StickerSheetTemplate: StickerSheetStory = {
         <LoadingSpinner accessibilityLabel="Loading" size="xs" />
         <LoadingSpinner accessibilityLabel="Loading" size="sm" />
         <LoadingSpinner accessibilityLabel="Loading" size="md" />
-        <LoadingSpinner accessibilityLabel="Loading" classNameOverride="text-purple-400" />
+        <LoadingSpinner accessibilityLabel="Loading" classNameOverride="text-purple-500" />
       </StickerSheet.Row>
     </StickerSheet>
   ),

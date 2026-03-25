@@ -49,14 +49,14 @@
     border: var(--border-width) var(--border-solid-border-style);
     filter: drop-shadow(0 0 7px rgb(0, 0, 0, 0.1));
     border-radius: $border-solid-border-radius;
-    color: $color-purple-800;
+    color: $color-purple-950;
     text-align: start;
     padding-block: calc(var(--spacing-12) - var(--border-width))
       calc(var(--spacing-16) - var(--border-width));
     padding-inline: calc(var(--spacing-16) - var(--border-width));
   }
 
-  $default-box-border-color: var(--color-gray-500);
+  $default-box-border-color: var(--color-gray-cool-500);
 
   .defaultBox {
     @extend %box;
@@ -90,10 +90,10 @@
     right: 0;
     margin-left: auto;
     display: inherit;
-    color: rgb($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
 
     &:hover {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
 
     &:focus {
@@ -101,8 +101,8 @@
     }
 
     &:focus-visible {
-      color: $color-purple-800;
-      outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+      color: $color-purple-950;
+      outline: $color-blue-600 $border-focus-ring-border-style $border-focus-ring-border-width;
       outline-offset: calc(-1 * #{$border-focus-ring-border-width});
       border-radius: $border-borderless-border-radius;
     }

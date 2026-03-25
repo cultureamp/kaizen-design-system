@@ -39,37 +39,37 @@
     }
 
     &.isFocusVisible {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $color-blue-050;
+      color: $color-blue-600;
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
 
       .icon {
-        color: $color-blue-500;
+        color: $color-blue-600;
       }
     }
 
     &:hover:not(.disabled),
     &:active:not(.disabled) {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $color-blue-050;
+      color: $color-blue-600;
 
       .icon {
-        color: $color-blue-500;
+        color: $color-blue-600;
       }
     }
   }
 
   .isSelected {
     font-weight: $typography-paragraph-bold-font-weight;
-    color: $color-blue-500;
+    color: $color-blue-600;
 
     &.icon {
-      color: $color-blue-500;
+      color: $color-blue-600;
     }
   }
 
   .disabled {
-    color: $color-gray-500;
+    color: $color-gray-cool-500;
   }
 }

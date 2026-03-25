@@ -53,7 +53,7 @@ export const Reversed: Story = {
   args: { reversed: true },
   parameters: {
     ...Variants.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
 }
 

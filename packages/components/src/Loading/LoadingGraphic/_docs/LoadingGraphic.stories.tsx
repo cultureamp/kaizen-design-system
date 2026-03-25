@@ -35,7 +35,7 @@ export const Animated: Story = {
 export const Reversed: Story = {
   args: { isReversed: true },
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
 }
 

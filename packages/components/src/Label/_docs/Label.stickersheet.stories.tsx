@@ -47,7 +47,7 @@ const InlineControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
       </span>
     }
   >
-    <span className="inline-block w-16 h-16 bg-gray-500"></span>
+    <span className="inline-block w-16 h-16 bg-gray-cool-500"></span>
   </Label>
 )
 
@@ -69,7 +69,7 @@ const BlockControl = ({ labelText, ...props }: WrapperProps): JSX.Element => (
         </span>
       }
     />
-    <span className="block w-200 h-16 bg-gray-500"></span>
+    <span className="block w-200 h-16 bg-gray-cool-500"></span>
   </>
 )
 
@@ -162,7 +162,7 @@ export const StickerSheetDefault: StickerSheetStory = {
 export const StickerSheetReversed: StickerSheetStory = {
   ...StickerSheetTemplate,
   name: 'Sticker Sheet (Reversed)',
-  parameters: { backgrounds: { default: 'Purple 700' } },
+  parameters: { backgrounds: { default: 'Purple 900' } },
   args: { isReversed: true },
 }
 

@@ -8,7 +8,7 @@
   $input-height: 48px;
   $input-base-padding-horizontal: $spacing-sm;
   $input-icon-size: 1.25rem; // 20px
-  $input-disabled-background: $color-gray-300;
+  $input-disabled-background: $color-gray-warm-100;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;
   $input-with-icon-padding: calc(#{$input-icon-size} + calc(#{$spacing-md} * 0.75));
@@ -47,7 +47,7 @@
     &:focus:not([disabled]),
     &:hover:focus:not([disabled]) {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
-        var(--color-blue-500);
+        var(--color-blue-600);
       outline-offset: 1px;
     }
 
@@ -118,7 +118,7 @@
   .withStartIconAdornment {
     /* stylelint-disable-next-line no-duplicate-selectors */
     .startIconAdornment {
-      color: $color-purple-800;
+      color: $color-purple-950;
       opacity: 50%;
     }
 
@@ -187,49 +187,49 @@
   // Default
   .input.default {
     background-color: $color-white;
-    color: $color-purple-800;
+    color: $color-purple-950;
     display: flex;
     align-items: center;
 
     @include form-input-focus-state {
-      background-color: $color-gray-200;
+      background-color: $color-gray-warm-050;
     }
 
     &:focus + .focusRing {
-      border-color: $color-blue-500;
+      border-color: $color-blue-600;
     }
 
     &.disabled {
       background-color: $color-white;
-      border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
-      color: rgba($color-purple-800-rgb, $input-disabled-opacity);
+      border-color: oklch(from $color-gray-cool-500 l c h / $input-disabled-opacity);
+      color: oklch(from $color-purple-950 l c h / $input-disabled-opacity);
     }
 
     &:not(.error, .caution) {
-      border-color: $color-gray-500;
+      border-color: $color-gray-cool-500;
 
       &:disabled {
-        border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-gray-cool-500 l c h / $input-disabled-opacity);
       }
 
       @include form-input-focus-state {
-        border-color: $color-gray-600;
+        border-color: $color-gray-cool-700;
       }
     }
 
     &.error {
-      border-color: $color-red-500;
+      border-color: $color-red-600;
 
       &.disabled {
-        border-color: rgba($color-red-500-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-red-600 l c h / $input-disabled-opacity);
       }
     }
 
     &.caution {
-      border-color: $color-yellow-600;
+      border-color: $color-yellow-400;
 
       &.disabled {
-        border-color: rgba($color-yellow-600-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-yellow-400 l c h / $input-disabled-opacity);
       }
     }
   }
@@ -240,7 +240,7 @@
     color: $color-white;
 
     @include form-input-focus-state {
-      background: rgba($color-white-rgb, 0.1);
+      background: oklch(from $color-white l c h / 0.1);
     }
 
     &:focus {
@@ -248,10 +248,10 @@
     }
 
     &:not(.error, .caution) {
-      border-color: rgba($color-white-rgb, 0.65);
+      border-color: oklch(from $color-white l c h / 0.65);
 
       &:disabled {
-        border-color: rgba($color-white-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-white l c h / $input-disabled-opacity);
       }
 
       @include form-input-focus-state {
@@ -261,22 +261,22 @@
 
     &.disabled {
       background: transparent;
-      color: rgba($color-white-rgb, $input-disabled-opacity);
+      color: oklch(from $color-white l c h / $input-disabled-opacity);
     }
 
     &.error {
       border-color: $color-red-300;
 
       &.disabled {
-        border-color: rgba($color-red-300-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-red-300 l c h / $input-disabled-opacity);
       }
     }
 
     &.caution {
-      border-color: $color-yellow-400;
+      border-color: $color-yellow-200;
 
       &.disabled {
-        border-color: rgba($color-yellow-400-rgb, $input-disabled-opacity);
+        border-color: oklch(from $color-yellow-200 l c h / $input-disabled-opacity);
       }
     }
   }

@@ -4,6 +4,6 @@
     grid-template-rows: min-content 1fr min-content;
     position: relative;
     min-height: 100vh;
-    background: var(--color-gray-100);
+    background: var(--color-gray-warm-010);
   }
 }

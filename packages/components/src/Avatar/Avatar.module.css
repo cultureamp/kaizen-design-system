@@ -2,7 +2,7 @@
   .wrapper {
     --avatar-x-y: 1.5rem;
 
-    background: var(--color-gray-300);
+    background: var(--color-gray-warm-100);
     border-radius: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -40,11 +40,11 @@
 
   /* Themes */
   .personal {
-    background: var(--color-orange-100);
+    background: var(--color-orange-050);
   }
 
   .otherUser {
-    background: var(--color-gray-300);
+    background: var(--color-gray-warm-100);
   }
 
   .company {
@@ -75,7 +75,7 @@
   }
 
   .fallbackIcon {
-    color: rgb(var(--color-purple-800-rgb), 0.7);
+    color: oklch(from var(--color-gray-cool-950) l c h / 70%);
     font-size: calc(var(--avatar-x-y) * 0.7);
   }
 
@@ -86,7 +86,7 @@
 
   .initials {
     box-sizing: border-box;
-    color: var(--color-purple-800);
+    color: var(--color-gray-cool-950);
     padding-left: 5px;
     padding-right: 5px;
     text-align: center;

@@ -40,7 +40,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             <StickerSheet.Row key={name} header={name}>
               <Icon {...defaultProps} name={name} />
               <Icon {...defaultProps} name={name} isFilled />
-              <Icon {...defaultProps} name={name} className="text-blue-500" />
+              <Icon {...defaultProps} name={name} className="text-blue-600" />
             </StickerSheet.Row>
           ))}
         </StickerSheet>

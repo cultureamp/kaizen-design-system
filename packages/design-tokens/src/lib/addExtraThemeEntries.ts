@@ -1,22 +1,24 @@
-import colorString from 'color-string'
 import { objectPathToCssVarIdentifier } from './cssVariables'
 
 /**
- * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --color-blah-XXX`.
+ * Use this to generate an object containing `${key}: value` and/or `${key}-id: --color-blah-XXX`.
  * This is for adding extra neighbouring properties to a theme.
+ *
+ * Note: RGB variants (-rgb) have been removed. Use OKLCH with alpha channel instead:
+ * - Before: rgba($color-purple-800-rgb, 0.7)
+ * - After: oklch(from $color-purple-950 l c h / 0.7)
+ *
  * For example:
  *  Input:
  *    path: [color, purple, 100]
  *    key: 100
- *    value: #f0f1f4
+ *    value: oklch(93.30% 0.0210 313.83)
  *    printValue: (path, v) => `var(--some-key, ${v})`
  *    options: {augmentWithId: true}
  *
  *  Output: {
- *    "100": "var(--some-key, #f0f1f4)",
- *    "100-rgb": "var(--some-key, 240, 241, 244)",
+ *    "100": "var(--some-key, oklch(93.30% 0.0210 313.83))",
  *    "100-id": "--color-purple-100"
- *    "100-rgb-id": "--color-purple-100-rgb"
  *  }
  */
 export const addExtraThemeEntries = (
@@ -27,27 +29,14 @@ export const addExtraThemeEntries = (
   {
     augmentWithId,
   }: {
-    /** Setting this to true will add `${key}-id` and ${key}-rgb-id` */
+    /** Setting this to true will add `${key}-id` */
     augmentWithId: boolean
   },
 ): Record<string, string> => {
-  const colorRgb = typeof value === 'string' ? colorString.get.rgb(value) : null
   const result = {
     [key]: printValue(path, value),
   }
 
-  // Add the -rgb key containing the RGB triple of the color (if it is a color)
-  if (colorRgb) {
-    // If the value is a color, always convert to lowercase
-    result[key] = printValue(path, value).toLowerCase()
-
-    const rgbPath = [...path, 'rgb']
-    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(', '))
-    result[`${key}-rgb`] = rgbTriple
-    if (augmentWithId) {
-      result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
-    }
-  }
   if (augmentWithId) {
     result[`${key}-id`] = objectPathToCssVarIdentifier(path)
   }

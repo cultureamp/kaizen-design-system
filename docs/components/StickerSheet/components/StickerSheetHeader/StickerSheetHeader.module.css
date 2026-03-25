@@ -5,7 +5,7 @@
   font-size: var(--typography-heading-5-font-size);
   line-height: var(--typography-heading-5-line-height);
   letter-spacing: var(--typography-heading-5-letter-spacing);
-  color: var(--stickersheet-header-color, var(--color-purple-800));
+  color: var(--stickersheet-header-color, var(--color-purple-950));
 }
 
 .isReversed {

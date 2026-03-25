@@ -10,7 +10,7 @@
     border: var(--empty-state-border-width) solid var(--empty-state-border-color);
     border-radius: var(--border-solid-border-radius);
     background-color: var(--empty-state-background-color);
-    color: var(--color-purple-800);
+    color: var(--color-gray-cool-950);
   }
 
   .straightCorners {
@@ -19,22 +19,22 @@
 
   .success {
     --empty-state-border-color: var(--color-green-500);
-    --empty-state-background-color: var(--color-green-100);
+    --empty-state-background-color: var(--color-green-050);
   }
 
   .warning {
-    --empty-state-border-color: var(--color-red-500);
-    --empty-state-background-color: var(--color-red-100);
+    --empty-state-border-color: var(--color-red-600);
+    --empty-state-background-color: var(--color-red-050);
   }
 
   .informative {
-    --empty-state-border-color: var(--color-blue-400);
-    --empty-state-background-color: var(--color-blue-100);
+    --empty-state-border-color: var(--color-blue-500);
+    --empty-state-background-color: var(--color-blue-050);
   }
 
   .expert-advice {
-    --empty-state-border-color: var(--color-purple-400);
-    --empty-state-background-color: var(--color-purple-100);
+    --empty-state-border-color: var(--color-purple-500);
+    --empty-state-background-color: var(--color-purple-050);
   }
 
   .content {

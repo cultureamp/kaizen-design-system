@@ -15,7 +15,7 @@
     font-size: $typography-heading-6-font-size;
     font-weight: $typography-heading-6-font-weight;
     line-height: $typography-heading-6-line-height;
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
     margin: $spacing-6 0;
   }
 }

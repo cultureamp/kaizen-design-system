@@ -61,7 +61,7 @@ export const ReadOnly: Story = {
       >
         Read only state
       </Text>
-      <div className="p-12 bg-gray-200 rounded-default">
+      <div className="p-12 bg-gray-warm-050 rounded-default">
         <RichTextContent {...args} />
       </div>
     </>

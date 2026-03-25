@@ -1,11 +1,11 @@
 @import '~@kaizen/design-tokens/sass/color';
 
-$dt-color-background-color-admin: $color-gray-100;
-$dt-color-background-color-eduction: $color-blue-100;
-$dt-color-background-color-default: $color-purple-600;
+$dt-color-background-color-admin: $color-gray-warm-010;
+$dt-color-background-color-eduction: $color-blue-050;
+$dt-color-background-color-default: $color-purple-800;
 $dt-color-background-color-light: $color-white;
 $dt-color-background-gradient: linear-gradient(
   0deg,
-  $color-purple-600,
-  rgba($color-purple-600-rgb, 0)
+  $color-purple-800,
+  oklch(from $color-purple-800 l c h / 0)
 );

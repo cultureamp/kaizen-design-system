@@ -12,6 +12,6 @@
   }
 
   .toolbarSection + .toolbarSection {
-    border-inline-start: 1px solid rgba($color-gray-600-rgb, 0.1);
+    border-inline-start: 1px solid oklch(from $color-gray-cool-700 l c h / 0.1);
   }
 }

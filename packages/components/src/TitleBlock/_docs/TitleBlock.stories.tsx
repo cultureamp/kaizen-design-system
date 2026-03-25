@@ -525,22 +525,22 @@ export const StickerSheetBreadcrumbs: Story = {
   render: (args) => (
     <StickerSheet>
       <StickerSheet.Row header="Tab hover">
-        <div className="px-12 bg-purple-600">
+        <div className="px-12 bg-purple-800">
           <TitleBlock {...args} id="tab-hover-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Tab focus">
-        <div className="px-12 bg-purple-600">
+        <div className="px-12 bg-purple-800">
           <TitleBlock {...args} id="tab-focus-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Breadcrumbs hover">
-        <div className="px-12 bg-purple-600">
+        <div className="px-12 bg-purple-800">
           <TitleBlock {...args} id="Breadcrumbs-hover-example" />
         </div>
       </StickerSheet.Row>
       <StickerSheet.Row header="Breadcrumbs focus">
-        <div className="px-12 bg-purple-600">
+        <div className="px-12 bg-purple-800">
           <TitleBlock {...args} id="Breadcrumbs-focus-example" />
         </div>
       </StickerSheet.Row>

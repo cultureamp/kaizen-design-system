@@ -16,7 +16,7 @@
   .tooltipContent {
     max-width: 400px;
     padding: var(--spacing-8) calc(9rem / 16); // 8px 9px
-    color: $color-purple-800;
+    color: $color-purple-950;
     text-align: center;
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-heading-6-font-size;
@@ -32,27 +32,27 @@
 
     &.default {
       background-color: $color-white;
-      border-color: var(--color-gray-500);
+      border-color: var(--color-gray-cool-500);
     }
 
     &.informative {
-      background-color: $color-blue-100;
-      border-color: var(--color-blue-400);
+      background-color: $color-blue-050;
+      border-color: var(--color-blue-500);
     }
 
     &.positive {
-      background-color: $color-green-100;
+      background-color: $color-green-050;
       border-color: var(--color-green-500);
     }
 
     &.cautionary {
-      background-color: $color-yellow-100;
-      border-color: var(--color-yellow-700);
+      background-color: $color-yellow-010;
+      border-color: var(--color-yellow-600);
     }
 
     &.highlight {
-      background-color: $color-purple-100;
-      border-color: var(--color-purple-400);
+      background-color: $color-purple-050;
+      border-color: var(--color-purple-500);
     }
   }
 
@@ -109,11 +109,11 @@
   .arrowMain {
     // before styles
     &.default::before {
-      border-top: $arrow-height solid var(--color-gray-500);
+      border-top: $arrow-height solid var(--color-gray-cool-500);
     }
 
     &.informative::before {
-      border-top: $arrow-height solid var(--color-blue-400);
+      border-top: $arrow-height solid var(--color-blue-500);
     }
 
     &.positive::before {
@@ -121,11 +121,11 @@
     }
 
     &.highlight::before {
-      border-top: $arrow-height solid var(--color-purple-400);
+      border-top: $arrow-height solid var(--color-purple-500);
     }
 
     &.cautionary::before {
-      border-top: $arrow-height solid var(--color-yellow-700);
+      border-top: $arrow-height solid var(--color-yellow-600);
     }
     // after styles
     &::after {
@@ -137,29 +137,29 @@
     }
 
     &.informative::after {
-      border-top: $arrow-height solid $color-blue-100;
+      border-top: $arrow-height solid $color-blue-050;
     }
 
     &.positive::after {
-      border-top: $arrow-height solid $color-green-100;
+      border-top: $arrow-height solid $color-green-050;
     }
 
     &.highlight::after {
-      border-top: $arrow-height solid $color-purple-100;
+      border-top: $arrow-height solid $color-purple-050;
     }
 
     &.cautionary::after {
-      border-top: $arrow-height solid $color-yellow-100;
+      border-top: $arrow-height solid $color-yellow-010;
     }
   }
 
   .arrowShadow::before {
-    border-top: 0 solid $color-gray-300;
+    border-top: 0 solid $color-gray-warm-100;
   }
 
   // Triangle portion is a little darker to bring out shadow
   .arrowShadow::after {
-    border-top: $arrow-height solid rgba($color-purple-800-rgb, 0.09);
+    border-top: $arrow-height solid oklch(from $color-purple-950 l c h / 0.09);
     margin-top: 1px;
     filter: blur(4px);
   }

@@ -101,7 +101,7 @@ export const Color: Story = {
       <div className="text-green-500">
         <Icon {...args} />
       </div>
-      <Icon {...args} className="text-blue-500" />
+      <Icon {...args} className="text-blue-600" />
     </div>
   ),
 }
@@ -162,7 +162,7 @@ const IconSetButton = ({
         className={classnames(
           'flex flex-col justify-center items-center gap-16',
           'cursor-pointer h-full w-full p-16 rounded',
-          'bg-gray-100 hover:bg-gray-200',
+          'bg-gray-warm-010 hover:bg-gray-warm-050',
         )}
       >
         {copied ? (
@@ -297,16 +297,16 @@ export const AlignmentDont: Story = {
 
 export const ContrastDo: Story = {
   render: () => (
-    <div className="bg-yellow-100 p-16">
-      <Icon name="star" isPresentational className="text-yellow-700" />
+    <div className="bg-yellow-010 p-16">
+      <Icon name="star" isPresentational className="text-yellow-600" />
     </div>
   ),
 }
 
 export const ContrastDont: Story = {
   render: () => (
-    <div className="bg-yellow-100 p-16">
-      <Icon name="star" isPresentational className="text-yellow-500" />
+    <div className="bg-yellow-010 p-16">
+      <Icon name="star" isPresentational className="text-yellow-200" />
     </div>
   ),
 }
@@ -346,7 +346,7 @@ export const DistinguishDont: Story = {
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">Selected</Text>
-        <Icon name="thumb_up" isPresentational className="text-blue-500" />
+        <Icon name="thumb_up" isPresentational className="text-blue-600" />
       </div>
     </div>
   ),

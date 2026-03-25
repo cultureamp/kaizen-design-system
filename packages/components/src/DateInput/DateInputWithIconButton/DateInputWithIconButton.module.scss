@@ -24,18 +24,18 @@
 
     &:focus-visible {
       outline-offset: -2px;
-      outline: $color-blue-500 $border-focus-ring-border-style $border-focus-ring-border-width;
+      outline: $color-blue-600 $border-focus-ring-border-style $border-focus-ring-border-width;
     }
 
     &:hover:not([disabled]) {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $color-blue-050;
+      color: $color-blue-600;
     }
   }
 
   .calendarActive {
-    color: $color-blue-500;
-    background-color: $color-blue-100;
+    color: $color-blue-600;
+    background-color: $color-blue-050;
   }
 
   .disabled {

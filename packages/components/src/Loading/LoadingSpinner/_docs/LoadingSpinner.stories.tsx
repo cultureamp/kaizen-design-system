@@ -25,16 +25,16 @@ export const Playground: Story = {
 }
 
 export const ClassNameOverride: Story = {
-  args: { classNameOverride: 'text-green-400' },
+  args: { classNameOverride: 'text-green-300' },
 }
 
 export const Colors: Story = {
   render: (args) => (
     <>
-      <LoadingSpinner {...args} classNameOverride="text-green-400" />
-      <LoadingSpinner {...args} classNameOverride="text-purple-800" />
-      <LoadingSpinner {...args} classNameOverride="text-blue-500" />
-      <LoadingSpinner {...args} classNameOverride="text-red-500" />
+      <LoadingSpinner {...args} classNameOverride="text-green-300" />
+      <LoadingSpinner {...args} classNameOverride="text-purple-950" />
+      <LoadingSpinner {...args} classNameOverride="text-blue-600" />
+      <LoadingSpinner {...args} classNameOverride="text-red-600" />
     </>
   ),
   decorators: [

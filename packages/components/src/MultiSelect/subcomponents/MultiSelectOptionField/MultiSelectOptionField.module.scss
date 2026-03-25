@@ -14,14 +14,14 @@
 
     &:hover,
     &:focus-within {
-      background: $color-blue-100;
+      background: $color-blue-050;
 
       .checkbox {
-        border-color: $color-gray-600;
-        background-color: $color-gray-200;
+        border-color: $color-gray-cool-700;
+        background-color: $color-gray-warm-050;
 
         &.checked {
-          background-color: $color-gray-600;
+          background-color: $color-gray-cool-700;
         }
       }
     }
@@ -40,7 +40,7 @@
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
-        border-color: $color-blue-500;
+        border-color: $color-blue-600;
       }
 
       // removes default checkbox focus ring
@@ -51,7 +51,7 @@
   }
 
   .label {
-    color: $color-purple-800;
+    color: $color-purple-950;
     font-family: $typography-paragraph-body-font-family;
     font-weight: $typography-paragraph-body-font-weight;
     font-size: $typography-paragraph-body-font-size;

@@ -617,7 +617,7 @@ export const StickerSheetReversed: StoryObj<StickerSheetStory> = {
   name: 'Sticker Sheet (Reversed)',
   parameters: {
     ...TableTemplate.parameters,
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
   args: {
     isReversed: true,

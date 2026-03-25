@@ -5,8 +5,8 @@
 @layer kz-components {
   $message-icon-size: 1.25rem;
   $validation-message-padding: 0.5625rem;
-  $form-text-color-label: rgba($color-purple-800-rgb, 0.7);
-  $form-text-color-label-reversed: rgba($color-white-rgb, 0.8);
+  $form-text-color-label: oklch(from $color-purple-950 l c h / 0.7);
+  $form-text-color-label-reversed: oklch(from $color-white l c h / 0.8);
 
   .message {
     display: flex;
@@ -27,11 +27,11 @@
   .caution {
     border-radius: $border-solid-border-radius;
     padding: $validation-message-padding;
-    color: $color-purple-800;
+    color: $color-purple-950;
   }
 
   .error {
-    background: $color-red-100;
+    background: $color-red-050;
     opacity: 100%;
 
     &.reversed {
@@ -40,11 +40,11 @@
   }
 
   .caution {
-    background: $color-yellow-100;
+    background: $color-yellow-010;
     opacity: 100%;
 
     &.reversed {
-      background: $color-yellow-400;
+      background: $color-yellow-200;
     }
   }
 
@@ -62,15 +62,15 @@
     align-self: flex-start;
 
     .error & {
-      color: $color-red-500;
+      color: $color-red-600;
     }
 
     .caution & {
-      color: var(--color-yellow-700);
+      color: var(--color-yellow-600);
     }
 
     .reversed & {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
   }
 }

@@ -8,7 +8,7 @@
     position: relative;
     display: inline-flex;
     width: 100%;
-    border: $border-solid-border-style $border-solid-border-width $color-gray-500;
+    border: $border-solid-border-style $border-solid-border-width $color-gray-cool-500;
     border-radius: $border-solid-border-radius;
     flex-direction: row-reverse;
     padding: calc(#{$spacing-12} - #{$border-solid-border-width});
@@ -16,16 +16,16 @@
 
     &:hover,
     &:focus-within {
-      border-color: $color-gray-600;
-      background-color: $color-gray-200;
+      border-color: $color-gray-cool-700;
+      background-color: $color-gray-warm-050;
     }
 
     &.error {
-      border: $border-solid-border-style $border-solid-border-width $color-red-500;
+      border: $border-solid-border-style $border-solid-border-width $color-red-600;
     }
 
     &.caution {
-      border: $border-solid-border-style $border-solid-border-width $color-yellow-600;
+      border: $border-solid-border-style $border-solid-border-width $color-yellow-400;
     }
   }
 
@@ -35,14 +35,14 @@
     display: inline-flex;
     align-items: flex-start;
     margin: 3px 0;
-    color: rgba($color-purple-800-rgb, 0.7);
+    color: oklch(from $color-purple-950 l c h / 0.7);
 
     &:hover {
-      color: $color-purple-800;
+      color: $color-purple-950;
     }
 
     &:focus {
-      color: $color-purple-800;
+      color: $color-purple-950;
       outline: none;
 
       &::after {
@@ -53,7 +53,7 @@
           -1 * calc(#{$border-focus-ring-border-width} + #{$border-solid-border-width} + 1px)
         );
         border-radius: $border-focus-ring-border-radius;
-        border: $border-focus-ring-border-style $border-focus-ring-border-width $color-blue-500;
+        border: $border-focus-ring-border-style $border-focus-ring-border-width $color-blue-600;
       }
     }
   }
@@ -68,7 +68,7 @@
     margin-inline-end: $spacing-12;
 
     &.hasSelectedItems {
-      border-inline-end-color: rgba($color-gray-600-rgb, 0.2);
+      border-inline-end-color: oklch(from $color-gray-cool-700 l c h / 0.2);
     }
   }
 

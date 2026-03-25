@@ -38,6 +38,6 @@ export const ComposableHeaderTitle: Story = {
 export const Reversed: Story = {
   args: { color: 'white' },
   parameters: {
-    backgrounds: { default: 'Purple 700' },
+    backgrounds: { default: 'Purple 900' },
   },
 }
