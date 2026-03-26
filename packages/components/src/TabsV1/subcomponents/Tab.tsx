@@ -10,7 +10,7 @@ import classnames from 'classnames'
 import { useFocusable } from 'react-aria'
 import { Badge } from '~components/Badge'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './Tab.module.scss'
+import styles from './Tab.module.css'
 
 export type TabProps = {
   /**
