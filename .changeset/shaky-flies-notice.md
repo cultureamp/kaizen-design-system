@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-Update `TabsV1` component to CSS from SCSS
+Remove deprecated `TabsV1` component
