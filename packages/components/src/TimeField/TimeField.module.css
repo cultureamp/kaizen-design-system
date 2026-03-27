@@ -16,7 +16,8 @@
     color: var(--color-purple-800);
   }
 
-  .wrapper .label {
+  /* Doubled class raises specificity to (0,2,0) to override Label's own display rule */
+  .label.label {
     display: block;
     margin-bottom: var(--spacing-6);
   }
