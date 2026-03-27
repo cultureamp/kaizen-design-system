@@ -16,7 +16,7 @@
     color: var(--color-purple-800);
   }
 
-  .label {
+  .wrapper .label {
     display: block;
     margin-bottom: var(--spacing-6);
   }
