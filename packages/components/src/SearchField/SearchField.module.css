@@ -1,0 +1,6 @@
+@layer kz-components {
+  .label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+  }
+}

@@ -1,7 +1,7 @@
 import React, { useRef, type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { useFocusable, type FocusableOptions } from 'react-aria'
-import styles from './Focusable.module.scss'
+import styles from './Focusable.module.css'
 
 export type FocusableProps = {
   children: ReactNode

@@ -1,0 +1,9 @@
+@layer kz-components {
+  .menuPopover {
+    display: flex;
+    overflow: hidden;
+    border-radius: var(--border-solid-border-radius);
+    box-shadow: var(--shadow-large-box-shadow);
+    background-color: var(--color-white);
+  }
+}
