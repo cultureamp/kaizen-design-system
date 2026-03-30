@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.7
+
+### Patch Changes
+
+- [#6521](https://github.com/cultureamp/kaizen-design-system/pull/6521) [`66f2f8c`](https://github.com/cultureamp/kaizen-design-system/commit/66f2f8c25a60934caf851515384bc310dc0537e4) - fix: upgrade `@cultureamp/package-bundler` to v4 and raise CSS selector specificity to ensure component styles correctly override `Icon` and primitive styles
+
+- [#6518](https://github.com/cultureamp/kaizen-design-system/pull/6518) [`dce4554`](https://github.com/cultureamp/kaizen-design-system/commit/dce455407ec3216d4c360a292269e6baa6027b9e) - Remove deprecated `TabsV1` component
+
 ## 3.0.6
 
 ### Patch Changes
