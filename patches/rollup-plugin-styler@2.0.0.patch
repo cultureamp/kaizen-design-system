@@ -1,0 +1,66 @@
+diff --git a/dist/index.js b/dist/index.js
+index ab3ef61364471f50c8f19b2f97e9aa33429e5503..a9b6fc1dfbc484f1117e2c33a6c9d29334f8c556 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -1447,7 +1447,7 @@ var index = (options = {}) => {
+         const fileName = typeof loaderOpts.extract === "string" ? normalizePath(loaderOpts.extract).replace(/^\.[/\\]/, "") : normalizePath(`${name}.css`);
+         if (isAbsolutePath(fileName)) this.error(["Extraction path must be relative to the output directory,", `which is ${humanlizePath(dir)}`].join("\n"));
+         if (isRelativePath(fileName)) this.error(["Extraction path must be nested inside output directory,", `which is ${humanlizePath(dir)}`].join("\n"));
+-        const entries = extracted.filter(e => ids.includes(e.id)).sort((a, b) => ids.lastIndexOf(a.id) - ids.lastIndexOf(b.id));
++        const entries = extracted.filter(e => ids.includes(e.id)).sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id));
+         const res = await concat(entries);
+         return {
+           name: fileName,
+@@ -1467,25 +1467,34 @@ var index = (options = {}) => {
+         return chunk.name;
+       };
+       const getImports = chunk => {
++        // DFS post-order traversal from the chunk entry so that CSS module IDs
++        // are emitted dependency-first (a module appears after all its imports).
++        // The previous BFS approach emitted consumer styles before their
++        // dependencies, causing dependency styles (e.g. Icon.module.css) to
++        // appear last in the extracted CSS and win all equal-specificity ties
++        // within @layer kz-components.
+         const ids = [];
+-        for (const module of Object.keys(chunk.modules)) {
+-          const traversed = new Set();
+-          let current = [module];
+-          do {
+-            const imports = [];
+-            for (const id of current) {
+-              if (traversed.has(id)) continue;
+-              if (loaders.isSupported(id)) {
+-                if (isIncluded(id)) imports.push(id);
+-                continue;
+-              }
+-              traversed.add(id);
+-              const i = this.getModuleInfo(id);
+-              i && imports.push(...i.importedIds);
+-            }
+-            current = imports;
+-          } while (current.some(id => !loaders.isSupported(id)));
+-          ids.push(...current);
++        const traversed = new Set();
++        const dfs = id => {
++          if (traversed.has(id)) return;
++          traversed.add(id);
++          if (loaders.isSupported(id)) {
++            if (isIncluded(id)) ids.push(id);
++            return;
++          }
++          const info = this.getModuleInfo(id);
++          if (!info) return;
++          for (const importedId of info.importedIds) {
++            dfs(importedId);
++          }
++        };
++        const entryId = chunk.facadeModuleId;
++        if (entryId) {
++          dfs(entryId);
++        } else {
++          for (const module of Object.keys(chunk.modules)) {
++            dfs(module);
++          }
+         }
+         return ids;
+       };

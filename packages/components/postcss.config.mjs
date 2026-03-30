@@ -1,6 +1,6 @@
+import cssnano from 'cssnano'
+import postcssImport from 'postcss-import'
+
 export default {
-  plugins: {
-    'postcss-import': {},
-    'cssnano': {},
-  },
+  plugins: [postcssImport, cssnano({ preset: 'default' })],
 }

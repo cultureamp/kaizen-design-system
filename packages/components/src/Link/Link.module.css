@@ -21,7 +21,7 @@
     border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
   }
 
-  .icon > * {
+  .link .icon > * {
     vertical-align: text-bottom;
     font-size: var(--icon-font-size, 1em);
   }
