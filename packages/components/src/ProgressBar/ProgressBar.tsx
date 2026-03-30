@@ -4,7 +4,7 @@ import { Heading } from '~components/Heading'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { Label } from './subcomponents/Label'
 import { calculatePercentage } from './utils/calculatePercentage'
-import styles from './ProgressBar.module.scss'
+import styles from './ProgressBar.module.css'
 
 export type ProgressBarColor = {
   color: 'blue' | 'green' | 'red' | 'yellow'

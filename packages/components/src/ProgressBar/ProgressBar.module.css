@@ -1,21 +1,16 @@
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/spacing';
-
 @layer kz-components {
-  $height: 10px;
-
   .subtext {
-    color: $color-purple-800;
-    padding-top: $spacing-6;
+    color: var(--color-purple-800);
+    padding-top: var(--spacing-6);
     text-align: center;
-    opacity: 80%;
+    opacity: 0.8;
   }
 
   .progressBackground {
     width: 100%;
-    background: $color-gray-300;
-    border-radius: $height;
-    height: $height;
+    background: var(--color-gray-300);
+    border-radius: 10px;
+    height: 10px;
     overflow: hidden;
     position: relative;
   }
@@ -23,15 +18,15 @@
   .progress {
     position: absolute;
     inset: 0;
-    border-radius: $height;
+    border-radius: 10px;
     overflow: hidden;
     transition: transform 200ms ease;
     background-color: var(--progressbar-background-color);
   }
 
-  // ------------------------------
-  // Colors
-  // ------------------------------
+  /* ------------------------------
+  Colors
+  ------------------------------ */
   .blue {
     --progressbar-background-color: var(--color-blue-400);
   }
@@ -51,7 +46,7 @@
   .isAnimating {
     &::after {
       background: linear-gradient(90deg, transparent, var(--color-white) 75%, transparent);
-      opacity: 25%;
+      opacity: 0.25;
       content: '';
       position: absolute;
       top: 0;
