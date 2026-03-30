@@ -1,5 +1,6 @@
 @layer kz-components {
-  .notificationIcon {
+  /* Doubled class raises specificity to (0,2,0) to override Icon's own font-size rule */
+  .notificationIcon.notificationIcon {
     font-size: inherit;
   }
 }

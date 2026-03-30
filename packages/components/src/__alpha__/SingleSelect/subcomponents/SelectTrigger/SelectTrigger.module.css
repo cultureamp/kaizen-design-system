@@ -51,7 +51,7 @@
     background-color: var(--color-gray-100);
   }
 
-  .disabledText {
+  .trigger .disabledText {
     color: var(--color-gray-500);
   }
 
