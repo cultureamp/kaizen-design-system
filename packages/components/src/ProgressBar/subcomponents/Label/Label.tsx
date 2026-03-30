@@ -1,6 +1,6 @@
 import React, { type ReactNode } from 'react'
 import { Heading } from '~components/Heading'
-import styles from './Label.module.scss'
+import styles from './Label.module.css'
 
 type Label = {
   content: ReactNode
