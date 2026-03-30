@@ -7,6 +7,11 @@ settings:
 overrides:
   '@storybook/icons': 1.4.0
 
+patchedDependencies:
+  rollup-plugin-styler@2.0.0:
+    hash: d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3
+    path: patches/rollup-plugin-styler@2.0.0.patch
+
 importers:
 
   .:
@@ -11062,7 +11067,7 @@ snapshots:
       rollup: 4.59.0
       rollup-plugin-ignore: 1.0.10
       rollup-plugin-node-externals: 8.1.2(rollup@4.59.0)
-      rollup-plugin-styler: 2.0.0(rollup@4.59.0)(typescript@5.9.3)
+      rollup-plugin-styler: 2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.59.0)(typescript@5.9.3)
       ts-patch: 3.3.0
       tslib: 2.8.1
       typescript: 5.9.3
@@ -20281,7 +20286,7 @@ snapshots:
     dependencies:
       rollup: 4.59.0
 
-  rollup-plugin-styler@2.0.0(rollup@4.59.0)(typescript@5.9.3):
+  rollup-plugin-styler@2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.59.0)(typescript@5.9.3):
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.59.0)
       cosmiconfig: 8.3.6(typescript@5.9.3)

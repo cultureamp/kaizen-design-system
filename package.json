@@ -126,6 +126,9 @@
     },
     "overrides": {
       "@storybook/icons": "1.4.0"
+    },
+    "patchedDependencies": {
+      "rollup-plugin-styler@2.0.0": "patches/rollup-plugin-styler@2.0.0.patch"
     }
   }
 }
