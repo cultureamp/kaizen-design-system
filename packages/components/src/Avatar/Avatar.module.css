@@ -74,7 +74,7 @@
     border-radius: var(--spacing-4);
   }
 
-  .fallbackIcon {
+  .wrapper .fallbackIcon {
     color: rgb(var(--color-purple-800-rgb), 0.7);
     font-size: calc(var(--avatar-x-y) * 0.7);
   }
