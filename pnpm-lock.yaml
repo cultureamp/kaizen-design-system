@@ -409,11 +409,11 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))(react@19.2.4)(typescript@5.9.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^4.1.1
+        specifier: ^4.1.0
         version: 4.1.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))(react@19.2.4)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.18.0(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))(react@19.2.4)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.27.1)(jest@30.2.0(@types/node@22.19.15)(esbuild-register@3.6.0(esbuild@0.27.1))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.15)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^4.0.1
-        version: 4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.2.0(postcss@8.5.8))(postcss@8.5.8)(rollup@4.59.0)(tslib@2.8.1)(typescript@5.9.3)
+        version: 4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.2.0(postcss@8.5.8))(postcss@8.5.8)(rollup@4.60.0)(tslib@2.8.1)(typescript@5.9.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -1276,6 +1276,11 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
+    peerDependenciesMeta:
+      '@cultureamp/next-head-hook':
+        optional: true
+      next:
+        optional: true
 
   '@cultureamp/frontend-env@2.1.6':
     resolution: {integrity: sha512-6FYwQ08fTns6zMjRC74M2wSah8bMBSVsMxRBYmq7KWQOyYT/Jb7/BPpcrFjPaBzvnoKBLQ06TrbykCcZOkGRSA==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.6/e7375ab88fbc9f9770f2094896a6dc5185094165}
@@ -11103,7 +11108,6 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))(react@19.2.4)(typescript@5.9.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.6
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.2.4)
@@ -11118,7 +11122,6 @@ snapshots:
       js-yaml: 4.1.1
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.9.3)
-      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.2.4
@@ -11127,6 +11130,9 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
+    optionalDependencies:
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6))
+      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -11181,8 +11187,9 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.79.6)
       react: 18.3.1
+    optional: true
 
-  '@cultureamp/package-bundler@4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.2.0(postcss@8.5.8))(postcss@8.5.8)(rollup@4.59.0)(tslib@2.8.1)(typescript@5.9.3)':
+  '@cultureamp/package-bundler@4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.2.0(postcss@8.5.8))(postcss@8.5.8)(rollup@4.60.0)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.27.1(@babel/core@7.29.0)
       '@rollup/plugin-alias': 5.1.1(rollup@4.60.0)
@@ -11198,8 +11205,8 @@ snapshots:
       postcss-preset-env: 11.2.0(postcss@8.5.8)
       rollup: 4.60.0
       rollup-plugin-ignore: 1.0.10
-      rollup-plugin-node-externals: 8.1.2(rollup@4.59.0)
-      rollup-plugin-styler: 2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.59.0)(typescript@5.9.3)
+      rollup-plugin-node-externals: 8.1.2(rollup@4.60.0)
+      rollup-plugin-styler: 2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.60.0)(typescript@5.9.3)
       ts-patch: 3.3.0
       tslib: 2.8.1
       typescript: 5.9.3
@@ -20302,6 +20309,7 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
 
   react@19.2.4: {}
 
@@ -20483,7 +20491,7 @@ snapshots:
     dependencies:
       rollup: 4.60.0
 
-  rollup-plugin-styler@2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.59.0)(typescript@5.9.3):
+  rollup-plugin-styler@2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.60.0)(typescript@5.9.3):
     dependencies:
       '@rollup/pluginutils': 5.1.4(rollup@4.60.0)
       cosmiconfig: 8.3.6(typescript@5.9.3)
