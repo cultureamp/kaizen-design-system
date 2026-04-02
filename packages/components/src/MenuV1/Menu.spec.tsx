@@ -60,4 +60,26 @@ describe('Dropdown', () => {
       expect(onMouseDown).toBeCalled()
     })
   })
+
+  it('returns focus to the button when pressing Escape', async () => {
+    render(
+      <Menu button={<Button label="Button" />}>
+        <div>Item</div>
+      </Menu>,
+    )
+
+    const button = screen.getByRole('button', { name: 'Button' })
+    await user.click(button)
+
+    await waitFor(() => {
+      expect(screen.getByText('Item')).toBeVisible()
+    })
+
+    await user.keyboard('{Escape}')
+
+    await waitFor(() => {
+      expect(screen.queryByText('Item')).not.toBeInTheDocument()
+      expect(button).toHaveFocus()
+    })
+  })
 })

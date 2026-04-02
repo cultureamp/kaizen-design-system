@@ -1,10 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, type Ref } from 'react'
 import type { ButtonProps } from '~components/ButtonV1'
+import type { ButtonRef } from '~components/ButtonV1/GenericButton'
 import { StatelessMenu, type StatelessMenuProps } from './subcomponents/StatelessMenu'
+
+const mergeRefs =
+  <T,>(...refs: Array<Ref<T> | undefined>) =>
+  (value: T | null): void => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(value)
+      } else if (ref && typeof ref === 'object') {
+        ;(ref as React.MutableRefObject<T | null>).current = value
+      }
+    })
+  }
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
   'aria-haspopup'?: boolean
   'aria-expanded'?: boolean
+  'ref'?: Ref<ButtonRef>
 }
 
 export type MenuProps = Omit<
@@ -61,6 +75,10 @@ export const Menu = ({ button, menuVisible = false, ...rest }: MenuProps): JSX.E
             props.onMouseDown(e)
             button.props.onMouseDown?.(e)
           },
+          ref: mergeRefs<ButtonRef>(
+            props.ref as Ref<ButtonRef>,
+            button.props.ref as Ref<ButtonRef> | undefined,
+          ),
         })
       }
     />

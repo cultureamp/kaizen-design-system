@@ -18,11 +18,13 @@ export type MenuDropdownProps = {
   autoHide?: 'on' | 'outside-click-only' | 'off'
   children: React.ReactNode
   referenceElement: HTMLElement | null
+  buttonRef?: React.RefObject<{ focus: () => void } | null>
 }
 
 export const MenuDropdown = ({
   children,
   referenceElement,
+  buttonRef,
   id,
   hideMenuDropdown,
   autoHide = 'on',
@@ -104,7 +106,11 @@ export const MenuDropdown = ({
       shards={referenceElement ? [referenceElement] : undefined}
       onEscapeKey={hideMenuDropdown}
       returnFocus={() => {
-        referenceElement?.focus()
+        if (buttonRef?.current) {
+          buttonRef.current.focus()
+        } else {
+          referenceElement?.focus()
+        }
         return false
       }}
     >
