@@ -57,6 +57,7 @@
     border-radius: var(--spacing-md);
     transition: inset-inline-start var(--animation-timing);
     cursor: default;
+    position: relative;
   }
 
   .checkIcon {
@@ -78,7 +79,6 @@
     }
 
     .thumb {
-      position: relative;
       right: auto;
       inset-inline-start: calc(var(--spacing-md) * 1.1);
     }
@@ -97,7 +97,6 @@
 
   .off {
     .thumb {
-      position: relative;
       right: auto;
       inset-inline-start: calc(var(--spacing-md) * -0.05);
     }
