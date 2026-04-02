@@ -55,9 +55,7 @@
     border: var(--border-borderless-border-width) var(--border-borderless-border-style)
       var(--border-borderless-border-color);
     border-radius: var(--spacing-md);
-    transition:
-      left var(--animation-timing),
-      right var(--animation-timing);
+    transition: inset-inline-start var(--animation-timing);
     cursor: default;
   }
 
