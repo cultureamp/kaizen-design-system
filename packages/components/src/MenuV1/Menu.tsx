@@ -4,7 +4,7 @@ import type { ButtonRef } from '~components/ButtonV1/GenericButton'
 import { StatelessMenu, type StatelessMenuProps } from './subcomponents/StatelessMenu'
 
 const mergeRefs =
-  <T,>(...refs: Array<Ref<T> | undefined>) =>
+  <T,>(...refs: (Ref<T> | undefined)[]) =>
   (value: T | null): void => {
     refs.forEach((ref) => {
       if (typeof ref === 'function') {
