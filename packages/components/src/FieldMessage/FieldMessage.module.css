@@ -1,0 +1,74 @@
+@layer kz-components {
+  :root {
+    --message-icon-size: 1.25rem;
+    --validation-message-padding: 0.5625rem;
+    --form-text-color-label: rgb(var(--color-purple-800-rgb), 0.7);
+    --form-text-color-label-reversed: rgb(var(--color-white-rgb), 0.8);
+  }
+
+  .message {
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+
+  .default {
+    color: var(--form-text-color-label);
+
+    &.reversed {
+      color: var(--form-text-color-label-reversed);
+    }
+  }
+
+  .error,
+  .caution {
+    border-radius: var(--border-solid-border-radius);
+    padding: var(--validation-message-padding);
+    color: var(--color-purple-800);
+  }
+
+  .error {
+    background: var(--color-red-100);
+    opacity: 1;
+
+    &.reversed {
+      background: var(--color-red-300);
+    }
+  }
+
+  .caution {
+    background: var(--color-yellow-100);
+    opacity: 1;
+
+    &.reversed {
+      background: var(--color-yellow-400);
+    }
+  }
+
+  .positionBottom {
+    margin-top: var(--spacing-6);
+  }
+
+  .positionTop {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .warningIcon {
+    display: inline-flex;
+    width: var(--message-icon-size);
+    align-self: flex-start;
+
+    .error & {
+      color: var(--color-red-500);
+    }
+
+    .caution & {
+      color: var(--color-yellow-700);
+    }
+
+    .reversed & {
+      color: var(--color-purple-800);
+    }
+  }
+}
