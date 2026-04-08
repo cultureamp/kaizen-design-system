@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+- [#6540](https://github.com/cultureamp/kaizen-design-system/pull/6540) [`06735d8`](https://github.com/cultureamp/kaizen-design-system/commit/06735d81ad22345e787adf302ef1dc45ec0a66de) - Update `ProgressBar` component from CSS to SCSS
+
+- [#6564](https://github.com/cultureamp/kaizen-design-system/pull/6564) [`ecbef2b`](https://github.com/cultureamp/kaizen-design-system/commit/ecbef2b6daff997b42f7a8433d236eb37c1079bf) - Update `FieldMessage` component to CSS from SCSS
+
+- [#6531](https://github.com/cultureamp/kaizen-design-system/pull/6531) [`e07b43f`](https://github.com/cultureamp/kaizen-design-system/commit/e07b43f99abe0827676672aa14f410a90c3a988e) - Update dependencies
+
 ## 3.0.7
 
 ### Patch Changes
