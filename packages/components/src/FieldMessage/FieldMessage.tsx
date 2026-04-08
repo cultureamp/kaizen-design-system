@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './FieldMessage.module.scss'
+import styles from './FieldMessage.module.css'
 
 export type FieldMessageStatus = 'default' | 'success' | 'error' | 'caution'
 
