@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.9
+
+### Patch Changes
+
+- [#6565](https://github.com/cultureamp/kaizen-design-system/pull/6565) [`ab9c9d7`](https://github.com/cultureamp/kaizen-design-system/commit/ab9c9d7b2134f44e8b9b772fd6250346b00c9b3e) - Turn of CSS declaration sorting in cssnano plugin used by postcss as it caused a regression with some logical properties in RTL mode
+
+- [#6576](https://github.com/cultureamp/kaizen-design-system/pull/6576) [`993b81f`](https://github.com/cultureamp/kaizen-design-system/commit/993b81f9b0105b6a60c72da81d826990e1eacd07) - Update dependencies
+
 ## 3.0.8
 
 ### Patch Changes
