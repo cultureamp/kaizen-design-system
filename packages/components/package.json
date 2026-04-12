@@ -90,7 +90,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.1.8",
-    "@headlessui/react": "^2.2.9",
+    "@headlessui/react": "^2.2.10",
     "@internationalized/date": "^3.8.2",
     "@popperjs/core": "^2.11.8",
     "@reach/tabs": "^0.18.0",
@@ -158,7 +158,7 @@
     "jest-axe": "^10.0.0",
     "lodash.isempty": "^4.4.0",
     "normalize.css": "^8.0.1",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.9",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^11.2.0",
