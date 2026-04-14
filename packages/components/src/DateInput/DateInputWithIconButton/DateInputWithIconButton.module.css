@@ -1,0 +1,45 @@
+@layer kz-components {
+  :root {
+    --input-disabled-opacity: 0.3;
+  }
+
+  .iconButton {
+    /* RESET */
+    appearance: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    margin: 0;
+    display: flex;
+    padding: var(--spacing-6);
+    border: var(--border-solid-border-width) var(--border-solid-border-style) transparent;
+    border-radius: var(--border-solid-border-radius);
+    position: relative;
+    inset-inline-end: -0.35rem;
+    top: -40%;
+
+    :focus {
+      outline: none;
+    }
+
+    &:focus-visible {
+      outline-offset: -2px;
+      outline: var(--color-blue-500) var(--border-focus-ring-border-style)
+        var(--border-focus-ring-border-width);
+    }
+
+    &:hover:not([disabled]) {
+      background-color: var(--color-blue-100);
+      color: var(--color-blue-500);
+    }
+  }
+
+  .calendarActive {
+    color: var(--color-blue-500);
+    background-color: var(--color-blue-100);
+  }
+
+  .disabled {
+    opacity: var(--input-disabled-opacity);
+  }
+}

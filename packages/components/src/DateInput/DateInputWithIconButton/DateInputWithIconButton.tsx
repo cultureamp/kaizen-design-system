@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Icon } from '~components/Icon'
 import { isRefObject } from '~components/utils/isRefObject'
 import { DateInput, type DateInputProps } from '../DateInput'
-import styles from './DateInputWithIconButton.module.scss'
+import styles from './DateInputWithIconButton.module.css'
 
 export type DateInputWithIconButtonProps = {
   /**

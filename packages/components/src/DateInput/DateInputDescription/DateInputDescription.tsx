@@ -3,7 +3,7 @@ import { useIntl } from '@cultureamp/i18n-react-intl'
 import type { Locale } from 'date-fns'
 import { LabelledMessage } from '~components/LabelledMessage'
 import { formatDescriptionInputFormat } from './utils/formatDescriptionInputFormat'
-import styles from './DateInputDescription.module.scss'
+import styles from './DateInputDescription.module.css'
 
 export type DateInputDescriptionProps = {
   description?: string | JSX.Element

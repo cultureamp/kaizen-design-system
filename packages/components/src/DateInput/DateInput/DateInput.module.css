@@ -1,11 +1,9 @@
-@import '~@kaizen/design-tokens/sass/spacing';
-
 @layer kz-components {
   .dateInput {
     width: 100%;
   }
 
   .input {
-    margin-top: $spacing-6;
+    margin-top: var(--spacing-6);
   }
 }

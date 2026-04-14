@@ -1,0 +1,9 @@
+@layer kz-components {
+  .datePicker {
+    color: var(--color-purple-800);
+  }
+
+  .isReversed {
+    color: var(--color-yellow-600);
+  }
+}
