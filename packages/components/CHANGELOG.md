@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.10
+
+### Patch Changes
+
+- [#6580](https://github.com/cultureamp/kaizen-design-system/pull/6580) [`ca283ea`](https://github.com/cultureamp/kaizen-design-system/commit/ca283ea2a9d1d919fa2b76ea779880396e12b8ec) - fix: Export SelectToggle subcomponent from SingleSelect.
+
 ## 3.0.9
 
 ### Patch Changes
