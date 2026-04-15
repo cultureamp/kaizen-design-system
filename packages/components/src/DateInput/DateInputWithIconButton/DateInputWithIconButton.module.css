@@ -4,12 +4,14 @@
   }
 
   .iconButton {
-    /* RESET */
+    /* Button reset: repace @include button-reset */
     appearance: none;
     background: transparent;
     color: inherit;
     font: inherit;
     margin: 0;
+
+    /* Styles */
     display: flex;
     padding: var(--spacing-6);
     border: var(--border-solid-border-width) var(--border-solid-border-style) transparent;
@@ -18,9 +20,11 @@
     inset-inline-end: -0.35rem;
     top: -40%;
 
+    /*
     :focus {
       outline: none;
     }
+    */
 
     &:focus-visible {
       outline-offset: -2px;
