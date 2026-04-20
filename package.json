@@ -59,7 +59,7 @@
     "@types/react": "^18.3.28",
     "@types/react-dom": "^18.3.7",
     "@vitest/eslint-plugin": "^1.6.16",
-    "chromatic": "^15.3.1",
+    "chromatic": "^16.3.0",
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -83,7 +83,7 @@
     "stylelint-config-standard-scss": "^17.0.0",
     "turbo": "^2.9.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.2",
+    "typescript-eslint": "^8.58.2",
     "vite": "^7.3.2",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0"
