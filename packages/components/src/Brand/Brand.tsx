@@ -30,8 +30,8 @@ export type BrandProps = {
 
 const isSVG = (
   variant: VariantSVG['variant'] | VariantPicture['variant'],
-  restProps: SVGProps | PictureProps,
-): restProps is SVGProps => variant === 'collective-intelligence'
+  _restProps: SVGProps | PictureProps,
+): _restProps is SVGProps => variant === 'collective-intelligence'
 
 export const Brand = ({ reversed = false, variant, ...restProps }: BrandProps): JSX.Element => {
   if (isSVG(variant, restProps)) {
