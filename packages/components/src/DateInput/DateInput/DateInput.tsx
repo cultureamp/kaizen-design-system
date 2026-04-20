@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { Input, type InputProps } from '~components/Input'
 import { Label } from '~components/Label'
 import { isRefObject } from '~components/utils/isRefObject'
-import styles from './DateInput.module.scss'
+import styles from './DateInput.module.css'
 
 type OmittedInputProps = 'reversed' | 'type' | 'inputRef'
 
