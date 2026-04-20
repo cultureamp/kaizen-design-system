@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.11
+
+### Patch Changes
+
+- [#6579](https://github.com/cultureamp/kaizen-design-system/pull/6579) [`0b1638c`](https://github.com/cultureamp/kaizen-design-system/commit/0b1638cb959276077d2f0162c61da44333f3fab1) - Uplift `DateInput` and `DatePicker` components to CSS from SCSS
+
 ## 3.0.10
 
 ### Patch Changes
