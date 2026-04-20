@@ -185,39 +185,39 @@ export const Validation: Story = {
           <Text variant="body">
             NOTE: This story includes additional custom validation to provide some guidance when
             dealing with validation other than date isInvalid or isDisabled.
-          </Text>
-          <ul>
-            <li>
-              There will be a caution when the selectedDay <strong>is valid</strong> but{' '}
-              <strong>is not within this year</strong>.
-            </li>
-            <li>
-              There will be an error when the <strong>submit button is clicked</strong> and there is
-              a <strong>current error</strong> within the DatePicker.
-            </li>
-          </ul>
-          <Text variant="body">
+            <ul>
+              <li>
+                There will be a caution when the selectedDay <strong>is valid</strong> but{' '}
+                <strong>is not within this year</strong>.
+              </li>
+              <li>
+                There will be an error when the <strong>submit button is clicked</strong> and there
+                is a <strong>current error</strong> within the DatePicker.
+              </li>
+            </ul>
             The <code>onValidate</code> callback returns a <code>validationResponse</code> object
             which provides data such as a default validation message, and can be utilised for custom
             validation.
           </Text>
           <Highlight className="json">{JSON.stringify(response, null, 4)}</Highlight>
-          <ul>
-            <li>
-              <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
-            </li>
-            <li>
-              <code>isDisabled</code>: A date that have been set as disabled through the{' '}
-              <code>disabledDates</code> prop.
-            </li>
-            <li>
-              <code>isEmpty</code>: Input is empty.
-            </li>
-            <li>
-              <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{' '}
-              <code>disabled</code> nor <code>empty</code>.
-            </li>
-          </ul>
+          <Text variant="body">
+            <ul>
+              <li>
+                <code>isInvalid</code>: A date that cannot be parsed. e.g &quot;potato&quot;.
+              </li>
+              <li>
+                <code>isDisabled</code>: A date that have been set as disabled through the{' '}
+                <code>disabledDates</code> prop.
+              </li>
+              <li>
+                <code>isEmpty</code>: Input is empty.
+              </li>
+              <li>
+                <code>isValidDate</code>: Date input that is not <code>invalid</code> nor{' '}
+                <code>disabled</code> nor <code>empty</code>.
+              </li>
+            </ul>
+          </Text>
         </div>
       </>
     )
