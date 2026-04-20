@@ -10,7 +10,7 @@ import {
   type DateInputWithIconButtonRefs,
 } from '~components/DateInput'
 import { FieldMessage, type FieldMessageStatus } from '~components/FieldMessage'
-import styles from './DateInputField.module.scss'
+import styles from './DateInputField.module.css'
 
 export type DateInputFieldProps = {
   /**
