@@ -248,6 +248,7 @@ export const TitleBlock = ({
   secondaryOverflowMenuItems,
   navigationTabs,
   collapseNavigationAreaWhenPossible = false,
+  stickyTopStripWithinContainer = false,
   textDirection,
   surveyStatus,
   id,
@@ -280,6 +281,7 @@ export const TitleBlock = ({
           collapseNavigationArea &&
             !(sectionTitle ?? sectionTitleDescription ?? renderSectionTitle) &&
             styles.collapseNavigationArea,
+          stickyTopStripWithinContainer && styles.stickyTopStripWithinContainer,
           title && title.length >= 30 && styles.hasLongTitle,
           subtitle &&
             typeof subtitle === 'string' &&
