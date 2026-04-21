@@ -3,7 +3,7 @@ import classnames from 'classnames'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { type InformationTileProps } from '../InformationTile'
 import { type MultiActionTileProps } from '../MultiActionTile'
-import styles from './TileGrid.module.scss'
+import styles from './TileGrid.module.css'
 
 type TileProps = InformationTileProps | MultiActionTileProps
 
