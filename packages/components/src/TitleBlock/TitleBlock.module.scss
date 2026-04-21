@@ -61,6 +61,31 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    position: relative;
+  }
+
+  .stickyTopStripWithinContainer {
+    display: contents;
+
+    .titleRow {
+      z-index: 1;
+      position: sticky;
+      top: 0;
+    }
+
+    .rowBelowSeparator {
+      z-index: 0;
+    }
+  }
+
+  .stickyTopStripWithinContainer .titleRow,
+  .stickyTopStripWithinContainer .rowBelowSeparator {
+    background-color: $dt-color-background-color-default;
+  }
+
+  .stickyTopStripWithinContainer.lightVariant .titleRow,
+  .stickyTopStripWithinContainer.lightVariant .rowBelowSeparator {
+    background-color: $color-white;
   }
 
   .lightVariant .titleRow {
@@ -69,6 +94,19 @@
 
   .adminVariant .titleRow {
     background-color: $color-white;
+  }
+
+  .stickyTopStripWithinContainer.adminVariant .titleRow {
+    background-color: $color-white;
+  }
+
+  .stickyTopStripWithinContainer.adminVariant .rowBelowSeparator {
+    background-color: $dt-color-background-color-admin;
+  }
+
+  .stickyTopStripWithinContainer.educationVariant .titleRow,
+  .stickyTopStripWithinContainer.educationVariant .rowBelowSeparator {
+    background-color: $dt-color-background-color-eduction;
   }
 
   %titleBlockInner {
