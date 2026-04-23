@@ -1,45 +1,36 @@
-@import '~@kaizen/design-tokens/sass/border';
-@import '~@kaizen/design-tokens/sass/color';
-@import '~@kaizen/design-tokens/sass/shadow';
-@import '~@kaizen/design-tokens/sass/spacing';
-@import '../../../../styles/utils/animation';
-@import '../../../../styles/utils/responsive';
-@import './variables';
-
 @layer kz-components {
-  $tilePaddingTop: $spacing-xl;
-
   .root {
     perspective: 800px;
   }
 
   .tile {
     position: relative;
-    width: $tileWidth;
-    height: $tileHeight;
-    transition: transform $ca-duration-slow $ca-default;
+    width: 330px;
+    height: 370px;
+    transition: transform var(--animation-duration-slow, 400ms)
+      var(--animation-easing-function-ease-in-out, cubic-bezier(0.455, 0.03, 0.515, 0.955));
     transform-style: preserve-3d;
-    box-shadow: $shadow-small-box-shadow;
+    box-shadow: var(--shadow-small-box-shadow);
     border-radius: 7px;
-    background-color: $color-white;
+    background-color: var(--color-white);
 
     [data-tile-grid] & {
       width: auto;
     }
 
-    @include ca-media-mobile {
+    @media (width <= 767px) {
       width: 100%;
       min-width: 226px;
-      max-width: $tileHeight;
+      max-width: 370px;
     }
 
-    @media (max-width: 480px) {
+    @media (width <= 480px) {
       max-width: 100%;
     }
   }
 
   .titleMeta {
-    padding-top: $spacing-4;
+    padding-top: var(--spacing-4);
   }
 
   .face {
@@ -62,14 +53,14 @@
 
   .faceFront {
     justify-content: space-between;
-    padding: $tilePaddingTop $spacing-md $spacing-md;
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-md);
   }
 
   .faceBack {
     --generic-tile-border-color: var(--color-blue-400);
     --generic-tile-background-color: var(--color-blue-100);
 
-    padding-top: $tilePaddingTop;
+    padding-top: var(--spacing-xl);
     transform: rotateY(180deg);
   }
 
@@ -89,7 +80,7 @@
 
   .title {
     text-align: center;
-    padding-bottom: $spacing-sm;
+    padding-bottom: var(--spacing-sm);
     backface-visibility: hidden;
   }
 
@@ -101,14 +92,14 @@
     inset-block-start: 0;
     inset-inline-end: 0;
     position: absolute;
-    color: rgba($color-purple-800-rgb, 0.5);
+    color: rgb(var(--color-purple-800-rgb), 0.5);
   }
 
   .information {
     display: flex;
-    padding-bottom: $spacing-md;
-    padding-right: $spacing-md;
-    padding-left: $spacing-md;
+    padding-bottom: var(--spacing-md);
+    padding-right: var(--spacing-md);
+    padding-left: var(--spacing-md);
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -123,7 +114,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: $spacing-sm;
-    height: $spacing-xl;
+    margin-top: var(--spacing-sm);
+    height: var(--spacing-xl);
   }
 }

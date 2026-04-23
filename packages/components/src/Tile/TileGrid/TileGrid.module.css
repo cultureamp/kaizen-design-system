@@ -1,0 +1,31 @@
+@layer kz-components {
+  .grid {
+    --tile-width: 330px;
+    --tile-height: 370px;
+
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin-block: 0;
+    display: grid;
+
+    /* 
+    the more we shave off the width here,
+    the less the tiles will grow when they lose one from the row
+    */
+    grid-template-columns: repeat(auto-fill, minmax(calc(var(--tile-width) - 40px), 1fr));
+    gap: var(--spacing-md);
+
+    /* Replace @include ca-media-mobile */
+    @media (width <= 767px) {
+      grid-template-columns: repeat(2, minmax(226px, var(--tile-height)));
+
+      > * {
+        width: 100%;
+      }
+    }
+
+    @media (width <= 480px) {
+      grid-template-columns: repeat(1, 100%);
+    }
+  }
+}
