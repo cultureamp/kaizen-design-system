@@ -1,6 +1,6 @@
 import React from 'react'
-import { useOption } from '@react-aria/listbox'
 import classNames from 'classnames'
+import { useOption } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { Radio } from '~components/Radio'
 import { type ListItemProps, type SelectItem } from '../../types'

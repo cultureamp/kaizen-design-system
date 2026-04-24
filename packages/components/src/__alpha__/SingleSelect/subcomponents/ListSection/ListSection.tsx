@@ -1,6 +1,6 @@
 import React from 'react'
-import { useListBoxSection } from '@react-aria/listbox'
 import classNames from 'classnames'
+import { useListBoxSection } from 'react-aria'
 import { Divider } from '~components/Divider'
 import { type ListSectionProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
