@@ -70,7 +70,11 @@
     .titleRow {
       z-index: 1;
       position: sticky;
-      top: 0;
+      top: $layout-navigation-bar-height;
+
+      @media (width < 1080px) {
+        top: 0;
+      }
     }
 
     .rowBelowSeparator {
