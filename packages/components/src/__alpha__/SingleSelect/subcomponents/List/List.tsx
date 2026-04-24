@@ -1,6 +1,6 @@
 import React from 'react'
-import type { Node } from '@react-types/shared'
 import { useListBox } from '@react-aria/listbox'
+import type { Node } from '@react-types/shared'
 import { type ListProps, type SelectItem } from '../../types'
 import { ListItem } from '../ListItem'
 import { ListSection } from '../ListSection'

@@ -1,7 +1,7 @@
 import React, { type HTMLAttributes } from 'react'
+import { useOption } from '@react-aria/listbox'
 import { type FocusableElement } from '@react-types/shared'
 import classnames from 'classnames'
-import { useOption } from '@react-aria/listbox'
 import { mergeProps, useFocusRing } from 'react-aria'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
