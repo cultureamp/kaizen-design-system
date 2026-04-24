@@ -7,7 +7,7 @@ import { Heading, type AllowedHeadingTags } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import styles from './GenericTile.module.scss'
+import styles from './GenericTile.module.css'
 
 export type TileAction = GenericButtonProps
 
