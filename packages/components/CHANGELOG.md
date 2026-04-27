@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.0.13
+
+### Patch Changes
+
+- [#6626](https://github.com/cultureamp/kaizen-design-system/pull/6626) [`cedab05`](https://github.com/cultureamp/kaizen-design-system/commit/cedab05d6a30292211c8eb96f1c8ffebca8c6fdd) - Update dependencies
+
+## 3.0.12
+
+### Patch Changes
+
+- [#6610](https://github.com/cultureamp/kaizen-design-system/pull/6610) [`d0e0b30`](https://github.com/cultureamp/kaizen-design-system/commit/d0e0b301967c730589acdc7645379ea2c7245822) - Fix SingleSelect "Unknown list" crash caused by useOption and useListBox importing from different react-aria entry points
+
+- [#6608](https://github.com/cultureamp/kaizen-design-system/pull/6608) [`d5119c0`](https://github.com/cultureamp/kaizen-design-system/commit/d5119c01920b230f4c6a306350d4b591216de17c) - Update `Tile` component to CSS from SCSS
+
 ## 3.0.11
 
 ### Patch Changes

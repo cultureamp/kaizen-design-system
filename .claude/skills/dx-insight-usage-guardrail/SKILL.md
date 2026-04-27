@@ -70,11 +70,11 @@ When deciding **which** dependency updates to tackle first (e.g. during a health
      - **Safety layers**: does the affected area have multiple layers of protection beyond tests (e.g. TypeScript strict types, Chromatic visual regression, Storybook interaction tests, runtime feature flags)? Updates with more safety layers are lower-risk because even if something slips through, downstream teams are more likely to catch it before it reaches production. Prefer tackling well-guarded updates first — they give you confidence with less manual verification effort.
    - Present this as a ranked table to the human, e.g.:
 
-     | Package | Update | Consumers | Prod apps | Security | Tests | Safety layers | Priority |
-     |---------|--------|-----------|-----------|----------|-------|---------------|----------|
-     | `pkg-a` | 2.0→3.0 | 42 repos | 12 | CVE-XXX | 85 | TS, Chromatic, flags | P0 |
-     | `pkg-b` | 1.2→1.3 | 35 repos | 8 | None | 40 | TS, Storybook | P1 |
-     | `pkg-c` | 4.0→5.0 | 3 repos | 0 | None | 5 | None | P3 |
+     | Package | Update  | Consumers | Prod apps | Security | Tests | Safety layers        | Priority |
+     | ------- | ------- | --------- | --------- | -------- | ----- | -------------------- | -------- |
+     | `pkg-a` | 2.0→3.0 | 42 repos  | 12        | CVE-XXX  | 85    | TS, Chromatic, flags | P0       |
+     | `pkg-b` | 1.2→1.3 | 35 repos  | 8         | None     | 40    | TS, Storybook        | P1       |
+     | `pkg-c` | 4.0→5.0 | 3 repos   | 0         | None     | 5     | None                 | P3       |
 
 4. Use the ranking to guide work order
    - Follow the triage matrix in the deps-update-playbook to decide what to tackle within the available time.
