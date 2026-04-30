@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
+import { SingleSelect } from '~components/SingleSelect'
 import { Text } from '~components/Text'
 import { Collapsible } from '../index'
 
@@ -31,6 +32,22 @@ export const Playground: Story = {
   args: {
     title: 'Single Collapsible',
   },
+  render: (args) => (
+    <Collapsible {...args} open>
+      <Text variant="body">Content before the SingleSelect</Text>
+      <SingleSelect
+        label="Type"
+        items={[
+          { label: 'Option 1', value: 'option-1' },
+          { label: 'Option 2', value: 'option-2' },
+          { label: 'Option 3', value: 'option-3' },
+        ]}
+      />
+      <Text variant="body">
+        Content after the SingleSelect — this should be reachable via VoiceOver
+      </Text>
+    </Collapsible>
+  ),
   parameters: {
     backgrounds: { default: 'Gray 100' },
     docs: {
