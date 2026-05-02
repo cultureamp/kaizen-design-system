@@ -37,7 +37,7 @@
     "axe-playwright": "^2.2.2",
     "playwright": "^1.59.1",
     "classnames": "^2.5.1",
-    "globals": "^17.5.0",
+    "globals": "^17.6.0",
     "highlight.js": "^11.11.1",
     "jest-axe": "^10.0.0",
     "react-highlight": "^0.15.0",
