@@ -102,7 +102,7 @@ export const Controlled: Story = {
   parameters: { docs: { source: { code: controlledSourceCode } } },
 }
 
-export const withSingleSelect: Story = {
+export const WithSingleSelect: Story = {
   args: {
     title: 'Single Collapsible',
   },

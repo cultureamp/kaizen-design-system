@@ -1,4 +1,4 @@
-import React, { useId, useState, type HTMLAttributes } from 'react'
+import React, { useCallback, useId, useState, type HTMLAttributes } from 'react'
 import classnames from 'classnames'
 import AnimateHeight from 'react-animate-height'
 import { IconButton } from '~components/ButtonV1'
@@ -75,6 +75,19 @@ export const Collapsible = ({
   const isOpen = getOpen()
   const isContainer = !group || separated
 
+  // Add a ref with a callback to manually add and remove html attribute inert
+  const sectionRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (!node) return
+      if (isOpen) {
+        node.removeAttribute('inert')
+      } else {
+        node.setAttribute('inert', '')
+      }
+    },
+    [isOpen],
+  )
+
   return (
     <div
       id={id}
@@ -128,8 +141,13 @@ export const Collapsible = ({
         </div>
       </div>
       {(!lazyLoad || isOpen) && (
-        <AnimateHeight height={isOpen ? 'auto' : 0} data-testid={`collapsible-section-${id}`}>
+        <AnimateHeight
+          height={isOpen ? 'auto' : 0}
+          disableDisplayNone
+          data-testid={`collapsible-section-${id}`}
+        >
           <div
+            ref={sectionRef}
             id={sectionId}
             className={classnames(styles.section, noSectionPadding && styles.noPadding)}
             role="region"
