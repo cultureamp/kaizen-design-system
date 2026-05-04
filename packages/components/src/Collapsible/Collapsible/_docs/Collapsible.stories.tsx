@@ -32,22 +32,6 @@ export const Playground: Story = {
   args: {
     title: 'Single Collapsible',
   },
-  render: (args) => (
-    <Collapsible {...args} open>
-      <Text variant="body">Content before the SingleSelect</Text>
-      <SingleSelect
-        label="Type"
-        items={[
-          { label: 'Option 1', value: 'option-1' },
-          { label: 'Option 2', value: 'option-2' },
-          { label: 'Option 3', value: 'option-3' },
-        ]}
-      />
-      <Text variant="body">
-        Content after the SingleSelect — this should be reachable via VoiceOver
-      </Text>
-    </Collapsible>
-  ),
   parameters: {
     backgrounds: { default: 'Gray 100' },
     docs: {
@@ -116,4 +100,34 @@ export const Controlled: Story = {
     return <Collapsible {...args} open={isOpen} onToggle={setIsOpen} />
   },
   parameters: { docs: { source: { code: controlledSourceCode } } },
+}
+
+export const withSingleSelect: Story = {
+  args: {
+    title: 'Single Collapsible',
+  },
+  render: (args) => (
+    <Collapsible {...args}>
+      <Text variant="body">Content before the SingleSelect</Text>
+      <SingleSelect
+        label="Type"
+        items={[
+          { label: 'Option 1', value: 'option-1' },
+          { label: 'Option 2', value: 'option-2' },
+          { label: 'Option 3', value: 'option-3' },
+        ]}
+      />
+      <Text variant="body">
+        Content after the SingleSelect — this should be reachable via VoiceOver
+      </Text>
+    </Collapsible>
+  ),
+  parameters: {
+    backgrounds: { default: 'Gray 100' },
+    docs: {
+      canvas: {
+        sourceState: 'shown',
+      },
+    },
+  },
 }
