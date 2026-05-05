@@ -94,4 +94,24 @@ describe('<Collapsible />', () => {
       expect(section.style.height).toEqual('auto')
     })
   })
+
+  it('sets inert on the section when closed by default', async () => {
+    const { container } = render(
+      <Collapsible id="1" title="First panel" controlled>
+        First panel content
+      </Collapsible>,
+    )
+    const section = container.querySelector('[id="1-section"]')
+    expect(section).toHaveAttribute('inert')
+  })
+
+  it('does not set inert on the section when open by default', async () => {
+    const { container } = render(
+      <Collapsible id="1" title="First panel" open>
+        First panel content
+      </Collapsible>,
+    )
+    const section = container.querySelector('[id="1-section"]')
+    expect(section).not.toHaveAttribute('inert')
+  })
 })
