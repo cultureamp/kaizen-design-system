@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.0.6
+
+### Patch Changes
+
+- [#6637](https://github.com/cultureamp/kaizen-design-system/pull/6637) [`4d2fa34`](https://github.com/cultureamp/kaizen-design-system/commit/4d2fa34ae4ee16fb7ae63c4b7d22eb8920482b33) - Update dependencies
+
 ## 11.0.5
 
 ### Patch Changes
