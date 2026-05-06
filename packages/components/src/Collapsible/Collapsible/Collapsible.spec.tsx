@@ -114,4 +114,27 @@ describe('<Collapsible />', () => {
     const section = container.querySelector('[id="1-section"]')
     expect(section).not.toHaveAttribute('inert')
   })
+
+  it('removes inert when opened and re-applies it when closed', async () => {
+    const { container, getByTestId } = render(
+      <Collapsible id="1" title="First panel">
+        First panel content
+      </Collapsible>,
+    )
+
+    const section = container.querySelector('[id="1-section"]')
+    const header = getByTestId('collapsible-header-1')
+
+    expect(section).toHaveAttribute('inert')
+
+    await user.click(header)
+    await waitFor(() => {
+      expect(section).not.toHaveAttribute('inert')
+    })
+
+    await user.click(header)
+    await waitFor(() => {
+      expect(section).toHaveAttribute('inert')
+    })
+  })
 })
