@@ -138,7 +138,9 @@ export const Collapsible = ({
             className={classnames(styles.section, noSectionPadding && styles.noPadding)}
             role="region"
             aria-labelledby={buttonId}
-            {...(!isOpen && { inert: true as unknown as undefined })}
+            // TODO: Remove @ts-expect-error when upgrade to @types/react@19 that support the `inert` HTML attribute
+            // @ts-expect-error current react types don't yet support the `inert` HTML attribute
+            inert={isOpen ? undefined : true}
           >
             {children}
           </div>
