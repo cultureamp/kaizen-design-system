@@ -424,435 +424,2080 @@ components:
 
 ## Overview
 
-Kaizen is Culture Amp's design system, created to build products that are consistent, accessible, and delightful. The name "Kaizen" comes from the Japanese philosophy of continuous improvement, reflecting our commitment to evolving and refining our design practices.
+Kaizen is Culture Amp's design system for building accessible, consistent React applications with TypeScript. All components are built on React Aria and follow WCAG 2.1 AA standards. The system uses CSS variables for themeable design tokens.
 
-### Brand Personality
+**Technology Stack:**
 
-Kaizen embodies Culture Amp's core values:
+- React 18+
+- TypeScript 5+
+- React Aria (accessibility foundation)
+- CSS Variables (token implementation)
 
-- **Purposeful**: Every design decision serves a clear function
-- **Inclusive**: Accessible to all users, regardless of ability
-- **Trustworthy**: Reliable, predictable interactions
-- **Human**: Warm and approachable, never cold or robotic
-- **Progressive**: Modern without being trendy
-
-### Emotional Response
-
-Users should feel:
-
-- **Confident** in taking actions
-- **Supported** through clear guidance
-- **Empowered** to accomplish their goals
-- **Respected** through inclusive design
-
-### Technology
-
-Built with:
-
-- **React** for component composition
-- **TypeScript** for type safety
-- **React Aria** for robust accessibility
-- **CSS Variables** for themeable tokens
-
-All components follow WCAG 2.1 AA standards and are tested with keyboard navigation and screen readers.
+**Philosophy:** Continuous improvement ("Kaizen") through iterative refinement, accessibility-first development, and composable component architecture.
 
 ---
 
 ## Colors
 
-Kaizen's color system is designed to be vibrant yet professional, with careful attention to accessibility and semantic meaning.
+### Color System Architecture
 
-### Primary Colors
+The color system provides a hierarchical palette optimized for WCAG AA compliance. All colors are defined as hex values and exposed via CSS variables.
 
-**Purple** is our primary brand color, representing creativity and innovation. Use purple for primary actions, active states, and brand moments.
+### Palette Structure
 
-- Light tints ({colors.purple-100} to {colors.purple-300}) for backgrounds and subtle UI
-- Mid tones ({colors.purple-400} to {colors.purple-500}) for primary actions
-- Dark shades ({colors.purple-600} to {colors.purple-800}) for text and emphasis
+**Brand Colors:** Purple ({colors.purple-100} through {colors.purple-800}) serves as the primary brand hue.
 
-### Secondary Colors
+**Semantic Colors:** Blue (info), Green (success), Yellow (warning), Red (danger), Orange (highlight).
 
-**Blue** represents trust and reliability. Use for informational states and secondary actions.
+**Neutral Colors:** Gray scale ({colors.gray-100} through {colors.gray-600}) for text, borders, and surfaces.
 
-**Green** signals success and positive outcomes. Reserve for confirmation messages and favorable data.
+**Data Visualization:** {colors.data-viz-favorable} (#7dd5bd) and {colors.data-viz-unfavorable} (#e68d97) are colorblind-safe.
 
-**Yellow** indicates caution and alerts. Use sparingly for warnings that don't require immediate action.
+### Token Mapping
 
-**Red** communicates errors and destructive actions. Use only when user attention is critical.
+| Token                      | Value               | Usage                             |
+| -------------------------- | ------------------- | --------------------------------- |
+| {colors.primary}           | {colors.purple-500} | Primary actions, brand moments    |
+| {colors.success}           | {colors.green-500}  | Success states, positive feedback |
+| {colors.warning}           | {colors.yellow-500} | Warning states, cautionary UI     |
+| {colors.danger}            | {colors.red-500}    | Error states, destructive actions |
+| {colors.info}              | {colors.blue-500}   | Informational states              |
+| {colors.text-primary}      | {colors.gray-600}   | Primary text content              |
+| {colors.text-secondary}    | {colors.gray-500}   | Secondary text content            |
+| {colors.text-inverse}      | {colors.white}      | Text on dark backgrounds          |
+| {colors.surface-primary}   | {colors.white}      | Primary surface background        |
+| {colors.surface-secondary} | {colors.gray-100}   | Secondary surface background      |
+| {colors.border-default}    | #e1e2ea             | Default border color              |
+| {colors.border-focus}      | {colors.blue-500}   | Focus ring color                  |
 
-**Orange** provides warmth and can highlight important but non-critical information.
+### Contrast Requirements
 
-### Neutral Colors
+All color combinations must meet WCAG AA standards:
 
-**Gray scale** provides the foundation for text, borders, and surfaces. Use {colors.gray-600} for primary text, {colors.gray-500} for secondary text, and lighter grays for backgrounds and dividers.
-
-### Semantic Colors
-
-Semantic colors map to specific UI states:
-
-- **Primary**: {colors.primary} for main actions and interactive elements
-- **Success**: {colors.success} for positive feedback
-- **Warning**: {colors.warning} for cautionary messages
-- **Danger**: {colors.danger} for errors and destructive actions
-- **Info**: {colors.info} for informational content
-
-Always pair semantic colors with appropriate icons and text for users who cannot distinguish colors.
-
-### Data Visualization
-
-Use {colors.data-viz-favorable} for positive metrics and {colors.data-viz-unfavorable} for negative metrics. These colors are optimized for color-blind users and maintain sufficient contrast.
-
-### Contrast & Accessibility
-
-All color combinations meet WCAG AA standards:
-
-- Normal text: minimum 4.5:1 contrast ratio
-- Large text (18px+): minimum 3:1 contrast ratio
-- UI components: minimum 3:1 contrast ratio
-
-Test color combinations before using them in production.
+- Normal text (< 18px): 4.5:1 minimum
+- Large text (≥ 18px): 3:1 minimum
+- UI components: 3:1 minimum
 
 ---
 
 ## Typography
 
-Kaizen uses a dual-typeface system optimized for digital interfaces.
+### Type System Architecture
+
+Kaizen implements a dual-typeface system with modular scale (1.25 ratio). All typography tokens include fontFamily, fontSize, fontWeight, lineHeight, and letterSpacing.
 
 ### Font Families
 
-**Inter** is our primary typeface for UI elements and body text. It provides excellent legibility at small sizes and loads efficiently as a system font.
+- **Inter**: UI components, body text, headings (sans-serif)
+- **Tiempos Headline**: Display typography, brand moments (serif)
 
-**Tiempos Headline** is our display typeface, used sparingly for large headings and brand moments. Its serif styling adds warmth and personality.
+### Type Scale Tokens
 
-### Type Scale
+| Token                         | Font Size | Line Height | Weight | Usage                         |
+| ----------------------------- | --------- | ----------- | ------ | ----------------------------- |
+| {typography.display-0}        | 72px      | 84px        | 800    | Hero sections, large displays |
+| {typography.heading-1}        | 34px      | 42px        | 500    | Page titles (h1)              |
+| {typography.heading-2}        | 28px      | 36px        | 600    | Major sections (h2)           |
+| {typography.heading-3}        | 22px      | 30px        | 600    | Subsections (h3)              |
+| {typography.heading-4}        | 18px      | 24px        | 600    | Minor headings (h4)           |
+| {typography.heading-5}        | 16px      | 24px        | 600    | Small headings (h5)           |
+| {typography.heading-6}        | 14px      | 24px        | 600    | Micro headings (h6)           |
+| {typography.body-large}       | 20px      | 30px        | 400    | Lead paragraphs               |
+| {typography.body}             | 16px      | 24px        | 400    | Body text (default)           |
+| {typography.body-small}       | 14px      | 18px        | 400    | Supporting text               |
+| {typography.body-extra-small} | 12px      | 18px        | 400    | Captions, fine print          |
+| {typography.button-primary}   | 18px      | 24px        | 500    | Primary button labels         |
+| {typography.button-secondary} | 16px      | 24px        | 500    | Secondary button labels       |
+| {typography.label}            | 14px      | 24px        | 600    | Form labels                   |
 
-Our type scale follows a modular approach based on a 1.25 ratio, ensuring visual harmony while providing sufficient differentiation between levels.
+### Accessibility Requirements
 
-#### Display
-
-Use {typography.display-0} for large brand moments and hero sections. Tiempos Headline brings gravitas and personality at this scale.
-
-#### Headings
-
-Heading levels {typography.heading-1} through {typography.heading-6} create clear content hierarchy. Always use semantic HTML tags (h1-h6) matching the visual hierarchy.
-
-**Important accessibility rule**: Use only one h1 per page, and never skip heading levels. If visual styling doesn't match semantic meaning, use the component's `tag` prop to correct it.
-
-#### Body Text
-
-- **{typography.body-large}**: Intro paragraphs and lead text (max-width: 975px)
-- **{typography.body}**: Default paragraph text (max-width: 780px)
-- **{typography.body-small}**: Supporting text and metadata (max-width: 680px)
-- **{typography.body-extra-small}**: Captions and fine print (max-width: 600px)
-
-Max-width constraints improve readability by preventing overly long line lengths.
-
-#### UI Elements
-
-- **{typography.button-primary}**: Large buttons and primary actions
-- **{typography.button-secondary}**: Standard buttons and links
-- **{typography.label}**: Form labels and UI labels
-
-### Typography Best Practices
-
-1. **Line length**: Keep body text between 50-75 characters per line
-2. **Line height**: Use 1.5 for body text, 1.2-1.3 for headings
-3. **Contrast**: Maintain sufficient contrast between text and background
-4. **Emphasis**: Use `<strong>` for semantic emphasis, CSS classes for visual styling
-5. **Hierarchy**: Let size and weight create hierarchy, not color alone
+- Use single h1 per page
+- Never skip heading levels
+- Maintain 50-75 character line length for body text
+- Use semantic `<strong>` for emphasis
 
 ---
 
 ## Layout
 
-Kaizen uses a flexible grid system based on consistent spacing values.
+### Spacing System
+
+Base-8 spacing scale provides consistent rhythm. All spacing tokens are unitless integers representing pixels.
+
+### Spacing Tokens
+
+| Token        | Value (px) | Usage                     |
+| ------------ | ---------- | ------------------------- |
+| {spacing.0}  | 0          | No spacing                |
+| {spacing.4}  | 4          | Micro spacing             |
+| {spacing.8}  | 8          | Tight spacing             |
+| {spacing.12} | 12         | Component internals       |
+| {spacing.16} | 16         | Default component spacing |
+| {spacing.24} | 24         | Component padding         |
+| {spacing.32} | 32         | Section spacing           |
+| {spacing.48} | 48         | Large section spacing     |
+| {spacing.64} | 64         | Major layout divisions    |
+| {spacing.96} | 96         | Page-level spacing        |
+| {spacing.xs} | 6          | Extra small               |
+| {spacing.sm} | 12         | Small                     |
+| {spacing.md} | 24         | Medium                    |
+| {spacing.lg} | 36         | Large                     |
+| {spacing.xl} | 48         | Extra large               |
+
+### Responsive Breakpoints
+
+| Breakpoint | Min Width                    | Target Devices |
+| ---------- | ---------------------------- | -------------- |
+| Mobile     | < 48em (768px)               | Phones         |
+| Tablet     | 48em - 64em (768px - 1024px) | Tablets        |
+| Desktop    | > 64em (1024px+)             | Desktops       |
 
 ### Grid Model
 
-The layout system is built on:
-
-- **Base unit**: 8px (0.5rem)
-- **Column grid**: 12 columns with flexible gutters
-- **Responsive breakpoints**: Mobile-first approach
-
-### Spacing Strategy
-
-Use the {spacing} scale consistently for all margins, padding, and gaps. The scale follows a base-8 system for visual rhythm:
-
-**Small spaces** (0-16): Tight groupings, component internals
-**Medium spaces** (20-48): Component padding, section spacing
-**Large spaces** (56-128): Major sections, page-level layout
-**Extra large spaces** (160-320): Hero sections, marketing pages
-
-### Responsive Design
-
-Design mobile-first and enhance for larger screens:
-
-```
-Mobile: < 48em (768px)
-Tablet: 48em - 64em (768px - 1024px)
-Desktop: > 64em (1024px+)
-```
-
-Components should:
-
-- Stack vertically on mobile
-- Use available width efficiently
-- Scale padding and spacing appropriately
-- Reflow to prevent horizontal scrolling
-
-### Container Widths
-
-Use the Container component to constrain content width:
-
-- **Narrow**: 640px - forms, focused content
-- **Default**: 1024px - standard pages
-- **Wide**: 1280px - data-heavy pages
-- **Full**: 100% - application layouts
+- 12-column grid system
+- Flexible gutters using {spacing} tokens
+- Mobile-first responsive approach
 
 ---
 
 ## Elevation & Depth
 
-Kaizen uses subtle elevation to establish hierarchy without heavy shadows.
-
-### Shadow System
-
-Shadows are applied sparingly:
-
-**Level 0**: No shadow (default state)
-**Level 1**: Subtle shadow for cards and containers at rest
-**Level 2**: Elevated shadow for dropdowns and popovers
-**Level 3**: Prominent shadow for modals and overlays
-
 ### Z-Index Scale
 
-Z-index values are standardized:
+| Level | Z-Index | Usage                           |
+| ----- | ------- | ------------------------------- |
+| 0     | 0       | Base layer                      |
+| 1     | 1       | Elevated cards, sticky elements |
+| 2     | 10      | Dropdowns, popovers             |
+| 3     | 100     | Navigation, fixed headers       |
+| 4     | 1000    | Modals, overlays                |
+| 5     | 10000   | Tooltips, critical overlays     |
 
-- `1`: Elevated cards and sticky elements
-- `10`: Dropdowns and popovers
-- `100`: Navigation and fixed headers
-- `1000`: Modals and overlays
-- `10000`: Tooltips and critical overlays
+### Shadow Levels
 
-### Hierarchy Through Other Means
-
-Beyond shadows, create hierarchy with:
-
-- **Color**: Lighter backgrounds for secondary surfaces
-- **Borders**: 2px borders distinguish containers
-- **Spacing**: Increased padding elevates importance
-- **Typography**: Size and weight establish prominence
+- **Level 0**: No shadow (default)
+- **Level 1**: Subtle shadow (cards at rest)
+- **Level 2**: Medium shadow (dropdowns, popovers)
+- **Level 3**: Strong shadow (modals, dialogs)
 
 ---
 
 ## Shapes
 
-Kaizen uses rounded corners to create a friendly, approachable aesthetic.
+### Border Radius Scale
 
-### Border Radius
+| Token          | Value (px) | Usage                            |
+| -------------- | ---------- | -------------------------------- |
+| {rounded.none} | 0          | Sharp corners, data tables       |
+| {rounded.sm}   | 4          | Small elements, tooltips         |
+| {rounded.md}   | 7          | Default (buttons, inputs, cards) |
+| {rounded.lg}   | 10         | Focus rings, modals              |
+| {rounded.xl}   | 16         | Large containers                 |
+| {rounded.full} | 9999       | Pills, badges, avatars           |
 
-The {rounded} scale provides consistent corner treatments:
-
-- **{rounded.none}**: Sharp corners for strict, data-focused UI
-- **{rounded.sm}**: Subtle rounding for small elements
-- **{rounded.md}**: Default rounding for most components (7px)
-- **{rounded.lg}**: Prominent rounding for focus rings and modals (10px)
-- **{rounded.xl}**: Large rounding for cards and containers (16px)
-- **{rounded.full}**: Fully rounded for pills and avatars
-
-### Application
-
-**Default choice**: Use {rounded.md} for most interactive elements (buttons, inputs, cards).
-
-**Exceptions**:
-
-- Use {rounded.full} for badges, avatars, and pill-shaped elements
-- Use {rounded.lg} for focus indicators to ensure visibility
-- Use {rounded.none} sparingly, when rectangular shapes improve data scanning
-
-**Consistency**: Keep border radius consistent within a component. Don't mix rounded and sharp corners on the same element.
+**Default:** Use {rounded.md} for all interactive components unless otherwise specified.
 
 ---
 
 ## Components
 
-Kaizen components are the building blocks of our interfaces. All components are built with React, TypeScript, and React Aria for accessibility.
+### Button
 
-### Buttons
+React component for user-triggered actions. Built on React Aria `<Button>`.
 
-Buttons are the primary way users take action.
+#### Base Styles
 
-#### Primary Button ({components.button-primary})
+All button variants share these base properties:
 
-Use for the main action on a page. Limit to one primary button per section.
+- **Border Radius**: {rounded.md}
+- **Cursor**: `pointer` (default), `not-allowed` (disabled)
+- **Padding**: {spacing.12} {spacing.24} (vertical horizontal)
+- **Transition**: 150ms ease-in-out (all properties)
+- **Font Family**: {typography.button-primary.fontFamily} or {typography.button-secondary.fontFamily}
 
-**Visual treatment**: {colors.primary} background with {colors.text-inverse} text, {rounded.md} corners, and {typography.button-primary} text style.
+#### Variants
 
-**States**:
-
-- **Hover**: {components.button-primary-hover} - Darkens to {colors.primary-hover}
-- **Active**: {components.button-primary-active} - Further darkens to {colors.primary-active}
-- **Disabled**: {components.button-primary-disabled} - Gray background, no interaction
-
-#### Secondary Button ({components.button-secondary})
-
-Use for secondary actions or when multiple actions have equal weight.
-
-**Visual treatment**: {colors.surface-primary} background with 2px {colors.border-default} border, {colors.text-primary} text.
-
-**States**:
-
-- **Hover**: {components.button-secondary-hover} - Border becomes {colors.primary}
-- **Active**: {components.button-secondary-active} - Background tints to {colors.purple-100}
-- **Disabled**: {components.button-secondary-disabled} - Muted colors, no interaction
+| Variant   | `variant` Prop | Background               | Text Color            | Border                            | Usage Intent                        |
+| --------- | -------------- | ------------------------ | --------------------- | --------------------------------- | ----------------------------------- |
+| Primary   | `"primary"`    | {colors.primary}         | {colors.text-inverse} | none                              | Main CTA, limit one per section     |
+| Secondary | `"secondary"`  | {colors.surface-primary} | {colors.text-primary} | 2px solid {colors.border-default} | Secondary actions, multiple allowed |
+| Tertiary  | `"tertiary"`   | transparent              | {colors.text-primary} | none                              | Low-emphasis actions                |
 
 #### Size Variants
 
-- **Small**: Reduced padding, {typography.button-secondary}
-- **Medium**: Default size
-- **Large**: Increased padding, {typography.button-primary}
+| Size   | `size` Prop          | Padding                   | Typography Token              |
+| ------ | -------------------- | ------------------------- | ----------------------------- |
+| Small  | `"small"`            | {spacing.8} {spacing.16}  | {typography.button-secondary} |
+| Medium | `"medium"` (default) | {spacing.12} {spacing.24} | {typography.button-secondary} |
+| Large  | `"large"`            | {spacing.16} {spacing.32} | {typography.button-primary}   |
 
-#### Icon Buttons
+#### Interaction States
 
-For icon-only buttons, always provide accessible text using `hasHiddenLabel` prop.
+**Primary Variant:**
 
-### Form Inputs
+| State    | Condition                     | Token Changes                                                |
+| -------- | ----------------------------- | ------------------------------------------------------------ |
+| Default  | -                             | backgroundColor: {colors.primary}                            |
+| Hover    | `:hover`, `isHovered={true}`  | backgroundColor: {colors.primary-hover}                      |
+| Active   | `:active`, `isPressed={true}` | backgroundColor: {colors.primary-active}                     |
+| Focus    | `:focus-visible`              | outline: 2px solid {colors.border-focus}, outlineOffset: 2px |
+| Disabled | `isDisabled={true}`           | backgroundColor: {colors.gray-300}, cursor: not-allowed      |
 
-#### Text Field ({components.text-field})
+**Secondary Variant:**
 
-Standard text input with label, description, and validation.
+| State    | Condition                     | Token Changes                                                                 |
+| -------- | ----------------------------- | ----------------------------------------------------------------------------- |
+| Default  | -                             | borderColor: {colors.border-default}                                          |
+| Hover    | `:hover`, `isHovered={true}`  | borderColor: {colors.primary}, color: {colors.primary}                        |
+| Active   | `:active`, `isPressed={true}` | backgroundColor: {colors.purple-100}                                          |
+| Focus    | `:focus-visible`              | outline: 2px solid {colors.border-focus}, outlineOffset: 2px                  |
+| Disabled | `isDisabled={true}`           | color: {colors.gray-400}, borderColor: {colors.gray-300}, cursor: not-allowed |
 
-**Visual treatment**: {colors.surface-primary} background, 2px {colors.border-default} border, {rounded.md} corners, {spacing.12} x {spacing.16} padding.
+#### Props
 
-**States**:
+- `variant`: `"primary" | "secondary" | "tertiary"`
+- `size`: `"small" | "medium" | "large"`
+- `isDisabled`: boolean
+- `fullWidth`: boolean (stretch to 100% container width)
+- `icon`: ReactNode (icon component)
+- `iconPosition`: `"start" | "end"`
+- `hasHiddenLabel`: boolean (for icon-only buttons with accessible label)
+- `onPress`: (e: PressEvent) => void
 
-- **Focus**: {components.text-field-focus} - {colors.border-focus} border with no outline
-- **Error**: {components.text-field-error} - {colors.danger} border with validation message
-- **Disabled**: {components.text-field-disabled} - {colors.surface-tertiary} background, muted text
+---
 
-**Accessibility**: Always pair with visible label. Use description for hints, validationMessage for errors.
+### TextField
 
-#### Select & Dropdowns
+React component for single-line text input. Composed of Label, Input, and FieldGroup components.
 
-Built on React Aria for keyboard navigation and screen reader support.
+#### Base Styles
 
-Use SingleSelect for simple dropdowns, MultiSelect for multiple selections.
+- **Border Radius**: {rounded.md}
+- **Border Width**: 2px
+- **Typography**: {typography.body}
+- **Padding**: {spacing.12} {spacing.16}
+- **Transition**: border-color 150ms ease-in-out
 
-#### Checkboxes & Radios
+#### Variants
 
-Use Checkbox for independent binary choices, Radio for mutually exclusive options.
+| Variant  | `reversed` Prop | Background               | Border                  | Text Color            | Usage Intent     |
+| -------- | --------------- | ------------------------ | ----------------------- | --------------------- | ---------------- |
+| Default  | `false`         | {colors.surface-primary} | {colors.border-default} | {colors.text-primary} | Standard forms   |
+| Reversed | `true`          | rgba(255,255,255,0.1)    | rgba(255,255,255,0.3)   | {colors.text-inverse} | Dark backgrounds |
 
-Always wrap Radio components in RadioGroup with a group label.
+#### Interaction States
 
-### Cards ({components.card})
+| State    | Condition           | Token Changes                                                                             |
+| -------- | ------------------- | ----------------------------------------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                                                      |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}, outline: none                                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                                                              |
+| Disabled | `isDisabled={true}` | backgroundColor: {colors.surface-tertiary}, color: {colors.gray-400}, cursor: not-allowed |
 
-Cards group related content and actions.
+#### Props
 
-**Visual treatment**: {colors.surface-primary} background, 2px {colors.border-default} border, {rounded.md} corners, {spacing.24} padding.
+- `label`: string (required, visible label)
+- `description`: string (helper text)
+- `validationMessage`: string (error message, shown when `isInvalid={true}`)
+- `value`: string
+- `onChange`: (value: string) => void
+- `type`: `"text" | "email" | "password" | "number" | "tel" | "url"`
+- `isDisabled`: boolean
+- `isRequired`: boolean
+- `isInvalid`: boolean
+- `reversed`: boolean
+- `startIcon`: ReactNode
+- `endIcon`: ReactNode
 
-**States**:
+---
 
-- **Hover**: {components.card-hover} - Border darkens for interactive cards
-- **Active**: Border becomes {colors.primary} for selected state
+### Card
 
-### Tables ({components.table})
+React component for grouping related content. Provides consistent spacing and border treatment.
 
-Tables present structured data.
+#### Base Styles
 
-**Structure**:
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.surface-primary}
+- **Padding**: {spacing.24}
+- **Transition**: border-color 150ms ease-in-out
 
-- **Container**: {components.table} - Rounded border wrapper
-- **Header**: {components.table-header} - {colors.surface-secondary} background
-- **Rows**: Interactive rows with {components.table-row-hover} state
-- **Cells**: {components.table-cell} - Consistent padding and bottom borders
+#### Variants
 
-**Variants**:
+| Variant  | `variant` Prop | Background               | Border                  | Usage Intent  |
+| -------- | -------------- | ------------------------ | ----------------------- | ------------- |
+| Default  | `"default"`    | {colors.surface-primary} | {colors.border-default} | Standard card |
+| Elevated | `"elevated"`   | {colors.surface-primary} | none, shadow level 1    | Raised card   |
+| Outlined | `"outlined"`   | transparent              | {colors.border-default} | Subtle card   |
 
-- **Default**: Standard spacing
-- **Compact**: Reduced padding for dense data
-- **Data**: Optimized for numerical data with right-aligned columns
+#### Interaction States
 
-### Modals ({components.modal-container})
+| State   | Condition                       | Token Changes                                                |
+| ------- | ------------------------------- | ------------------------------------------------------------ |
+| Default | -                               | borderColor: {colors.border-default}                         |
+| Hover   | `isClickable={true}` + `:hover` | borderColor: {colors.gray-400}                               |
+| Active  | `isSelected={true}`             | borderColor: {colors.primary}                                |
+| Focus   | `:focus-within`                 | outline: 2px solid {colors.border-focus}, outlineOffset: 2px |
 
-Modals focus attention on a specific task.
+#### Props
 
-**Structure**:
+- `variant`: `"default" | "elevated" | "outlined"`
+- `isClickable`: boolean (enables hover state)
+- `isSelected`: boolean (active state)
+- `padding`: `"none" | "compact" | "default" | "large"` (maps to {spacing.0}, {spacing.16}, {spacing.24}, {spacing.32})
 
-- **Overlay**: {components.modal-overlay} - Semi-transparent backdrop
-- **Container**: {components.modal-container} - Centered, rounded container with {spacing.32} padding
+---
 
-**Types**:
+### Table
 
-- **Generic**: Flexible content
-- **Confirmation**: Confirm destructive actions
-- **Input/Edit**: Form-focused interactions
+React component for displaying structured tabular data. Composable with TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell.
 
-**Accessibility**: Modals trap focus, allow Escape to dismiss, and restore focus on close.
+#### Base Styles
 
-### Notifications
+- **Border Radius**: {rounded.md} (container)
+- **Border**: 2px solid {colors.border-default} (container)
+- **Background**: {colors.surface-primary}
+- **Cell Border**: 1px solid {colors.border-default} (bottom only)
 
-Notifications provide feedback on user actions or system events.
+#### Variants
 
-**Variants**:
+| Variant | `variant` Prop | Row Padding  | Typography                               | Usage Intent      |
+| ------- | -------------- | ------------ | ---------------------------------------- | ----------------- |
+| Default | `"default"`    | {spacing.16} | {typography.body}                        | Standard tables   |
+| Compact | `"compact"`    | {spacing.8}  | {typography.body-small}                  | Dense data tables |
+| Data    | `"data"`       | {spacing.16} | {typography.body}, right-aligned numbers | Numerical data    |
 
-- **Success**: {components.notification-success} - Green theming
-- **Error**: {components.notification-error} - Red theming
-- **Warning**: {components.notification-warning} - Yellow theming
-- **Info**: {components.notification-info} - Blue theming
+#### Component Structure
 
-**Best practices**:
+| Component    | Background                 | Padding                   | Typography         | Usage          |
+| ------------ | -------------------------- | ------------------------- | ------------------ | -------------- |
+| TableHeader  | {colors.surface-secondary} | {spacing.12} {spacing.16} | {typography.label} | Column headers |
+| TableRow     | {colors.surface-primary}   | -                         | -                  | Data rows      |
+| TableRowCell | transparent                | {spacing.16}              | {typography.body}  | Data cells     |
 
-- Auto-dismiss success/info after 5 seconds
-- Keep error/warning visible until dismissed
-- Always provide dismiss action
-- Pair colors with icons for accessibility
+#### Interaction States
 
-### Navigation
+**TableRow:**
 
-#### Tabs ({components.tab})
+| State    | Condition           | Token Changes                               |
+| -------- | ------------------- | ------------------------------------------- |
+| Default  | -                   | backgroundColor: {colors.surface-primary}   |
+| Hover    | `:hover`            | backgroundColor: {colors.surface-secondary} |
+| Selected | `isSelected={true}` | backgroundColor: {colors.purple-100}        |
 
-Tabs organize content into related sections.
+#### Props
 
-**States**:
+**Table:**
 
-- **Default**: {components.tab} - Neutral color, transparent border
-- **Hover**: {components.tab-hover} - Darkened text
-- **Active**: {components.tab-active} - {colors.primary} text and bottom border
+- `variant`: `"default" | "compact" | "data"`
+- `reversed`: boolean
 
-#### Links
+**TableRow:**
 
-Use Link component for navigation, LinkButton for link-styled buttons.
+- `isSelected`: boolean
+- `isDisabled`: boolean
+- `onRowClick`: () => void
 
-Always open external links in new tab with appropriate ARIA label.
+**TableHeaderRowCell:**
 
-### Badges ({components.badge})
+- `sortable`: boolean
+- `sortDirection`: `"asc" | "desc" | null`
+- `onSort`: () => void
+- `align`: `"left" | "center" | "right"`
 
-Badges show counts or status indicators.
+---
 
-**Visual treatment**: {colors.primary} background, {colors.text-inverse} text, {rounded.full} for pill shape, minimal padding.
+### Modal
 
-Use sparingly - they draw significant attention.
+React component for focused dialogs. Traps focus, prevents body scroll, and dismisses on Escape key.
 
-### Content Containers
+#### Base Styles
 
-#### Well ({components.well})
+**Overlay:**
 
-Wells group related content with distinct background.
+- **Background**: rgba(0, 0, 0, 0.5)
+- **Z-Index**: 1000
+- **Backdrop Filter**: blur(2px)
 
-Use for callouts, promotional content, or grouped form sections.
+**Container:**
 
-#### Divider ({components.divider})
+- **Background**: {colors.surface-primary}
+- **Border Radius**: {rounded.lg}
+- **Padding**: {spacing.32}
+- **Max Width**: 600px
+- **Box Shadow**: level 3
 
-Thin line separating content sections. Use 1px height with {colors.border-default}.
+#### Variants
 
-### Tooltips ({components.tooltip})
+| Variant      | `variant` Prop   | Max Width | Padding      | Usage Intent                |
+| ------------ | ---------------- | --------- | ------------ | --------------------------- |
+| Generic      | `"generic"`      | 600px     | {spacing.32} | Flexible content            |
+| Confirmation | `"confirmation"` | 480px     | {spacing.24} | Confirm destructive actions |
+| Input/Edit   | `"input"`        | 720px     | {spacing.32} | Forms and data entry        |
 
-Tooltips provide contextual help on hover/focus.
+#### Interaction States
 
-**Visual treatment**: {colors.gray-600} background, {colors.text-inverse} text, {rounded.sm} corners, tight padding.
+| State | Condition     | Token Changes                                                      |
+| ----- | ------------- | ------------------------------------------------------------------ |
+| Enter | Animation in  | opacity: 0 → 1, transform: scale(0.95) → scale(1), duration: 200ms |
+| Exit  | Animation out | opacity: 1 → 0, transform: scale(1) → scale(0.95), duration: 150ms |
 
-**Accessibility limitation**: Limited screen reader support. Use sparingly and never for critical information.
+#### Props
+
+- `variant`: `"generic" | "confirmation" | "input"`
+- `isOpen`: boolean (required)
+- `onDismiss`: () => void (required)
+- `title`: string
+- `isDismissable`: boolean (default: true)
+- `size`: `"small" | "medium" | "large"`
+
+---
+
+### Notification
+
+React component for user feedback messages. Auto-dismissible with configurable duration.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border Width**: 2px
+- **Padding**: {spacing.16}
+- **Min Height**: 48px
+- **Typography**: {typography.body}
+
+#### Variants
+
+| Variant | `variant` Prop | Background             | Border Color     | Text Color       | Icon      | Usage Intent           |
+| ------- | -------------- | ---------------------- | ---------------- | ---------------- | --------- | ---------------------- |
+| Success | `"success"`    | {colors.success-light} | {colors.success} | {colors.success} | checkmark | Success feedback       |
+| Error   | `"error"`      | {colors.danger-light}  | {colors.danger}  | {colors.danger}  | error     | Error feedback         |
+| Warning | `"warning"`    | {colors.warning-light} | {colors.warning} | {colors.warning} | warning   | Warning feedback       |
+| Info    | `"info"`       | {colors.info-light}    | {colors.info}    | {colors.info}    | info      | Informational feedback |
+
+#### Interaction States
+
+| State | Condition     | Token Changes                                         |
+| ----- | ------------- | ----------------------------------------------------- |
+| Enter | Animation in  | opacity: 0 → 1, translateX: 100% → 0, duration: 300ms |
+| Exit  | Animation out | opacity: 1 → 0, translateX: 0 → 100%, duration: 200ms |
+
+#### Props
+
+- `variant`: `"success" | "error" | "warning" | "info"` (required)
+- `title`: string
+- `message`: string
+- `onDismiss`: () => void
+- `autoDismiss`: boolean (default: true for success/info, false for error/warning)
+- `dismissDelay`: number (default: 5000ms)
+- `action`: ReactNode (optional action button)
+
+---
+
+### Tabs
+
+React component for tabbed navigation. Built on React Aria Tabs. Composed of Tabs (container), TabList, and Tab components.
+
+#### Base Styles
+
+**TabList:**
+
+- **Display**: flex
+- **Gap**: {spacing.4}
+- **Border Bottom**: 1px solid {colors.border-default}
+
+**Tab:**
+
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.button-secondary}
+- **Border Bottom**: 2px solid transparent
+- **Transition**: all 150ms ease-in-out
+
+#### Interaction States
+
+**Tab:**
+
+| State    | Condition           | Token Changes                                                  |
+| -------- | ------------------- | -------------------------------------------------------------- |
+| Default  | -                   | color: {colors.text-secondary}, borderBottomColor: transparent |
+| Hover    | `:hover`            | color: {colors.text-primary}                                   |
+| Selected | `isSelected={true}` | color: {colors.primary}, borderBottomColor: {colors.primary}   |
+| Focus    | `:focus-visible`    | outline: 2px solid {colors.border-focus}, outlineOffset: 2px   |
+| Disabled | `isDisabled={true}` | color: {colors.gray-400}, cursor: not-allowed                  |
+
+#### Props
+
+**Tabs:**
+
+- `selectedKey`: string
+- `onSelectionChange`: (key: string) => void
+- `children`: ReactNode (TabList and TabPanel components)
+
+**Tab:**
+
+- `id`: string (required)
+- `isDisabled`: boolean
+- `children`: ReactNode (tab label)
+
+---
+
+### Badge
+
+React component for count indicators and status dots.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.full}
+- **Typography**: {typography.body-small}
+- **Padding**: {spacing.2} {spacing.8}
+- **Min Width**: 20px
+- **Text Align**: center
+
+#### Variants
+
+| Variant | `variant` Prop | Background       | Text Color            | Usage Intent      |
+| ------- | -------------- | ---------------- | --------------------- | ----------------- |
+| Primary | `"primary"`    | {colors.primary} | {colors.text-inverse} | Default badge     |
+| Success | `"success"`    | {colors.success} | {colors.text-inverse} | Success indicator |
+| Warning | `"warning"`    | {colors.warning} | {colors.text-primary} | Warning indicator |
+| Danger  | `"danger"`     | {colors.danger}  | {colors.text-inverse} | Error indicator   |
+| Neutral | `"neutral"`    | {colors.neutral} | {colors.text-inverse} | Neutral indicator |
+
+#### Props
+
+- `variant`: `"primary" | "success" | "warning" | "danger" | "neutral"`
+- `count`: number (displays count, hides if 0)
+- `showZero`: boolean (show badge when count is 0)
+- `max`: number (displays "max+" when count exceeds, default: 99)
+
+---
+
+### Well
+
+React component for grouping related content with distinct background.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.surface-secondary}
+- **Padding**: {spacing.24}
+
+#### Variants
+
+| Variant  | `variant` Prop | Background                 | Border                  | Usage Intent       |
+| -------- | -------------- | -------------------------- | ----------------------- | ------------------ |
+| Default  | `"default"`    | {colors.surface-secondary} | {colors.border-default} | General grouping   |
+| Outlined | `"outlined"`   | transparent                | {colors.border-default} | Subtle grouping    |
+| Filled   | `"filled"`     | {colors.surface-secondary} | none                    | Prominent grouping |
+
+#### Props
+
+- `variant`: `"default" | "outlined" | "filled"`
+- `noMargin`: boolean (removes default margins)
+- `isLoading`: boolean (shows AI loading state)
+- `borderStyle`: `"solid" | "dashed" | "borderless"`
+
+---
+
+### Tooltip
+
+React component for contextual information on hover/focus. Limited screen reader support.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.sm}
+- **Background**: {colors.gray-600}
+- **Color**: {colors.text-inverse}
+- **Padding**: {spacing.8} {spacing.12}
+- **Typography**: {typography.body-small}
+- **Max Width**: 250px
+- **Z-Index**: 10000
+- **Box Shadow**: level 2
+
+#### Interaction States
+
+| State   | Condition                       | Token Changes                                      |
+| ------- | ------------------------------- | -------------------------------------------------- |
+| Hidden  | Default                         | opacity: 0, visibility: hidden                     |
+| Visible | `:hover` or `:focus` on trigger | opacity: 1, visibility: visible, transition: 150ms |
+
+#### Props
+
+- `text`: string (required)
+- `placement`: `"top" | "right" | "bottom" | "left"`
+- `delay`: number (default: 300ms)
+
+**Accessibility Warning:** Use sparingly. Never place critical information in tooltips. Screen reader support is limited.
+
+---
+
+### Checkbox
+
+React component for binary choice selection. Built on React Aria Checkbox.
+
+#### Base Styles
+
+- **Size**: 20x20px
+- **Border**: 2px solid {colors.border-default}
+- **Border Radius**: {rounded.sm}
+- **Transition**: all 150ms ease-in-out
+
+#### Interaction States
+
+| State         | Condition                | Token Changes                                                                                 |
+| ------------- | ------------------------ | --------------------------------------------------------------------------------------------- |
+| Unchecked     | `isSelected={false}`     | borderColor: {colors.border-default}, background: transparent                                 |
+| Checked       | `isSelected={true}`      | borderColor: {colors.primary}, background: {colors.primary}, checkmark: {colors.text-inverse} |
+| Hover         | `:hover`                 | borderColor: {colors.primary}                                                                 |
+| Focus         | `:focus-visible`         | outline: 2px solid {colors.border-focus}, outlineOffset: 2px                                  |
+| Disabled      | `isDisabled={true}`      | borderColor: {colors.gray-300}, background: {colors.surface-tertiary}, cursor: not-allowed    |
+| Indeterminate | `isIndeterminate={true}` | borderColor: {colors.primary}, background: {colors.primary}, dash: {colors.text-inverse}      |
+
+#### Props
+
+- `isSelected`: boolean
+- `isDisabled`: boolean
+- `isIndeterminate`: boolean
+- `onChange`: (isSelected: boolean) => void
+- `children`: ReactNode (label text)
+
+---
+
+### Radio
+
+React component for mutually exclusive selection. Always used within RadioGroup.
+
+#### Base Styles
+
+- **Size**: 20x20px
+- **Border**: 2px solid {colors.border-default}
+- **Border Radius**: {rounded.full}
+- **Transition**: all 150ms ease-in-out
+
+#### Interaction States
+
+| State      | Condition            | Token Changes                                                             |
+| ---------- | -------------------- | ------------------------------------------------------------------------- |
+| Unselected | `isSelected={false}` | borderColor: {colors.border-default}, background: transparent             |
+| Selected   | `isSelected={true}`  | borderColor: {colors.primary}, inner-dot: {colors.primary} (8px diameter) |
+| Hover      | `:hover`             | borderColor: {colors.primary}                                             |
+| Focus      | `:focus-visible`     | outline: 2px solid {colors.border-focus}, outlineOffset: 2px              |
+| Disabled   | `isDisabled={true}`  | borderColor: {colors.gray-300}, cursor: not-allowed                       |
+
+#### Props
+
+**Radio:**
+
+- `value`: string (required)
+- `isDisabled`: boolean
+- `children`: ReactNode (label text)
+
+**RadioGroup:**
+
+- `label`: string (required, group label)
+- `value`: string (selected value)
+- `onChange`: (value: string) => void
+- `isDisabled`: boolean
+- `orientation`: `"horizontal" | "vertical"`
+
+---
+
+### ToggleSwitch
+
+React component for on/off state toggle. Built on React Aria Switch.
+
+#### Base Styles
+
+- **Track Width**: 44px
+- **Track Height**: 24px
+- **Border Radius**: {rounded.full}
+- **Thumb Size**: 18x18px
+- **Transition**: all 200ms ease-in-out
+
+#### Interaction States
+
+| State       | Condition            | Token Changes                                                |
+| ----------- | -------------------- | ------------------------------------------------------------ |
+| Off         | `isSelected={false}` | track background: {colors.gray-400}, thumb translateX: 2px   |
+| On          | `isSelected={true}`  | track background: {colors.primary}, thumb translateX: 22px   |
+| Hover (Off) | `:hover` + off       | track background: {colors.gray-500}                          |
+| Hover (On)  | `:hover` + on        | track background: {colors.primary-hover}                     |
+| Focus       | `:focus-visible`     | outline: 2px solid {colors.border-focus}, outlineOffset: 2px |
+| Disabled    | `isDisabled={true}`  | track background: {colors.gray-300}, cursor: not-allowed     |
+
+#### Props
+
+- `isSelected`: boolean
+- `isDisabled`: boolean
+- `onChange`: (isSelected: boolean) => void
+- `children`: ReactNode (label text)
+
+---
+
+### Select
+
+React component for dropdown selection with search. For simpler dropdowns, use SingleSelect.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Min Height**: 44px
+
+#### Variants
+
+| Variant    | `variant` Prop | Background               | Border                  | Usage Intent                   |
+| ---------- | -------------- | ------------------------ | ----------------------- | ------------------------------ |
+| Default    | `"default"`    | {colors.surface-primary} | {colors.border-default} | Standard select                |
+| Searchable | `"searchable"` | {colors.surface-primary} | {colors.border-default} | Large option lists with search |
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Open     | `isOpen={true}`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string
+- `selectedKey`: string | null
+- `onSelectionChange`: (key: string) => void
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `placeholder`: string
+- `description`: string
+- `validationMessage`: string
+
+---
+
+### SingleSelect
+
+React component for simple dropdown selection. Built on React Aria Select.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Min Height**: 44px
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-visible`    | borderColor: {colors.border-focus}                         |
+| Open     | `isOpen={true}`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string (required)
+- `selectedKey`: string | null
+- `onSelectionChange`: (key: string) => void
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `fullWidth`: boolean
+- `reversed`: boolean
+- `children`: ReactNode (MenuItem components)
+
+---
+
+### MultiSelect
+
+React component for multiple selection from list.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.8}
+- **Typography**: {typography.body}
+- **Min Height**: 44px
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string
+- `selectedKeys`: Set<string>
+- `onSelectionChange`: (keys: Set<string>) => void
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+
+---
+
+### TextAreaField
+
+React component for multi-line text input. Composed of Label, TextArea, and FieldGroup.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Min Height**: 96px
+- **Resize**: vertical
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string (required)
+- `description`: string
+- `validationMessage`: string
+- `value`: string
+- `onChange`: (value: string) => void
+- `rows`: number (default: 4)
+- `isDisabled`: boolean
+- `isRequired`: boolean
+- `isInvalid`: boolean
+- `reversed`: boolean
+
+---
+
+### SearchField
+
+React component for search input with clear action.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16} {spacing.12} {spacing.40}
+- **Typography**: {typography.body}
+- **Search Icon**: positioned at {spacing.12} from left
+
+#### Variants
+
+| Variant   | `variant` Prop | Border                  | Icon Color              | Usage Intent     |
+| --------- | -------------- | ----------------------- | ----------------------- | ---------------- |
+| Primary   | `"primary"`    | {colors.border-default} | {colors.text-secondary} | Prominent search |
+| Secondary | `"secondary"`  | {colors.gray-300}       | {colors.text-secondary} | Inline filtering |
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `value`: string
+- `onChange`: (value: string) => void
+- `onClear`: () => void
+- `placeholder`: string
+- `isDisabled`: boolean
+- `variant`: `"primary" | "secondary"`
+- `reversed`: boolean
+
+---
+
+### DatePicker
+
+React component for date selection with calendar popup. Built on React Aria DatePicker.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Open     | `isOpen={true}`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string
+- `value`: DateValue | null
+- `onChange`: (date: DateValue) => void
+- `minValue`: DateValue
+- `maxValue`: DateValue
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `isRequired`: boolean
+- `granularity`: `"day" | "hour" | "minute" | "second"`
+
+---
+
+### DateRangePicker
+
+React component for selecting date ranges.
+
+#### Base Styles
+
+Same as DatePicker, but displays two date inputs (start and end).
+
+#### Props
+
+- `label`: string
+- `value`: DateRangeValue | null
+- `onChange`: (range: DateRangeValue) => void
+- `minValue`: DateValue
+- `maxValue`: DateValue
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `isRequired`: boolean
+
+---
+
+### Slider
+
+React component for selecting numeric value from range. Built on React Aria Slider.
+
+#### Base Styles
+
+- **Track Height**: 4px
+- **Track Background**: {colors.gray-300}
+- **Track Border Radius**: {rounded.full}
+- **Thumb Size**: 20x20px
+- **Thumb Background**: {colors.primary}
+- **Thumb Border Radius**: {rounded.full}
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                                           |
+| -------- | ------------------- | ----------------------------------------------------------------------- |
+| Default  | -                   | track: {colors.gray-300}, thumb: {colors.primary}                       |
+| Hover    | `:hover`            | thumb: {colors.primary-hover}                                           |
+| Focus    | `:focus-visible`    | thumb outline: 2px solid {colors.border-focus}, outlineOffset: 2px      |
+| Dragging | `isDragging={true}` | thumb: {colors.primary-active}, thumb scale: 1.1                        |
+| Disabled | `isDisabled={true}` | track: {colors.gray-200}, thumb: {colors.gray-400}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string
+- `value`: number
+- `onChange`: (value: number) => void
+- `minValue`: number
+- `maxValue`: number
+- `step`: number
+- `isDisabled`: boolean
+- `showMinMaxLabels`: boolean
+- `labelPosition`: `"top" | "side"`
+
+---
+
+### Menu
+
+React component for action menus triggered by button. Built on React Aria Menu.
+
+#### Base Styles
+
+**MenuPopover:**
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.surface-primary}
+- **Padding**: {spacing.8}
+- **Box Shadow**: level 2
+- **Z-Index**: 10
+
+**MenuItem:**
+
+- **Padding**: {spacing.12} {spacing.16}
+- **Border Radius**: {rounded.sm}
+- **Typography**: {typography.body}
+- **Min Height**: 40px
+
+#### Interaction States
+
+**MenuItem:**
+
+| State    | Condition                    | Token Changes                                         |
+| -------- | ---------------------------- | ----------------------------------------------------- |
+| Default  | -                            | background: transparent, color: {colors.text-primary} |
+| Hover    | `:hover`, `isFocused={true}` | background: {colors.surface-secondary}                |
+| Active   | `isPressed={true}`           | background: {colors.purple-100}                       |
+| Disabled | `isDisabled={true}`          | color: {colors.gray-400}, cursor: not-allowed         |
+
+#### Props
+
+**MenuTrigger:**
+
+- `children`: [Button, MenuPopover]
+
+**MenuItem:**
+
+- `onAction`: () => void
+- `isDisabled`: boolean
+- `children`: ReactNode
+
+**MenuSection:**
+
+- `title`: string
+- `children`: ReactNode (MenuItems)
+
+---
+
+### Popover
+
+React component for non-modal contextual overlays. Use sparingly.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.surface-primary}
+- **Padding**: {spacing.16}
+- **Box Shadow**: level 2
+- **Z-Index**: 10
+- **Max Width**: 400px
+
+#### Interaction States
+
+| State   | Condition        | Token Changes                                    |
+| ------- | ---------------- | ------------------------------------------------ |
+| Closed  | `isOpen={false}` | display: none                                    |
+| Opening | Animation in     | opacity: 0 → 1, scale: 0.95 → 1, duration: 150ms |
+| Open    | `isOpen={true}`  | opacity: 1                                       |
+| Closing | Animation out    | opacity: 1 → 0, duration: 100ms                  |
+
+#### Props
+
+- `isOpen`: boolean
+- `onClose`: () => void
+- `triggerRef`: RefObject
+- `placement`: `"top" | "right" | "bottom" | "left"`
+- `offset`: number (default: 8)
+
+---
+
+### Heading
+
+React component for semantic headings with visual styling.
+
+#### Base Styles
+
+Typography tokens are applied based on variant. Semantic HTML tag (h1-h6) should match visual hierarchy.
+
+#### Variants
+
+| Variant   | `variant` Prop | Typography Token       | Semantic Tag |
+| --------- | -------------- | ---------------------- | ------------ |
+| Display   | `"display-0"`  | {typography.display-0} | h1           |
+| Heading 1 | `"heading-1"`  | {typography.heading-1} | h1           |
+| Heading 2 | `"heading-2"`  | {typography.heading-2} | h2           |
+| Heading 3 | `"heading-3"`  | {typography.heading-3} | h3           |
+| Heading 4 | `"heading-4"`  | {typography.heading-4} | h4           |
+| Heading 5 | `"heading-5"`  | {typography.heading-5} | h5           |
+| Heading 6 | `"heading-6"`  | {typography.heading-6} | h6           |
+
+#### Props
+
+- `variant`: `"display-0" | "heading-1" | "heading-2" | "heading-3" | "heading-4" | "heading-5" | "heading-6"`
+- `tag`: `"h1" | "h2" | "h3" | "h4" | "h5" | "h6"` (override semantic tag)
+- `children`: ReactNode
+
+**Accessibility:** Use `tag` prop when visual hierarchy doesn't match semantic hierarchy. Never skip heading levels.
+
+---
+
+### Text
+
+React component for body text and paragraphs.
+
+#### Base Styles
+
+Typography tokens applied based on variant. Default max-width constraints prevent overly long line lengths.
+
+#### Variants
+
+| Variant     | `variant` Prop     | Typography Token              | Max Width |
+| ----------- | ------------------ | ----------------------------- | --------- |
+| Large       | `"large"`          | {typography.body-large}       | 975px     |
+| Body        | `"body"` (default) | {typography.body}             | 780px     |
+| Small       | `"small"`          | {typography.body-small}       | 680px     |
+| Extra Small | `"extra-small"`    | {typography.body-extra-small} | 600px     |
+
+#### Props
+
+- `variant`: `"large" | "body" | "small" | "extra-small"`
+- `tag`: `"p" | "span" | "div"`
+- `children`: ReactNode
+
+---
+
+### Label
+
+React component for form labels. Used internally by field components.
+
+#### Base Styles
+
+- **Typography**: {typography.label}
+- **Color**: {colors.text-primary}
+- **Margin Bottom**: {spacing.8}
+
+#### Variants
+
+| Variant        | `variant` Prop     | Font Weight | Color                 | Usage Intent      |
+| -------------- | ------------------ | ----------- | --------------------- | ----------------- |
+| Default        | `"default"`        | 600         | {colors.text-primary} | Standard labels   |
+| Prominent      | `"prominent"`      | 600         | {colors.text-primary} | Emphasized labels |
+| Checkbox/Radio | `"checkbox-radio"` | 400         | {colors.text-primary} | Choice labels     |
+
+#### Props
+
+- `variant`: `"default" | "prominent" | "checkbox-radio"`
+- `isDisabled`: boolean
+- `isRequired`: boolean
+- `reversed`: boolean
+- `children`: ReactNode
+
+---
+
+### Icon
+
+React component for Material Symbols icons loaded via CDN.
+
+#### Base Styles
+
+- **Size**: 24x24px (default, configurable via CSS variable)
+- **Color**: currentColor (inherits from parent)
+- **Font Family**: Material Symbols Outlined
+- **Display**: inline-flex
+
+#### Variants
+
+| Variant  | `filled` Prop     | Icon Style     | Usage Intent              |
+| -------- | ----------------- | -------------- | ------------------------- |
+| Outlined | `false` (default) | Outlined style | Default icons             |
+| Filled   | `true`            | Filled style   | Selected states, emphasis |
+
+#### Props
+
+- `name`: string (required, Material Symbol name)
+- `filled`: boolean
+- `isMeaningful`: boolean (if true, icon is announced to screen readers)
+- `aria-label`: string (required when `isMeaningful={true}`)
+
+**Accessibility:** Set `isMeaningful={false}` for decorative icons. Provide `aria-label` for meaningful icons.
+
+---
+
+### Avatar
+
+React component for user or entity representation.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.full}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.primary} (when no image)
+- **Typography**: {typography.body-bold}
+- **Color**: {colors.text-inverse} (initials)
+
+#### Size Variants
+
+| Size   | `size` Prop          | Dimensions | Typography                    |
+| ------ | -------------------- | ---------- | ----------------------------- |
+| Small  | `"small"`            | 24x24px    | {typography.body-extra-small} |
+| Medium | `"medium"` (default) | 40x40px    | {typography.body}             |
+| Large  | `"large"`            | 64x64px    | {typography.heading-4}        |
+
+#### Props
+
+- `fullName`: string (required for initials)
+- `avatarSrc`: string (image URL)
+- `size`: `"small" | "medium" | "large"`
+- `isDisabled`: boolean
+
+---
+
+### AvatarGroup
+
+React component for displaying multiple avatars with overlap.
+
+#### Base Styles
+
+Avatars overlap by 8px (negative margin).
+
+#### Props
+
+- `maxVisible`: number (default: 3, show "+N" for overflow)
+- `size`: `"small" | "medium" | "large"`
+- `children`: ReactNode (Avatar components)
+
+---
+
+### ProgressBar
+
+React component for determinate progress indication.
+
+#### Base Styles
+
+- **Height**: 8px
+- **Border Radius**: {rounded.full}
+- **Background**: {colors.gray-300}
+- **Fill Border Radius**: {rounded.full}
+
+#### Variants
+
+| Variant | `variant` Prop | Fill Color       | Usage Intent          |
+| ------- | -------------- | ---------------- | --------------------- |
+| Default | `"default"`    | {colors.primary} | General progress      |
+| Success | `"success"`    | {colors.success} | Successful completion |
+| Warning | `"warning"`    | {colors.warning} | Warning threshold     |
+| Danger  | `"danger"`     | {colors.danger}  | Critical threshold    |
+
+#### Props
+
+- `value`: number (current progress)
+- `maxValue`: number (default: 100)
+- `variant`: `"default" | "success" | "warning" | "danger"`
+- `isAnimating`: boolean
+- `label`: string (accessible label)
+
+---
+
+### Loading
+
+React component for indeterminate loading state.
+
+#### Base Styles
+
+- **Size**: 40x40px (default)
+- **Color**: {colors.primary}
+- **Animation**: rotate 1s linear infinite
+
+#### Size Variants
+
+| Size   | `size` Prop | Dimensions |
+| ------ | ----------- | ---------- |
+| Small  | `"small"`   | 24x24px    |
+| Medium | `"medium"`  | 40x40px    |
+| Large  | `"large"`   | 64x64px    |
+
+#### Props
+
+- `size`: `"small" | "medium" | "large"`
+- `label`: string (accessible label, default: "Loading")
+
+---
+
+### Divider
+
+React component for visual content separation.
+
+#### Base Styles
+
+- **Height**: 1px (horizontal), **Width**: 1px (vertical)
+- **Background**: {colors.border-default}
+- **Margin**: {spacing.24} 0 (horizontal), 0 {spacing.24} (vertical)
+
+#### Props
+
+- `orientation`: `"horizontal" | "vertical"`
+- `spacing`: `"none" | "small" | "medium" | "large"` (margin override)
+
+---
+
+### Collapsible
+
+React component for expandable/collapsible content.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Transition**: height 200ms ease-in-out
+
+#### Interaction States
+
+| State      | Condition        | Token Changes               |
+| ---------- | ---------------- | --------------------------- |
+| Collapsed  | `isOpen={false}` | height: 0, overflow: hidden |
+| Expanding  | Animation        | height: 0 → auto            |
+| Expanded   | `isOpen={true}`  | height: auto                |
+| Collapsing | Animation        | height: auto → 0            |
+
+#### Props
+
+- `title`: string (required)
+- `isOpen`: boolean
+- `onToggle`: (isOpen: boolean) => void
+- `children`: ReactNode
+
+---
+
+### Pagination
+
+React component for page navigation controls.
+
+#### Base Styles
+
+- **Button Size**: 40x40px
+- **Button Border Radius**: {rounded.md}
+- **Gap**: {spacing.8}
+
+#### Interaction States
+
+**Page Button:**
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | background: transparent, color: {colors.text-primary}      |
+| Hover    | `:hover`            | background: {colors.surface-secondary}                     |
+| Active   | `isCurrent={true}`  | background: {colors.primary}, color: {colors.text-inverse} |
+| Disabled | `isDisabled={true}` | color: {colors.gray-400}, cursor: not-allowed              |
+
+#### Props
+
+- `currentPage`: number (required)
+- `totalPages`: number (required)
+- `onPageChange`: (page: number) => void
+- `pageSize`: number
+- `siblingCount`: number (pages shown around current)
+
+---
+
+### EmptyState
+
+React component for communicating no content with suggested actions.
+
+#### Base Styles
+
+- **Padding**: {spacing.48}
+- **Text Align**: center
+- **Max Width**: 480px
+
+#### Props
+
+- `heading`: string (required)
+- `description`: string
+- `illustration`: ReactNode
+- `action`: ReactNode (Button or LinkButton)
+
+---
+
+### GuidanceBlock
+
+React component for prominent user guidance with actions.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Background**: {colors.surface-secondary}
+- **Padding**: {spacing.24}
+- **Border**: 2px solid {colors.border-default}
+
+#### Variants
+
+| Variant   | `variant` Prop | Background                 | Border                  | Usage Intent       |
+| --------- | -------------- | -------------------------- | ----------------------- | ------------------ |
+| Default   | `"default"`    | {colors.surface-secondary} | {colors.border-default} | General guidance   |
+| Prominent | `"prominent"`  | {colors.purple-100}        | {colors.primary}        | Important guidance |
+
+#### Props
+
+- `variant`: `"default" | "prominent"`
+- `heading`: string
+- `description`: string
+- `illustration`: ReactNode
+- `actions`: ReactNode (Button or LinkButton)
+- `stacked`: boolean (vertical layout)
+
+---
+
+### Link
+
+React component for text links and navigation.
+
+#### Base Styles
+
+- **Typography**: {typography.body}
+- **Color**: {colors.primary}
+- **Text Decoration**: underline
+- **Transition**: color 150ms ease-in-out
+
+#### Interaction States
+
+| State   | Condition        | Token Changes                                                |
+| ------- | ---------------- | ------------------------------------------------------------ |
+| Default | -                | color: {colors.primary}                                      |
+| Hover   | `:hover`         | color: {colors.primary-hover}                                |
+| Active  | `:active`        | color: {colors.primary-active}                               |
+| Focus   | `:focus-visible` | outline: 2px solid {colors.border-focus}, outlineOffset: 2px |
+| Visited | `:visited`       | color: {colors.purple-600}                                   |
+
+#### Props
+
+- `href`: string
+- `target`: `"_self" | "_blank"`
+- `children`: ReactNode
+
+---
+
+### LinkButton
+
+React component for button-styled links. Same visual appearance as Button but uses `<a>` tag.
+
+#### Base Styles
+
+Same as Button component.
+
+#### Props
+
+Same as Button, plus:
+
+- `href`: string (required)
+- `target`: `"_self" | "_blank"`
+- `download`: string | boolean
+
+---
+
+### ButtonGroup
+
+React component for grouping related buttons with consistent spacing.
+
+#### Base Styles
+
+- **Display**: flex
+- **Gap**: {spacing.12}
+- **Align Items**: center
+
+#### Props
+
+- `children`: ReactNode (Button or LinkButton components)
+- `orientation`: `"horizontal" | "vertical"`
+
+---
+
+### Container
+
+React component for constraining content width with responsive behavior.
+
+#### Base Styles
+
+- **Max Width**: varies by size
+- **Padding**: {spacing.24} (mobile), {spacing.32} (tablet+)
+- **Margin**: 0 auto (center alignment)
+
+#### Size Variants
+
+| Size    | `size` Prop | Max Width | Usage Intent           |
+| ------- | ----------- | --------- | ---------------------- |
+| Narrow  | `"narrow"`  | 640px     | Forms, focused content |
+| Default | `"default"` | 1024px    | Standard pages         |
+| Wide    | `"wide"`    | 1280px    | Data-heavy pages       |
+| Full    | `"full"`    | 100%      | Application layouts    |
+
+#### Props
+
+- `size`: `"narrow" | "default" | "wide" | "full"`
+
+---
+
+### Tile
+
+React component for grid-based card layouts.
+
+#### Base Styles
+
+Same as Card, optimized for grid display.
+
+#### Props
+
+Same as Card component.
+
+---
+
+### TitleBlock
+
+React component for page headers with actions and navigation.
+
+#### Base Styles
+
+- **Padding**: {spacing.24} 0
+- **Border Bottom**: 1px solid {colors.border-default}
+
+#### Props
+
+- `title`: string (required)
+- `breadcrumb`: ReactNode
+- `avatar`: ReactNode
+- `primaryAction`: ReactNode (Button)
+- `secondaryAction`: ReactNode (Button)
+- `overflowActions`: ReactNode (MenuTrigger)
+- `navigationTabs`: ReactNode (Tabs)
+
+---
+
+### FieldMessage
+
+React component for form field descriptions and validation messages.
+
+#### Base Styles
+
+- **Typography**: {typography.body-small}
+- **Margin Top**: {spacing.8}
+
+#### Variants
+
+| Variant     | `variant` Prop  | Color                   | Icon       | Usage Intent   |
+| ----------- | --------------- | ----------------------- | ---------- | -------------- |
+| Description | `"description"` | {colors.text-secondary} | none       | Helper text    |
+| Validation  | `"validation"`  | {colors.danger}         | error icon | Error messages |
+
+#### Props
+
+- `variant`: `"description" | "validation"`
+- `message`: string
+- `reversed`: boolean
+
+---
+
+### FieldGroup
+
+React component for grouping form field elements. Used internally by TextField, TextAreaField, etc.
+
+#### Base Styles
+
+- **Display**: flex
+- **Flex Direction**: column
+- **Gap**: {spacing.8}
+
+#### Props
+
+- `children`: ReactNode (Label, Input, FieldMessage)
+- `inline`: boolean (horizontal layout for checkboxes/radios)
+
+---
+
+### VisuallyHidden
+
+React component for hiding content visually while keeping it accessible to screen readers.
+
+#### Base Styles
+
+- **Position**: absolute
+- **Width**: 1px
+- **Height**: 1px
+- **Clip**: rect(0, 0, 0, 0)
+- **Overflow**: hidden
+
+#### Props
+
+- `children`: ReactNode
+
+---
+
+### Illustration
+
+React component for decorative or informative illustrations.
+
+#### Base Styles
+
+- **Display**: block
+- **Max Width**: 100%
+- **Height**: auto
+
+#### Props
+
+- `name`: string (illustration name)
+- `alt`: string (alternative text)
+
+---
+
+### Brand
+
+React component for Culture Amp brand assets.
+
+#### Props
+
+- `variant`: `"logo" | "wordmark" | "symbol"`
+- `alt`: string
+
+---
+
+### BrandMoment
+
+React component for brand marketing moments.
+
+#### Props
+
+- `children`: ReactNode
+
+---
+
+### KaizenProvider
+
+React context provider required at application root. Provides theme, routing, and locale context.
+
+#### Props
+
+- `reversed`: boolean (enable dark theme)
+- `router`: Router (client-side routing integration)
+- `locale`: string (i18n locale, default: "en-US")
+- `children`: ReactNode
+
+**Required:** Wrap application root with KaizenProvider for components to function correctly.
+
+---
+
+### Calendar
+
+React component for displaying month/year calendar. Used internally by DatePicker and DateRangePicker.
+
+#### Base Styles
+
+- **Cell Size**: 40x40px
+- **Cell Border Radius**: {rounded.md}
+- **Typography**: {typography.body}
+- **Gap**: {spacing.4}
+
+#### Interaction States
+
+**Calendar Cell:**
+
+| State         | Condition               | Token Changes                                              |
+| ------------- | ----------------------- | ---------------------------------------------------------- |
+| Default       | -                       | background: transparent, color: {colors.text-primary}      |
+| Hover         | `:hover`                | background: {colors.surface-secondary}                     |
+| Selected      | `isSelected={true}`     | background: {colors.primary}, color: {colors.text-inverse} |
+| Today         | `isToday={true}`        | border: 2px solid {colors.primary}                         |
+| Outside Month | `isOutsideMonth={true}` | color: {colors.gray-400}                                   |
+| Disabled      | `isDisabled={true}`     | color: {colors.gray-300}, cursor: not-allowed              |
+| Focus         | `:focus-visible`        | outline: 2px solid {colors.border-focus}                   |
+
+#### Props
+
+- `value`: CalendarDate
+- `onChange`: (date: CalendarDate) => void
+- `minValue`: CalendarDate
+- `maxValue`: CalendarDate
+- `isDisabled`: boolean
+- `isReadOnly`: boolean
+
+---
+
+### DateInput
+
+React component for direct date text input. Alternative to DatePicker for keyboard-first users.
+
+#### Base Styles
+
+Same as TextField component.
+
+#### Props
+
+- `label`: string
+- `value`: DateValue | null
+- `onChange`: (date: DateValue) => void
+- `minValue`: DateValue
+- `maxValue`: DateValue
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `isRequired`: boolean
+- `granularity`: `"day" | "hour" | "minute" | "second"`
+
+---
+
+### TimeField
+
+React component for time input with keyboard support.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Display**: inline segments (hour:minute:second)
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `label`: string
+- `value`: TimeValue | null
+- `onChange`: (time: TimeValue) => void
+- `minValue`: TimeValue
+- `maxValue`: TimeValue
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `isRequired`: boolean
+- `granularity`: `"hour" | "minute" | "second" | "millisecond"`
+- `hourCycle`: `12 | 24`
+
+---
+
+### Input
+
+React component for low-level input control. Used internally by TextField and other field components.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Min Height**: 44px
+
+#### Interaction States
+
+| State    | Condition          | Token Changes                                              |
+| -------- | ------------------ | ---------------------------------------------------------- |
+| Default  | -                  | borderColor: {colors.border-default}                       |
+| Focus    | `:focus`           | borderColor: {colors.border-focus}, outline: none          |
+| Error    | `isInvalid={true}` | borderColor: {colors.danger}                               |
+| Disabled | `disabled={true}`  | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `type`: `"text" | "email" | "password" | "number" | "tel" | "url" | "search"`
+- `value`: string
+- `onChange`: (e: ChangeEvent) => void
+- `placeholder`: string
+- `disabled`: boolean
+- `readOnly`: boolean
+
+**Note:** Prefer TextField over Input for form composition. Input is a primitive component.
+
+---
+
+### TextArea
+
+React component for low-level multi-line text control. Used internally by TextAreaField.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Padding**: {spacing.12} {spacing.16}
+- **Typography**: {typography.body}
+- **Min Height**: 96px
+- **Resize**: vertical
+
+#### Props
+
+- `value`: string
+- `onChange`: (e: ChangeEvent) => void
+- `rows`: number
+- `disabled`: boolean
+- `readOnly`: boolean
+
+**Note:** Prefer TextAreaField over TextArea for form composition.
+
+---
+
+### ClearButton
+
+React component for clearing input values. Small icon button used in SearchField and other clearable inputs.
+
+#### Base Styles
+
+- **Size**: 24x24px
+- **Border Radius**: {rounded.full}
+- **Background**: transparent
+- **Padding**: {spacing.4}
+
+#### Interaction States
+
+| State   | Condition        | Token Changes                                                        |
+| ------- | ---------------- | -------------------------------------------------------------------- |
+| Default | -                | background: transparent, color: {colors.text-secondary}              |
+| Hover   | `:hover`         | background: {colors.surface-secondary}, color: {colors.text-primary} |
+| Active  | `:active`        | background: {colors.gray-300}                                        |
+| Focus   | `:focus-visible` | outline: 2px solid {colors.border-focus}                             |
+
+#### Props
+
+- `onPress`: () => void
+- `label`: string (accessible label, default: "Clear")
+
+---
+
+### LabelledMessage
+
+React component for displaying label-value pairs with optional actions.
+
+#### Base Styles
+
+- **Display**: flex
+- **Flex Direction**: column
+- **Gap**: {spacing.8}
+- **Padding**: {spacing.16}
+- **Border Radius**: {rounded.md}
+- **Background**: {colors.surface-secondary}
+
+#### Props
+
+- `label`: string (required)
+- `message`: string (required)
+- `action`: ReactNode (optional action button)
+
+---
+
+### Tag
+
+React component for categorization and labeling. **Note:** Being deprecated in favor of Badge.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Padding**: {spacing.4} {spacing.8}
+- **Typography**: {typography.body-small}
+- **Border**: 1px solid {colors.border-default}
+- **Max Width**: 200px (with truncation)
+
+#### Variants
+
+| Variant            | `variant` Prop         | Background                 | Border                  | Text Color            | Usage Intent      |
+| ------------------ | ---------------------- | -------------------------- | ----------------------- | --------------------- | ----------------- |
+| Default            | `"default"`            | {colors.surface-secondary} | {colors.border-default} | {colors.text-primary} | General tags      |
+| Status             | `"status"`             | {colors.info-light}        | {colors.info}           | {colors.info}         | Status indicators |
+| Validation Success | `"validation-success"` | {colors.success-light}     | {colors.success}        | {colors.success}      | Success tags      |
+| Validation Error   | `"validation-error"`   | {colors.danger-light}      | {colors.danger}         | {colors.danger}       | Error tags        |
+
+#### Props
+
+- `variant`: `"default" | "status" | "validation-success" | "validation-error"`
+- `dismissible`: boolean (shows close button)
+- `onDismiss`: () => void
+- `truncate`: boolean (ellipsis overflow)
+- `children`: ReactNode
+
+**Deprecation Notice:** Use Badge component for new implementations.
+
+---
+
+### Filter
+
+React component for filtering data sets with multiple criteria.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Background**: {colors.surface-primary}
+- **Padding**: {spacing.16}
+
+#### Props
+
+- `filters`: Array<FilterConfig>
+- `activeFilters`: Array<string>
+- `onFilterChange`: (filters: Array<string>) => void
+- `children`: ReactNode (filter controls)
+
+---
+
+### ErrorPage
+
+React component for full-page error states (404, 500, etc.).
+
+#### Base Styles
+
+- **Padding**: {spacing.64} {spacing.24}
+- **Text Align**: center
+- **Max Width**: 600px
+- **Margin**: 0 auto
+
+#### Props
+
+- `errorCode`: number (e.g., 404, 500)
+- `heading`: string (required)
+- `description`: string
+- `illustration`: ReactNode
+- `action`: ReactNode (Button to return or retry)
+
+---
+
+### RichTextEditor
+
+React component for WYSIWYG text editing with formatting controls.
+
+#### Base Styles
+
+- **Border Radius**: {rounded.md}
+- **Border**: 2px solid {colors.border-default}
+- **Min Height**: 200px
+
+**Toolbar:**
+
+- **Background**: {colors.surface-secondary}
+- **Padding**: {spacing.8}
+- **Border Bottom**: 1px solid {colors.border-default}
+
+**Editor Area:**
+
+- **Padding**: {spacing.16}
+- **Typography**: {typography.body}
+
+#### Interaction States
+
+| State    | Condition           | Token Changes                                              |
+| -------- | ------------------- | ---------------------------------------------------------- |
+| Default  | -                   | borderColor: {colors.border-default}                       |
+| Focus    | `:focus-within`     | borderColor: {colors.border-focus}                         |
+| Error    | `isInvalid={true}`  | borderColor: {colors.danger}                               |
+| Disabled | `isDisabled={true}` | background: {colors.surface-tertiary}, cursor: not-allowed |
+
+#### Props
+
+- `value`: string (HTML or markdown)
+- `onChange`: (value: string) => void
+- `placeholder`: string
+- `isDisabled`: boolean
+- `isInvalid`: boolean
+- `toolbar`: Array<ToolbarItem> (bold, italic, link, etc.)
+
+---
+
+### LikertScale
+
+React component for survey-style rating scales (1-5, 1-7, etc.).
+
+#### Base Styles
+
+- **Display**: flex
+- **Gap**: {spacing.8}
+- **Radio Size**: 40x40px
+- **Typography**: {typography.body}
+
+#### Interaction States
+
+**Scale Item:**
+
+| State    | Condition           | Token Changes                                                      |
+| -------- | ------------------- | ------------------------------------------------------------------ |
+| Default  | -                   | border: 2px solid {colors.border-default}, background: transparent |
+| Hover    | `:hover`            | borderColor: {colors.primary}                                      |
+| Selected | `isSelected={true}` | background: {colors.primary}, color: {colors.text-inverse}         |
+| Focus    | `:focus-visible`    | outline: 2px solid {colors.border-focus}, outlineOffset: 2px       |
+| Disabled | `isDisabled={true}` | borderColor: {colors.gray-300}, cursor: not-allowed                |
+
+#### Props
+
+- `label`: string (required, scale question)
+- `minLabel`: string (e.g., "Strongly Disagree")
+- `maxLabel`: string (e.g., "Strongly Agree")
+- `scale`: number (default: 5, options: 3, 5, 7, 10)
+- `value`: number | null
+- `onChange`: (value: number) => void
+- `isDisabled`: boolean
+- `isRequired`: boolean
+
+---
+
+### Workflow
+
+React component for multi-step process visualization and navigation.
+
+#### Base Styles
+
+- **Display**: flex
+- **Gap**: {spacing.16}
+- **Align Items**: center
+
+**Step Indicator:**
+
+- **Size**: 32x32px
+- **Border Radius**: {rounded.full}
+- **Typography**: {typography.body-bold}
+
+**Step Connector:**
+
+- **Height**: 2px
+- **Min Width**: 40px
+- **Background**: {colors.border-default}
+
+#### Variants
+
+| Step Status | Status         | Background       | Border                            | Text Color              | Connector               |
+| ----------- | -------------- | ---------------- | --------------------------------- | ----------------------- | ----------------------- |
+| Incomplete  | `"incomplete"` | transparent      | 2px solid {colors.border-default} | {colors.text-secondary} | {colors.border-default} |
+| Current     | `"current"`    | {colors.primary} | none                              | {colors.text-inverse}   | {colors.border-default} |
+| Complete    | `"complete"`   | {colors.success} | none                              | {colors.text-inverse}   | {colors.success}        |
+| Error       | `"error"`      | {colors.danger}  | none                              | {colors.text-inverse}   | {colors.border-default} |
+
+#### Props
+
+- `steps`: Array<WorkflowStep> (required)
+- `currentStep`: number (0-indexed)
+- `onStepClick`: (stepIndex: number) => void
+- `orientation`: `"horizontal" | "vertical"`
+
+**WorkflowStep:**
+
+- `label`: string (required)
+- `description`: string
+- `status`: `"incomplete" | "current" | "complete" | "error"`
+- `isDisabled`: boolean
+
+---
+
+### Content
+
+React component for main content wrapper with semantic HTML.
+
+#### Base Styles
+
+- **Display**: block
+- **Padding**: {spacing.24}
+
+#### Props
+
+- `tag`: `"main" | "article" | "section" | "div"` (default: "div")
+- `children`: ReactNode
+
+**Semantic Usage:** Use `tag="main"` for primary page content.
+
+---
+
+### Focusable
+
+React utility component for managing focus behavior.
+
+#### Props
+
+- `children`: ReactNode
+- `autoFocus`: boolean
+- `onFocus`: () => void
+- `onBlur`: () => void
+
+**Usage:** Wraps non-interactive elements to make them focusable for accessibility.
 
 ---
 
@@ -862,146 +2507,147 @@ Tooltips provide contextual help on hover/focus.
 
 **Do:**
 
-- Use semantic colors for consistent meaning
-- Test color combinations for sufficient contrast
-- Provide non-color indicators (icons, text) alongside color
-- Use purple for primary brand moments
+- Use semantic color tokens ({colors.primary}, {colors.success}, etc.)
+- Verify WCAG AA contrast ratios (4.5:1 for text, 3:1 for UI components)
+- Provide non-color indicators (icons, text patterns) alongside color
+- Use {colors.data-viz-favorable} and {colors.data-viz-unfavorable} for data visualization
 
 **Don't:**
 
-- Use red and green as the only differentiators
-- Mix too many vibrant colors in one interface
-- Use colors outside the defined palette
-- Rely on color alone to convey information
+- Hardcode hex values - always reference color tokens
+- Rely solely on color to convey information (colorblind accessibility)
+- Use {colors.danger} for non-critical UI elements
+- Mix token naming patterns (use either semantic or scale-based consistently)
 
 ### Typography
 
 **Do:**
 
-- Maintain heading hierarchy (h1 → h2 → h3)
-- Use one h1 per page
-- Keep line lengths between 50-75 characters
-- Use semantic HTML tags matching content structure
-- Load only the font weights you need
+- Reference typography tokens ({typography.heading-1}, {typography.body})
+- Maintain heading hierarchy (h1 → h2 → h3, never skip levels)
+- Use single h1 per page
+- Apply {typography.label} to all form labels
+- Use `<strong>` for semantic emphasis
 
 **Don't:**
 
-- Skip heading levels for visual preference
-- Use tiny font sizes (< 12px)
-- Set fixed line heights that cut off descenders
-- Use all caps for long text passages
-- Mix too many font weights on one page
+- Set font-size directly - always use typography tokens
+- Skip heading levels for visual styling (use `tag` prop to correct semantics)
+- Use font sizes below {typography.body-extra-small} (12px minimum)
+- Set line-height values that clip descenders
+- Use all-caps for more than 3 words
 
 ### Spacing
 
 **Do:**
 
-- Use spacing scale values consistently
-- Group related elements with less space
-- Separate unrelated elements with more space
-- Scale spacing responsively
-- Use semantic spacing names (xs, sm, md) for reusable patterns
+- Use spacing tokens ({spacing.16}, {spacing.md}) for all margins and padding
+- Follow base-8 grid (prefer {spacing.8}, {spacing.16}, {spacing.24}, {spacing.32})
+- Use semantic tokens ({spacing.sm}, {spacing.md}) for component-level spacing
+- Scale spacing proportionally at breakpoints
 
 **Don't:**
 
-- Use arbitrary values outside the scale
-- Space elements too tightly on mobile
-- Create unbalanced whitespace
-- Mix different spacing systems
+- Set arbitrary pixel/rem values - reference {spacing} tokens
+- Use inconsistent spacing within a component
+- Mix numeric and semantic token patterns
+- Create spacing tighter than {spacing.4} (4px minimum)
 
 ### Layout
 
 **Do:**
 
-- Design mobile-first
-- Test at multiple breakpoints
-- Ensure content reflows without horizontal scroll
-- Use Container for readable line lengths
-- Provide touch-friendly targets (minimum 44x44px)
+- Design mobile-first (<48em breakpoint)
+- Use {spacing} tokens for gutters and gaps
+- Provide touch targets ≥44x44px
+- Test at 320px, 768px, 1024px, and 1440px widths
+- Use CSS Grid or Flexbox with {spacing} gap properties
 
 **Don't:**
 
-- Design only for desktop
-- Use fixed pixel widths
+- Set fixed widths in pixels
+- Design desktop-first then retrofit mobile
+- Create horizontal scroll on mobile viewports
 - Overlap interactive elements
-- Create layouts that require horizontal scrolling
-- Assume specific screen sizes
+- Use media queries below 320px viewport width
 
 ### Components
 
 **Do:**
 
-- Use one primary button per section
-- Provide visible focus indicators
-- Include accessible labels for all inputs
-- Use appropriate component variants
-- Test keyboard navigation
+- Use `variant` prop for component styling variations
+- Apply `isDisabled` prop instead of CSS-only disabled states
+- Provide `onPress` instead of `onClick` for touch support
+- Use `isInvalid` prop with `validationMessage` for form errors
+- Set `hasHiddenLabel` for icon-only buttons
 
 **Don't:**
 
-- Create custom components when system components exist
-- Disable focus indicators
-- Use placeholder text as labels
-- Mix component variants inconsistently
-- Forget to test with assistive technology
+- Create custom components when Kaizen components exist
+- Override base styles - use variant props
+- Disable focus indicators (`:focus-visible` required)
+- Use `placeholder` as a label replacement
+- Mix component variants within the same UI context
 
 ### Accessibility
 
 **Do:**
 
-- Provide text alternatives for images and icons
-- Ensure sufficient color contrast (4.5:1 minimum)
-- Support keyboard navigation
-- Use semantic HTML
-- Test with screen readers
-- Provide skip navigation links
-- Write descriptive link text
+- Test with keyboard navigation (Tab, Enter, Escape, Arrow keys)
+- Verify screen reader announcements (VoiceOver, NVDA, JAWS)
+- Provide visible labels for all form inputs
+- Use ARIA labels when `hasHiddenLabel={true}`
+- Maintain focus trap in modals
+- Support Escape key dismissal for overlays
 
 **Don't:**
 
-- Use color as the only indicator
-- Disable zoom or viewport scaling
-- Use tiny click targets (< 44x44px)
-- Auto-play audio or video
-- Use images of text
 - Remove focus indicators
-- Use vague link text like "click here"
+- Use `aria-label` when visible text is available
+- Create keyboard traps (ensure all interactive elements are reachable)
+- Auto-play media without controls
+- Use images of text
+- Set `tabindex` > 0 (natural tab order only)
+- Rely on tooltips for critical information
 
 ### Forms
 
 **Do:**
 
-- Provide visible labels for all inputs
-- Show validation errors near the relevant field
-- Use appropriate input types (email, tel, date)
-- Indicate required fields clearly
-- Group related fields logically
+- Pair every input with a visible `label` prop
+- Show `validationMessage` when `isInvalid={true}`
+- Use appropriate input types (`type="email"`, `type="tel"`)
+- Mark required fields with `isRequired` prop
+- Group related fields using FieldGroup
+- Provide `description` prop for input hints
 
 **Don't:**
 
 - Use placeholder text as labels
-- Hide error messages
-- Use complex CAPTCHA without alternative
-- Reset forms on error
-- Make forms unnecessarily long
+- Hide validation errors
+- Reset forms on validation failure
+- Use CAPTCHA without accessible alternative
+- Create multi-page forms without progress indication
+- Submit forms without loading states
 
-### Buttons & Actions
+### Performance
 
 **Do:**
 
-- Use clear, action-oriented labels ("Save changes" not "OK")
-- Place primary action on the right in button groups
-- Show loading states during async actions
-- Disable buttons during processing
-- Provide confirmation for destructive actions
+- Use CSS variables for token values (theme switching support)
+- Load Inter as system font fallback
+- Lazy load Tiempos Headline for display typography
+- Minimize React Aria bundle with tree-shaking
+- Use `React.memo` for frequently re-rendering components
 
 **Don't:**
 
-- Use generic labels ("Submit", "OK", "Cancel")
-- Use too many primary buttons
-- Create buttons that look like links or vice versa
-- Forget to show feedback after actions complete
+- Import entire token libraries - use specific imports
+- Load unused font weights
+- Inline large SVGs - use Icon component
+- Re-render entire forms on single input change
+- Create unnecessary wrapper components
 
 ---
 
-_Design system maintained by Culture Amp Design Systems team. For questions or contributions, see repository documentation._
+_Design system maintained by Culture Amp Design Systems team. For questions, contributions, or bug reports, see repository documentation at github.com/cultureamp/kaizen-design-system._
