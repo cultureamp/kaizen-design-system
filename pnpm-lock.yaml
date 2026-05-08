@@ -502,8 +502,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.1
       ts-patch:
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^4.0.1
+        version: 4.0.1
       tslib:
         specifier: ^2.8.1
         version: 2.8.1
@@ -9885,6 +9885,11 @@ packages:
     resolution: {integrity: sha512-zAOzDnd5qsfEnjd9IGy1IRuvA7ygyyxxdxesbhMdutt8AHFjD8Vw8hU2rMF89HX1BKRWFYqKHrO8Q6lw0NeUZg==}
     hasBin: true
 
+  ts-patch@4.0.1:
+    resolution: {integrity: sha512-pzXS6vZlsBwq3U+CUiPJfCAh0MJGco1j1C8bWsLgvtzDZLGZ7II1Usjtwm09mZ8Uoma+sg6sO3BlWHd6apCUww==}
+    engines: {node: '>=22.15.0'}
+    hasBin: true
+
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
@@ -14980,7 +14985,7 @@ snapshots:
 
   '@types/chalk@2.2.0':
     dependencies:
-      chalk: 2.4.2
+      chalk: 5.6.2
 
   '@types/color-string@1.5.5': {}
 
@@ -22457,6 +22462,15 @@ snapshots:
       minimist: 1.2.8
       resolve: 1.22.11
       semver: 7.7.3
+      strip-ansi: 6.0.1
+
+  ts-patch@4.0.1:
+    dependencies:
+      chalk: 4.1.2
+      global-prefix: 4.0.0
+      minimist: 1.2.8
+      resolve: 1.22.12
+      semver: 7.7.4
       strip-ansi: 6.0.1
 
   tsconfig-paths@3.15.0:
