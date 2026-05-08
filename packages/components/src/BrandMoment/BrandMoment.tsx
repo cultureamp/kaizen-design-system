@@ -1,4 +1,9 @@
-import React, { type ElementType, type HTMLAttributes, type ReactElement, type ReactNode } from 'react'
+import React, {
+  type ElementType,
+  type HTMLAttributes,
+  type ReactElement,
+  type ReactNode,
+} from 'react'
 import classnames from 'classnames'
 import { Button, type ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
