@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- [#6648](https://github.com/cultureamp/kaizen-design-system/pull/6648) [`7464521`](https://github.com/cultureamp/kaizen-design-system/commit/7464521fe6b6176089af7ba0aea436967c66f2ed) - Add optional `tag` prop to BrandMoment and ErrorPage components to allow overriding the default `main` HTML element
+
+### Patch Changes
+
+- [#6646](https://github.com/cultureamp/kaizen-design-system/pull/6646) [`e97823e`](https://github.com/cultureamp/kaizen-design-system/commit/e97823e774e567859ba2813963d73aa10b0c4d74) - fix(Collapsible): fix VoiceOver linear navigation skipping content on Safari
+
 ## 3.0.14
 
 ### Patch Changes
