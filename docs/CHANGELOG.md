@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.2.12
+
+### Patch Changes
+
+- [#6646](https://github.com/cultureamp/kaizen-design-system/pull/6646) [`e97823e`](https://github.com/cultureamp/kaizen-design-system/commit/e97823e774e567859ba2813963d73aa10b0c4d74) - fix(Collapsible): fix VoiceOver linear navigation skipping content on Safari
+
 ## 0.2.11
 
 ### Patch Changes
