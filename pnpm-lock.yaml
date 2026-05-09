@@ -372,8 +372,8 @@ importers:
         specifier: ^1.41.8
         version: 1.41.8
       react-animate-height:
-        specifier: ^3.2.3
-        version: 3.2.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
+        specifier: ^3.2.4
+        version: 3.2.4(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react-aria:
         specifier: ^3.41.1
         version: 3.41.1(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -8883,9 +8883,9 @@ packages:
   randomfill@1.0.4:
     resolution: {integrity: sha512-87lcbR8+MhcWcUiQ+9e+Rwx8MyR2P7qnt15ynUlbm3TU/fjbgz4GsvfSUDTemtCCtVCqb4ZcEFlyPNTh9bBTLw==}
 
-  react-animate-height@3.2.3:
-    resolution: {integrity: sha512-R6DSvr7ud07oeCixScyvXWEMJY/Mt2+GyOWC1KMaRc69gOBw+SsCg4TJmrp4rKUM1hyd6p+YKw90brjPH93Y2A==}
-    engines: {node: '>= 12.0.0'}
+  react-animate-height@3.2.4:
+    resolution: {integrity: sha512-wcT37yHsFWDx8DmNFMy0AqSrYgNPGAtU9dyEqwIq3kSUXW03DWSi5WqbhlOALvMXcowal8JWUJRXij6TexilGQ==}
+    engines: {node: '>= 20.0.0'}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -20529,7 +20529,7 @@ snapshots:
       randombytes: 2.1.0
       safe-buffer: 5.2.1
 
-  react-animate-height@3.2.3(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
+  react-animate-height@3.2.4(react-dom@19.2.6(react@19.2.6))(react@19.2.6):
     dependencies:
       react: 19.2.6
       react-dom: 19.2.6(react@19.2.6)
