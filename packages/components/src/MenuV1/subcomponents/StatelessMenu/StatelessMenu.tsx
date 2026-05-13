@@ -43,6 +43,7 @@ export type StatelessMenuProps = {
     'onClick': (e: any) => void
     'onMouseDown': (e: any) => void
     'aria-expanded': boolean
+    'ref': React.RefObject<{ focus: () => void } | null>
   }) => React.ReactElement
   'onClick'?: (event: SyntheticEvent) => void
 }
@@ -62,6 +63,7 @@ export const StatelessMenu = ({
   onClick,
 }: StatelessMenuProps): JSX.Element => {
   const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null)
+  const buttonRef = useRef<{ focus: () => void } | null>(null)
   const portalSelectorElementRef = useRef<Element | null>(null)
 
   const menuButton = renderButton({
@@ -72,6 +74,7 @@ export const StatelessMenu = ({
     },
     'onMouseDown': (e: React.MouseEvent<Element, MouseEvent>) => e.preventDefault(),
     'aria-expanded': isMenuVisible,
+    'ref': buttonRef,
   })
 
   useEffect(() => {
@@ -90,6 +93,7 @@ export const StatelessMenu = ({
   const menu = isMenuVisible ? (
     <MenuDropdown
       referenceElement={referenceElement}
+      buttonRef={buttonRef}
       align={align}
       hideMenuDropdown={hideMenuDropdown}
       width={dropdownWidth}
