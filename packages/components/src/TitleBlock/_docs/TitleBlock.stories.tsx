@@ -118,12 +118,44 @@ const meta = {
       <NavigationTab key="5" text="Label" href="#" />,
       <NavigationTab key="6" text="Label" href="#" />,
     ],
+    stickyTopStripWithinContainer: true,
   },
 } satisfies Meta<typeof TitleBlock>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+const STICKY_SCROLLABLE_CONTAINER_STYLES = {
+  height: '200px',
+  overflowY: 'auto' as const,
+  backgroundColor: '#fff',
+}
+
+const STICKY_SCROLLABLE_FRAME_STYLES = {
+  margin: '0 auto',
+  maxWidth: '1200px',
+  border: '1px solid #d8dde3',
+  borderRadius: '12px',
+  overflow: 'hidden' as const,
+  backgroundColor: '#fff',
+}
+
+const renderStickyScrollableTitleBlock = (
+  args: React.ComponentProps<typeof TitleBlock>,
+): JSX.Element => (
+  <div style={STICKY_SCROLLABLE_FRAME_STYLES}>
+    <div data-scroll-container="sticky-top-strip" style={STICKY_SCROLLABLE_CONTAINER_STYLES}>
+      <TitleBlock {...args} />
+
+      <div
+        style={{
+          height: '100px',
+        }}
+      />
+    </div>
+  </div>
+)
 
 export const Playground: Story = {
   parameters: {
@@ -690,5 +722,106 @@ export const WithOnlySecondaryActions: Story = {
     sectionTitleDescription: undefined,
     breadcrumb: undefined,
     avatar: undefined,
+  },
+}
+
+export const StickyTopStripInScrollableContainer: Story = {
+  name: 'Sticker Sheet (Sticky Top Strip In Scrollable Container)',
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    stickyTopStripWithinContainer: true,
+  },
+  render: (args) => {
+    const { variant: _variant, ...argsWithoutVariant } = args
+
+    return (
+      <StickerSheet title="Sticky top strip within a scrollable container">
+        <StickerSheet.Row header="Default (Purple background)">
+          {renderStickyScrollableTitleBlock({
+            ...argsWithoutVariant,
+            title: 'Default Variant',
+            subtitle: 'Sticky top strip inside a scrollable content area',
+            breadcrumb: {
+              path: '#',
+              text: 'Back to home',
+            },
+            navigationTabs: [
+              <NavigationTab key="1" text="Overview" href="#" active />,
+              <NavigationTab key="2" text="Settings" href="#" />,
+            ],
+          })}
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Education (Blue background)">
+          {renderStickyScrollableTitleBlock({
+            ...argsWithoutVariant,
+            variant: 'education',
+            title: 'Education Variant',
+            subtitle: 'Sticky top strip inside a scrollable content area',
+            breadcrumb: {
+              path: '#',
+              text: 'Back to courses',
+            },
+            navigationTabs: [
+              <NavigationTab key="1" variant="education" text="Lessons" href="#" active />,
+              <NavigationTab key="2" variant="education" text="Assignments" href="#" />,
+            ],
+          })}
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Admin (White background)">
+          {renderStickyScrollableTitleBlock({
+            ...argsWithoutVariant,
+            variant: 'admin',
+            title: 'Admin Variant',
+            subtitle: 'Sticky top strip inside a scrollable content area',
+            breadcrumb: {
+              path: '#',
+              text: 'Back to dashboard',
+            },
+            navigationTabs: [
+              <NavigationTab key="1" variant="admin" text="Users" href="#" active />,
+              <NavigationTab key="2" variant="admin" text="Settings" href="#" />,
+            ],
+          })}
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Light (White background)">
+          {renderStickyScrollableTitleBlock({
+            ...argsWithoutVariant,
+            variant: 'light',
+            title: 'Light Variant',
+            subtitle: 'Sticky top strip inside a scrollable content area',
+            breadcrumb: {
+              path: '#',
+              text: 'Back to overview',
+            },
+            navigationTabs: [
+              <NavigationTab key="1" variant="light" text="Details" href="#" active />,
+              <NavigationTab key="2" variant="light" text="Analytics" href="#" />,
+            ],
+          })}
+        </StickerSheet.Row>
+      </StickerSheet>
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    await step('scroll each sticky container before snapshot', async () => {
+      const scrollContainers = canvasElement.querySelectorAll<HTMLElement>(
+        '[data-scroll-container="sticky-top-strip"]',
+      )
+
+      scrollContainers.forEach((scrollContainer) => {
+        scrollContainer.scrollTo({
+          top: scrollContainer.scrollHeight - scrollContainer.clientHeight,
+        })
+      })
+
+      await waitFor(() => {
+        scrollContainers.forEach((scrollContainer) => {
+          expect(scrollContainer.scrollTop).toBeGreaterThan(0)
+        })
+      })
+    })
   },
 }

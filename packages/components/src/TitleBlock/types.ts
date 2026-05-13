@@ -32,6 +32,7 @@ export type TitleBlockProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
   collapseNavigationAreaWhenPossible?: boolean
+  stickyTopStripWithinContainer?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   id?: string
