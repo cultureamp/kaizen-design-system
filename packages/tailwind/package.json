@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.5.8",
+  "version": "1.5.10",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build",
@@ -34,9 +34,9 @@
     "@cultureamp/package-bundler": "^4.0.1",
     "@tailwindcss/container-queries": "^0.1.1",
     "classnames": "^2.5.1",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
-    "rollup": "^4.60.2",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "rollup": "^4.60.4",
     "tailwindcss": "^3.4.19",
     "tslib": "^2.8.1"
   },
