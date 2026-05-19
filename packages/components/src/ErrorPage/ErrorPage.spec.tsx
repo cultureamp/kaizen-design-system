@@ -127,4 +127,15 @@ describe('<ErrorPage />', () => {
       expect(screen.getByText('Error code 504')).toBeVisible()
     })
   })
+
+  it('renders a main element by default', () => {
+    const { container } = render(<ErrorPage code="404" />)
+    expect(container.querySelector('main')).toBeInTheDocument()
+  })
+
+  it('passes tag prop to BrandMoment', () => {
+    const { container } = render(<ErrorPage code="404" tag="section" />)
+    expect(container.querySelector('section')).toBeInTheDocument()
+    expect(container.querySelector('main')).not.toBeInTheDocument()
+  })
 })

@@ -1,5 +1,23 @@
 # Change Log
 
+## 11.0.9
+
+### Patch Changes
+
+- [#6725](https://github.com/cultureamp/kaizen-design-system/pull/6725) [`b3bb3d4`](https://github.com/cultureamp/kaizen-design-system/commit/b3bb3d4e3260779868e1616401b21baa71324aa5) - Update dependencies
+
+## 11.0.8
+
+### Patch Changes
+
+- [#6698](https://github.com/cultureamp/kaizen-design-system/pull/6698) [`f542b00`](https://github.com/cultureamp/kaizen-design-system/commit/f542b0026741545afe854a863720bc6ab2d76911) - Update depencies
+
+## 11.0.7
+
+### Patch Changes
+
+- [#6672](https://github.com/cultureamp/kaizen-design-system/pull/6672) [`b2b263c`](https://github.com/cultureamp/kaizen-design-system/commit/b2b263cbb412a0ed4268c87a082f43d230a86c29) - Update dependencies
+
 ## 11.0.6
 
 ### Patch Changes

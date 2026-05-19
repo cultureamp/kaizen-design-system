@@ -1,4 +1,4 @@
-import React, { type HTMLAttributes } from 'react'
+import React, { type ElementType, type HTMLAttributes } from 'react'
 import { FormattedMessage, useIntl } from '@cultureamp/i18n-react-intl'
 import classNames from 'classnames'
 import { BrandMoment } from '~components/BrandMoment'
@@ -26,6 +26,7 @@ export type ErrorPageProps = {
     onContactSupport: () => void
     homeHref?: string
   }
+  tag?: ElementType
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
 export const ErrorPage = ({
@@ -33,6 +34,7 @@ export const ErrorPage = ({
   title,
   message,
   callToAction,
+  tag,
   classNameOverride,
 }: ErrorPageProps): JSX.Element => {
   const { formatMessage } = useIntl()
@@ -48,6 +50,7 @@ export const ErrorPage = ({
   return (
     <div className={classNames(classNameOverride)}>
       <BrandMoment
+        tag={tag}
         header={<></>}
         body={
           <>
