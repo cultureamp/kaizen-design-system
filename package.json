@@ -85,7 +85,7 @@
     "turbo": "^2.9.14",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.59.4",
-    "vite": "^7.3.3",
+    "vite": "^8.0.14",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0"
   },
