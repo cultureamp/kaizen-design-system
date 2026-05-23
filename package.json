@@ -56,7 +56,7 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.19.19",
-    "@types/react": "^18.3.28",
+    "@types/react": "^18.3.29",
     "@types/react-dom": "^18.3.7",
     "@vitest/eslint-plugin": "^1.6.17",
     "chromatic": "^17.0.0",
@@ -84,7 +84,7 @@
     "stylelint-config-standard-scss": "^17.0.0",
     "turbo": "^2.9.14",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.59.3",
+    "typescript-eslint": "^8.59.4",
     "vite": "^7.3.3",
     "vitest": "^3.2.4",
     "vitest-axe": "^0.1.0"
