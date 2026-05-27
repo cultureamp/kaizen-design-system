@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Label } from '~components/Label'
-import { AsyncSelect, Select } from '../index'
+import { AsyncSelect, Select, type SelectOption } from '../index'
 
 const OPTIONS = [
   { value: 'Mindy', label: 'Mindy' },
@@ -67,6 +67,38 @@ export const Grouped: Story = {
 
 export const Disabled: Story = {
   args: { options: DISABLED_OPTIONS },
+}
+
+const COLORED_OPTIONS: SelectOption[] = [
+  { value: 'default', label: 'Default' },
+  { value: 'statusLive', label: 'Status Live', tagColor: 'statusLive' },
+  { value: 'statusDraft', label: 'Status Draft', tagColor: 'statusDraft' },
+  { value: 'statusClosed', label: 'Status Closed', tagColor: 'statusClosed' },
+  { value: 'statusAction', label: 'Status Action', tagColor: 'statusAction' },
+  { value: 'sentimentPositive', label: 'Sentiment Positive', tagColor: 'sentimentPositive' },
+  { value: 'sentimentNeutral', label: 'Sentiment Neutral', tagColor: 'sentimentNeutral' },
+  { value: 'sentimentNegative', label: 'Sentiment Negative', tagColor: 'sentimentNegative' },
+  { value: 'sentimentNone', label: 'Sentiment None', tagColor: 'sentimentNone' },
+  { value: 'validationPositive', label: 'Validation Positive', tagColor: 'validationPositive' },
+  {
+    value: 'validationInformative',
+    label: 'Validation Informative',
+    tagColor: 'validationInformative',
+  },
+  { value: 'validationNegative', label: 'Validation Negative', tagColor: 'validationNegative' },
+  {
+    value: 'validationCautionary',
+    label: 'Validation Cautionary',
+    tagColor: 'validationCautionary',
+  },
+]
+
+export const MultiSelectWithTagColors: Story = {
+  args: {
+    isMulti: true,
+    options: COLORED_OPTIONS,
+    defaultValue: COLORED_OPTIONS,
+  },
 }
 
 export const Async: Story = {
