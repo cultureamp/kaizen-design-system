@@ -487,8 +487,8 @@ importers:
         specifier: ^0.15.0
         version: 0.15.0
       react-intl:
-        specifier: ^10.1.9
-        version: 10.1.9(@types/react@18.3.29)(react@19.2.6)
+        specifier: ^10.1.11
+        version: 10.1.11(@types/react@18.3.29)(react@19.2.6)
       rollup:
         specifier: ^4.60.4
         version: 4.60.4
@@ -9105,8 +9105,8 @@ packages:
   react-highlight@0.15.0:
     resolution: {integrity: sha512-5uV/b/N4Z421GSVVe05fz+OfTsJtFzx/fJBdafZyw4LS70XjIZwgEx3Lrkfc01W/RzZ2Dtfb0DApoaJFAIKBtA==}
 
-  react-intl@10.1.9:
-    resolution: {integrity: sha512-FOWpTmwnZnAfz8JegRzyGnjUiuzLW3xJFjp/o8VR4HZAQ+Eg++YaeMhoUULLY+LMx7gZm3czaZEqcU4hntwerw==}
+  react-intl@10.1.11:
+    resolution: {integrity: sha512-9VCaWKumbrP91QvS50IYRlbZsD4KdSLwcfEeF9CQLmnqK9qCvFCfyof694I9lqHJL2/TUxBwLCA+whjF129oAg==}
     peerDependencies:
       '@types/react': '19'
       react: '19'
@@ -20926,7 +20926,7 @@ snapshots:
     dependencies:
       highlight.js: 10.7.3
 
-  react-intl@10.1.9(@types/react@18.3.29)(react@19.2.6):
+  react-intl@10.1.11(@types/react@18.3.29)(react@19.2.6):
     dependencies:
       '@formatjs/icu-messageformat-parser': 3.5.10
       '@formatjs/intl': 4.1.12
