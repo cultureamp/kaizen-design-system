@@ -1,0 +1,80 @@
+diff --git a/dist/index.js b/dist/index.js
+index c3a4e6ec25fffea5d61d110419c48f7357bc462a..e2754e1ec94fdcc741242d7047e59937d8b16dfe 100755
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -21120,6 +21120,8 @@ var CSS_NAMED_COLORS = {
+   transparent: "#00000000"
+ };
+ function parseCssColor(colorStr) {
++  if (typeof colorStr !== "string")
++    return null;
+   const clean = colorStr.trim().toLowerCase();
+   if (!clean)
+     return null;
+@@ -21347,6 +21349,8 @@ function parseAlpha(s) {
+   return parseFloat(trim);
+ }
+ function tokenizeFunc(str) {
++  if (typeof str !== "string")
++    return null;
+   const match = str.trim().match(/^([a-z-]{3,15})\((.*)\)$/i);
+   if (!match)
+     return null;
+@@ -21616,6 +21620,8 @@ var CSS_UNITS = new Set([
+   "%"
+ ]);
+ function parseDimensionParts(raw) {
++  if (typeof raw !== "string")
++    return null;
+   const match = raw.match(/^(-?\d*\.?\d+)([a-zA-Z%]+)$/);
+   if (!match)
+     return null;
+@@ -21630,6 +21636,8 @@ function isParseableDimension(raw) {
+   return parts !== null && CSS_UNITS.has(parts.unit);
+ }
+ function isTokenReference(raw) {
++  if (typeof raw !== "string")
++    return false;
+   return /^\{[a-zA-Z0-9._-]+\}$/.test(raw);
+ }
+ 
+diff --git a/dist/linter/index.js b/dist/linter/index.js
+index 76f370332da3f99ab028ff515b1494362490eb75..6a716c38bc4b1574213b9fc2b0bf31011a7b77b5 100644
+--- a/dist/linter/index.js
++++ b/dist/linter/index.js
+@@ -20363,6 +20363,8 @@ var CSS_NAMED_COLORS = {
+   transparent: "#00000000"
+ };
+ function parseCssColor(colorStr) {
++  if (typeof colorStr !== "string")
++    return null;
+   const clean = colorStr.trim().toLowerCase();
+   if (!clean)
+     return null;
+@@ -20590,6 +20592,8 @@ function parseAlpha(s) {
+   return parseFloat(trim);
+ }
+ function tokenizeFunc(str) {
++  if (typeof str !== "string")
++    return null;
+   const match = str.trim().match(/^([a-z-]{3,15})\((.*)\)$/i);
+   if (!match)
+     return null;
+@@ -20859,6 +20863,8 @@ var CSS_UNITS = new Set([
+   "%"
+ ]);
+ function parseDimensionParts(raw) {
++  if (typeof raw !== "string")
++    return null;
+   const match = raw.match(/^(-?\d*\.?\d+)([a-zA-Z%]+)$/);
+   if (!match)
+     return null;
+@@ -20873,6 +20879,8 @@ function isParseableDimension(raw) {
+   return parts !== null && CSS_UNITS.has(parts.unit);
+ }
+ function isTokenReference(raw) {
++  if (typeof raw !== "string")
++    return false;
+   return /^\{[a-zA-Z0-9._-]+\}$/.test(raw);
+ }
+ 
