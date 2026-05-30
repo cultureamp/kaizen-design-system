@@ -412,8 +412,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^4.1.2
-        version: 4.1.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.19)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.19)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
+        specifier: ^4.1.3
+        version: 4.1.3(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.19)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.19)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^4.0.1
         version: 4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.3.0(postcss@8.5.15))(postcss@8.5.15)(rollup@4.60.4)(tslib@2.8.1)(typescript@5.9.3)
@@ -1302,8 +1302,8 @@ packages:
   '@cultureamp/frontend-env@2.1.6':
     resolution: {integrity: sha512-6FYwQ08fTns6zMjRC74M2wSah8bMBSVsMxRBYmq7KWQOyYT/Jb7/BPpcrFjPaBzvnoKBLQ06TrbykCcZOkGRSA==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.6/e7375ab88fbc9f9770f2094896a6dc5185094165}
 
-  '@cultureamp/i18n-react-intl@4.1.2':
-    resolution: {integrity: sha512-LaMyfke1gHtVdXIYgBMz4jqYOOe/7LaYYf0v3L4oaxUC8t7M78UDTKoLgoWiiBnuXg/nEtHtLLa1SxJep2utEQ==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.1.2/73ac882d7ba9a93e3dd0196113556db376032fcf}
+  '@cultureamp/i18n-react-intl@4.1.3':
+    resolution: {integrity: sha512-+K3lk3Vl8b4OXuiyfpcIbtKD3Wq9bVBhnXrJoP+7rVGqKhpdrNtFTOAmjFaV1MYSpRegeBiiw1/i8aq93l5c5g==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.1.3/4ac153428df4129f4e87147ed058e35b423e5af9}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=14 || ~0.0.0'
@@ -11669,7 +11669,7 @@ snapshots:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
 
-  '@cultureamp/i18n-react-intl@4.1.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.19)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.19)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
+  '@cultureamp/i18n-react-intl@4.1.3(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.19)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.19)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(sass@1.79.6))(react@19.2.6)(typescript@5.9.3)
