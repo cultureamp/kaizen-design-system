@@ -14,6 +14,7 @@
     "clean": "pnpm turbo clean && rimraf node_modules && pnpm store prune",
     "test": "pnpm turbo test -- --run",
     "lint": "pnpm lint:eslint && pnpm lint:format && pnpm lint:styles",
+    "lint:design": "pnpm exec designmd lint DESIGN.md",
     "lint:ts": "pnpm turbo lint:ts",
     "lint:eslint": "pnpm eslint --max-warnings=0",
     "lint:format": "pnpm prettier --check '**/*'",
@@ -40,6 +41,7 @@
     "@changesets/cli": "^2.31.0",
     "@cultureamp/changelog-github": "^0.1.1",
     "@eslint/js": "^9.39.4",
+    "@google/design.md": "0.2.0",
     "@storybook/addon-a11y": "8.6.12",
     "@storybook/addon-actions": "8.6.12",
     "@storybook/addon-backgrounds": "8.6.12",
@@ -129,7 +131,8 @@
       "@storybook/icons": "1.4.0"
     },
     "patchedDependencies": {
-      "rollup-plugin-styler@2.0.0": "patches/rollup-plugin-styler@2.0.0.patch"
+      "rollup-plugin-styler@2.0.0": "patches/rollup-plugin-styler@2.0.0.patch",
+      "@google/design.md@0.2.0": "patches/@google__design.md@0.2.0.patch"
     }
   }
 }
