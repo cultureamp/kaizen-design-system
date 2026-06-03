@@ -2,7 +2,6 @@ import React from 'react'
 import classnames from 'classnames'
 import { Input, type InputProps } from '~components/Input'
 import { Label } from '~components/Label'
-import { isRefObject } from '~components/utils/isRefObject'
 import styles from './DateInput.module.css'
 
 type OmittedInputProps = 'reversed' | 'type' | 'inputRef'
@@ -23,7 +22,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
         disabled={disabled}
       />
       <Input
-        inputRef={isRefObject(ref) ? ref : undefined}
+        inputRef={ref}
         id={id}
         type="text"
         autoComplete="off"
