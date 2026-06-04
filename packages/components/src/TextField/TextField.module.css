@@ -1,0 +1,37 @@
+@layer kz-components {
+  .input {
+    margin-top: var(--spacing-6);
+  }
+
+  .icon {
+    color: var(--textfield-icon-color);
+
+    /*Replace @include ca-animation-fade(in)*/
+    animation-name: fade-in;
+    animation-duration: var(--animation-duration-slow);
+    animation-fill-mode: forwards;
+  }
+
+  .success {
+    --textfield-icon-color: var(--color-green-500);
+
+    .reversed & {
+      --textfield-icon-color: var(--color-green-400);
+    }
+  }
+
+  .disabled {
+    opacity: 0.3;
+  }
+}
+
+/*Declare keyframes for ca-animation(fade)*/
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
