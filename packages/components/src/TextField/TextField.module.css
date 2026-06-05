@@ -6,7 +6,7 @@
   .icon {
     color: var(--textfield-icon-color);
 
-    /*Replace @include ca-animation-fade(in)*/
+    /* Replace @include ca-animation-fade(in) */
     animation-name: fade-in;
     animation-duration: var(--animation-duration-slow);
     animation-fill-mode: forwards;
@@ -25,7 +25,7 @@
   }
 }
 
-/*Declare keyframes for ca-animation(fade)*/
+/* Declare keyframes for ca-animation(fade) */
 @keyframes fade-in {
   from {
     opacity: 0;
