@@ -1,5 +1,11 @@
 # @docs/storybook
 
+## 0.2.16
+
+### Patch Changes
+
+- [#6764](https://github.com/cultureamp/kaizen-design-system/pull/6764) [`05a9add`](https://github.com/cultureamp/kaizen-design-system/commit/05a9add21d47e987a289cec2138fcecc72846854) - Update dependencies
+
 ## 0.2.15
 
 ### Patch Changes
