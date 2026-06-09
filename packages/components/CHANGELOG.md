@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.1.5
+
+### Patch Changes
+
+- [#6753](https://github.com/cultureamp/kaizen-design-system/pull/6753) [`da65b04`](https://github.com/cultureamp/kaizen-design-system/commit/da65b047dee4637370ce067bf204c13f892e3c58) - Uplift `TextField` component to CSS from SCSS
+
+- [#6764](https://github.com/cultureamp/kaizen-design-system/pull/6764) [`05a9add`](https://github.com/cultureamp/kaizen-design-system/commit/05a9add21d47e987a289cec2138fcecc72846854) - Update dependencies
+
 ## 3.1.4
 
 ### Patch Changes
