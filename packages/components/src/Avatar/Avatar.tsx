@@ -61,10 +61,10 @@ const getInitials = (fullName?: string, max2Characters: boolean = false): string
   fullName == null
     ? ''
     : fullName
-      .split(/\s/)
-      .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, '')
-      .toUpperCase()
-      .substring(0, max2Characters ? 2 : 8)
+        .split(/\s/)
+        .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, '')
+        .toUpperCase()
+        .substring(0, max2Characters ? 2 : 8)
 
 const getMaxFontSizePixels: (size: AvatarSizes) => number = (size) => {
   if (size === 'small') return 8
