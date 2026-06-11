@@ -61,10 +61,10 @@ const getInitials = (fullName?: string, max2Characters: boolean = false): string
   fullName == null
     ? ''
     : fullName
-        .split(/\s/)
-        .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, '')
-        .toUpperCase()
-        .substring(0, max2Characters ? 2 : 8)
+      .split(/\s/)
+      .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, '')
+      .toUpperCase()
+      .substring(0, max2Characters ? 2 : 8)
 
 const getMaxFontSizePixels: (size: AvatarSizes) => number = (size) => {
   if (size === 'small') return 8
@@ -97,7 +97,10 @@ const renderInitials = (
     <abbr className={classnames(styles.initials, isLongName && styles.longName)} title={alt}>
       {isLongName ? (
         // Only called if 3 or more initials, fits text width for long names
-        <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+        //
+        // Ignore Chromatic diffs since the font-size calculation has shown itself to be slightly non-deterministic,
+        // causing flaky tests.
+        <Textfit mode="single" max={getMaxFontSizePixels(size)} data-chromatic="ignore">
           {initials}
         </Textfit>
       ) : (
