@@ -27,7 +27,7 @@ export type TimeFieldProps = {
   value: ValueType | null
   status?: StatusType
   validationMessage?: React.ReactNode
-  inputRef?: React.Ref<HTMLSpanElement>
+inputRef?: React.Ref<HTMLSpanElement>
 } & OverrideClassName<Omit<TimeFieldStateOptions, OmittedTimeFieldProps>>
 
 // This needed to be placed directly below the props because
@@ -103,14 +103,14 @@ const TimeFieldComponent = ({
         <div
           {...fieldProps}
           id={id}
-          ref={internalRef}
+ref={internalRef}
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
             status === 'error' && styles.error,
           )}
         >
-          {state.segments.map((segment, i) => (
+{state.segments.map((segment, i) => (
             <TimeSegment
               key={i}
               segment={segment}
