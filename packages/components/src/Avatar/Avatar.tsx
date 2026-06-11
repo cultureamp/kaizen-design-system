@@ -97,7 +97,10 @@ const renderInitials = (
     <abbr className={classnames(styles.initials, isLongName && styles.longName)} title={alt}>
       {isLongName ? (
         // Only called if 3 or more initials, fits text width for long names
-        <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+        //
+        // Ignore Chromatic diffs since the font-size calculation has shown itself to be slightly non-deterministic,
+        // causing flaky tests.
+        <Textfit mode="single" max={getMaxFontSizePixels(size)} data-chromatic="ignore">
           {initials}
         </Textfit>
       ) : (
