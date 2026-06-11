@@ -2,7 +2,6 @@ import React, { useId, useMemo } from 'react'
 import { Time } from '@internationalized/date'
 import { useTimeField } from '@react-aria/datepicker'
 import { I18nProvider } from '@react-aria/i18n'
-import { mergeRefs } from '@react-aria/utils'
 import { useTimeFieldState, type TimeFieldStateOptions } from '@react-stately/datepicker'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
@@ -28,7 +27,7 @@ export type TimeFieldProps = {
   value: ValueType | null
   status?: StatusType
   validationMessage?: React.ReactNode
-  inputRef?: React.Ref<HTMLDivElement>
+  inputRef?: React.Ref<HTMLSpanElement>
 } & OverrideClassName<Omit<TimeFieldStateOptions, OmittedTimeFieldProps>>
 
 // This needed to be placed directly below the props because
@@ -102,7 +101,7 @@ const TimeFieldComponent = ({
         <div
           {...fieldProps}
           id={id}
-          ref={mergeRefs<HTMLDivElement>(internalRef, inputRef)}
+          ref={internalRef}
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
@@ -117,6 +116,7 @@ const TimeFieldComponent = ({
                 state={state}
                 hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
                 // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+                inputRef={i === 0 ? inputRef : undefined}
               />
             )
           })}
