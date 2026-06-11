@@ -2,6 +2,7 @@ import React, { useId, useMemo } from 'react'
 import { Time } from '@internationalized/date'
 import { useTimeField } from '@react-aria/datepicker'
 import { I18nProvider } from '@react-aria/i18n'
+import { mergeRefs } from '@react-aria/utils';
 import { useTimeFieldState, type TimeFieldStateOptions } from '@react-stately/datepicker'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
@@ -27,6 +28,7 @@ export type TimeFieldProps = {
   value: ValueType | null
   status?: StatusType
   validationMessage?: React.ReactNode
+  inputRef?: React.Ref<HTMLDivElement>
 } & OverrideClassName<Omit<TimeFieldStateOptions, OmittedTimeFieldProps>>
 
 // This needed to be placed directly below the props because
@@ -49,6 +51,7 @@ const TimeFieldComponent = ({
   validationMessage,
   isDisabled,
   classNameOverride,
+  inputRef,
   ...restProps
 }: TimeFieldProps): JSX.Element => {
   const reactId = useId()
@@ -79,7 +82,7 @@ const TimeFieldComponent = ({
   const hasError = !!validationMessage && status === 'error'
   const descriptionId = hasError ? `${id}-field-message` : undefined
 
-  const inputRef = React.useRef(null)
+  const internalRef = React.useRef<HTMLDivElement>(null)
   const { fieldProps, labelProps } = useTimeField(
     {
       ...restProps,
@@ -88,7 +91,7 @@ const TimeFieldComponent = ({
       'aria-describedby': descriptionId,
     },
     state,
-    inputRef,
+    internalRef,
   )
   return (
     <div className={classNameOverride}>
@@ -96,11 +99,10 @@ const TimeFieldComponent = ({
         {label}
       </Label>
       <div className={styles.wrapper}>
-        {}
         <div
           {...fieldProps}
           id={id}
-          ref={inputRef}
+          ref={mergeRefs<HTMLDivElement>(internalRef, inputRef)}
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
@@ -114,7 +116,7 @@ const TimeFieldComponent = ({
                 segment={segment}
                 state={state}
                 hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
-                // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+              // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
               />
             )
           })}
