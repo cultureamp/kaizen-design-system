@@ -1,5 +1,5 @@
 ---
-'@kaizen/components': patch
+'@kaizen/components': minor
 ---
 
-Widen inputRef/textAreaRef prop types from RefObject to Ref for react-hook-form Controller compatibility
+Add inputRef prop to TimeField and DatePicker for react-hook-form Controller compatibility
