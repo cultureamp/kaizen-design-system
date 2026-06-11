@@ -92,6 +92,8 @@ const TimeFieldComponent = ({
     state,
     internalRef,
   )
+  const firstEditableIndex = state.segments.findIndex((s) => s.isEditable)
+
   return (
     <div className={classNameOverride}>
       <Label disabled={state.isDisabled} {...labelProps} classNameOverride={styles.label}>
@@ -108,18 +110,16 @@ const TimeFieldComponent = ({
             status === 'error' && styles.error,
           )}
         >
-          {state.segments.map((segment, i) => {
-            return (
-              <TimeSegment
-                key={i}
-                segment={segment}
-                state={state}
-                hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
-                // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
-                inputRef={i === 0 ? inputRef : undefined}
-              />
-            )
-          })}
+          {state.segments.map((segment, i) => (
+            <TimeSegment
+              key={i}
+              segment={segment}
+              state={state}
+              inputRef={i === firstEditableIndex ? inputRef : undefined}
+              hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
+            // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+            />
+          ))}
           <div className={styles.focusRing} />
         </div>
       </div>
