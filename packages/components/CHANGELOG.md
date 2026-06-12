@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.6
+
+### Patch Changes
+
+- [#6767](https://github.com/cultureamp/kaizen-design-system/pull/6767) [`8ff83cb`](https://github.com/cultureamp/kaizen-design-system/commit/8ff83cb7261a4e18a3522dee1d5a6deab0f01ebc) - Fix flaky Chromatic snapshots of Avatar initials for long names in Chromatic
+
 ## 3.1.5
 
 ### Patch Changes
