@@ -17,3 +17,10 @@ declare module '*.png' {
   const content: string
   export default content
 }
+
+declare module '*.svg' {
+  import type { FC, SVGProps } from 'react'
+  const SVGComponent: FC<SVGProps<SVGSVGElement>>
+  export default SVGComponent
+}
+

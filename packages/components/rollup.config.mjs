@@ -1,4 +1,5 @@
 import { pluginsSharedUi, rollupConfig } from '@cultureamp/package-bundler'
+import svgr from '@svgr/rollup'
 
 export default rollupConfig({
   input: {
@@ -10,5 +11,15 @@ export default rollupConfig({
     reactAriaV3: './src/__react-aria__/index.ts',
     reactAriaComponentsV3: './src/__react-aria-components__/index.ts',
   },
-  plugins: pluginsSharedUi,
+  plugins: [
+    svgr({
+      replaceAttrValues: {
+        '#000': 'currentColor',
+        '#000000': 'currentColor',
+        'black': 'currentColor',
+      },
+      svgo: false,
+    }),
+    ...pluginsSharedUi,
+  ],
 })
