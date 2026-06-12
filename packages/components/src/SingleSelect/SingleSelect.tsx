@@ -1,7 +1,7 @@
 import React, { useEffect, useId, useState } from 'react'
-import { type UseFloatingReturn } from '@floating-ui/react-dom'
 import { useButton } from '@react-aria/button'
 import { HiddenSelect, useSelect } from '@react-aria/select'
+import { mergeRefs } from '@react-aria/utils'
 import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stately/select'
 import { type Key } from '@react-types/shared'
 import classnames from 'classnames'
@@ -32,6 +32,7 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
    */
   items: SingleSelectItem<Option>[]
   id?: string
+  inputRef?: React.Ref<HTMLButtonElement>
   /**
    * Optional render function that allows custom rendering of the trigger button.
    * The function receives the `selectToggleProps` and a `ref` to be applied
@@ -39,7 +40,7 @@ export type SingleSelectProps<Option extends SingleSelectOption = SingleSelectOp
    */
   trigger?: (
     selectToggleProps: SelectToggleProps & {
-      ref: UseFloatingReturn<HTMLButtonElement>['refs']['setReference']
+      ref: React.Ref<HTMLButtonElement>
     },
   ) => JSX.Element
   /**
@@ -95,6 +96,7 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
   isDisabled,
   onSelectionChange,
   portalContainerId,
+  inputRef,
   ...restProps
 }: SingleSelectProps<Option>): JSX.Element => {
   const { refs } = useFloating<HTMLButtonElement>()
@@ -153,7 +155,7 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
     status,
     'isDisabled': triggerProps.isDisabled,
     isReversed,
-    'ref': refs.setReference,
+    'ref': mergeRefs(inputRef, refs.setReference),
     'aria-describedby': classnames(validationMessage && validationId, description && descriptionId),
     'aria-required': isRequired,
   }
