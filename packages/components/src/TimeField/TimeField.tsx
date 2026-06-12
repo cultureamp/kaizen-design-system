@@ -117,7 +117,7 @@ const TimeFieldComponent = ({
               state={state}
               inputRef={i === firstEditableIndex ? inputRef : undefined}
               hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
-            // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+              // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
             />
           ))}
           <div className={styles.focusRing} />
