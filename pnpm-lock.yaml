@@ -161,7 +161,7 @@ importers:
         specifier: ^8.60.1
         version: 8.60.1(eslint@9.39.4(jiti@1.21.7))(typescript@5.9.3)
       vite:
-        specifier: ^7.3.3
+        specifier: ^7.3.5
         version: 7.3.5(@types/node@22.19.19)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.22.4)(yaml@2.8.4)
       vitest:
         specifier: ^3.2.6
