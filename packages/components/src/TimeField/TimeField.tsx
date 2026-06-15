@@ -27,6 +27,7 @@ export type TimeFieldProps = {
   value: ValueType | null
   status?: StatusType
   validationMessage?: React.ReactNode
+  inputRef?: React.Ref<HTMLSpanElement>
 } & OverrideClassName<Omit<TimeFieldStateOptions, OmittedTimeFieldProps>>
 
 // This needed to be placed directly below the props because
@@ -49,6 +50,7 @@ const TimeFieldComponent = ({
   validationMessage,
   isDisabled,
   classNameOverride,
+  inputRef,
   ...restProps
 }: TimeFieldProps): JSX.Element => {
   const reactId = useId()
@@ -79,7 +81,7 @@ const TimeFieldComponent = ({
   const hasError = !!validationMessage && status === 'error'
   const descriptionId = hasError ? `${id}-field-message` : undefined
 
-  const inputRef = React.useRef(null)
+  const internalRef = React.useRef<HTMLDivElement>(null)
   const { fieldProps, labelProps } = useTimeField(
     {
       ...restProps,
@@ -88,36 +90,36 @@ const TimeFieldComponent = ({
       'aria-describedby': descriptionId,
     },
     state,
-    inputRef,
+    internalRef,
   )
+  const firstEditableIndex = state.segments.findIndex((s) => s.isEditable)
+
   return (
     <div className={classNameOverride}>
       <Label disabled={state.isDisabled} {...labelProps} classNameOverride={styles.label}>
         {label}
       </Label>
       <div className={styles.wrapper}>
-        {}
         <div
           {...fieldProps}
           id={id}
-          ref={inputRef}
+          ref={internalRef}
           className={classnames(
             styles.input,
             state.isDisabled && styles.isDisabled,
             status === 'error' && styles.error,
           )}
         >
-          {state.segments.map((segment, i) => {
-            return (
-              <TimeSegment
-                key={i}
-                segment={segment}
-                state={state}
-                hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
-                // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
-              />
-            )
-          })}
+          {state.segments.map((segment, i) => (
+            <TimeSegment
+              key={i}
+              segment={segment}
+              state={state}
+              inputRef={i === firstEditableIndex ? inputRef : undefined}
+              hasPadding={![8294, 8297].includes(segment.text.charCodeAt(0))}
+              // ^react-aria includes these characters to ensure correct RTL behaviour, but we want to avoid these adding random spacing
+            />
+          ))}
           <div className={styles.focusRing} />
         </div>
       </div>

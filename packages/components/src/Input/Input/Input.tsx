@@ -8,7 +8,7 @@ export type InputType = (typeof InputTypes)[number]
 export type InputStatusType = (typeof InputStatus)[number]
 
 export type InputProps = {
-  inputRef?: React.RefObject<HTMLInputElement>
+  inputRef?: React.Ref<HTMLInputElement>
   status?: InputStatusType
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode

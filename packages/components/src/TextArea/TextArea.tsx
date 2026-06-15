@@ -4,7 +4,7 @@ import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './TextArea.module.css'
 
 export type TextAreaProps = {
-  textAreaRef?: React.RefObject<HTMLTextAreaElement>
+  textAreaRef?: React.Ref<HTMLTextAreaElement>
   status?: 'default' | 'error' | 'caution'
   /**
    * Grows the input height as more content is added
