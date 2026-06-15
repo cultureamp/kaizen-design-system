@@ -1,4 +1,5 @@
 import React, { useId, useRef, type HTMLAttributes } from 'react'
+import { mergeRefs } from '@react-aria/utils'
 import classnames from 'classnames'
 import { type ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
 import { FieldMessage, type FieldMessageProps } from '~components/FieldMessage'
@@ -14,6 +15,7 @@ import { type MultiSelectOption, type ValidationMessage } from './types'
 import styles from './MultiSelect.module.scss'
 
 export type MultiSelectProps = {
+  inputRef?: React.Ref<HTMLButtonElement>
   label: string
   items: MultiSelectOptionsProps['options']
   selectedValues: Set<MultiSelectOption['value']>
@@ -39,6 +41,7 @@ export const MultiSelect = ({
   onOpenChange,
   classNameOverride,
   validationMessage,
+  inputRef,
   ...restProps
 }: MultiSelectProps): JSX.Element => {
   const fallbackId = useId()
@@ -88,7 +91,7 @@ export const MultiSelect = ({
 
       <div ref={refs.setReference} className={styles.toggleContainer}>
         <MultiSelectToggle
-          ref={toggleButtonRef}
+          ref={mergeRefs(toggleButtonRef, inputRef)}
           id={`${id}--toggle`}
           aria-labelledby={`${id}--label`}
           aria-describedby={`${validationId} ${descriptionId}`}

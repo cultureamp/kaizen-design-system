@@ -4,7 +4,8 @@ import { createRichTextEditor } from '../createRichTextEditor'
 import { type CommandOrTransaction } from '../types'
 
 type RTEOptions = {
-  editable: boolean
+  editable?: boolean
+  inputRef?: React.Ref<HTMLElement>
 }
 
 type SetEditableStatus = (status: boolean) => void
@@ -30,12 +31,8 @@ export const useRichTextEditor = (
    * Pass in HTML attributes into the parent RTE node
    */
   attributes?: Record<string, string>,
-  options?: RTEOptions,
+  { editable = true, inputRef }: RTEOptions = {},
 ): UseRichTextEditorReturnValue => {
-  options = {
-    editable: true,
-    ...options,
-  }
   const [editorState, setEditorState] = useState<EditorState>(initialEditorState)
   // Refs to hold the methods returned from ProseMirror’s initialization
   const destroyEditorRef = useRef<() => void>()
@@ -53,7 +50,7 @@ export const useRichTextEditor = (
   )
 
   // Hold editableStatus as a ref so we can toggle its status
-  const editableStatusRef = useRef<boolean>(options.editable)
+  const editableStatusRef = useRef<boolean>(editable)
   const setEditableStatus = useCallback<SetEditableStatus>(
     (status) => {
       editableStatusRef.current = status
@@ -76,6 +73,8 @@ export const useRichTextEditor = (
           destroyEditorRef.current()
           destroyEditorRef.current = undefined
         }
+        if (typeof inputRef === 'function') inputRef(null)
+        else if (inputRef) (inputRef as React.MutableRefObject<HTMLElement | null>).current = null
         return
       }
 
@@ -88,13 +87,17 @@ export const useRichTextEditor = (
       })
       destroyEditorRef.current = instance.destroy
       dispatchTransactionRef.current = instance.dispatchTransaction
+
+      if (typeof inputRef === 'function') inputRef(instance.dom)
+      else if (inputRef)
+        (inputRef as React.MutableRefObject<HTMLElement | null>).current = instance.dom
     },
 
     // Including editorState in the dependencies here will cause an endless
     // loop as the initialization changes its value
     // @todo: Fix if possible - avoiding breaking in eslint upgrade
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setEditorState, editableStatusRef],
+    [setEditorState, editableStatusRef, inputRef],
   )
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]
