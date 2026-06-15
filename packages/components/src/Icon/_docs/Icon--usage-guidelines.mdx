@@ -1,6 +1,7 @@
 import { Canvas, Meta, Controls, Story } from '@storybook/blocks'
 import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from '~storybook/components'
 import * as IconStories from './Icon.docs.stories'
+import * as IconsExtendedStories from './IconsExtended.stories'
 
 <Meta title="Components/Icon/Usage Guidelines" />
 
@@ -144,3 +145,11 @@ Important information can be hidden if it's only explained in tooltips, leading 
 Whilst you have access to all Material Symbols, the following icons match the default set we have in Figma.
 
 <Story of={IconStories.DefaultIconSet} />
+
+## Custom Icon
+
+Custom SVG icons that extend the icon set for use cases not covered by Material Symbols. Use these when a specific icon is required that does not exist in the Material Symbols library.
+
+`UserSettingsIcon` is the only custom icon currently available.
+
+<Canvas of={IconsExtendedStories.Playground} />

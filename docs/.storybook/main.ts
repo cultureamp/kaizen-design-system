@@ -1,6 +1,7 @@
 import path, { dirname, join } from 'path'
 import type { StorybookConfig } from '@storybook/react-vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import svgr from 'vite-plugin-svgr'
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -51,6 +52,17 @@ const config: StorybookConfig = {
   },
   viteFinal: (config) => {
     config?.plugins?.push(nodePolyfills())
+    config?.plugins?.push(
+      svgr({
+        include: '**/untitled-ui-extended-icons/*.svg',
+        svgrOptions: {
+          replaceAttrValues: {
+            '#000': 'currentColor',
+            '#000000': 'currentColor',
+          },
+        },
+      }),
+    )
 
     return config
   },
