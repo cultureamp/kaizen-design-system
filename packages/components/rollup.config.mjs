@@ -29,6 +29,7 @@ export default rollupConfig({
   },
   plugins: [
     svgr({
+      include: '**/custom-icons/*.svg',
       replaceAttrValues: {
         '#000': 'currentColor',
         '#000000': 'currentColor',
