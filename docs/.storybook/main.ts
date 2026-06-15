@@ -54,7 +54,7 @@ const config: StorybookConfig = {
     config?.plugins?.push(nodePolyfills())
     config?.plugins?.push(
       svgr({
-        include: '**/untitled-ui-extended-icons/*.svg',
+        include: '**/custom-icons/*.svg',
         svgrOptions: {
           replaceAttrValues: {
             '#000': 'currentColor',
