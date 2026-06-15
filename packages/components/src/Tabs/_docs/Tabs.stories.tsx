@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Button } from '~components/ButtonV1'
+import { Button } from '~components/Button'
 import { Text } from '~components/Text'
 import { Tab, TabList, TabPanel, Tabs, type Key } from '../index'
 
@@ -82,8 +82,44 @@ export const Controlled: Story = {
             <Text variant="body">Content 2</Text>
           </TabPanel>
         </Tabs>
-        <Button label="Switch to tab 2" onClick={(): void => setSelectedKey('two')} />
+        <Button onClick={(): void => setSelectedKey('two')}>Switch to tab 2</Button>
       </>
     )
   },
+}
+
+/**
+ * When a tab is selected via user interaction, `TabList` scrolls the selected tab
+ * into view within its horizontal strip. It deliberately does *not* do this on
+ * mount — so when `Tabs` render below the fold, landing on the page does not scroll
+ * the tabs into view or jump the page.
+ *
+ * This story pushes the `Tabs` below the fold with a full-viewport spacer. On load
+ * the page stays at the top. Scroll down and select a tab — only then does the
+ * selected tab scroll into view within the strip.
+ */
+export const BelowTheFold: Story = {
+  render: () => (
+    <div style={{ maxWidth: '760px' }}>
+      <div style={{ height: '100dvh' }}>
+        <Text variant="body">Scroll down — the tabs are rendered below the fold.</Text>
+      </div>
+      <Tabs defaultSelectedKey="tab-0">
+        <TabList aria-label="Lorem ipsum tabs">
+          {Array.from({ length: 8 }, (_, i) => (
+            <Tab key={i} id={`tab-${i}`}>
+              Lorem {i + 1}
+            </Tab>
+          ))}
+        </TabList>
+        {Array.from({ length: 8 }, (_, i) => (
+          <TabPanel key={i} id={`tab-${i}`} className="p-24">
+            <Text variant="body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit — panel {i + 1}.
+            </Text>
+          </TabPanel>
+        ))}
+      </Tabs>
+    </div>
+  ),
 }
