@@ -153,27 +153,17 @@ describe('useRichTextEditor()', () => {
     })
   })
 
-  it('is removed from DOM when unmounted', async () => {
-    const { unmount } = render(<Scenario />)
+  it('cleans up DOM and inputRef on unmount', async () => {
+    const inputRef = React.createRef<HTMLElement>()
+    const { unmount } = render(<Scenario inputRef={inputRef} />)
 
     const editor = screen.getByTestId('testid--editor')
     expect(editor).toBeInTheDocument()
+    expect(inputRef.current).toHaveAttribute('contenteditable', 'true')
 
     unmount()
 
     expect(screen.queryByTestId('testid--editor')).not.toBeInTheDocument()
-  })
-
-  it('assigns inputRef to contenteditable element and clears on unmount', async () => {
-    const inputRef = React.createRef<HTMLElement>()
-    const { unmount } = render(<Scenario inputRef={inputRef} />)
-
-    await waitFor(() => {
-      expect(inputRef.current).toHaveAttribute('contenteditable', 'true')
-    })
-
-    unmount()
-
     expect(inputRef.current).toBeNull()
   })
 })
