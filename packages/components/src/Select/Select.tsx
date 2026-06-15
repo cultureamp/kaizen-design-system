@@ -12,7 +12,14 @@ import { FieldMessage } from '~components/FieldMessage'
 import { Icon } from '~components/Icon'
 import { Label } from '~components/Label'
 import { Tag } from '~components/Tag'
+import { type TagVariants } from '~components/Tag/types'
 import styles from './Select.module.scss'
+
+export type SelectOption = {
+  value: string
+  label: string
+  tagColor?: (typeof TagVariants)[number]
+}
 
 export type SelectProps = {
   /**
@@ -217,7 +224,12 @@ const SingleValue: typeof components.SingleValue = (props) => (
 
 const MultiValue: typeof components.MultiValue = (props) => (
   <div className={styles.multiValue}>
-    <Tag variant="default" dismissible inline onDismiss={props.removeProps.onClick}>
+    <Tag
+      variant={(props.data as SelectOption)?.tagColor ?? 'default'}
+      dismissible
+      inline
+      onDismiss={props.removeProps.onClick}
+    >
       {props.children}
     </Tag>
   </div>
