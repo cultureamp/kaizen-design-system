@@ -153,7 +153,7 @@ describe('useRichTextEditor()', () => {
     })
   })
 
-  it('cleans up DOM and inputRef on unmount', async () => {
+  it('assigns ref on mount and cleans up DOM/ref on unmount', async () => {
     const inputRef = React.createRef<HTMLElement>()
     const { unmount } = render(<Scenario inputRef={inputRef} />)
 
