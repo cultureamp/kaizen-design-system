@@ -10,9 +10,11 @@ const user = userEvent.setup()
 const Scenario = ({
   onChange = () => undefined,
   editable = true,
+  inputRef,
 }: {
   onChange?: (editorState: EditorState) => void
   editable?: boolean
+  inputRef?: React.Ref<HTMLElement>
 }): JSX.Element => {
   const command: Command = (state, dispatch) => {
     // Insert text at the current selection point, which is the start because
@@ -25,7 +27,7 @@ const Scenario = ({
   const [ref, editorState, dispatchTransaction, setEditableStatus] = useRichTextEditor(
     testEditorState,
     { 'aria-labelledby': 'label-ref-id', 'data-testid': '12345678' },
-    { editable },
+    { editable, inputRef },
   )
 
   useEffect(() => {
@@ -160,5 +162,18 @@ describe('useRichTextEditor()', () => {
     unmount()
 
     expect(screen.queryByTestId('testid--editor')).not.toBeInTheDocument()
+  })
+
+  it('assigns inputRef to contenteditable element and clears on unmount', async () => {
+    const inputRef = React.createRef<HTMLElement>()
+    const { unmount } = render(<Scenario inputRef={inputRef} />)
+
+    await waitFor(() => {
+      expect(inputRef.current).toHaveAttribute('contenteditable', 'true')
+    })
+
+    unmount()
+
+    expect(inputRef.current).toBeNull()
   })
 })
