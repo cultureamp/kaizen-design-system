@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+- [#6752](https://github.com/cultureamp/kaizen-design-system/pull/6752) [`18d3902`](https://github.com/cultureamp/kaizen-design-system/commit/18d390239fb0b1847b0796e6431c4e2c782e2ac1) - Add inputRef prop to TimeField and DatePicker and widened TextField ref types for react-hook-form Controller compatibility
+
+### Patch Changes
+
+- [#6792](https://github.com/cultureamp/kaizen-design-system/pull/6792) [`2c70866`](https://github.com/cultureamp/kaizen-design-system/commit/2c70866fccc887fa93fefa6bb6cc825903dd2a5b) - Update dependencies
+
+- [#6793](https://github.com/cultureamp/kaizen-design-system/pull/6793) [`ac841d9`](https://github.com/cultureamp/kaizen-design-system/commit/ac841d98aef21d1f1cb13058df82845dc22c44e5) - `Tabs` no longer scrolls the selected tab into view on mount. Scrolling now only happens when the selection changes via user interaction, so rendering `Tabs` below the fold no longer scrolls the page on load.
+
 ## 3.1.6
 
 ### Patch Changes
