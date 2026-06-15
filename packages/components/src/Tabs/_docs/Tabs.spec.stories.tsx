@@ -117,6 +117,45 @@ export const ArrowsShowingAndHidingRTL: Story = {
   },
 }
 
+let scrollIntoViewCalls = 0
+const originalScrollIntoView = HTMLElement.prototype.scrollIntoView
+
+/**
+ * The selected tab must NOT be scrolled into view on mount (KZN-3363) — only when
+ * the selection changes via user interaction. This protects users who render Tabs
+ * below the fold from having the page jump on load.
+ */
+export const ScrollsIntoViewOnSelectionOnly: Story = {
+  name: 'Scrolls into view on selection only',
+  beforeEach: () => {
+    scrollIntoViewCalls = 0
+    HTMLElement.prototype.scrollIntoView = function (): void {
+      scrollIntoViewCalls += 1
+    }
+    return () => {
+      HTMLElement.prototype.scrollIntoView = originalScrollIntoView
+    }
+  },
+  render: (args) => (
+    <div style={{ maxWidth: '500px' }}>
+      <Tabs defaultSelectedKey="one" {...args} />
+    </div>
+  ),
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+
+    await step('No scroll into view on mount', async () => {
+      expect(scrollIntoViewCalls).toBe(0)
+    })
+
+    await step('Scrolls into view when a tab is selected', async () => {
+      const tabFour = await canvas.findByRole('tab', { name: 'Tab 4' })
+      await userEvent.click(tabFour)
+      await waitFor(() => expect(scrollIntoViewCalls).toBeGreaterThan(0))
+    })
+  },
+}
+
 export const AsyncLoaded: Story = {
   render: () => {
     const [selectedKey, setSelectedKey] = useState<Key>(0)
