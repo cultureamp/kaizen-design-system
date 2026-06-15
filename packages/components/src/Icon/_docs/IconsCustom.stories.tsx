@@ -7,7 +7,7 @@ const meta = {
   component: UserSettingsIcon,
   args: {
     size: 24,
-    color: '#FF0000',
+    color: '#000',
   },
 } satisfies Meta<typeof UserSettingsIcon>
 
