@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { UserSettingsIcon } from '../index'
+import { UserSettingsIcon } from '../CustomIcons'
 
 const meta = {
   title: 'Components/Icon/CustomIcons',
