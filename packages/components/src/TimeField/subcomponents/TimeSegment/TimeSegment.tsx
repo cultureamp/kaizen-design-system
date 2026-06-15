@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDateSegment } from '@react-aria/datepicker'
+import { mergeRefs } from '@react-aria/utils'
 import { type DateFieldState, type DateSegment } from '@react-stately/datepicker'
 import classnames from 'classnames'
 import { generateSegmentDisplayText } from './utils/generateSegmentDisplayText'
@@ -9,15 +10,17 @@ export type TimeSegmentProps = {
   segment: DateSegment
   state: DateFieldState
   hasPadding?: boolean
+  inputRef?: React.Ref<HTMLSpanElement>
 }
 
 export const TimeSegment = ({
   segment,
   state,
   hasPadding = true,
+  inputRef,
 }: TimeSegmentProps): JSX.Element => {
-  const ref = React.useRef<HTMLDivElement>(null)
-  const { segmentProps } = useDateSegment(segment, state, ref)
+  const internalRef = React.useRef<HTMLSpanElement>(null)
+  const { segmentProps } = useDateSegment(segment, state, internalRef)
 
   // Chrome has a bug where `contenteditable` elements receive focus from external clicks.
   // This (in combination with the invisible character &#8203;) creates boundaries
@@ -28,7 +31,7 @@ export const TimeSegment = ({
       &#8203;
       <span
         {...segmentProps}
-        ref={ref}
+        ref={mergeRefs<HTMLSpanElement>(internalRef, inputRef)}
         className={classnames(
           styles.timeSegment,
           segment.type === 'literal' && styles.literal,
