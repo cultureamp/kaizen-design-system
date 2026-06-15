@@ -19,11 +19,6 @@ declare module '*.png' {
 }
 
 declare module '*.svg' {
-  import type { FC, SVGProps } from 'react'
-  export interface Props extends SVGProps<SVGSVGElement> {
-    color?: string
-    size?: number
-  }
-  const SVGComponent: FC<Props>
+  const SVGComponent: import('react').FC<import('./src/Icon/types').Props>
   export default SVGComponent
 }
