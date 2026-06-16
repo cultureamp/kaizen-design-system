@@ -10,11 +10,9 @@ const iconTemplate = (variables, { tpl }) => tpl`
     size?: number;
   }
 
-  const ${variables.componentName}: FC<Props> = ({ size = 24, color = 'currentColor', ...props }) => (
+  export const ${variables.componentName}: FC<Props> = ({ size = 24, color = 'currentColor', ...props }) => (
     ${variables.jsx}
   );
-
-  export default ${variables.componentName};
 `
 
 export default rollupConfig({
