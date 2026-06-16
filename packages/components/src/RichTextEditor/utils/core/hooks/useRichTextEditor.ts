@@ -52,6 +52,10 @@ export const useRichTextEditor = (
 
   // Hold editableStatus as a ref so we can toggle its status
   const editableStatusRef = useRef<boolean>(editable)
+
+  // Stable ref to avoid recreating editorRef when inputRef callback identity changes
+  const inputRefRef = useRef(inputRef)
+  inputRefRef.current = inputRef
   const setEditableStatus = useCallback<SetEditableStatus>(
     (status) => {
       editableStatusRef.current = status
@@ -74,10 +78,10 @@ export const useRichTextEditor = (
           destroyEditorRef.current()
           destroyEditorRef.current = undefined
         }
-        if (inputRef && isRefObject(inputRef)) {
-          ;(inputRef as React.MutableRefObject<HTMLElement | null>).current = null
+        if (inputRefRef.current && isRefObject(inputRefRef.current)) {
+          ;(inputRefRef.current as React.MutableRefObject<HTMLElement | null>).current = null
         } else {
-          inputRef?.(null)
+          inputRefRef.current?.(null)
         }
         return
       }
@@ -92,10 +96,10 @@ export const useRichTextEditor = (
       destroyEditorRef.current = instance.destroy
       dispatchTransactionRef.current = instance.dispatchTransaction
 
-      if (inputRef && isRefObject(inputRef)) {
-        ;(inputRef as React.MutableRefObject<HTMLElement | null>).current = instance.dom
+      if (inputRefRef.current && isRefObject(inputRefRef.current)) {
+        ;(inputRefRef.current as React.MutableRefObject<HTMLElement | null>).current = instance.dom
       } else {
-        inputRef?.(instance.dom)
+        inputRefRef.current?.(instance.dom)
       }
     },
 
@@ -103,7 +107,7 @@ export const useRichTextEditor = (
     // loop as the initialization changes its value
     // @todo: Fix if possible - avoiding breaking in eslint upgrade
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [setEditorState, editableStatusRef, inputRef],
+    [setEditorState, editableStatusRef],
   )
 
   return [editorRef, editorState, dispatchTransaction, setEditableStatus]
