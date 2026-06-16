@@ -10,7 +10,7 @@ const iconTemplate = (variables, { tpl }) => tpl`
     size?: number;
   }
 
-  export const ${variables.componentName}: FC<Props> = ({ size = 24, color = 'currentColor', ...props }) => (
+  export const ReactComponent: FC<Props> = ({ size = 24, color = 'currentColor', ...props }) => (
     ${variables.jsx}
   );
 `

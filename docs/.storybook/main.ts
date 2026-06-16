@@ -57,11 +57,9 @@ const config: StorybookConfig = {
     const iconTemplate = (variables: any, { tpl }: any) => tpl`
       import * as React from 'react';
 
-      const ${variables.componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
+      export const ReactComponent = ({ size = 24, color = 'currentColor', ...props }) => (
         ${variables.jsx}
       );
-
-      export default ${variables.componentName};
     `
 
     config?.plugins?.push(
