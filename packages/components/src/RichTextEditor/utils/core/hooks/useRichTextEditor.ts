@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { type EditorState } from 'prosemirror-state'
+import { isRefObject } from '~components/utils/isRefObject'
 import { createRichTextEditor } from '../createRichTextEditor'
 import { type CommandOrTransaction } from '../types'
 
@@ -73,8 +74,11 @@ export const useRichTextEditor = (
           destroyEditorRef.current()
           destroyEditorRef.current = undefined
         }
-        if (typeof inputRef === 'function') inputRef(null)
-        else if (inputRef) (inputRef as React.MutableRefObject<HTMLElement | null>).current = null
+        if (inputRef && isRefObject(inputRef)) {
+          ;(inputRef as React.MutableRefObject<HTMLElement | null>).current = null
+        } else {
+          inputRef?.(null)
+        }
         return
       }
 
@@ -88,9 +92,11 @@ export const useRichTextEditor = (
       destroyEditorRef.current = instance.destroy
       dispatchTransactionRef.current = instance.dispatchTransaction
 
-      if (typeof inputRef === 'function') inputRef(instance.dom)
-      else if (inputRef)
-        (inputRef as React.MutableRefObject<HTMLElement | null>).current = instance.dom
+      if (inputRef && isRefObject(inputRef)) {
+        ;(inputRef as React.MutableRefObject<HTMLElement | null>).current = instance.dom
+      } else {
+        inputRef?.(instance.dom)
+      }
     },
 
     // Including editorState in the dependencies here will cause an endless
