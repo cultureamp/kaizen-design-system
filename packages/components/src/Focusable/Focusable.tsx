@@ -29,8 +29,11 @@ export const Focusable = <T extends ElementType = 'div'>({
       className={classnames(styles.focusableWrapper, className)}
       {...focusableProps}
       data-inline-hidden-content
+      // We want the element to be focusable for keyboard users,
+      // but screen readers will have the VisuallyHidden content
       tabIndex={0}
-      // aria-describedby on this element does nothing — tooltip renders VisuallyHidden content instead
+      // aria-describedby on div doesn't do anthing so we instead render the content in VisuallyHidden from tooltip
+      // but because RAC adds it as it assumes it's interactive element we remove it here
       aria-describedby={undefined}
       {...props}
     >
