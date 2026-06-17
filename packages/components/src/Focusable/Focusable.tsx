@@ -29,7 +29,6 @@ export const Focusable = <T extends ElementType = 'span'>({
       className={classnames(styles.focusableWrapper, className)}
       {...focusableProps}
       data-inline-hidden-content
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
       // aria-describedby on this element does nothing — tooltip renders VisuallyHidden content instead
       aria-describedby={undefined}
