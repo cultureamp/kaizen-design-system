@@ -1,33 +1,41 @@
-import React, { useRef, type HTMLAttributes, type ReactNode } from 'react'
+import React, { useRef, type ElementType, type HTMLAttributes, type ReactNode } from 'react'
 import classnames from 'classnames'
 import { useFocusable, type FocusableOptions } from 'react-aria'
 import styles from './Focusable.module.css'
 
-export type FocusableProps = {
+export type FocusableProps<T extends ElementType = 'span'> = {
   children: ReactNode
+  /**
+   * The HTML element to render as. Defaults to `span` to avoid block-in-inline
+   * hydration errors when Focusable wraps content inside a `<p>` or other inline context.
+   */
+  as?: T
 } & FocusableOptions &
-  HTMLAttributes<HTMLDivElement>
+  HTMLAttributes<HTMLElement>
 
-export const Focusable = ({ children, className, ...props }: FocusableProps): JSX.Element => {
-  const ref = useRef<HTMLDivElement>(null)
+export const Focusable = <T extends ElementType = 'span'>({
+  children,
+  className,
+  as,
+  ...props
+}: FocusableProps<T>): JSX.Element => {
+  const ref = useRef<HTMLElement>(null)
   const { focusableProps } = useFocusable(props, ref)
+  const Element = as ?? 'span'
 
   return (
-    <div
+    <Element
       ref={ref}
       className={classnames(styles.focusableWrapper, className)}
       {...focusableProps}
       data-inline-hidden-content
-      // We want the div to be focusable for keyboard users,
-      // but screen readers will have the VisuallyHidden content
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
-      // aria-describedby on div doesn't do anthing so we instead render the content in VisuallyHidden from tooltip
-      // but because RAC adds it as it assumes it's interactive element we remove it here
+      // aria-describedby on this element does nothing — tooltip renders VisuallyHidden content instead
       aria-describedby={undefined}
       {...props}
     >
       {children}
-    </div>
+    </Element>
   )
 }
