@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+- [#6795](https://github.com/cultureamp/kaizen-design-system/pull/6795) [`94c7556`](https://github.com/cultureamp/kaizen-design-system/commit/94c755615e3e3244559565f66a5bee6baa67236e) - Added ref prop to single and multi Select and RTE Editor
+
+### Patch Changes
+
+- [#6797](https://github.com/cultureamp/kaizen-design-system/pull/6797) [`d035318`](https://github.com/cultureamp/kaizen-design-system/commit/d0353188b44f5f15b64c46a862fb566febe1eee0) - `NotificationVariant` is now exported from the package root. Previously it was declared in `Notification/types.ts` but not re-exported by the `Notification` index, so consumers could not import it directly and had to derive it via `ComponentProps`. This brings it in line with `ToastNotification` and other components that re-export their shared `types` module.
+
+- [#6800](https://github.com/cultureamp/kaizen-design-system/pull/6800) [`793464d`](https://github.com/cultureamp/kaizen-design-system/commit/793464d736b6952d85f1f4fe9a756026f9adea8e) - Updated the tooltip Focusable tag to accept an optional tag prop that determines the html element wrapping the passed in children
+
+- [#6801](https://github.com/cultureamp/kaizen-design-system/pull/6801) [`12b8552`](https://github.com/cultureamp/kaizen-design-system/commit/12b855265133df8fa3ee8b85d755e87ec37107a9) - Fix continued Chromatic flakiness on Avatar with long initials. The previous `data-chromatic="ignore"` fix was applied to an element whose size changes with the non-deterministic dynamic font size, and consequently has continued to trigger Chromatic diffs. This change promotes that fix to the parent `abbr`, which has a fixed size, as recommended by Chromatic support to resolve the flakiness.
+
 ## 3.2.0
 
 ### Minor Changes
