@@ -122,8 +122,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       playwright:
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: ^1.61.0
+        version: 1.61.0
       plop:
         specifier: ^4.0.5
         version: 4.0.5(@types/node@22.19.21)
@@ -229,7 +229,7 @@ importers:
         version: 6.0.2(vite@7.3.1(@types/node@22.19.21)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.22.4)(yaml@2.8.4))
       axe-playwright:
         specifier: ^2.2.2
-        version: 2.2.2(playwright@1.60.0)
+        version: 2.2.2(playwright@1.61.0)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -243,8 +243,8 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
       playwright:
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: ^1.61.0
+        version: 1.61.0
       react-highlight:
         specifier: ^0.15.0
         version: 0.15.0
@@ -351,8 +351,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3
       prosemirror-model:
-        specifier: ^1.25.8
-        version: 1.25.8
+        specifier: ^1.25.9
+        version: 1.25.9
       prosemirror-schema-basic:
         specifier: ^1.2.4
         version: 1.2.4
@@ -367,7 +367,7 @@ importers:
         version: 1.12.0
       prosemirror-utils:
         specifier: ^1.2.2
-        version: 1.2.2(prosemirror-model@1.25.8)(prosemirror-state@1.4.4)
+        version: 1.2.2(prosemirror-model@1.25.9)(prosemirror-state@1.4.4)
       prosemirror-view:
         specifier: ^1.41.9
         version: 1.41.9
@@ -8388,13 +8388,13 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright-core@1.60.0:
-    resolution: {integrity: sha512-9bW6zvX/m0lEbgTKJ6YppOKx8H3VOPBMOCFh2irXFOT4BbHgrx5hPjwJYLT40Lu+4qtD36qKc/Hn56StUW57IA==}
+  playwright-core@1.61.0:
+    resolution: {integrity: sha512-caX7TrY3Ml6egyDX0WUcTHDxodl/b51y5wJOdCEA36QviK/s2g081hvmGs8eaE3DWb6NYZQ6BjO/QkNRPenoPA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.60.0:
-    resolution: {integrity: sha512-hheHdokM8cdqCb0lcE3s+zT4t4W+vvjpGxsZlDnikarzx8tSzMebh3UiFtgqwFwnTnjYQcsyMF8ei2mCO/tpeA==}
+  playwright@1.61.0:
+    resolution: {integrity: sha512-Z+7BeeqQPRRzklHsVFP4KTGIyMxKUmfeRA4WisM6G3/XW6nwGeX6fX9qYaDa+CiUqpOkb2f6X3nar05R3kSuJQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -8928,8 +8928,8 @@ packages:
   prosemirror-keymap@1.2.3:
     resolution: {integrity: sha512-4HucRlpiLd1IPQQXNqeo81BGtkY8Ai5smHhKW9jjPKRc2wQIxksg7Hl1tTI2IfT2B/LgX6bfYvXxEpJl7aKYKw==}
 
-  prosemirror-model@1.25.8:
-    resolution: {integrity: sha512-BswA4BLSFEiORV6Vjj/yZBXDbos1zTEnhyeSSgT8psGFhstQS7UJ8/WOLiDos9Byaee27+tml0/DuMNxYR84zg==}
+  prosemirror-model@1.25.9:
+    resolution: {integrity: sha512-pRTklkDDMMRopyoAcrr9wV/8g/RYgrLHBuJAb5hlEuYZRdm5yqmPjWId83fpBwPpSFqEdja0H7Dfd7z1X/npcA==}
 
   prosemirror-schema-basic@1.2.4:
     resolution: {integrity: sha512-ELxP4TlX3yr2v5rM7Sb70SqStq5NvI15c0j9j/gjsrO5vaw+fnnpovCLEGIcpeGfifkuqJwl4fon6b+KdrODYQ==}
@@ -14630,7 +14630,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 3.0.1(jest@30.2.0(@types/node@22.19.21)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.21)(typescript@5.9.3)))
       nyc: 15.1.0
-      playwright: 1.60.0
+      playwright: 1.61.0
       playwright-core: 1.59.1
       rimraf: 3.0.2
       storybook: 8.6.17(prettier@3.8.4)
@@ -15680,14 +15680,14 @@ snapshots:
       axe-core: 4.10.3
       mustache: 4.2.0
 
-  axe-playwright@2.2.2(playwright@1.60.0):
+  axe-playwright@2.2.2(playwright@1.61.0):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.10.3
       axe-html-reporter: 2.2.11(axe-core@4.10.3)
       junit-report-builder: 5.1.1
       picocolors: 1.1.1
-      playwright: 1.60.0
+      playwright: 1.61.0
 
   axios@1.18.0:
     dependencies:
@@ -20028,11 +20028,11 @@ snapshots:
 
   playwright-core@1.59.1: {}
 
-  playwright-core@1.60.0: {}
+  playwright-core@1.61.0: {}
 
-  playwright@1.60.0:
+  playwright@1.61.0:
     dependencies:
-      playwright-core: 1.60.0
+      playwright-core: 1.61.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -20620,7 +20620,7 @@ snapshots:
 
   prosemirror-commands@1.7.1:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
       prosemirror-state: 1.4.4
       prosemirror-transform: 1.12.0
 
@@ -20641,38 +20641,38 @@ snapshots:
       prosemirror-state: 1.4.4
       w3c-keyname: 2.2.8
 
-  prosemirror-model@1.25.8:
+  prosemirror-model@1.25.9:
     dependencies:
       orderedmap: 2.1.1
 
   prosemirror-schema-basic@1.2.4:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
 
   prosemirror-schema-list@1.5.1:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
       prosemirror-state: 1.4.4
       prosemirror-transform: 1.12.0
 
   prosemirror-state@1.4.4:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
       prosemirror-transform: 1.12.0
       prosemirror-view: 1.41.9
 
   prosemirror-transform@1.12.0:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
 
-  prosemirror-utils@1.2.2(prosemirror-model@1.25.8)(prosemirror-state@1.4.4):
+  prosemirror-utils@1.2.2(prosemirror-model@1.25.9)(prosemirror-state@1.4.4):
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
       prosemirror-state: 1.4.4
 
   prosemirror-view@1.41.9:
     dependencies:
-      prosemirror-model: 1.25.8
+      prosemirror-model: 1.25.9
       prosemirror-state: 1.4.4
       prosemirror-transform: 1.12.0
 
