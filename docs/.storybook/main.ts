@@ -59,6 +59,7 @@ const config: StorybookConfig = {
       const ${variables.componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
         ${variables.jsx}
       );
+      
       export default ${variables.componentName};
     `
 
