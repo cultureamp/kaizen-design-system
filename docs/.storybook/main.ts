@@ -56,10 +56,10 @@ const config: StorybookConfig = {
     // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
     const iconTemplate = (variables: any, { tpl }: any) => tpl`
       import * as React from 'react';
-
-      export const ReactComponent = ({ size = 24, color = 'currentColor', ...props }) => (
+      const ${variables.componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
         ${variables.jsx}
       );
+      export default ${variables.componentName};
     `
 
     config?.plugins?.push(

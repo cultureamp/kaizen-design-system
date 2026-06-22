@@ -4,15 +4,10 @@ import svgr from '@svgr/rollup'
 const iconTemplate = (variables, { tpl }) => tpl`
   import * as React from 'react';
   import type { FC, SVGProps } from 'react';
-
-  export interface Props extends SVGProps<SVGSVGElement> {
-    color?: string;
-    size?: number;
-  }
-
-  export const ReactComponent: FC<Props> = ({ size = 24, color = 'currentColor', ...props }) => (
+  const ${variables.componentName}: FC<SVGProps<SVGSVGElement> & { color?: string; size?: number }> = ({ size = 24, color = 'currentColor', ...props }) => (
     ${variables.jsx}
   );
+  export default ${variables.componentName};
 `
 
 export default rollupConfig({

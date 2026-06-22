@@ -1,1 +1,2 @@
-export { ReactComponent as SVGUserSettingsIcon } from '../../assets/svgs/custom-icons/user-settings.svg'
+import UserSettingsIcon from '../../assets/svgs/custom-icons/user-settings.svg'
+export { UserSettingsIcon }

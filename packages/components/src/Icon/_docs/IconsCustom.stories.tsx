@@ -1,15 +1,15 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { SVGUserSettingsIcon } from '../CustomIcons'
+import { UserSettingsIcon } from '../CustomIcons'
 
 const meta = {
   title: 'Components/Icon/CustomIcons',
-  component: SVGUserSettingsIcon,
+  component: UserSettingsIcon,
   args: {
     size: 24,
     color: '#000',
   },
-} satisfies Meta<typeof SVGUserSettingsIcon>
+} satisfies Meta<typeof UserSettingsIcon>
 
 export default meta
 
