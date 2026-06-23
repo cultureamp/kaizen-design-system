@@ -4,7 +4,7 @@ name: Kaizen Design System
 description: Culture Amp's design system for building consistent, accessible, and delightful user experiences with React and TypeScript.
 
 colors:
-  # Primary Brand Colors
+  # Purple
   purple-100: '#f4edf8'
   purple-200: '#dfc9ea'
   purple-300: '#c9a5dd'
