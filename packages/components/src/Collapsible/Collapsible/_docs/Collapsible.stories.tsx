@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { SingleSelect } from '~components/SingleSelect'
 import { Text } from '~components/Text'
-import { Collapsible } from '../index'
+import { Collapsible, type ButtonRef } from '../index'
 
 const meta = {
   title: 'Components/Collapsibles/Collapsible',
@@ -100,6 +100,60 @@ export const Controlled: Story = {
     return <Collapsible {...args} open={isOpen} onToggle={setIsOpen} />
   },
   parameters: { docs: { source: { code: controlledSourceCode } } },
+}
+
+export const WithProgrammaticFocus: Story = {
+  args: {
+    title: 'Collapsible with Programmatic Focus',
+  },
+  render: (args) => {
+    const collapsibleRef = useRef<ButtonRef>(null)
+    const [isLoading, setIsLoading] = useState(false)
+
+    const handleSaveAndFocus = async (): Promise<void> => {
+      setIsLoading(true)
+      // Simulate async operation (e.g., API call)
+      await new Promise((resolve) => setTimeout(resolve, 1000))
+      setIsLoading(false)
+      // Focus the toggle button after the async operation
+      collapsibleRef.current?.focus()
+    }
+
+    return (
+      <div>
+        <div style={{ marginBottom: '1rem' }}>
+          <button
+            type="button"
+            onClick={handleSaveAndFocus}
+            disabled={isLoading}
+            data-testid="save-button"
+          >
+            {isLoading ? 'Saving...' : 'Save and Focus Collapsible'}
+          </button>
+          <Text variant="body" style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>
+            {isLoading
+              ? 'Saving... The button will be focused after the operation completes.'
+              : 'Click to simulate an async operation, then programmatically focus the collapsible toggle.'}
+          </Text>
+        </div>
+        <Collapsible {...args} ref={collapsibleRef}>
+          <Text variant="body">
+            After the async operation (like a save in a sortable list), the focus is moved to the
+            toggle button. This allows keyboard users to immediately interact with the collapsible
+            without needing to manually navigate.
+          </Text>
+        </Collapsible>
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Demonstrates programmatically focusing the toggle button after an async operation. This is useful for sortable lists where items are saved and you want to restore focus to the toggle button.',
+      },
+    },
+  },
 }
 
 export const WithSingleSelect: Story = {

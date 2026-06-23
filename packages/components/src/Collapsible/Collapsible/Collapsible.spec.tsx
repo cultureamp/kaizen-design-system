@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { queryByTestId, render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
+import { type ButtonRef } from '~components/ButtonV1'
 import { Collapsible } from './Collapsible'
 const user = userEvent.setup()
 
@@ -135,6 +136,131 @@ describe('<Collapsible />', () => {
     await user.click(header)
     await waitFor(() => {
       expect(section).toHaveAttribute('inert')
+    })
+  })
+
+  describe('Ref support', () => {
+    it('exposes a ref to the toggle button with focus method', () => {
+      const ref = React.createRef<ButtonRef | undefined>()
+      render(
+        <Collapsible ref={ref} id="1" title="First panel">
+          First panel content
+        </Collapsible>,
+      )
+
+      expect(ref.current).toBeDefined()
+      expect(ref.current?.focus).toBeDefined()
+      expect(typeof ref.current?.focus).toBe('function')
+    })
+
+    it('allows focusing the toggle button via ref', () => {
+      const ref = React.createRef<ButtonRef | undefined>()
+      const { getByTestId } = render(
+        <Collapsible ref={ref} id="1" title="First panel">
+          First panel content
+        </Collapsible>,
+      )
+
+      const button = getByTestId('collapsible-button-1')
+      const focusSpy = vi.spyOn(button, 'focus')
+
+      ref.current?.focus()
+
+      expect(focusSpy).toHaveBeenCalled()
+    })
+
+    it('ref works in controlled mode', () => {
+      const ref = React.createRef<ButtonRef | undefined>()
+      const { rerender, getByTestId } = render(
+        <Collapsible ref={ref} id="1" title="First panel" open controlled>
+          First panel content
+        </Collapsible>,
+      )
+
+      const button = getByTestId('collapsible-button-1')
+      const focusSpy = vi.spyOn(button, 'focus')
+
+      ref.current?.focus()
+
+      expect(focusSpy).toHaveBeenCalled()
+
+      // Verify ref is still functional after re-render
+      rerender(
+        <Collapsible ref={ref} id="1" title="First panel" open={false} controlled>
+          First panel content
+        </Collapsible>,
+      )
+
+      ref.current?.focus()
+      expect(focusSpy).toHaveBeenCalledTimes(2)
+    })
+
+    it('ref works in uncontrolled mode', () => {
+      const ref = React.createRef<ButtonRef | undefined>()
+      const { getByTestId } = render(
+        <Collapsible ref={ref} id="1" title="First panel" open>
+          First panel content
+        </Collapsible>,
+      )
+
+      const button = getByTestId('collapsible-button-1')
+      const focusSpy = vi.spyOn(button, 'focus')
+
+      ref.current?.focus()
+
+      expect(focusSpy).toHaveBeenCalled()
+    })
+
+    it('ref is accessible when no id prop is provided (uses fallback)', () => {
+      const ref = React.createRef<ButtonRef | undefined>()
+      const { container } = render(
+        <Collapsible ref={ref} title="First panel">
+          First panel content
+        </Collapsible>,
+      )
+
+      expect(ref.current).toBeDefined()
+      expect(ref.current?.focus).toBeDefined()
+
+      // Find the button element (querySelector with * selector would also match the title div)
+      const button = container.querySelector('button[data-testid*="collapsible-button-"]')!
+      expect(button).toBeTruthy()
+      const focusSpy = vi.spyOn(button, 'focus')
+
+      ref.current?.focus()
+
+      expect(focusSpy).toHaveBeenCalled()
+    })
+
+    it('supports useRef hook pattern for ref management', async () => {
+      const TestComponent = (): JSX.Element => {
+        const collapsibleRef = useRef<ButtonRef>(null)
+
+        return (
+          <>
+            <button
+              type="button"
+              onClick={() => collapsibleRef.current?.focus()}
+              data-testid="focus-button"
+            >
+              Focus Collapsible
+            </button>
+            <Collapsible ref={collapsibleRef} id="1" title="First panel">
+              First panel content
+            </Collapsible>
+          </>
+        )
+      }
+
+      const { getByTestId } = render(<TestComponent />)
+
+      const button = getByTestId('collapsible-button-1')
+      const focusSpy = vi.spyOn(button, 'focus')
+
+      const focusButton = getByTestId('focus-button')
+      await user.click(focusButton)
+
+      expect(focusSpy).toHaveBeenCalled()
     })
   })
 })

@@ -1,7 +1,7 @@
-import React, { useId, useState, type HTMLAttributes } from 'react'
+import React, { forwardRef, useId, useRef, useState, type HTMLAttributes, type Ref } from 'react'
 import classnames from 'classnames'
 import AnimateHeight from 'react-animate-height'
-import { IconButton } from '~components/ButtonV1'
+import { IconButton, type ButtonRef } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
@@ -36,118 +36,131 @@ export type CollapsibleProps = {
   controlled?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const Collapsible = ({
-  children,
-  title,
-  renderHeader,
-  open,
-  group,
-  separated,
-  sticky,
-  noSectionPadding,
-  onToggle,
-  variant = 'default',
-  lazyLoad,
-  controlled,
-  classNameOverride,
-  id: propsId,
-  ...restProps
-}: CollapsibleProps): JSX.Element => {
-  const [stateIsOpen, setIsOpen] = useState<boolean>(open ?? false)
-  const getOpen = (): boolean | undefined => (controlled ? open : stateIsOpen)
+export const Collapsible = forwardRef<ButtonRef | undefined, CollapsibleProps>(
+  (
+    {
+      children,
+      title,
+      renderHeader,
+      open,
+      group,
+      separated,
+      sticky,
+      noSectionPadding,
+      onToggle,
+      variant = 'default',
+      lazyLoad,
+      controlled,
+      classNameOverride,
+      id: propsId,
+      ...restProps
+    }: CollapsibleProps,
+    ref: Ref<ButtonRef | undefined>,
+  ) => {
+    const [stateIsOpen, setIsOpen] = useState<boolean>(open ?? false)
+    const getOpen = (): boolean | undefined => (controlled ? open : stateIsOpen)
 
-  const fallbackId = useId()
-  const id = propsId ?? fallbackId
+    const fallbackId = useId()
+    const id = propsId ?? fallbackId
+    const buttonRef = useRef<ButtonRef>(null)
 
-  const handleSectionToggle = (): void => {
-    const newIsOpen = !getOpen()
-    if (!controlled) setIsOpen(newIsOpen)
-    onToggle?.(newIsOpen, id)
-  }
+    // Forward the ref passed to Collapsible to the internal button ref
+    React.useImperativeHandle(ref, () => buttonRef.current ?? undefined, [])
 
-  const handleButtonPress = (event: React.MouseEvent): void => {
-    event.stopPropagation()
-    handleSectionToggle()
-  }
+    const handleSectionToggle = (): void => {
+      const newIsOpen = !getOpen()
+      if (!controlled) setIsOpen(newIsOpen)
+      onToggle?.(newIsOpen, id)
+    }
 
-  const buttonId = `${id}-button`
-  const sectionId = `${id}-section`
-  const isOpen = getOpen()
-  const isContainer = !group || separated
+    const handleButtonPress = (event: React.MouseEvent): void => {
+      event.stopPropagation()
+      handleSectionToggle()
+    }
 
-  return (
-    <div
-      id={id}
-      className={classnames(
-        classNameOverride,
-        isContainer && styles.container,
-        group && !separated && styles.groupItem,
-        separated && styles.separated,
-      )}
-      data-testid={`collapsible-container-${id}`}
-      {...restProps} // `title` is missing because it is used for the header; requires breaking change to fix
-    >
-      {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
-      jsx-a11y/no-static-element-interactions */}
+    const buttonId = `${id}-button`
+    const sectionId = `${id}-section`
+    const isOpen = getOpen()
+    const isContainer = !group || separated
+
+    return (
       <div
+        id={id}
         className={classnames(
-          styles.header,
-          isOpen && styles.open,
-          sticky && styles.sticky,
-          isOpen && variant === 'default' && styles.defaultVariant,
-          isOpen && variant === 'clear' && styles.clearVariant,
+          classNameOverride,
+          isContainer && styles.container,
+          group && !separated && styles.groupItem,
+          separated && styles.separated,
         )}
-        style={sticky && { top: sticky.top }}
-        onClick={handleSectionToggle}
-        data-testid={`collapsible-header-${id}`}
+        data-testid={`collapsible-container-${id}`}
+        {...restProps} // `title` is missing because it is used for the header; requires breaking change to fix
       >
-        {renderHeader !== undefined ? (
-          renderHeader(title)
-        ) : (
-          <div className={styles.title} data-testid={`collapsible-button-title-${id}`}>
-            <Heading variant="heading-4" tag="span">
-              {title}
-            </Heading>
-          </div>
-        )}
-        <div>
-          <IconButton
-            label={title}
-            icon={
-              <Icon name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'} isPresentational />
-            }
-            type="button"
-            aria-expanded={isOpen}
-            aria-controls={sectionId}
-            data-testid={`collapsible-button-${id}`}
-            id={buttonId}
-            onClick={handleButtonPress}
-            classNameOverride={styles.chevronButton}
-          />
-        </div>
-      </div>
-      {(!lazyLoad || isOpen) && (
-        <AnimateHeight
-          height={isOpen ? 'auto' : 0}
-          disableDisplayNone
-          data-testid={`collapsible-section-${id}`}
+        {/* Disabling these a11y linting errors because there is an IconButton that mitigates these concerns. The onClick here is just an additional layer. */}
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,
+        jsx-a11y/no-static-element-interactions */}
+        <div
+          className={classnames(
+            styles.header,
+            isOpen && styles.open,
+            sticky && styles.sticky,
+            isOpen && variant === 'default' && styles.defaultVariant,
+            isOpen && variant === 'clear' && styles.clearVariant,
+          )}
+          style={sticky && { top: sticky.top }}
+          onClick={handleSectionToggle}
+          data-testid={`collapsible-header-${id}`}
         >
-          <div
-            id={sectionId}
-            className={classnames(styles.section, noSectionPadding && styles.noPadding)}
-            role="region"
-            aria-labelledby={buttonId}
-            // TODO: Remove @ts-expect-error when upgrade to @types/react@19 that support the `inert` HTML attribute
-            // @ts-expect-error current react types don't yet support the `inert` HTML attribute
-            inert={isOpen ? undefined : true}
-          >
-            {children}
+          {renderHeader !== undefined ? (
+            renderHeader(title)
+          ) : (
+            <div className={styles.title} data-testid={`collapsible-button-title-${id}`}>
+              <Heading variant="heading-4" tag="span">
+                {title}
+              </Heading>
+            </div>
+          )}
+          <div>
+            <IconButton
+              ref={buttonRef}
+              label={title}
+              icon={
+                <Icon
+                  name={isOpen ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
+                  isPresentational
+                />
+              }
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={sectionId}
+              data-testid={`collapsible-button-${id}`}
+              id={buttonId}
+              onClick={handleButtonPress}
+              classNameOverride={styles.chevronButton}
+            />
           </div>
-        </AnimateHeight>
-      )}
-    </div>
-  )
-}
+        </div>
+        {(!lazyLoad || isOpen) && (
+          <AnimateHeight
+            height={isOpen ? 'auto' : 0}
+            disableDisplayNone
+            data-testid={`collapsible-section-${id}`}
+          >
+            <div
+              id={sectionId}
+              className={classnames(styles.section, noSectionPadding && styles.noPadding)}
+              role="region"
+              aria-labelledby={buttonId}
+              // TODO: Remove @ts-expect-error when upgrade to @types/react@19 that support the `inert` HTML attribute
+              // @ts-expect-error current react types don't yet support the `inert` HTML attribute
+              inert={isOpen ? undefined : true}
+            >
+              {children}
+            </div>
+          </AnimateHeight>
+        )}
+      </div>
+    )
+  },
+)
 
 Collapsible.displayName = 'Collapsible'
