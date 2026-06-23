@@ -112,153 +112,150 @@ typography:
   # Display Typography (Tiempos Headline)
   display-0:
     fontFamily: '"Tiempos Headline", Georgia, serif'
-    fontSize: 72
+    fontSize: 72px
     fontWeight: 800
-    lineHeight: 84
-    letterSpacing: 0
+    lineHeight: 84px
+    letterSpacing: '0em'
 
   # Headings (Inter)
   heading-1:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 34
+    fontSize: 34px
     fontWeight: 500
-    lineHeight: 42
+    lineHeight: 42px
 
   heading-2:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 28
+    fontSize: 28px
     fontWeight: 600
-    lineHeight: 36
+    lineHeight: 36px
 
   heading-3:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 22
+    fontSize: 22px
     fontWeight: 600
-    lineHeight: 30
+    lineHeight: 30px
 
   heading-4:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 18
+    fontSize: 18px
     fontWeight: 600
-    lineHeight: 24
+    lineHeight: 24px
 
   heading-5:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 16
+    fontSize: 16px
     fontWeight: 600
-    lineHeight: 24
+    lineHeight: 24px
 
   heading-6:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 14
+    fontSize: 14px
     fontWeight: 600
-    lineHeight: 24
+    lineHeight: 24px
 
   # Body Text
   body-large:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 20
+    fontSize: 20px
     fontWeight: 400
-    lineHeight: 30
+    lineHeight: 30px
 
   body:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 16
+    fontSize: 16px
     fontWeight: 400
-    lineHeight: 24
+    lineHeight: 24px
 
   body-small:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 14
+    fontSize: 14px
     fontWeight: 400
-    lineHeight: 18
+    lineHeight: 18px
 
   body-extra-small:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 12
+    fontSize: 12px
     fontWeight: 400
-    lineHeight: 18
+    lineHeight: 18px
 
   body-bold:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 16
+    fontSize: 16px
     fontWeight: 600
-    lineHeight: 24
+    lineHeight: 24px
 
   # UI Elements
   button-primary:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 18
+    fontSize: 18px
     fontWeight: 500
-    lineHeight: 24
+    lineHeight: 24px
 
   button-secondary:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 16
+    fontSize: 16px
     fontWeight: 500
-    lineHeight: 24
+    lineHeight: 24px
 
   label:
     fontFamily: '"Inter", "Noto Sans", Helvetica, Arial, sans-serif'
-    fontSize: 14
+    fontSize: 14px
     fontWeight: 600
-    lineHeight: 24
+    lineHeight: 24px
 
 rounded:
-  none: 0
-  sm: 4
-  md: 7
-  lg: 10
-  xl: 16
-  full: 9999
+  none: 0px
+  sm: 4px
+  md: 7px
+  lg: 10px
+  xl: 16px
+  full: 9999px
 
 spacing:
-  0: 0
-  1: 1
-  2: 2
-  4: 4
-  6: 6
-  8: 8
-  12: 12
-  16: 16
-  20: 20
-  24: 24
-  32: 32
-  40: 40
-  48: 48
-  56: 56
-  64: 64
-  72: 72
-  80: 80
-  96: 96
-  112: 112
-  128: 128
-  160: 160
-  200: 200
-  240: 240
-  280: 280
-  320: 320
+  0: 0px
+  1: 1px
+  2: 2px
+  4: 4px
+  6: 6px
+  8: 8px
+  12: 12px
+  16: 16px
+  20: 20px
+  24: 24px
+  32: 32px
+  40: 40px
+  48: 48px
+  56: 56px
+  64: 64px
+  72: 72px
+  80: 80px
+  96: 96px
+  112: 112px
+  128: 128px
+  160: 160px
+  200: 200px
+  240: 240px
+  280: 280px
+  320: 320px
   # Semantic Spacing
-  xs: 6
-  sm: 12
-  md: 24
-  lg: 36
-  xl: 48
-  xxl: 60
-  xxxl: 72
-  xxxxl: 84
-  xxxxxl: 96
-
+  xs: 6px
+  sm: 12px
+  md: 24px
+  lg: 36px
+  xl: 48px
+  xxl: 60px
+  xxxl: 72px
+  xxxxl: 84px
+  xxxxxl: 96px
 components:
   # Buttons
   button-primary:
     backgroundColor: '{colors.primary}'
-    color: '{colors.text-inverse}'
+    textColor: '{colors.text-inverse}'
     padding: '{spacing.12} {spacing.24}'
-    borderRadius: '{rounded.md}'
+    rounded: '{rounded.md}'
     typography: '{typography.button-primary}'
-    border: none
-    cursor: pointer
 
   button-primary-hover:
     backgroundColor: '{colors.primary-hover}'
@@ -268,65 +265,45 @@ components:
 
   button-primary-disabled:
     backgroundColor: '{colors.gray-300}'
-    cursor: not-allowed
 
   button-secondary:
     backgroundColor: '{colors.surface-primary}'
-    color: '{colors.text-primary}'
+    textColor: '{colors.text-primary}'
     padding: '{spacing.12} {spacing.24}'
-    borderRadius: '{rounded.md}'
+    rounded: '{rounded.md}'
     typography: '{typography.button-secondary}'
-    border: 2px solid {colors.border-default}
-    cursor: pointer
 
   button-secondary-hover:
-    borderColor: '{colors.primary}'
-    color: '{colors.primary}'
+    textColor: '{colors.primary}'
 
   button-secondary-active:
     backgroundColor: '{colors.purple-100}'
 
   button-secondary-disabled:
-    color: '{colors.gray-400}'
-    borderColor: '{colors.gray-300}'
-    cursor: not-allowed
+    textColor: '{colors.gray-400}'
 
   # Form Inputs
   text-field:
     backgroundColor: '{colors.surface-primary}'
-    color: '{colors.text-primary}'
+    textColor: '{colors.text-primary}'
     padding: '{spacing.12} {spacing.16}'
-    borderRadius: '{rounded.md}'
+    rounded: '{rounded.md}'
     typography: '{typography.body}'
-    border: 2px solid {colors.border-default}
-
-  text-field-focus:
-    borderColor: '{colors.border-focus}'
-    outline: none
-
-  text-field-error:
-    borderColor: '{colors.danger}'
 
   text-field-disabled:
     backgroundColor: '{colors.surface-tertiary}'
-    color: '{colors.gray-400}'
-    cursor: not-allowed
+    textColor: '{colors.gray-400}'
 
   # Cards
   card:
     backgroundColor: '{colors.surface-primary}'
-    borderRadius: '{rounded.md}'
+    rounded: '{rounded.md}'
     padding: '{spacing.24}'
-    border: 2px solid {colors.border-default}
-
-  card-hover:
-    borderColor: '{colors.gray-400}'
 
   # Tables
   table:
     backgroundColor: '{colors.surface-primary}'
-    borderRadius: '{rounded.md}'
-    border: 2px solid {colors.border-default}
+    rounded: '{rounded.md}'
 
   table-header:
     backgroundColor: '{colors.surface-secondary}'
@@ -335,7 +312,6 @@ components:
 
   table-cell:
     padding: '{spacing.16}'
-    borderBottom: 1px solid {colors.border-default}
 
   table-row-hover:
     backgroundColor: '{colors.surface-secondary}'
@@ -346,78 +322,70 @@ components:
 
   modal-container:
     backgroundColor: '{colors.surface-primary}'
-    borderRadius: '{rounded.lg}'
+    rounded: '{rounded.lg}'
     padding: '{spacing.32}'
-    maxWidth: 600
 
   # Notifications
   notification-success:
     backgroundColor: '{colors.success-light}'
-    color: '{colors.success}'
-    borderRadius: '{rounded.md}'
+    textColor: '{colors.success}'
+    rounded: '{rounded.md}'
     padding: '{spacing.16}'
-    border: 2px solid {colors.success}
 
   notification-error:
     backgroundColor: '{colors.danger-light}'
-    color: '{colors.danger}'
-    borderRadius: '{rounded.md}'
+    textColor: '{colors.danger}'
+    rounded: '{rounded.md}'
     padding: '{spacing.16}'
-    border: 2px solid {colors.danger}
 
   notification-warning:
     backgroundColor: '{colors.warning-light}'
-    color: '{colors.warning}'
-    borderRadius: '{rounded.md}'
+    textColor: '{colors.warning}'
+    rounded: '{rounded.md}'
     padding: '{spacing.16}'
-    border: 2px solid {colors.warning}
 
   notification-info:
     backgroundColor: '{colors.info-light}'
-    color: '{colors.info}'
-    borderRadius: '{rounded.md}'
+    textColor: '{colors.info}'
+    rounded: '{rounded.md}'
     padding: '{spacing.16}'
-    border: 2px solid {colors.info}
 
   # Navigation
   tab:
     padding: '{spacing.12} {spacing.16}'
     typography: '{typography.button-secondary}'
-    color: '{colors.text-secondary}'
-    borderBottom: 2px solid transparent
+    textColor: '{colors.text-secondary}'
 
   tab-hover:
-    color: '{colors.text-primary}'
+    textColor: '{colors.text-primary}'
 
   tab-active:
-    color: '{colors.primary}'
-    borderBottomColor: '{colors.primary}'
+    textColor: '{colors.primary}'
 
   # Badges
   badge:
     backgroundColor: '{colors.primary}'
-    color: '{colors.text-inverse}'
-    borderRadius: '{rounded.full}'
+    textColor: '{colors.text-inverse}'
+    rounded: '{rounded.full}'
     padding: '{spacing.2} {spacing.8}'
     typography: '{typography.body-small}'
 
   # Wells
   well:
     backgroundColor: '{colors.surface-secondary}'
-    borderRadius: '{rounded.md}'
+    rounded: '{rounded.md}'
     padding: '{spacing.24}'
-    border: 2px solid {colors.border-default}
 
   # Dividers
   divider:
     backgroundColor: '{colors.border-default}'
-    height: 1
+    height: 1px
 
   # Tooltips
   tooltip:
     backgroundColor: '{colors.gray-600}'
-    color: '{colors.text-inverse}'
-    borderRadius: '{rounded.sm}'
+    textColor: '{colors.text-inverse}'
+    rounded: '{rounded.sm}'
     padding: '{spacing.8} {spacing.12}'
     typography: '{typography.body-small}'
 ---
