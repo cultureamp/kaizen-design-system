@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.2
+
+### Patch Changes
+
+- [#6822](https://github.com/cultureamp/kaizen-design-system/pull/6822) [`e12fdd1`](https://github.com/cultureamp/kaizen-design-system/commit/e12fdd1d78aea3a3d0a52268fba65ca0cf38bdb0) - Fix two CSS custom-property references that were missing the `--` prefix (`var(color-purple-800)` and `rgb(var(color-purple-800-rgb), …)`) in ConfirmationModal and the Pagination TruncateIndicator. These were silently invalid — the colours never applied — and also caused strict CSS parsers (e.g. Turbopack) to fail to parse the stylesheet.
+
 ## 3.3.1
 
 ### Patch Changes
