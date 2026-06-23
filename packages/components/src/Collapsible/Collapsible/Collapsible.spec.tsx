@@ -2,8 +2,7 @@ import React, { useRef } from 'react'
 import { queryByTestId, render, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { vi } from 'vitest'
-import { type ButtonRef } from '~components/ButtonV1'
-import { Collapsible } from './Collapsible'
+import { Collapsible, type CollapsibleRef } from './Collapsible'
 const user = userEvent.setup()
 
 describe('<Collapsible />', () => {
@@ -141,7 +140,7 @@ describe('<Collapsible />', () => {
 
   describe('Ref support', () => {
     it('exposes a ref to the toggle button with focus method', () => {
-      const ref = React.createRef<ButtonRef | undefined>()
+      const ref = React.createRef<CollapsibleRef>()
       render(
         <Collapsible ref={ref} id="1" title="First panel">
           First panel content
@@ -154,7 +153,7 @@ describe('<Collapsible />', () => {
     })
 
     it('allows focusing the toggle button via ref', () => {
-      const ref = React.createRef<ButtonRef | undefined>()
+      const ref = React.createRef<CollapsibleRef>()
       const { getByTestId } = render(
         <Collapsible ref={ref} id="1" title="First panel">
           First panel content
@@ -170,7 +169,7 @@ describe('<Collapsible />', () => {
     })
 
     it('ref works in controlled mode', () => {
-      const ref = React.createRef<ButtonRef | undefined>()
+      const ref = React.createRef<CollapsibleRef>()
       const { rerender, getByTestId } = render(
         <Collapsible ref={ref} id="1" title="First panel" open controlled>
           First panel content
@@ -196,7 +195,7 @@ describe('<Collapsible />', () => {
     })
 
     it('ref works in uncontrolled mode', () => {
-      const ref = React.createRef<ButtonRef | undefined>()
+      const ref = React.createRef<CollapsibleRef>()
       const { getByTestId } = render(
         <Collapsible ref={ref} id="1" title="First panel" open>
           First panel content
@@ -212,7 +211,7 @@ describe('<Collapsible />', () => {
     })
 
     it('ref is accessible when no id prop is provided (uses fallback)', () => {
-      const ref = React.createRef<ButtonRef | undefined>()
+      const ref = React.createRef<CollapsibleRef>()
       const { container } = render(
         <Collapsible ref={ref} title="First panel">
           First panel content
@@ -223,7 +222,7 @@ describe('<Collapsible />', () => {
       expect(ref.current?.focus).toBeDefined()
 
       // Find the button element (querySelector with * selector would also match the title div)
-      const button = container.querySelector('button[data-testid*="collapsible-button-"]')!
+      const button = container.querySelector<HTMLButtonElement>('button[data-testid*="collapsible-button-"]')!
       expect(button).toBeTruthy()
       const focusSpy = vi.spyOn(button, 'focus')
 
@@ -234,7 +233,7 @@ describe('<Collapsible />', () => {
 
     it('supports useRef hook pattern for ref management', async () => {
       const TestComponent = (): JSX.Element => {
-        const collapsibleRef = useRef<ButtonRef>(null)
+        const collapsibleRef = useRef<CollapsibleRef>(null)
 
         return (
           <>

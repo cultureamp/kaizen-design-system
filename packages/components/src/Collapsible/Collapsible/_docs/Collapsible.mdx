@@ -41,7 +41,7 @@ and defining the `open` and `onToggle` props.
 
 Use a `ref` to programmatically focus the toggle button. This is useful when you need to restore focus after an async operation, such as in sortable lists where items are saved or deleted.
 
-The `ref` exposes a `ButtonRef` interface with a `.focus()` method that focuses the underlying toggle button element.
+The `ref` exposes a `CollapsibleRef` interface with a `.focus()` method that focuses the underlying toggle button element.
 
 <Canvas of={CollapsibleStories.WithProgrammaticFocus} />
 
@@ -49,10 +49,10 @@ The `ref` exposes a `ButtonRef` interface with a `.focus()` method that focuses 
 
 ```tsx
 import { useRef } from 'react'
-import { Collapsible, type ButtonRef } from '@kaizen/components'
+import { Collapsible, type CollapsibleRef } from '@kaizen/components'
 
 export const MyComponent = () => {
-  const collapsibleRef = useRef<ButtonRef>(null)
+  const collapsibleRef = useRef<CollapsibleRef>(null)
 
   const handleSaveAndFocus = async () => {
     // Perform async operation (e.g., API call)

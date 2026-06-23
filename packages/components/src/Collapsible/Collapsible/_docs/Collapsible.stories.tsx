@@ -4,7 +4,7 @@ import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { SingleSelect } from '~components/SingleSelect'
 import { Text } from '~components/Text'
-import { Collapsible, type ButtonRef } from '../index'
+import { Collapsible, type CollapsibleRef } from '../index'
 
 const meta = {
   title: 'Components/Collapsibles/Collapsible',
@@ -107,7 +107,7 @@ export const WithProgrammaticFocus: Story = {
     title: 'Collapsible with Programmatic Focus',
   },
   render: (args) => {
-    const collapsibleRef = useRef<ButtonRef>(null)
+    const collapsibleRef = useRef<CollapsibleRef>(null)
     const [isLoading, setIsLoading] = useState(false)
 
     const handleSaveAndFocus = async (): Promise<void> => {

@@ -1,7 +1,7 @@
 import React, { forwardRef, useId, useRef, useState, type HTMLAttributes, type Ref } from 'react'
 import classnames from 'classnames'
 import AnimateHeight from 'react-animate-height'
-import { IconButton, type ButtonRef } from '~components/ButtonV1'
+import { IconButton } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
 import { Icon } from '~components/Icon'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
@@ -36,7 +36,9 @@ export type CollapsibleProps = {
   controlled?: boolean
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
 
-export const Collapsible = forwardRef<ButtonRef | undefined, CollapsibleProps>(
+export type CollapsibleRef = { focus: () => void }
+
+export const Collapsible = forwardRef<CollapsibleRef, CollapsibleProps>(
   (
     {
       children,
@@ -55,17 +57,16 @@ export const Collapsible = forwardRef<ButtonRef | undefined, CollapsibleProps>(
       id: propsId,
       ...restProps
     }: CollapsibleProps,
-    ref: Ref<ButtonRef | undefined>,
+    ref: Ref<CollapsibleRef>,
   ) => {
     const [stateIsOpen, setIsOpen] = useState<boolean>(open ?? false)
     const getOpen = (): boolean | undefined => (controlled ? open : stateIsOpen)
 
     const fallbackId = useId()
     const id = propsId ?? fallbackId
-    const buttonRef = useRef<ButtonRef>(null)
+    const buttonRef = useRef<CollapsibleRef>(null)
 
-    // Forward the ref passed to Collapsible to the internal button ref
-    React.useImperativeHandle(ref, () => buttonRef.current ?? undefined, [])
+    React.useImperativeHandle(ref, () => ({ focus: () => buttonRef.current?.focus() }), [])
 
     const handleSectionToggle = (): void => {
       const newIsOpen = !getOpen()
