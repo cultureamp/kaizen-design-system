@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.5.14
+
+### Patch Changes
+
+- [#6818](https://github.com/cultureamp/kaizen-design-system/pull/6818) [`130c4c6`](https://github.com/cultureamp/kaizen-design-system/commit/130c4c6a4611dbfe02e2ab9570692c3bea1c6afc) - Update dependencies
+
+- Updated dependencies [[`130c4c6`](https://github.com/cultureamp/kaizen-design-system/commit/130c4c6a4611dbfe02e2ab9570692c3bea1c6afc)]:
+  - @kaizen/design-tokens@11.0.12
+
 ## 1.5.13
 
 ### Patch Changes
