@@ -5,7 +5,7 @@
     justify-content: center;
     width: 36px;
     background-color: transparent;
-    color: rgb(var(color-purple-800-rgb), 0.7);
+    color: rgb(var(--color-purple-800-rgb), 0.7);
     margin: 0 var(--spacing-4);
   }
 }
