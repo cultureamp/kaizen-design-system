@@ -91,18 +91,29 @@ const renderInitials = (
   const isLongName = initials.length > 2 && size !== 'small'
   const renderFallback = disableInitials || initials === ''
 
-  return renderFallback ? (
-    <FallbackIcon alt={alt} />
-  ) : (
-    <abbr className={classnames(styles.initials, isLongName && styles.longName)} title={alt}>
-      {isLongName ? (
-        // Only called if 3 or more initials, fits text width for long names
+  if (renderFallback) {
+    return <FallbackIcon alt={alt} />
+  }
+
+  if (isLongName) {
+    return (
+      <abbr
+        className={classnames(styles.initials, styles.longName)}
+        title={alt}
+        // Ignore Chromatic diffs since the font-size calculation has shown itself to be slightly non-deterministic,
+        // causing flaky tests.
+        data-chromatic="ignore"
+      >
         <Textfit mode="single" max={getMaxFontSizePixels(size)}>
           {initials}
         </Textfit>
-      ) : (
-        getInitials(fullName, size === 'small')
-      )}
+      </abbr>
+    )
+  }
+
+  return (
+    <abbr className={styles.initials} title={alt}>
+      {getInitials(fullName, size === 'small')}
     </abbr>
   )
 }

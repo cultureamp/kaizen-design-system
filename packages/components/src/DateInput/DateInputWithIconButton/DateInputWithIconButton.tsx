@@ -13,8 +13,8 @@ export type DateInputWithIconButtonProps = {
 } & Omit<DateInputProps, 'startIconAdornment' | 'endIconAdornment'>
 
 export type DateInputWithIconButtonRefs = {
-  inputRef?: React.RefObject<HTMLInputElement>
-  buttonRef?: React.RefObject<HTMLButtonElement>
+  inputRef?: React.Ref<HTMLInputElement>
+  buttonRef?: React.Ref<HTMLButtonElement>
 }
 
 export const DateInputWithIconButton = React.forwardRef<

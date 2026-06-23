@@ -1,5 +1,79 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+- [#6795](https://github.com/cultureamp/kaizen-design-system/pull/6795) [`94c7556`](https://github.com/cultureamp/kaizen-design-system/commit/94c755615e3e3244559565f66a5bee6baa67236e) - Added ref prop to single and multi Select and RTE Editor
+
+- [#6800](https://github.com/cultureamp/kaizen-design-system/pull/6800) [`793464d`](https://github.com/cultureamp/kaizen-design-system/commit/793464d736b6952d85f1f4fe9a756026f9adea8e) - Updated the tooltip Focusable tag to accept an optional tag prop that determines the html element wrapping the passed in children
+
+### Patch Changes
+
+- [#6797](https://github.com/cultureamp/kaizen-design-system/pull/6797) [`d035318`](https://github.com/cultureamp/kaizen-design-system/commit/d0353188b44f5f15b64c46a862fb566febe1eee0) - `NotificationVariant` is now exported from the package root. Previously it was declared in `Notification/types.ts` but not re-exported by the `Notification` index, so consumers could not import it directly and had to derive it via `ComponentProps`. This brings it in line with `ToastNotification` and other components that re-export their shared `types` module.
+
+- [#6801](https://github.com/cultureamp/kaizen-design-system/pull/6801) [`12b8552`](https://github.com/cultureamp/kaizen-design-system/commit/12b855265133df8fa3ee8b85d755e87ec37107a9) - Fix continued Chromatic flakiness on Avatar with long initials. The previous `data-chromatic="ignore"` fix was applied to an element whose size changes with the non-deterministic dynamic font size, and consequently has continued to trigger Chromatic diffs. This change promotes that fix to the parent `abbr`, which has a fixed size, as recommended by Chromatic support to resolve the flakiness.
+
+## 3.2.0
+
+### Minor Changes
+
+- [#6752](https://github.com/cultureamp/kaizen-design-system/pull/6752) [`18d3902`](https://github.com/cultureamp/kaizen-design-system/commit/18d390239fb0b1847b0796e6431c4e2c782e2ac1) - Add inputRef prop to TimeField and DatePicker and widened TextField ref types for react-hook-form Controller compatibility
+
+### Patch Changes
+
+- [#6792](https://github.com/cultureamp/kaizen-design-system/pull/6792) [`2c70866`](https://github.com/cultureamp/kaizen-design-system/commit/2c70866fccc887fa93fefa6bb6cc825903dd2a5b) - Update dependencies
+
+- [#6793](https://github.com/cultureamp/kaizen-design-system/pull/6793) [`ac841d9`](https://github.com/cultureamp/kaizen-design-system/commit/ac841d98aef21d1f1cb13058df82845dc22c44e5) - `Tabs` no longer scrolls the selected tab into view on mount. Scrolling now only happens when the selection changes via user interaction, so rendering `Tabs` below the fold no longer scrolls the page on load.
+
+## 3.1.6
+
+### Patch Changes
+
+- [#6767](https://github.com/cultureamp/kaizen-design-system/pull/6767) [`8ff83cb`](https://github.com/cultureamp/kaizen-design-system/commit/8ff83cb7261a4e18a3522dee1d5a6deab0f01ebc) - Fix flaky Chromatic snapshots of Avatar initials for long names in Chromatic
+
+## 3.1.5
+
+### Patch Changes
+
+- [#6753](https://github.com/cultureamp/kaizen-design-system/pull/6753) [`da65b04`](https://github.com/cultureamp/kaizen-design-system/commit/da65b047dee4637370ce067bf204c13f892e3c58) - Uplift `TextField` component to CSS from SCSS
+
+- [#6764](https://github.com/cultureamp/kaizen-design-system/pull/6764) [`05a9add`](https://github.com/cultureamp/kaizen-design-system/commit/05a9add21d47e987a289cec2138fcecc72846854) - Update dependencies
+
+## 3.1.4
+
+### Patch Changes
+
+- [#6750](https://github.com/cultureamp/kaizen-design-system/pull/6750) [`160a6ec`](https://github.com/cultureamp/kaizen-design-system/commit/160a6ecfd7f7415e0b9e56883f51fc25ef5f7538) - Update dependencies
+
+## 3.1.3
+
+### Patch Changes
+
+- [#6725](https://github.com/cultureamp/kaizen-design-system/pull/6725) [`b3bb3d4`](https://github.com/cultureamp/kaizen-design-system/commit/b3bb3d4e3260779868e1616401b21baa71324aa5) - Update dependencies
+
+## 3.1.2
+
+### Patch Changes
+
+- [#6698](https://github.com/cultureamp/kaizen-design-system/pull/6698) [`f542b00`](https://github.com/cultureamp/kaizen-design-system/commit/f542b0026741545afe854a863720bc6ab2d76911) - Update depencies
+
+## 3.1.1
+
+### Patch Changes
+
+- [#6672](https://github.com/cultureamp/kaizen-design-system/pull/6672) [`b2b263c`](https://github.com/cultureamp/kaizen-design-system/commit/b2b263cbb412a0ed4268c87a082f43d230a86c29) - Update dependencies
+
+## 3.1.0
+
+### Minor Changes
+
+- [#6648](https://github.com/cultureamp/kaizen-design-system/pull/6648) [`7464521`](https://github.com/cultureamp/kaizen-design-system/commit/7464521fe6b6176089af7ba0aea436967c66f2ed) - Add optional `tag` prop to BrandMoment and ErrorPage components to allow overriding the default `main` HTML element
+
+### Patch Changes
+
+- [#6646](https://github.com/cultureamp/kaizen-design-system/pull/6646) [`e97823e`](https://github.com/cultureamp/kaizen-design-system/commit/e97823e774e567859ba2813963d73aa10b0c4d74) - fix(Collapsible): fix VoiceOver linear navigation skipping content on Safari
+
 ## 3.0.14
 
 ### Patch Changes

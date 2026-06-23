@@ -1,4 +1,9 @@
-import React, { type HTMLAttributes, type ReactElement, type ReactNode } from 'react'
+import React, {
+  type ElementType,
+  type HTMLAttributes,
+  type ReactElement,
+  type ReactNode,
+} from 'react'
 import classnames from 'classnames'
 import { Button, type ButtonProps } from '~components/ButtonV1'
 import { Heading } from '~components/Heading'
@@ -19,6 +24,7 @@ export type BrandMomentProps = {
   body?: ReactNode
   primaryAction?: ButtonProps
   secondaryAction?: ButtonProps
+  tag?: ElementType
   text: {
     title: ReactNode
     subtitle?: ReactNode
@@ -39,16 +45,18 @@ export const BrandMoment = ({
   body,
   primaryAction,
   secondaryAction,
+  tag,
   text,
   classNameOverride,
   ...restProps
 }: BrandMomentProps): JSX.Element => {
   const { queries } = useMediaQueries()
+  const Tag = tag ?? 'main'
 
   return (
     <div className={classnames(styles.body, styles[variant], classNameOverride)} {...restProps}>
       <header className={styles.header}>{header}</header>
-      <main className={styles.main}>
+      <Tag className={styles.main}>
         <div className={styles.container}>
           <div className={styles.mainInner}>
             <div className={styles.left}>
@@ -88,7 +96,7 @@ export const BrandMoment = ({
             </div>
           </div>
         </div>
-      </main>
+      </Tag>
       {text.footer && (
         <footer className={styles.footer}>
           <div className={styles.container}>

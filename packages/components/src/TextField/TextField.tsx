@@ -5,7 +5,7 @@ import { FieldMessage } from '~components/FieldMessage'
 import { Icon } from '~components/Icon'
 import { Input, type InputProps } from '~components/Input'
 import { Label } from '~components/Label'
-import styles from './TextField.module.scss'
+import styles from './TextField.module.css'
 
 type OmittedInputProps = 'startIconAdornment' | 'endIconAdornment' | 'ariaDescribedBy' | 'ariaLabel'
 

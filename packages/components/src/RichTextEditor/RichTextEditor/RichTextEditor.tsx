@@ -22,6 +22,7 @@ import styles from './RichTextEditor.module.scss'
 
 type BaseRichTextEditorProps = {
   id?: string
+  inputRef?: React.Ref<HTMLElement>
   onChange: (content: ProseMirrorState.EditorState) => void
   defaultValue: EditorContentArray
   controls?: ToolbarItems[]
@@ -60,6 +61,7 @@ export type RichTextEditorProps = BaseRichTextEditorProps & (WithLabelText | Wit
  */
 export const RichTextEditor = ({
   id,
+  inputRef,
   onChange,
   defaultValue,
   labelText,
@@ -105,6 +107,7 @@ export const RichTextEditor = ({
           'role': 'textbox',
           'aria-describedby': ariaDescribedBy,
         },
+        { inputRef },
       )
     } catch {
       return new Error('Bad data error')
