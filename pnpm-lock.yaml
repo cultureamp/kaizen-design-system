@@ -439,8 +439,8 @@ importers:
         specifier: ^11.0.0
         version: 11.0.0
       autoprefixer:
-        specifier: ^10.5.0
-        version: 10.5.0(postcss@8.5.15)
+        specifier: ^10.5.2
+        version: 10.5.2(postcss@8.5.15)
       concat-cli:
         specifier: ^4.0.0
         version: 4.0.0
@@ -832,6 +832,7 @@ packages:
   '@calm/eslint-plugin-react-intl@1.4.1':
     resolution: {integrity: sha512-J3Tj03JwlV6CPENBqEt64M+Z+k49cNcHUBRYY67Wx9l960NOKhqlRCPUrE85zRqOXqO0cYUrcgrvb0wHAWMpKA==}
     engines: {node: '>=0.10.0'}
+    deprecated: This package is no longer actively maintained by Calm. It remains available for compatibility with existing consumers, but new projects should avoid depending on it.
 
   '@changesets/apply-release-plan@7.1.1':
     resolution: {integrity: sha512-9qPCm/rLx/xoOFXIHGB229+4GOL76S4MC+7tyOuTsR6+1jYlfFDQORdvwR5hDA6y4FL2BPt3qpbcQIS+dW85LA==}
@@ -1247,11 +1248,6 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
-    peerDependenciesMeta:
-      '@cultureamp/next-head-hook':
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/frontend-env@2.1.7':
     resolution: {integrity: sha512-eA+6m6XEmnCME1AtN/pQ78N+sR+yDXf2UcMCHqqZaK5yTyRuWs2Xu08kzPtPJgRUXAH+nEFb5Ql2wfbIforI3g==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.7/3b63bf6ce63e41f587395aa8fb9fbf3ac64a49be}
@@ -1264,11 +1260,6 @@ packages:
       eslint: ^9.39.4
       next: '>=13.5.0'
       react: ^18.3.1 || ^19.0.0
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -4560,8 +4551,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  autoprefixer@10.5.0:
-    resolution: {integrity: sha512-FMhOoZV4+qR6aTUALKX2rEqGG+oyATvwBt9IIzVR5rMa2HRWPkxf+P+PAJLD1I/H5/II+HuZcBJYEFBpq39ong==}
+  autoprefixer@10.5.2:
+    resolution: {integrity: sha512-rD5t5DwOjJdmSORcTq64j8MawTC+tbQ+HHqjR4NDumamy/ambn1UJrlKL+KdwujWxMkFjPM3pPHOEA9tl4767Q==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
     peerDependencies:
@@ -4677,6 +4668,11 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
+  baseline-browser-mapping@2.10.40:
+    resolution: {integrity: sha512-BSSLZ9/Cjjv7Gtj5B68ZzXcXUg8iOf3fme+FCuh8rC/Go+Kmh8cox7M3A8dolou16s64QjLPOSdngh7GxXvkSw==}
+    engines: {node: '>=6.0.0'}
+    hasBin: true
+
   better-opn@3.0.2:
     resolution: {integrity: sha512-aVNobHnJqLiUelTaHat9DZ1qM2w0C0Eym4LPI/3JxOnSokGVdsl1T1kN7TFvsEAD8G47A6VKQ0TVHqbBnYMJlQ==}
     engines: {node: '>=12.0.0'}
@@ -4745,6 +4741,11 @@ packages:
 
   browserslist@4.28.2:
     resolution: {integrity: sha512-48xSriZYYg+8qXna9kwqjIVzuQxi+KYWp2+5nCYnYKPTr0LvD89Jqk2Or5ogxz0NUMfIjhh2lIUX/LyX9B4oIg==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
+  browserslist@4.28.4:
+    resolution: {integrity: sha512-MTc8i/x9jBQd1iMw2CFGS+rwMa07eYjLR0CCTLDACl9xhxy+nIs3KeML/biicXtk9JrZ6dnnTatmc7ErPXIxqw==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -5494,6 +5495,9 @@ packages:
 
   electron-to-chromium@1.5.339:
     resolution: {integrity: sha512-Is+0BBHJ4NrdpAYiperrmp53pLywG/yV/6lIMTAnhxvzj/Cmn5Q/ogSHC6AKe7X+8kPLxxFk0cs5oc/3j/fxIg==}
+
+  electron-to-chromium@1.5.378:
+    resolution: {integrity: sha512-VinvOAuuPmdD1guEgGv5f2Qp7/vlfqOrUOMYNnOD4wj3pit8kRsQHzfIf6teyUGWo15Tg5+bOJaRunvyltpVWQ==}
 
   elliptic@6.5.7:
     resolution: {integrity: sha512-ESVCtTwiA+XhY3wyh24QqRGBoP3rEdDUl3EDUUo9tft074fi19IrdpH7hLCMMP3CIj7jb3W96rn8lt/BqIlt5Q==}
@@ -7538,6 +7542,10 @@ packages:
 
   node-releases@2.0.37:
     resolution: {integrity: sha512-1h5gKZCF+pO/o3Iqt5Jp7wc9rH3eJJ0+nh/CIoiRwjRxde/hAHyLPXYN4V3CqKAbiZPSeJFSWHmJsbkicta0Eg==}
+
+  node-releases@2.0.50:
+    resolution: {integrity: sha512-J6l92tKHX6w8Jy5nO1Vuc01NoIiRGi/d6qBKVxh+IQ8Cr3b6HbVNfKiF8ZpFKufTwpwxMmce2W3iQZ861ZRyTg==}
+    engines: {node: '>=18'}
 
   node-stdlib-browser@1.3.1:
     resolution: {integrity: sha512-X75ZN8DCLftGM5iKwoYLA3rjnrAEs97MkzvSd4q2746Tgpg8b8XWiBGiBG4ZpgcAqBgtgPHTiAc8ZMCvZuikDw==}
@@ -10910,6 +10918,7 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.7
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.2.7)
@@ -10924,6 +10933,7 @@ snapshots:
       js-yaml: 4.1.1
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.9.3)
+      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.2.7
@@ -10932,9 +10942,6 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
-    optionalDependencies:
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))
-      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -10956,6 +10963,7 @@ snapshots:
       '@formatjs/cli-lib': 6.6.6(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.21)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.21)(typescript@5.9.3)))(typescript@5.9.3))
       babel-plugin-formatjs: 10.5.41(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.21)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.21)(typescript@5.9.3)))(typescript@5.9.3))
       date-fns: 3.6.0
+      eslint: 9.39.4(jiti@1.21.7)
       eslint-plugin-formatjs: 6.4.15(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.19.21)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.19.21)(typescript@5.9.3)))(typescript@5.9.3))
       fast-glob: 3.3.3
       form-data: 4.0.6
@@ -10963,13 +10971,11 @@ snapshots:
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.3.0
       limiter-es6-compat: 2.1.2
+      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       react: 19.2.7
       react-intl: 7.1.14(react@19.2.7)(typescript@5.9.3)
       smartling-api-sdk-nodejs: 2.35.0(encoding@0.1.13)
       yargs: 17.7.2
-    optionalDependencies:
-      eslint: 9.39.4(jiti@1.21.7)
-      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -10990,7 +10996,6 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       react: 18.3.1
-    optional: true
 
   '@cultureamp/package-bundler@4.0.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.3.1(postcss@8.5.15))(postcss@8.5.15)(rollup@4.62.2)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
@@ -12092,8 +12097,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@next/env@15.2.5':
-    optional: true
+  '@next/env@15.2.5': {}
 
   '@next/swc-darwin-arm64@15.2.5':
     optional: true
@@ -14686,9 +14690,9 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  autoprefixer@10.5.0(postcss@8.5.15):
+  autoprefixer@10.5.2(postcss@8.5.15):
     dependencies:
-      browserslist: 4.28.2
+      browserslist: 4.28.4
       caniuse-lite: 1.0.30001799
       fraction.js: 5.3.4
       picocolors: 1.1.1
@@ -14865,6 +14869,8 @@ snapshots:
 
   baseline-browser-mapping@2.10.19: {}
 
+  baseline-browser-mapping@2.10.40: {}
+
   better-opn@3.0.2:
     dependencies:
       open: 8.4.2
@@ -14964,6 +14970,14 @@ snapshots:
       node-releases: 2.0.37
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
+  browserslist@4.28.4:
+    dependencies:
+      baseline-browser-mapping: 2.10.40
+      caniuse-lite: 1.0.30001799
+      electron-to-chromium: 1.5.378
+      node-releases: 2.0.50
+      update-browserslist-db: 1.2.3(browserslist@4.28.4)
+
   bs-logger@0.2.6:
     dependencies:
       fast-json-stable-stringify: 2.1.0
@@ -14987,7 +15001,6 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
-    optional: true
 
   cac@6.7.14: {}
 
@@ -15709,6 +15722,8 @@ snapshots:
     optional: true
 
   electron-to-chromium@1.5.339: {}
+
+  electron-to-chromium@1.5.378: {}
 
   elliptic@6.5.7:
     dependencies:
@@ -18504,7 +18519,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -18556,6 +18570,8 @@ snapshots:
       process-on-spawn: 1.0.0
 
   node-releases@2.0.37: {}
+
+  node-releases@2.0.50: {}
 
   node-stdlib-browser@1.3.1:
     dependencies:
@@ -19402,7 +19418,7 @@ snapshots:
       '@csstools/postcss-text-decoration-shorthand': 5.0.3(postcss@8.5.15)
       '@csstools/postcss-trigonometric-functions': 5.0.3(postcss@8.5.15)
       '@csstools/postcss-unset-value': 5.0.0(postcss@8.5.15)
-      autoprefixer: 10.5.0(postcss@8.5.15)
+      autoprefixer: 10.5.2(postcss@8.5.15)
       browserslist: 4.28.2
       css-blank-pseudo: 8.0.1(postcss@8.5.15)
       css-has-pseudo: 8.0.0(postcss@8.5.15)
@@ -19504,7 +19520,6 @@ snapshots:
       nanoid: 3.3.14
       picocolors: 1.1.1
       source-map-js: 1.2.1
-    optional: true
 
   postcss@8.5.15:
     dependencies:
@@ -19971,7 +19986,6 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
-    optional: true
 
   react@19.2.7: {}
 
@@ -20525,8 +20539,7 @@ snapshots:
       readable-stream: 3.6.2
       xtend: 4.0.2
 
-  streamsearch@1.1.0:
-    optional: true
+  streamsearch@1.1.0: {}
 
   strict-event-emitter@0.5.1: {}
 
@@ -20671,7 +20684,6 @@ snapshots:
       react: 19.2.7
     optionalDependencies:
       '@babel/core': 7.29.7
-    optional: true
 
   stylehacks@7.0.11(postcss@8.5.15):
     dependencies:
@@ -21291,6 +21303,12 @@ snapshots:
   update-browserslist-db@1.2.3(browserslist@4.28.2):
     dependencies:
       browserslist: 4.28.2
+      escalade: 3.2.0
+      picocolors: 1.1.1
+
+  update-browserslist-db@1.2.3(browserslist@4.28.4):
+    dependencies:
+      browserslist: 4.28.4
       escalade: 3.2.0
       picocolors: 1.1.1
 
