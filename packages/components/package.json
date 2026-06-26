@@ -142,7 +142,7 @@
   },
   "devDependencies": {
     "@cultureamp/frontend-apis": "13.3.0",
-    "@cultureamp/i18n-react-intl": "^4.1.6",
+    "@cultureamp/i18n-react-intl": "^4.2.0",
     "@cultureamp/package-bundler": "^4.0.1",
     "cssnano": "^7.1.9",
     "@kaizen/design-tokens": "workspace:*",
