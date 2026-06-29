@@ -36,6 +36,28 @@ Estimated: ~3–5 min warm cache, 8–12 min cold.
 
 CI-only checks (`test-storybook`, `chromatic`) are excluded — see §13 and agents-managed-docs/candidate-tickets.md #8.
 
+**Don't read the full output** — a cold run is thousands of lines and will blow
+your context. Run `verify` in the background so output is captured to a file, then
+read only the summary and the failing task — never `cat` the whole log:
+
+```sh
+# 1. Pass/fail = exit code + the summary block at the END of the log:
+tail -n 15 <output-file>
+#   "Tasks: N successful, N total"  → all gates passed; stop here.
+#   "Failed: <pkg>#<task>"          → names the failed task(s).
+
+# 2. Show ONLY that task's lines. turbo prefixes streamed output "<pkg>:<task>:"
+#    (the summary uses '#', the streamed lines use ':'), so for a failure of
+#    "@kaizen/components#test":
+grep -E '^@kaizen/components:test:' <output-file>
+
+# Or auto-extract the failed task and show just its output:
+fail=$(grep -oE 'Failed:[[:space:]]+\S+' <output-file> | awk '{print $2}' | tr '#' ':')
+grep -E "^${fail}:" <output-file>
+```
+
+The summary line plus the one failing task's output is all you need to diagnose.
+
 **Scaffold a new component:**
 
 ```sh
