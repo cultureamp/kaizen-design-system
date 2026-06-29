@@ -138,7 +138,9 @@ export type TokenStructure = {
       '300': Hex
       '400': Hex
       '500': Hex
+      '550': Hex
       '600': Hex
+      '700': Hex
     }
     white: Hex
     black: Hex
