@@ -5,3 +5,6 @@ docs/.storybook/tailwind-build.css
 dist
 .turbo
 .idea
+
+# Agent working files
+tmp/

@@ -7,7 +7,8 @@
   },
   "shell": {
     "scripts": {
-      "setup": ["pnpm install"]
+      "setup": ["pnpm install"],
+      "verify": ["pnpm turbo run build lint:ts test //#lint:eslint //#lint:format //#lint:styles"]
     }
   }
 }
