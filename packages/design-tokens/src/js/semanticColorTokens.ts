@@ -124,3 +124,22 @@ export const semanticColorTokens: SemanticColorTokens = {
     'border-error_subtle': 'var(--color-red-300)',
   },
 }
+
+/**
+ * All four semantic colour groups merged into a single flat record.
+ * Useful for exhaustive iteration (e.g. the CSS-var build script) and
+ * for deriving the union type of all canonical token names.
+ *
+ * NOTE: keys are preserved verbatim — underscores are intentional UUI
+ * separators (e.g. `text-primary_on-brand`). ESLint camelcase does not
+ * apply because keys are quoted string literals, not identifiers.
+ */
+export const flatSemanticColorTokens: Record<string, SemanticColorTokenValue> = {
+  ...semanticColorTokens.background,
+  ...semanticColorTokens.text,
+  ...semanticColorTokens.foreground,
+  ...semanticColorTokens.border,
+}
+
+/** Union of every canonical semantic colour token name. */
+export type SemanticColorTokenName = keyof typeof flatSemanticColorTokens
