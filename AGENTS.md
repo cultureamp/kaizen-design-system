@@ -270,7 +270,7 @@ dashboard proposal: → [docs/proposals/usage-insights.md](agents-managed-docs/p
 3. `prettier` — `pnpm lint:format`
 4. `typescript` — `pnpm turbo build && pnpm lint:ts`
 5. `verify-build` — `pnpm build`
-6. `vitest` — `pnpm test -- --run` (CI shards 3 ways; run unsharded locally)
+6. `vitest` — `pnpm test` (run unsharded locally; CI shards `@kaizen/components` 3 ways)
 7. `test-storybook` — **CI-only** (Playwright, 3 shards); do not run locally
 8. `chromatic` — CI publishes; **a human must approve the visual diff in Chromatic UI** before
    merge — agents cannot bypass this gate
@@ -295,12 +295,6 @@ Full enforced-vs-social split and agent-equivalent steps for each human workflow
 
 Durable architectural decisions with rationale and git provenance:
 → [docs/adr/](agents-managed-docs/adr/README.md)
-
----
-
-### Out of scope (this pass)
-
-E.md)
 
 ---
 
