@@ -104,7 +104,7 @@ Short summary of what this means in practice:
 
 Full layering model, integration styles (RAC wrapper vs RA hooks), controlled/uncontrolled
 patterns, render props, slots, and worked examples (Button / Menu / Tabs):
-→ [docs/reference/rac-foundations.md](agents-managed-docs/reference/rac-foundations.md)
+→ [agents-managed-docs/reference/rac-foundations.md](agents-managed-docs/reference/rac-foundations.md)
 
 ---
 
@@ -128,7 +128,7 @@ Do not build production features on alpha components unless explicitly instructe
 v3 (Mar 2026). Consumers across the fleet absorb them between releases. The pattern:
 deprecate at major, delete at the following major once usage is confirmed zero.
 
-Full decision history and rationale: → [docs/adr/](agents-managed-docs/adr/README.md)
+Full decision history and rationale: → [agents-managed-docs/adr/](agents-managed-docs/adr/README.md)
 
 ---
 
@@ -186,7 +186,7 @@ stickersheet or spec story job.
 were historically written as unit tests. KaizenProvider and VisuallyHidden are exempt from
 the stickersheet requirement.
 
-Full gap inventory and migration backlog: → [docs/reports/test-posture-snapshot.md](agents-managed-docs/reports/test-posture-snapshot.md)
+Full gap inventory and migration backlog: → [agents-managed-docs/reports/test-posture-snapshot.md](agents-managed-docs/reports/test-posture-snapshot.md)
 
 ---
 
@@ -196,7 +196,7 @@ Single-component a11y is covered by the Storybook axe addon — keep those green
 
 **Composition a11y** — emergent issues when components are combined — is the harder class of
 problem. 12 patterns with risk, detection steps, and correct composition guidance:
-→ [docs/a11y/composition-catalogue.md](agents-managed-docs/a11y/composition-catalogue.md)
+→ [agents-managed-docs/a11y/composition-catalogue.md](agents-managed-docs/a11y/composition-catalogue.md)
 
 ---
 
@@ -238,7 +238,7 @@ Fleet-wide blast radius — surface before changing any of these:
 
 ## 12. Measuring usage before breaking changes
 
-Before making a breaking changes for a component or prop, prompt the user to ask if they want to conduct a query blast radius search in DX Insights via
+Before making a breaking change for a component or prop, prompt the user to ask if they want to conduct a blast radius search in DX Insights via
 `package_import_jsx_usage` (56 consuming repos, prop-level granularity). The table is
 queryable today — no new ingestion needed.
 
@@ -257,7 +257,7 @@ If `repo_count` > 10 → coordinated migration; contact team owners. If < 5 on f
 repos → low risk.
 
 Full query set (blast radius, repo list, version spread, filtering test/story noise) and
-dashboard proposal: → [docs/proposals/usage-insights.md](agents-managed-docs/proposals/usage-insights.md)
+dashboard proposal: → [agents-managed-docs/proposals/usage-insights.md](agents-managed-docs/proposals/usage-insights.md)
 
 ---
 
@@ -287,14 +287,14 @@ resets the approval on any new push
 - Flag to team-lead to send `#help_design_system` Slack notification — agents do not post directly
 
 Full enforced-vs-social split and agent-equivalent steps for each human workflow stage:
-→ [docs/proposals/agent-workflow.md](agents-managed-docs/proposals/agent-workflow.md)
+→ [agents-managed-docs/proposals/agent-workflow.md](agents-managed-docs/proposals/agent-workflow.md)
 
 ---
 
 ## 14. Decision ledger & ADRs
 
 Durable architectural decisions with rationale and git provenance:
-→ [docs/adr/](agents-managed-docs/adr/README.md)
+→ [agents-managed-docs/adr/](agents-managed-docs/adr/README.md)
 
 ---
 
