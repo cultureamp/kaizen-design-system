@@ -52,6 +52,7 @@ const run = (): void => {
   ).length
   const nullCount = totalTokens - flatEntries.length
 
+  // eslint-disable-next-line no-console -- intentional build-script progress output
   console.log(
     `Semantic tokens written: ${flatEntries.length} emitted, ${nullCount} null-skipped (${totalTokens} total).`,
   )
