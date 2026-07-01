@@ -1,0 +1,166 @@
+import { Meta, Unstyled } from '@storybook/blocks'
+import { InlineNotification } from '~components/Notification'
+
+<Meta title="Guides/Untitled UI on Tailwind 4" />
+
+# Untitled UI on Tailwind 4
+
+Guidance for Kaizen consumers who want to use **Untitled UI (UUI)** components on **Tailwind 4**
+while keeping everything they already have — Kaizen components, CSS/SCSS/JS tokens, and TW3 or
+TW4-via-`@config`.
+
+<Unstyled>
+  <InlineNotification persistent variant="informative">
+    UUI is a **side path today** and the **eventual primary path**: as `@kaizen/components` migrates
+    to UUI and consumers standardise on TW4, this becomes the main way to consume Kaizen. Nothing
+    you use today changes.
+  </InlineNotification>
+</Unstyled>
+
+## TL;DR
+
+- Kaizen's semantic colour layer (`bg-primary`, `text-primary`, `fg-primary`, `border-primary`)
+  already works on TW3, TW4-via-`@config`, SCSS, CSS and JS.
+- Untitled UI is authored with a **doubled** class form (`bg-bg-primary`, `text-fg-primary`,
+  `border-border-secondary`). To drop UUI components into a Kaizen app, run them through the
+  **class transform** shipped in `@kaizen/tailwind` — it rewrites them to Kaizen's clean form.
+- If any UUI code references UUI's CSS vars directly (`var(--color-bg-primary)`), import the
+  **compat var file** so those resolve to Kaizen values.
+- On TW4.1+ you can skip the `@config` bridge entirely with the TW4-native `@utility` entrypoint.
+
+## Why the two conventions differ
+
+UUI declares its semantic tokens inside a TW4 `@theme` block using the `--color-` prefix:
+
+```css
+@theme {
+  --color-bg-primary: var(--color-white);
+  --color-text-primary: var(--color-neutral-900);
+  --color-fg-primary: var(--color-neutral-900);
+  --color-border-primary: var(--color-neutral-300);
+}
+```
+
+Tailwind 4 reads the colour _name_ as the whole string after `--color-`, so it generates
+**doubled** utilities — `bg-bg-primary`, `text-text-primary`, `border-border-primary` — and there is
+**no `fg-*` utility** (foreground colour is applied via `text-fg-*`).
+
+Kaizen deliberately ships the **clean** form instead (`bg-primary`, `text-primary`,
+`border-primary`, and a real `fg-*` utility). Clean class names are the design goal; we do not want
+`bg-bg-primary` in application code. The transform below is the wall that keeps the doubling out.
+
+The name a designer sees in Figma (`bg-primary`, `text-primary`) is exactly the utility you write in
+Kaizen — Figma↔code parity holds at the class layer.
+
+## Step 1 — Keep your current Kaizen setup
+
+No change. Keep the Kaizen preset (`presets: [Preset]`) via your `tailwind.config.js`, referenced
+from TW4 with `@config`, or used directly on TW3. Semantic utilities and CSS/SCSS/JS tokens keep
+working exactly as before. This is the backwards-compatibility guarantee.
+
+## Step 2 — Transform Untitled UI components on the way in
+
+When you add a UUI component (e.g. via `untitledui add`), run the Kaizen transform over it. It
+strips the UUI doubling to Kaizen's clean form:
+
+| UUI (doubled)       | Kaizen (clean) |
+| ------------------- | -------------- |
+| `bg-bg-{x}`         | `bg-{x}`       |
+| `text-text-{x}`     | `text-{x}`     |
+| `text-fg-{x}`       | `fg-{x}`       |
+| `border-border-{x}` | `border-{x}`   |
+
+Variant prefixes (`hover:`, `md:`, `group-hover/x:`), `!important`, an optional TW prefix, and
+`_hover`-style token suffixes are all preserved. Already-clean classes, spacing/layout classes and
+primitive utilities (`text-purple-600`) are left untouched.
+
+```sh
+# dry run (prints a diff summary)
+node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui
+
+# apply
+node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui --write
+
+# if your project uses a Tailwind prefix (e.g. `un`)
+node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui --prefix un --write
+```
+
+The transform is colour-classes only (single responsibility). If you also need UUI's rem-based
+spacing normalised to your scale, compose it with your own spacing transform — see
+"Known adoption costs" below.
+
+## Step 3 (optional) — CSS var compatibility
+
+If a UUI component references UUI's CSS vars directly (inline styles or raw CSS, e.g.
+`var(--color-bg-primary)`), import the compat file so those names resolve to Kaizen values:
+
+```css
+@import '@kaizen/design-tokens/css/untitled-ui-vars.css';
+```
+
+It aliases every Kaizen semantic token to its UUI name — `--color-bg-primary: var(--bg-primary);` —
+generated from the same token source, so it never drifts. Class-based components (the common case)
+are already handled by Step 2 and don't need this.
+
+## Pure TW4 CSS-first (no `@config`)
+
+On **Tailwind 4.1+** you can get Kaizen's semantic utilities without the JS preset / `@config`
+bridge by importing the generated TW4-native entrypoint alongside Tailwind:
+
+```css
+@import 'tailwindcss';
+@import '@kaizen/design-tokens/css/variables.css'; /* semantic + primitive vars */
+@import '@kaizen/design-tokens/css/tailwind-v4.css'; /* @utility bg-primary { … } etc. */
+```
+
+`tailwind-v4.css` is generated from the same token source as everything else. It authors explicit
+`@utility` blocks (`@utility bg-primary { background-color: var(--bg-primary); }`, `fg-*` sets
+`color`) so you get Kaizen's **clean** names — a stock `@theme --color-*` block would emit the
+doubled `bg-bg-primary` form.
+
+<Unstyled>
+  <InlineNotification persistent variant="informative">
+    Verified on Tailwind 4.2.4: `bg-primary`, `text-primary`, `fg-primary`, `border-primary`,
+    underscore names like `bg-secondary_hover`, and variants like `hover:bg-primary` all emit
+    correctly. Requires TW4.1+ for the `@utility` directive.
+  </InlineNotification>
+</Unstyled>
+
+## Toward dark mode — why utilities point at the semantic var
+
+Each `@utility` intentionally points at its **semantic var**, not the underlying primitive:
+
+```css
+@utility border-brand_alt {
+  border-color: var(--border-brand_alt); /* stable — never changes */
+}
+```
+
+That indirection is a deliberate seam. The class name and the var name stay fixed; only _what the
+var resolves to_ flips per context:
+
+```css
+:root {
+  --border-brand_alt: var(--color-blue-500);
+}
+[data-color-mode='dark'] {
+  --border-brand_alt: var(--color-blue-300); /* same var, different primitive */
+}
+```
+
+When dark mode (and the colour palette flip) land, they override the **semantic var** and every
+utility repaints with **no change to consumer markup**. Baking the primitive into the utility
+(`border-color: var(--color-blue-500)`) would remove that override point — dark mode overrides the
+semantic layer, not primitives.
+
+## Known adoption costs
+
+- **rem vs px.** UUI is rem-based; Kaizen spacing is px. The class transform does **not** touch
+  spacing — handle it with a separate spacing transform if needed. This is the main remaining
+  friction for a transform-free drop-in.
+- **Prefix + `@layer` order.** Running UUI and Kaizen utilities in one app is two token spaces; keep
+  a Tailwind prefix and an explicit `@layer` order to avoid cascade surprises.
+- **`fg` on non-text properties.** UUI mostly uses `text-fg-*` (→ `fg-*`). Rare `bg-fg-*`/`fill-fg-*`
+  cases aren't remapped by the transform — the compat var file (Step 3) covers direct var usage.
+- **`_hover` underscores** in token names are valid CSS and compile as `@utility` names (verified on
+  TW4.2.4), but can trip stylelint/prettier — check your linters.
