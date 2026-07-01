@@ -141,6 +141,17 @@ export const flatSemanticColorTokens = {
   ...semanticColorTokens.border,
 } satisfies Record<string, SemanticColorTokenValue>
 
+/**
+ * The `:root` body lines defining every mapped semantic colour token as a CSS
+ * custom property, e.g. `  --bg-primary: var(--color-white);`. Null (unmapped)
+ * tokens are skipped. Shared by the build scripts so the block emitted into
+ * `variables.css` and the standalone `semantic-color.css` can never drift.
+ */
+export const semanticColorCssVariableLines = (): string[] =>
+  Object.entries(flatSemanticColorTokens)
+    .filter((entry): entry is [string, string] => entry[1] !== null)
+    .map(([key, value]) => `  --${key}: ${value};`)
+
 /** Union of every canonical semantic colour token name. */
 export type SemanticColorTokenName = keyof typeof flatSemanticColorTokens
 
