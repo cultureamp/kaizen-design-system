@@ -40,7 +40,7 @@ export interface SemanticColorTokens {
   border: SemanticColorTokenGroup
 }
 
-export const semanticColorTokens: SemanticColorTokens = {
+export const semanticColorTokens = {
   background: {
     'bg-primary': 'var(--color-white)',
     'bg-primary_alt': null,
@@ -123,7 +123,7 @@ export const semanticColorTokens: SemanticColorTokens = {
     'border-error': 'var(--color-red-500)',
     'border-error_subtle': 'var(--color-red-300)',
   },
-}
+} satisfies SemanticColorTokens
 
 /**
  * All four semantic colour groups merged into a single flat record.
@@ -134,12 +134,37 @@ export const semanticColorTokens: SemanticColorTokens = {
  * separators (e.g. `text-primary_on-brand`). ESLint camelcase does not
  * apply because keys are quoted string literals, not identifiers.
  */
-export const flatSemanticColorTokens: Record<string, SemanticColorTokenValue> = {
+export const flatSemanticColorTokens = {
   ...semanticColorTokens.background,
   ...semanticColorTokens.text,
   ...semanticColorTokens.foreground,
   ...semanticColorTokens.border,
-}
+} satisfies Record<string, SemanticColorTokenValue>
 
 /** Union of every canonical semantic colour token name. */
 export type SemanticColorTokenName = keyof typeof flatSemanticColorTokens
+
+/**
+ * Convert a canonical kebab/underscore token name to a camelCase JS key.
+ * `bg-brand-solid` → `bgBrandSolid`, `text-primary_on-brand` → `textPrimaryOnBrand`.
+ */
+type KebabToCamel<S extends string> = S extends `${infer Head}${'-' | '_'}${infer Tail}`
+  ? `${Head}${Capitalize<KebabToCamel<Tail>>}`
+  : S
+
+/** camelCase variant of every semantic colour token name. */
+export type SemanticColorTokenCamelName = KebabToCamel<SemanticColorTokenName>
+
+const toCamelCase = (name: string): string =>
+  name.replace(/[-_]([a-z])/g, (_match, char: string) => char.toUpperCase())
+
+/**
+ * Semantic colour tokens keyed by camelCase JS identifier, for ergonomic dot
+ * access (e.g. `bgBrandSolid`). Derived from {@link flatSemanticColorTokens} so
+ * the kebab name stays the single source of truth — this is only a JS-friendly
+ * alias. Use the kebab names (the `--bg-brand-solid` CSS var, the Tailwind
+ * class, the Figma variable) when you need cross-platform string identity.
+ */
+export const semanticColorTokensCamel = Object.fromEntries(
+  Object.entries(flatSemanticColorTokens).map(([name, value]) => [toCamelCase(name), value]),
+) as Record<SemanticColorTokenCamelName, SemanticColorTokenValue>
