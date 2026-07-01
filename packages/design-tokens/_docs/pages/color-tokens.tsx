@@ -1,10 +1,10 @@
 import React from 'react'
 import { Heading } from '~components/Heading'
-import { tokens, semanticColorTokens } from '~design-tokens/js'
+import { semanticColorTokens, tokens } from '~design-tokens/js'
 
 /** Pull the primitive name out of a semantic value, e.g. `var(--color-blue-500)` → `color-blue-500`. */
 const primitiveFromValue = (value: string): string | null =>
-  value.match(/var\(--(.+?)\)/)?.[1] ?? null
+  /var\(--(.+?)\)/.exec(value)?.[1] ?? null
 
 /** Resolve a primitive CSS-var name (`color-blue-500`, `color-white`) to its hex value. */
 const primitiveHex = (primitiveName: string): string | null => {
@@ -112,7 +112,7 @@ export const ColorTokensDemo = (): JSX.Element => (
       gap: tokens.spacing[32],
     }}
   >
-    {(Object.keys(semanticColorTokens) as Array<keyof typeof semanticColorTokens>).map((group) => (
+    {(Object.keys(semanticColorTokens) as (keyof typeof semanticColorTokens)[]).map((group) => (
       <div
         key={group}
         style={{ display: 'flex', flexDirection: 'column', gap: tokens.spacing[12] }}

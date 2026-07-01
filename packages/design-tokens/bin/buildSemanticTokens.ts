@@ -1,9 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import {
-  semanticColorCssVariableLines,
-  semanticColorTokens,
-} from '../src/js/semanticColorTokens'
+import { semanticColorCssVariableLines, semanticColorTokens } from '../src/js/semanticColorTokens'
 
 const CSS_OUTPUT_DIR = `${process.cwd()}/css`
 const SASS_OUTPUT_DIR = `${process.cwd()}/sass`

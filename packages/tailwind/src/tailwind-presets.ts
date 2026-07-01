@@ -29,7 +29,7 @@ function stripAndMap(group: Record<string, string | null>, prefix: string): Reco
  * so strip those entries before spreading into `colors` / `borderColor`.
  */
 function stripNulls<T extends Record<string, unknown>>(
-  group: T
+  group: T,
 ): { [K in keyof T]: Exclude<T[K], null> } {
   const result: Record<string, unknown> = {}
   for (const [key, value] of Object.entries(group)) {
