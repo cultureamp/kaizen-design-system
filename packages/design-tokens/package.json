@@ -31,7 +31,7 @@
     "build:ts": "pnpm package-bundler build",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "build:semantic": "tsx ./bin/buildSemanticTokens.ts && prettier css/semantic-color.css sass/semantic-color.scss --write",
+    "build:semantic": "tsx ./bin/buildSemanticTokens.ts && prettier css/semantic-color.css css/untitled-ui-vars.css css/tailwind-v4.css sass/semantic-color.scss --write",
     "clean": "rimraf 'dist' 'node_modules' '.turbo'",
     "clean:dist": "rimraf 'dist'"
   },
