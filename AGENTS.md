@@ -80,7 +80,7 @@ co-located stories and styles.
 - `reversed` / `isReversed` prop — removed in v3 (Mar 2026). Use `<ReversedColors isReversed>`
   context provider to theme a subtree. See [ADR 0002](agents-managed-docs/adr/0002-reversed-to-reversedcolors-provider.md).
 
-**Class-name overrides — prefer `className` on new components.** `classNameOverride` is *not*
+**Class-name overrides — prefer `className` on new components.** `classNameOverride` is _not_
 deprecated on components that already expose it. The forward-looking preference is that new
 RAC-based components take the standard `className` prop (combined via `mergeClassNames`) rather
 than adding `classNameOverride`. There is **no `@deprecated` JSDoc on the `OverrideClassName`
