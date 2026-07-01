@@ -23,6 +23,24 @@ function stripAndMap(group: Record<string, string | null>, prefix: string): Reco
   return result
 }
 
+/**
+ * `tokens.color` merges in the flat semantic colour tokens, some of which are
+ * `null` (no confident mapping yet). Tailwind's colour config rejects `null`,
+ * so strip those entries before spreading into `colors` / `borderColor`.
+ */
+function stripNulls<T extends Record<string, unknown>>(
+  group: T
+): { [K in keyof T]: Exclude<T[K], null> } {
+  const result: Record<string, unknown> = {}
+  for (const [key, value] of Object.entries(group)) {
+    if (value === null) continue
+    result[key] = value
+  }
+  return result as { [K in keyof T]: Exclude<T[K], null> }
+}
+
+const nonNullColors = stripNulls(tokens.color)
+
 const semanticBackgroundColors = stripAndMap(semanticColorTokens.background, 'bg-')
 const semanticTextColors = stripAndMap(semanticColorTokens.text, 'text-')
 const semanticBorderColors = stripAndMap(semanticColorTokens.border, 'border-')
@@ -51,7 +69,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     transparent: 'transparent',
     current: 'currentColor',
     inherit: 'inherit',
-    ...tokens.color,
+    ...nonNullColors,
     ...tokens.dataViz,
   },
   spacing: kzSpacing,
@@ -78,7 +96,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     'default-color': `${tokens.border.solid.borderColor}`,
     'transparent': `${tokens.border.borderless.borderColor}`,
     'focus-ring': tokens.color.blue[600],
-    ...tokens.color,
+    ...nonNullColors,
   },
   fontFamily: {
     'family-paragraph': [`${tokens.typography.paragraphBody.fontFamily}`],
