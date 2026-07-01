@@ -14,6 +14,26 @@ const CSS_OUTPUT_DIR = `${process.cwd()}/css`
 
 const formatJson = (jsonString: string): Promise<string> => format(jsonString, { parser: 'json' })
 
+/**
+ * Semantic colour tokens are merged into `tokens.color` for the JS export and
+ * Tailwind preset, but they are emitted as CSS variables separately (see
+ * `semanticColorCssVariableLines` / `build:semantic`) under their canonical
+ * names — `--bg-*`, `--text-*`, `--fg-*`, `--border-*`.
+ *
+ * They must NOT leak into the primitive `color.json`, because `build:sass` /
+ * `build:less` would then generate `$color-bg-*` entries referencing an
+ * undefined `--color-bg-*` variable (the real one is `--bg-*`).
+ *
+ * Tokens are merged under both their kebab (`bg-primary`) and camelCase
+ * (`bgPrimary`) forms, so match both — the camel form is kebab-cased back to
+ * `$color-bg-*` by `json-to-flat-sass`.
+ */
+const SEMANTIC_COLOR_KEY_PATTERN = /^(bg|text|fg|border)(-|[A-Z])/
+const stripSemanticColorKeys = <T extends Record<string, unknown>>(color: T): T =>
+  Object.fromEntries(
+    Object.entries(color).filter(([key]) => !SEMANTIC_COLOR_KEY_PATTERN.test(key)),
+  ) as T
+
 const run = async (): Promise<void> => {
   fs.mkdirSync(JSON_OUTPUT_DIR, { recursive: true })
   fs.mkdirSync(CSS_OUTPUT_DIR, { recursive: true })
@@ -73,7 +93,7 @@ const run = async (): Promise<void> => {
     await formatJson(
       JSON.stringify({
         dataViz: augmentedThemeWithCSSVariableValuesVersion.dataViz,
-        color: augmentedThemeWithCSSVariableValuesVersion.color,
+        color: stripSemanticColorKeys(augmentedThemeWithCSSVariableValuesVersion.color),
       }),
     ),
   )
