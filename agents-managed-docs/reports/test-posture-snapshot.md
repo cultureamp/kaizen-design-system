@@ -1,9 +1,9 @@
 # Test Posture Snapshot — kaizen-design-system
 
 > **Point-in-time snapshot: June 2026.** Counts will drift as the codebase evolves — treat
-> this as a baseline, not a live dashboard. For actionable follow-up see candidate-tickets.md
-> [#4](../candidate-tickets.md) (interaction-unit migration) and
-> [#5](../candidate-tickets.md) (stickersheet gaps).
+> this as a baseline, not a live dashboard. For actionable follow-up see
+> [KZN-4104](https://cultureamp.atlassian.net/browse/KZN-4104) (interaction-unit migration) and
+> [KZN-4105](https://cultureamp.atlassian.net/browse/KZN-4105) (stickersheet gaps).
 
 ---
 

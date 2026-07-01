@@ -5,7 +5,7 @@
 > doubt, prefer the smaller change, and never alter a design-token value or a public type
 > without surfacing it.
 
-> **Doc map.** The companion docs referenced below live in [`agents-managed-docs/`](agents-managed-docs/) — ADRs, proposals, the accessibility catalogue, reference guides, and the candidate-tickets log. The repo-root `CLAUDE.md` is a symlink to this file, so Claude Code and every other agent read the same instructions.
+> **Doc map.** The companion docs referenced below live in [`agents-managed-docs/`](agents-managed-docs/) — ADRs, proposals, the accessibility catalogue, and reference guides. The repo-root `CLAUDE.md` is a symlink to this file, so Claude Code and every other agent read the same instructions.
 
 ---
 
@@ -34,7 +34,7 @@ devbox run verify
 A single `turbo run` invocation: turbo enforces `build → lint:ts` ordering (existing `^build` dependency), runs `test` and the three root lint tasks in parallel, fails if any task fails, and caches results. No shell script.
 Estimated: ~3–5 min warm cache, 8–12 min cold.
 
-CI-only checks (`test-storybook`, `chromatic`) are excluded — see §13 and agents-managed-docs/candidate-tickets.md #8.
+CI-only checks (`test-storybook`, `chromatic`) are excluded — see §13.
 
 **Don't read the full output** — a cold run is thousands of lines and will blow
 your context. Run `verify` in the background so output is captured to a file, then
@@ -84,7 +84,7 @@ co-located stories and styles.
 deprecated on components that already expose it. The forward-looking preference is that new
 RAC-based components take the standard `className` prop (combined via `mergeClassNames`) rather
 than adding `classNameOverride`. There is **no `@deprecated` JSDoc on the `OverrideClassName`
-type today**, so this preference is not yet signalled at call sites (see agents-managed-docs/candidate-tickets.md #3).
+type today**, so this preference is not yet signalled at call sites (tracked in KZN-4103).
 
 **Internationalisation:** All user-facing text must be translated. Never hardcode a visible string.
 

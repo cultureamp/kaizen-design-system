@@ -148,7 +148,7 @@ breaking change radar:
 4. **Consumer repos per prop** — drillthrough to repo list
 5. **Version spread across fleet** — from `pnpm_direct_dependencies`
 
-**Effort estimate:** ~1 afternoon to wire the Metabase cards. Tracked in candidate-tickets.md #7.
+**Effort estimate:** ~1 afternoon to wire the Metabase cards. Tracked in KZN-4107.
 
 ---
 

@@ -44,7 +44,7 @@ Durable checklist for reviewing a kaizen PR — human or agent reviewer.
 Point-in-time snapshot (June 2026), stickersheet gaps, and migration backlog:
 → [docs/reports/test-posture-snapshot.md](agents-managed-docs/reports/test-posture-snapshot.md)
 
-Actionable tickets: agents-managed-docs/candidate-tickets.md [#4](agents-managed-docs/candidate-tickets.md) (migration backlog) and [#5](agents-managed-docs/candidate-tickets.md) (stickersheet gaps).
+Actionable tickets: [KZN-4104](https://cultureamp.atlassian.net/browse/KZN-4104) (migration backlog) and [KZN-4105](https://cultureamp.atlassian.net/browse/KZN-4105) (stickersheet gaps).
 
 ---
 

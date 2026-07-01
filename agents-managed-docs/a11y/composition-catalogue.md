@@ -150,7 +150,7 @@ open `Workflow` components.
 **Mitigation:**
 
 - `ProgressStepper` should use `useId()` for the description id — bug tracked in
-  candidate-tickets.md #1.
+  KZN-4101.
 - `LinkModal`'s `TextField` `id="href"` should use `useId()` for correctness (theoretical risk;
   two link modals are never simultaneously open, but still).
 - Never nest `KaizenProvider` — one per application root.
@@ -311,7 +311,7 @@ detectable via `document.querySelectorAll('#stepper-description').length > 1`.
 
 - Until fixed upstream: render only one `Workflow` per page.
 - Fix: replace `id="stepper-description"` with `const descId = useId()` and thread it to both
-  the `<ol aria-labelledby>` and `<span id>`. Tracked in candidate-tickets.md #1.
+  the `<ol aria-labelledby>` and `<span id>`. Tracked in KZN-4101.
 
 ---
 
@@ -335,7 +335,7 @@ readers.
 - Never nest `KaizenProvider` — one per application shell root.
 - If micro-frontends each need their own toast queue, instantiate `ToastNotificationProvider`
   and `ToastNotificationsList` at the micro-frontend shell level _without_ `KaizenProvider`,
-  and use a unique container id for each (currently hardcoded — tracked in candidate-tickets.md #1).
+  and use a unique container id for each (currently hardcoded — tracked in KZN-4101).
 - Consider adding a dev-mode warning when `KaizenProvider` detects it is inside another
   `KaizenProvider` via a React context sentinel.
 

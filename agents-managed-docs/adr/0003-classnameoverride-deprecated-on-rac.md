@@ -20,7 +20,7 @@ Existing V1/current components retain the prop for backwards compatibility.
 ## Consequences
 
 - `OverrideClassName` type still exists and is used by ~60+ existing components.
-- The type has **no `@deprecated` JSDoc** today — a gap tracked in candidate-tickets.md #3.
+- The type has **no `@deprecated` JSDoc** today — a gap tracked in KZN-4103.
   IDE call-site signals are absent until that is fixed.
 - New `__alpha__` and `__next__` components must not accept `classNameOverride`.
 - Theming interface for new components is CSS custom properties only.

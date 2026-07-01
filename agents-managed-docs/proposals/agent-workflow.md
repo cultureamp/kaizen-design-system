@@ -90,7 +90,7 @@ pnpm turbo run build lint:ts test //#lint:eslint //#lint:format //#lint:styles
 
 **Estimated runtime:** ~3–5 minutes warm cache, 8–12 min cold.
 
-### Concrete repo changes (see candidate-tickets.md #8)
+### Concrete repo changes (implemented in PR #6847)
 
 **1. `turbo.json` — add three root tasks:**
 
@@ -131,7 +131,7 @@ This makes `pnpm turbo run test` non-interactive by default. The existing root `
 }
 ```
 
-> **Note:** Staged here pending candidate-tickets.md #8 to wire into the real repo.
+> **Note:** Wired into the real repo in PR #6847 (`devbox run verify`).
 
 ### What agents CAN verify locally
 
