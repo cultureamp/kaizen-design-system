@@ -140,23 +140,6 @@ a function `(state) => string` when one is. Always use this helper when combinin
 
 ---
 
-## Which components use RA hooks (not RAC primitives)
-
-| Component                                             | RA hooks used                                                        |
-| ----------------------------------------------------- | -------------------------------------------------------------------- |
-| `SingleSelect` (stable, `src/SingleSelect/`)          | `useSelect`, `useButton`, `useSelectState` (stately), `HiddenSelect` |
-| `SingleSelect` (alpha, `src/__alpha__/SingleSelect/`) | `useSelect`, `useSelectState`                                        |
-| `Select`                                              | `useButton` (for ClearIndicator only; wraps react-select otherwise)  |
-| `Focusable`                                           | `useFocusable`                                                       |
-| `Filter/FilterMultiSelect`                            | `useMenuTriggerState` (stately), `useMenuTrigger`, `useListState`    |
-
-**Use the stable `SingleSelect` (`src/SingleSelect/`) for all production work.** The
-`__alpha__/SingleSelect/` is the direction of travel toward RAC primitives but was explicitly
-split off as not production-ready (Sep 2025). The `__alpha__` prefix is a hard gate, not a
-preview — do not adopt alpha components unless explicitly instructed.
-
----
-
 ## Worked examples
 
 ### 1. Button

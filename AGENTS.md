@@ -58,15 +58,6 @@ grep -E "^${fail}:" <output-file>
 
 The summary line plus the one failing task's output is all you need to diagnose.
 
-**Scaffold a new component:**
-
-```sh
-pnpm plop
-```
-
-Do not hand-roll the component folder. `plop` creates the correct anatomy
-(`ComponentName/`, `ComponentName.tsx`, `_docs/`, `index.ts`).
-
 **Storybook locally:** `pnpm storybook` — use `STORIES=<glob>` to filter to one component.
 Storybook interaction tests (`test-storybook`) are CI-only; do not run them in the agent loop.
 
@@ -88,11 +79,12 @@ co-located stories and styles.
 
 - `reversed` / `isReversed` prop — removed in v3 (Mar 2026). Use `<ReversedColors isReversed>`
   context provider to theme a subtree. See [ADR 0002](agents-managed-docs/adr/0002-reversed-to-reversedcolors-provider.md).
-- `classNameOverride` prop — deprecated on new RAC-based components. Do not add it to new
-  components. Existing components retain it for backwards compatibility but there is
-  **no `@deprecated` JSDoc on the `OverrideClassName` type today** — a type-level signal is
-  missing and will not appear at call sites until that is fixed (see agents-managed-docs/candidate-tickets.md #3).
-  New components should use CSS custom properties for consumer-controlled theming instead.
+
+**Class-name overrides — prefer `className` on new components.** `classNameOverride` is *not*
+deprecated on components that already expose it. The forward-looking preference is that new
+RAC-based components take the standard `className` prop (combined via `mergeClassNames`) rather
+than adding `classNameOverride`. There is **no `@deprecated` JSDoc on the `OverrideClassName`
+type today**, so this preference is not yet signalled at call sites (see agents-managed-docs/candidate-tickets.md #3).
 
 **Internationalisation:** All user-facing text must be translated. Never hardcode a visible string.
 
@@ -109,11 +101,10 @@ fix: address accessibility issue in Button component
 
 ---
 
-## 4. Component foundations — React Aria (RA) & React Aria Components (RAC)
+## 4. Component foundations — React Aria Components (RAC)
 
-Kaizen components sit on top of React Aria Components (RAC) and React Aria (RA) hooks.
-Most accessibility, focus management, and keyboard behaviour comes from the foundation, not
-from kaizen code. Before touching a component, understand which layer it uses.
+Kaizen components are built on React Aria Components (RAC). Accessibility, focus management,
+and keyboard behaviour come from the foundation, not from kaizen code.
 
 Short summary of what this means in practice:
 
@@ -124,7 +115,7 @@ Short summary of what this means in practice:
 - **`mergeClassNames(...classNames)`** is the helper for combining a RAC `className` function
   with extra classes — always use it, never concatenate strings directly.
 
-Full layering model, integration styles (RAC wrapper vs RA hooks), controlled/uncontrolled
+Full layering model, integration styles, controlled/uncontrolled
 patterns, render props, slots, and worked examples (Button / Menu / Tabs):
 → [agents-managed-docs/reference/rac-foundations.md](agents-managed-docs/reference/rac-foundations.md)
 

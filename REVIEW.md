@@ -52,7 +52,7 @@ Actionable tickets: agents-managed-docs/candidate-tickets.md [#4](agents-managed
 
 - **No new `.scss`** — CSS Modules only (`.module.css`). Existing `.module.scss` is legacy; do not add to it.
 - **No `reversed`/`isReversed` prop** on new components — removed in v3. New code uses `<ReversedColors isReversed>`.
-- **No `classNameOverride`** on new RAC-based components — use CSS custom properties for consumer theming instead.
+- **Prefer `className` over `classNameOverride`** on new RAC-based components — take the standard `className` prop (merged via `mergeClassNames`), not `classNameOverride`. Components that already expose `classNameOverride` keep it; it is not deprecated there.
 - **RTL:** logical CSS utilities only (`padding-inline-start`, `margin-inline-end`). Reject physical `left`/`right` for direction-aware spacing.
 - **No hardcoded user-facing strings** — all visible text must be internationalised.
 - **One package per PR.** Coordinated cross-package changes are the documented exception — flag and confirm scope is intentional.
