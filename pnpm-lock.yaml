@@ -578,13 +578,14 @@ importers:
         version: 4.22.4
 
   packages/tailwind:
+    dependencies:
+      '@kaizen/design-tokens':
+        specifier: workspace:*
+        version: link:../design-tokens
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^4.0.1
         version: 4.0.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.3.0(postcss@8.5.15))(postcss@8.5.15)(rollup@4.61.1)(tslib@2.8.1)(typescript@5.9.3)
-      '@kaizen/design-tokens':
-        specifier: workspace:*
-        version: link:../design-tokens
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.19(tsx@4.22.4))
