@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../../../styles/utils/form-variables';
@@ -7,7 +8,7 @@
 @layer kz-components {
   $input-height: 48px;
   $input-base-padding-horizontal: $spacing-sm;
-  $input-icon-size: 1.25rem; // 20px
+  $input-icon-size: 1.25rem; /* 20px*/
   $input-disabled-background: $color-gray-300;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;
@@ -59,9 +60,9 @@
   }
 
   /* stylelint-disable no-descending-specificity */
-  ///////////////////////////////////////////////////
-  // ICON ADORNMENT STYLES
-  ///////////////////////////////////////////////////
+  /*/////////////////////////////////////////////////*/
+  /* ICON ADORNMENT STYLES*/
+  /*/////////////////////////////////////////////////*/
 
   @mixin vertically-center-icon {
     position: absolute;
@@ -113,12 +114,12 @@
     }
   }
 
-  // Default theme
+  /* Default theme*/
   /* stylelint-disable-next-line no-duplicate-selectors */
   .withStartIconAdornment {
     /* stylelint-disable-next-line no-duplicate-selectors */
     .startIconAdornment {
-      color: $color-purple-800;
+      color: $text-primary;
       opacity: 50%;
     }
 
@@ -139,7 +140,7 @@
     }
   }
 
-  // Reversed
+  /* Reversed*/
   .withStartIconAdornment.withReversed {
     .startIconAdornment {
       color: $color-white;
@@ -180,14 +181,14 @@
     }
   }
 
-  ///////////////////////////////////////////////////
-  // THEMES
-  ///////////////////////////////////////////////////
+  /*/////////////////////////////////////////////////*/
+  /* THEMES*/
+  /*/////////////////////////////////////////////////*/
 
-  // Default
+  /* Default*/
   .input.default {
     background-color: $color-white;
-    color: $color-purple-800;
+    color: $text-primary;
     display: flex;
     align-items: center;
 
@@ -196,7 +197,7 @@
     }
 
     &:focus + .focusRing {
-      border-color: $color-blue-500;
+      border-color: $border-brand;
     }
 
     &.disabled {
@@ -206,19 +207,19 @@
     }
 
     &:not(.error, .caution) {
-      border-color: $color-gray-500;
+      border-color: $border-secondary;
 
       &:disabled {
         border-color: rgba($color-gray-500-rgb, $input-disabled-opacity);
       }
 
       @include form-input-focus-state {
-        border-color: $color-gray-600;
+        border-color: $border-primary;
       }
     }
 
     &.error {
-      border-color: $color-red-500;
+      border-color: $border-error;
 
       &.disabled {
         border-color: rgba($color-red-500-rgb, $input-disabled-opacity);
@@ -234,7 +235,7 @@
     }
   }
 
-  // Reversed (Dark Backgrounds)
+  /* Reversed (Dark Backgrounds)*/
   .input.reversed {
     background: transparent;
     color: $color-white;
@@ -265,7 +266,7 @@
     }
 
     &.error {
-      border-color: $color-red-300;
+      border-color: $border-error_subtle;
 
       &.disabled {
         border-color: rgba($color-red-300-rgb, $input-disabled-opacity);

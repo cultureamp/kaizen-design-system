@@ -9,12 +9,12 @@
   $divider-color: rgba($color-gray-600-rgb, 0.2);
   $container-border-width: var(--border-width-1);
 
-  // We need a full border radius on this container element, then have classes
-  // beneath to toggle nested borders off and on for different use cases.
+  /* We need a full border radius on this container element, then have classes*/
+  /* beneath to toggle nested borders off and on for different use cases.*/
   .container {
     background-color: $color-white;
     box-shadow: $shadow-small-box-shadow;
-    border: $container-border-width var(--border-solid-border-style) var(--color-gray-500);
+    border: $container-border-width var(--border-solid-border-style) var(--border-secondary);
     border-radius: $border-borderless-border-radius;
   }
 
@@ -33,8 +33,8 @@
       background-color: $heading-active-color;
     }
 
-    // Round the bottom corners of the header so when the container is open, the
-    // header background is not rounded on the corners and flush with the content beneath.
+    /* Round the bottom corners of the header so when the container is open, the*/
+    /* header background is not rounded on the corners and flush with the content beneath.*/
     &.open {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -49,9 +49,9 @@
     }
   }
 
-  // When a collapsible group is rendered, we need the first group to have a rounded
-  // on top and the last group to have a rounded bottom edge. Then when the last group
-  // is open we remove the rounded edge as the content sits beneath and needs to be straight.
+  /* When a collapsible group is rendered, we need the first group to have a rounded*/
+  /* on top and the last group to have a rounded bottom edge. Then when the last group*/
+  /* is open we remove the rounded edge as the content sits beneath and needs to be straight.*/
   .groupItem {
     & + .groupItem {
       border-top: 1px $border-solid-border-style $divider-color;
@@ -76,7 +76,7 @@
   }
 
   .chevronButton:hover {
-    // hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header
+    /* hack to get rid of the IconButton hover styling because it clashes with the hover styling on the Collapsible header*/
     background-color: transparent !important; /* stylelint-disable-line declaration-no-important */
   }
 

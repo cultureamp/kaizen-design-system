@@ -18,7 +18,7 @@
   }
 
   .listItem.focused {
-    border: var(--spacing-2) solid var(--color-blue-500);
+    border: var(--spacing-2) solid var(--border-brand);
   }
 
   .listItem.focused:hover {
@@ -30,7 +30,7 @@
   }
 
   .listItem.focused:active {
-    background-color: var(--color-gray-300);
+    background-color: var(--bg-tertiary);
   }
 
   .startSelection {
@@ -38,16 +38,16 @@
   }
 
   .selected {
-    background-color: var(--color-blue-100);
+    background-color: var(--bg-brand-primary);
     border: var(--spacing-2) solid transparent;
   }
 
   .selected:hover {
-    background-color: var(--color-blue-200);
+    background-color: var(--bg-brand-secondary);
   }
 
   .selected:active {
-    background-color: var(--color-blue-100);
+    background-color: var(--bg-brand-primary);
   }
 
   .disabled {
@@ -59,7 +59,7 @@
   }
 
   .iconChecked {
-    color: var(--color-blue-500);
+    color: var(--text-brand-primary);
   }
 
   .itemContent {

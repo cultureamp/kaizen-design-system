@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 
 @layer kz-components {
@@ -28,7 +29,7 @@
       }
 
       &:not(.firstChild) {
-        border-inline-start: 1px solid $color-blue-300;
+        border-inline-start: 1px solid $border-brand_alt;
       }
 
       &:not(.firstChild, .lastChild) {

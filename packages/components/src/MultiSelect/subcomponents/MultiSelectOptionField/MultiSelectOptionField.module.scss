@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/typography';
@@ -14,14 +15,14 @@
 
     &:hover,
     &:focus-within {
-      background: $color-blue-100;
+      background: $bg-brand-primary;
 
       .checkbox {
-        border-color: $color-gray-600;
+        border-color: $border-primary;
         background-color: $color-gray-200;
 
         &.checked {
-          background-color: $color-gray-600;
+          background-color: $bg-secondary-solid;
         }
       }
     }
@@ -40,10 +41,10 @@
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
-        border-color: $color-blue-500;
+        border-color: $border-brand;
       }
 
-      // removes default checkbox focus ring
+      /* removes default checkbox focus ring*/
       .checkbox::after {
         display: none;
       }
@@ -51,7 +52,7 @@
   }
 
   .label {
-    color: $color-purple-800;
+    color: $text-primary;
     font-family: $typography-paragraph-body-font-family;
     font-weight: $typography-paragraph-body-font-weight;
     font-size: $typography-paragraph-body-font-size;
@@ -59,8 +60,8 @@
     letter-spacing: $typography-paragraph-body-letter-spacing;
     overflow-wrap: anywhere;
 
-    // Increases the hit area of the checkbox label to the size of
-    // the surrounding div for better mouse user experience
+    /* Increases the hit area of the checkbox label to the size of*/
+    /* the surrounding div for better mouse user experience*/
     &::before {
       content: '';
       width: 100%;

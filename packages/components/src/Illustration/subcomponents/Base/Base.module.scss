@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/animation';
 
 @layer kz-components {
@@ -12,7 +13,7 @@
     position: relative;
   }
 
-  // nested to get more specificity, beat out the generic button styles
+  /* nested to get more specificity, beat out the generic button styles*/
   .figure .pausePlayButton {
     opacity: 0%;
     position: absolute;
@@ -28,7 +29,7 @@
     }
 
     svg {
-      color: $color-purple-800;
+      color: $text-primary;
       opacity: 70%;
     }
 
@@ -109,10 +110,10 @@
     }
   }
 
-  // If the .visually-hidden class is applied to natively focusable elements
-  // (such as a, button, input, etc) they must become visible when they receive
-  // keyboard focus. Otherwise, a sighted keyboard user would have to try and
-  // figure out where their visible focus indicator had gone to.
+  /* If the .visually-hidden class is applied to natively focusable elements*/
+  /* (such as a, button, input, etc) they must become visible when they receive*/
+  /* keyboard focus. Otherwise, a sighted keyboard user would have to try and*/
+  /* figure out where their visible focus indicator had gone to.*/
   .visuallyHidden:not(:focus, :active) {
     clip-path: rect(0 0 0 0);
     position: absolute;

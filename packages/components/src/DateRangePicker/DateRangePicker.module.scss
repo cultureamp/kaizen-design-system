@@ -1,14 +1,15 @@
 @import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/border';
 @import '../../styles/utils/button-reset';
 
 @layer kz-components {
-  // Vars
+  /* Vars*/
   $button-height: 48px;
   $button-base-padding-horizontal: $spacing-sm;
-  $button-icon-size: 1.25rem; // 20px
+  $button-icon-size: 1.25rem; /* 20px*/
 
   $disabled-opacity: 0.5;
   $placeholder-opacity: 0.7;
@@ -21,7 +22,7 @@
     align-items: center;
     height: $button-height;
     width: 100%;
-    color: $color-purple-800;
+    color: $text-primary;
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-paragraph-body-font-size;
     font-weight: $typography-paragraph-body-font-weight;
@@ -30,7 +31,7 @@
     text-align: start;
     background-color: $color-white;
     background-clip: padding-box;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style $border-secondary;
     border-radius: $border-solid-border-radius;
     margin-top: $spacing-6;
     padding: 0 $button-base-padding-horizontal;
@@ -38,8 +39,8 @@
     &:focus-visible:not([disabled]),
     &:hover:not([disabled]) {
       background-color: $color-gray-200;
-      border-color: $color-gray-600;
-      color: $color-purple-800;
+      border-color: $border-primary;
+      color: $text-primary;
     }
 
     &:focus-visible:not([disabled]) {
@@ -67,7 +68,7 @@
     margin-top: -1px;
   }
 
-  // Icon adornment styles
+  /* Icon adornment styles*/
   @mixin vertically-center-icon {
     position: absolute;
     height: $button-icon-size;
@@ -80,7 +81,7 @@
     .startIconAdornment {
       @include vertically-center-icon;
 
-      color: $color-purple-800;
+      color: $text-primary;
       opacity: $disabled-opacity;
       inset-inline: $spacing-sm auto;
     }

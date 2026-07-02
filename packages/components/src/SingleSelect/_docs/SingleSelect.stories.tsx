@@ -170,7 +170,7 @@ export const PortalContainer: Story = {
       <>
         <div className=" h-[500px] mb-24 block bg-gray-100 flex flex-col gap-16 justify-center items-center">
           Page content
-          <button type="button" className="border border-gray-500" onClick={handleOpen}>
+          <button type="button" className="border border-secondary" onClick={handleOpen}>
             Open Modal
           </button>
           <ContextModal

@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../mixins';
 
@@ -6,7 +7,7 @@
   .loadingParagraph {
     @extend %loadingBase;
 
-    background-color: $color-gray-300;
+    background-color: $bg-tertiary;
     height: calc(#{$spacing-md} * 0.625);
     margin-bottom: calc(#{$spacing-md} * 0.5);
   }
@@ -45,7 +46,7 @@
     margin-bottom: 0;
   }
 
-  // We double the class selector to increase specificity above rules like `h1.default-style`
+  /* We double the class selector to increase specificity above rules like `h1.default-style`*/
   .inheritBaseline.inheritBaseline {
     position: static;
   }

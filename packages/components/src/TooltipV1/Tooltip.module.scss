@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/shadow';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/animation';
@@ -8,15 +9,15 @@
 
 @layer kz-components {
   .tooltip {
-    position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
+    position: relative; /* Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)*/
     pointer-events: none;
     z-index: $ca-z-index-tooltip;
   }
 
   .tooltipContent {
     max-width: 400px;
-    padding: var(--spacing-8) calc(9rem / 16); // 8px 9px
-    color: $color-purple-800;
+    padding: var(--spacing-8) calc(9rem / 16); /* 8px 9px*/
+    color: $text-primary;
     text-align: center;
     font-family: $typography-paragraph-body-font-family;
     font-size: $typography-heading-6-font-size;
@@ -32,21 +33,21 @@
 
     &.default {
       background-color: $color-white;
-      border-color: var(--color-gray-500);
+      border-color: var(--border-secondary);
     }
 
     &.informative {
-      background-color: $color-blue-100;
+      background-color: $bg-brand-primary;
       border-color: var(--color-blue-400);
     }
 
     &.positive {
-      background-color: $color-green-100;
+      background-color: $bg-success-primary;
       border-color: var(--color-green-500);
     }
 
     &.cautionary {
-      background-color: $color-yellow-100;
+      background-color: $bg-warning-primary;
       border-color: var(--color-yellow-700);
     }
 
@@ -57,11 +58,11 @@
   }
 
   .arrow {
-    // Ensure the arrow always sits on top of the tooltipContent
+    /* Ensure the arrow always sits on top of the tooltipContent*/
     z-index: 1;
 
-    // This is required by popper, otherwise positioning issues will exist.
-    // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
+    /* This is required by popper, otherwise positioning issues will exist.*/
+    /* https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651*/
     position: absolute;
 
     [data-popper-placement^='top'] & {
@@ -71,9 +72,9 @@
     [data-popper-placement^='bottom'] & {
       top: 0;
 
-      // There is a conflict with the popper arrow styling, which also
-      // adds a transform to the arrow. Hence, we need this additional
-      // wrapper, just to rotate it.
+      /* There is a conflict with the popper arrow styling, which also*/
+      /* adds a transform to the arrow. Hence, we need this additional*/
+      /* wrapper, just to rotate it.*/
       .arrowInner {
         transform: rotate(180deg);
       }
@@ -107,9 +108,9 @@
   }
 
   .arrowMain {
-    // before styles
+    /* before styles*/
     &.default::before {
-      border-top: $arrow-height solid var(--color-gray-500);
+      border-top: $arrow-height solid var(--border-secondary);
     }
 
     &.informative::before {
@@ -127,7 +128,7 @@
     &.cautionary::before {
       border-top: $arrow-height solid var(--color-yellow-700);
     }
-    // after styles
+    /* after styles*/
     &::after {
       margin-top: -1.5px;
     }
@@ -154,10 +155,10 @@
   }
 
   .arrowShadow::before {
-    border-top: 0 solid $color-gray-300;
+    border-top: 0 solid $border-tertiary;
   }
 
-  // Triangle portion is a little darker to bring out shadow
+  /* Triangle portion is a little darker to bring out shadow*/
   .arrowShadow::after {
     border-top: $arrow-height solid rgba($color-purple-800-rgb, 0.09);
     margin-top: 1px;

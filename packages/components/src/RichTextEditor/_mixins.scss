@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/color';
 
@@ -10,9 +11,9 @@
   letter-spacing: $typography-paragraph-body-letter-spacing;
   position: relative;
   /* stylelint-disable-next-line declaration-no-important */
-  white-space: pre-wrap !important; // Override unlayered TipTap styles from within kz-components layer
+  white-space: pre-wrap !important; /* Override unlayered TipTap styles from within kz-components layer*/
   box-sizing: content-box;
-  color: $color-purple-800;
+  color: $text-primary;
 
   > p {
     margin: 0 0 $spacing-16;
@@ -39,7 +40,7 @@
   }
 
   a {
-    color: $color-blue-500;
+    color: $text-brand-primary;
 
     &:hover {
       text-decoration: none;
@@ -54,7 +55,7 @@
 @mixin nested-list-styles {
   ul,
   ol {
-    padding-inline-start: $spacing-40; // default browser styling
+    padding-inline-start: $spacing-40; /* default browser styling*/
   }
 
   ol {

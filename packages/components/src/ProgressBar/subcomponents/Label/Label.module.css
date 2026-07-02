@@ -1,7 +1,7 @@
 @layer kz-components {
   .label {
     padding-bottom: var(--spacing-6);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     text-align: center;
   }
 }

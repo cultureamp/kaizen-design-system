@@ -1,9 +1,10 @@
 @import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/border';
 
 @layer kz-components {
-  // Pagination
+  /* Pagination*/
   .container {
     display: flex;
     align-items: center;
@@ -23,10 +24,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-300;
+    border: $border-focus-ring-border-width $border-focus-ring-border-style $border-brand_alt;
     margin: 0 5px;
     background-color: transparent;
-    color: $color-blue-500;
+    color: $text-brand-primary;
     box-sizing: border-box;
 
     &:disabled {
@@ -35,18 +36,18 @@
     }
 
     &:hover {
-      background-color: $color-blue-100;
+      background-color: $bg-brand-primary;
     }
 
     &:focus {
-      background-color: $color-blue-200;
+      background-color: $bg-brand-secondary;
 
       &:focus-visible {
         outline: none;
       }
 
       .pageIndicatorFocusRing {
-        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style $border-brand;
       }
     }
   }

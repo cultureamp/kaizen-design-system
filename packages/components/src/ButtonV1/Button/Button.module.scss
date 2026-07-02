@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/typography';
@@ -18,8 +19,8 @@
     line-height: $typography-button-primary-line-height;
     letter-spacing: $typography-button-primary-letter-spacing;
     display: inline-flex;
-    // ^inline-flex is used over (block) flex here to fix an edge case where the parent element is display:grid
-    //  and this element is an <a>, causing the element to be full width.
+    /* ^inline-flex is used over (block) flex here to fix an edge case where the parent element is display:grid*/
+    /*  and this element is an <a>, causing the element to be full width.*/
     align-items: center;
     box-sizing: border-box;
     min-height: $button-height;
@@ -28,7 +29,7 @@
     position: relative;
     text-align: left;
     cursor: pointer;
-    overflow: visible; // Required for the focus ring on IE11
+    overflow: visible; /* Required for the focus ring on IE11*/
 
     &[href] {
       text-decoration: none;
@@ -51,7 +52,7 @@
         content: '';
         position: absolute;
         background: transparent;
-        border-color: $color-blue-500;
+        border-color: $border-brand;
         border-radius: $border-focus-ring-border-radius;
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
@@ -62,7 +63,7 @@
     &.reversed {
       &:focus-visible {
         &::after {
-          border-color: $color-blue-300;
+          border-color: $border-brand_alt;
         }
 
         &.disabled,
@@ -96,8 +97,8 @@
 
   %variant-default {
     background-color: $color-white;
-    border-color: $color-gray-500;
-    color: $color-purple-800;
+    border-color: $border-secondary;
+    color: $text-primary;
 
     @include enabled-pseudo-states-variant($color-gray-200, $color-gray-600);
 
@@ -111,16 +112,16 @@
   }
 
   %variant-primary {
-    background-color: $color-blue-500;
+    background-color: $bg-brand-solid;
     border-color: $border-borderless-border-color;
     color: $color-white;
 
     @include enabled-pseudo-states-variant($color-blue-600, $border-borderless-border-color);
 
     &.reversed {
-      background-color: $color-green-300;
+      background-color: $bg-success-secondary;
       border-color: $border-borderless-border-color;
-      color: $color-purple-800;
+      color: $text-primary;
 
       @include enabled-pseudo-states-variant($color-green-400, $border-borderless-border-color);
     }
@@ -134,9 +135,9 @@
     @include enabled-pseudo-states-variant($color-red-600, $border-borderless-border-color);
 
     &.reversed {
-      background-color: $color-red-300;
+      background-color: $bg-error-secondary;
       border-color: $border-borderless-border-color;
-      color: $color-purple-800;
+      color: $text-primary;
 
       @include enabled-pseudo-states-variant($color-red-400, $border-borderless-border-color);
     }
@@ -150,7 +151,7 @@
     letter-spacing: $typography-button-secondary-letter-spacing;
     background-color: transparent;
     border-color: $border-borderless-border-color;
-    color: $color-blue-500;
+    color: $text-brand-primary;
 
     @include enabled-pseudo-states-variant($color-blue-100, $border-borderless-border-color);
 
@@ -171,7 +172,7 @@
   }
 
   %variant-secondary-destructive {
-    color: $color-red-600;
+    color: $text-error-primary;
 
     @include enabled-pseudo-states-variant($color-red-100, $border-borderless-border-color);
   }
