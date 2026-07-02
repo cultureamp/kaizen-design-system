@@ -2,8 +2,8 @@ import { semanticColorTokens } from '../../../design-tokens/src/js/semanticColor
 import {
   PRIMITIVE_TO_SEMANTIC,
   SEMANTIC_TO_PRIMITIVE,
-  type SemanticGroup,
   groupForProperty,
+  type SemanticGroup,
 } from './semanticTokenMap'
 
 /** Reduce a source token value (`var(--color-gray-600)` | null) to `gray-600` | null. */

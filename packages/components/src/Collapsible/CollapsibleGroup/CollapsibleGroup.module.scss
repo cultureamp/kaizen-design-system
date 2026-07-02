@@ -2,8 +2,8 @@
 @import '~@kaizen/design-tokens/sass/shadow';
 
 @layer kz-components {
-  /* We need a full border radius on this container element, then have classes*/
-  /* beneath to toggle nested borders off and on for different use cases.*/
+  /* We need a full border radius on this container element, then have classes */
+  /* beneath to toggle nested borders off and on for different use cases. */
   .container {
     background-color: white;
     box-shadow: $shadow-small-box-shadow;

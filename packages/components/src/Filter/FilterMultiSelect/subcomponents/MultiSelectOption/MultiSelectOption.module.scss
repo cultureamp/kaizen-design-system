@@ -65,12 +65,12 @@
         border: $border-focus-ring-border-width $border-focus-ring-border-style $border-brand;
         border-radius: $border-focus-ring-border-radius;
         inset: calc(-1 * #{$focus-ring-offset});
-        z-index: 1; /* show border when sibling option is hovered*/
+        z-index: 1; /* show border when sibling option is hovered */
       }
     }
 
     &:focus {
-      outline: none; /* cancel browser style*/
+      outline: none; /* cancel browser style */
     }
   }
 
@@ -90,7 +90,7 @@
   }
 
   .badgeContainer {
-    /* Must be the same height as .icon, so they align vertically*/
+    /* Must be the same height as .icon, so they align vertically */
     height: $iconAndBadgeHeight;
     display: flex;
     align-items: center;

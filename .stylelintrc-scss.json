@@ -18,6 +18,7 @@
     ],
     "block-no-empty": true,
     "color-function-notation": "legacy",
+    "custom-property-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(_[a-z0-9]+(-[a-z0-9]+)*)?$",
     "comment-empty-line-before": [
       "always",
       {

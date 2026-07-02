@@ -125,7 +125,7 @@
     padding: 0;
     overflow-x: visible;
     display: inline-block;
-    width: 18.5%; /* 5 columns*/
+    width: 18.5%; /* 5 columns */
     position: relative;
 
     @include fill($block-height);
@@ -138,7 +138,7 @@
       margin-inline-end: 0;
     }
 
-    /* Hack to bridge the gaps between items so mouse always hovers on something*/
+    /* Hack to bridge the gaps between items so mouse always hovers on something */
     &::before,
     &::after {
       content: '';

@@ -35,9 +35,9 @@
   }
 
   .modalLayer {
-    /* use flexbox auto margins to horizontally and vertically centre the modal*/
-    /* because in IE11, `align-items: center` and `justify-content: center` cause*/
-    /* long modal content to become unreachable if they go off-screen*/
+    /* use flexbox auto margins to horizontally and vertically centre the modal */
+    /* because in IE11, `align-items: center` and `justify-content: center` cause */
+    /* long modal content to become unreachable if they go off-screen */
     margin: auto;
     padding: $ca-grid 0;
     width: 100%;
@@ -57,8 +57,8 @@
       width: 100%;
     }
 
-    /* wrap the modal container with a focus ring when the title has focus*/
-    /* for the rebuild: rather than putting the focus on the title, put it on the role=dialog element itself*/
+    /* wrap the modal container with a focus ring when the title has focus */
+    /* for the rebuild: rather than putting the focus on the title, put it on the role=dialog element itself */
     &:has(:global([class*='modalLabel']):focus-visible) {
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-300);
@@ -90,7 +90,7 @@
     }
   }
 
-  /* WAITING FOR TEXTFIELD*/
+  /* WAITING FOR TEXTFIELD */
   .animatingEnter {
     [data-modal] {
       animation-duration: $ca-duration-fast;

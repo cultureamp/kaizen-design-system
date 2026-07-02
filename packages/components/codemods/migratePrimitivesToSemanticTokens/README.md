@@ -57,11 +57,11 @@ one of three transformers by extension. They share the confident mapping,
 group-context detection, and skip/report rules, but each handles the reference
 styles native to its language:
 
-| Files           | Transformer                          | Reference styles handled                                                |
-| --------------- | ------------------------------------ | ----------------------------------------------------------------------- |
-| `.css`          | `transformCssSemanticColors`         | CSS custom property `var(--color-*)`                                    |
-| `.scss`         | `transformScssSemanticColors`        | SCSS variable `$color-*` **and** CSS custom property `var(--color-*)`   |
-| `.tsx/.jsx/.ts` | `transformTailwindSemanticClasses`   | Tailwind color utilities in `className`/`class` and `clsx`-style calls  |
+| Files           | Transformer                        | Reference styles handled                                               |
+| --------------- | ---------------------------------- | ---------------------------------------------------------------------- |
+| `.css`          | `transformCssSemanticColors`       | CSS custom property `var(--color-*)`                                   |
+| `.scss`         | `transformScssSemanticColors`      | SCSS variable `$color-*` **and** CSS custom property `var(--color-*)`  |
+| `.tsx/.jsx/.ts` | `transformTailwindSemanticClasses` | Tailwind color utilities in `className`/`class` and `clsx`-style calls |
 
 CSS/SCSS use a `postcss` AST (`postcss-scss` for `.scss`); Tailwind uses the
 TypeScript compiler API. Only files with at least one conversion are written.
@@ -72,12 +72,12 @@ The same primitive maps to a **different** semantic token depending on the
 surface it paints. The codemod picks the group from the CSS property or the
 Tailwind utility root, then applies that group's map:
 
-| Group        | CSS/SCSS property                                             | Tailwind root       | Semantic prefix |
-| ------------ | ------------------------------------------------------------ | ------------------- | --------------- |
-| `background` | `background`, `background-color`, `--*background*` / `--*bg*` | `bg-`               | `bg-*`          |
-| `text`       | `color`, `--*text*`                                           | `text-`             | `text-*`        |
-| `foreground` | `fill`, `stroke`, `--*icon*` / `--*fill*` / `--*stroke*`      | `fill-`, `stroke-`  | `fg-*`          |
-| `border`     | `border` / per-side / logical / `*-color`, `--*border*`       | `border-`           | `border-*`      |
+| Group        | CSS/SCSS property                                             | Tailwind root      | Semantic prefix |
+| ------------ | ------------------------------------------------------------- | ------------------ | --------------- |
+| `background` | `background`, `background-color`, `--*background*` / `--*bg*` | `bg-`              | `bg-*`          |
+| `text`       | `color`, `--*text*`                                           | `text-`            | `text-*`        |
+| `foreground` | `fill`, `stroke`, `--*icon*` / `--*fill*` / `--*stroke*`      | `fill-`, `stroke-` | `fg-*`          |
+| `border`     | `border` / per-side / logical / `*-color`, `--*border*`       | `border-`          | `border-*`      |
 
 So `var(--color-blue-500)` becomes `var(--bg-brand-solid)` on `background`,
 `var(--text-brand-primary)` on `color`, `var(--fg-brand-primary)` on `fill`, and
@@ -100,19 +100,19 @@ and **dropping collisions** — see [`semanticTokenMap.ts`](./semanticTokenMap.t
 
 Selected confident mappings (see the source for the full set):
 
-| Group        | Primitive    | Semantic token        |
-| ------------ | ------------ | --------------------- |
-| `background` | `gray-300`   | `bg-tertiary`         |
-| `background` | `blue-500`   | `bg-brand-solid`      |
-| `background` | `red-400`    | `bg-error-solid`      |
-| `text`       | `purple-800` | `text-primary`        |
-| `text`       | `gray-700`   | `text-secondary`      |
-| `text`       | `blue-500`   | `text-brand-primary`  |
-| `foreground` | `gray-500`   | `fg-tertiary`         |
-| `foreground` | `blue-500`   | `fg-brand-primary`    |
-| `foreground` | `red-500`    | `fg-error-primary`    |
-| `border`     | `gray-600`   | `border-primary`      |
-| `border`     | `blue-500`   | `border-brand`        |
+| Group        | Primitive    | Semantic token       |
+| ------------ | ------------ | -------------------- |
+| `background` | `gray-300`   | `bg-tertiary`        |
+| `background` | `blue-500`   | `bg-brand-solid`     |
+| `background` | `red-400`    | `bg-error-solid`     |
+| `text`       | `purple-800` | `text-primary`       |
+| `text`       | `gray-700`   | `text-secondary`     |
+| `text`       | `blue-500`   | `text-brand-primary` |
+| `foreground` | `gray-500`   | `fg-tertiary`        |
+| `foreground` | `blue-500`   | `fg-brand-primary`   |
+| `foreground` | `red-500`    | `fg-error-primary`   |
+| `border`     | `gray-600`   | `border-primary`     |
+| `border`     | `blue-500`   | `border-brand`       |
 
 ### SCSS specifics
 
@@ -130,8 +130,8 @@ Selected confident mappings (see the source for the full set):
 ### What is skipped (reported, never guessed)
 
 - **Colliding primitives** — a primitive that backs more than one token in a
-  group (e.g. `gray-200` → `bg-secondary` *and* `bg-secondary_hover`; `white` →
-  `bg-primary` *and* `bg-overlay`; `purple-800` → four `fg-*` tokens). No
+  group (e.g. `gray-200` → `bg-secondary` _and_ `bg-secondary_hover`; `white` →
+  `bg-primary` _and_ `bg-overlay`; `purple-800` → four `fg-*` tokens). No
   confident 1:1 mapping.
 - Primitives with **no mapping** in the group (e.g. an `orange-*` text colour).
 - **`null` (unmapped) semantic tokens** — never a target; the primitive is only

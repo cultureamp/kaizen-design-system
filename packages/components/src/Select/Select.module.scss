@@ -21,7 +21,7 @@
   layer to the React Select styles.
 */
 
-/* Should match the values for the Input component*/
+/* Should match the values for the Input component */
 $input-height: 48px;
 $focus-border-color: $color-blue-500;
 
@@ -106,14 +106,14 @@ $focus-border-color: $color-blue-500;
   }
 
   .menu {
-    /* Temporary 6px until we redesign this component with Inter*/
+    /* Temporary 6px until we redesign this component with Inter */
     border: 6px $border-solid-border-style transparent;
     border-radius: $border-solid-border-radius;
     box-shadow: $shadow-large-box-shadow;
     z-index: 3;
 
-    /* built-in class of React Select that is not easily styled any other way in CSS*/
-    /* (This is the "MenuList" div that wraps all the options)*/
+    /* built-in class of React Select that is not easily styled any other way in CSS */
+    /* (This is the "MenuList" div that wraps all the options) */
     > div {
       padding-top: 0;
       padding-bottom: 0;
@@ -315,7 +315,7 @@ $focus-border-color: $color-blue-500;
       height: auto;
 
       > div {
-        /* see note on > div within .notFullWidth below for explanation*/
+        /* see note on > div within .notFullWidth below for explanation */
         height: $secondary-small-select-height;
         padding-left: 0;
         padding-right: 0;
@@ -350,10 +350,10 @@ $focus-border-color: $color-blue-500;
       padding-bottom: 0;
       transform: translateY(1px);
 
-      /* Usually reaching into the Icon component like this is a no-no, but*/
-      /* in this case we don't have access to the component in the middle which is*/
-      /* part of react-select. I thought this would be better than hacking the*/
-      /* structure of that component to allow one custom prop to trickle through.*/
+      /* Usually reaching into the Icon component like this is a no-no, but */
+      /* in this case we don't have access to the component in the middle which is */
+      /* part of react-select. I thought this would be better than hacking the */
+      /* structure of that component to allow one custom prop to trickle through. */
       > svg {
         height: 14px;
         width: 14px;
@@ -367,14 +367,14 @@ $focus-border-color: $color-blue-500;
       max-width: 100%;
 
       > div {
-        /* If this CSS is removed, then the control becomes too tall when*/
-        /* it ellipsizes. It's strange, as the parent element is*/
-        /* display: inline-block, so you wouldn't expect it to have any affect,*/
-        /* but it works and was honesty a fluke from some unintentionally*/
-        /* leftover code when refactoring to support IE11 :shrug*/
-        /* I don't like the descendent selector, but there doesn't seem to be*/
-        /* a way to customise this element in react-select.*/
-        height: 44px; /* fixed height required for vertical centering, due to IE11 hack*/
+        /* If this CSS is removed, then the control becomes too tall when */
+        /* it ellipsizes. It's strange, as the parent element is */
+        /* display: inline-block, so you wouldn't expect it to have any affect, */
+        /* but it works and was honesty a fluke from some unintentionally */
+        /* leftover code when refactoring to support IE11 :shrug */
+        /* I don't like the descendent selector, but there doesn't seem to be */
+        /* a way to customise this element in react-select. */
+        height: 44px; /* fixed height required for vertical centering, due to IE11 hack */
         flex-wrap: nowrap;
         display: flex;
       }

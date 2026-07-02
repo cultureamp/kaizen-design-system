@@ -8,7 +8,7 @@
 @layer kz-components {
   $input-height: 48px;
   $input-base-padding-horizontal: $spacing-sm;
-  $input-icon-size: 1.25rem; /* 20px*/
+  $input-icon-size: 1.25rem; /* 20px */
   $input-disabled-background: $color-gray-300;
   $input-disabled-opacity: 0.3;
   $input-disabled-border-alpha: 50%;
@@ -60,9 +60,9 @@
   }
 
   /* stylelint-disable no-descending-specificity */
-  /*/////////////////////////////////////////////////*/
-  /* ICON ADORNMENT STYLES*/
-  /*/////////////////////////////////////////////////*/
+  /* ///////////////////////////////////////////////// */
+  /* ICON ADORNMENT STYLES */
+  /* ///////////////////////////////////////////////// */
 
   @mixin vertically-center-icon {
     position: absolute;
@@ -114,7 +114,7 @@
     }
   }
 
-  /* Default theme*/
+  /* Default theme */
   /* stylelint-disable-next-line no-duplicate-selectors */
   .withStartIconAdornment {
     /* stylelint-disable-next-line no-duplicate-selectors */
@@ -140,7 +140,7 @@
     }
   }
 
-  /* Reversed*/
+  /* Reversed */
   .withStartIconAdornment.withReversed {
     .startIconAdornment {
       color: $color-white;
@@ -181,11 +181,11 @@
     }
   }
 
-  /*/////////////////////////////////////////////////*/
-  /* THEMES*/
-  /*/////////////////////////////////////////////////*/
+  /* ///////////////////////////////////////////////// */
+  /* THEMES */
+  /* ///////////////////////////////////////////////// */
 
-  /* Default*/
+  /* Default */
   .input.default {
     background-color: $color-white;
     color: $text-primary;
@@ -235,7 +235,7 @@
     }
   }
 
-  /* Reversed (Dark Backgrounds)*/
+  /* Reversed (Dark Backgrounds) */
   .input.reversed {
     background: transparent;
     color: $color-white;

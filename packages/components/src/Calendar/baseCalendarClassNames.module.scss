@@ -183,10 +183,10 @@
   }
 
   .dayDisabled {
-    /* Focus ring styles have been removed as react-day-picker has been updated such that*/
-    /* disabled days do not receive focus, and keyboard navigation only lands on available days.*/
-    /* https://github.com/gpbl/react-day-picker/pull/1519*/
-    /* https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033*/
+    /* Focus ring styles have been removed as react-day-picker has been updated such that */
+    /* disabled days do not receive focus, and keyboard navigation only lands on available days. */
+    /* https://github.com/gpbl/react-day-picker/pull/1519 */
+    /* https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033 */
     background: none;
     pointer-events: none;
 

@@ -6,8 +6,8 @@
 @import '~@kaizen/design-tokens/sass/color';
 
 @layer kz-components {
-  /* Taken from design-tokens/sass/shadow*/
-  /* we need control of the x and y offset in this component*/
+  /* Taken from design-tokens/sass/shadow */
+  /* we need control of the x and y offset in this component */
   $box-shadow-color-sm: rgb(53, 55, 74, 0.09);
   $row-height: 60px;
   $row-height-data-variant: 48px;
@@ -26,7 +26,7 @@
     }
   }
 
-  /* Special Table-only button reset*/
+  /* Special Table-only button reset */
   @mixin button-reset {
     appearance: none;
     background: transparent;
@@ -34,7 +34,7 @@
     font: inherit;
     margin: 0;
     padding: 0;
-    transition: none; /* override Murmur global styles :(*/
+    transition: none; /* override Murmur global styles :( */
     outline: none;
   }
 
@@ -48,9 +48,11 @@
     align-items: stretch;
     text-align: start;
     justify-content: flex-start;
-    /* The 8px usually makes the height of the header cell 40px*/
+
+    /* The 8px usually makes the height of the header cell 40px */
     padding: 8px $spacing-md;
-    /* This is required as so the tooltip will display directly above the header cell*/
+
+    /* This is required as so the tooltip will display directly above the header cell */
     position: relative;
   }
 
@@ -76,8 +78,8 @@
     margin-inline-end: 10px;
   }
 
-  /* The .headerRowCell wrapper is required to increase the specificity, as so*/
-  /* we can override the `Tooltip` component's styling.*/
+  /* The .headerRowCell wrapper is required to increase the specificity, as so */
+  /* we can override the `Tooltip` component's styling. */
   .headerRowCell .headerRowCellTooltip {
     display: flex;
     align-items: stretch;
@@ -95,7 +97,8 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    /* Ensures that the 100% doesn't go outside of the `headerRowCell` width*/
+
+    /* Ensures that the 100% doesn't go outside of the `headerRowCell` width */
     box-sizing: border-box;
 
     @include anchor-reset-pseudo-states;
@@ -105,7 +108,7 @@
       position: relative;
 
       &::after {
-        /* This offset provide enough gap on reverse for contrast ratios*/
+        /* This offset provide enough gap on reverse for contrast ratios */
         $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
 
         top: 50%;
@@ -136,7 +139,8 @@
     display: flex;
     align-items: stretch;
     width: 100%;
-    /* Ensures that the 100% doesn't go outside of the `headerRowCell` width*/
+
+    /* Ensures that the 100% doesn't go outside of the `headerRowCell` width */
     box-sizing: border-box;
   }
 
@@ -167,11 +171,12 @@
 
   .card {
     @include button-reset;
-    /* These css properties are required for when the rows are anchor elements*/
+
+    /* These css properties are required for when the rows are anchor elements */
     @include anchor-reset;
 
-    /* This is an optical hack to stop the card shadow from overlapping over*/
-    /* the proceeding cards*/
+    /* This is an optical hack to stop the card shadow from overlapping over */
+    /* the proceeding cards */
     box-shadow: 0 4px 6px rgb(53, 55, 74, 0.04);
     border: solid 1px rgb($color-purple-700-rgb, 0.1);
     transition:
@@ -202,7 +207,7 @@
       position: relative;
 
       &::after {
-        /* This offset provide enough gap on on reverse for contrast ratios*/
+        /* This offset provide enough gap on on reverse for contrast ratios */
         $focus-ring-offset: calc(#{$border-focus-ring-border-width} + 2px);
 
         top: 50%;
@@ -225,7 +230,7 @@
     }
   }
 
-  /* target the first child card when there is a heading present*/
+  /* target the first child card when there is a heading present */
   [role='rowgroup'] + .card {
     border-top-left-radius: $border-solid-border-radius;
     border-top-right-radius: $border-solid-border-radius;
@@ -279,7 +284,7 @@
   }
 
   .rowCell {
-    /* These css properties are required for when the cells are anchor elements*/
+    /* These css properties are required for when the cells are anchor elements */
     @include anchor-reset;
 
     min-height: $row-height;

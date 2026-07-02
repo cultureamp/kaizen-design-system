@@ -88,7 +88,7 @@ Work through the codemod's `SKIPPED` report plus anything the user flagged, and
    semantic utility, preserving any prefix/variant).
 2. **Handle what the codemod can't (report, don't guess):**
    - **Colliding primitives** — one primitive backing several tokens in a group
-     (e.g. `gray-200` → `bg-secondary` *or* `bg-secondary_hover`). Pick the token
+     (e.g. `gray-200` → `bg-secondary` _or_ `bg-secondary_hover`). Pick the token
      that matches the **intent** (resting vs hover/`_alt` state) and note why.
    - **No direct equivalent** (colours with no mapping, alpha / `rgb()` usages,
      raw hex, `null` tokens not yet signed off). These often need a **design

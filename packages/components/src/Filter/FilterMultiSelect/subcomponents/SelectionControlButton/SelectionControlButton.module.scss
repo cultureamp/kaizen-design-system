@@ -53,7 +53,7 @@
       inset: calc(-1 * #{$focus-ring-offset});
     }
 
-    /* TODO: copied from Calendar button since the design is not settled*/
+    /* TODO: copied from Calendar button since the design is not settled */
     &.isDisabled {
       pointer-events: none;
       color: rgba($color-purple-800-rgb, 0.3);

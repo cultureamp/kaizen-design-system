@@ -6,10 +6,10 @@
 @import '../../styles/utils/button-reset';
 
 @layer kz-components {
-  /* Vars*/
+  /* Vars */
   $button-height: 48px;
   $button-base-padding-horizontal: $spacing-sm;
-  $button-icon-size: 1.25rem; /* 20px*/
+  $button-icon-size: 1.25rem; /* 20px */
 
   $disabled-opacity: 0.5;
   $placeholder-opacity: 0.7;
@@ -68,7 +68,7 @@
     margin-top: -1px;
   }
 
-  /* Icon adornment styles*/
+  /* Icon adornment styles */
   @mixin vertically-center-icon {
     position: absolute;
     height: $button-icon-size;

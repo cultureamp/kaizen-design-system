@@ -25,9 +25,7 @@ describe('transformCssSemanticColors()', () => {
   })
 
   it('rewrites a border color (border → border-*)', () => {
-    const { code } = transformCssSemanticColors(
-      '.a { border: 1px solid var(--color-gray-500); }',
-    )
+    const { code } = transformCssSemanticColors('.a { border: 1px solid var(--color-gray-500); }')
     expect(code).toContain('border: 1px solid var(--border-secondary);')
   })
 
@@ -71,7 +69,8 @@ describe('transformCssSemanticColors()', () => {
   })
 
   it('leaves colors in out-of-scope properties untouched and unreported', () => {
-    const input = '.a { box-shadow: 0 0 0 1px var(--color-gray-500); outline-color: var(--color-red-500); }'
+    const input =
+      '.a { box-shadow: 0 0 0 1px var(--color-gray-500); outline-color: var(--color-red-500); }'
     const { code, converted, skipped } = transformCssSemanticColors(input)
     expect(code).toBe(input)
     expect(converted).toHaveLength(0)

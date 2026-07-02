@@ -46,7 +46,7 @@
     margin-bottom: 0;
   }
 
-  /* We double the class selector to increase specificity above rules like `h1.default-style`*/
+  /* We double the class selector to increase specificity above rules like `h1.default-style` */
   .inheritBaseline.inheritBaseline {
     position: static;
   }

@@ -44,7 +44,7 @@
         border-color: $border-brand;
       }
 
-      /* removes default checkbox focus ring*/
+      /* removes default checkbox focus ring */
       .checkbox::after {
         display: none;
       }
@@ -60,8 +60,8 @@
     letter-spacing: $typography-paragraph-body-letter-spacing;
     overflow-wrap: anywhere;
 
-    /* Increases the hit area of the checkbox label to the size of*/
-    /* the surrounding div for better mouse user experience*/
+    /* Increases the hit area of the checkbox label to the size of */
+    /* the surrounding div for better mouse user experience */
     &::before {
       content: '';
       width: 100%;
