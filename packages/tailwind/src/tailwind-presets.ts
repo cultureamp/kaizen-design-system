@@ -24,6 +24,26 @@ function stripAndMap(group: Record<string, string | null>, prefix: string): Reco
 }
 
 /**
+ * Map each non-null token to its full (category-prefixed) key, so Tailwind emits
+ * the Untitled UI "doubled" class as a build-time compatibility alias.
+ *
+ * e.g. fullKeyMap(semanticColorTokens.background) produces:
+ *   { 'bg-primary': 'var(--bg-primary)', ... }
+ * Placed under `backgroundColor`, Tailwind re-adds the `bg-` prefix → class
+ * `bg-bg-primary` (what raw UUI components ship), resolving to the same var as
+ * the clean `bg-primary`. Placed under `textColor`, the foreground group's keys
+ * (`fg-primary`) become `text-fg-primary` — UUI applies foreground via `text-*`.
+ */
+function fullKeyMap(group: Record<string, string | null>): Record<string, string> {
+  const result: Record<string, string> = {}
+  for (const [key, value] of Object.entries(group)) {
+    if (value === null) continue
+    result[key] = `var(--${key})`
+  }
+  return result
+}
+
+/**
  * `tokens.color` merges in the flat semantic colour tokens, some of which are
  * `null` (no confident mapping yet). Tailwind's colour config rejects `null`,
  * so strip those entries before spreading into `colors` / `borderColor`.
@@ -41,9 +61,23 @@ function stripNulls<T extends Record<string, unknown>>(
 
 const nonNullColors = stripNulls(tokens.color)
 
-const semanticBackgroundColors = stripAndMap(semanticColorTokens.background, 'bg-')
-const semanticTextColors = stripAndMap(semanticColorTokens.text, 'text-')
-const semanticBorderColors = stripAndMap(semanticColorTokens.border, 'border-')
+// Each map carries both the clean (stripped) key and the full key, so Tailwind
+// emits both `bg-primary` (authored) and `bg-bg-primary` (raw UUI) → same var.
+const semanticBackgroundColors = {
+  ...stripAndMap(semanticColorTokens.background, 'bg-'),
+  ...fullKeyMap(semanticColorTokens.background),
+}
+const semanticTextColors = {
+  ...stripAndMap(semanticColorTokens.text, 'text-'),
+  ...fullKeyMap(semanticColorTokens.text),
+  // UUI applies foreground via `text-fg-*`; expose the fg keys under textColor.
+  ...fullKeyMap(semanticColorTokens.foreground),
+}
+const semanticBorderColors = {
+  ...stripAndMap(semanticColorTokens.border, 'border-'),
+  ...fullKeyMap(semanticColorTokens.border),
+}
+// Clean `fg-*` utility (authored form) is added via the fgPlugin below.
 const semanticForegroundColors = stripAndMap(semanticColorTokens.foreground, 'fg-')
 
 export type KaizenTailwindTheme = Partial<CustomThemeConfig>

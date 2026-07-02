@@ -6,8 +6,7 @@
     "build": "pnpm package-bundler build",
     "test": "vitest --config ../../vite.config.ts",
     "clean": "rimraf 'dist' 'node_modules' '.turbo'",
-    "lint:ts": "tsc --noEmit",
-    "transform:untitled-ui": "node ./scripts/transform-untitled-ui-classes.mjs"
+    "lint:ts": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -20,8 +19,7 @@
   "files": [
     "src",
     "dist",
-    "js",
-    "scripts"
+    "js"
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",

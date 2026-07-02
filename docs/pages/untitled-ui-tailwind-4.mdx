@@ -22,8 +22,9 @@ TW4-via-`@config`.
 - Kaizen's semantic colour layer (`bg-primary`, `text-primary`, `fg-primary`, `border-primary`)
   already works on TW3, TW4-via-`@config`, SCSS, CSS and JS.
 - Untitled UI is authored with a **doubled** class form (`bg-bg-primary`, `text-fg-primary`,
-  `border-border-secondary`). To drop UUI components into a Kaizen app, run them through the
-  **class transform** shipped in `@kaizen/tailwind` — it rewrites them to Kaizen's clean form.
+  `border-border-secondary`). Kaizen recognises those names **at build time**, so you can drop UUI
+  components in unchanged — **no codemod, no script**. Both `bg-primary` (what you author) and
+  `bg-bg-primary` (what UUI ships) resolve to the same colour.
 - If any UUI code references UUI's CSS vars directly (`var(--color-bg-primary)`), import the
   **compat var file** so those resolve to Kaizen values.
 - On TW4.1+ you can skip the `@config` bridge entirely with the TW4-native `@utility` entrypoint.
@@ -45,12 +46,10 @@ Tailwind 4 reads the colour _name_ as the whole string after `--color-`, so it g
 **doubled** utilities — `bg-bg-primary`, `text-text-primary`, `border-border-primary` — and there is
 **no `fg-*` utility** (foreground colour is applied via `text-fg-*`).
 
-Kaizen deliberately ships the **clean** form instead (`bg-primary`, `text-primary`,
-`border-primary`, and a real `fg-*` utility). Clean class names are the design goal; we do not want
-`bg-bg-primary` in application code. The transform below is the wall that keeps the doubling out.
-
-The name a designer sees in Figma (`bg-primary`, `text-primary`) is exactly the utility you write in
-Kaizen — Figma↔code parity holds at the class layer.
+Kaizen ships the **clean** form as the authored API (`bg-primary`, `text-primary`, `border-primary`,
+and a real `fg-*` utility) — that's what you write, and it matches the name a designer sees in Figma
+(Figma↔code parity at the class layer). To let raw UUI components work too, Kaizen **also** emits the
+doubled names as build-time compatibility aliases pointing at the same colour.
 
 ## Step 1 — Keep your current Kaizen setup
 
@@ -58,36 +57,24 @@ No change. Keep the Kaizen preset (`presets: [Preset]`) via your `tailwind.confi
 from TW4 with `@config`, or used directly on TW3. Semantic utilities and CSS/SCSS/JS tokens keep
 working exactly as before. This is the backwards-compatibility guarantee.
 
-## Step 2 — Transform Untitled UI components on the way in
+## Step 2 — Drop in Untitled UI components (no codemod)
 
-When you add a UUI component (e.g. via `untitledui add`), run the Kaizen transform over it. It
-strips the UUI doubling to Kaizen's clean form:
+Add a UUI component however you like (e.g. `untitledui add`) and use it as-is. Its doubled class
+names resolve against Kaizen because the preset (and `tailwind-v4.css`) emit both forms — the clean
+one you author and the doubled one UUI ships — pointing at the same semantic var:
 
-| UUI (doubled)       | Kaizen (clean) |
-| ------------------- | -------------- |
-| `bg-bg-{x}`         | `bg-{x}`       |
-| `text-text-{x}`     | `text-{x}`     |
-| `text-fg-{x}`       | `fg-{x}`       |
-| `border-border-{x}` | `border-{x}`   |
+| UUI class (as shipped) | Authored equivalent | Both resolve to     |
+| ---------------------- | ------------------- | ------------------- |
+| `bg-bg-{x}`            | `bg-{x}`            | `var(--bg-{x})`     |
+| `text-text-{x}`        | `text-{x}`          | `var(--text-{x})`   |
+| `text-fg-{x}`          | `fg-{x}`            | `var(--fg-{x})`     |
+| `border-border-{x}`    | `border-{x}`        | `var(--border-{x})` |
 
-Variant prefixes (`hover:`, `md:`, `group-hover/x:`), `!important`, an optional TW prefix, and
-`_hover`-style token suffixes are all preserved. Already-clean classes, spacing/layout classes and
-primitive utilities (`text-purple-600`) are left untouched.
+No script, no source rewrite. The doubled names exist only as generated compatibility utilities —
+you never hand-write them; new code uses the clean form.
 
-```sh
-# dry run (prints a diff summary)
-node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui
-
-# apply
-node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui --write
-
-# if your project uses a Tailwind prefix (e.g. `un`)
-node ./node_modules/@kaizen/tailwind/scripts/transform-untitled-ui-classes.mjs ./src/untitled-ui --prefix un --write
-```
-
-The transform is colour-classes only (single responsibility). If you also need UUI's rem-based
-spacing normalised to your scale, compose it with your own spacing transform — see
-"Known adoption costs" below.
+This covers colour only. UUI's rem-based **spacing** is a separate concern — see "Known adoption
+costs" below.
 
 ## Step 3 (optional) — CSS var compatibility
 
@@ -155,12 +142,13 @@ semantic layer, not primitives.
 
 ## Known adoption costs
 
-- **rem vs px.** UUI is rem-based; Kaizen spacing is px. The class transform does **not** touch
-  spacing — handle it with a separate spacing transform if needed. This is the main remaining
-  friction for a transform-free drop-in.
+- **rem vs px.** UUI is rem-based; Kaizen spacing is px. The build-time aliasing covers **colour
+  only** — it does not touch spacing. Normalise UUI's spacing separately if needed. This is the main
+  remaining friction for a drop-in.
 - **Prefix + `@layer` order.** Running UUI and Kaizen utilities in one app is two token spaces; keep
   a Tailwind prefix and an explicit `@layer` order to avoid cascade surprises.
-- **`fg` on non-text properties.** UUI mostly uses `text-fg-*` (→ `fg-*`). Rare `bg-fg-*`/`fill-fg-*`
-  cases aren't remapped by the transform — the compat var file (Step 3) covers direct var usage.
+- **`fg` on non-text properties.** The compat aliases cover UUI's `text-fg-*` (foreground via text).
+  Rare `bg-fg-*`/`fill-fg-*` cases aren't aliased — the compat var file (Step 3) covers direct var
+  usage.
 - **`_hover` underscores** in token names are valid CSS and compile as `@utility` names (verified on
   TW4.2.4), but can trip stylelint/prettier — check your linters.
