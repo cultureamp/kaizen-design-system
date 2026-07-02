@@ -70,10 +70,7 @@ const run = (): void => {
     category(key) === 'fg' ? `text-${key}` : `${category(key)}-${key}`
   const utilityBlocks = flatEntries.flatMap(([key]) => {
     const decl = `  ${cssProperty(key)}: var(--${key});`
-    return [
-      `@utility ${key} {\n${decl}\n}`,
-      `@utility ${uuiUtilityName(key)} {\n${decl}\n}`,
-    ]
+    return [`@utility ${key} {\n${decl}\n}`, `@utility ${uuiUtilityName(key)} {\n${decl}\n}`]
   })
   fs.writeFileSync(
     path.resolve(CSS_OUTPUT_DIR, 'tailwind-v4.css'),
