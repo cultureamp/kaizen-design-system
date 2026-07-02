@@ -36,6 +36,9 @@ export function makeCssVariableDefinitionsMap(
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(theme, (path, value) => {
+    // Semantic tokens with no confident mapping yet are `null`; skip them so we
+    // don't emit a literal `null` definition (e.g. `--color-bg-primary-alt: null`).
+    if (value === null) return
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
     const nextCssVariables = addExtraThemeEntries(path, key, value, (_, v) => `${v}`, {
