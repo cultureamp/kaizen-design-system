@@ -159,7 +159,7 @@
     "jest-axe": "^10.0.0",
     "lodash.isempty": "^4.4.0",
     "normalize.css": "^8.0.1",
-    "postcss": "^8.5.15",
+    "postcss": "^8.5.16",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "postcss-preset-env": "^11.3.1",
