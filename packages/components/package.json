@@ -168,7 +168,7 @@
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-highlight": "^0.15.0",
-    "react-intl": "^10.1.13",
+    "react-intl": "^10.1.14",
     "rollup": "^4.62.2",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.4",
