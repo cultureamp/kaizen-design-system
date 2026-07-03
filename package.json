@@ -12,7 +12,7 @@
     "dev": "pnpm turbo dev",
     "build": "pnpm turbo build",
     "clean": "pnpm turbo clean && rimraf node_modules && pnpm store prune",
-    "test": "pnpm turbo test -- --run",
+    "test": "pnpm turbo test",
     "lint": "pnpm lint:eslint && pnpm lint:format && pnpm lint:styles",
     "lint:ts": "pnpm turbo lint:ts",
     "lint:eslint": "pnpm eslint --max-warnings=0",

@@ -17,6 +17,9 @@
     },
     "clean": {
       "cache": false
-    }
+    },
+    "//#lint:eslint": {},
+    "//#lint:format": {},
+    "//#lint:styles": {}
   }
 }
