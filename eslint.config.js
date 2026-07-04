@@ -15,6 +15,7 @@ export default tseslint.config(
   {
     ignores: [
       '**/CHANGELOG.md',
+      '**/tmp/**',
       '**/*.d.ts',
       '**/dist',
       '**/__fixtures__',
