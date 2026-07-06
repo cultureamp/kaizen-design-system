@@ -67,6 +67,7 @@ const config: StorybookConfig = {
       svgr({
         include: '**/custom-icons/*.svg',
         svgrOptions: {
+          svgo: false,
           replaceAttrValues: {
             '#000': 'currentColor',
             '#000000': 'currentColor',
