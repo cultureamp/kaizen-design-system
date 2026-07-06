@@ -70,7 +70,7 @@
     .titleRow {
       z-index: 1;
       position: sticky;
-      top: $layout-navigation-bar-height;
+      top: var(--app-chrome-sticky-offset, 72px);
 
       @media (width < 1080px) {
         top: 0;
