@@ -144,8 +144,7 @@ export type TitleBlockSelectProps = React.ComponentProps<typeof Select>
 export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never
 
 export type TitleBlockAvatarProps =
-  | Omit<GenericAvatarProps, 'size'>
-  | Omit<CompanyAvatarProps, 'size'>
+  Omit<GenericAvatarProps, 'size'> | Omit<CompanyAvatarProps, 'size'>
 
 export type DefaultActionProps = TitleBlockButtonProps | TitleBlockCustomButtonProps
 

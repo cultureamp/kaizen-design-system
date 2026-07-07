@@ -16,25 +16,10 @@ export type HeadingVariants =
   | 'heading-6'
 
 export type AllowedHeadingTags =
-  | 'pre'
-  | 'p'
-  | 'div'
-  | 'span'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'label'
+  'pre' | 'p' | 'div' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label'
 
 export type AllowedHeadingColors =
-  | 'dark'
-  | 'dark-reduced-opacity'
-  | 'white'
-  | 'white-reduced-opacity'
-  | 'positive'
-  | 'negative'
+  'dark' | 'dark-reduced-opacity' | 'white' | 'white-reduced-opacity' | 'positive' | 'negative'
 
 export type HeadingProps = {
   children: React.ReactNode
