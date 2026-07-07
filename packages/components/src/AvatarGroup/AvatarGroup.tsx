@@ -5,8 +5,7 @@ import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './AvatarGroup.module.css'
 
 export type AvatarGroupAvatarProps =
-  | Omit<GenericAvatarProps, 'size'>
-  | Omit<CompanyAvatarProps, 'size'>
+  Omit<GenericAvatarProps, 'size'> | Omit<CompanyAvatarProps, 'size'>
 
 export type AvatarGroupSize = 'small' | 'medium' | 'large'
 export type AvatarList = [AvatarGroupAvatarProps, ...AvatarGroupAvatarProps[]]

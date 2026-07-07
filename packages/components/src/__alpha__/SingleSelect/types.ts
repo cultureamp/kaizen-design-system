@@ -51,8 +51,7 @@ export type ComboBoxProps<T extends SelectItem> = Omit<
   SelectBaseProps
 
 export type SingleSelectProps<T extends SelectItem> =
-  | (ComboBoxProps<T> & { isComboBox?: true })
-  | (SelectProps<T> & { isComboBox?: false })
+  (ComboBoxProps<T> & { isComboBox?: true }) | (SelectProps<T> & { isComboBox?: false })
 
 // Trigger
 export type SelectTriggerProps = {
