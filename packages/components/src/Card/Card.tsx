@@ -6,14 +6,7 @@ import sharedAiStyles from '../../styles/utils/AIMoment.module.css'
 import styles from './Card.module.css'
 
 export type CardColors =
-  | 'blue'
-  | 'green'
-  | 'gray'
-  | 'orange'
-  | 'purple'
-  | 'red'
-  | 'white'
-  | 'yellow'
+  'blue' | 'green' | 'gray' | 'orange' | 'purple' | 'red' | 'white' | 'yellow'
 
 export type CardProps = {
   children?: React.ReactNode

@@ -6,25 +6,10 @@ import styles from './Text.module.css'
 export type TextVariants = 'intro-lede' | 'body' | 'small' | 'extra-small'
 
 export type AllowedTextTags =
-  | 'pre'
-  | 'p'
-  | 'div'
-  | 'span'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'label'
+  'pre' | 'p' | 'div' | 'span' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'label'
 
 export type AllowedTextColors =
-  | 'dark'
-  | 'dark-reduced-opacity'
-  | 'white'
-  | 'white-reduced-opacity'
-  | 'positive'
-  | 'negative'
+  'dark' | 'dark-reduced-opacity' | 'white' | 'white-reduced-opacity' | 'positive' | 'negative'
 
 export interface TextProps extends OverrideClassName<HTMLAttributes<HTMLElement>> {
   children: React.ReactNode
