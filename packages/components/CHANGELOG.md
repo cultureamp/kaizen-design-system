@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.3
+
+### Patch Changes
+
+- [#6796](https://github.com/cultureamp/kaizen-design-system/pull/6796) [`8977284`](https://github.com/cultureamp/kaizen-design-system/commit/8977284be1d627e361181d0b6de78e552d1eb0c7) - Add `UserSettingsIcon` — a custom SVG icon exported from `@kaizen/components`
+
 ## 3.3.2
 
 ### Patch Changes
