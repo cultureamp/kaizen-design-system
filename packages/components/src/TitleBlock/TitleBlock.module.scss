@@ -68,7 +68,7 @@
     display: contents;
 
     .titleRow {
-      z-index: 1;
+      z-index: 5;
       position: sticky;
       top: var(--app-chrome-sticky-offset, 72px);
 
