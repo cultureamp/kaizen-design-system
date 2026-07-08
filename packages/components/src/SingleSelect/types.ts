@@ -13,8 +13,7 @@ export type SingleSelectOptionGroup<Option extends SingleSelectOption> = {
 }
 
 export type SingleSelectItem<Option extends SingleSelectOption = SingleSelectOption> =
-  | Option
-  | SingleSelectOptionGroup<Option>
+  Option | SingleSelectOptionGroup<Option>
 
 export type SingleSelectOptionNode<Option extends SingleSelectOption = SingleSelectOption> =
   Node<Option> & {
@@ -30,5 +29,4 @@ export type SingleSelectOptionGroupNode<Option extends SingleSelectOption = Sing
   }
 
 export type SingleSelectItemNode<Option extends SingleSelectOption = SingleSelectOption> =
-  | SingleSelectOptionNode<Option>
-  | SingleSelectOptionGroupNode<Option>
+  SingleSelectOptionNode<Option> | SingleSelectOptionGroupNode<Option>

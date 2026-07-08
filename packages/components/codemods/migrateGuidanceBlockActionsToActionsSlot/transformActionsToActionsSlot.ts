@@ -20,8 +20,7 @@ export const transformActionsToActionsSlot = (
     let arrowIconWasAdded = false
 
     const primaryAction = node.properties.find((prop) => prop?.name?.getText() === 'primary') as
-      | ts.PropertyAssignment
-      | undefined
+      ts.PropertyAssignment | undefined
 
     const secondaryAction = node.properties.find(
       (prop) => prop?.name?.getText() === 'secondary',

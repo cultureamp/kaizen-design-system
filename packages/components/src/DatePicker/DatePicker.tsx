@@ -25,14 +25,7 @@ import { getLocale, type DatePickerSupportedLocales } from './utils/getLocale'
 import { validateDate } from './utils/validateDate'
 
 type OmittedDateInputFieldProps =
-  | 'onClick'
-  | 'onFocus'
-  | 'onChange'
-  | 'onBlur'
-  | 'onButtonClick'
-  | 'value'
-  | 'locale'
-  | 'id'
+  'onClick' | 'onFocus' | 'onChange' | 'onBlur' | 'onButtonClick' | 'value' | 'locale' | 'id'
 
 export type DatePickerProps = {
   id?: string
