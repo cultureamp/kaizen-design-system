@@ -28,8 +28,8 @@
   align-items: center;
   height: 72px;
   padding-inline: 16px;
-  background-color: #2f1a4c;
-  color: #fff;
+  background-color: var(--color-purple-800);
+  color: var(--color-white);
   font-weight: 600;
 }
 

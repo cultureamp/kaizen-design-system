@@ -130,16 +130,16 @@ type Story = StoryObj<typeof meta>
 const STICKY_SCROLLABLE_CONTAINER_STYLES = {
   height: '200px',
   overflowY: 'auto' as const,
-  backgroundColor: '#fff',
+  backgroundColor: 'var(--color-white)',
 }
 
 const STICKY_SCROLLABLE_FRAME_STYLES = {
   margin: '0 auto',
   maxWidth: '1200px',
-  border: '1px solid #d8dde3',
+  border: '1px solid var(--border-solid-border-color)',
   borderRadius: '12px',
   overflow: 'hidden' as const,
-  backgroundColor: '#fff',
+  backgroundColor: 'var(--color-white)',
 }
 
 const renderStickyScrollableTitleBlock = (
