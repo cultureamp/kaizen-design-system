@@ -70,10 +70,10 @@
     .titleRow {
       z-index: 5;
       position: sticky;
-      top: var(--app-chrome-sticky-offset, 72px);
+      top: calc(var(--app-chrome-sticky-offset, 72px) + var(--titleblock-sticky-offset, 0px));
 
       @media (width < 1080px) {
-        top: 0;
+        top: var(--titleblock-sticky-offset, 0px);
       }
     }
 
