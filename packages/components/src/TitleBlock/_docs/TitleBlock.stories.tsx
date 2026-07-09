@@ -120,7 +120,6 @@ const meta = {
       <NavigationTab key="5" text="Label" href="#" />,
       <NavigationTab key="6" text="Label" href="#" />,
     ],
-    sticky: true,
   },
 } satisfies Meta<typeof TitleBlock>
 
