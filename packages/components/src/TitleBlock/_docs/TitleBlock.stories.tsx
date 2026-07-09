@@ -3,9 +3,11 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, waitFor, within } from '@storybook/test'
 import { Heading } from 'react-aria-components'
 import { Icon } from '~components/Icon'
+import { GlobalNotification } from '~components/Notification'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { NavigationTab, TitleBlock } from '../index'
+import stickyBannerStyles from './stickyBanner.module.css'
 
 const SECONDARY_ACTIONS = [
   {
@@ -145,12 +147,25 @@ const renderStickyScrollableTitleBlock = (
   args: React.ComponentProps<typeof TitleBlock>,
 ): JSX.Element => (
   <div style={STICKY_SCROLLABLE_FRAME_STYLES}>
-    <div data-scroll-container="sticky-top-strip" style={STICKY_SCROLLABLE_CONTAINER_STYLES}>
+    <div
+      data-scroll-container="sticky-top-strip"
+      className={stickyBannerStyles.scrollContainer}
+      style={{
+        ...STICKY_SCROLLABLE_CONTAINER_STYLES,
+        // Taller than the shared default so the fake nav and the TitleBlock
+        // content fit without cramping.
+        height: '400px',
+      }}
+    >
+      <div className={stickyBannerStyles.fakeAppChromeNav}>Fake app chrome nav (72px)</div>
+
       <TitleBlock {...args} />
 
       <div
         style={{
-          height: '100px',
+          // Taller than the container so it overflows and the sticky behaviour
+          // (+ the play() scroll assertion) stays exercised.
+          height: '500px',
         }}
       />
     </div>
@@ -807,6 +822,99 @@ export const StickyTopStripInScrollableContainer: Story = {
   },
   play: async ({ canvasElement, step }) => {
     await step('scroll each sticky container before snapshot', async () => {
+      const scrollContainers = canvasElement.querySelectorAll<HTMLElement>(
+        '[data-scroll-container="sticky-top-strip"]',
+      )
+
+      scrollContainers.forEach((scrollContainer) => {
+        scrollContainer.scrollTo({
+          top: scrollContainer.scrollHeight - scrollContainer.clientHeight,
+        })
+      })
+
+      await waitFor(() => {
+        scrollContainers.forEach((scrollContainer) => {
+          expect(scrollContainer.scrollTop).toBeGreaterThan(0)
+        })
+      })
+    })
+  },
+}
+
+/**
+ * Sticky banner (GlobalNotification) above a sticky TitleBlock.
+ *
+ * Follows the additive-offset pattern: the banner pins below the app-chrome
+ * bar by *reading* the shared `--app-chrome-sticky-offset` (never reassigning
+ * it), and the TitleBlock strip reserves space for the banner via the opt-in
+ * `--titleblock-sticky-offset`, set on a `display: contents` wrapper right
+ * around the TitleBlock. The banner height is measured with a ResizeObserver
+ * and fed into that variable so the strip stays flush at any banner height.
+ */
+const StickyBannerAboveTitleBlock = (
+  args: React.ComponentProps<typeof TitleBlock>,
+): JSX.Element => {
+  const containerRef = React.useRef<HTMLDivElement>(null)
+  const [bannerHeight, setBannerHeight] = React.useState(0)
+
+  React.useEffect(() => {
+    // GlobalNotification doesn't forward a ref, so grab its DOM node by the
+    // data attribute to measure the banner height.
+    const el = containerRef.current?.querySelector<HTMLElement>('[data-sticky-banner]')
+    if (!el) return
+    const update = (): void => setBannerHeight(el.offsetHeight)
+    update()
+    const observer = new ResizeObserver(update)
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      data-scroll-container="sticky-top-strip"
+      className={stickyBannerStyles.scrollContainer}
+      style={{
+        height: '500px',
+        overflowY: 'auto',
+      }}
+    >
+      <div className={stickyBannerStyles.fakeAppChromeNav}>Fake app chrome nav (72px)</div>
+      <GlobalNotification
+        variant="informative"
+        persistent
+        data-sticky-banner
+        classNameOverride={stickyBannerStyles.stickyBanner}
+      >
+        This global notification renders directly above the TitleBlock.
+      </GlobalNotification>
+      <div
+        style={{
+          display: 'contents',
+          ['--titleblock-sticky-offset' as string]: `${bannerHeight}px`,
+        }}
+      >
+        <TitleBlock {...args} />
+      </div>
+
+      {/* Taller than the container so it overflows and the sticky behaviour
+          (+ the play() scroll assertion) stays exercised. */}
+      <div style={{ height: '600px' }} />
+    </div>
+  )
+}
+
+export const WithGlobalNotificationAbove: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: chromaticViewports,
+  },
+  args: {
+    stickyTopStripWithinContainer: true,
+  },
+  render: (args) => <StickyBannerAboveTitleBlock {...args} />,
+  play: async ({ canvasElement, step }) => {
+    await step('scroll the sticky container before snapshot', async () => {
       const scrollContainers = canvasElement.querySelectorAll<HTMLElement>(
         '[data-scroll-container="sticky-top-strip"]',
       )
