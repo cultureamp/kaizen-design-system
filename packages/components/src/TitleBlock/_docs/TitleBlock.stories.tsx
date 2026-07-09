@@ -120,7 +120,7 @@ const meta = {
       <NavigationTab key="5" text="Label" href="#" />,
       <NavigationTab key="6" text="Label" href="#" />,
     ],
-    stickyTopStripWithinContainer: true,
+    sticky: true,
   },
 } satisfies Meta<typeof TitleBlock>
 
@@ -747,7 +747,7 @@ export const StickyTopStripInScrollableContainer: Story = {
     chromatic: chromaticViewports,
   },
   args: {
-    stickyTopStripWithinContainer: true,
+    sticky: true,
   },
   render: (args) => {
     const { variant: _variant, ...argsWithoutVariant } = args
@@ -910,7 +910,7 @@ export const WithGlobalNotificationAbove: Story = {
     chromatic: chromaticViewports,
   },
   args: {
-    stickyTopStripWithinContainer: true,
+    sticky: true,
   },
   render: (args) => <StickyBannerAboveTitleBlock {...args} />,
   play: async ({ canvasElement, step }) => {

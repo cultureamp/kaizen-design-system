@@ -64,16 +64,16 @@
     position: relative;
   }
 
-  .stickyTopStripWithinContainer {
+  .sticky {
     display: contents;
 
     .titleRow {
       z-index: 5;
       position: sticky;
-      top: calc(var(--app-chrome-sticky-offset, 72px) + var(--titleblock-sticky-offset, 0px));
+      top: calc(var(--app-chrome-sticky-offset, 72px) + var(--titleblock-sticky-offset, 0));
 
       @media (width < 1080px) {
-        top: var(--titleblock-sticky-offset, 0px);
+        top: var(--titleblock-sticky-offset, 0);
       }
     }
 
@@ -82,13 +82,13 @@
     }
   }
 
-  .stickyTopStripWithinContainer .titleRow,
-  .stickyTopStripWithinContainer .rowBelowSeparator {
+  .sticky .titleRow,
+  .sticky .rowBelowSeparator {
     background-color: $dt-color-background-color-default;
   }
 
-  .stickyTopStripWithinContainer.lightVariant .titleRow,
-  .stickyTopStripWithinContainer.lightVariant .rowBelowSeparator {
+  .sticky.lightVariant .titleRow,
+  .sticky.lightVariant .rowBelowSeparator {
     background-color: $color-white;
   }
 
@@ -100,16 +100,16 @@
     background-color: $color-white;
   }
 
-  .stickyTopStripWithinContainer.adminVariant .titleRow {
+  .sticky.adminVariant .titleRow {
     background-color: $color-white;
   }
 
-  .stickyTopStripWithinContainer.adminVariant .rowBelowSeparator {
+  .sticky.adminVariant .rowBelowSeparator {
     background-color: $dt-color-background-color-admin;
   }
 
-  .stickyTopStripWithinContainer.educationVariant .titleRow,
-  .stickyTopStripWithinContainer.educationVariant .rowBelowSeparator {
+  .sticky.educationVariant .titleRow,
+  .sticky.educationVariant .rowBelowSeparator {
     background-color: $dt-color-background-color-eduction;
   }
 

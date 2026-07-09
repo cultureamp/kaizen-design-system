@@ -32,7 +32,17 @@ export type TitleBlockProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
   collapseNavigationAreaWhenPossible?: boolean
-  stickyTopStripWithinContainer?: boolean
+  /**
+   * Makes the top strip stick to the top of its scrollable container as the
+   * content scrolls. The TitleBlock must be rendered inside a scrollable
+   * ancestor. When enabled the root becomes `display: contents` so the strip
+   * pins as a sibling of the scrolling content; its offset is
+   * `--app-chrome-sticky-offset` (owned by AppChrome, read-only) plus the
+   * opt-in `--titleblock-sticky-offset` a consumer sets to reserve space for a
+   * banner above it. Below 1080px the app-chrome offset is dropped to match the
+   * collapsed hamburger nav.
+   */
+  sticky?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   id?: string

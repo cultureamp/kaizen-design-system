@@ -1,6 +1,6 @@
+/* Pin below the app-chrome bar by reading the shared offset (read-only). */
 .stickyBanner {
   position: sticky;
-  /* Pin below the app-chrome bar by reading the shared offset (read-only). */
   top: var(--app-chrome-sticky-offset, 72px);
   z-index: 5;
 }
@@ -35,7 +35,7 @@
 
 @media (width < 1080px) {
   .scrollContainer {
-    --app-chrome-sticky-offset: 0px;
+    --app-chrome-sticky-offset: 0;
   }
 
   .fakeAppChromeNav {
