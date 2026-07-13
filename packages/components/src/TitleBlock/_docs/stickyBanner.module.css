@@ -1,0 +1,44 @@
+/* Pin below the app-chrome bar by reading the shared offset (read-only). */
+.stickyBanner {
+  position: sticky;
+  top: var(--app-chrome-sticky-offset, 72px);
+  z-index: 5;
+}
+
+/*
+ * Stand-in for the AppChrome content scroll area. Sets the shared
+ * `--app-chrome-sticky-offset` that the sticky titleRow and banner read.
+ * Below 1080px the AppChrome nav collapses to a hamburger (no persistent top
+ * bar), so the offset drops to 0 — matching kaizen's own
+ * `@media (width < 1080px)` rule on the titleRow.
+ */
+.scrollContainer {
+  --app-chrome-sticky-offset: 72px;
+}
+
+/*
+ * Fake AppChrome top nav — a sticky bar at >=1080px, removed below that
+ * (the real nav becomes a hamburger with no top bar).
+ */
+.fakeAppChromeNav {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding-inline: 16px;
+  background-color: var(--color-purple-800);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+@media (width < 1080px) {
+  .scrollContainer {
+    --app-chrome-sticky-offset: 0;
+  }
+
+  .fakeAppChromeNav {
+    display: none;
+  }
+}
