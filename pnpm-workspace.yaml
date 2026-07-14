@@ -6,3 +6,13 @@ packages:
   - '!packages/components/libs'
   - '!packages/design-tokens/js'
   - '!packages/components/v3'
+
+# Supply-chain protection: delay resolving newly-published third-party versions
+# until they are at least 24h old (minimumReleaseAge, in minutes). pnpm reads this
+# ONLY from pnpm-workspace.yaml, not .npmrc. Setting it explicitly enables strict
+# (blocking) mode; internal scopes are exempt so releases aren't delayed.
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+minimumReleaseAgeExclude:
+  - '@cultureamp/*'
+  - '@kaizen/*'
