@@ -44,6 +44,7 @@ export const TabList = (props: TabListProps): JSX.Element => {
   const [containerElement, setContainerElement] = useState<HTMLElement | null>()
   const tabListContext = useContext(TabListStateContext)
   const selectedKey = tabListContext?.selectedKey
+  const prevSelectedKey = useRef(selectedKey)
 
   useEffect(() => {
     if (!isDocumentReady) {
@@ -107,7 +108,14 @@ export const TabList = (props: TabListProps): JSX.Element => {
       return
     }
 
-    // Scroll selected tab into view
+    // Only scroll the selected tab into view when the selection actually changes
+    // (i.e. user interaction). Skipping the no-op runs avoids scrolling the page
+    // on mount when the Tabs sit below the fold.
+    if (prevSelectedKey.current === selectedKey) {
+      return
+    }
+    prevSelectedKey.current = selectedKey
+
     containerElement
       ?.querySelector('[role="tab"][data-selected=true]')
       ?.scrollIntoView({ block: 'nearest', inline: 'center' })

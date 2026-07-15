@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useRef, useState, type RefObject } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
+import { mergeRefs } from '@react-aria/utils'
 import { type DayEventHandler } from 'react-day-picker'
 import { FocusOn } from 'react-focus-on'
 import {
@@ -24,17 +25,11 @@ import { getLocale, type DatePickerSupportedLocales } from './utils/getLocale'
 import { validateDate } from './utils/validateDate'
 
 type OmittedDateInputFieldProps =
-  | 'onClick'
-  | 'onFocus'
-  | 'onChange'
-  | 'onBlur'
-  | 'onButtonClick'
-  | 'value'
-  | 'locale'
-  | 'id'
+  'onClick' | 'onFocus' | 'onChange' | 'onBlur' | 'onButtonClick' | 'value' | 'locale' | 'id'
 
 export type DatePickerProps = {
   id?: string
+  inputRef?: React.Ref<HTMLInputElement>
   buttonRef?: RefObject<HTMLButtonElement>
   onInputClick?: DateInputFieldProps['onClick']
   onInputFocus?: DateInputFieldProps['onFocus']
@@ -81,6 +76,7 @@ export type DatePickerProps = {
  */
 export const DatePicker = ({
   id: propsId,
+  inputRef: propsInputRef,
   buttonRef: propsButtonRef,
   locale: propsLocale = 'en-AU',
   disabledDates,
@@ -115,11 +111,11 @@ export const DatePicker = ({
   const id = propsId ?? reactId
 
   const containerRef = useRef<HTMLInputElement>(null)
-  const inputRef = useRef<HTMLInputElement>(null)
+  const internalInputRef = useRef<HTMLInputElement>(null)
   const fallbackButtonRef = useRef<HTMLButtonElement>(null)
   const buttonRef = propsButtonRef ?? fallbackButtonRef
   const dateInputRefs = useRef({
-    inputRef,
+    inputRef: mergeRefs<HTMLInputElement>(internalInputRef, propsInputRef),
     buttonRef,
   })
   const [inputValue, setInputValue] = useState<string>('')
@@ -239,7 +235,7 @@ export const DatePicker = ({
 
   const handleReturnFocus = (): void => {
     if (lastTrigger === 'inputKeydown' || lastTrigger === 'inputFocus') {
-      return inputRef.current?.focus()
+      return internalInputRef.current?.focus()
     }
     buttonRef.current?.focus()
   }

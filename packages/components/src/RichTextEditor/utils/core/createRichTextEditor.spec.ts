@@ -32,7 +32,7 @@ describe('createRichTextEditor()', () => {
       initialEditorState: testEditorState,
     })
 
-    expect(Object.keys(returnValue)).toEqual(['destroy', 'dispatchTransaction'])
+    expect(Object.keys(returnValue)).toEqual(['destroy', 'dispatchTransaction', 'dom'])
     expect(typeof returnValue.destroy).toEqual('function')
     expect(typeof returnValue.dispatchTransaction).toEqual('function')
   })

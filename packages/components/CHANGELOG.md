@@ -1,5 +1,77 @@
 # Change Log
 
+## 3.3.4
+
+### Patch Changes
+
+- [#6896](https://github.com/cultureamp/kaizen-design-system/pull/6896) [`9b2958d`](https://github.com/cultureamp/kaizen-design-system/commit/9b2958df50f6c0ce2baf1f3706b0c4abef1851dc) - Update dependencies
+
+- [#6846](https://github.com/cultureamp/kaizen-design-system/pull/6846) [`e9368d8`](https://github.com/cultureamp/kaizen-design-system/commit/e9368d8314bfb5af41dfdc7f177f7397ea5c462e) - Update dependencies
+
+## 3.3.3
+
+### Patch Changes
+
+- [#6796](https://github.com/cultureamp/kaizen-design-system/pull/6796) [`8977284`](https://github.com/cultureamp/kaizen-design-system/commit/8977284be1d627e361181d0b6de78e552d1eb0c7) - Add `UserSettingsIcon` — a custom SVG icon exported from `@kaizen/components`
+
+## 3.3.2
+
+### Patch Changes
+
+- [#6822](https://github.com/cultureamp/kaizen-design-system/pull/6822) [`e12fdd1`](https://github.com/cultureamp/kaizen-design-system/commit/e12fdd1d78aea3a3d0a52268fba65ca0cf38bdb0) - Fix two CSS custom-property references that were missing the `--` prefix (`var(color-purple-800)` and `rgb(var(color-purple-800-rgb), …)`) in ConfirmationModal and the Pagination TruncateIndicator. These were silently invalid — the colours never applied — and also caused strict CSS parsers (e.g. Turbopack) to fail to parse the stylesheet.
+
+## 3.3.1
+
+### Patch Changes
+
+- [#6818](https://github.com/cultureamp/kaizen-design-system/pull/6818) [`130c4c6`](https://github.com/cultureamp/kaizen-design-system/commit/130c4c6a4611dbfe02e2ab9570692c3bea1c6afc) - Update dependencies
+
+## 3.3.0
+
+### Minor Changes
+
+- [#6795](https://github.com/cultureamp/kaizen-design-system/pull/6795) [`94c7556`](https://github.com/cultureamp/kaizen-design-system/commit/94c755615e3e3244559565f66a5bee6baa67236e) - Added ref prop to single and multi Select and RTE Editor
+
+- [#6800](https://github.com/cultureamp/kaizen-design-system/pull/6800) [`793464d`](https://github.com/cultureamp/kaizen-design-system/commit/793464d736b6952d85f1f4fe9a756026f9adea8e) - Updated the tooltip Focusable tag to accept an optional tag prop that determines the html element wrapping the passed in children
+
+### Patch Changes
+
+- [#6797](https://github.com/cultureamp/kaizen-design-system/pull/6797) [`d035318`](https://github.com/cultureamp/kaizen-design-system/commit/d0353188b44f5f15b64c46a862fb566febe1eee0) - `NotificationVariant` is now exported from the package root. Previously it was declared in `Notification/types.ts` but not re-exported by the `Notification` index, so consumers could not import it directly and had to derive it via `ComponentProps`. This brings it in line with `ToastNotification` and other components that re-export their shared `types` module.
+
+- [#6801](https://github.com/cultureamp/kaizen-design-system/pull/6801) [`12b8552`](https://github.com/cultureamp/kaizen-design-system/commit/12b855265133df8fa3ee8b85d755e87ec37107a9) - Fix continued Chromatic flakiness on Avatar with long initials. The previous `data-chromatic="ignore"` fix was applied to an element whose size changes with the non-deterministic dynamic font size, and consequently has continued to trigger Chromatic diffs. This change promotes that fix to the parent `abbr`, which has a fixed size, as recommended by Chromatic support to resolve the flakiness.
+
+## 3.2.0
+
+### Minor Changes
+
+- [#6752](https://github.com/cultureamp/kaizen-design-system/pull/6752) [`18d3902`](https://github.com/cultureamp/kaizen-design-system/commit/18d390239fb0b1847b0796e6431c4e2c782e2ac1) - Add inputRef prop to TimeField and DatePicker and widened TextField ref types for react-hook-form Controller compatibility
+
+### Patch Changes
+
+- [#6792](https://github.com/cultureamp/kaizen-design-system/pull/6792) [`2c70866`](https://github.com/cultureamp/kaizen-design-system/commit/2c70866fccc887fa93fefa6bb6cc825903dd2a5b) - Update dependencies
+
+- [#6793](https://github.com/cultureamp/kaizen-design-system/pull/6793) [`ac841d9`](https://github.com/cultureamp/kaizen-design-system/commit/ac841d98aef21d1f1cb13058df82845dc22c44e5) - `Tabs` no longer scrolls the selected tab into view on mount. Scrolling now only happens when the selection changes via user interaction, so rendering `Tabs` below the fold no longer scrolls the page on load.
+
+## 3.1.6
+
+### Patch Changes
+
+- [#6767](https://github.com/cultureamp/kaizen-design-system/pull/6767) [`8ff83cb`](https://github.com/cultureamp/kaizen-design-system/commit/8ff83cb7261a4e18a3522dee1d5a6deab0f01ebc) - Fix flaky Chromatic snapshots of Avatar initials for long names in Chromatic
+
+## 3.1.5
+
+### Patch Changes
+
+- [#6753](https://github.com/cultureamp/kaizen-design-system/pull/6753) [`da65b04`](https://github.com/cultureamp/kaizen-design-system/commit/da65b047dee4637370ce067bf204c13f892e3c58) - Uplift `TextField` component to CSS from SCSS
+
+- [#6764](https://github.com/cultureamp/kaizen-design-system/pull/6764) [`05a9add`](https://github.com/cultureamp/kaizen-design-system/commit/05a9add21d47e987a289cec2138fcecc72846854) - Update dependencies
+
+## 3.1.4
+
+### Patch Changes
+
+- [#6750](https://github.com/cultureamp/kaizen-design-system/pull/6750) [`160a6ec`](https://github.com/cultureamp/kaizen-design-system/commit/160a6ecfd7f7415e0b9e56883f51fc25ef5f7538) - Update dependencies
+
 ## 3.1.3
 
 ### Patch Changes

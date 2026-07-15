@@ -1,6 +1,7 @@
 import path, { dirname, join } from 'path'
 import type { StorybookConfig } from '@storybook/react-vite'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
+import svgr from 'vite-plugin-svgr'
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -51,6 +52,47 @@ const config: StorybookConfig = {
   },
   viteFinal: (config) => {
     config?.plugins?.push(nodePolyfills())
+
+    // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+    const iconTemplate = (variables: any, { tpl }: any) => tpl`
+      import * as React from 'react';
+      const ${variables.componentName} = ({ size = 24, color = 'currentColor', ...props }) => (
+        ${variables.jsx}
+      );
+      
+      export default ${variables.componentName};
+    `
+
+    config?.plugins?.push(
+      svgr({
+        include: '**/custom-icons/*.svg',
+        svgrOptions: {
+          svgo: false,
+          replaceAttrValues: {
+            '#000': 'currentColor',
+            '#000000': 'currentColor',
+          },
+          template: iconTemplate,
+          jsx: {
+            babelConfig: {
+              plugins: [
+                [
+                  '@svgr/babel-plugin-add-jsx-attribute',
+                  {
+                    elements: ['svg'],
+                    attributes: [
+                      { name: 'width', value: 'size', literal: true, position: 'start' },
+                      { name: 'height', value: 'size', literal: true, position: 'start' },
+                      { name: 'color', value: 'color', literal: true, position: 'start' },
+                    ],
+                  },
+                ],
+              ],
+            },
+          },
+        },
+      }),
+    )
 
     return config
   },

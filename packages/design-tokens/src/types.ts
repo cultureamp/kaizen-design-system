@@ -230,14 +230,7 @@ export type TokenStructure = {
 
 // Converts all leafs (values that aren't objects) of an object tree to LeafType.
 export type DeepMapObjectLeafs<T, LeafType> = T extends
-  | string
-  | number
-  | bigint
-  | boolean
-  | symbol
-  | null
-  | undefined
-  | ((...params: any[]) => any)
+  string | number | bigint | boolean | symbol | null | undefined | ((...params: any[]) => any)
   ? LeafType
   : T extends Record<any, any>
     ? {

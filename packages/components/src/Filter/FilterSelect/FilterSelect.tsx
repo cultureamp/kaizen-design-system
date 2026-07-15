@@ -20,12 +20,7 @@ import { type SingleSelectItem, type SingleSelectOption } from './types'
 import styles from './FilterSelect.module.css'
 
 type OmittedAriaSelectProps =
-  | 'label'
-  | 'children'
-  | 'isOpen'
-  | 'onOpenChange'
-  | 'defaultOpen'
-  | 'items'
+  'label' | 'children' | 'isOpen' | 'onOpenChange' | 'defaultOpen' | 'items'
 
 export type FilterSelectProps<Option extends SingleSelectOption = SingleSelectOption> = {
   isOpen: boolean

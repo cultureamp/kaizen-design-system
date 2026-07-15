@@ -5,6 +5,7 @@ import { type CommandOrTransaction } from './types'
 type EditorAPI = {
   destroy: () => void
   dispatchTransaction: (maybeCommand: CommandOrTransaction) => void
+  dom: HTMLElement
 }
 
 type EditorArgs = {
@@ -60,5 +61,6 @@ export const createRichTextEditor = ({
   return {
     destroy: () => editorView.destroy(),
     dispatchTransaction: dispatchCommandOrTransaction,
+    dom: editorView.dom,
   }
 }
