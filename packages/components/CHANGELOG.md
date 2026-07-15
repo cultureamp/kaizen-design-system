@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.5
+
+### Patch Changes
+
+- [#6728](https://github.com/cultureamp/kaizen-design-system/pull/6728) [`675da05`](https://github.com/cultureamp/kaizen-design-system/commit/675da05b1cd90fdc91fb6259c3468ce69de021a3) - Add responsive truncation to multi-value tags in Select
+
 ## 3.3.4
 
 ### Patch Changes
