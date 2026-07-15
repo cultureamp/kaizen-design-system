@@ -51,6 +51,18 @@ $focus-border-color: $color-blue-500;
   .multiValue {
     margin: 0.2375rem;
     z-index: 1;
+    max-width: 100%;
+    min-width: 0;
+
+    > div {
+      max-width: 100%;
+      overflow: hidden;
+
+      span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
   }
 
   .dropdownIndicator {
