@@ -61,6 +61,35 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    position: relative;
+  }
+
+  .sticky {
+    display: contents;
+
+    .titleRow {
+      z-index: 5;
+      position: sticky;
+      top: calc(var(--app-chrome-sticky-offset, 72px) + var(--titleblock-sticky-offset, 0));
+
+      @media (width < 1080px) {
+        top: var(--titleblock-sticky-offset, 0);
+      }
+    }
+
+    .rowBelowSeparator {
+      z-index: 0;
+    }
+  }
+
+  .sticky .titleRow,
+  .sticky .rowBelowSeparator {
+    background-color: $dt-color-background-color-default;
+  }
+
+  .sticky.lightVariant .titleRow,
+  .sticky.lightVariant .rowBelowSeparator {
+    background-color: $color-white;
   }
 
   .lightVariant .titleRow {
@@ -69,6 +98,19 @@
 
   .adminVariant .titleRow {
     background-color: $color-white;
+  }
+
+  .sticky.adminVariant .titleRow {
+    background-color: $color-white;
+  }
+
+  .sticky.adminVariant .rowBelowSeparator {
+    background-color: $dt-color-background-color-admin;
+  }
+
+  .sticky.educationVariant .titleRow,
+  .sticky.educationVariant .rowBelowSeparator {
+    background-color: $dt-color-background-color-eduction;
   }
 
   %titleBlockInner {
