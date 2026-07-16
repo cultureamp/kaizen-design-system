@@ -3,7 +3,7 @@
     position: relative;
     background: none;
     padding: 0;
-    color: var(--color-blue-500);
+    color: var(--text-brand-primary);
 
     &:hover {
       color: var(--color-blue-400);

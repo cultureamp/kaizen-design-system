@@ -1,12 +1,12 @@
-import { Meta, Story } from '@storybook/blocks'
-import * as ColorTokensStories from './color-tokens.stories'
+import { Meta } from '@storybook/blocks'
+import { ColorTokensDemo } from './color-tokens'
 
-<Meta of={ColorTokensStories} />
+<Meta title="Guides/Tokens/Color Tokens" parameters={{ docsOnly: true }} />
 
 # Color Tokens
 
-Import the color tokens into your SCSS with `@import "~@kaizen/design-tokens/sass/color`.
+Every semantic colour token mapped to the primitive it resolves to — with the token name and hex value on both sides. Use this to see which primitive backs a semantic token, and to find the semantic replacement for a raw primitive.
 
-## Colors
+Tokens are grouped by the surface they paint (`background`, `text`, `foreground`, `border`). Tokens with **no mapping yet** are flagged with a dashed red outline — these are awaiting design sign-off.
 
-<Story of={ColorTokensStories.ColorTokens} />
+<ColorTokensDemo />

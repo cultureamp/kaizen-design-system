@@ -5,7 +5,7 @@
     border-radius: var(--border-solid-border-radius);
     border-style: var(--border-style);
     margin-bottom: var(--spacing-24);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     border-color: var(--border-color);
   }
 
@@ -15,21 +15,21 @@
 
   .white {
     --background-color: var(--color-white);
-    --border-color: var(--color-gray-500);
+    --border-color: var(--border-secondary);
   }
 
   .gray {
     --background-color: var(--color-gray-200);
-    --border-color: var(--color-gray-500);
+    --border-color: var(--border-secondary);
   }
 
   .blue {
-    --background-color: var(--color-blue-100);
+    --background-color: var(--bg-brand-primary);
     --border-color: var(--color-blue-400);
   }
 
   .yellow {
-    --background-color: var(--color-yellow-100);
+    --background-color: var(--bg-warning-primary);
     --border-color: var(--color-yellow-700);
   }
 
@@ -39,12 +39,12 @@
   }
 
   .red {
-    --background-color: var(--color-red-100);
-    --border-color: var(--color-red-500);
+    --background-color: var(--bg-error-primary);
+    --border-color: var(--border-error);
   }
 
   .green {
-    --background-color: var(--color-green-100);
+    --background-color: var(--bg-success-primary);
     --border-color: var(--color-green-500);
   }
 
@@ -54,7 +54,7 @@
   }
 
   .positive {
-    --background-color: var(--color-green-100);
+    --background-color: var(--bg-success-primary);
     --border-color: var(--color-green-500);
   }
 

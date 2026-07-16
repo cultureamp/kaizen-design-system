@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/spacing';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/layout';
@@ -77,7 +78,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
     padding: 0 $title-block-spacing-default 0 0;
 
     @include title-block-min-media-1080 {
@@ -147,9 +148,9 @@
 
   .title {
     align-items: center;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
 
-    // truncation
+    /* truncation */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -157,8 +158,8 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 
-    // Applying width 100% when the title is *not* long and is followed by a subtitle
-    // causes misalignment of both.
+    /* Applying width 100% when the title is *not* long and is followed by a subtitle */
+    /* causes misalignment of both. */
     @include title-block-under-1366 {
       width: 100%;
     }
@@ -167,7 +168,7 @@
   .titleAndSubtitle {
     display: flex;
     align-items: center;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
     transform: translateY(-0.0833em);
 
     .hasSubtitle & {
@@ -179,9 +180,9 @@
 
   .titleAndSubtitleInner {
     display: flex;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
 
-    // TODO: removing .hasLongTitle here fixes the alignment on Performance story, but we should be able to not wrap subtitle.
+    /* TODO: removing .hasLongTitle here fixes the alignment on Performance story, but we should be able to not wrap subtitle. */
     .hasSubtitle.hasLongTitle.hasLongSubtitle & {
       align-items: center;
 
@@ -331,11 +332,11 @@
     margin-inline: var(--spacing-12) 0;
 
     .lightVariant & {
-      color: $color-purple-800;
+      color: $text-primary;
     }
 
     .adminVariant & {
-      color: $color-purple-800;
+      color: $text-primary;
     }
 
     @include title-block-under-1366 {
@@ -364,7 +365,7 @@
     display: flex;
     align-items: center;
     padding-block: 9px;
-    padding-inline-end: 8px; // 20 take 12 result in 8 extra padding needed in section versus tabs UI
+    padding-inline-end: 8px; /* 20 take 12 result in 8 extra padding needed in section versus tabs UI */
 
     @include title-block-min-container-1080 {
       padding-block: 17px;
@@ -434,13 +435,13 @@
 
   .titleAndAdjacent {
     display: flex;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
   }
 
   .titleAndAdjacentNotBreadcrumb {
     display: flex;
     transition: opacity 0.3s ease;
-    min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+    min-width: 0; /* this is an important trick to prevent flexbox items from overflowing */
     align-items: center;
 
     .breadcrumb:hover ~ &,
@@ -581,18 +582,18 @@
     }
   }
 
-  // This should be in SecondaryAction.module.scss,
-  // but the variants prevent us from breaking this out.
+  /* This should be in SecondaryAction.module.scss, */
+  /* but the variants prevent us from breaking this out. */
   .secondaryActionsContainer {
     display: flex;
 
-    // To be removed eventually – the Dropdown does not
-    // currently set its own color, and we want it
-    // to be Cluny like the default secondary buttons
+    /* To be removed eventually – the Dropdown does not */
+    /* currently set its own color, and we want it */
+    /* to be Cluny like the default secondary buttons */
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-blue-500;
+      color: $text-brand-primary;
     }
 
     .secondaryOverflowCombinedMenu {
@@ -688,8 +689,8 @@
   }
 
   .breadcrumbTextLink {
-    // We are using visually hidden here instead of display:none so that a screen reader
-    // navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name
+    /* We are using visually hidden here instead of display:none so that a screen reader */
+    /* navigating via 'read mode' (which doesn't trigger hover/focus) will still hear this link name */
     @include visually-hidden;
     @include ca-position($start: -2 * $ca-grid);
 
@@ -710,8 +711,9 @@
     .breadcrumb:hover &,
     .breadcrumb:focus & {
       @include visually-hidden-reset;
-      // ^be careful of this mixin unsetting values you need
-      // e.g. I needed to set position:absolute again below
+
+      /* ^be careful of this mixin unsetting values you need */
+      /* e.g. I needed to set position:absolute again below */
       position: absolute;
       display: block;
       animation: slide-fade 0.4s;
@@ -740,7 +742,7 @@
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-purple-800;
+      color: $text-primary;
     }
   }
 
@@ -774,8 +776,8 @@
     .lightVariant &,
     .educationVariant &,
     .adminVariant & {
-      color: $color-blue-500;
-      border-color: $color-blue-300;
+      color: $text-brand-primary;
+      border-color: $border-brand_alt;
       border-width: $border-width;
     }
 
@@ -785,8 +787,8 @@
     .educationVariant .breadcrumb:focus &,
     .adminVariant .breadcrumb:hover &,
     .adminVariant .breadcrumb:focus & {
-      border-color: $color-blue-500;
-      color: $color-blue-500;
+      border-color: $border-brand;
+      color: $text-brand-primary;
       background-color: rgba($color-blue-500-rgb, 0.1);
     }
   }

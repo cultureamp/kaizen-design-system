@@ -22,7 +22,7 @@ const PopoverTemplate = (args: Partial<Omit<PopoverProps, 'refs'>>): JSX.Element
       <button
         ref={refs.setReference}
         type="button"
-        className="border border-gray-500"
+        className="border border-secondary"
         onClick={() => setIsOpen(!isOpen)}
       >
         Pancakes!

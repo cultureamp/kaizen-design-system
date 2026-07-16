@@ -21,7 +21,7 @@ For example:
 const Component = () => (
   <div
     style={{
-      backgroundColor: var(--color-purple-500), // #844587
+      backgroundColor: 'var(--bg-brand-solid)',
     }}
   >
     Custom Kaizen theme component
@@ -37,7 +37,11 @@ You can access the tokens directly:
 import { tokens } from '@kaizen/design-tokens/js'
 
 const myAmazingFunction = () => {
-  const mainColor = data ? tokens.colors.purple[500] : tokens.colors.purple[300]
+  // Semantic tokens are available via a camelCase alias…
+  const mainColor = data ? tokens.color.bgBrandSolid : tokens.color.bgSecondary
+
+  // …or by their verbatim name, matching the CSS variable / Tailwind class:
+  // tokens.color['bg-brand-solid']
 
   return mainColor
 }

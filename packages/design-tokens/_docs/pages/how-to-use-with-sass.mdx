@@ -22,14 +22,83 @@ There are 2 different ways you can utilise the tokens:
 
 ```scss
 .myCustomClassName {
-  background-color: vars(--color-gray-100);
+  background-color: var(--bg-secondary);
 }
 ```
 
 ### Importing SCSS vars
 
 - Import the CSS variable versions of the tokens
-- Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$color-purple-800` will become `var(--color-purple-800)`)
+- Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$bg-primary` will become `var(--bg-primary)`)
+
+Tokens are split across category-scoped entrypoints — import only the ones you need. There is no single "everything" SCSS import; each category is a separate file:
+
+<table>
+  <thead>
+    <tr>
+      <th>Import</th>
+      <th>Tokens</th>
+      <th>Example var</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/semantic-color</code>
+      </td>
+      <td>Semantic colour tokens (recommended)</td>
+      <td>
+        <code>$bg-secondary</code>, <code>$text-primary</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/color</code>
+      </td>
+      <td>Colour primitives</td>
+      <td>
+        <code>$color-purple-500</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/typography</code>
+      </td>
+      <td>Typography</td>
+      <td>
+        <code>$typography-data-large-font-family</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/border</code>
+      </td>
+      <td>Border radius / width / style</td>
+      <td>
+        <code>$border-solid-border-radius</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/spacing</code>
+      </td>
+      <td>Spacing</td>
+      <td>
+        <code>$spacing-16</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>~@kaizen/design-tokens/sass/shadow</code>, <code>.../sass/animation</code>,{' '}
+        <code>.../sass/layout</code>
+      </td>
+      <td>Shadow, animation, layout</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+> **Note:** `semantic-color` is colour-only. `$border-*` **in it** are border _colours_ (e.g. `$border-primary`); border _radius/width_ live in `sass/border`. As semantic tokens expand to other categories they'll get their own scoped entrypoints (e.g. `sass/semantic-typography`).
 
 Example:
 
@@ -46,19 +115,30 @@ See <LinkTo pageId="systems-tokens-api">API</LinkTo> for all available tokens.
 <CodeBlock
   language="scss"
   code={`.myClass {
-  color: mix(white, $color-purple-800, 90%);
+  color: mix(white, $text-primary, 90%);
 }`}
 />
 
-Because the exposed SASS variables contain values such as `var(--color-purple-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
+Because the exposed SASS variables contain values such as `var(--text-primary)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
 
-Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you find the nearest plain value. In the example above, you could simply use `$color-purple-200`.
+Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you find the nearest token that already has the tone you need — pick the semantic token for that purpose (e.g. `$text-secondary`) rather than computing one.
 
-## 4. When you need to add opacity to a colour, use `rgba()` and the `-rgb-params` variables
+## 4. Avoid adding opacity to colour tokens
 
-**Use `rgba($color-purple-800-rgb, 0.5)` instead of `rgba($color-purple-800, 0.5)` to add alpha to a color.**
+> **⚠️ Don't manipulate the opacity of a colour token.** Reach for a solid token
+> that already has the value you want instead.
 
-We have exposed extra sibling variables for every color, as seen in <LinkTo pageId="systems-tokens-api" section="sass-variables">SASS Variables</LinkTo>, which allow you to manipulate opacity of CSS variable colors:
+Applying alpha to a colour (e.g. `rgba($color-purple-800-rgb, 0.5)`) is discouraged:
+
+- **Accessibility.** A translucent colour composites with whatever sits behind it, so its effective contrast depends on the background and is no longer predictable. This breaks contrast guarantees and is a common cause of WCAG failures.
+- **Semantic tokens are solid.** Our semantic tokens (`text-secondary`, `text-tertiary`, etc.) deliberately map to **solid** primitives — they replace the old `purple-800` alpha hacks. Using `rgba()` on a token side-steps that system and reintroduces the problem we removed.
+
+**Instead, pick the nearest solid token.** If you previously dimmed a colour with opacity, choose the semantic token that lands at the tone you need — e.g. use `$text-tertiary` rather than applying alpha to `$text-primary`.
+
+<details>
+<summary>If you genuinely still need alpha (rare)</summary>
+
+Only **primitive** colours expose a `-rgb` sibling variable — semantic tokens do not — so this escape hatch necessarily drops down to a primitive. Plain `rgba($color-gray-200, 0.5)` won't work either: neither SASS nor the browser can resolve `rgba(var(--color-gray-200), 0.5)`. The `-rgb` sibling points at a comma-separated channel list (`246, 246, 246`) for use inside `rgba()`:
 
 <CodeBlock language="scss" code={`@import '~@kaizen/design-tokens/sass/color.scss';
 
@@ -66,12 +146,6 @@ We have exposed extra sibling variables for every color, as seen in <LinkTo page
 background-color: rgba($color-gray-200-rgb, 0.5);
 }`} />
 
-For similar reasons to the previous section, a statement like `rgba($color-gray-200, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--color-gray-200), 0.5)`.
+`rgba($color-gray-200-rgb, 0.5)` compiles to `rgba(var(--color-gray-200-rgb), 0.5)`, which the browser resolves to `rgba(246, 246, 246, 0.5)`. Treat this as a last resort, not the default.
 
-Every color variable such as `$color-gray-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-gray-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function.
-
-For example `rgba($color-gray-200-rgb, 0.5)`, compiles to `rgba(var(--color-gray-200-rgb), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
-
-## Migrating from compile time SASS functions like add-tint, darken, or mix
-
-A utility to help with this is coming soon. You will need to replace any function calls like these with design tokens, as these are both not computable using CSS variables, and have been deprecated for a while.
+</details>

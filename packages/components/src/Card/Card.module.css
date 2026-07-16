@@ -1,12 +1,12 @@
 @layer kz-components {
   .wrapper {
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     border: var(--border-width-1) solid var(--card-border-color);
     background-color: var(--card-background-color);
     border-radius: var(--border-solid-border-radius);
     box-shadow: var(--card-box-shadow);
 
-    --card-border-color: var(--color-gray-500);
+    --card-border-color: var(--border-secondary);
     --card-background-color: var(--color-white);
     --card-box-shadow: var(--shadow-small-box-shadow);
   }
@@ -16,17 +16,17 @@
   }
 
   .blue {
-    --card-background-color: var(--color-blue-100);
+    --card-background-color: var(--bg-brand-primary);
     --card-border-color: var(--color-blue-400);
   }
 
   .gray {
     --card-background-color: var(--color-gray-200);
-    --card-border-color: var(--color-gray-500);
+    --card-border-color: var(--border-secondary);
   }
 
   .green {
-    --card-background-color: var(--color-green-100);
+    --card-background-color: var(--bg-success-primary);
     --card-border-color: var(--color-green-500);
   }
 
@@ -41,17 +41,17 @@
   }
 
   .red {
-    --card-background-color: var(--color-red-100);
-    --card-border-color: var(--color-red-500);
+    --card-background-color: var(--bg-error-primary);
+    --card-border-color: var(--border-error);
   }
 
   .white {
     --card-background-color: var(--color-white);
-    --card-border-color: var(--color-gray-500);
+    --card-border-color: var(--border-secondary);
   }
 
   .yellow {
-    --card-background-color: var(--color-yellow-100);
+    --card-background-color: var(--bg-warning-primary);
     --card-border-color: var(--color-yellow-700);
   }
 }

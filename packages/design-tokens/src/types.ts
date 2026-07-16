@@ -1,4 +1,9 @@
 import type { CSSProperties as ReactCSSProperties } from 'react'
+import type {
+  SemanticColorTokenCamelName,
+  SemanticColorTokenName,
+  SemanticColorTokenValue,
+} from './js/semanticColorTokens'
 
 /**
  * Use a custom type for CSS properties becauase we should eventually write a more strongly typed version using template literal types.
@@ -138,11 +143,13 @@ export type TokenStructure = {
       '300': Hex
       '400': Hex
       '500': Hex
+      '550': Hex
       '600': Hex
+      '700': Hex
     }
     white: Hex
     black: Hex
-  }
+  } & Record<SemanticColorTokenName | SemanticColorTokenCamelName, SemanticColorTokenValue>
   dataViz: {
     favorable: Hex
     unfavorable: Hex

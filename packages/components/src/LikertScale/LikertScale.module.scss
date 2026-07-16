@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 
@@ -124,7 +125,7 @@
     padding: 0;
     overflow-x: visible;
     display: inline-block;
-    width: 18.5%; // 5 columns
+    width: 18.5%; /* 5 columns */
     position: relative;
 
     @include fill($block-height);
@@ -137,7 +138,7 @@
       margin-inline-end: 0;
     }
 
-    // Hack to bridge the gaps between items so mouse always hovers on something
+    /* Hack to bridge the gaps between items so mouse always hovers on something */
     &::before,
     &::after {
       content: '';
@@ -245,7 +246,7 @@
       background 0.1s,
       border-color 0.1s;
     height: $block-height;
-    border: $border-solid-border-width $border-solid-border-style $color-gray-500;
+    border: $border-solid-border-width $border-solid-border-style $border-secondary;
 
     &:hover {
       transition:
