@@ -152,8 +152,8 @@ importers:
         specifier: ^17.0.0
         version: 17.0.0(postcss@8.5.16)(stylelint@17.14.0(typescript@5.9.3))
       turbo:
-        specifier: ^2.10.4
-        version: 2.10.4
+        specifier: ^2.10.5
+        version: 2.10.5
       typescript:
         specifier: ^5.9.3
         version: 5.9.3
@@ -1789,11 +1789,6 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: '>=16.14.0'
-    peerDependenciesMeta:
-      '@cultureamp/next-head-hook':
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/frontend-env@2.1.6':
     resolution: {integrity: sha512-6FYwQ08fTns6zMjRC74M2wSah8bMBSVsMxRBYmq7KWQOyYT/Jb7/BPpcrFjPaBzvnoKBLQ06TrbykCcZOkGRSA==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.6/e7375ab88fbc9f9770f2094896a6dc5185094165}
@@ -1809,11 +1804,6 @@ packages:
       eslint: ^9.39.4
       next: '>=13.5.0'
       react: ^18.3.1 || ^19.0.0
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -4630,33 +4620,33 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@turbo/darwin-64@2.10.4':
-    resolution: {integrity: sha512-m1MUEI4MJ69r5CwfMYxmHi0H0rrgiYCBOp0tgBZ9x/YVvOb5uu/lRIDyDwdtH054R2yWeQaIigUGu6aCX9f8cA==}
+  '@turbo/darwin-64@2.10.5':
+    resolution: {integrity: sha512-ENvPwy3x5yS7MwNYHeWjqOBXkwIMp39Pd+/zXC6PoiNzF8EIvvLZOZZ+ny6L9x4WgS5vxUii2LM5gM+zjPdnWw==}
     cpu: [x64]
     os: [darwin]
 
-  '@turbo/darwin-arm64@2.10.4':
-    resolution: {integrity: sha512-VQ1Yxs5zkPT+2z7t1P4mvn6JmcKLkOCAsPuK9XbOvuVj0DlTlETfIXNisX0771v/vTWHOQqiwoGi+TtAUq8efw==}
+  '@turbo/darwin-arm64@2.10.5':
+    resolution: {integrity: sha512-rqROo9zsF/P9RqsdtbLD1nFJicjSrYyvQ9kNJC38AbxA3pAs6VAlATvtvOFx7bqOv6vicf20SP9kF33avJjy2w==}
     cpu: [arm64]
     os: [darwin]
 
-  '@turbo/linux-64@2.10.4':
-    resolution: {integrity: sha512-IzV1QovmwX7mfGnVinmE++2IB8tbeo38weltiuH5zNqwCTBjLs/DytyRKx+bmnhHdXIq9SheR8p0Nip/LBUPHg==}
+  '@turbo/linux-64@2.10.5':
+    resolution: {integrity: sha512-RoSSiNFUxi27zLJuM9F6GyWWjHgLch9t6nwD6K0FkXRirZkTLlzIj6IhFnK8H9++nefLtdFqylE4vGjZAv6AAA==}
     cpu: [x64]
     os: [linux]
 
-  '@turbo/linux-arm64@2.10.4':
-    resolution: {integrity: sha512-rfujSQkP5aYiRn0PgTM7F00WkJCP/bKDVZbOx3WmrZwa/vHA0bplhCl328kpX7VI9HH2vI90ISGwuSVgJgoqTw==}
+  '@turbo/linux-arm64@2.10.5':
+    resolution: {integrity: sha512-4ZComcpzmHGmVynQqvvi+iZOSq/tBvY1SltXB8g4NZRsrA01W8E+yRL8RNM+PLoyWsrCnJa8xa+DkWkv+xg4iQ==}
     cpu: [arm64]
     os: [linux]
 
-  '@turbo/windows-64@2.10.4':
-    resolution: {integrity: sha512-NnspP7Wd5fa3Wwnqv9bKfhegqZzuHBgbPxdZU/idTLQcazx/vgKu95JlCx2YHY0hdvKCnPcARrDwM+KEUmaO7A==}
+  '@turbo/windows-64@2.10.5':
+    resolution: {integrity: sha512-eL2Iyj4DbMINq1Sr1w0iAi6nAiZOF16KSlRGwCJpVh+IWZeY33MAsLHVOBMj1xoFtncVJXclCVpTPL2nBoYkFg==}
     cpu: [x64]
     os: [win32]
 
-  '@turbo/windows-arm64@2.10.4':
-    resolution: {integrity: sha512-Iv02YgOpaEShc2OkG7mgCJ2pEw1RUKiKbs0h8W5wAf4jZ5vpmraTEjuGTgHRuOORQnC1GN3KHo5WB+hu1abRMA==}
+  '@turbo/windows-arm64@2.10.5':
+    resolution: {integrity: sha512-sog+wP+8YSJrdWZ/rUJg8xghVTrwoG+BrSlDQpnK5fzSgJHn1INRWXbVWRH0d3vX8dBI01E3yxXRre9Dn+OXQA==}
     cpu: [arm64]
     os: [win32]
 
@@ -10532,8 +10522,8 @@ packages:
   tty-browserify@0.0.1:
     resolution: {integrity: sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==}
 
-  turbo@2.10.4:
-    resolution: {integrity: sha512-GQpduILaKjoaGljw097ScsSyKTtZSY7cZ3bJktzfTkPMyCf3ShKLuXK2IaOEN2Plziml+ArR7WJ1m+V4VbnaKQ==}
+  turbo@2.10.5:
+    resolution: {integrity: sha512-07Y/C7OUp23l4P92PJoYtFNbHjLhftrZH5Ce7dbczS4kX2Re+wtbXvZLoxn/pUtzgsQaRCBaRuZPJp4zmAn0WQ==}
     hasBin: true
 
   type-check@0.4.0:
@@ -12687,6 +12677,7 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.6
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.2.7)
@@ -12701,6 +12692,7 @@ snapshots:
       js-yaml: 4.1.1
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.9.3)
+      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.2.7
@@ -12709,9 +12701,6 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.2
-    optionalDependencies:
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))
-      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12740,6 +12729,7 @@ snapshots:
       '@formatjs/cli-lib': 6.6.6(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       babel-plugin-formatjs: 10.5.41(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       date-fns: 3.6.0
+      eslint: 9.39.4(jiti@1.21.7)
       eslint-plugin-formatjs: 6.4.17(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       fast-glob: 3.3.3
       form-data: 4.0.6
@@ -12747,13 +12737,11 @@ snapshots:
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.3.0
       limiter-es6-compat: 2.1.2
+      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       react: 19.2.7
       react-intl: 7.1.14(react@19.2.7)(typescript@5.9.3)
       smartling-api-sdk-nodejs: 2.35.0(encoding@0.1.13)
       yargs: 17.7.3
-    optionalDependencies:
-      eslint: 9.39.4(jiti@1.21.7)
-      next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12774,7 +12762,6 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)
       react: 18.3.1
-    optional: true
 
   '@cultureamp/package-bundler@4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.3.2(postcss@8.5.16))(postcss@8.5.16)(rollup@4.62.2)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
@@ -13897,8 +13884,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@next/env@15.2.5':
-    optional: true
+  '@next/env@15.2.5': {}
 
   '@next/swc-darwin-arm64@15.2.5':
     optional: true
@@ -15935,22 +15921,22 @@ snapshots:
   '@tsconfig/node16@1.0.4':
     optional: true
 
-  '@turbo/darwin-64@2.10.4':
+  '@turbo/darwin-64@2.10.5':
     optional: true
 
-  '@turbo/darwin-arm64@2.10.4':
+  '@turbo/darwin-arm64@2.10.5':
     optional: true
 
-  '@turbo/linux-64@2.10.4':
+  '@turbo/linux-64@2.10.5':
     optional: true
 
-  '@turbo/linux-arm64@2.10.4':
+  '@turbo/linux-arm64@2.10.5':
     optional: true
 
-  '@turbo/windows-64@2.10.4':
+  '@turbo/windows-64@2.10.5':
     optional: true
 
-  '@turbo/windows-arm64@2.10.4':
+  '@turbo/windows-arm64@2.10.5':
     optional: true
 
   '@tybys/wasm-util@0.10.1':
@@ -17110,7 +17096,6 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
-    optional: true
 
   cac@6.7.14: {}
 
@@ -20683,7 +20668,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -21701,7 +21685,6 @@ snapshots:
       nanoid: 3.3.12
       picocolors: 1.1.1
       source-map-js: 1.2.1
-    optional: true
 
   postcss@8.5.16:
     dependencies:
@@ -22176,7 +22159,6 @@ snapshots:
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
-    optional: true
 
   react@19.2.7: {}
 
@@ -22793,8 +22775,7 @@ snapshots:
       readable-stream: 3.6.2
       xtend: 4.0.2
 
-  streamsearch@1.1.0:
-    optional: true
+  streamsearch@1.1.0: {}
 
   strict-event-emitter@0.5.1: {}
 
@@ -22939,7 +22920,6 @@ snapshots:
       react: 19.2.7
     optionalDependencies:
       '@babel/core': 7.29.0
-    optional: true
 
   stylehacks@7.0.11(postcss@8.5.16):
     dependencies:
@@ -23348,14 +23328,14 @@ snapshots:
 
   tty-browserify@0.0.1: {}
 
-  turbo@2.10.4:
+  turbo@2.10.5:
     optionalDependencies:
-      '@turbo/darwin-64': 2.10.4
-      '@turbo/darwin-arm64': 2.10.4
-      '@turbo/linux-64': 2.10.4
-      '@turbo/linux-arm64': 2.10.4
-      '@turbo/windows-64': 2.10.4
-      '@turbo/windows-arm64': 2.10.4
+      '@turbo/darwin-64': 2.10.5
+      '@turbo/darwin-arm64': 2.10.5
+      '@turbo/linux-64': 2.10.5
+      '@turbo/linux-arm64': 2.10.5
+      '@turbo/windows-64': 2.10.5
+      '@turbo/windows-arm64': 2.10.5
 
   type-check@0.4.0:
     dependencies:
