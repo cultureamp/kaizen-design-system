@@ -58,7 +58,7 @@
     "react-map-interaction": "^2.1.0",
     "rollup": "^4.62.2",
     "tslib": "^2.8.1",
-    "tsx": "^4.23.0"
+    "tsx": "^4.23.1"
   },
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0"
