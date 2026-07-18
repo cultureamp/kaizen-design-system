@@ -144,7 +144,7 @@
   "devDependencies": {
     "@cultureamp/frontend-apis": "13.3.0",
     "@cultureamp/i18n-react-intl": "^4.3.2",
-    "@cultureamp/package-bundler": "^4.0.1",
+    "@cultureamp/package-bundler": "^4.1.0",
     "@svgr/rollup": "^8.1.0",
     "cssnano": "^7.1.9",
     "@kaizen/design-tokens": "workspace:*",
