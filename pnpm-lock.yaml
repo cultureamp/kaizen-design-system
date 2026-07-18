@@ -415,8 +415,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^4.2.1
-        version: 4.2.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
+        specifier: ^4.3.2
+        version: 4.3.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^4.0.1
         version: 4.0.1(@babel/core@7.29.0)(@types/babel__core@7.20.5)(postcss-preset-env@11.3.2(postcss@8.5.16))(postcss@8.5.16)(rollup@4.62.2)(tslib@2.8.1)(typescript@5.9.3)
@@ -1796,12 +1796,12 @@ packages:
   '@cultureamp/frontend-env@2.1.7':
     resolution: {integrity: sha512-eA+6m6XEmnCME1AtN/pQ78N+sR+yDXf2UcMCHqqZaK5yTyRuWs2Xu08kzPtPJgRUXAH+nEFb5Ql2wfbIforI3g==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.7/3b63bf6ce63e41f587395aa8fb9fbf3ac64a49be}
 
-  '@cultureamp/i18n-react-intl@4.2.1':
-    resolution: {integrity: sha512-ZDzDff4go4GCcwHNAi002vpH3awqtpzdlsnYVY2oMfAcPp18rZzGDYKGnyeXIXBcetbUqtSzxRnf5FXvLQzUxg==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.2.1/c97a655cfdfd03f49662d3b5a62c4655b9524fe4}
+  '@cultureamp/i18n-react-intl@4.3.2':
+    resolution: {integrity: sha512-9iQcpFqeRb0DGHH7BfEtswyh9iR0eomWx4g3fP/coSLJBGbI8ObGRX83xIWuxEBUXCZTugY8qSU6HsAyET3yYw==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.3.2/d0a15758b1b538f35503b0ca84626421b1647db9}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=14 || ~0.0.0'
-      eslint: ^9.39.4
+      eslint: ^9.39.5
       next: '>=13.5.0'
       react: ^18.3.1 || ^19.0.0
 
@@ -2446,42 +2446,42 @@ packages:
       vue:
         optional: true
 
-  '@formatjs/cli-native-darwin-arm64@1.1.6':
-    resolution: {integrity: sha512-5nWgLGHskgHcx2x5T+ExpYgdXYd6LJq+O7wVa8FklGDKiQOgZyOk//asoLrWRhaun/7IO0AjuQOVxWgzC2D4NA==}
+  '@formatjs/cli-native-darwin-arm64@1.1.8':
+    resolution: {integrity: sha512-uIHA6JFbG5vE3GlQodIrbYMmQc50mhBBVJ++ze99Tetfj4eFmIOtVKz2UMt8P8QmvCUZQMyEH95Jm+FbBDY46A==}
     cpu: [arm64]
     os: [darwin]
 
-  '@formatjs/cli-native-linux-arm64-musl@1.0.4':
-    resolution: {integrity: sha512-s4R7TSmYg91iiIevZyWoCRmRLFGWnThLuL4gd+6S1e2ngO8yEzCpEYX9wEZ/pNLx/JzGEPGsL5JFwD6YrPMhqw==}
+  '@formatjs/cli-native-linux-arm64-musl@1.0.6':
+    resolution: {integrity: sha512-ZiM2H4w61rrvkAwhDFWjFEhW43/AphNNHa3lTdZvNOttst1mQ2gUS4+bLGBOfMqKG8+AU+6B9PCF67AbDOlwPg==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@formatjs/cli-native-linux-arm64@1.2.6':
-    resolution: {integrity: sha512-FPg0T4XRkNb3XbQcWVG8e7GVse6VzqNuxR6nHZI8BlAampeJaXTDJkEsVEHT/DiV8Vmak1zoQMf/QK7e6k5Efw==}
+  '@formatjs/cli-native-linux-arm64@1.2.8':
+    resolution: {integrity: sha512-EfrurpWY66hjWvtlO9BjWMDze0SBw4dMMZkUnAZYNdBmOTTRJC+CLi62nRxiSoSVV7QzP8BN6W/zZ5qLySYl0w==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@formatjs/cli-native-linux-x64-musl@1.0.4':
-    resolution: {integrity: sha512-0JjSEMtm3Aa5h5U22+sSVTw7cdk0hsGNR7f8fngUgZSKif8ASUO2/tajHPBKtiVR5pUadslB4ixHgu12ksmrFg==}
+  '@formatjs/cli-native-linux-x64-musl@1.0.6':
+    resolution: {integrity: sha512-Va4rt4gL5p02gixW73VFLCvhgvXhsaT9dMdGfQE32/dqn4NYxg/8gquhauIBvTCkKPYgOhtXRcMWKQINxMB8oA==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@formatjs/cli-native-linux-x64@1.1.6':
-    resolution: {integrity: sha512-bTXdt8Octj3pFHUPLMhPDhKiCgywDkz+QLkLcdcI9rHTHG+gCXfTDTd0KY9hfQZwMTSlcaiG24YIUun7QWap+w==}
+  '@formatjs/cli-native-linux-x64@1.1.8':
+    resolution: {integrity: sha512-J3aInCY7VKSyBrjpXedz/AYNbr+X82zLpSwfeO3obnOqUxn6dko9tnHlaQxuSnZHMx4sAOjJyTzUqDHD6Ft2GA==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@formatjs/cli-native-win32-x64@1.1.7':
-    resolution: {integrity: sha512-TVSmt37IfUZPI/ajdjYcKFGpRBsT5I+UCG8QO6jYq7pDDr/SDkMZQXoMAM7yjIDINfd3YiVNrDvxaCtH7MSeKQ==}
+  '@formatjs/cli-native-win32-x64@1.1.9':
+    resolution: {integrity: sha512-EUH4z1WhKmjJ4FIn+dvzmgbtJRZ4YHCP3kbHiZv0tgmrQiQ5Q4Flv0Smt66kwYMEnyEf9/mY1JmKdBIjPaQM6A==}
     cpu: [x64]
     os: [win32]
 
-  '@formatjs/cli@6.16.12':
-    resolution: {integrity: sha512-Oz5Clsudvvsw5ReUGBqOHpvSQBRTEK6egYTNFHEeaMGyWXPz937pxt1eeQ0JwmPNAtdymGnOQX7BOk/nxSAXPg==}
+  '@formatjs/cli@6.16.14':
+    resolution: {integrity: sha512-aortaTMdCWuGtHnksxpznioudRVvSVkY2/6AQrpUR3tpATGl8sWCuhU9XUEG4ba7UWbFGMv7XLME93rCPfIrJw==}
     engines: {node: '>= 20.12.0'}
     hasBin: true
     peerDependencies:
@@ -2489,9 +2489,9 @@ packages:
       '@glimmer/reference': '*'
       '@glimmer/syntax': ^0.84.3 || ^0.95.0
       '@glimmer/validator': '*'
-      '@vue/compiler-core': ^3.5.0
-      content-tag: ^4.1.0
-      vue: ^3.5.0
+      '@vue/compiler-core': '3'
+      content-tag: '4'
+      vue: '3'
     peerDependenciesMeta:
       '@glimmer/env':
         optional: true
@@ -2532,6 +2532,9 @@ packages:
   '@formatjs/icu-messageformat-parser@3.5.13':
     resolution: {integrity: sha512-Y50dQ09tjkv9cCTSGaQYo9Rgx5COBCqBhXuU7b8ZMAec+oA6ePZv7prycY3iYz9iD0J2LjB8/Eys1so4Xguptg==}
 
+  '@formatjs/icu-messageformat-parser@3.5.15':
+    resolution: {integrity: sha512-5o4grXKotAB3JqQuisLApHG43g17N+paoRTa92Jiz35Zvfemq0cVf4EDvuxyHAzmsJji7igaEowicLO/VmfJ8Q==}
+
   '@formatjs/icu-skeleton-parser@1.8.16':
     resolution: {integrity: sha512-H13E9Xl+PxBd8D5/6TVUluSpxGNvFSlN/b3coUp0e0JpuWXXnQDiavIpY3NnvSp4xhEMoXyyBvVfdFX8jglOHQ==}
 
@@ -2540,6 +2543,9 @@ packages:
 
   '@formatjs/icu-skeleton-parser@2.1.10':
     resolution: {integrity: sha512-XuSva+8ZGawk8VnD5VD6UeH8KarQ/Z022zgjHDoHmlNiAewstXuuzXc0Hk5pGFSdG+nNw5bfJKXqj1ZXHn9yUA==}
+
+  '@formatjs/icu-skeleton-parser@2.1.11':
+    resolution: {integrity: sha512-j8cUmOJzVgkHuS0QiQ6ga76UIoLOFSAMWhs7aZJztH3aAdCOAE6vpC8KVvFB4cU10ON0y2/5oOVmPJ43s2lTwA==}
 
   '@formatjs/intl-localematcher@0.5.8':
     resolution: {integrity: sha512-I+WDNWWJFZie+jkfkiK5Mp4hEDyRSEvmyfYadflOno/mmKJKcB17fEpEH0oJu/OWhhCJ8kJBDz2YMd/6cDl7Mg==}
@@ -2574,11 +2580,11 @@ packages:
       ts-jest:
         optional: true
 
-  '@formatjs/ts-transformer@4.4.15':
-    resolution: {integrity: sha512-SsbAKKjKSUpVcWcfopEeSkNpyQdIo3LYL4hF2Xn8F6p8qTWXgk4msUQ6DuWLvPejRNTKUxb9Cuk4wEHMJ9OSfg==}
+  '@formatjs/ts-transformer@4.4.17':
+    resolution: {integrity: sha512-20NZFTZhKyhtE0Nmiuwr6rh9FkA0L5dHkTi8pX8UNMwKmhVvEWK3yyra8MVmmOZ2PC5tIp9cqjo5H84UscSo6Q==}
     engines: {node: '>= 20.12.0'}
     peerDependencies:
-      ts-jest: ^29
+      ts-jest: '29'
     peerDependenciesMeta:
       ts-jest:
         optional: true
@@ -6596,8 +6602,8 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
 
-  eslint-plugin-formatjs@6.4.17:
-    resolution: {integrity: sha512-tD6MSm4PtIQSqSDR+79KRxZUuSYJWn+a54r0uVDB5iUR4DcSYfKY+Tp7NvThFT9H04Nx+nhEVWZEORpCTP0uNg==}
+  eslint-plugin-formatjs@6.4.19:
+    resolution: {integrity: sha512-5J9wmbHibrZl4JOJx5VNjY6Jj4kI+eLqgyScwlFwtp1xy6kXI6V4iuRQYldrltHDXbodbtn7etbInaFnIVa0vQ==}
     peerDependencies:
       eslint: 9 || 10
 
@@ -6911,10 +6917,6 @@ packages:
   foreground-child@3.3.0:
     resolution: {integrity: sha512-Ld2g8rrAyMYFXBhEqMz8ZAHBi4J4uS1i/CxGMDnjyFWddMXLVcDp051DZfu+t7+ab7Wv6SMqpWmyFIj5UbfFvg==}
     engines: {node: '>=14'}
-
-  form-data@4.0.5:
-    resolution: {integrity: sha512-8RipRLol37bNs2bhoV67fiTEvdTrbMUYcFTiy3+wuuOnUog2QBHCZWXDRijWQfAkhBj2Uf5UnVaiWwA5vdd82w==}
-    engines: {node: '>= 6'}
 
   form-data@4.0.6:
     resolution: {integrity: sha512-vKatAh4SlVfgbv+YtmhiRjhEMJsYpsG1Y2rMQtR+SVSbytsSD1YGzDIcrAJmdFec88u/+VoGmxnl+80gL1tRCQ==}
@@ -12720,17 +12722,17 @@ snapshots:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
 
-  '@cultureamp/i18n-react-intl@4.2.1(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
+  '@cultureamp/i18n-react-intl@4.3.2(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.4(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(sass@1.79.6))(react@19.2.7)(typescript@5.9.3)
       '@cultureamp/frontend-env': 2.1.7
-      '@formatjs/cli': 6.16.12
+      '@formatjs/cli': 6.16.14
       '@formatjs/cli-lib': 6.6.6(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       babel-plugin-formatjs: 10.5.41(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       date-fns: 3.6.0
       eslint: 9.39.4(jiti@1.21.7)
-      eslint-plugin-formatjs: 6.4.17(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
+      eslint-plugin-formatjs: 6.4.19(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       fast-glob: 3.3.3
       form-data: 4.0.6
       intl-messageformat: 10.7.18
@@ -13212,32 +13214,32 @@ snapshots:
     transitivePeerDependencies:
       - ts-jest
 
-  '@formatjs/cli-native-darwin-arm64@1.1.6':
+  '@formatjs/cli-native-darwin-arm64@1.1.8':
     optional: true
 
-  '@formatjs/cli-native-linux-arm64-musl@1.0.4':
+  '@formatjs/cli-native-linux-arm64-musl@1.0.6':
     optional: true
 
-  '@formatjs/cli-native-linux-arm64@1.2.6':
+  '@formatjs/cli-native-linux-arm64@1.2.8':
     optional: true
 
-  '@formatjs/cli-native-linux-x64-musl@1.0.4':
+  '@formatjs/cli-native-linux-x64-musl@1.0.6':
     optional: true
 
-  '@formatjs/cli-native-linux-x64@1.1.6':
+  '@formatjs/cli-native-linux-x64@1.1.8':
     optional: true
 
-  '@formatjs/cli-native-win32-x64@1.1.7':
+  '@formatjs/cli-native-win32-x64@1.1.9':
     optional: true
 
-  '@formatjs/cli@6.16.12':
+  '@formatjs/cli@6.16.14':
     optionalDependencies:
-      '@formatjs/cli-native-darwin-arm64': 1.1.6
-      '@formatjs/cli-native-linux-arm64': 1.2.6
-      '@formatjs/cli-native-linux-arm64-musl': 1.0.4
-      '@formatjs/cli-native-linux-x64': 1.1.6
-      '@formatjs/cli-native-linux-x64-musl': 1.0.4
-      '@formatjs/cli-native-win32-x64': 1.1.7
+      '@formatjs/cli-native-darwin-arm64': 1.1.8
+      '@formatjs/cli-native-linux-arm64': 1.2.8
+      '@formatjs/cli-native-linux-arm64-musl': 1.0.6
+      '@formatjs/cli-native-linux-x64': 1.1.8
+      '@formatjs/cli-native-linux-x64-musl': 1.0.6
+      '@formatjs/cli-native-win32-x64': 1.1.9
 
   '@formatjs/ecma402-abstract@2.2.4':
     dependencies:
@@ -13278,6 +13280,10 @@ snapshots:
     dependencies:
       '@formatjs/icu-skeleton-parser': 2.1.10
 
+  '@formatjs/icu-messageformat-parser@3.5.15':
+    dependencies:
+      '@formatjs/icu-skeleton-parser': 2.1.11
+
   '@formatjs/icu-skeleton-parser@1.8.16':
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
@@ -13289,6 +13295,8 @@ snapshots:
       tslib: 2.8.1
 
   '@formatjs/icu-skeleton-parser@2.1.10': {}
+
+  '@formatjs/icu-skeleton-parser@2.1.11': {}
 
   '@formatjs/intl-localematcher@0.5.8':
     dependencies:
@@ -13337,9 +13345,9 @@ snapshots:
     optionalDependencies:
       ts-jest: 29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3)
 
-  '@formatjs/ts-transformer@4.4.15(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))':
+  '@formatjs/ts-transformer@4.4.17(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))':
     dependencies:
-      '@formatjs/icu-messageformat-parser': 3.5.13
+      '@formatjs/icu-messageformat-parser': 3.5.15
       '@types/babel__core': 7.20.5
       '@types/node': 22.20.1
       json-stable-stringify: 1.3.0
@@ -16801,7 +16809,7 @@ snapshots:
   axios@1.7.4:
     dependencies:
       follow-redirects: 1.15.6
-      form-data: 4.0.5
+      form-data: 4.0.6
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
@@ -17916,7 +17924,7 @@ snapshots:
       has-property-descriptors: 1.0.2
       has-proto: 1.2.0
       has-symbols: 1.1.0
-      hasown: 2.0.3
+      hasown: 2.0.4
       internal-slot: 1.1.0
       is-array-buffer: 3.0.5
       is-callable: 1.2.7
@@ -17987,7 +17995,7 @@ snapshots:
 
   es-shim-unscopables@1.1.0:
     dependencies:
-      hasown: 2.0.3
+      hasown: 2.0.4
 
   es-to-primitive@1.3.0:
     dependencies:
@@ -18180,10 +18188,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-formatjs@6.4.17(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3)):
+  eslint-plugin-formatjs@6.4.19(eslint@9.39.4(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3)):
     dependencies:
-      '@formatjs/icu-messageformat-parser': 3.5.13
-      '@formatjs/ts-transformer': 4.4.15(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
+      '@formatjs/icu-messageformat-parser': 3.5.15
+      '@formatjs/ts-transformer': 4.4.17(ts-jest@29.2.4(@babel/core@7.29.0)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.0))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))(typescript@5.9.3))
       '@types/estree-jsx': 1.0.5
       '@types/picomatch': 4.0.3
       '@unicode/unicode-17.0.0': 1.6.16
@@ -18599,14 +18607,6 @@ snapshots:
       cross-spawn: 7.0.6
       signal-exit: 4.1.0
 
-  form-data@4.0.5:
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      es-set-tostringtag: 2.1.0
-      hasown: 2.0.3
-      mime-types: 2.1.35
-
   form-data@4.0.6:
     dependencies:
       asynckit: 0.4.0
@@ -18659,7 +18659,7 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       functions-have-names: 1.2.3
-      hasown: 2.0.3
+      hasown: 2.0.4
       is-callable: 1.2.7
 
   functions-have-names@1.2.3: {}
@@ -18682,7 +18682,7 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       has-symbols: 1.1.0
-      hasown: 2.0.3
+      hasown: 2.0.4
       math-intrinsics: 1.1.0
 
   get-nonce@1.0.1: {}
@@ -19048,7 +19048,7 @@ snapshots:
   internal-slot@1.1.0:
     dependencies:
       es-errors: 1.3.0
-      hasown: 2.0.3
+      hasown: 2.0.4
       side-channel: 1.1.0
 
   interpret@3.1.1: {}
@@ -19214,7 +19214,7 @@ snapshots:
       call-bound: 1.0.4
       gopd: 1.2.0
       has-tostringtag: 1.0.2
-      hasown: 2.0.3
+      hasown: 2.0.4
 
   is-relative@1.0.0:
     dependencies:
@@ -19437,7 +19437,7 @@ snapshots:
       jest-config: 30.2.0(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))
       jest-util: 30.2.0
       jest-validate: 30.2.0
-      yargs: 17.7.2
+      yargs: 17.7.3
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -19456,7 +19456,7 @@ snapshots:
       jest-config: 30.2.0(@types/node@22.20.1)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))
       jest-util: 30.2.0
       jest-validate: 30.2.0
-      yargs: 17.7.2
+      yargs: 17.7.3
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -20592,7 +20592,7 @@ snapshots:
       path-to-regexp: 6.2.2
       strict-event-emitter: 0.5.1
       type-fest: 4.41.0
-      yargs: 17.7.2
+      yargs: 17.7.3
     optionalDependencies:
       typescript: 5.9.3
 
