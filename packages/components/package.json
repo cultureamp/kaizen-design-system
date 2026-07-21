@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "3.3.5",
+  "version": "3.3.6",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -144,7 +144,7 @@
   "devDependencies": {
     "@cultureamp/frontend-apis": "13.3.0",
     "@cultureamp/i18n-react-intl": "^4.3.2",
-    "@cultureamp/package-bundler": "^4.0.1",
+    "@cultureamp/package-bundler": "^4.1.0",
     "@svgr/rollup": "^8.1.0",
     "cssnano": "^7.1.9",
     "@kaizen/design-tokens": "workspace:*",
@@ -154,7 +154,7 @@
     "@types/react-highlight": "^0.12.8",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^11.0.0",
-    "autoprefixer": "^10.5.2",
+    "autoprefixer": "^10.5.4",
     "concat-cli": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-axe": "^10.0.0",
