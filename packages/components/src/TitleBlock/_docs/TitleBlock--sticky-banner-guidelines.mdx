@@ -1,0 +1,192 @@
+import { Canvas, Meta } from '@storybook/blocks'
+import { ResourceLinks } from '~storybook/components'
+import * as TitleBlockStories from './TitleBlock.stories'
+
+<Meta title="Components/TitleBlock/Sticky Banner" />
+
+# Sticky banner above a sticky TitleBlock
+
+How to reserve sticky space for a banner above a Kaizen `TitleBlock` — using an
+**additive** CSS variable.
+
+📌 **The rule.** The banner and the TitleBlock strip both pin to the top of the
+scroll container. TitleBlock exposes an additive offset
+`--titleblock-sticky-offset` that your app sets to the banner's height, so the
+strip pins directly below the banner.
+
+<Canvas of={TitleBlockStories.WithGlobalNotificationAbove} />
+
+## 1. The mechanism (@kaizen/components)
+
+Passing `sticky` sets the TitleBlock root to `display: contents` (so it generates
+no box and its strip becomes a sibling of your content in the scroll container)
+and makes the top strip `position: sticky`. The strip's `top` is the sum of two
+variables:
+
+```scss
+/* @kaizen/components — TitleBlock strip */
+.titleRow {
+  position: sticky;
+  top: calc(
+    var(--app-chrome-sticky-offset, 72px) /* owned by AppChrome */ +
+      var(--titleblock-sticky-offset, 0px) /* opt-in, per consumer */
+  );
+}
+@media (width < 1080px) {
+  /* nav collapses to a hamburger: no top bar */
+  .titleRow {
+    top: var(--titleblock-sticky-offset, 0);
+  }
+}
+```
+
+**Additive = safe by default.** `--titleblock-sticky-offset` defaults to `0`, so
+every existing TitleBlock is byte-for-byte unchanged unless a consumer opts in.
+And because the shared `--app-chrome-sticky-offset` keeps its value, apps that
+read it for other things (e.g. public-api-ui's
+`min-h-[calc(100vh - var(--app-chrome-sticky-offset))]`) are unaffected.
+
+## 2. Structure (consuming apps)
+
+Render the banner and the TitleBlock as siblings in the scroll container. Set
+`--titleblock-sticky-offset` on a thin `display: contents` wrapper around the
+TitleBlock (it adds no box, so it doesn't affect sticky). The banner just reads
+the shared offset for its own pinned position — read-only, never reassigned.
+
+```
+scroll container  (AppChrome content / window)
+│
+├─ <banner>   position: sticky
+│                top: 0  →  var(--app-chrome-sticky-offset) at ≥1080px
+│
+└─ <div>  display: contents
+     --titleblock-sticky-offset: {bannerHeight}px
+     │
+     └─ <TitleBlock sticky />
+          └─ .titleRow  sticky, top = chromeOffset + bannerHeight
+│
+└─ page content  (scrolls beneath both)
+```
+
+## 3. The code (consuming apps)
+
+```tsx
+<div
+  ref={bannerRef}
+  // sticky at all widths: top:0 on mobile (no nav bar),
+  // below the app-chrome bar at >=1080px
+  className="sticky top-0 z-[7] flex items-center justify-center
+             min-[1080px]:top-[var(--app-chrome-sticky-offset)]"
+>
+  Banner content
+</div>
+
+<div
+  style={{
+    display: 'contents',
+    // reserve space for the banner; kaizen adds this to the strip's top
+    '--titleblock-sticky-offset': `${bannerHeight}px`,
+  }}
+>
+  <TitleBlock sticky … />
+</div>
+```
+
+No alias variable, no cyclic-reference workaround, no second wrapper, and no
+breakpoint gate on the banner — the additive var handles both breakpoints.
+
+## 4. Measure the banner height (consuming app)
+
+Feed a live height into `--titleblock-sticky-offset` so the strip stays flush no
+matter how tall the banner gets (wrapping text, responsive padding). A
+`ResizeObserver` keeps it accurate. If the banner is a fixed height, a constant
+is fine instead.
+
+```tsx
+const bannerRef = React.useRef<HTMLDivElement>(null)
+// set the initial bannerHeight to the height of the GlobalNotification banner on desktop with English text
+const [bannerHeight, setBannerHeight] = React.useState(48)
+
+React.useLayoutEffect(() => {
+  const el = bannerRef.current
+  if (!el) return
+  const update = () => setBannerHeight(el.offsetHeight)
+  update()
+  const observer = new ResizeObserver(update)
+  observer.observe(el)
+  return () => observer.disconnect()
+}, [])
+```
+
+> **⚠️ Server-side rendering.** With a **dynamic** banner height the measured
+> value is only known after hydration. In an SSR app, when a user navigates
+> back/forward the browser restores the saved scroll position (Chrome's default),
+> but the page's memory cache can be missed — so the banner (starting at its
+> initial `useState` value) can flash and shift the TitleBlock into place after
+> hydration. Two mitigations, in order of preference:
+>
+> - **Prefer a fixed/bounded banner height.** Before reaching for a dynamic
+>   height, ask whether the content can be bounded: overflow the scroll, move
+>   items into a dropdown, or trim excess text with a "read more" modal. A
+>   constant height needs no measurement and can't flash.
+> - **Seed a sensible initial height** (as above — the desktop/English
+>   GlobalNotification height, e.g. `48`). This matches most users on first
+>   paint; only smaller screens or longer translations (where the text wraps to
+>   more lines) will adjust after measuring.
+
+## 5. Result: verified both widths
+
+Banner and strip stack flush, with no overlap or gap, both pinned through
+scroll. `strip.top − banner.top` equals the banner height at every width
+(example: a 48px banner on desktop may turn into a 128px banner on mobile as
+content shifts to new lines).
+
+<table>
+  <thead>
+    <tr>
+      <th>Width</th>
+      <th>Banner top</th>
+      <th>Strip top</th>
+      <th>Gap</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Desktop (≥1080px)</td>
+      <td>72px (chrome bar)</td>
+      <td>120px (72 + 48)</td>
+      <td>48px = banner height</td>
+    </tr>
+    <tr>
+      <td>Mobile (&lt;1080px)</td>
+      <td>0px (hamburger, no bar)</td>
+      <td>128px (0 + 128)</td>
+      <td>128px = banner height</td>
+    </tr>
+  </tbody>
+</table>
+
+Mobile pins the banner at `0` because the top nav collapses to a hamburger —
+there's no persistent bar to sit under. The `<1080px` rule drops the chrome
+offset and keeps only the additive banner offset, so the two stay in sync.
+
+## 6. Do & don't
+
+**Do**
+
+- Keep the banner and TitleBlock as **siblings** in the scroll container.
+- Set `--titleblock-sticky-offset` on a `display: contents` wrapper right around
+  the TitleBlock.
+- Feed a **measured** banner height into it (or a constant for a fixed banner).
+- Let the banner _read_ `--app-chrome-sticky-offset` for its own pin.
+
+**Don't**
+
+- Reassign `--app-chrome-sticky-offset` — it's a shared "app-chrome height"
+  signal other apps read; changing it resizes their layouts.
+- Wrap the TitleBlock in a box with height (e.g. a `<header>`) —
+  `display: contents` makes the strip's containing block that box, killing its
+  sticky travel.
+- Set `--titleblock-sticky-offset` on `:root`/`html` — scope it near the
+  TitleBlock so it can't leak to another nested one.
+- Hardcode `120px` — derive it from the banner height.
