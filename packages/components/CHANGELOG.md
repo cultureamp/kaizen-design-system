@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.6
+
+### Patch Changes
+
+- [#6897](https://github.com/cultureamp/kaizen-design-system/pull/6897) [`5ad0227`](https://github.com/cultureamp/kaizen-design-system/commit/5ad0227d607840d95f75a852c47bc1c68eb4a81a) - Add `sticky` prop to TitleBlock. When enabled, the top strip sticks to the top of its scrollable container as the content scrolls, offset below the app-chrome nav via the `--app-chrome-sticky-offset` and `--titleblock-sticky-offset` CSS variables.
+
 ## 3.3.5
 
 ### Patch Changes
