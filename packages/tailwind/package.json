@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/tailwind",
-  "version": "1.5.15",
+  "version": "1.5.16",
   "description": "Kaizen Tailwind presets",
   "scripts": {
     "build": "pnpm package-bundler build",
@@ -32,7 +32,7 @@
     "@kaizen/design-tokens": "workspace:*"
   },
   "devDependencies": {
-    "@cultureamp/package-bundler": "^4.0.1",
+    "@cultureamp/package-bundler": "^4.1.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "classnames": "^2.5.1",
     "react": "^19.2.7",

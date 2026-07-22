@@ -1,5 +1,23 @@
 # Change Log
 
+## 3.3.7
+
+### Patch Changes
+
+- [#6926](https://github.com/cultureamp/kaizen-design-system/pull/6926) [`900c2fe`](https://github.com/cultureamp/kaizen-design-system/commit/900c2fe01a4d47a7d156801489da26e1cfae7c94) - chore(deps): Update dependencies
+
+## 3.3.6
+
+### Patch Changes
+
+- [#6897](https://github.com/cultureamp/kaizen-design-system/pull/6897) [`5ad0227`](https://github.com/cultureamp/kaizen-design-system/commit/5ad0227d607840d95f75a852c47bc1c68eb4a81a) - Add `sticky` prop to TitleBlock. When enabled, the top strip sticks to the top of its scrollable container as the content scrolls, offset below the app-chrome nav via the `--app-chrome-sticky-offset` and `--titleblock-sticky-offset` CSS variables.
+
+## 3.3.5
+
+### Patch Changes
+
+- [#6728](https://github.com/cultureamp/kaizen-design-system/pull/6728) [`675da05`](https://github.com/cultureamp/kaizen-design-system/commit/675da05b1cd90fdc91fb6259c3468ce69de021a3) - Add responsive truncation to multi-value tags in Select
+
 ## 3.3.4
 
 ### Patch Changes
