@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.7
+
+### Patch Changes
+
+- [#6926](https://github.com/cultureamp/kaizen-design-system/pull/6926) [`900c2fe`](https://github.com/cultureamp/kaizen-design-system/commit/900c2fe01a4d47a7d156801489da26e1cfae7c94) - chore(deps): Update dependencies
+
 ## 3.3.6
 
 ### Patch Changes
