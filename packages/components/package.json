@@ -184,7 +184,7 @@
     "frontend-apis": "There's an unresolved dep with 13.4.0 and onwards with node/msw, so we are locking to 13.3.0 for this update."
   },
   "peerDependencies": {
-    "@cultureamp/i18n-react-intl": "^2.5.9",
+    "@cultureamp/i18n-react-intl": "^2.5.9 || ^3.0.0 || ^4.0.0",
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0",
     "react-intl": "^6.6.8 || ^7.0.0",
