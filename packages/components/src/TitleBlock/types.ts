@@ -32,6 +32,17 @@ export type TitleBlockProps = {
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
   collapseNavigationAreaWhenPossible?: boolean
+  /**
+   * Makes the top strip stick to the top of its scrollable container as the
+   * content scrolls. The TitleBlock must be rendered inside a scrollable
+   * ancestor. When enabled the root becomes `display: contents` so the strip
+   * pins as a sibling of the scrolling content; its offset is
+   * `--app-chrome-sticky-offset` (owned by AppChrome, read-only) plus the
+   * opt-in `--titleblock-sticky-offset` a consumer sets to reserve space for a
+   * banner above it. Below 1080px the app-chrome offset is dropped to match the
+   * collapsed hamburger nav.
+   */
+  sticky?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   id?: string
@@ -144,8 +155,7 @@ export type TitleBlockSelectProps = React.ComponentProps<typeof Select>
 export type TitleBlockDistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never
 
 export type TitleBlockAvatarProps =
-  | Omit<GenericAvatarProps, 'size'>
-  | Omit<CompanyAvatarProps, 'size'>
+  Omit<GenericAvatarProps, 'size'> | Omit<CompanyAvatarProps, 'size'>
 
 export type DefaultActionProps = TitleBlockButtonProps | TitleBlockCustomButtonProps
 

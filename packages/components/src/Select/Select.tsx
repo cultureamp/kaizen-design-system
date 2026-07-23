@@ -216,7 +216,7 @@ const SingleValue: typeof components.SingleValue = (props) => (
 )
 
 const MultiValue: typeof components.MultiValue = (props) => (
-  <div className={styles.multiValue}>
+  <div className={styles.multiValue} title={String(props.children)}>
     <Tag variant="default" dismissible inline onDismiss={props.removeProps.onClick}>
       {props.children}
     </Tag>

@@ -6,7 +6,7 @@ export type MenuHeaderProps = { children: ReactNode }
 /**
  * A <header> element, used to title a MenuSection
  */
-export const MenuHeader = forwardRef<HTMLDivElement, MenuHeaderProps>(
-  (props, ref): JSX.Element => <Header ref={ref} {...props} />,
-)
+export const MenuHeader = forwardRef<HTMLDivElement, MenuHeaderProps>((props, ref): JSX.Element => (
+  <Header ref={ref} {...props} />
+))
 MenuHeader.displayName = 'MenuHeader'
