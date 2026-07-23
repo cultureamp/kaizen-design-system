@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.8
+
+### Patch Changes
+
+- [#6930](https://github.com/cultureamp/kaizen-design-system/pull/6930) [`cdec947`](https://github.com/cultureamp/kaizen-design-system/commit/cdec9471f6ce463591d9e9ea82c1ff7144da2fd1) - Widen the `@cultureamp/i18n-react-intl` peer dependency range from `^2.5.9` to `^2.5.9 || ^3.0.0 || ^4.0.0`. The old range never followed i18n-react-intl's 2.x → 3.x → 4.x major bumps, so every downstream repo that installs the current 4.x (e.g. 4.4.0) saw an "unmet peer" warning (surfaced by `pnpm peers check` in next-template). This is a peer-range correction only — no runtime code change. The only APIs `@kaizen/components` consumes from this package (`useIntl`, `FormattedMessage`, `DynamicIntlProvider`, `StaticIntlProvider`, `LOCALE_REGIONS`) are unaffected by the 3.x/4.x breaking changes (ESLint flat-config in 3.0.0; server-only utilities moving to the `/server` subpath in 4.0.0), neither of which this package uses.
+
 ## 3.3.7
 
 ### Patch Changes
