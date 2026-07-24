@@ -63,7 +63,6 @@ export const Speeds: Story = {
 }
 
 export const ReversedContext: Story = {
-  name: 'Reversed Context',
   render: (args) => (
     <ReversedColors>
       <BrandLoader {...args} />

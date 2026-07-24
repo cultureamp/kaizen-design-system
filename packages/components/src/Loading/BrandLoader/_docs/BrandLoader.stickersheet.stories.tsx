@@ -16,22 +16,14 @@ const StickerSheetTemplate: StickerSheetStory = {
   render: ({ isReversed }) => (
     <ReversedColors isReversed={isReversed}>
       <>
-        <StickerSheet
-          isReversed={isReversed}
-          title="Size"
-          headers={['Small', 'Medium', 'Large']}
-        >
+        <StickerSheet isReversed={isReversed} title="Size" headers={['Small', 'Medium', 'Large']}>
           <StickerSheet.Row>
             <BrandLoader accessibilityLabel="Loading" size="sm" />
             <BrandLoader accessibilityLabel="Loading" size="md" />
             <BrandLoader accessibilityLabel="Loading" size="lg" />
           </StickerSheet.Row>
         </StickerSheet>
-        <StickerSheet
-          isReversed={isReversed}
-          title="Speed"
-          headers={['Slow', 'Normal', 'Fast']}
-        >
+        <StickerSheet isReversed={isReversed} title="Speed" headers={['Slow', 'Normal', 'Fast']}>
           <StickerSheet.Row>
             <BrandLoader accessibilityLabel="Loading" speed="slow" />
             <BrandLoader accessibilityLabel="Loading" speed="normal" />
