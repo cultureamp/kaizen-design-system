@@ -47,8 +47,8 @@
   }
 
   .brush {
-    animation: paint var(--brand-loader-duration)
-      var(--animation-easing-function-ease-in-out) infinite;
+    animation: paint var(--brand-loader-duration) var(--animation-easing-function-ease-in-out)
+      infinite;
     fill: none;
     stroke: white;
     stroke-width: 15;
