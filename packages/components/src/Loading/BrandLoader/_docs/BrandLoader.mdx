@@ -1,0 +1,50 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { KAIOInstallation, LinkTo, ResourceLinks } from '~storybook/components'
+import * as BrandLoaderStories from './BrandLoader.stories'
+
+<Meta of={BrandLoaderStories} />
+
+# BrandLoader
+
+<ResourceLinks
+  sourceCode="https://github.com/cultureamp/kaizen-design-system/tree/main/packages/components/src/Loading/BrandLoader"
+  figma=""
+  designGuidelines=""
+/>
+
+<KAIOInstallation exportNames="BrandLoader" />
+
+## Overview
+
+Use BrandLoader for page- and section-level waits where a prominent branded loading state is
+appropriate. For compact waits in buttons, form fields, and content-dense layouts, use
+<LinkTo pageId="components-loading-states-loadingspinner">LoadingSpinner</LinkTo>.
+
+The `accessibilityLabel` is required. Describe what is loading, such as “Loading survey results”.
+The label is announced by assistive technology and is not shown visually.
+
+<Canvas of={BrandLoaderStories.Playground} />
+<Controls of={BrandLoaderStories.Playground} />
+
+## Sizes
+
+Choose `sm` (48px), `md` (72px), or `lg` (96px). The default is `md`.
+
+<Canvas of={BrandLoaderStories.Sizes} />
+
+## Speeds
+
+Choose `slow` (4s), `normal` (3.2s), or `fast` (2.4s). The default is `normal`.
+
+<Canvas of={BrandLoaderStories.Speeds} />
+
+## Colour
+
+BrandLoader uses Purple 800 by default. Wrap it in `ReversedColors` on an approved reversed
+surface.
+
+<Canvas of={BrandLoaderStories.ReversedContext} />
+
+## Reduced motion
+
+When reduced motion is enabled, BrandLoader displays the completed Ensō without animation.
