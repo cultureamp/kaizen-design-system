@@ -20,7 +20,7 @@
   "files": [
     "src",
     "dist",
-    "js"
+    "css"
   ],
   "main": "dist/cjs/index.cjs",
   "module": "dist/esm/index.mjs",
@@ -44,6 +44,6 @@
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",
     "react-dom": "^18.3.1 || ^19.0.0",
-    "tailwindcss": ">=3.4.7"
+    "tailwindcss": "^3.4.7 || ^4.0.0"
   }
 }

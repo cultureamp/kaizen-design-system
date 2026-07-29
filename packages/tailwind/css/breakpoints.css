@@ -1,0 +1,22 @@
+/**
+ * Kaizen breakpoints for Tailwind CSS v4 (CSS-first config).
+ *
+ * Required for v4: the `screens` in the `Preset` JS export is dropped whenever
+ * `prefix()` is applied to `@import "tailwindcss/theme.css"`, because the
+ * legacy-config compatibility layer writes `screens` into the unprefixed
+ * `--breakpoint-*` namespace while the prefixed theme reads
+ * `--<prefix>-breakpoint-*`. See KZN-4195.
+ *
+ * Values must be literals. Tailwind inlines breakpoints into media queries at
+ * build time, so `var(--layout-breakpoints-large)` compiles to
+ * `@media (width >= var(...))`, which never matches.
+ *
+ * Kept in sync with @kaizen/design-tokens `layout.breakpoints` by
+ * src/breakpoints.spec.ts — change both together.
+ *
+ * Tailwind v3 consumers do not need this file; `Preset` covers them.
+ */
+@theme {
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1080px;
+}
