@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/layout';
@@ -33,7 +34,7 @@
       }
     }
 
-    // override Murmur global styles :(
+    /* override Murmur global styles :( */
     h1 {
       color: var(--color-purple-800);
     }
@@ -89,7 +90,7 @@
       width: 155px;
       height: 155px;
       margin: 0 auto;
-      color: $color-purple-800;
+      color: $text-primary;
 
       @media (max-width: $layout-breakpoints-medium) {
         width: 86px;
@@ -106,32 +107,32 @@
     }
   }
 
-  // --------------------------------
-  // variant styles
-  // --------------------------------
+  /* -------------------------------- */
+  /* variant styles */
+  /* -------------------------------- */
   .success {
-    background-color: var(--color-green-100);
+    background-color: var(--bg-success-primary);
 
-    --spot-icon-color: var(--color-green-500);
+    --spot-icon-color: var(--fg-success-primary);
   }
 
   .informative {
-    background-color: var(--color-blue-100);
+    background-color: var(--bg-brand-primary);
 
-    --spot-icon-color: var(--color-blue-500);
+    --spot-icon-color: var(--fg-brand-primary);
   }
 
   .warning {
-    background-color: var(--color-red-100);
+    background-color: var(--bg-error-primary);
 
-    --spot-icon-color: var(--color-red-500);
+    --spot-icon-color: var(--fg-error-primary);
   }
 
   .cautionary {
-    background-color: var(--color-yellow-100);
+    background-color: var(--bg-warning-primary);
 
-    --spot-icon-color: var(--color-yellow-700);
+    --spot-icon-color: var(--fg-warning-primary);
   }
 
-  // --------------------------------
+  /* -------------------------------- */
 }

@@ -27,14 +27,14 @@
     }
 
     &:hover:not([disabled]) {
-      background-color: var(--color-blue-100);
-      color: var(--color-blue-500);
+      background-color: var(--bg-brand-primary);
+      color: var(--text-brand-primary);
     }
   }
 
   .calendarActive {
-    color: var(--color-blue-500);
-    background-color: var(--color-blue-100);
+    color: var(--text-brand-primary);
+    background-color: var(--bg-brand-primary);
   }
 
   .disabled {

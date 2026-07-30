@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/typography';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/border';
@@ -35,7 +36,7 @@
 
     &:focus-visible {
       &::after {
-        border: $border-focus-ring-border-width $border-focus-ring-border-style $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style $border-brand;
       }
     }
   }
@@ -77,7 +78,7 @@
     font-weight: $typography-heading-5-font-weight;
     line-height: $typography-heading-4-line-height;
     letter-spacing: $typography-heading-4-letter-spacing;
-    color: $color-purple-800;
+    color: $text-primary;
   }
 
   .navButton {
@@ -89,13 +90,13 @@
     border-radius: $button-border-radius;
 
     &:hover {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
     }
 
     &:focus-visible {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
     }
   }
 
@@ -122,7 +123,7 @@
     letter-spacing: $typography-paragraph-body-letter-spacing;
     font-weight: $typography-paragraph-body-font-weight;
     line-height: $typography-paragraph-body-line-height;
-    color: $color-purple-800;
+    color: $text-primary;
   }
 
   .cell {
@@ -147,26 +148,26 @@
       $border-borderless-border-color;
     border-radius: $button-border-radius;
     padding: calc(#{$spacing-md} / 3) 0.625rem;
-    color: $color-purple-800;
+    color: $text-primary;
 
     &:hover {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
     }
 
     &:focus-visible {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
     }
   }
 
   .dayToday {
-    color: $color-blue-500;
+    color: $text-brand-primary;
     font-weight: bold;
   }
 
   .daySelected {
-    background-color: $color-blue-500;
+    background-color: $bg-brand-solid;
     border-radius: $button-border-radius;
     color: $color-white;
 
@@ -182,10 +183,10 @@
   }
 
   .dayDisabled {
-    // Focus ring styles have been removed as react-day-picker has been updated such that
-    // disabled days do not receive focus, and keyboard navigation only lands on available days.
-    // https://github.com/gpbl/react-day-picker/pull/1519
-    // https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033
+    /* Focus ring styles have been removed as react-day-picker has been updated such that */
+    /* disabled days do not receive focus, and keyboard navigation only lands on available days. */
+    /* https://github.com/gpbl/react-day-picker/pull/1519 */
+    /* https://github.com/gpbl/react-day-picker/issues/1449#issuecomment-1149942033 */
     background: none;
     pointer-events: none;
 

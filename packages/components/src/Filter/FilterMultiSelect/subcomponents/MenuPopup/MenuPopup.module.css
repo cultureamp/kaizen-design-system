@@ -5,7 +5,7 @@
     z-index: 1000;
     box-sizing: border-box;
     background: var(--color-white);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     border-radius: var(--border-solid-border-radius);
     box-shadow: var(--shadow-large-box-shadow);
     padding: var(--spacing-12) 0;
