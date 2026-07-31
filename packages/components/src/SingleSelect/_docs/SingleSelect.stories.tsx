@@ -3,6 +3,7 @@ import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { Button } from '~components/Button'
 import { FieldMessage } from '~components/FieldMessage'
+import { Menu, MenuItem, MenuPopover, MenuTrigger } from '~components/Menu'
 import { ContextModal } from '~components/Modal'
 import { RadioField, RadioGroup } from '~components/Radio'
 import { SingleSelect } from '../SingleSelect'
@@ -335,6 +336,63 @@ export const NativeFormValidationWithSelectedVal: Story = {
 
       await waitFor(() => {
         expect(form).toHaveAccessibleDescription('Form submitted!')
+      })
+    })
+  },
+}
+
+/**
+ * The select popover is portalled out of the menu popover, so react-aria's dismissal guards and
+ * its `inert` isolation both have to be told to leave it alone. Without that the menu closes as
+ * soon as the select opens, or the listbox renders but cannot be focused or clicked.
+ */
+export const InsideMenuPopover: Story = {
+  render: (args) => (
+    <MenuTrigger>
+      <Button>Open menu</Button>
+      <MenuPopover>
+        <Menu aria-label="Actions">
+          <MenuItem>An action</MenuItem>
+        </Menu>
+        <div className="p-16">
+          <SingleSelect {...args} label="Coffee" />
+        </div>
+      </MenuPopover>
+    </MenuTrigger>
+  ),
+  parameters: {
+    // Interaction coverage only — the open popovers make for an unstable visual baseline.
+    chromatic: { disable: true },
+    docs: { source: { type: 'code' } },
+  },
+  play: async ({ canvasElement, step }) => {
+    // Both popovers are portalled out of the story root.
+    const canvas = within(canvasElement.parentElement!)
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Open menu' }))
+
+    const selectToggle = await canvas.findByRole('combobox', { name: /Coffee/ })
+
+    await step('Opening the select does not dismiss the menu popover', async () => {
+      await userEvent.click(selectToggle)
+
+      await waitFor(() => {
+        expect(canvas.getByRole('menuitem', { name: 'An action' })).toBeVisible()
+      })
+    })
+
+    await step('Options are interactive, not inert', async () => {
+      const option = await canvas.findByRole('option', { name: 'Latte' })
+
+      // The `inert` failure mode leaves the listbox visible but non-interactive, so assert the
+      // options are reachable rather than only that they rendered.
+      expect(option.closest('[inert]')).toBeNull()
+
+      await userEvent.click(option)
+
+      await waitFor(() => {
+        expect(selectToggle).toHaveTextContent('Latte')
+        expect(canvas.getByRole('menuitem', { name: 'An action' })).toBeVisible()
       })
     })
   },
