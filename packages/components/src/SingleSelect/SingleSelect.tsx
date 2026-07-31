@@ -6,7 +6,7 @@ import { useSelectState, type SelectProps as AriaSelectProps } from '@react-stat
 import { type Key } from '@react-types/shared'
 import classnames from 'classnames'
 import { FieldMessage } from '~components/FieldMessage'
-import { Popover, useFloating } from '~components/MultiSelect/subcomponents/Popover'
+import { Popover, useFloating, useTopLayer } from '~components/MultiSelect/subcomponents/Popover'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import { SelectProvider } from './context'
 import {
@@ -168,6 +168,13 @@ export const SingleSelect = <Option extends SingleSelectOption = SingleSelectOpt
       if (portalElement) setPortalContainer(portalElement)
     }
   }, [portalContainerId])
+
+  /**
+   * Marked while the select is mounted, not just while the popover is open: `ariaHideOutside`
+   * only spares elements already marked when an ancestor overlay opens, and `inert` set on this
+   * container would be inherited by the popover portalled into it. See KZN-4210.
+   */
+  useTopLayer(portalContainer)
 
   return (
     <div className={classnames(!isFullWidth && styles.notFullWidth, classNameOverride)}>

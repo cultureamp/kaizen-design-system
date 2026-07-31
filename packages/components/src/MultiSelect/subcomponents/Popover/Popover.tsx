@@ -14,6 +14,7 @@ import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import { type ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
+import { TOP_LAYER_ATTRIBUTE, useTopLayer } from './topLayer'
 import styles from './Popover.module.scss'
 
 export type PopoverProps<RT extends ReferenceType = ReferenceType> = {
@@ -36,6 +37,8 @@ export const Popover = <RT extends ReferenceType>({
   classNameOverride,
   ...restProps
 }: PopoverProps<RT>): JSX.Element => {
+  useTopLayer(portalContainer)
+
   const { floatingStyles } = useFloating({
     elements: {
       reference: refs.reference.current,
@@ -65,6 +68,7 @@ export const Popover = <RT extends ReferenceType>({
         ref={refs.setFloating}
         style={floatingStyles}
         className={classnames(styles.popover, classNameOverride)}
+        {...{ [TOP_LAYER_ATTRIBUTE]: 'true' }}
         {...restProps}
       >
         {children}
