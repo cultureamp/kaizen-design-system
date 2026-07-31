@@ -94,6 +94,28 @@ describe('<Popover />', () => {
         otherOverlay.remove()
       })
 
+      it('keeps a shared container marked until the last popover using it unmounts', async () => {
+        const container = document.createElement('div')
+        document.body.appendChild(container)
+
+        const first = render(<PopoverWrapper portalContainer={container} />)
+        const second = render(<PopoverWrapper portalContainer={container} />)
+
+        await waitFor(() => {
+          expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
+        })
+
+        first.unmount()
+
+        // Still in use by the second popover — unmarking here would leave it open to `inert`.
+        expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
+
+        second.unmount()
+
+        expect(container).not.toHaveAttribute('data-react-aria-top-layer')
+        container.remove()
+      })
+
       it('leaves a container the consumer already marked alone on unmount', async () => {
         const container = document.createElement('div')
         container.setAttribute('data-react-aria-top-layer', 'true')
