@@ -52,11 +52,11 @@
     "lodash.flatmap": "^4.5.0",
     "object-to-css-variables": "^0.2.1",
     "postcss": "^8.5.22",
-    "prettier": "*",
+    "prettier": "^3.9.6",
     "react": "^19.2.7",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
-    "rollup": "^4.62.3",
+    "rollup": "^4.62.4",
     "tslib": "^2.8.1",
     "tsx": "^4.23.1"
   },
