@@ -2,6 +2,8 @@ import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, waitFor, within } from '@storybook/test'
 import { Heading } from 'react-aria-components'
+import { Container } from '~components/Container'
+import { Content } from '~components/Content'
 import { Icon } from '~components/Icon'
 import { GlobalNotification } from '~components/Notification'
 import { assetUrl } from '~components/utils/hostedAssets'
@@ -901,6 +903,42 @@ const StickyBannerAboveTitleBlock = (
       <div style={{ height: '600px' }} />
     </div>
   )
+}
+
+const CONTENT_ALIGNMENT_VIEWPORTS = {
+  disable: false,
+  // The inset only applies above 1080px, and TitleBlock clamps to its max-width
+  // from 1440px, so 1200 and 1366 are where a mismatch would show.
+  viewports: [1366, 1200],
+}
+
+/**
+ * `contentInset` lets a page line the TitleBlock's content column up with the
+ * `Content` beneath it. The dashed guides mark `Content`'s edges — with the
+ * default 24px inset the TitleBlock sits outside them.
+ */
+export const WithContentInset: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: CONTENT_ALIGNMENT_VIEWPORTS,
+  },
+  args: {
+    contentInset: 'var(--layout-content-side-margin)',
+  },
+  render: (args) => (
+    <>
+      <TitleBlock {...args} />
+      <Container>
+        <Content
+          classNameOverride="border-l-1 border-r-1 border-dashed border-purple-400"
+          style={{ paddingTop: 'var(--spacing-24)', paddingBottom: 'var(--spacing-24)' }}
+        >
+          Page content, inset by <code>--layout-content-side-margin</code>. Its edges should line up
+          with the TitleBlock title and actions above.
+        </Content>
+      </Container>
+    </>
+  ),
 }
 
 export const WithGlobalNotificationAbove: Story = {

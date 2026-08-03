@@ -43,6 +43,14 @@ export type TitleBlockProps = {
    * collapsed hamburger nav.
    */
   sticky?: boolean
+  /**
+   * Horizontal inset of the TitleBlock's content column above 1080px, as a CSS
+   * length. Defaults to `24px`. Pass `var(--layout-content-side-margin)` to line
+   * the TitleBlock up with a `Content` beneath it, which uses that token for its
+   * own gutter. Sets `--titleblock-content-inset`; below 1080px the collapsed
+   * paddings apply instead and this is ignored.
+   */
+  contentInset?: string
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   id?: string

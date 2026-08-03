@@ -124,7 +124,7 @@
 
     @include title-block-min-media-1080 {
       padding: 0;
-      margin-inline: $title-block-spacing-above-1080;
+      margin-inline: var(--titleblock-content-inset, #{$title-block-spacing-above-1080});
     }
   }
 
@@ -141,7 +141,7 @@
 
     @include title-block-min-media-1080 {
       padding: 0;
-      margin-inline: $title-block-spacing-above-1080;
+      margin-inline: var(--titleblock-content-inset, #{$title-block-spacing-above-1080});
     }
   }
 

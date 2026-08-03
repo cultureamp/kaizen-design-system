@@ -249,6 +249,7 @@ export const TitleBlock = ({
   navigationTabs,
   collapseNavigationAreaWhenPossible = false,
   sticky = false,
+  contentInset,
   textDirection,
   surveyStatus,
   id,
@@ -273,6 +274,11 @@ export const TitleBlock = ({
     <>
       <div
         id={id}
+        style={
+          contentInset
+            ? ({ '--titleblock-content-inset': contentInset } as React.CSSProperties)
+            : undefined
+        }
         className={classnames(
           styles.titleBlock,
           styles[`${variant}Variant`],
