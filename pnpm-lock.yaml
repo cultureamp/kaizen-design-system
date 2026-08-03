@@ -8,6 +8,7 @@ overrides:
   '@storybook/icons': 1.4.0
   react: 19.2.8
   react-dom: 19.2.8
+  playwright: 1.61.1
 
 patchedDependencies:
   rollup-plugin-styler@2.0.0:
@@ -124,8 +125,8 @@ importers:
         specifier: ^3.3.2
         version: 3.3.2
       playwright:
-        specifier: ^1.62.1
-        version: 1.62.1
+        specifier: 1.61.1
+        version: 1.61.1
       plop:
         specifier: ^4.0.5
         version: 4.0.5(@types/node@22.20.1)
@@ -231,7 +232,7 @@ importers:
         version: 6.0.4(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.1)(yaml@2.8.4))
       axe-playwright:
         specifier: ^2.2.2
-        version: 2.2.2(playwright@1.62.1)
+        version: 2.2.2(playwright@1.61.1)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -245,8 +246,8 @@ importers:
         specifier: ^10.0.0
         version: 10.0.0
       playwright:
-        specifier: ^1.62.1
-        version: 1.62.1
+        specifier: 1.61.1
+        version: 1.61.1
       react-highlight:
         specifier: ^0.15.0
         version: 0.15.0
@@ -4994,7 +4995,7 @@ packages:
   axe-playwright@2.2.2:
     resolution: {integrity: sha512-h350/grzDCPgpuWV7eEOqr/f61Xn07Gi9f9B3Ew4rW6/nFtpdEJYW6jgRATorgAGXjEAYFTnaY3sEys39wDw4A==}
     peerDependencies:
-      playwright: '>1.0.0'
+      playwright: 1.61.1
 
   axios@1.7.4:
     resolution: {integrity: sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==}
@@ -8314,14 +8315,19 @@ packages:
     resolution: {integrity: sha512-NPE8TDbzl/3YQYY7CSS228s3g2ollTFnc+Qi3tqmqJp9Vg2ovUpixcJEo2HJScN2Ez+kEaal6y70c0ehqJBJeA==}
     engines: {node: '>=10'}
 
+  playwright-core@1.61.1:
+    resolution: {integrity: sha512-h7Qlt6m4REp25qvIdvbDtVmD4LqVXfpRxhORv9L0jzETM05p4fuPJ3dKyuSXQxDSbXnmS79HAgi9589lGSpLkg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   playwright-core@1.62.1:
     resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.62.1:
-    resolution: {integrity: sha512-0M+L3LAD8/nm554LOla9Ayx0j0tmFZ0FBcoQ7F1VuVHpM/XpiC8RcDzBQB8W5+hA8L22THxELzeF+2WcUzvcLg==}
-    engines: {node: '>=20'}
+  playwright@1.61.1:
+    resolution: {integrity: sha512-DWnY5o3YbLWK4GovuAVwpqL+1VwGNdUGrRr++8j8PtQQzvAVZUIMjKQ90fY689sEJZJBbZVw1rXaOKSTitkzPQ==}
+    engines: {node: '>=18'}
     hasBin: true
 
   plop@4.0.5:
@@ -15097,7 +15103,7 @@ snapshots:
       jest-serializer-html: 7.1.0
       jest-watch-typeahead: 3.0.1(jest@30.2.0(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3)))
       nyc: 15.1.0
-      playwright: 1.62.1
+      playwright: 1.61.1
       playwright-core: 1.62.1
       rimraf: 3.0.2
       storybook: 8.6.17(prettier@3.9.6)
@@ -16141,14 +16147,14 @@ snapshots:
       axe-core: 4.11.4
       mustache: 4.2.0
 
-  axe-playwright@2.2.2(playwright@1.62.1):
+  axe-playwright@2.2.2(playwright@1.61.1):
     dependencies:
       '@types/junit-report-builder': 3.0.2
       axe-core: 4.11.4
       axe-html-reporter: 2.2.11(axe-core@4.11.4)
       junit-report-builder: 5.1.1
       picocolors: 1.1.1
-      playwright: 1.62.1
+      playwright: 1.61.1
 
   axios@1.7.4:
     dependencies:
@@ -20446,11 +20452,13 @@ snapshots:
     dependencies:
       find-up: 5.0.0
 
+  playwright-core@1.61.1: {}
+
   playwright-core@1.62.1: {}
 
-  playwright@1.62.1:
+  playwright@1.61.1:
     dependencies:
-      playwright-core: 1.62.1
+      playwright-core: 1.61.1
     optionalDependencies:
       fsevents: 2.3.2
 
