@@ -126,7 +126,10 @@
       }
     },
     "overrides": {
-      "@storybook/icons": "1.4.0"
+      "@storybook/icons": "1.4.0",
+      "react": "19.2.8",
+      "react-dom": "19.2.8",
+      "playwright": "1.61.1"
     },
     "patchedDependencies": {
       "rollup-plugin-styler@2.0.0": "patches/rollup-plugin-styler@2.0.0.patch"
