@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.10
+
+### Patch Changes
+
+- [#6985](https://github.com/cultureamp/kaizen-design-system/pull/6985) [`11f262f`](https://github.com/cultureamp/kaizen-design-system/commit/11f262fdeeed73a76ba8121db4954f97980c9d03) - chore: dependencies update
+
 ## 3.3.9
 
 ### Patch Changes
