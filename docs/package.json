@@ -35,7 +35,7 @@
     "@types/react-highlight": "^0.12.8",
     "@vitejs/plugin-react": "^6.0.4",
     "axe-playwright": "^2.2.2",
-    "playwright": "^1.61.1",
+    "playwright": "^1.62.1",
     "classnames": "^2.5.1",
     "globals": "^17.7.0",
     "highlight.js": "^11.11.1",
