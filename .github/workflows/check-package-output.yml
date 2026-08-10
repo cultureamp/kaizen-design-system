@@ -8,8 +8,8 @@ on:
 
 jobs:
   check-package-output:
-    # Skip on changeset release branches (automated version bumps)
-    if: github.head_ref != 'changeset-release/main'
+    # Automated version bumps always differ from what's published — that's the point of them.
+    if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -23,4 +23,4 @@ jobs:
         run: pnpm turbo build
 
       - name: Check package output drift
-        run: npx tsx scripts/check-package-output.ts
+        run: pnpm check:package-output
