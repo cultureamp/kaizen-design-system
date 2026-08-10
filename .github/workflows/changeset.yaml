@@ -65,7 +65,8 @@ jobs:
         run: |
           SHA="${{ github.sha }}"
           SHORT_SHA="${SHA:0:7}"
-          SUBJECT=$(git log -1 --format='%s' "$SHA")
+          # JSON-escape: an unescaped quote or backslash would break the Block Kit payload.
+          SUBJECT=$(git log -1 --format='%s' "$SHA" | jq -Rj 'tojson | .[1:-1]')
           echo "short_sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
           echo "subject=$SUBJECT" >> "$GITHUB_OUTPUT"
           echo "run_url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> "$GITHUB_OUTPUT"
