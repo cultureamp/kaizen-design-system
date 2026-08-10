@@ -25,7 +25,6 @@
     "reset": "pnpm clean && pnpm install --force",
     "chromatic": "chromatic",
     "changeset": "changeset",
-    "check:changeset": "changeset status --since=origin/main",
     "check:package-output": "tsx scripts/check-package-output.ts",
     "plop": "plop",
     "pkg:aio": "pnpm -F @kaizen/components",
