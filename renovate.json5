@@ -28,6 +28,8 @@
         "react-aria{/,}**",
         "react-aria-components{/,}**",
       ],
+      // react-aria deps bundle causes frontend diffs which should be
+      // resolved separately rather than merging into rollup PR
       automerge: false,
     },
     {
