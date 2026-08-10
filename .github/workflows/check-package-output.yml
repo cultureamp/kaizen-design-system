@@ -1,15 +1,16 @@
 name: Check package output
 
+# The inverse of changeset.yaml: that publishes from main and release branches,
+# this advises on feature branches, where a changeset can still be added.
 on:
-  pull_request:
-    branches:
+  push:
+    branches-ignore:
       - 'main'
       - 'release/**'
+      - 'changeset-release/**'
 
 jobs:
   check-package-output:
-    # Automated version bumps always differ from what's published — that's the point of them.
-    if: ${{ !startsWith(github.head_ref, 'changeset-release/') }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

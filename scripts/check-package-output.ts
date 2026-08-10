@@ -21,10 +21,10 @@ const sha = (data: Buffer | string): string => createHash('sha256').update(data)
 
 const fingerprint = (dir: string): string => {
   const files = readdirSync(dir, { recursive: true, withFileTypes: true })
-    .filter(entry => entry.isFile())
-    .map(entry => join(entry.parentPath, entry.name).slice(dir.length + 1))
+    .filter((entry) => entry.isFile())
+    .map((entry) => join(entry.parentPath, entry.name).slice(dir.length + 1))
     .sort()
-  return sha(files.map(f => `${sha(readFileSync(join(dir, f)))}  ${f}`).join('\n'))
+  return sha(files.map((f) => `${sha(readFileSync(join(dir, f)))}  ${f}`).join('\n'))
 }
 
 /** Extract into a directory of its own, so the tarball file never lands in the fingerprint. */
@@ -77,9 +77,9 @@ const tmp = mkdtempSync(join(tmpdir(), 'package-output-'))
 const released = releasedPackages()
 
 const packages = readdirSync(join(root, 'packages'), { withFileTypes: true })
-  .filter(entry => entry.isDirectory())
-  .map(entry => join(root, 'packages', entry.name))
-  .flatMap(dir => {
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => join(root, 'packages', entry.name))
+  .flatMap((dir) => {
     try {
       const pkg = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf-8'))
       return pkg.private === true ? [] : [{ dir, name: pkg.name, version: pkg.version }]
