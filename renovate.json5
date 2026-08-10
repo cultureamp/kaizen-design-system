@@ -28,6 +28,7 @@
         "react-aria{/,}**",
         "react-aria-components{/,}**",
       ],
+      automerge: false,
     },
     {
       groupName: "prosemirror",
