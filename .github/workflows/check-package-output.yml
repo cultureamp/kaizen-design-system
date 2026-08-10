@@ -1,0 +1,26 @@
+name: Check package output
+
+on:
+  pull_request:
+    branches:
+      - 'main'
+      - 'release/**'
+
+jobs:
+  check-package-output:
+    # Skip on changeset release branches (automated version bumps)
+    if: github.head_ref != 'changeset-release/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+
+      - name: Build workspace
+        run: pnpm turbo build
+
+      - name: Check package output drift
+        run: npx tsx scripts/check-package-output.ts

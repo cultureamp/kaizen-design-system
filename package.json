@@ -26,6 +26,7 @@
     "chromatic": "chromatic",
     "changeset": "changeset",
     "check:changeset": "changeset status --since=origin/main",
+    "check:package-output": "npx tsx scripts/check-package-output.ts",
     "plop": "plop",
     "pkg:aio": "pnpm -F @kaizen/components",
     "pkg:tokens": "pnpm -F @kaizen/design-tokens",
