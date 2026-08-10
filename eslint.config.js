@@ -14,6 +14,7 @@ import prettierRules from './.prettierrc.js'
 export default tseslint.config(
   {
     ignores: [
+      '.devbox/**',
       '**/CHANGELOG.md',
       '**/tmp/**',
       '**/*.d.ts',

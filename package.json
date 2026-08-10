@@ -25,6 +25,7 @@
     "reset": "pnpm clean && pnpm install --force",
     "chromatic": "chromatic",
     "changeset": "changeset",
+    "check:changeset": "changeset status --since=origin/main",
     "plop": "plop",
     "pkg:aio": "pnpm -F @kaizen/components",
     "pkg:tokens": "pnpm -F @kaizen/design-tokens",

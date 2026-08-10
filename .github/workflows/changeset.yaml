@@ -38,20 +38,30 @@ jobs:
           published_packages: ${{ steps.changesets.outputs.publishedPackages }}
           buildkite_webhook_url: ${{ secrets.ENCHIRIDION_BUILDKITE_WEBHOOK_URL }}
 
-  notify-slack:
+  notify-slack-success:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    needs:
-      version
-      # We only trigger this flow if the publish is happening, inferred by not having a changeset.
-    if: needs.version.outputs.hasChangesets == 'false'
-    env:
-      PUBLISHED: ${{ needs.version.outputs.hasPublished }}
+    needs: version
+    if: needs.version.outputs.hasPublished == 'true'
     steps:
-      - name: Send
+      - name: Notify successful publish
         uses: slackapi/slack-github-action@v1.24.0
         with:
           channel-id: 'C02NUQ27G56'
-          slack-message: ${{ env.PUBLISHED == 'true' && 'Packages have been published' || 'Publishing failed' }}
+          slack-message: 'Packages have been published'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+  notify-slack-failure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: version
+    if: needs.version.result == 'failure'
+    steps:
+      - name: Notify publish failure
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: 'C02NUQ27G56'
+          slack-message: 'Publishing failed'
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
