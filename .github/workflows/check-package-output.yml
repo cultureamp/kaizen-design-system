@@ -1,0 +1,27 @@
+name: Check package output
+
+# The inverse of changeset.yaml: that publishes from main and release branches,
+# this advises on feature branches, where a changeset can still be added.
+on:
+  push:
+    branches-ignore:
+      - 'main'
+      - 'release/**'
+      - 'changeset-release/**'
+
+jobs:
+  check-package-output:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+
+      - name: Build workspace
+        run: pnpm turbo build
+
+      - name: Check package output drift
+        run: pnpm check:package-output
