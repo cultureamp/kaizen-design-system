@@ -10,7 +10,7 @@
 
 import { execFileSync } from 'node:child_process'
 import { createHash } from 'node:crypto'
-import { mkdirSync, mkdtempSync, readFileSync, readdirSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -41,17 +41,23 @@ const packedFingerprint = (pkgDir: string, tmp: string): string => {
   return extractedFingerprint(tarball, dest)
 }
 
-const publishedFingerprint = (name: string, version: string, tmp: string): string | null => {
-  let url: string
-  try {
-    url = run('npm', ['view', `${name}@${version}`, 'dist.tarball'])
-  } catch {
-    return null
-  }
-  if (!url) return null
+/** Null means this version was never published, which is a skip rather than a failure. */
+const publishedFingerprint = async (
+  name: string,
+  version: string,
+  tmp: string,
+): Promise<string | null> => {
+  const metadata = await fetch(`https://registry.npmjs.org/${name}/${version}`)
+  if (metadata.status === 404) return null
+  if (!metadata.ok) throw new Error(`registry returned ${metadata.status} for ${name}@${version}`)
+
+  const { dist } = (await metadata.json()) as { dist: { tarball: string } }
+  const download = await fetch(dist.tarball)
+  if (!download.ok) throw new Error(`tarball download failed for ${name}@${version}`)
+
   const dest = mkdtempSync(join(tmp, 'published-'))
   const tarball = join(dest, 'published.tgz')
-  run('curl', ['-sSL', url, '-o', tarball])
+  writeFileSync(tarball, Buffer.from(await download.arrayBuffer()))
   return extractedFingerprint(tarball, dest)
 }
 
@@ -91,7 +97,7 @@ const packages = readdirSync(join(root, 'packages'), { withFileTypes: true })
 const drifted: string[] = []
 
 for (const { dir, name, version } of packages) {
-  const published = publishedFingerprint(name, version, tmp)
+  const published = await publishedFingerprint(name, version, tmp)
   if (published === null) {
     console.log(`? ${name} — ${version} not on registry, skipped`)
     continue
