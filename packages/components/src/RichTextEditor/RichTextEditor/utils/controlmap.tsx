@@ -9,6 +9,7 @@ import {
   type ProseMirrorModel,
   type ProseMirrorState,
 } from '../../utils/prosemirror'
+import { getToolbarVisibleControlNames } from './toolbarVisibility'
 
 /** Configuration for individual controls */
 type ToolbarControl = {
@@ -172,11 +173,6 @@ const getGroupIndex = (
 /** Filters out empty control groups and returns a multi dimensional array  */
 const filterToolbarControls = (groupedControls: GroupedToolbarControls): ToolbarControl[][] =>
   Object.values(groupedControls).filter((controls) => controls.length > 0)
-
-const getToolbarVisibleControlNames = (controls: ToolbarItems[]): Set<ToolbarControlTypes> =>
-  new Set(
-    controls.filter((control) => control.showInToolbar !== false).map((control) => control.name),
-  )
 
 /** Builds an array of object used to map control configuration to rte toolbar buttons */
 export const useControlMap = (
