@@ -97,6 +97,16 @@ export const ControlsWithoutBold: Story = {
   },
 }
 
+/**
+ * With no `controls` the toolbar renders nothing, and the editor should keep an
+ * evenly weighted border on all four sides.
+ */
+export const NoControls: Story = {
+  args: {
+    controls: undefined,
+  },
+}
+
 export const DefaultValue: Story = {
   args: {
     defaultValue: [
