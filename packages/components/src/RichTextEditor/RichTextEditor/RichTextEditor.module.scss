@@ -55,12 +55,6 @@
     border-bottom: inherit;
 
     &:empty {
-      /*
-       * The wrapper always renders, but ToolbarControls renders nothing when
-       * there are no controls to show. Without this the wrapper collapses to a
-       * div that is entirely `border-bottom`, sitting under the field's own top
-       * border and making the top edge look twice as thick as the other sides.
-       */
       border-bottom: none;
     }
   }
