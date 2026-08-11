@@ -53,10 +53,6 @@
 
   .toolbarWrapper {
     border-bottom: inherit;
-
-    &:empty {
-      border-bottom: none;
-    }
   }
 
   /* stylelint-disable no-descending-specificity */

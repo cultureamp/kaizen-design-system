@@ -149,7 +149,7 @@ export const RichTextEditor = ({
         <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
-        <div className={styles.toolbarWrapper}>
+        <div className={hasVisibleToolbarControls ? styles.toolbarWrapper : undefined}>
           <ToolbarControls
             editorId={editorId}
             controls={controls}
