@@ -97,6 +97,32 @@ export const ControlsWithoutBold: Story = {
   },
 }
 
+export const SchemaOnlyBold: Story = {
+  args: {
+    controls: [
+      { name: 'bold', group: 'inline', showInToolbar: false },
+      { name: 'italic', group: 'inline' },
+      { name: 'underline', group: 'inline' },
+    ],
+    defaultValue: [
+      {
+        type: 'paragraph',
+        content: [
+          {
+            type: 'text',
+            marks: [{ type: 'strong' }],
+            text: 'Bold text can be pasted or loaded',
+          },
+          {
+            type: 'text',
+            text: ' without a Bold toolbar button',
+          },
+        ],
+      },
+    ],
+  },
+}
+
 export const NoControls: Story = {
   args: {
     controls: undefined,

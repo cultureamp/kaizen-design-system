@@ -204,3 +204,19 @@ describe('RTE receives list controls', () => {
     })
   })
 })
+
+describe('showInToolbar', () => {
+  it('omits toolbar buttons for controls with showInToolbar false', () => {
+    render(
+      <TestRTE
+        controls={[
+          { name: 'bold', group: 'inline', showInToolbar: false },
+          { name: 'italic', group: 'inline' },
+        ]}
+      />,
+    )
+
+    expect(screen.queryByRole('button', { name: 'Bold' })).not.toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Italic' })).toBeInTheDocument()
+  })
+})

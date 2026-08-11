@@ -162,7 +162,9 @@ export const RichTextEditor = ({
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            controls != null && controls.length > 0 && styles.hasToolbar,
+            controls != null &&
+              controls.some((control) => control.showInToolbar !== false) &&
+              styles.hasToolbar,
           )}
           {...restProps}
         />

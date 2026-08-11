@@ -1,5 +1,7 @@
 ---
-'@kaizen/components': patch
+'@kaizen/components': minor
 ---
 
-fix: Even out RichTextEditor border when rendered without controls
+feat(RichTextEditor): allow schema controls without toolbar buttons via `showInToolbar`
+
+Also even out the field border when the toolbar wrapper is empty.
