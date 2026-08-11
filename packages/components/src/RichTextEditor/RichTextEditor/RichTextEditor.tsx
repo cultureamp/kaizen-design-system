@@ -140,6 +140,9 @@ export const RichTextEditor = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
+  const hasVisibleToolbarControls =
+    controls != null && controls.some((control) => control.showInToolbar !== false)
+
   return (
     <>
       {!labelledBy && labelText && (
@@ -162,9 +165,7 @@ export const RichTextEditor = ({
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            controls != null &&
-              controls.some((control) => control.showInToolbar !== false) &&
-              styles.hasToolbar,
+            hasVisibleToolbarControls && styles.hasToolbar,
           )}
           {...restProps}
         />
