@@ -230,14 +230,17 @@ export const ShowInToolbarFalseOmitsButton: Story = {
     )
   },
   play: async ({ canvasElement, step }) => {
-    const { getByRole, queryByRole } = within(canvasElement)
+    const { findByRole, queryByRole } = within(canvasElement)
+
+    // Wait for i18n labels to resolve (StaticIntlProvider initially renders " ")
+    const italicButton = await findByRole('button', { name: 'Italic' })
+
+    await step('Italic toolbar button is present', async () => {
+      expect(italicButton).toBeInTheDocument()
+    })
 
     await step('Bold toolbar button is omitted', async () => {
       expect(queryByRole('button', { name: 'Bold' })).not.toBeInTheDocument()
-    })
-
-    await step('Italic toolbar button is present', async () => {
-      expect(getByRole('button', { name: 'Italic' })).toBeInTheDocument()
     })
   },
 }
