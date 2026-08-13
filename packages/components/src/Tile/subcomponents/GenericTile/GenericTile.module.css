@@ -58,14 +58,14 @@
 
   .faceBack {
     --generic-tile-border-color: var(--color-blue-400);
-    --generic-tile-background-color: var(--color-blue-100);
+    --generic-tile-background-color: var(--bg-brand-primary);
 
     padding-top: var(--spacing-xl);
     transform: rotateY(180deg);
   }
 
   .default {
-    --generic-tile-border-color: var(--color-gray-500);
+    --generic-tile-border-color: var(--border-secondary);
     --generic-tile-background-color: var(--color-white);
   }
 

@@ -6,7 +6,7 @@
     letter-spacing: var(--typography-paragraph-body-letter-spacing);
     font-weight: var(--typography-paragraph-body-font-weight);
     line-height: var(--typography-paragraph-body-line-height);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     padding: var(--spacing-6) var(--spacing-8);
     border: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style) transparent;
     border-radius: 4px;
@@ -33,8 +33,8 @@
 
   .item[data-hovered],
   .item[data-focus-visible] {
-    background-color: var(--color-blue-100);
-    color: var(--color-blue-500);
+    background-color: var(--bg-brand-primary);
+    color: var(--text-brand-primary);
   }
 
   .item[data-focus-visible] {

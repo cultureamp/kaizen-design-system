@@ -25,7 +25,7 @@
     }
 
     &:not(.reversed) label:hover input:not([disabled]) + span {
-      border-color: var(--color-gray-600);
+      border-color: var(--border-primary);
       background-color: var(--color-gray-200);
     }
 

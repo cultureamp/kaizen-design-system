@@ -101,7 +101,7 @@ export const Color: Story = {
       <div className="text-green-500">
         <Icon {...args} />
       </div>
-      <Icon {...args} className="text-blue-500" />
+      <Icon {...args} className="text-brand-primary" />
     </div>
   ),
 }
@@ -297,7 +297,7 @@ export const AlignmentDont: Story = {
 
 export const ContrastDo: Story = {
   render: () => (
-    <div className="bg-yellow-100 p-16">
+    <div className="bg-warning-primary p-16">
       <Icon name="star" isPresentational className="text-yellow-700" />
     </div>
   ),
@@ -305,7 +305,7 @@ export const ContrastDo: Story = {
 
 export const ContrastDont: Story = {
   render: () => (
-    <div className="bg-yellow-100 p-16">
+    <div className="bg-warning-primary p-16">
       <Icon name="star" isPresentational className="text-yellow-500" />
     </div>
   ),
@@ -346,7 +346,7 @@ export const DistinguishDont: Story = {
       </div>
       <div className="flex items-center gap-4">
         <Text variant="body">Selected</Text>
-        <Icon name="thumb_up" isPresentational className="text-blue-500" />
+        <Icon name="thumb_up" isPresentational className="text-brand-primary" />
       </div>
     </div>
   ),

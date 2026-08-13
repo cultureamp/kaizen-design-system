@@ -25,6 +25,10 @@ pnpm kaizen-codemod src migrateWellVariantToColor
 
 ## Available codemods
 
+### `migrateBorderColorsToSemanticTokens`
+
+Migrates hard-coded primitive border colors to the new semantic border tokens across CSS, SCSS, and Tailwind, via three transformers dispatched by file extension: CSS custom properties (`var(--color-gray-500)` → `var(--border-secondary)`), SCSS variables (`$color-gray-500` → `$border-secondary`, adding the `@kaizen/design-tokens/sass/semantic` import when needed), and Tailwind utilities (`border-gray-500` → `border-secondary`). Only confident border-context mappings are rewritten; ambiguous/unmapped colors and alpha/`rgb()` usages (e.g. `rgba($color-gray-600-rgb, 0.1)`) are skipped and reported. Honours a consumer Tailwind `prefix` via `KAIZEN_TW_PREFIX`. See the [README](./migrateBorderColorsToSemanticTokens/README.md), and pair it with the `/semantic-border-migration` skill for the stage-2 fallback.
+
 Released in `1.80.6`
 
 ### `runV1Codemods`
