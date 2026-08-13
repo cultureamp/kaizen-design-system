@@ -350,22 +350,25 @@ other component that portals with bare `createPortal` —
 `Filter/FilterMultiSelect/.../ResponsiveMenuPopup`, `Calendar/CalendarPopover`, `TooltipV1`,
 `MenuV1/.../StatelessMenu`
 
-**A11y risk:** react-aria marks the overlays it owns with `data-react-aria-top-layer`. Three
-separate mechanisms consult that marker — `isElementInChildOfActiveScope` (focus-scope guard),
-`useInteractOutside`, and `ariaHideOutside`. A portal created with bare `createPortal` carries
-no marker, so when it opens _inside_ a react-aria overlay:
+**A11y risk:** react-aria marks the overlays it owns with `data-react-aria-top-layer`. Two
+separate mechanisms consult that marker — `isElementInChildOfActiveScope` (focus-scope guard)
+and `useInteractOutside`. A portal created with bare `createPortal` carries no marker, so when
+it opens _inside_ a react-aria overlay, the outer overlay's dismissal path closes it as soon as
+focus enters the portal: `usePopover` sets `shouldCloseOnBlur: true` unconditionally and that
+path calls `onClose()` directly, unguarded by the `visibleOverlays` stack — `isNonModal` does
+not disable it.
 
-- The outer overlay's dismissal path closes it as soon as focus enters the portal.
-  `usePopover` sets `shouldCloseOnBlur: true` unconditionally and that path calls `onClose()`
-  directly, unguarded by the `visibleOverlays` stack — `isNonModal` does not disable it.
-- Once the outer overlay isolates the page, `inert` lands on the unmarked portal root. The
-  inner overlay then renders **fully visible but non-interactive**: options cannot be focused,
-  and hit-testing at an option returns the element behind it.
+Note on scope: in the pinned react-aria versions, `ariaHideOutside` isolates the rest of the
+page with `aria-hidden` only — there is no `inert` usage in these versions. `aria-hidden` on an
+ancestor does not hide a subtree that contains focus (browsers and AT both special-case this),
+so a focused inner overlay is not the failure mode here. The dismissal path above is the actual
+bug; don't assume an `inert`-style "visible but non-interactive" failure without confirming the
+pinned react-aria version actually uses it.
 
-**How to detect:** axe catches neither — the second mode in particular leaves a clean a11y
-tree, and a Chromatic snapshot passes while the component is dead. Manual: open a `Menu`,
-open a `SingleSelect` inside its `MenuPopover`, then _focus and click an option_. Asserting
-the listbox rendered is not sufficient.
+**How to detect:** axe does not catch this — the outer overlay closing is a behavioural
+regression, not a static a11y-tree defect, and a Chromatic snapshot taken before the close
+fires will pass. Manual: open a `Menu`, open a `SingleSelect` inside its `MenuPopover`, then
+_move focus into the select's popover_ and confirm the outer `Menu` stays open.
 
 Note this is resolution-sensitive: it surfaces when `react-aria` ≥ 3.48 (which bundles its own
 `FocusScope`) coexists with kaizen's directly-declared `@react-aria/focus` / `@react-aria/overlays`,
@@ -376,16 +379,15 @@ KZN-4210.
 
 - Mark the portal root with `data-react-aria-top-layer="true"`. Version-agnostic (honoured from
   `@react-aria/focus` 3.12.0 onward) and copy-agnostic, unlike registering a `FocusScope`.
-  `MultiSelect/subcomponents/Popover/topLayer.ts` provides `useTopLayer` for this.
-- When the portal target is consumer-supplied, mark **the container**, not just the portalled
-  content, and mark it while the component is mounted rather than while the overlay is open —
-  `ariaHideOutside` only spares elements already marked when it runs, and `inert` on an
-  ancestor is inherited regardless of the child's marker.
 - Prefer react-aria's `Overlay` for new portals — it supplies the `FocusScope` and
   `ClearPressResponder` a raw portal bypasses. **It does not stamp the marker**, so it is not
   sufficient on its own where two react-aria generations can coexist.
 - Do not apply the marker as a general habit: it exempts the subtree from _every_ react-aria
   isolation, which is correct for an overlay nested in another overlay and wrong elsewhere.
+- Do not extend this mitigation to marking a consumer-supplied portal _container_. That was
+  tried and found to protect nothing in the pinned react-aria versions — there is no `inert`
+  mechanism for it to guard against, and `aria-hidden` does not affect a subtree holding focus.
+  Marking the popover element itself is the complete fix.
 
 ---
 

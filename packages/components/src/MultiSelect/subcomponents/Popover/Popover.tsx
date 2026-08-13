@@ -14,8 +14,19 @@ import classnames from 'classnames'
 import { FocusOn } from 'react-focus-on'
 import { type ReactFocusOnProps } from 'react-focus-on/dist/es5/types'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
-import { TOP_LAYER_ATTRIBUTE, useTopLayer } from './topLayer'
 import styles from './Popover.module.scss'
+
+/**
+ * react-aria stamps this attribute on the overlays it owns. Focus-scope guards
+ * (`isElementInChildOfActiveScope`) and `useInteractOutside` treat a marked element — and its
+ * subtree — as part of the top layer, so the outer overlay is not dismissed when focus moves
+ * into the portal.
+ *
+ * The select popover is a plain `createPortal` rather than a react-aria `Overlay`, so nothing
+ * marks it for us. Without this, opening it inside a react-aria overlay (eg. a `MenuPopover`)
+ * closes that overlay as soon as focus enters the portal. See KZN-4210.
+ */
+const TOP_LAYER_ATTRIBUTE = 'data-react-aria-top-layer'
 
 export type PopoverProps<RT extends ReferenceType = ReferenceType> = {
   children: React.ReactNode
@@ -37,8 +48,6 @@ export const Popover = <RT extends ReferenceType>({
   classNameOverride,
   ...restProps
 }: PopoverProps<RT>): JSX.Element => {
-  useTopLayer(portalContainer)
-
   const { floatingStyles } = useFloating({
     elements: {
       reference: refs.reference.current,

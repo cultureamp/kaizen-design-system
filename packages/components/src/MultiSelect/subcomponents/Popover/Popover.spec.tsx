@@ -55,28 +55,14 @@ describe('<Popover />', () => {
 
     /**
      * react-aria uses `data-react-aria-top-layer` to exempt an element from dismissal and from
-     * `ariaHideOutside`/`inert`. This popover is a plain portal, so it marks itself — otherwise
-     * opening it inside a react-aria overlay closes that overlay, or leaves this popover
-     * visible but inert.
+     * `ariaHideOutside`. This popover is a plain portal, so it marks itself — otherwise opening
+     * it inside a react-aria overlay closes that overlay as soon as focus enters the portal.
      */
     describe('react-aria top layer', () => {
       it('marks the popover itself as part of the top layer', () => {
         const { getByText } = render(<PopoverWrapper />)
 
         expect(getByText('Hello')).toHaveAttribute('data-react-aria-top-layer', 'true')
-      })
-
-      it('marks a portal container it was given, and unmarks it on unmount', async () => {
-        const { getByTestId, unmount } = render(<PopoverWrapperWithPortal shouldUsePortal />)
-        const container = getByTestId('portal-container')
-
-        await waitFor(() => {
-          expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
-        })
-
-        unmount()
-
-        expect(container).not.toHaveAttribute('data-react-aria-top-layer')
       })
 
       it('is not hidden when another overlay isolates the rest of the page', () => {
@@ -88,49 +74,10 @@ describe('<Popover />', () => {
 
         const revertAriaHide = ariaHideOutside([otherOverlay])
 
-        expect(popover.closest('[aria-hidden="true"], [inert]')).toBeNull()
+        expect(popover.closest('[aria-hidden="true"]')).toBeNull()
 
         revertAriaHide()
         otherOverlay.remove()
-      })
-
-      it('keeps a shared container marked until the last popover using it unmounts', async () => {
-        const container = document.createElement('div')
-        document.body.appendChild(container)
-
-        const first = render(<PopoverWrapper portalContainer={container} />)
-        const second = render(<PopoverWrapper portalContainer={container} />)
-
-        await waitFor(() => {
-          expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
-        })
-
-        first.unmount()
-
-        // Still in use by the second popover — unmarking here would leave it open to `inert`.
-        expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
-
-        second.unmount()
-
-        expect(container).not.toHaveAttribute('data-react-aria-top-layer')
-        container.remove()
-      })
-
-      it('leaves a container the consumer already marked alone on unmount', async () => {
-        const container = document.createElement('div')
-        container.setAttribute('data-react-aria-top-layer', 'true')
-        document.body.appendChild(container)
-
-        const { unmount } = render(<PopoverWrapper portalContainer={container} />)
-
-        await waitFor(() => {
-          expect(container).toHaveTextContent('Hello')
-        })
-
-        unmount()
-
-        expect(container).toHaveAttribute('data-react-aria-top-layer', 'true')
-        container.remove()
       })
     })
   })
