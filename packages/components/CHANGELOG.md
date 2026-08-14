@@ -1,5 +1,19 @@
 # Change Log
 
+## 3.3.12
+
+### Patch Changes
+
+- [#6961](https://github.com/cultureamp/kaizen-design-system/pull/6961) [`26b041f`](https://github.com/cultureamp/kaizen-design-system/commit/26b041f4b2b6498383d2343ea42b778c64fa5ce4) - fix(SingleSelect, MultiSelect): keep the select popover usable inside other overlays
+
+  The select popover is portalled out of its trigger, but it was not marked as part of
+  react-aria's top layer. Opening a `SingleSelect` or `MultiSelect` inside a react-aria overlay
+  (for example a `MenuPopover`) therefore dismissed that overlay as soon as focus entered the
+  select popover.
+
+  The popover is now marked with `data-react-aria-top-layer`, so react-aria's focus-scope and
+  dismissal guards treat it as part of the top layer and leave the outer overlay open.
+
 ## 3.3.11
 
 ### Patch Changes
