@@ -119,8 +119,8 @@ importers:
         specifier: ^0.12.0
         version: 0.12.0(eslint@9.39.5(jiti@1.21.7))(typescript@5.9.3)
       globals:
-        specifier: ^17.9.0
-        version: 17.9.0
+        specifier: ^17.11.0
+        version: 17.11.0
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
@@ -237,8 +237,8 @@ importers:
         specifier: ^2.5.1
         version: 2.5.1
       globals:
-        specifier: ^17.9.0
-        version: 17.9.0
+        specifier: ^17.11.0
+        version: 17.11.0
       highlight.js:
         specifier: ^11.11.1
         version: 11.11.1
@@ -6607,8 +6607,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@17.9.0:
-    resolution: {integrity: sha512-m/MvAW61QVU5VDNF1Vj8axt016h8w7L5TU1e9zlab7XIttAT2YAlCwl75K1fOqvMM9apmD7lbCIRhpfkhmxhCg==}
+  globals@17.11.0:
+    resolution: {integrity: sha512-Z2I8hM+PbJDXQDq3Icgpzv+mPdwr68iZUU9d5WW4FuXfDUQfkZaZuvjMv42/5crNyw154+9+VWXbYrUgDXbxNw==}
     engines: {node: '>=18'}
 
   globalthis@1.0.4:
@@ -7463,6 +7463,7 @@ packages:
 
   jsrsasign@11.1.0:
     resolution: {integrity: sha512-Ov74K9GihaK9/9WncTe1mPmvrO7Py665TUfUKvraXBpu+xcTWitrtuOwcjf4KMU9maPaYn0OuaWy0HOzy/GBXg==}
+    deprecated: This package is no longer maintained.
 
   jsx-ast-utils@3.3.5:
     resolution: {integrity: sha512-ZZow9HBI5O6EPgSJLUb8n2NKgmVWTwCvHGwFuJlMjvLFqlGG6pjirPhtdsseaLZjSibD8eegzmYpUZwoIlj2cQ==}
@@ -17833,7 +17834,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@17.9.0: {}
+  globals@17.11.0: {}
 
   globalthis@1.0.4:
     dependencies:
