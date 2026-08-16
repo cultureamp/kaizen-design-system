@@ -69,9 +69,12 @@ export const SelectionProvider = (props: SelectionProviderProps): JSX.Element =>
 
   // Get A11y attributes and events for the listbox
   const ref = React.createRef<HTMLUListElement>()
+  // Exclude onAction from menuProps to avoid type mismatch between AriaMenuOptions
+  // and AriaListBoxOptions (menu onAction accepts 2 params, listbox onAction accepts 1)
+  const { onAction: _onAction, ...menuPropsWithoutOnAction } = menuProps ?? {}
   const { listBoxProps, labelProps } = useListBox(
     {
-      ...menuProps,
+      ...menuPropsWithoutOnAction,
       ...otherProps,
       disallowEmptySelection: true, // stop escape key from clearing selection
     },
