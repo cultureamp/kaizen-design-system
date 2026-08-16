@@ -36,7 +36,7 @@
     "@vitejs/plugin-react": "^6.0.5",
     "axe-playwright": "^2.2.2",
     "classnames": "^2.5.1",
-    "globals": "^17.9.0",
+    "globals": "^17.11.0",
     "highlight.js": "^11.11.1",
     "jest-axe": "^10.0.0",
     "playwright": "^1.62.1",
