@@ -39,7 +39,7 @@
     "globals": "^17.9.0",
     "highlight.js": "^11.11.1",
     "jest-axe": "^10.0.0",
-    "playwright": "^1.61.1",
+    "playwright": "^1.62.1",
     "react-highlight": "^0.15.0",
     "sass": "1.79.6",
     "storybook": "8.6.17",
