@@ -1,0 +1,84 @@
+{
+  "checks": [
+    {
+      "id": "summary-text",
+      "foreground": "#949494",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": ".summary — Text variant=body profile summary on page background"
+    },
+    {
+      "id": "muted-metric-score",
+      "foreground": "#949494",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": ".mutedText — metric score inside Card"
+    },
+    {
+      "id": "muted-heading",
+      "foreground": "#b0b0b0",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": ".mutedHeading — heading-4 'Manager notes' (16px semibold, below large-text threshold)"
+    },
+    {
+      "id": "muted-heading-as-large",
+      "foreground": "#b0b0b0",
+      "background": "#ffffff",
+      "type": "text-large",
+      "state": "default",
+      "notes": ".mutedHeading tested at the more lenient large-text threshold for completeness"
+    },
+    {
+      "id": "trend-icon",
+      "foreground": "#d4d4d4",
+      "background": "#ffffff",
+      "type": "graphic",
+      "state": "default",
+      "notes": ".mutedIcon — trending_up / trending_down icon, sole carrier of trend meaning"
+    },
+    {
+      "id": "edit-affordance-link-text",
+      "foreground": "#1957db",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": ".editAffordance — 'Edit profile' fake link/button"
+    },
+    {
+      "id": "kaizen-gray-600-body-replacement",
+      "foreground": "#524e56",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "Proposed replacement token gray-600 for .summary / .mutedText"
+    },
+    {
+      "id": "kaizen-gray-500-ui-only",
+      "foreground": "#878792",
+      "background": "#ffffff",
+      "type": "graphic",
+      "state": "default",
+      "notes": "Proposed replacement token gray-500 for the trend icon (graphic 3:1 threshold)"
+    },
+    {
+      "id": "kaizen-blue-500-link",
+      "foreground": "#0168b3",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "Proposed replacement token blue-500 for link/edit text"
+    },
+    {
+      "id": "kaizen-focus-ring",
+      "foreground": "#004970",
+      "background": "#ffffff",
+      "type": "ui",
+      "state": "focus",
+      "notes": "blue-600 / border-focus-ring — restored focus indicator on .plainButton"
+    }
+  ]
+}

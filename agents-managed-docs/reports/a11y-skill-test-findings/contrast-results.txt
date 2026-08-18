@@ -1,0 +1,14 @@
+Colour contrast results:
+-----------------------
+FAIL summary-text [default]: 3.03:1 (required 4.5:1) - .summary — Text variant=body profile summary on page background
+FAIL muted-metric-score [default]: 3.03:1 (required 4.5:1) - .mutedText — metric score inside Card
+FAIL muted-heading [default]: 2.17:1 (required 4.5:1) - .mutedHeading — heading-4 'Manager notes' (16px semibold, below large-text threshold)
+FAIL muted-heading-as-large [default]: 2.17:1 (required 3:1) - .mutedHeading tested at the more lenient large-text threshold for completeness
+FAIL trend-icon [default]: 1.48:1 (required 3:1) - .mutedIcon — trending_up / trending_down icon, sole carrier of trend meaning
+PASS edit-affordance-link-text [default]: 6.13:1 (required 4.5:1) - .editAffordance — 'Edit profile' fake link/button
+PASS kaizen-gray-600-body-replacement [default]: 8.13:1 (required 4.5:1) - Proposed replacement token gray-600 for .summary / .mutedText
+PASS kaizen-gray-500-ui-only [default]: 3.55:1 (required 3:1) - Proposed replacement token gray-500 for the trend icon (graphic 3:1 threshold)
+PASS kaizen-blue-500-link [default]: 5.78:1 (required 4.5:1) - Proposed replacement token blue-500 for link/edit text
+PASS kaizen-focus-ring [focus]: 9.60:1 (required 3:1) - blue-600 / border-focus-ring — restored focus indicator on .plainButton
+-----------------------
+Total: 10, Passed: 5, Failed: 5

@@ -1,0 +1,68 @@
+{
+  "checks": [
+    {
+      "id": "body-text-on-white",
+      "foreground": "#524e56",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "gray-600 body text on page. gray-500 (#878792) FAILS normal text."
+    },
+    {
+      "id": "body-text-on-gray-100",
+      "foreground": "#524e56",
+      "background": "#f9f9f9",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "gray-600 on gray-100 subtle background"
+    },
+    {
+      "id": "link-text",
+      "foreground": "#0168b3",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "blue-500 link on white"
+    },
+    {
+      "id": "link-text-hover",
+      "foreground": "#004970",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "hover",
+      "notes": "blue-600 link hover on white"
+    },
+    {
+      "id": "ui-border",
+      "foreground": "#878792",
+      "background": "#ffffff",
+      "type": "ui",
+      "state": "default",
+      "notes": "gray-500 border/UI boundary on white (>= 3:1)"
+    },
+    {
+      "id": "focus-ring",
+      "foreground": "#0168b3",
+      "background": "#ffffff",
+      "type": "ui",
+      "state": "focus",
+      "notes": "blue-500 focus ring on white (custom focusable control)"
+    },
+    {
+      "id": "error-text",
+      "foreground": "#a82433",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "error",
+      "notes": "red-600 error/validation text on white"
+    },
+    {
+      "id": "success-text",
+      "foreground": "#2c7d67",
+      "background": "#ffffff",
+      "type": "text-normal",
+      "state": "default",
+      "notes": "green-600 success text on white (favorable meaning must not be colour-alone)"
+    }
+  ]
+}

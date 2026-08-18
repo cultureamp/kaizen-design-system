@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Audit Report</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a20; --muted: #56545e; --card: #f9f9f9;
+    --border: #eaeaec; --accent: #0168b3;
+    --crit: #a82433; --high: #b74302; --medium: #876400; --low: #524e56;
+    --pass: #2c7d67; --fail: #a82433; --na: #878792; --review: #b74302;
+    --chip-bg: #f4f4f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1a20; --fg: #f4f4f5; --muted: #b6b4bd; --card: #262430;
+      --border: #3a3844; --accent: #73c0e8;
+      --crit: #f597a8; --high: #ffb08a; --medium: #ffe36e; --low: #cdcdd0;
+      --pass: #8fdbc7; --fail: #f597a8; --na: #878792; --review: #ffb08a;
+      --chip-bg: #322f3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .meta code { background: var(--chip-bg); padding: 1px 6px; border-radius: 4px; }
+  .score-hero { display: flex; align-items: baseline; gap: 12px; margin: 18px 0 4px; }
+  .score-hero .big { font-size: 40px; font-weight: 700; }
+  .bar { height: 8px; border-radius: 4px; background: var(--chip-bg); overflow: hidden; margin: 8px 0 4px; }
+  .bar > span { display: block; height: 100%; background: var(--pass); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+  .result { font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .result.pass { color: var(--pass); border: 1px solid var(--pass); }
+  .result.fail { color: var(--fail); border: 1px solid var(--fail); }
+  .result.na { color: var(--na); border: 1px solid var(--na); }
+  .result.review { color: var(--review); border: 1px solid var(--review); }
+  .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+  .chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--chip-bg); }
+  .chip b { font-weight: 700; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .controls button { font: inherit; font-size: 13px; padding: 5px 12px; border: 1px solid var(--border);
+    background: var(--card); color: var(--fg); border-radius: 999px; cursor: pointer; }
+  .controls button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .manual-check { display: flex; flex-direction: column; gap: 8px; }
+  .manual-how { font-size: 13px; }
+  .manual-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .manual-actions button { font: inherit; font-size: 12px; padding: 3px 10px; border: 1px solid var(--border);
+    background: var(--card); color: var(--fg); border-radius: 999px; cursor: pointer; }
+  .manual-actions button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  #scoreProjection { margin: 4px 0 8px; }
+  .finding { border: 1px solid var(--border); border-left-width: 4px; border-radius: 8px;
+    background: var(--card); margin: 10px 0; overflow: hidden; }
+  .finding.critical { border-left-color: var(--crit); }
+  .finding.high { border-left-color: var(--high); }
+  .finding.medium { border-left-color: var(--medium); }
+  .finding.low { border-left-color: var(--low); }
+  .finding > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: flex;
+    flex-wrap: wrap; gap: 8px; align-items: center; }
+  .finding > summary::-webkit-details-marker { display: none; }
+  .sev { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    padding: 2px 8px; border-radius: 4px; color: #fff; }
+  .sev.critical { background: var(--crit); } .sev.high { background: var(--high); }
+  .sev.medium { background: var(--medium); color: #1a1a20; } .sev.low { background: var(--low); }
+  .fid { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  .ftitle { font-weight: 600; flex: 1 1 300px; }
+  .std-tag { font-size: 12px; color: var(--muted); }
+  .status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); }
+  .status.fixed { color: var(--pass); border-color: var(--pass); }
+  .status.open { color: var(--muted); }
+  .status.wontfix { color: var(--na); }
+  .verify { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+    color: var(--review); border: 1px dashed var(--review); }
+  .inferred { font-size: 11px; padding: 2px 8px; border-radius: 999px; color: var(--muted); border: 1px dashed var(--border); }
+  .loc .hint { color: var(--muted); font-size: 12px; }
+  .banner { border: 1px solid var(--review); background: color-mix(in srgb, var(--review) 10%, transparent);
+    border-radius: 8px; padding: 10px 14px; margin: 16px 0; font-size: 13.5px; }
+  .banner b { color: var(--review); }
+  .body { padding: 0 14px 14px; }
+  .body dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; margin-top: 10px; }
+  .body dd { margin: 4px 0 0; }
+  .loc { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  pre { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px;
+    overflow-x: auto; font-size: 12.5px; margin: 4px 0 0; }
+  .empty { color: var(--muted); font-style: italic; padding: 20px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 id="title">Accessibility Audit Report</h1>
+  <div class="meta" id="meta"></div>
+
+  <div class="banner">
+    <b>Static analysis.</b> This report is inferred from source code — the app, Storybook, and a browser were not run.
+    Items marked <span class="result review">Review</span> or <span class="verify">verify manually</span> need runtime
+    or assistive-technology testing to confirm. It supports, and does not replace, manual and AT verification.
+  </div>
+
+  <div class="score-hero">
+    <div class="big" id="scoreBig">–/–</div>
+    <div id="scoreLabel" class="meta"></div>
+  </div>
+  <div class="bar"><span id="scoreBar" style="width:0%"></span></div>
+  <div id="scoreProjection" class="meta"></div>
+
+  <h2>12-Standard Scorecard</h2>
+  <table id="scorecard"><thead><tr>
+    <th style="width:32px">#</th><th>Standard</th><th style="width:120px">WCAG</th><th style="width:110px">Result</th><th style="width:230px">Manual check</th><th>Note</th>
+  </tr></thead><tbody></tbody></table>
+
+  <h2>Findings</h2>
+  <div class="summary-chips" id="summary"></div>
+  <div class="controls" id="filters"></div>
+  <div id="findings"></div>
+
+  <footer id="footer"></footer>
+</div>
+
+<!-- The agent fills ONLY this JSON block. Everything above renders from it.
+     Phase 2 (Fix) reads and updates finding.status here. -->
+<script type="application/json" id="audit-data">
+{
+  "target": "@kaizen/components — A11ySkillTest story (Pages/A11y Skill Test)",
+  "date": "2026-08-12",
+  "scope": "packages/components/src/_docs/A11ySkillTest.stories.tsx, packages/components/src/_docs/A11ySkillTest.module.css",
+  "auditor": "intopia-web-accessibility (run 4)",
+  "kaizen": {
+    "detected": true,
+    "componentsVersion": "3.3.7",
+    "tailwind": false
+  },
+  "standards": [
+    {
+      "n": 1,
+      "name": "All functionality operable with a keyboard",
+      "wcag": "2.1.1",
+      "result": "fail",
+      "note": "Clickable <div> opens the note modal with no role/tabindex/key handler; a functional Export Button sits inside aria-hidden=\"true\" so it is focusable but removed from AT. Real tab order still needs runtime confirmation."
+    },
+    {
+      "n": 2,
+      "name": "Interactive items have clear focus indicators",
+      "wcag": "2.4.7, 2.4.11",
+      "result": "fail",
+      "note": "`.plainButton:focus-visible { outline: none }` removes the focus ring on the Reset Button with no replacement. Ring contrast/obscuring for the remaining controls is rendered-only and unverified."
+    },
+    {
+      "n": 3,
+      "name": "Input fields have a visible associated label",
+      "wcag": "3.3.2, 4.1.2",
+      "result": "fail",
+      "note": "SearchField uses `secondary`, which suppresses the visible label (source: showVisibleLabel = !secondary) leaving only the placeholder visible. The Notes TextField's format hint is a sibling <Text>, not the `description` prop, so it is not programmatically associated."
+    },
+    {
+      "n": 4,
+      "name": "Images have alt text or are hidden from AT",
+      "wcag": "1.1.1",
+      "result": "fail",
+      "note": "trending_up / trending_down icons are the only carrier of the trend value and are marked `isPresentational`, so the information is unavailable to AT. The `edit` icon is correctly presentational (adjacent text carries meaning)."
+    },
+    {
+      "n": 5,
+      "name": "Page title describes the page",
+      "wcag": "2.4.2",
+      "result": "fail",
+      "note": "document.title is set to the bare string 'Culture Amp' — no page-describing prefix. Standard 5 explicitly calls a bare 'Culture Amp' a fail."
+    },
+    {
+      "n": 6,
+      "name": "Heading structure is logical",
+      "wcag": "1.3.1",
+      "result": "fail",
+      "note": "TitleBlock owns the h1; the consumer-rendered `renderSectionTitle` emits an h3, skipping h2, and the modal title uses Heading tag=\"div\" so it is not a heading at all. No <main> landmark either (composition pattern 4)."
+    },
+    {
+      "n": 7,
+      "name": "Focus is managed",
+      "wcag": "2.4.3",
+      "result": "fail",
+      "note": "GenericModal renders no <ModalAccessibleLabel>, so the dialog is unnamed and focus never enters it (only a console.warn flags this). Focus return to trigger on close is react-focus-on behaviour and needs runtime confirmation."
+    },
+    {
+      "n": 8,
+      "name": "Placeholder text isn't used",
+      "wcag": "3.3.2, 4.1.2",
+      "result": "fail",
+      "note": "placeholder=\"Filter metrics\" duplicates the label text on a field whose visible label is suppressed, so the placeholder is the only visible label. Graded fail on the stricter reading; the standard-3/8 search carve-out is arguable here (see auditor notes)."
+    },
+    {
+      "n": 9,
+      "name": "Button and link labels make sense in isolation",
+      "wcag": "1.3.1, 2.4.4",
+      "result": "fail",
+      "note": "Three identical 'View' buttons and three identical 'Click here' links, none with distinguishing context. The links also target #latest-survey-results, an id nothing in scope renders."
+    },
+    {
+      "n": 10,
+      "name": "Contrast requirements met",
+      "wcag": "1.4.3, 1.4.11",
+      "result": "fail",
+      "note": "Computed against #ffffff: #949494 = 3.03:1, #b0b0b0 = 2.17:1, #d4d4d4 = 1.48:1 — all below 4.5:1 for normal text. All colours are hardcoded hex rather than Kaizen tokens. Ratios are a static proxy; card/composited backgrounds need rendering to confirm."
+    },
+    {
+      "n": 11,
+      "name": "Content works at 320px + target size 24x24",
+      "wcag": "1.4.10, 2.5.8",
+      "result": "fail",
+      "note": "`.page { width: 900px }` is a fixed width, forcing 2D scroll at 320px, and `.summary` truncates with nowrap + ellipsis so content is lost. Target-size (2.5.8) for the icon/text controls is rendered-only and remains unverified — treat that half as review."
+    },
+    {
+      "n": 12,
+      "name": "Related items are marked up in a list",
+      "wcag": "1.3.1",
+      "result": "fail",
+      "note": "Six sibling metrics are rendered as nested <div>s across two unrelated flex rows, so neither grouping nor count is conveyed. The 'complex/interactive items' exception is arguable, but no heading-based grouping is provided in its place."
+    }
+  ],
+  "findings": [
+    {
+      "id": "A11Y-001",
+      "standard": 7,
+      "wcag": "2.4.3, 4.1.2",
+      "severity": "critical",
+      "component": "GenericModal",
+      "prop": "children (missing ModalAccessibleLabel)",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 135,
+      "title": "Modal has no ModalAccessibleLabel — dialog is unnamed and focus never enters",
+      "issue": "GenericModal derives aria-labelledby from a useId() id that only <ModalAccessibleLabel> renders, and uses autoFocus={false} + focusOnAccessibleLabel() to move focus on open. With no ModalAccessibleLabel the dialog has no accessible name and focus stays behind on the page while the trap is active — the modal's content is effectively unreachable for keyboard and screen-reader users. Only a console.warn signals it.",
+      "evidence": "<GenericModal isOpen={isNoteModalOpen} focusLockDisabled onEscapeKeyup={...}>\n  <div className={styles.modalBody}>\n    <Heading variant=\"heading-3\" tag=\"div\">Add a note</Heading>",
+      "recommendation": "Render <ModalAccessibleLabel> as the first child of GenericModal, wrapping the visible modal title (an <h2>), e.g. <ModalAccessibleLabel><Heading variant=\"heading-3\" tag=\"h2\">Add a note</Heading></ModalAccessibleLabel>. Do not hand-roll aria-label on the modal instead.",
+      "axe": "partial",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-002",
+      "standard": 1,
+      "wcag": "2.1.1, 4.1.2",
+      "severity": "critical",
+      "component": "Button",
+      "prop": "aria-hidden (on wrapper div)",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 50,
+      "title": "Functional Export button is inside aria-hidden=\"true\" but still focusable",
+      "issue": "The Export Button is wrapped in <div aria-hidden=\"true\">. The button remains in the tab order but is removed from the accessibility tree, so screen-reader users tab to an element that announces nothing and the Export action is completely unavailable to them. This is the classic focusable-inside-aria-hidden defect.",
+      "evidence": "<div aria-hidden=\"true\">\n  <Button variant=\"secondary\" onPress={...}>Export</Button>\n</div>",
+      "recommendation": "Remove aria-hidden from the wrapper. If Export must genuinely be unavailable, do not render it at all (or use Kaizen Button's `disabled`), never hide a focusable control from AT while leaving it tabbable.",
+      "axe": "yes",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-003",
+      "standard": 1,
+      "wcag": "2.1.1, 4.1.2",
+      "severity": "critical",
+      "component": "div (hand-rolled 'Edit profile' control)",
+      "prop": "onClick",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 62,
+      "title": "Clickable <div> opens the note modal — no role, no tabindex, no keyboard path",
+      "issue": "'Edit profile' is a <div> with an onClick handler, styled to look like a link (blue, underlined, cursor:pointer). It has no role, is not in the tab order, and has no key handler, so keyboard and screen-reader users cannot open the note modal by this route at all. Kaizen Button was already imported in the same file.",
+      "evidence": "<div className={styles.editAffordance} onClick={(): void => setIsNoteModalOpen(true)}>\n  <Icon name=\"edit\" isPresentational />\n  Edit profile\n</div>",
+      "recommendation": "Use the Kaizen component: <Button variant=\"tertiary\" icon={<Icon name=\"edit\" isPresentational />} onPress={() => setIsNoteModalOpen(true)}>Edit profile</Button>. Delete the `.editAffordance` link-mimicking styles (reuse over rebuild — the Button owns role, focus and keyboard).",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-004",
+      "standard": 6,
+      "wcag": "1.3.1",
+      "severity": "high",
+      "component": "TitleBlock",
+      "prop": "renderSectionTitle",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 41,
+      "title": "renderSectionTitle emits an h3, skipping h2 under the TitleBlock h1",
+      "issue": "TitleBlock's `title` renders the page h1 and `sectionTitle` would normally render an h2, but `renderSectionTitle` is consumer-rendered and nothing enforces the level. This render prop returns a heading-3/h3, so the outline goes h1 → h3 → h4 with no h2 anywhere on the page.",
+      "evidence": "renderSectionTitle={({ sectionTitle }) => (\n  <Heading variant=\"heading-3\" tag=\"h3\">{sectionTitle}</Heading>\n)}",
+      "recommendation": "Render an h2 in the render prop — <Heading variant=\"heading-2\" tag=\"h2\">{sectionTitle}</Heading> — or drop renderSectionTitle entirely and let TitleBlock's `sectionTitle` emit its own h2. Then re-check that the metric card headings sit at the correct level below it.",
+      "axe": "yes",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-005",
+      "standard": 6,
+      "wcag": "1.3.1",
+      "severity": "high",
+      "component": "Heading",
+      "prop": "tag=\"div\"",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 141,
+      "title": "Modal title looks like a heading but renders as a <div>",
+      "issue": "The modal's 'Add a note' title uses Heading variant=\"heading-3\" with tag=\"div\", so it carries heading styling but no heading role. Screen-reader users get no heading to orient by inside the dialog, and the string cannot serve as the dialog's accessible name.",
+      "evidence": "<Heading variant=\"heading-3\" tag=\"div\">Add a note</Heading>",
+      "recommendation": "Use tag=\"h2\" (Kaizen modals treat the modal heading as h2) and wrap it in <ModalAccessibleLabel> so the same element both titles the dialog and receives focus on open — this resolves A11Y-001 at the same time.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-006",
+      "standard": 2,
+      "wcag": "2.4.7",
+      "severity": "high",
+      "component": "Button",
+      "prop": "className={styles.plainButton}",
+      "file": "packages/components/src/_docs/A11ySkillTest.module.css",
+      "line": 66,
+      "title": "focus-visible outline removed from the Reset button with no replacement",
+      "issue": "`.plainButton:focus-visible { outline: none }` strips the focus indicator that Kaizen's Button gets from React Aria + component CSS, and nothing replaces it (no box-shadow, border, or background change). Keyboard users lose all indication of where focus is on that control.",
+      "evidence": ".plainButton:focus-visible {\n  outline: none;\n}",
+      "recommendation": "Delete the rule and keep Kaizen's built-in focus ring. If a custom ring is genuinely required, provide a visible replacement using the focus-ring colour (blue-600 #004970 / `border-focus-ring`) and verify ≥3:1 against the adjacent background.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-007",
+      "standard": 5,
+      "wcag": "2.4.2",
+      "severity": "high",
+      "component": "EmployeeProfilePage",
+      "prop": "document.title",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 34,
+      "title": "Page title is the bare string 'Culture Amp'",
+      "issue": "The effect sets document.title = 'Culture Amp', which describes nothing about the page. Users with many tabs open, and screen-reader users who hear the title on load, get no way to tell this page apart from any other Culture Amp page. Standard 5 names a bare 'Culture Amp' as a fail.",
+      "evidence": "useEffect(() => {\n  document.title = 'Culture Amp'\n}, [])",
+      "recommendation": "Set a unique, page-describing title suffixed with the product name — e.g. 'Priya Raman - Culture Amp'. In a frontend-ops app use usePageTitle() (it auto-suffixes); in Next.js use <Head><title>.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-008",
+      "standard": 9,
+      "wcag": "2.4.4",
+      "severity": "high",
+      "component": "Button",
+      "prop": "children='View'",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 89,
+      "title": "Three identical 'View' buttons with no distinguishing context",
+      "issue": "Each of the first three metric cards renders a Button labelled only 'View'. A screen-reader user listing buttons hears 'View, View, View' with no way to tell which metric each belongs to — the label does not make sense in isolation.",
+      "evidence": "<Button size=\"small\" variant=\"secondary\" onPress={...}>View</Button>",
+      "recommendation": "Add context with VisuallyHidden inside the label: <Button ...>View<VisuallyHidden> {metric.name}</VisuallyHidden></Button>. If an aria-label is used instead it must start with the visible text ('View Engagement') to satisfy label-in-name and speech input.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-009",
+      "standard": 9,
+      "wcag": "2.4.4, 1.3.1",
+      "severity": "high",
+      "component": "a (raw anchor in metric card)",
+      "prop": "href=\"#latest-survey-results\"",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 117,
+      "title": "Three 'Click here' links, all pointing at an id that is never rendered",
+      "issue": "The second metric row renders a bare <a>Click here</a> three times. 'Click here' is meaningless out of context, the three links are indistinguishable from one another, and the fragment target #latest-survey-results does not exist anywhere in scope (the section title heading has no id), so the link does nothing useful.",
+      "evidence": "<a href=\"#latest-survey-results\">Click here</a>",
+      "recommendation": "Replace with a descriptive Kaizen link/Button that names its destination or action (e.g. 'View Development results'), matching the pattern used in the first row, and give the target heading a matching id if in-page navigation is really intended.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-010",
+      "standard": 10,
+      "wcag": "1.4.3",
+      "severity": "high",
+      "component": "Text / Heading (classNameOverride)",
+      "prop": "classNameOverride={styles.summary | styles.mutedText | styles.mutedHeading}",
+      "file": "packages/components/src/_docs/A11ySkillTest.module.css",
+      "line": 21,
+      "title": "Grey body text and heading colours fail 4.5:1 on white",
+      "issue": "Contrast computed on the source hex values against #ffffff: #949494 (`.summary` profile summary and `.mutedText` metric scores) = 3.03:1; #b0b0b0 (`.mutedHeading` 'Manager notes') = 2.17:1. Both are normal-size text so both need 4.5:1. The 'Manager notes' heading renders at heading-4 size, which is not 'large text' (needs rendered 24px+, or 18.66px+ bold), so 3:1 does not apply.",
+      "evidence": ".summary { color: #949494; }\n.mutedText { color: #949494; }\n.mutedHeading { color: #b0b0b0; }",
+      "recommendation": "Use Kaizen tokens dark enough for body text — `--color-gray-600` (#524e56) or darker; note `gray-500` (#878792) also fails 4.5:1. Drop the muted treatment on the heading entirely rather than tinting it.",
+      "axe": "partial",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-011",
+      "standard": 10,
+      "wcag": "1.4.3, 1.4.11",
+      "severity": "medium",
+      "component": "A11ySkillTest.module.css",
+      "prop": "color / background",
+      "file": "packages/components/src/_docs/A11ySkillTest.module.css",
+      "line": 25,
+      "title": "All colours are hardcoded hex instead of Kaizen design tokens",
+      "issue": "Every colour in the stylesheet is a raw hex literal: #949494, #b0b0b0, #d4d4d4, #1957db, #fff. In a Kaizen project colour must come from tokens so contrast and theming stay consistent; #1957db is not even a Kaizen blue (the closest passing token is blue-500 #0168b3 at 5.1:1 — #1957db computes to 6.13:1 on white but is off-palette and will not follow theme changes).",
+      "evidence": "color: #1957db;\nbackground: #fff;\ncolor: #d4d4d4;",
+      "recommendation": "Replace each with a Kaizen custom property from @kaizen/components/dist/styles.css — `var(--color-gray-600, #524e56)` for body text, `var(--color-blue-500, #0168b3)` for link blue, `var(--color-white, #ffffff)` for the modal surface. (Not a Tailwind consumer, so custom properties rather than @kaizen/tailwind classes.)",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-012",
+      "standard": 4,
+      "wcag": "1.1.1, 1.4.1",
+      "severity": "high",
+      "component": "Icon",
+      "prop": "isPresentational",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 83,
+      "title": "Trend icons carry the only trend information but are hidden from AT",
+      "issue": "Each metric's `trend` value is expressed solely as a trending_up / trending_down Icon marked `isPresentational`, so it is removed from the accessibility tree. Screen-reader users hear the metric name and score but never learn the direction of travel — the information is unavailable, and it is also conveyed by icon shape/colour alone. The icon colour #d4d4d4 additionally computes to 1.48:1 on white, below the 3:1 needed for meaningful non-text content.",
+      "evidence": "<span className={styles.mutedIcon}>\n  <Icon name={metric.trend === 'up' ? 'trending_up' : 'trending_down'} isPresentational />\n</span>",
+      "recommendation": "Give the icon a meaning-carrying name — Kaizen Icon with an explicit role, e.g. <Icon name=\"trending_up\" role=\"img\" aria-label=\"Trending up\" /> — or, better, render the trend as visible text next to the score and keep the icon presentational. Darken the icon to a token that clears 3:1 (e.g. `--color-gray-600`).",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-013",
+      "standard": 11,
+      "wcag": "1.4.10",
+      "severity": "high",
+      "component": "A11ySkillTest.module.css (.page, .summary)",
+      "prop": "width / white-space",
+      "file": "packages/components/src/_docs/A11ySkillTest.module.css",
+      "line": 1,
+      "title": "Fixed 900px page width forces 2D scrolling at 320px, and the summary truncates content",
+      "issue": "`.page { width: 900px }` is an absolute width with no max-width or wrapping, so at a 320px viewport the content requires horizontal as well as vertical scrolling. `.summary` also sets white-space: nowrap with overflow hidden and text-overflow: ellipsis, so the profile summary text (role, location, manager, review date) is silently truncated and that information is lost with no way to reveal it. `.gridItem { min-width: 220px }` inside a non-wrapping flex row compounds the overflow.",
+      "evidence": ".page { width: 900px; padding: 24px; }\n.summary { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }",
+      "recommendation": "Use `max-width: 900px; width: 100%` on `.page`, let `.summary` wrap (remove nowrap/ellipsis), and add `flex-wrap: wrap` to `.grid`. Prefer container queries over fixed widths per the Kaizen styling guidance. Actual reflow behaviour and the 24x24 target sizes need a rendered check.",
+      "axe": "no",
+      "confidence": "needs-runtime",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-014",
+      "standard": 12,
+      "wcag": "1.3.1",
+      "severity": "medium",
+      "component": "div (.grid / .gridItem)",
+      "prop": "className={styles.grid}",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 73,
+      "title": "Six related metrics rendered as divs, split across two unrelated rows, with no list semantics",
+      "issue": "The same `metrics` array is sliced into two separate `.grid` <div>s of plain <div> children. Nothing conveys that these are one set of six related items, and no count is announced. The 'complex/interactive items' exception to standard 12 could be argued because each card holds a heading and a control, but in that case the grouping should at least be a single named section — here it is neither a list nor a coherent group.",
+      "evidence": "<div className={styles.grid}>\n  {metrics.slice(0, 3).map((metric) => (\n    <div key={metric.id} className={styles.gridItem}>",
+      "recommendation": "Render the six metrics as one <ul> with an <li> per card (a single .grid with flex-wrap replaces the two slices), or keep the card structure and wrap it in one named region with the card headings providing structure. Do not split one dataset into two visually different groups without conveying why.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-015",
+      "standard": 3,
+      "wcag": "3.3.2, 4.1.2",
+      "severity": "medium",
+      "component": "SearchField",
+      "prop": "secondary",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 58,
+      "title": "SearchField `secondary` suppresses the visible label, leaving only the placeholder",
+      "issue": "SearchField source computes `showVisibleLabel = !secondary` and falls back to aria-label={labelText}, so with `secondary` the field is correctly named for AT but has no visible label — the only visible text is the placeholder. Standard 3 requires a visible label as well as an accessible name; sighted users who fill the field lose the label as soon as they type. The standard-3 search carve-out (placeholder/search-icon may act as the visible label for a search field with an accessible name) arguably covers a Kaizen SearchField, but this control is a metric filter rather than a search and duplicates its label as placeholder text, so it is graded on the stricter reading.",
+      "evidence": "<SearchField secondary labelText=\"Filter metrics\" placeholder=\"Filter metrics\" />",
+      "recommendation": "Drop `secondary` so SearchField renders its visible label, and remove the duplicated placeholder (or replace it with a genuine example value). If the label must stay hidden for layout, get sign-off that the search carve-out is being relied on deliberately.",
+      "axe": "partial",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-016",
+      "standard": 8,
+      "wcag": "3.3.2",
+      "severity": "medium",
+      "component": "SearchField",
+      "prop": "placeholder",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 58,
+      "title": "Placeholder is the field's only visible label",
+      "issue": "Because `secondary` hides the visible label (A11Y-015), placeholder=\"Filter metrics\" is the only label a sighted user ever sees — and it disappears the moment they type, renders at low contrast, and is announced unreliably. That is exactly the pattern standard 8 forbids; the same code therefore fails both 3 and 8.",
+      "evidence": "<SearchField secondary labelText=\"Filter metrics\" placeholder=\"Filter metrics\" />",
+      "recommendation": "Show the real label and stop using the placeholder as a label. If a hint is needed, put it in a description rather than the placeholder.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-017",
+      "standard": 3,
+      "wcag": "3.3.2, 1.3.1",
+      "severity": "medium",
+      "component": "TextField",
+      "prop": "description (missing)",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 129,
+      "title": "Date-format instruction is not programmatically associated with the Notes field",
+      "issue": "The instruction 'Use the format YYYY-MM-DD when referencing a review date' is rendered as a standalone <Text variant=\"small\"> after the Notes TextField. TextField has a `description` prop that wires the text via aria-describedby (id `${id}-field-description`), but it is unused here, so screen-reader users focusing the field never hear the format requirement.",
+      "evidence": "<TextField labelText=\"Notes\" />\n<Text variant=\"small\">Use the format YYYY-MM-DD when referencing a review date.</Text>",
+      "recommendation": "Pass it as the field's description: <TextField labelText=\"Notes\" description=\"Use the format YYYY-MM-DD when referencing a review date.\" /> and delete the loose <Text>.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-018",
+      "standard": 7,
+      "wcag": "2.4.3",
+      "severity": "low",
+      "component": "GenericModal",
+      "prop": "focusLockDisabled",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 137,
+      "title": "`focusLockDisabled` is present and misleading — the focus trap is still ON",
+      "issue": "Read naively this looks like the modal has its focus trap turned off. It does not: GenericModal forwards the prop unnegated as focusLock={focusLockDisabled} to react-focus-on, whose focusLock defaults to true — so `focusLockDisabled` (i.e. true) keeps the trap enabled, and only `focusLockDisabled={false}` would disable it. The prop here is a no-op that documents the opposite of what happens; the real modal defect is the missing ModalAccessibleLabel (A11Y-001), which means focus is trapped on a page the user cannot escape into the dialog from.",
+      "evidence": "<GenericModal isOpen={isNoteModalOpen} focusLockDisabled onEscapeKeyup={...}>",
+      "recommendation": "Remove `focusLockDisabled` entirely — omitting it is the safe default that keeps the trap on. Never write focusLockDisabled={false} expecting a no-op; that is what actually disables the trap.",
+      "axe": "no",
+      "confidence": "verified",
+      "status": "open"
+    },
+    {
+      "id": "A11Y-019",
+      "standard": 6,
+      "wcag": "1.3.1",
+      "severity": "medium",
+      "component": "EmployeeProfilePage (root div)",
+      "prop": "className={styles.page}",
+      "file": "packages/components/src/_docs/A11ySkillTest.stories.tsx",
+      "line": 38,
+      "title": "No <main> landmark — page content sits in a plain div",
+      "issue": "The page root is a styled <div> and no landmark wraps the content, so there is no 'skip to main content' target and screen-reader users cannot jump past the TitleBlock to the body. Kaizen layout components do not emit a <main> for you (composition pattern 4) — landmarks are the consumer's responsibility. This is a composition defect rather than a numbered standard, recorded against standard 6 as document structure.",
+      "evidence": "<div className={styles.page}>\n  <TitleBlock title=\"Priya Raman\" ... />",
+      "recommendation": "Wrap the page body in <main> (one per page), and give any repeated regions distinct accessible names. Keep TitleBlock as the h1 owner immediately inside or above it.",
+      "axe": "partial",
+      "confidence": "verified",
+      "status": "open"
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  var SEV_ORDER = { critical: 0, high: 1, medium: 2, low: 3 };
+  var data;
+  try { data = JSON.parse(document.getElementById("audit-data").textContent); }
+  catch (e) { document.getElementById("meta").textContent = "Could not parse audit data: " + e.message; return; }
+
+  document.getElementById("title").textContent = "Accessibility Audit — " + (data.target || "");
+  var k = data.kaizen || {};
+  document.getElementById("meta").innerHTML =
+    "Date <b>" + esc(data.date) + "</b> · Scope <code>" + esc(data.scope || "—") + "</code> · " +
+    "Kaizen " + (k.detected ? "detected" + (k.componentsVersion ? " <code>@kaizen/components@" + esc(k.componentsVersion) + "</code>" : "") + (k.tailwind ? " · Tailwind" : "") : "not detected");
+
+  // Scorecard. `review` rows can be ticked off by a human; their verdicts persist
+  // per-target in localStorage so the score survives a reload.
+  var stds = data.standards || [];
+  var tbody = document.querySelector("#scorecard tbody");
+  var STORE_KEY = "a11y-audit-manual:" + (data.target || "untitled");
+  var manual = {};
+  try { manual = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { manual = {}; }
+
+  function saveManual() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(manual)); } catch (e) { /* private mode */ }
+  }
+
+  // A row's effective result: the human verdict wins over `review`.
+  function effective(s) {
+    return s.result === "review" && manual[s.n] ? manual[s.n] : s.result;
+  }
+
+  function renderScore() {
+    var applicable = 0, passed = 0, pendingReview = 0, manualPassed = 0;
+    stds.forEach(function (s) {
+      if (s.result === "na") return;
+      applicable++;
+      var eff = effective(s);
+      if (eff === "pass") {
+        passed++;
+        if (s.result === "review") manualPassed++;
+      }
+      if (eff === "review") pendingReview++;
+    });
+
+    document.getElementById("scoreBig").textContent = passed + "/" + applicable;
+    document.getElementById("scoreLabel").textContent =
+      "standards passing" + (applicable < stds.length ? " (" + (stds.length - applicable) + " N/A)" : "");
+    document.getElementById("scoreBar").style.width =
+      applicable ? Math.round(passed / applicable * 100) + "%" : "0%";
+
+    var proj = document.getElementById("scoreProjection");
+    var breakdown = "<b>" + (passed - manualPassed) + "</b> confirmed from source" +
+      (manualPassed ? ", <b>" + manualPassed + "</b> confirmed manually" : "");
+    if (pendingReview) {
+      proj.innerHTML = breakdown + ". <b>" + pendingReview + "</b> " +
+        (pendingReview === 1 ? "standard" : "standards") +
+        " still " + (pendingReview === 1 ? "needs" : "need") + " a manual check — if " +
+        (pendingReview === 1 ? "it passes" : "they all pass") + ", this becomes <b>" +
+        (passed + pendingReview) + "/" + applicable + "</b>. Tick each one off below.";
+    } else {
+      proj.innerHTML = breakdown + ". Every manual check is recorded — this score is final.";
+    }
+  }
+
+  stds.forEach(function (s) {
+    var tr = document.createElement("tr");
+    var resultCell = "<span class='result " + effective(s) + "'>" + labelFor(effective(s)) + "</span>";
+    if (s.result === "review" && manual[s.n]) resultCell += " <span class='meta'>(manual)</span>";
+
+    var manualCell = "—";
+    if (s.result === "review") {
+      manualCell = "<div class='manual-check'>" +
+        "<div class='manual-how'>" + esc(s.manualCheck || "No instruction supplied.") + "</div>" +
+        "<div class='manual-actions' role='group' aria-label='Record manual check for standard " + s.n + "'>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='pass'>Passes</button>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='fail'>Fails</button>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='clear'>Reset</button>" +
+        "</div></div>";
+    }
+
+    tr.innerHTML = "<td>" + s.n + "</td><td>" + esc(s.name) + "</td><td>" + esc(s.wcag) + "</td>" +
+      "<td>" + resultCell + "</td><td>" + manualCell + "</td><td>" + esc(s.note || "") + "</td>";
+    tbody.appendChild(tr);
+  });
+
+  tbody.addEventListener("click", function (ev) {
+    var btn = ev.target.closest("button[data-verdict]");
+    if (!btn) return;
+    var n = Number(btn.getAttribute("data-n"));
+    var verdict = btn.getAttribute("data-verdict");
+    if (verdict === "clear") delete manual[n]; else manual[n] = verdict;
+    saveManual();
+    var row = btn.closest("tr");
+    var std = stds.filter(function (s) { return s.n === n; })[0];
+    var cell = row.children[3];
+    cell.innerHTML = "<span class='result " + effective(std) + "'>" + labelFor(effective(std)) + "</span>" +
+      (manual[n] ? " <span class='meta'>(manual)</span>" : "");
+    row.querySelectorAll("button[data-verdict]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-verdict") === (manual[n] || "clear") ? "true" : "false");
+    });
+    renderScore();
+  });
+
+  tbody.querySelectorAll("button[data-verdict]").forEach(function (b) {
+    var n = Number(b.getAttribute("data-n"));
+    b.setAttribute("aria-pressed", b.getAttribute("data-verdict") === (manual[n] || "clear") ? "true" : "false");
+  });
+
+  renderScore();
+
+  // Findings
+  var findings = (data.findings || []).slice().sort(function (a, b) {
+    return (SEV_ORDER[a.severity] - SEV_ORDER[b.severity]) || (a.standard - b.standard);
+  });
+  var counts = { critical: 0, high: 0, medium: 0, low: 0 }, open = 0, fixed = 0;
+  findings.forEach(function (f) { counts[f.severity] = (counts[f.severity] || 0) + 1;
+    if (f.status === "fixed") fixed++; else if (f.status !== "wontfix") open++; });
+
+  var sum = document.getElementById("summary");
+  sum.innerHTML =
+    chip(findings.length + " findings") +
+    ["critical","high","medium","low"].map(function (s) {
+      return counts[s] ? "<span class='chip'><span class='sev " + s + "'>" + s + "</span> <b>" + counts[s] + "</b></span>" : "";
+    }).join("") +
+    chip("Open <b>" + open + "</b>") + chip("Fixed <b>" + fixed + "</b>");
+
+  var container = document.getElementById("findings");
+  var activeSev = "all";
+  function render() {
+    container.innerHTML = "";
+    var shown = findings.filter(function (f) { return activeSev === "all" || f.severity === activeSev; });
+    if (!shown.length) { container.innerHTML = "<div class='empty'>No findings" + (activeSev !== "all" ? " at this severity." : " — nothing flagged.") + "</div>"; return; }
+    shown.forEach(function (f) {
+      var d = document.createElement("details");
+      d.className = "finding " + f.severity;
+      var std = stds[(f.standard || 0) - 1];
+      d.innerHTML =
+        "<summary>" +
+          "<span class='sev " + f.severity + "'>" + esc(f.severity) + "</span>" +
+          "<span class='fid'>" + esc(f.id) + "</span>" +
+          "<span class='ftitle'>" + esc(f.title) + "</span>" +
+          (std ? "<span class='std-tag'>Std " + f.standard + " · " + esc(f.wcag || std.wcag) + "</span>" : "") +
+          (f.confidence === "needs-runtime" ? "<span class='verify'>verify manually</span>" : "") +
+          (f.confidence === "inferred" ? "<span class='inferred'>inferred</span>" : "") +
+          "<span class='status " + (f.status || "open") + "'>" + esc(f.status || "open") + "</span>" +
+        "</summary>" +
+        "<div class='body'><dl>" +
+          "<dt>Location</dt><dd class='loc'>" + (f.component ? "<b>" + esc(f.component) + "</b>" + (f.prop ? " · " + esc(f.prop) : "") + " " : "") +
+            (f.file ? "<span class='hint'>" + esc(f.file) + (f.line ? ":" + f.line : "") + "</span>" : "") + "</dd>" +
+          "<dt>Confidence</dt><dd>" + esc(f.confidence || "inferred") + (f.confidence === "verified" ? " (checked against component source)" : f.confidence === "needs-runtime" ? " (static pass cannot confirm — needs runtime/AT)" : " (from usage, source not confirmed)") + "</dd>" +
+          "<dt>Issue</dt><dd>" + esc(f.issue) + "</dd>" +
+          (f.evidence ? "<dt>Evidence</dt><dd><pre>" + esc(f.evidence) + "</pre></dd>" : "") +
+          "<dt>Recommended fix</dt><dd>" + esc(f.recommendation) + "</dd>" +
+          "<dt>Caught by axe?</dt><dd>" + esc(f.axe || "unknown") + "</dd>" +
+        "</dl></div>";
+      container.appendChild(d);
+    });
+  }
+  var filters = document.getElementById("filters");
+  [["all","All"],["critical","Critical"],["high","High"],["medium","Medium"],["low","Low"]].forEach(function (p) {
+    var b = document.createElement("button");
+    b.textContent = p[1]; b.setAttribute("aria-pressed", p[0] === "all" ? "true" : "false");
+    b.onclick = function () {
+      activeSev = p[0];
+      Array.prototype.forEach.call(filters.children, function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+      render();
+    };
+    filters.appendChild(b);
+  });
+  render();
+
+  document.getElementById("footer").textContent =
+    "Generated by the intopia-web-accessibility skill (advisor mode). Findings are prioritised guidance, not a guarantee of WCAG conformance — manual and assistive-technology testing remain essential.";
+
+  function chip(html) { return "<span class='chip'>" + html + "</span>"; }
+  function labelFor(r) { return r === "na" ? "N/A" : r === "review" ? "Review" : r.charAt(0).toUpperCase() + r.slice(1); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]; }); }
+})();
+</script>
+</body>
+</html>

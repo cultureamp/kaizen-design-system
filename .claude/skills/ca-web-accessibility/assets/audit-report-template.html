@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Audit Report</title>
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1a20; --muted: #56545e; --card: #f9f9f9;
+    --border: #eaeaec; --accent: #0168b3;
+    --crit: #a82433; --high: #b74302; --medium: #876400; --low: #524e56;
+    --pass: #2c7d67; --fail: #a82433; --na: #878792; --review: #b74302;
+    --chip-bg: #f4f4f5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1c1a20; --fg: #f4f4f5; --muted: #b6b4bd; --card: #262430;
+      --border: #3a3844; --accent: #73c0e8;
+      --crit: #f597a8; --high: #ffb08a; --medium: #ffe36e; --low: #cdcdd0;
+      --pass: #8fdbc7; --fail: #f597a8; --na: #878792; --review: #ffb08a;
+      --chip-bg: #322f3c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 19px; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+  .meta code { background: var(--chip-bg); padding: 1px 6px; border-radius: 4px; }
+  .score-hero { display: flex; align-items: baseline; gap: 12px; margin: 18px 0 4px; }
+  .score-hero .big { font-size: 40px; font-weight: 700; }
+  .bar { height: 8px; border-radius: 4px; background: var(--chip-bg); overflow: hidden; margin: 8px 0 4px; }
+  .bar > span { display: block; height: 100%; background: var(--pass); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+  .result { font-weight: 700; font-size: 12px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .result.pass { color: var(--pass); border: 1px solid var(--pass); }
+  .result.fail { color: var(--fail); border: 1px solid var(--fail); }
+  .result.na { color: var(--na); border: 1px solid var(--na); }
+  .result.review { color: var(--review); border: 1px solid var(--review); }
+  .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 4px; }
+  .chip { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--chip-bg); }
+  .chip b { font-weight: 700; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .controls button { font: inherit; font-size: 13px; padding: 5px 12px; border: 1px solid var(--border);
+    background: var(--card); color: var(--fg); border-radius: 999px; cursor: pointer; }
+  .controls button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .manual-check { display: flex; flex-direction: column; gap: 8px; }
+  .manual-how { font-size: 13px; }
+  .manual-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+  .manual-actions button { font: inherit; font-size: 12px; padding: 3px 10px; border: 1px solid var(--border);
+    background: var(--card); color: var(--fg); border-radius: 999px; cursor: pointer; }
+  .manual-actions button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  #scoreProjection { margin: 4px 0 8px; }
+  .finding { border: 1px solid var(--border); border-left-width: 4px; border-radius: 8px;
+    background: var(--card); margin: 10px 0; overflow: hidden; }
+  .finding.critical { border-left-color: var(--crit); }
+  .finding.high { border-left-color: var(--high); }
+  .finding.medium { border-left-color: var(--medium); }
+  .finding.low { border-left-color: var(--low); }
+  .finding > summary { list-style: none; cursor: pointer; padding: 12px 14px; display: flex;
+    flex-wrap: wrap; gap: 8px; align-items: center; }
+  .finding > summary::-webkit-details-marker { display: none; }
+  .sev { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+    padding: 2px 8px; border-radius: 4px; color: #fff; }
+  .sev.critical { background: var(--crit); } .sev.high { background: var(--high); }
+  .sev.medium { background: var(--medium); color: #1a1a20; } .sev.low { background: var(--low); }
+  .fid { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  .ftitle { font-weight: 600; flex: 1 1 300px; }
+  .std-tag { font-size: 12px; color: var(--muted); }
+  .status { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); }
+  .status.fixed { color: var(--pass); border-color: var(--pass); }
+  .status.open { color: var(--muted); }
+  .status.wontfix { color: var(--na); }
+  .verify { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+    color: var(--review); border: 1px dashed var(--review); }
+  .inferred { font-size: 11px; padding: 2px 8px; border-radius: 999px; color: var(--muted); border: 1px dashed var(--border); }
+  .loc .hint { color: var(--muted); font-size: 12px; }
+  .banner { border: 1px solid var(--review); background: color-mix(in srgb, var(--review) 10%, transparent);
+    border-radius: 8px; padding: 10px 14px; margin: 16px 0; font-size: 13.5px; }
+  .banner b { color: var(--review); }
+  .body { padding: 0 14px 14px; }
+  .body dt { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; margin-top: 10px; }
+  .body dd { margin: 4px 0 0; }
+  .loc { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; }
+  pre { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 10px;
+    overflow-x: auto; font-size: 12.5px; margin: 4px 0 0; }
+  .empty { color: var(--muted); font-style: italic; padding: 20px 0; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 id="title">Accessibility Audit Report</h1>
+  <div class="meta" id="meta"></div>
+
+  <div class="banner">
+    <b>Static analysis.</b> This report is inferred from source code — the app, Storybook, and a browser were not run.
+    Items marked <span class="result review">Review</span> or <span class="verify">verify manually</span> need runtime
+    or assistive-technology testing to confirm. It supports, and does not replace, manual and AT verification.
+  </div>
+
+  <div class="score-hero">
+    <div class="big" id="scoreBig">–/–</div>
+    <div id="scoreLabel" class="meta"></div>
+  </div>
+  <div class="bar"><span id="scoreBar" style="width:0%"></span></div>
+  <div id="scoreProjection" class="meta"></div>
+
+  <h2>12-Standard Scorecard</h2>
+  <table id="scorecard"><thead><tr>
+    <th style="width:32px">#</th><th>Standard</th><th style="width:120px">WCAG</th><th style="width:110px">Result</th><th style="width:230px">Manual check</th><th>Note</th>
+  </tr></thead><tbody></tbody></table>
+
+  <h2>Findings</h2>
+  <div class="summary-chips" id="summary"></div>
+  <div class="controls" id="filters"></div>
+  <div id="findings"></div>
+
+  <footer id="footer"></footer>
+</div>
+
+<!-- The agent fills ONLY this JSON block. Everything above renders from it.
+     Phase 2 (Fix) reads and updates finding.status here. -->
+<script type="application/json" id="audit-data">
+{
+  "target": "REPLACE — path/repo/component audited",
+  "date": "REPLACE — YYYY-MM-DD",
+  "scope": "REPLACE — files/dirs in scope",
+  "auditor": "ca-web-accessibility skill",
+  "kaizen": { "detected": true, "componentsVersion": "", "tailwind": true },
+  "standards": [
+    { "n": 1,  "name": "All functionality operable with a keyboard", "wcag": "2.1.1", "result": "review", "note": "" },
+    { "n": 2,  "name": "Interactive items have clear focus indicators", "wcag": "2.4.7, 2.4.11", "result": "review", "note": "" },
+    { "n": 3,  "name": "Input fields have a visible associated label", "wcag": "3.3.2, 4.1.2", "result": "review", "note": "" },
+    { "n": 4,  "name": "Images have alt text or are hidden from AT", "wcag": "1.1.1", "result": "review", "note": "" },
+    { "n": 5,  "name": "Page title describes the page", "wcag": "2.4.2", "result": "review", "note": "" },
+    { "n": 6,  "name": "Heading structure is logical", "wcag": "1.3.1", "result": "review", "note": "" },
+    { "n": 7,  "name": "Focus is managed", "wcag": "2.4.3", "result": "review", "note": "" },
+    { "n": 8,  "name": "Placeholder text isn't used", "wcag": "3.3.2, 4.1.2", "result": "review", "note": "" },
+    { "n": 9,  "name": "Button and link labels make sense in isolation", "wcag": "1.3.1, 2.4.4", "result": "review", "note": "" },
+    { "n": 10, "name": "Contrast requirements met", "wcag": "1.4.3, 1.4.11", "result": "review", "note": "" },
+    { "n": 11, "name": "Content works at 320px + target size 24x24", "wcag": "1.4.10, 2.5.8", "result": "review", "note": "" },
+    { "n": 12, "name": "Related items are marked up in a list", "wcag": "1.3.1", "result": "review", "note": "" }
+  ],
+  "findings": [
+    {
+      "id": "A11Y-001",
+      "standard": 6,
+      "wcag": "1.3.1",
+      "severity": "high",
+      "component": "Heading",
+      "prop": "variant=\"heading-1\"",
+      "file": "src/Example.tsx",
+      "line": 42,
+      "title": "Two <h1> elements on the page",
+      "issue": "Page renders a TitleBlock (h1) and a second Heading variant=\"heading-1\" (also h1).",
+      "evidence": "<Heading variant=\"heading-1\">Section</Heading>",
+      "recommendation": "TitleBlock owns the single h1. Change the second heading to variant/tag h2: <Heading variant=\"heading-2\" tag=\"h2\">.",
+      "axe": "partial",
+      "confidence": "verified",
+      "status": "open"
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  var SEV_ORDER = { critical: 0, high: 1, medium: 2, low: 3 };
+  var data;
+  try { data = JSON.parse(document.getElementById("audit-data").textContent); }
+  catch (e) { document.getElementById("meta").textContent = "Could not parse audit data: " + e.message; return; }
+
+  document.getElementById("title").textContent = "Accessibility Audit — " + (data.target || "");
+  var k = data.kaizen || {};
+  document.getElementById("meta").innerHTML =
+    "Date <b>" + esc(data.date) + "</b> · Scope <code>" + esc(data.scope || "—") + "</code> · " +
+    "Kaizen " + (k.detected ? "detected" + (k.componentsVersion ? " <code>@kaizen/components@" + esc(k.componentsVersion) + "</code>" : "") + (k.tailwind ? " · Tailwind" : "") : "not detected");
+
+  // Scorecard. `review` rows can be ticked off by a human; their verdicts persist
+  // per-target in localStorage so the score survives a reload.
+  var stds = data.standards || [];
+  var tbody = document.querySelector("#scorecard tbody");
+  var STORE_KEY = "a11y-audit-manual:" + (data.target || "untitled");
+  var manual = {};
+  try { manual = JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch (e) { manual = {}; }
+
+  function saveManual() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(manual)); } catch (e) { /* private mode */ }
+  }
+
+  // A row's effective result: the human verdict wins over `review`.
+  function effective(s) {
+    return s.result === "review" && manual[s.n] ? manual[s.n] : s.result;
+  }
+
+  function renderScore() {
+    var applicable = 0, passed = 0, pendingReview = 0, manualPassed = 0;
+    stds.forEach(function (s) {
+      if (s.result === "na") return;
+      applicable++;
+      var eff = effective(s);
+      if (eff === "pass") {
+        passed++;
+        if (s.result === "review") manualPassed++;
+      }
+      if (eff === "review") pendingReview++;
+    });
+
+    document.getElementById("scoreBig").textContent = passed + "/" + applicable;
+    document.getElementById("scoreLabel").textContent =
+      "standards passing" + (applicable < stds.length ? " (" + (stds.length - applicable) + " N/A)" : "");
+    document.getElementById("scoreBar").style.width =
+      applicable ? Math.round(passed / applicable * 100) + "%" : "0%";
+
+    var proj = document.getElementById("scoreProjection");
+    var breakdown = "<b>" + (passed - manualPassed) + "</b> confirmed from source" +
+      (manualPassed ? ", <b>" + manualPassed + "</b> confirmed manually" : "");
+    if (pendingReview) {
+      proj.innerHTML = breakdown + ". <b>" + pendingReview + "</b> " +
+        (pendingReview === 1 ? "standard" : "standards") +
+        " still " + (pendingReview === 1 ? "needs" : "need") + " a manual check — if " +
+        (pendingReview === 1 ? "it passes" : "they all pass") + ", this becomes <b>" +
+        (passed + pendingReview) + "/" + applicable + "</b>. Tick each one off below.";
+    } else {
+      proj.innerHTML = breakdown + ". Every manual check is recorded — this score is final.";
+    }
+  }
+
+  stds.forEach(function (s) {
+    var tr = document.createElement("tr");
+    var resultCell = "<span class='result " + effective(s) + "'>" + labelFor(effective(s)) + "</span>";
+    if (s.result === "review" && manual[s.n]) resultCell += " <span class='meta'>(manual)</span>";
+
+    var manualCell = "—";
+    if (s.result === "review") {
+      manualCell = "<div class='manual-check'>" +
+        "<div class='manual-how'>" + esc(s.manualCheck || "No instruction supplied.") + "</div>" +
+        "<div class='manual-actions' role='group' aria-label='Record manual check for standard " + s.n + "'>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='pass'>Passes</button>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='fail'>Fails</button>" +
+        "<button type='button' data-n='" + s.n + "' data-verdict='clear'>Reset</button>" +
+        "</div></div>";
+    }
+
+    tr.innerHTML = "<td>" + s.n + "</td><td>" + esc(s.name) + "</td><td>" + esc(s.wcag) + "</td>" +
+      "<td>" + resultCell + "</td><td>" + manualCell + "</td><td>" + esc(s.note || "") + "</td>";
+    tbody.appendChild(tr);
+  });
+
+  tbody.addEventListener("click", function (ev) {
+    var btn = ev.target.closest("button[data-verdict]");
+    if (!btn) return;
+    var n = Number(btn.getAttribute("data-n"));
+    var verdict = btn.getAttribute("data-verdict");
+    if (verdict === "clear") delete manual[n]; else manual[n] = verdict;
+    saveManual();
+    var row = btn.closest("tr");
+    var std = stds.filter(function (s) { return s.n === n; })[0];
+    var cell = row.children[3];
+    cell.innerHTML = "<span class='result " + effective(std) + "'>" + labelFor(effective(std)) + "</span>" +
+      (manual[n] ? " <span class='meta'>(manual)</span>" : "");
+    row.querySelectorAll("button[data-verdict]").forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-verdict") === (manual[n] || "clear") ? "true" : "false");
+    });
+    renderScore();
+  });
+
+  tbody.querySelectorAll("button[data-verdict]").forEach(function (b) {
+    var n = Number(b.getAttribute("data-n"));
+    b.setAttribute("aria-pressed", b.getAttribute("data-verdict") === (manual[n] || "clear") ? "true" : "false");
+  });
+
+  renderScore();
+
+  // Findings
+  var findings = (data.findings || []).slice().sort(function (a, b) {
+    return (SEV_ORDER[a.severity] - SEV_ORDER[b.severity]) || (a.standard - b.standard);
+  });
+  var counts = { critical: 0, high: 0, medium: 0, low: 0 }, open = 0, fixed = 0;
+  findings.forEach(function (f) { counts[f.severity] = (counts[f.severity] || 0) + 1;
+    if (f.status === "fixed") fixed++; else if (f.status !== "wontfix") open++; });
+
+  var sum = document.getElementById("summary");
+  sum.innerHTML =
+    chip(findings.length + " findings") +
+    ["critical","high","medium","low"].map(function (s) {
+      return counts[s] ? "<span class='chip'><span class='sev " + s + "'>" + s + "</span> <b>" + counts[s] + "</b></span>" : "";
+    }).join("") +
+    chip("Open <b>" + open + "</b>") + chip("Fixed <b>" + fixed + "</b>");
+
+  var container = document.getElementById("findings");
+  var activeSev = "all";
+  function render() {
+    container.innerHTML = "";
+    var shown = findings.filter(function (f) { return activeSev === "all" || f.severity === activeSev; });
+    if (!shown.length) { container.innerHTML = "<div class='empty'>No findings" + (activeSev !== "all" ? " at this severity." : " — nothing flagged.") + "</div>"; return; }
+    shown.forEach(function (f) {
+      var d = document.createElement("details");
+      d.className = "finding " + f.severity;
+      var std = stds[(f.standard || 0) - 1];
+      d.innerHTML =
+        "<summary>" +
+          "<span class='sev " + f.severity + "'>" + esc(f.severity) + "</span>" +
+          "<span class='fid'>" + esc(f.id) + "</span>" +
+          "<span class='ftitle'>" + esc(f.title) + "</span>" +
+          (std ? "<span class='std-tag'>Std " + f.standard + " · " + esc(f.wcag || std.wcag) + "</span>" : "") +
+          (f.confidence === "needs-runtime" ? "<span class='verify'>verify manually</span>" : "") +
+          (f.confidence === "inferred" ? "<span class='inferred'>inferred</span>" : "") +
+          "<span class='status " + (f.status || "open") + "'>" + esc(f.status || "open") + "</span>" +
+        "</summary>" +
+        "<div class='body'><dl>" +
+          "<dt>Location</dt><dd class='loc'>" + (f.component ? "<b>" + esc(f.component) + "</b>" + (f.prop ? " · " + esc(f.prop) : "") + " " : "") +
+            (f.file ? "<span class='hint'>" + esc(f.file) + (f.line ? ":" + f.line : "") + "</span>" : "") + "</dd>" +
+          "<dt>Confidence</dt><dd>" + esc(f.confidence || "inferred") + (f.confidence === "verified" ? " (checked against component source)" : f.confidence === "needs-runtime" ? " (static pass cannot confirm — needs runtime/AT)" : " (from usage, source not confirmed)") + "</dd>" +
+          "<dt>Issue</dt><dd>" + esc(f.issue) + "</dd>" +
+          (f.evidence ? "<dt>Evidence</dt><dd><pre>" + esc(f.evidence) + "</pre></dd>" : "") +
+          "<dt>Recommended fix</dt><dd>" + esc(f.recommendation) + "</dd>" +
+          "<dt>Caught by axe?</dt><dd>" + esc(f.axe || "unknown") + "</dd>" +
+        "</dl></div>";
+      container.appendChild(d);
+    });
+  }
+  var filters = document.getElementById("filters");
+  [["all","All"],["critical","Critical"],["high","High"],["medium","Medium"],["low","Low"]].forEach(function (p) {
+    var b = document.createElement("button");
+    b.textContent = p[1]; b.setAttribute("aria-pressed", p[0] === "all" ? "true" : "false");
+    b.onclick = function () {
+      activeSev = p[0];
+      Array.prototype.forEach.call(filters.children, function (c) { c.setAttribute("aria-pressed", c === b ? "true" : "false"); });
+      render();
+    };
+    filters.appendChild(b);
+  });
+  render();
+
+  document.getElementById("footer").textContent =
+    "Generated by the ca-web-accessibility skill (advisor mode). Findings are prioritised guidance, not a guarantee of WCAG conformance — manual and assistive-technology testing remain essential.";
+
+  function chip(html) { return "<span class='chip'>" + html + "</span>"; }
+  function labelFor(r) { return r === "na" ? "N/A" : r === "review" ? "Review" : r.charAt(0).toUpperCase() + r.slice(1); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+    return { "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;" }[c]; }); }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.page {
+  width: 900px;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.summary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #949494;
+}
+
+.mutedText {
+  color: #949494;
+}
+
+.mutedHeading {
+  color: #b0b0b0;
+}
+
+.grid {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.gridItem {
+  flex: 1 1 0;
+  min-width: 220px;
+}
+
+.cardBody {
+  padding: 16px;
+}
+
+.rowActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.editAffordance {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1957db;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.plainButton:focus-visible {
+  outline: none;
+}
+
+.mutedIcon {
+  color: #d4d4d4;
+}
+
+.modalBody {
+  padding: 24px;
+  background: #fff;
+  max-width: 480px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+}
