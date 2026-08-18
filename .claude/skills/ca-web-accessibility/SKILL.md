@@ -1,6 +1,10 @@
 ---
 name: ca-web-accessibility
 description: Audit or build accessible web UIs against Culture Amp's 12-point accessibility standard (WCAG 2.2 AA basis), Kaizen-first. Use to review a page, component or repo for accessibility issues and produce a local HTML report, to fix what it finds, or when generating or modifying HTML, CSS, JSX, TSX, React, Vue or Svelte. In Culture Amp / Kaizen projects (@kaizen/components), prefer Kaizen components and design tokens over hand-rolled markup.
+compatibility: Designed for Claude Code. Static source analysis only — no browser or test runner required. Kaizen references activate when @kaizen/components is present.
+metadata:
+  author: culture-amp
+  version: "0.1"
 ---
 
 # Culture Amp web accessibility
