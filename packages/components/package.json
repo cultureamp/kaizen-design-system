@@ -162,7 +162,7 @@
     "normalize.css": "^8.0.1",
     "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",
-    "postcss-import": "^16.2.0",
+    "postcss-import": "^17.0.0",
     "postcss-preset-env": "^11.3.2",
     "postcss-scss": "^4.0.9",
     "query-string": "^9.5.0",
