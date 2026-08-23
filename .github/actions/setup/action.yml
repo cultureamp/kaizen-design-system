@@ -34,4 +34,4 @@ runs:
         npx playwright install
 
     - name: Setup turborepo cache
-      uses: rharkor/caching-for-turbo@v1.5
+      uses: rharkor/caching-for-turbo@v1.8
