@@ -228,8 +228,8 @@ importers:
         specifier: ^0.12.8
         version: 0.12.8
       '@vitejs/plugin-react':
-        specifier: ^6.0.5
-        version: 6.0.5(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.8.4))
+        specifier: ^6.1.0
+        version: 6.1.0(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.8.4))
       axe-playwright:
         specifier: ^2.2.2
         version: 2.2.2(playwright@1.61.1)
@@ -4876,17 +4876,20 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@vitejs/plugin-react@6.0.5':
-    resolution: {integrity: sha512-BOVzne/NL162sMdResB25mUv+vWMF5NoAjNf09TeGlE7ZpszZWSD3winycicLJw72yeVsoCn/2kOhEuCvEShMA==}
+  '@vitejs/plugin-react@6.1.0':
+    resolution: {integrity: sha512-qd2BzUBehkov86WFhg0JkEFEYyCLG9uPCe6qWTY/kRlss9OvJrOF2UbIWT7p+8IzZHkEu0DNGHc4HSv+JdDLsw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       '@rolldown/plugin-babel': ^0.1.7 || ^0.2.0
       babel-plugin-react-compiler: ^1.0.0
+      oxc-transform-react: ^0.145.0
       vite: ^8.0.0
     peerDependenciesMeta:
       '@rolldown/plugin-babel':
         optional: true
       babel-plugin-react-compiler:
+        optional: true
+      oxc-transform-react:
         optional: true
 
   '@vitest/eslint-plugin@1.6.27':
@@ -15862,7 +15865,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@vitejs/plugin-react@6.0.5(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.8.4))':
+  '@vitejs/plugin-react@6.1.0(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.8.4))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
       vite: 7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.8.4)
