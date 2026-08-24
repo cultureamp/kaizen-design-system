@@ -26,10 +26,10 @@ jobs:
       - uses: changesets/action@v2.1.1
         id: changesets
         with:
-          title: 'Changeset: Version packages'
-          commit: 'version packages'
-          version: pnpm ci:version
-          publish: pnpm ci:publish
+          pr-title: 'Changeset: Version packages'
+          commit-message: 'version packages'
+          version-script: pnpm ci:version
+          publish-script: pnpm ci:publish
 
       - name: Trigger Documentation Generation
         if: steps.changesets.outputs.published == 'true'

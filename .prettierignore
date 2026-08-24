@@ -17,6 +17,7 @@
 !*.scss
 
 # Explicitly ignore...
+.devbox/
 devbox.lock
 pnpm-lock.yaml
 **/CHANGELOG.md
