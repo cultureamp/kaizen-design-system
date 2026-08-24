@@ -136,7 +136,7 @@
     "react-select": "^5.10.2",
     "react-textfit": "^1.1.1",
     "use-debounce": "^10.1.1",
-    "uuid": "^14.0.1"
+    "uuid": "^14.0.2"
   },
   "dependenciesComments": {
     "react-day-picker": "Version locked until a11y gets fixed (https://github.com/gpbl/react-day-picker/pull/1708)"
@@ -163,14 +163,14 @@
     "postcss": "^8.5.26",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.2.0",
-    "postcss-preset-env": "^11.3.2",
+    "postcss-preset-env": "^11.4.0",
     "postcss-scss": "^4.0.9",
     "query-string": "^9.5.0",
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-highlight": "^0.15.0",
-    "react-intl": "^10.1.20",
-    "rollup": "^4.62.4",
+    "react-intl": "^10.1.22",
+    "rollup": "^4.62.5",
     "sass": "1.79.6",
     "serialize-query-params": "^2.0.4",
     "svgo": "^4.0.2",
@@ -185,8 +185,8 @@
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9 || ^3.0.0 || ^4.0.0",
-    "react": "^18.3.1 || ^19.0.0",
-    "react-dom": "^18.3.1 || ^19.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
     "react-intl": "^6.6.8 || ^7.0.0",
     "typescript": "5.x"
   },
