@@ -43,7 +43,7 @@
   },
   "filterBar.clearAllButton.label" : {
     "description" : "Button label to clear all values within the filter bar",
-    "message" : "Clear all"
+    "message" : "அனைத்தையும் அழி"
   },
   "filterButton.removable.removeButtonLabel" : {
     "description" : "Button label to remove a single filter from the filter bar",
