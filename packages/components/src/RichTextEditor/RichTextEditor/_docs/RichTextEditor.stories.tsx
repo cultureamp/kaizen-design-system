@@ -115,7 +115,7 @@ export const SchemaOnlyBold: Story = {
           },
           {
             type: 'text',
-            text: ' without a Bold toolbar button',
+            text: ' when showInToolbar is false',
           },
         ],
       },
