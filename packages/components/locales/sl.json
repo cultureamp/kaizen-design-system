@@ -75,7 +75,7 @@
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
-    "message" : "Search…"
+    "message" : "Išči …"
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
