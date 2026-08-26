@@ -111,7 +111,7 @@ export const SchemaOnlyBold: Story = {
           {
             type: 'text',
             marks: [{ type: 'strong' }],
-            text: 'Bold text can be pasted or loaded',
+            text: 'Bold text can still be pasted or loaded',
           },
           {
             type: 'text',
