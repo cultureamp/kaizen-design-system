@@ -75,7 +75,7 @@
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
-    "message" : "Search…"
+    "message" : "தேடுக…"
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
@@ -135,7 +135,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியுமா என்பதை எங்களால் சரிபார்க்க முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -143,15 +143,15 @@
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but it looks like you don’t have permission to view this page. Go back and try again, or head to Home"
+    "message" : "மன்னிக்கவும், இந்தப் பக்கத்தைப் பார்ப்பதற்கான அனுமதி உங்களிடம் இல்லை எனத் தெரிகிறது. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "மன்னிக்கவும், நீங்கள் தேடும் பக்கத்தைக் கண்டறிய முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -159,7 +159,7 @@
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "மன்னிக்கவும், எங்கள் சிஸ்டத்தில் சிக்கல் ஏற்பட்டுள்ளதால் இந்தப் பக்கத்தைக் காட்ட முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
@@ -175,11 +175,11 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "மன்னிக்கவும், எங்கள் சிஸ்டத்தில் சிக்கல் ஏற்பட்டுள்ளதால் இந்தப் பக்கத்தைக் காட்ட முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "எங்கள் தரப்பில் ஏதோ தவறாகிவிட்டது"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
@@ -187,23 +187,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "இதற்கு வருந்துகிறோம். திரும்பச் சென்று மீண்டும் முயல்வது நல்லது."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "இதற்கு வருந்துகிறோம். திரும்பச் சென்று மீண்டும் முயல்வது நல்லது."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
   },
   "kzErrorPage.errorCode" : {
     "message" : "பிழைக் குறியீடு {code}"
@@ -246,7 +246,7 @@
   },
   "select.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
-    "message" : "Clear selection: {field}"
+    "message" : "தேர்வை அழி: {field}"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
