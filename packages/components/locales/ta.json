@@ -1,0 +1,259 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
+  },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "தேதி செல்லுபடியாகாது"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} என்பது தவறான தேதி"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "“{startDateFieldLabel}” என்பதில் தேர்ந்தெடுக்கப்பட்ட தேதிக்கு முந்தைய தேதியாக இருக்க முடியாது"
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} கிடைக்கவில்லை, வேறு தேதியைப் பயன்படுத்திப் பார்க்கவும்"
+  },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "உள்ளீட்டு வடிவம்"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "இதற்கான தேதியை காலெண்டரில் தேர்ந்தெடுக்கவும்:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "ஃபில்டர்களைச் சேர்"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "அனைத்து ஃபில்டர்களையம் நீக்கு"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "அனைத்தையும் அழி"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "ஃபில்டரை அகற்று - {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "தேதி"
+  },
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' field",
+    "message" : "தொடக்கத் தேதி"
+  },
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'date to' field",
+    "message" : "முடிவுத் தேதி"
+  },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "<VisuallyHidden>தேர்வுகளை</VisuallyHidden> அழி"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> கிடைக்கிறது</VisuallyHidden>"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "தேடல் வினவலின்படி ஃபில்டர் விருப்பங்கள்"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "தேடுக…"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "அனைத்தையும் தேர்வுசெய்க"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "தேடலை அழி"
+  },
+  "kz.rte.bold" : {
+    "description" : "Label for the \"Bold\" button in a text editor",
+    "message" : "தடிமனானது"
+  },
+  "kz.rte.bullet_list" : {
+    "description" : "Label for the \"Bullet list\" button in a text editor",
+    "message" : "புல்லட் பட்டியல்"
+  },
+  "kz.rte.decrease_indent" : {
+    "description" : "Label for the \"Decrease indent\" button in a text editor",
+    "message" : "உள்தள்ளலைக் குறை"
+  },
+  "kz.rte.increase_indent" : {
+    "description" : "Label for the \"Increase indent\" button in a text editor",
+    "message" : "உள்தள்ளலை அதிகரி"
+  },
+  "kz.rte.italic" : {
+    "description" : "Label for the \"Italic\" button in a text editor",
+    "message" : "சாய்வானது"
+  },
+  "kz.rte.link" : {
+    "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
+    "message" : "இணைப்பு"
+  },
+  "kz.rte.numbered_list" : {
+    "description" : "Label for the \"Numbered list\" button in a text editor",
+    "message" : "எண்ணிடப்பட்ட பட்டியல்"
+  },
+  "kz.rte.toolbar.aria_label" : {
+    "description" : "Label for the text formatting toolbar in a Rich Text Editor",
+    "message" : "உரை வடிவமைப்பு"
+  },
+  "kz.rte.underline" : {
+    "description" : "Label for the \"Underline\" button in a text editor",
+    "message" : "அடிக்கோடு"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "உதவி மையத்தைத் தொடர்புகொள்ளவும்"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "தற்போது பக்கத்தை ஏற்றுவதில் சிக்கல் உள்ளது. மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "பக்கத்தை ஏற்றுவதில் சிக்கல்"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியுமா என்பதை எங்களால் சரிபார்க்க முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "மன்னிக்கவும், இந்தப் பக்கத்தைப் பார்ப்பதற்கான அனுமதி உங்களிடம் இல்லை எனத் தெரிகிறது. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "மன்னிக்கவும், நீங்கள் தேடும் பக்கத்தைக் கண்டறிய முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "பக்கம் கிடைக்கவில்லை"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "மன்னிக்கவும், எங்கள் சிஸ்டத்தில் சிக்கல் ஏற்பட்டுள்ளதால் இந்தப் பக்கத்தைக் காட்ட முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "எங்கள் தரப்பில் ஏதோ தவறாகிவிட்டது"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "மன்னிக்கவும், ஆனால் உங்கள் மாற்றத்தை செய்ய முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "மாற்றத்தைச் செய்ய முடியவில்லை"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "மன்னிக்கவும், எங்கள் சிஸ்டத்தில் சிக்கல் ஏற்பட்டுள்ளதால் இந்தப் பக்கத்தைக் காட்ட முடியவில்லை. திரும்பச் சென்று மீண்டும் முயலவும் அல்லது முகப்புப் பக்கத்திற்குச் செல்லவும்"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "எங்கள் தரப்பில் ஏதோ தவறாகிவிட்டது"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "இதற்கு வருந்துகிறோம். திரும்பச் சென்று மீண்டும் முயல்வது நல்லது."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "இதற்கு வருந்துகிறோம். திரும்பச் சென்று மீண்டும் முயல்வது நல்லது."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "இதற்கு வருந்துகிறோம். திரும்பச் சென்று மீண்டும் முயல்வது நல்லது."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "இந்தப் பக்கத்தை உங்களால் பார்க்க முடியாது"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "பிழைக் குறியீடு {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "முகப்பிற்குச் செல்க"
+  },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "மேலும் தகவலைக் காண்க:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "தகவலை மறை:"
+  },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "ஒருங்கிணைந்த இரண்டாம் நிலை மற்றும் கூடுதல் விருப்பங்கள் மெனுவைத் திற"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "இயல்புநிலைச் செயல்பாட்டு கூடுதல் விருப்பங்கள் மெனுவைத் திற"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "மெனுவைத் திற"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "கூடுதல் விருப்பங்கள் மெனுவைத் திறக்கும்"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "மெனு"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "இரண்டாம் நிலை மற்றும் கூடுதல் விருப்பங்கள் மெனுவைத் திற"
+  },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "தேர்வை அழி: {field}"
+  },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "{field}-க்கான பரிந்துரைகளைக் காட்டும்"
+  },
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "தேர்வை அழி: {field}"
+  }
+}
