@@ -35,11 +35,11 @@
   },
   "filterBar.addFiltersMenu.buttonLabel" : {
     "description" : "Menu button label to show additional available filter options",
-    "message" : "Add filters"
+    "message" : "Dodaj filtre"
   },
   "filterBar.clearAllButton.ariaLabel" : {
     "description" : "Button aria-label to clear all values within the filter bar",
-    "message" : "Clear all filters"
+    "message" : "Poništi sve filtre"
   },
   "filterBar.clearAllButton.label" : {
     "description" : "Button label to clear all values within the filter bar",
@@ -79,7 +79,7 @@
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
-    "message" : "Select all"
+    "message" : "Odaberi sve"
   },
   "inputSearch.clear" : {
     "description" : "Label for the clear search button",
@@ -87,15 +87,15 @@
   },
   "kz.rte.bold" : {
     "description" : "Label for the \"Bold\" button in a text editor",
-    "message" : "Bold"
+    "message" : "Podebljano"
   },
   "kz.rte.bullet_list" : {
     "description" : "Label for the \"Bullet list\" button in a text editor",
-    "message" : "Bullet list"
+    "message" : "Popis s grafičkim oznakama"
   },
   "kz.rte.decrease_indent" : {
     "description" : "Label for the \"Decrease indent\" button in a text editor",
-    "message" : "Decrease indent"
+    "message" : "Smanji uvlaku"
   },
   "kz.rte.increase_indent" : {
     "description" : "Label for the \"Increase indent\" button in a text editor",
@@ -103,15 +103,15 @@
   },
   "kz.rte.italic" : {
     "description" : "Label for the \"Italic\" button in a text editor",
-    "message" : "Italic"
+    "message" : "Kurziv"
   },
   "kz.rte.link" : {
     "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
-    "message" : "Link"
+    "message" : "Poveznica"
   },
   "kz.rte.numbered_list" : {
     "description" : "Label for the \"Numbered list\" button in a text editor",
-    "message" : "Numbered list"
+    "message" : "Numerirani popis"
   },
   "kz.rte.toolbar.aria_label" : {
     "description" : "Label for the text formatting toolbar in a Rich Text Editor",
@@ -119,7 +119,7 @@
   },
   "kz.rte.underline" : {
     "description" : "Label for the \"Underline\" button in a text editor",
-    "message" : "Underline"
+    "message" : "Podcrtaj"
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
@@ -131,7 +131,7 @@
   },
   "kzErrorPage.400.title" : {
     "description" : "Heading for page",
-    "message" : "Problem loading page"
+    "message" : "Problem pri učitavanju stranice"
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
@@ -139,7 +139,7 @@
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Ne možete pogledati tu stranicu"
   },
   "kzErrorPage.403.message" : {
     "description" : "Call to action instructions for the user",
@@ -147,7 +147,7 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Ne možete pogledati tu stranicu"
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
@@ -155,7 +155,7 @@
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
-    "message" : "Page not found"
+    "message" : "Stranica nije pronađena"
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
@@ -163,7 +163,7 @@
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Nešto je pošlo po zlu s naše strane"
   },
   "kzErrorPage.422.message" : {
     "description" : "Call to action instructions for the user",
@@ -171,7 +171,7 @@
   },
   "kzErrorPage.422.title" : {
     "description" : "Main title of page",
-    "message" : "Change couldn't be made"
+    "message" : "Promjenu nije bilo moguće napraviti"
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
@@ -179,34 +179,34 @@
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Nešto je pošlo po zlu s naše strane"
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Žao mi je zbog toga. Najbolje je da se vratite natrag i pokušate ponovno."
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Ne možete pogledati tu stranicu"
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Žao mi je zbog toga. Najbolje je da se vratite natrag i pokušate ponovno."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Ne možete pogledati tu stranicu"
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Žao mi je zbog toga. Najbolje je da se vratite natrag i pokušate ponovno."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Ne možete pogledati tu stranicu"
   },
   "kzErrorPage.errorCode" : {
-    "message" : "Error code {code}"
+    "message" : "Kôd pogreške {code}"
   },
   "kzErrorPage.goToHome" : {
     "description" : "Home button label",
