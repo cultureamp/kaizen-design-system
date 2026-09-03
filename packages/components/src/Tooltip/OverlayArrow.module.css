@@ -39,7 +39,7 @@
     }
 
     &.reversed path {
-      fill: var(--color-white);
+      fill: var(--fg-white);
     }
   }
 }

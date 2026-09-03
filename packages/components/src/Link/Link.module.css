@@ -1,6 +1,6 @@
 @layer kz-components {
   .link {
-    color: var(--link-text-color, var(--color-blue-500));
+    color: var(--link-text-color, var(--text-brand-primary));
     font-family: var(--typography-paragraph-body-font-family);
     font-size: var(--link-font-size, inherit);
     line-height: var(--link-line-height, inherit);
@@ -18,7 +18,7 @@
   }
 
   .isUnderlined {
-    border-bottom: var(--spacing-1) solid var(--link-text-color, var(--color-blue-500));
+    border-bottom: var(--spacing-1) solid var(--link-text-color, var(--border-brand));
   }
 
   .link .icon > * {
@@ -35,19 +35,19 @@
   }
 
   .primary[data-hovered] {
-    --link-text-color: var(--color-blue-600);
+    --link-text-color: var(--text-brand-secondary_hover);
   }
 
   .primary[data-pressed] {
-    --link-text-color: var(--color-blue-700);
+    --link-text-color: var(--text-brand-secondary);
   }
 
   .secondary {
-    --link-text-color: var(--color-purple-800);
+    --link-text-color: var(--text-primary);
   }
 
   .secondary[data-hovered] {
-    --link-text-color: var(--color-gray-600);
+    --link-text-color: var(--text-tertiary);
   }
 
   .secondary[data-pressed] {

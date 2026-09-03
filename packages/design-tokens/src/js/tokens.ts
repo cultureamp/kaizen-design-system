@@ -1,4 +1,5 @@
 import { type TokenStructure } from '../types'
+import { flatSemanticColorTokens, semanticColorTokensCamel } from './semanticColorTokens'
 
 export const tokens: TokenStructure = {
   animation: {
@@ -109,10 +110,17 @@ export const tokens: TokenStructure = {
       300: '#eaeaec',
       400: '#cdcdd0',
       500: '#878792',
+      550: '#6D6674',
       600: '#524e56',
+      700: '#3F3C42',
     },
     white: '#ffffff',
     black: '#000000',
+    // Semantic colour tokens, exposed under both their verbatim kebab name
+    // (`tokens.color['bg-brand-solid']`) and a camelCase alias
+    // (`tokens.color.bgBrandSolid`). See semanticColorTokens.ts.
+    ...flatSemanticColorTokens,
+    ...semanticColorTokensCamel,
   },
   dataViz: {
     favorable: '#7dd5bd',

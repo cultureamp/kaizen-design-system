@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/shadow';
 @import '~@kaizen/design-tokens/sass/spacing';
@@ -11,7 +12,7 @@
     z-index: $dropdown-index;
     box-sizing: border-box;
     background: $color-white;
-    color: $color-purple-800;
+    color: $text-primary;
     border-radius: $border-solid-border-radius;
     box-shadow: $shadow-large-box-shadow;
     max-height: 22rem;

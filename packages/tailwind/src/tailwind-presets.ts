@@ -1,10 +1,55 @@
-import { type CustomThemeConfig } from 'tailwindcss/types/config'
-import { tokens } from '@kaizen/design-tokens/js'
+import plugin from 'tailwindcss/plugin'
+import { type CustomThemeConfig, type PluginsConfig } from 'tailwindcss/types/config'
+import { semanticColorTokens, tokens } from '@kaizen/design-tokens'
 import { kzSpacing } from './kz-spacing'
+
+/**
+ * Strip a category prefix from semantic token keys and filter out null values,
+ * mapping each remaining key to the semantic CSS variable (not the primitive).
+ *
+ * e.g. stripAndMap(semanticColorTokens.background, 'bg-') produces:
+ *   { 'primary': 'var(--bg-primary)', 'secondary': 'var(--bg-secondary)', ... }
+ * (null-valued tokens are omitted)
+ *
+ * Tailwind then re-adds the category prefix so `bg-primary` is the emitted class.
+ */
+function stripAndMap(group: Record<string, string | null>, prefix: string): Record<string, string> {
+  const result: Record<string, string> = {}
+  for (const [key, value] of Object.entries(group)) {
+    if (value === null) continue
+    const stripped = key.startsWith(prefix) ? key.slice(prefix.length) : key
+    result[stripped] = `var(--${key})`
+  }
+  return result
+}
+
+/**
+ * `tokens.color` merges in the flat semantic colour tokens, some of which are
+ * `null` (no confident mapping yet). Tailwind's colour config rejects `null`,
+ * so strip those entries before spreading into `colors` / `borderColor`.
+ */
+function stripNulls<T extends Record<string, unknown>>(
+  group: T,
+): { [K in keyof T]: Exclude<T[K], null> } {
+  const result: Record<string, unknown> = {}
+  for (const [key, value] of Object.entries(group)) {
+    if (value === null) continue
+    result[key] = value
+  }
+  return result as { [K in keyof T]: Exclude<T[K], null> }
+}
+
+const nonNullColors = stripNulls(tokens.color)
+
+const semanticBackgroundColors = stripAndMap(semanticColorTokens.background, 'bg-')
+const semanticTextColors = stripAndMap(semanticColorTokens.text, 'text-')
+const semanticBorderColors = stripAndMap(semanticColorTokens.border, 'border-')
+const semanticForegroundColors = stripAndMap(semanticColorTokens.foreground, 'fg-')
 
 export type KaizenTailwindTheme = Partial<CustomThemeConfig>
 export type KaizenTailwindPreset = {
   theme: KaizenTailwindTheme
+  plugins?: Partial<PluginsConfig>
 }
 
 // Note: changing any token will require to to run `pnpm build` from the root
@@ -16,12 +61,15 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
       'paragraph-sm': `${tokens.typography.paragraphSmall.maxWidth}`,
       'paragraph-xs': `${tokens.typography.paragraphExtraSmall.maxWidth}`,
     },
+    backgroundColor: semanticBackgroundColors,
+    textColor: semanticTextColors,
+    borderColor: semanticBorderColors,
   },
   colors: {
     transparent: 'transparent',
     current: 'currentColor',
     inherit: 'inherit',
-    ...tokens.color,
+    ...nonNullColors,
     ...tokens.dataViz,
   },
   spacing: kzSpacing,
@@ -48,7 +96,7 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
     'default-color': `${tokens.border.solid.borderColor}`,
     'transparent': `${tokens.border.borderless.borderColor}`,
     'focus-ring': tokens.color.blue[600],
-    ...tokens.color,
+    ...nonNullColors,
   },
   fontFamily: {
     'family-paragraph': [`${tokens.typography.paragraphBody.fontFamily}`],
@@ -111,6 +159,11 @@ export const kaizenTailwindTheme: KaizenTailwindTheme = {
   },
 } as const
 
+const fgPlugin = plugin(({ matchUtilities }) => {
+  matchUtilities({ fg: (value) => ({ color: value }) }, { values: semanticForegroundColors })
+})
+
 export const Preset: KaizenTailwindPreset = {
   theme: kaizenTailwindTheme,
+  plugins: [fgPlugin],
 }
