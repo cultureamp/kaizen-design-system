@@ -216,8 +216,8 @@ importers:
         specifier: 8.6.17
         version: 8.6.17(@storybook/test@8.6.17(storybook@8.6.17(prettier@3.9.6)))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(rollup@4.63.1)(storybook@8.6.17(prettier@3.9.6))(typescript@5.9.3)(vite@7.3.6(@types/node@22.20.1)(jiti@1.21.7)(less@4.2.0)(sass@1.79.6)(stylus@0.62.0)(terser@5.31.5)(tsx@4.23.12)(yaml@2.9.0))
       '@storybook/test-runner':
-        specifier: ^0.24.4
-        version: 0.24.4(@swc/helpers@0.5.15)(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(storybook@8.6.17(prettier@3.9.6))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))
+        specifier: ^0.24.5
+        version: 0.24.5(@swc/helpers@0.5.15)(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(storybook@8.6.17(prettier@3.9.6))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.19(tsx@4.23.12))
@@ -4158,12 +4158,12 @@ packages:
       typescript:
         optional: true
 
-  '@storybook/test-runner@0.24.4':
-    resolution: {integrity: sha512-xm04bba5N7QyHHc+wD4xmPZx0vKK/PIpmTFypy445HrWOj0nFK4pYg5dE6H4ppqMt7qZAnb5GfHTvBwJtywJ4A==}
+  '@storybook/test-runner@0.24.5':
+    resolution: {integrity: sha512-U8ib6parBD+wA4z5ZW/JnsR3KkEXoP+sHP8WJdDZeh0GwfTlcWjhbeR6Ij/gxNFEA1bdpBa/P8qYTOs+LKIN1g==}
     engines: {node: '>=20.0.0'}
     hasBin: true
     peerDependencies:
-      storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
+      storybook: ^0.0.0-0 || ^10.0.0 || ^10.0.0-0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0 || ^11.0.0-0
 
   '@storybook/test@8.6.17':
     resolution: {integrity: sha512-VTuCylXGQrFDZXqZ29+yvJ+A4TZ69jG72rLjiic8hI0SOt87AC/8X1NaYvd2NS4TY0G0PwqtxmKeig8qRDrhNg==}
@@ -15033,7 +15033,7 @@ snapshots:
       '@storybook/test': 8.6.17(storybook@8.6.17(prettier@3.9.6))
       typescript: 5.9.3
 
-  '@storybook/test-runner@0.24.4(@swc/helpers@0.5.15)(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(storybook@8.6.17(prettier@3.9.6))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))':
+  '@storybook/test-runner@0.24.5(@swc/helpers@0.5.15)(@types/node@22.20.1)(babel-plugin-macros@3.1.0)(esbuild-register@3.6.0(esbuild@0.25.12))(storybook@8.6.17(prettier@3.9.6))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.1)(typescript@5.9.3))':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/generator': 7.29.8
