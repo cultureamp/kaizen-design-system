@@ -63,7 +63,7 @@
   },
   "filterMultiSelectClearButton.label" : {
     "description" : "Clear button label for filter multi-select",
-    "message" : "Clear<VisuallyHidden> selections</VisuallyHidden>"
+    "message" : "Poništi<VisuallyHidden> odabire</VisuallyHidden>"
   },
   "filterMultiSelectMultiSelectOption.available" : {
     "description" : "Number of filter items available",
@@ -71,11 +71,11 @@
   },
   "filterMultiSelectSearchInput.label" : {
     "description" : "Label for the search input",
-    "message" : "Filter options by search query"
+    "message" : "Filtriraj opcije prema upitu za pretraživanje"
   },
   "filterMultiSelectSearchInput.placeholder" : {
     "description" : "Placeholder for the search input",
-    "message" : "Search…"
+    "message" : "Pretraži…"
   },
   "filterMultiSelectSelectAllButton.label" : {
     "description" : "Select all button in filter multi select",
@@ -123,7 +123,7 @@
   },
   "kzErrorPage" : {
     "description" : "Label for contact button",
-    "message" : "Contact support"
+    "message" : "Obratite se podršci"
   },
   "kzErrorPage.400.message" : {
     "description" : "Call to action instructions for the user",
