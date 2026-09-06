@@ -484,8 +484,8 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.26)
       query-string:
-        specifier: ^9.5.0
-        version: 9.5.0
+        specifier: ^9.5.1
+        version: 9.5.1
       react:
         specifier: 19.2.8
         version: 19.2.8
@@ -9113,8 +9113,8 @@ packages:
     resolution: {integrity: sha512-+38qI9SOr8tfZ4QmJNplMUxqjbe7LKvvZgWdExBOmd+egZTtjLB67Gu0HRX3u/XOq7UU2Nx6nsjvS16Z9uwfpg==}
     engines: {node: '>=0.6'}
 
-  query-string@9.5.0:
-    resolution: {integrity: sha512-YlJmwNyi0RGYjlxYcuDncMsxFU7YyutbuI7gTm8ySxIGBlwx5yiBCOD5ig9ZNoHkawk/1Dey0N5mEfcUybMVAA==}
+  query-string@9.5.1:
+    resolution: {integrity: sha512-/zO3RwuRCMTIcEgq6YMv4OrtEE1XzBG7w5N6zc6ydYnkWYOWsnLI/5894hYEzfESfMOT4cHCsRTIdxsSl1KjGg==}
     engines: {node: '>=18'}
 
   querystring-es3@0.2.1:
@@ -21104,7 +21104,7 @@ snapshots:
     dependencies:
       side-channel: 1.1.0
 
-  query-string@9.5.0:
+  query-string@9.5.1:
     dependencies:
       decode-uri-component: 0.5.0
       filter-obj: 5.1.0
@@ -21620,7 +21620,7 @@ snapshots:
       postcss-modules-scope: 3.2.0(postcss@8.5.26)
       postcss-modules-values: 4.0.0(postcss@8.5.26)
       postcss-value-parser: 4.2.0
-      query-string: 9.5.0
+      query-string: 9.5.1
       resolve: 1.22.12
       resolve.exports: 2.0.3
       rollup: 4.63.1
