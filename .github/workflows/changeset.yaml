@@ -23,13 +23,13 @@ jobs:
       - name: Create Release Pull Request or Publish to npm
         run: |
           npm config set "//registry.npmjs.org/:_authToken" "$NPM_TOKEN"
-      - uses: changesets/action@v2.1.1
+      - uses: changesets/action@v1
         id: changesets
         with:
-          pr-title: 'Changeset: Version packages'
-          commit-message: 'version packages'
-          version-script: pnpm ci:version
-          publish-script: pnpm ci:publish
+          title: 'Changeset: Version packages'
+          commit: 'version packages'
+          version: pnpm ci:version
+          publish: pnpm ci:publish
 
       - name: Trigger Documentation Generation
         if: steps.changesets.outputs.published == 'true'
