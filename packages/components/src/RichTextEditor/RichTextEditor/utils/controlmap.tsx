@@ -9,6 +9,7 @@ import {
   type ProseMirrorModel,
   type ProseMirrorState,
 } from '../../utils/prosemirror'
+import { getToolbarVisibleControlNames } from './toolbarVisibility'
 
 /** Configuration for individual controls */
 type ToolbarControl = {
@@ -186,8 +187,9 @@ export const useControlMap = (
   const controlGroupIndex: ControlGroupTypes = createControlGroupIndex(controls)
   const toolbarControls: GroupedToolbarControls = createInitialControls(controlGroupIndex)
   const listNodes = [schema.nodes.bulletList, schema.nodes.orderedList]
+  const toolbarVisibleControls = getToolbarVisibleControlNames(controls)
 
-  if (schema.marks.strong) {
+  if (schema.marks.strong && toolbarVisibleControls.has('bold')) {
     const type = schema.marks.strong
     const groupIndex = getGroupIndex(controlGroupIndex, 'bold')
     toolbarControls[groupIndex].push({
@@ -202,7 +204,7 @@ export const useControlMap = (
     })
   }
 
-  if (schema.marks.em) {
+  if (schema.marks.em && toolbarVisibleControls.has('italic')) {
     const type = schema.marks.em
     const groupIndex = getGroupIndex(controlGroupIndex, 'italic')
     toolbarControls[groupIndex].push({
@@ -217,7 +219,7 @@ export const useControlMap = (
     })
   }
 
-  if (schema.marks.underline) {
+  if (schema.marks.underline && toolbarVisibleControls.has('underline')) {
     const type = schema.marks.underline
     const groupIndex = getGroupIndex(controlGroupIndex, 'underline')
     toolbarControls[groupIndex].push({
@@ -232,7 +234,7 @@ export const useControlMap = (
     })
   }
 
-  if (schema.nodes.bulletList) {
+  if (schema.nodes.bulletList && toolbarVisibleControls.has('bulletList')) {
     const type = schema.nodes.bulletList
     const groupIndex = getGroupIndex(controlGroupIndex, 'bulletList')
     toolbarControls[groupIndex].push({
@@ -247,7 +249,7 @@ export const useControlMap = (
     })
   }
 
-  if (schema.nodes.orderedList) {
+  if (schema.nodes.orderedList && toolbarVisibleControls.has('orderedList')) {
     const type = schema.nodes.orderedList
     const groupIndex = getGroupIndex(controlGroupIndex, 'orderedList')
     toolbarControls[groupIndex].push({
@@ -262,7 +264,10 @@ export const useControlMap = (
     })
   }
 
-  if (schema.nodes.orderedList || schema.nodes.bulletList) {
+  const hasVisibleListControl =
+    toolbarVisibleControls.has('orderedList') || toolbarVisibleControls.has('bulletList')
+
+  if (hasVisibleListControl && (schema.nodes.orderedList || schema.nodes.bulletList)) {
     const groupIndex = controlGroupIndex.orderedList ?? controlGroupIndex.bulletList ?? 'ungrouped'
 
     toolbarControls[groupIndex].push(
@@ -291,7 +296,7 @@ export const useControlMap = (
     )
   }
 
-  if (schema.marks.link) {
+  if (schema.marks.link && toolbarVisibleControls.has('link')) {
     const type = schema.marks.link
     const groupIndex = getGroupIndex(controlGroupIndex, 'link')
     toolbarControls[groupIndex].push({

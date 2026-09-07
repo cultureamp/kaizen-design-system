@@ -198,3 +198,49 @@ export const CreateALink: Story = {
     })
   },
 }
+
+export const ShowInToolbarFalseOmitsButton: Story = {
+  name: 'showInToolbar false omits toolbar button',
+  render: () => {
+    const [rteData, setRTEData] = useState<EditorContentArray>([
+      {
+        type: 'paragraph',
+        content: [
+          {
+            type: 'text',
+            marks: [{ type: 'strong' }],
+            text: 'Bold text without a Bold toolbar button',
+          },
+        ],
+      },
+    ])
+    const handleOnChange: RichTextEditorProps['onChange'] = (editorState): void =>
+      setRTEData(editorState.toJSON().doc.content)
+    return (
+      <RichTextEditor
+        labelText="Label"
+        defaultValue={rteData}
+        onChange={handleOnChange}
+        rows={3}
+        controls={[
+          { name: 'bold', group: 'inline', showInToolbar: false },
+          { name: 'italic', group: 'inline' },
+        ]}
+      />
+    )
+  },
+  play: async ({ canvasElement, step }) => {
+    const { findByRole, queryByRole } = within(canvasElement)
+
+    // Wait for i18n labels to resolve (StaticIntlProvider initially renders " ")
+    const italicButton = await findByRole('button', { name: 'Italic' })
+
+    await step('Italic toolbar button is present', async () => {
+      expect(italicButton).toBeInTheDocument()
+    })
+
+    await step('Bold toolbar button is omitted', async () => {
+      expect(queryByRole('button', { name: 'Bold' })).not.toBeInTheDocument()
+    })
+  },
+}

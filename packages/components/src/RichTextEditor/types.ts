@@ -7,6 +7,12 @@ export type ToolbarItems = {
    * A group is used to wrap items in the same section wrapper
    * ungrouped items will be appended to the end of the toolbar */
   group?: string
+  /**
+   * When false, the control is included in the editor schema
+   * (paste, keyboard shortcuts, defaultValue) but omitted from the toolbar.
+   * @default true
+   */
+  showInToolbar?: boolean
 }
 
 export type EditorContentArray = Record<string, any>[]
