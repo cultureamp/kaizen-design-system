@@ -2,13 +2,13 @@ processes:
   README:
     command: './bin/readme.sh; tail -f /dev/null'
 
-  setup:
+  install:
     command: devbox run setup
 
   build:
     command: pnpm turbo build --filter=@kaizen/tailwind --filter=@kaizen/design-tokens
     depends_on:
-      setup:
+      install:
         condition: process_completed_successfully
 
   docs:
