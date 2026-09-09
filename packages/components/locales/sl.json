@@ -1,0 +1,259 @@
+{
+  "smartling" : {
+    "string_format" : "icu",
+    "translate_paths" : [
+    {
+      "instruction" : "*/description",
+      "key" : "{*}/message",
+      "path" : "*/message"
+    }],
+    "variants_enabled" : true
+  },
+  "date.validation.invalidDate" : {
+    "description" : "Error message when the user enters an invalid date and we do not know their input value",
+    "message" : "Datum ni veljaven"
+  },
+  "date.validation.invalidDateWithValue" : {
+    "description" : "Error message when the user enters an invalid date and we know their input value",
+    "message" : "{inputValue} ni veljaven datum"
+  },
+  "date.validation.rangeEndBeforeRangeStart" : {
+    "description" : "Error message when the user tries to select an end date earlier than the start date",
+    "message" : "Ne more biti pred izbiro v »{startDateFieldLabel}«."
+  },
+  "date.validation.unavailableDate" : {
+    "description" : "Error message when the user tries to select a date that is unavailable",
+    "message" : "{inputValue} ni na voljo, poskusi z drugim datumom"
+  },
+  "dateInputDescription.inputFormat" : {
+    "description" : "Label for the 'Input format' field",
+    "message" : "Vhodna oblika"
+  },
+  "datePicker.calendarLabelDescription" : {
+    "description" : "Label for the search input",
+    "message" : "Izberi datum iz koledarja za:"
+  },
+  "filterBar.addFiltersMenu.buttonLabel" : {
+    "description" : "Menu button label to show additional available filter options",
+    "message" : "Dodaj filtre"
+  },
+  "filterBar.clearAllButton.ariaLabel" : {
+    "description" : "Button aria-label to clear all values within the filter bar",
+    "message" : "Počisti vse filtre"
+  },
+  "filterBar.clearAllButton.label" : {
+    "description" : "Button label to clear all values within the filter bar",
+    "message" : "Počisti vse"
+  },
+  "filterButton.removable.removeButtonLabel" : {
+    "description" : "Button label to remove a single filter from the filter bar",
+    "message" : "Odstrani filter – {filterLabel}"
+  },
+  "filterDatePickerDateInputField.dateInputLabelFallback" : {
+    "description" : "Default label for date input field",
+    "message" : "Datum"
+  },
+  "filterDateRangePicker.dateFrom" : {
+    "description" : "Label for the 'Date from' field",
+    "message" : "Datum od"
+  },
+  "filterDateRangePicker.dateTo" : {
+    "description" : "Label for the 'date to' field",
+    "message" : "Datum do"
+  },
+  "filterMultiSelectClearButton.label" : {
+    "description" : "Clear button label for filter multi-select",
+    "message" : "Počisti<VisuallyHidden> izbire</VisuallyHidden>"
+  },
+  "filterMultiSelectMultiSelectOption.available" : {
+    "description" : "Number of filter items available",
+    "message" : "<Badge>{count}</Badge><VisuallyHidden> na voljo</VisuallyHidden>"
+  },
+  "filterMultiSelectSearchInput.label" : {
+    "description" : "Label for the search input",
+    "message" : "Filtriraj možnosti po iskalni poizvedbi"
+  },
+  "filterMultiSelectSearchInput.placeholder" : {
+    "description" : "Placeholder for the search input",
+    "message" : "Išči …"
+  },
+  "filterMultiSelectSelectAllButton.label" : {
+    "description" : "Select all button in filter multi select",
+    "message" : "Izberi vse"
+  },
+  "inputSearch.clear" : {
+    "description" : "Label for the clear search button",
+    "message" : "Počisti iskanje"
+  },
+  "kz.rte.bold" : {
+    "description" : "Label for the \"Bold\" button in a text editor",
+    "message" : "Krepko"
+  },
+  "kz.rte.bullet_list" : {
+    "description" : "Label for the \"Bullet list\" button in a text editor",
+    "message" : "Označeni seznam"
+  },
+  "kz.rte.decrease_indent" : {
+    "description" : "Label for the \"Decrease indent\" button in a text editor",
+    "message" : "Zmanjšaj zamik"
+  },
+  "kz.rte.increase_indent" : {
+    "description" : "Label for the \"Increase indent\" button in a text editor",
+    "message" : "Povečaj zamik"
+  },
+  "kz.rte.italic" : {
+    "description" : "Label for the \"Italic\" button in a text editor",
+    "message" : "Ležeče"
+  },
+  "kz.rte.link" : {
+    "description" : "Label for the \"Link\" button in a text editor that allows the creation of hyperlinks in the text",
+    "message" : "Povezava"
+  },
+  "kz.rte.numbered_list" : {
+    "description" : "Label for the \"Numbered list\" button in a text editor",
+    "message" : "Oštevilčen seznam"
+  },
+  "kz.rte.toolbar.aria_label" : {
+    "description" : "Label for the text formatting toolbar in a Rich Text Editor",
+    "message" : "Oblikovanje besedila"
+  },
+  "kz.rte.underline" : {
+    "description" : "Label for the \"Underline\" button in a text editor",
+    "message" : "Podčrtaj"
+  },
+  "kzErrorPage" : {
+    "description" : "Label for contact button",
+    "message" : "Obrni se na podporo"
+  },
+  "kzErrorPage.400.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Pri nalaganju strani je trenutno prišlo do težave. Poskusi znova ali pojdi domov."
+  },
+  "kzErrorPage.400.title" : {
+    "description" : "Heading for page",
+    "message" : "Težava pri nalaganju strani"
+  },
+  "kzErrorPage.401.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.401.title" : {
+    "description" : "Main title for page",
+    "message" : "Te strani si ne moreš ogledati"
+  },
+  "kzErrorPage.403.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Žal nimaš dovoljenja za ogled te strani. Pojdi nazaj in poskusi znova ali pa pojdi na Domov"
+  },
+  "kzErrorPage.403.title" : {
+    "description" : "Main title for page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.404.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.404.title" : {
+    "description" : "Main title of page",
+    "message" : "Strani ni mogoče najti"
+  },
+  "kzErrorPage.413" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.413.title" : {
+    "description" : "Main title of page",
+    "message" : "Pri nas je šlo nekaj narobe"
+  },
+  "kzErrorPage.422.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Oprosti, vendar spremembe ni bilo mogoče izvesti. Vrni se in poskusi znova ali pa pojdi na Domov"
+  },
+  "kzErrorPage.422.title" : {
+    "description" : "Main title of page",
+    "message" : "Spremembe ni bilo mogoče izvesti"
+  },
+  "kzErrorPage.500" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+  },
+  "kzErrorPage.500.title" : {
+    "description" : "Main title of page",
+    "message" : "Something's gone wrong on our side"
+  },
+  "kzErrorPage.502.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Oprosti za to. Najbolje je, da se vrneš in poskusiš znova."
+  },
+  "kzErrorPage.502.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.503.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.503.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.504.message" : {
+    "description" : "Call to action instructions for the user",
+    "message" : "Sorry about this. The best thing to do is go back and try again."
+  },
+  "kzErrorPage.504.title" : {
+    "description" : "Main title of page",
+    "message" : "You can't view this page"
+  },
+  "kzErrorPage.errorCode" : {
+    "message" : "Koda napake {code}"
+  },
+  "kzErrorPage.goToHome" : {
+    "description" : "Home button label",
+    "message" : "Pojdi domov"
+  },
+  "kzGenericTile.infoButtonLabel" : {
+    "description" : "Prompts user to interact with button to reveal more information",
+    "message" : "Prikaži več informacij:"
+  },
+  "kzGenericTile.infoButtonReturnLabel" : {
+    "description" : "Prompts user to interact with button to hide information",
+    "message" : "Skrij informacije:"
+  },
+  "kzTitleBlock.combinedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items and secondary actions",
+    "message" : "Odpri meni s sekundarnimi in dodatnimi možnostmi"
+  },
+  "kzTitleBlock.defaultActionMinimizedOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays the default action item",
+    "message" : "Odpri privzeti meni z dodatnimi dejanji"
+  },
+  "kzTitleBlock.hamburgerMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays navigation items",
+    "message" : "Odpri meni"
+  },
+  "kzTitleBlock.overflowMenuAriaLabel" : {
+    "description" : "Aria Label for the dropdown menu which displays additional action items",
+    "message" : "Odpre meni z dodatnimi možnostmi"
+  },
+  "kzTitleBlock.overflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional action items",
+    "message" : "Meni"
+  },
+  "kzTitleBlock.secondaryAndOverflowMenuLabel" : {
+    "description" : "Label for the dropdown menu which displays additional actions",
+    "message" : "Odpri sekundarni in prelivni meni"
+  },
+  "select.clearButtonAlt" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "Clear selection: {field}"
+  },
+  "singleSelect.chevronButton" : {
+    "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
+    "message" : "Prikaži predloge za {field}"
+  },
+  "singleSelect.clearButtonAlt_v2" : {
+    "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
+    "message" : "Počisti izbor: {field}"
+  }
+}
