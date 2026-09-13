@@ -153,7 +153,7 @@
     "@types/react-highlight": "^0.12.8",
     "@types/react-textfit": "^1.1.4",
     "@types/uuid": "^11.0.0",
-    "autoprefixer": "^10.5.4",
+    "autoprefixer": "^10.5.6",
     "concat-cli": "^4.0.0",
     "cssnano": "^7.1.9",
     "identity-obj-proxy": "^3.0.0",
