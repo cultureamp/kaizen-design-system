@@ -175,7 +175,7 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Nažalost, došlo je do problema s našim sustavom i ta se stranica ne može prikazati. Vrati se i pokušaj ponovno ili idi na Početnu stranicu"
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
@@ -246,7 +246,7 @@
   },
   "select.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
-    "message" : "Clear selection: {field}"
+    "message" : "Poništi odabir: {field}"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
