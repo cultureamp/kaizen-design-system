@@ -3,6 +3,7 @@
     --icon-vertical-align: text-bottom;
 
     margin: 0;
+    overflow-wrap: anywhere;
 
     strong {
       font-weight: var(--typography-paragraph-bold-font-weight);
