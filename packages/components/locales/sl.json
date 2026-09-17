@@ -135,7 +135,7 @@
   },
   "kzErrorPage.401.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't verify if you're able to view this page. Go back and try again, or head to Home"
+    "message" : "Oprosti, vendar ne moremo preveriti, ali si lahko ogledaš to stran. Vrni se in poskusi znova ali pa pojdi na Domov."
   },
   "kzErrorPage.401.title" : {
     "description" : "Main title for page",
@@ -147,11 +147,11 @@
   },
   "kzErrorPage.403.title" : {
     "description" : "Main title for page",
-    "message" : "You can't view this page"
+    "message" : "Te strani si ne moreš ogledati."
   },
   "kzErrorPage.404.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry but we can't find the page you're looking for. Go back and try again, or head to Home"
+    "message" : "Oprosti, vendar strani, ki jo iščeš, ne najdemo. Vrni se in poskusi znova ali pa pojdi na Domov."
   },
   "kzErrorPage.404.title" : {
     "description" : "Main title of page",
@@ -159,7 +159,7 @@
   },
   "kzErrorPage.413" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Oprosti, prišlo je do napake v našem sistemu in te strani ni mogoče prikazati. Vrni se in poskusi znova ali pa pojdi na Domov."
   },
   "kzErrorPage.413.title" : {
     "description" : "Main title of page",
@@ -175,11 +175,11 @@
   },
   "kzErrorPage.500" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry there's an issue with our system and this page can't be displayed. Go back and try again, or head to Home"
+    "message" : "Oprosti, prišlo je do napake v našem sistemu in te strani ni mogoče prikazati. Vrni se in poskusi znova ali pa pojdi na Domov."
   },
   "kzErrorPage.500.title" : {
     "description" : "Main title of page",
-    "message" : "Something's gone wrong on our side"
+    "message" : "Pri nas je šlo nekaj narobe."
   },
   "kzErrorPage.502.message" : {
     "description" : "Call to action instructions for the user",
@@ -187,23 +187,23 @@
   },
   "kzErrorPage.502.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Te strani si ne moreš ogledati."
   },
   "kzErrorPage.503.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Oprosti za to. Najbolje je, da se vrneš in poskusiš znova."
   },
   "kzErrorPage.503.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Te strani si ne moreš ogledati."
   },
   "kzErrorPage.504.message" : {
     "description" : "Call to action instructions for the user",
-    "message" : "Sorry about this. The best thing to do is go back and try again."
+    "message" : "Oprosti za to. Najbolje je, da se vrneš in poskusiš znova."
   },
   "kzErrorPage.504.title" : {
     "description" : "Main title of page",
-    "message" : "You can't view this page"
+    "message" : "Te strani si ne moreš ogledati."
   },
   "kzErrorPage.errorCode" : {
     "message" : "Koda napake {code}"
@@ -246,7 +246,7 @@
   },
   "select.clearButtonAlt" : {
     "description" : "Alt text for the clear selection button. The button clears the selection the user has made via a dropdown. The field placeholder is the label of the dropdown.",
-    "message" : "Clear selection: {field}"
+    "message" : "Počisti izbor: {field}"
   },
   "singleSelect.chevronButton" : {
     "description" : "Aria label text for the SingleSelect button to open and close suggestions list",
