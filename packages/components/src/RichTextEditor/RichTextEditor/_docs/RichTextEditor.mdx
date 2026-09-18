@@ -36,6 +36,10 @@ As the schema is defined by the `controls`, removing an item will remove its fun
 
 <Canvas of={RichTextEditorStories.ControlsWithoutBold} />
 
+To keep a control in the schema (for paste, keyboard shortcuts, or `defaultValue`) without showing its toolbar button, set `showInToolbar: false`.
+
+<Canvas of={RichTextEditorStories.SchemaOnlyBold} />
+
 With all controls, the Kaizen `RichTextEditor` can create and render formatted text, lists, and links.
 
 <Canvas of={RichTextEditorStories.AllAvailableContent} />

@@ -18,6 +18,7 @@ import { createSchemaFromControls } from './schema'
 import { ToolbarControls } from './subcomponents/ToolbarControls'
 import { buildInputRules } from './utils/inputrules'
 import { buildKeymap } from './utils/keymap'
+import { hasVisibleToolbarControls } from './utils/toolbarVisibility'
 import styles from './RichTextEditor.module.scss'
 
 type BaseRichTextEditorProps = {
@@ -140,13 +141,15 @@ export const RichTextEditor = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editorState])
 
+  const hasVisibleToolbar = hasVisibleToolbarControls(controls)
+
   return (
     <>
       {!labelledBy && labelText && (
         <Label classNameOverride={styles.editorLabel} id={labelId} labelText={labelText} />
       )}
       <div className={classnames(styles.editorWrapper, styles[status])}>
-        <div className={styles.toolbarWrapper}>
+        <div className={classnames(hasVisibleToolbar && styles.toolbarWrapper)}>
           <ToolbarControls
             editorId={editorId}
             controls={controls}
@@ -162,7 +165,7 @@ export const RichTextEditor = ({
             styles.editor,
             styles[`rows${rows}`],
             classNameOverride,
-            controls != null && controls.length > 0 && styles.hasToolbar,
+            hasVisibleToolbar && styles.hasToolbar,
           )}
           {...restProps}
         />
