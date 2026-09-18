@@ -21,15 +21,15 @@
     {
       groupName: "react-aria",
       matchPackageNames: [
-        "@react-aria/{/,}**",
-        "@react-stately/{/,}**",
-        "@internationalized/{/,}**",
-        "@react-types/shared{/,}**",
-        "react-aria{/,}**",
-        "react-aria-components{/,}**",
+        "@react-aria/**",
+        "@react-stately/**",
+        "@internationalized/**",
+        "@react-types/shared",
+        "@react-types/shared/**",
+        "react-aria",
+        "react-aria-components",
       ],
-      // react-aria deps bundle causes frontend diffs which should be
-      // resolved separately rather than merging into rollup PR
+      // react-aria deps causes frontend diffs which must be reviewed separately
       automerge: false,
     },
     {
