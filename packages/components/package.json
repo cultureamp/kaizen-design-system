@@ -147,7 +147,7 @@
     "@cultureamp/package-bundler": "^4.1.1",
     "@kaizen/design-tokens": "workspace:*",
     "@svgr/rollup": "^8.1.0",
-    "@testing-library/dom": "^10.4.1",
+    "@testing-library/dom": "^10.4.2",
     "@types/jest-axe": "^3.5.9",
     "@types/lodash.debounce": "^4.0.9",
     "@types/react-highlight": "^0.12.8",
