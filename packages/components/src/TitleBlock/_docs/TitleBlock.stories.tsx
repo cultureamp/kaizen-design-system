@@ -553,20 +553,6 @@ export const StickerSheetBreadcrumbs: Story = {
         '#Breadcrumbs-focus-example [class^="TitleBlock-TitleBlock-module__breadcrumb"]',
       ],
     },
-    a11y: {
-      config: {
-        rules: [
-          {
-            id: 'color-contrast', // false positive from animate in on the breadcrumbs
-            enabled: false,
-          },
-          {
-            id: 'landmark-unique', // false positive from having multiple TitleBlocks on a page
-            enabled: false,
-          },
-        ],
-      },
-    },
   },
   render: (args) => (
     <StickerSheet>
