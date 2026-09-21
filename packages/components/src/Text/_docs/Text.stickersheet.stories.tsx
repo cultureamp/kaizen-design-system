@@ -67,6 +67,22 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Text>
           </StickerSheet.Row>
         )}
+        <StickerSheet.Row header="Long unbroken word (container 320px)">
+          <div style={{ maxWidth: '320px', border: '1px dashed currentcolor' }}>
+            <Text tag="p" variant="body" color={fontColour}>
+              {'A'.repeat(150)}
+            </Text>
+          </div>
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Long broken word (container 320px)">
+          <div style={{ maxWidth: '320px', border: '1px dashed currentcolor' }}>
+            <Text tag="p" variant="body" color={fontColour}>
+              The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy
+              dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+              lazy dog. The quick brown fox jumps over the lazy dog.
+            </Text>
+          </div>
+        </StickerSheet.Row>
       </StickerSheet>
     )
   },
