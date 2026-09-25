@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/animation';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/border';
 @import '~@kaizen/design-tokens/sass/color';
 
@@ -28,14 +29,14 @@
       border-radius: $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
-      border-color: $color-blue-500;
+      border-color: $border-brand;
       inset: calc(-1 * #{$focus-ring-offset});
     }
   }
 
   .default {
     background-color: $color-white;
-    color: $color-purple-800;
+    color: $text-primary;
 
     &:hover,
     &:focus-visible {
@@ -43,27 +44,27 @@
     }
 
     &.active {
-      background-color: $color-gray-300;
-      color: $color-purple-800;
+      background-color: $bg-tertiary;
+      color: $text-primary;
     }
   }
 
   .secondary {
     background-color: $color-white;
-    color: $color-blue-500;
+    color: $text-brand-primary;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-blue-100;
+      background-color: $bg-brand-primary;
     }
 
     &.active {
-      background-color: $color-blue-200;
+      background-color: $bg-brand-secondary;
     }
   }
 
   .primary {
-    background-color: $color-blue-500;
+    background-color: $bg-brand-solid;
     color: $color-white;
 
     &:hover,
@@ -72,7 +73,7 @@
     }
 
     &.active {
-      background-color: $color-blue-700;
+      background-color: $bg-brand-solid_hover;
     }
   }
 
@@ -92,11 +93,11 @@
 
   .secondary-destructive {
     background-color: $color-white;
-    color: $color-red-600;
+    color: $text-error-primary;
 
     &:hover,
     &:focus-visible {
-      background-color: $color-red-100;
+      background-color: $bg-error-primary;
     }
 
     &.active {

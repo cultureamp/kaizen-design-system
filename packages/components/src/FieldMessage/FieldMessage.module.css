@@ -25,20 +25,20 @@
   .caution {
     border-radius: var(--border-solid-border-radius);
     padding: var(--validation-message-padding);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
   }
 
   .error {
-    background: var(--color-red-100);
+    background: var(--bg-error-primary);
     opacity: 1;
 
     &.reversed {
-      background: var(--color-red-300);
+      background: var(--bg-error-secondary);
     }
   }
 
   .caution {
-    background: var(--color-yellow-100);
+    background: var(--bg-warning-primary);
     opacity: 1;
 
     &.reversed {
@@ -68,7 +68,7 @@
     }
 
     .reversed & {
-      color: var(--color-purple-800);
+      color: var(--text-primary);
     }
   }
 }

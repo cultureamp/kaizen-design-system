@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../../../../styles/utils/button-reset';
 
@@ -30,7 +31,7 @@
     &:focus-visible {
       background-color: rgba($color-gray-600-rgb, 0.2);
       cursor: pointer;
-      color: $color-purple-800;
+      color: $text-primary;
     }
   }
 }

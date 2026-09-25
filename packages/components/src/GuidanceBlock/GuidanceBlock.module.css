@@ -18,7 +18,7 @@
     box-shadow: var(--shadow-small-box-shadow);
     position: relative;
     top: -1px;
-    color: var(--color-purple-800);
+    color: var(--text-primary);
 
     @media (width >= 1024px) {
       min-height: calc(12rem - calc(var(--banner-padding) * 2));
@@ -132,29 +132,29 @@
   }
 
   .default {
-    border-color: var(--color-gray-500);
+    border-color: var(--border-secondary);
     background: var(--color-white);
   }
 
   .positive {
     border-color: var(--color-green-500);
-    background: var(--color-green-100);
+    background: var(--bg-success-primary);
   }
 
   .negative,
   .assertive {
-    border-color: var(--color-red-500);
-    background: var(--color-red-100);
+    border-color: var(--border-error);
+    background: var(--bg-error-primary);
   }
 
   .informative {
     border-color: var(--color-blue-400);
-    background: var(--color-blue-100);
+    background: var(--bg-brand-primary);
   }
 
   .cautionary {
     border-color: var(--color-yellow-700);
-    background: var(--color-yellow-100);
+    background: var(--bg-warning-primary);
   }
 
   .prominent {

@@ -16,7 +16,7 @@
     font-weight: var(--typography-heading-4-font-weight);
     line-height: var(--typography-heading-4-line-height);
     letter-spacing: var(--typography-heading-4-letter-spacing);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     cursor: default;
 
     &:focus {
@@ -24,8 +24,8 @@
     }
 
     &:focus-visible {
-      color: var(--color-blue-500);
-      border-color: var(--color-blue-500);
+      color: var(--text-brand-primary);
+      border-color: var(--border-brand);
     }
 
     &[data-disabled] {
@@ -37,18 +37,18 @@
     }
 
     &:not([data-disabled]):hover {
-      background: var(--color-blue-200);
-      color: var(--color-blue-500);
+      background: var(--bg-brand-secondary);
+      color: var(--text-brand-primary);
     }
 
     &:not([data-disabled]):active {
-      background: var(--color-blue-100);
+      background: var(--bg-brand-primary);
     }
   }
 
   .tab[data-selected] {
     position: relative;
-    color: var(--color-blue-500);
+    color: var(--text-brand-primary);
 
     &::before {
       content: '';

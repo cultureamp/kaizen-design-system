@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/spacing';
@@ -39,33 +40,33 @@
     }
 
     &.isFocusVisible {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-500);
 
       .icon {
-        color: $color-blue-500;
+        color: $text-brand-primary;
       }
     }
 
     &:hover:not(.disabled),
     &:active:not(.disabled) {
-      background-color: $color-blue-100;
-      color: $color-blue-500;
+      background-color: $bg-brand-primary;
+      color: $text-brand-primary;
 
       .icon {
-        color: $color-blue-500;
+        color: $text-brand-primary;
       }
     }
   }
 
   .isSelected {
     font-weight: $typography-paragraph-bold-font-weight;
-    color: $color-blue-500;
+    color: $text-brand-primary;
 
     &.icon {
-      color: $color-blue-500;
+      color: $text-brand-primary;
     }
   }
 

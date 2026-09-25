@@ -67,36 +67,36 @@
 
   /* Types (colors) */
   .success {
-    background: var(--color-green-100);
+    background: var(--bg-success-primary);
     border-color: var(--color-green-500);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
 
-    --icon-color: var(--color-green-500);
+    --icon-color: var(--fg-success-primary);
   }
 
   .informative {
-    background: var(--color-blue-100);
-    border-color: var(--color-blue-500);
-    color: var(--color-purple-800);
+    background: var(--bg-brand-primary);
+    border-color: var(--border-brand);
+    color: var(--text-primary);
 
-    --icon-color: var(--color-blue-500);
+    --icon-color: var(--fg-brand-primary);
   }
 
   .cautionary,
   .security {
-    background: var(--color-yellow-100);
+    background: var(--bg-warning-primary);
     border-color: var(--color-yellow-700);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
 
-    --icon-color: var(--color-yellow-700);
+    --icon-color: var(--fg-warning-primary);
   }
 
   .warning {
-    background: var(--color-red-100);
-    border-color: var(--color-red-500);
-    color: var(--color-purple-800);
+    background: var(--bg-error-primary);
+    border-color: var(--border-error);
+    color: var(--text-primary);
 
-    --icon-color: var(--color-red-500);
+    --icon-color: var(--fg-error-primary);
   }
 
   /* Hidden state */
@@ -230,13 +230,13 @@
     color: inherit;
 
     a[href]:not([data-rac]) {
-      border-bottom: var(--spacing-1) solid var(--color-blue-500);
+      border-bottom: var(--spacing-1) solid var(--border-brand);
       text-decoration: none;
-      color: var(--color-blue-500);
+      color: var(--text-brand-primary);
 
       &:hover {
         text-decoration: none;
-        color: var(--color-blue-600);
+        color: var(--text-brand-secondary_hover);
         border-bottom: var(--spacing-1) solid var(--color-blue-600);
       }
     }
@@ -292,7 +292,7 @@
     border: none;
     background: transparent;
     font: inherit;
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     position: relative;
     display: flex;
     align-items: center;

@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/typography';
 @import '~@kaizen/design-tokens/sass/spacing';
@@ -25,7 +26,7 @@
     font-size: $typography-button-secondary-font-size;
     line-height: $typography-button-secondary-line-height;
     letter-spacing: $typography-button-secondary-letter-spacing;
-    color: $color-blue-500;
+    color: $text-brand-primary;
 
     &:focus {
       outline: none;
@@ -35,7 +36,7 @@
     &:active,
     &:focus {
       &:not(.isDisabled) {
-        background-color: $color-blue-100;
+        background-color: $bg-brand-primary;
       }
     }
 
@@ -48,11 +49,11 @@
       border-radius: $border-focus-ring-border-radius;
       border-width: $border-focus-ring-border-width;
       border-style: $border-focus-ring-border-style;
-      border-color: $color-blue-500;
+      border-color: $border-brand;
       inset: calc(-1 * #{$focus-ring-offset});
     }
 
-    // TODO: copied from Calendar button since the design is not settled
+    /* TODO: copied from Calendar button since the design is not settled */
     &.isDisabled {
       pointer-events: none;
       color: rgba($color-purple-800-rgb, 0.3);

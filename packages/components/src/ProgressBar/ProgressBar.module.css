@@ -1,6 +1,6 @@
 @layer kz-components {
   .subtext {
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     padding-top: var(--spacing-6);
     text-align: center;
     opacity: 0.8;
@@ -8,7 +8,7 @@
 
   .progressBackground {
     width: 100%;
-    background: var(--color-gray-300);
+    background: var(--bg-tertiary);
     border-radius: 10px;
     height: 10px;
     overflow: hidden;
@@ -36,7 +36,7 @@
   }
 
   .red {
-    --progressbar-background-color: var(--color-red-400);
+    --progressbar-background-color: var(--bg-error-solid);
   }
 
   .yellow {

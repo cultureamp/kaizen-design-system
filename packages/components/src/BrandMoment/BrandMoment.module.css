@@ -10,24 +10,24 @@
 
   /** @deprecated */
   .positive {
-    --brand-moment-background-color: var(--color-green-100);
+    --brand-moment-background-color: var(--bg-success-primary);
   }
 
   .negative {
-    --brand-moment-background-color: var(--color-red-100);
+    --brand-moment-background-color: var(--bg-error-primary);
   }
 
   /** end @deprecated */
   .informative {
-    --brand-moment-background-color: var(--color-blue-100);
+    --brand-moment-background-color: var(--bg-brand-primary);
   }
 
   .success {
-    --brand-moment-background-color: var(--color-green-100);
+    --brand-moment-background-color: var(--bg-success-primary);
   }
 
   .warning {
-    --brand-moment-background-color: var(--color-red-100);
+    --brand-moment-background-color: var(--bg-error-primary);
   }
 
   .container {
