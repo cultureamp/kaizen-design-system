@@ -418,8 +418,8 @@ importers:
         specifier: 13.3.0
         version: 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3)
       '@cultureamp/i18n-react-intl':
-        specifier: ^4.6.4
-        version: 4.6.4(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.5(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
+        specifier: ^4.6.5
+        version: 4.6.5(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.5(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^4.1.1
         version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.5.3(postcss@8.5.28))(postcss@8.5.28)(rollup@4.63.4)(tslib@2.8.1)(typescript@5.9.3)
@@ -1734,28 +1734,18 @@ packages:
       '@cultureamp/next-head-hook': '>=1 || ~0.0.0'
       next: '>=13.5.0'
       react: 19.2.8
-    peerDependenciesMeta:
-      '@cultureamp/next-head-hook':
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/frontend-env@2.1.7':
     resolution: {integrity: sha512-eA+6m6XEmnCME1AtN/pQ78N+sR+yDXf2UcMCHqqZaK5yTyRuWs2Xu08kzPtPJgRUXAH+nEFb5Ql2wfbIforI3g==, tarball: https://npm.pkg.github.com/download/@cultureamp/frontend-env/2.1.7/3b63bf6ce63e41f587395aa8fb9fbf3ac64a49be}
 
-  '@cultureamp/i18n-react-intl@4.6.4':
-    resolution: {integrity: sha512-YytL3aIMAJmvAdgK07bQewNX/j43RgyP1cPFvCfmvvjIPYYNdFimNlpvrUE0eiQPUCVF+sDbCpmCkvm8S2T6LA==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.6.4/e52d82fa70cf5e904d3d7d27477c647ed2ed9061}
+  '@cultureamp/i18n-react-intl@4.6.5':
+    resolution: {integrity: sha512-HEyF26L5i/1LkkSo1Mn8C09ux+9mVuRfStgnOfePof9/hImcdBPgCIY6YqNpxAsJhn11dZD7NabM7zcHM07IGA==, tarball: https://npm.pkg.github.com/download/@cultureamp/i18n-react-intl/4.6.5/783ac2fe5916890a20b551f44e8383b19a50fd4e}
     hasBin: true
     peerDependencies:
       '@cultureamp/frontend-apis': '>=14 || ~0.0.0'
       eslint: ^9.39.5
       next: '>=13.5.0'
       react: 19.2.8
-    peerDependenciesMeta:
-      eslint:
-        optional: true
-      next:
-        optional: true
 
   '@cultureamp/next-head-hook@1.1.11':
     resolution: {integrity: sha512-FyaCA3oKHnxZ+pPHcPTCDoRCG4/1y0W16U1O5eyTgSxjuJfWTui3vz65MNvNxlJ20+DZ8BXmV3M0y93t/Fubog==, tarball: https://npm.pkg.github.com/download/@cultureamp/next-head-hook/1.1.11/5444465f7d6ce0d79ba33d60180245ed245956ad}
@@ -2233,42 +2223,42 @@ packages:
       vue:
         optional: true
 
-  '@formatjs/cli-native-darwin-arm64@1.1.20':
-    resolution: {integrity: sha512-pa1TcOJJpnv0D2ylbtylvoDKWoo0j09jxHtZ83VclK9wp2N88xI59Tkq/JebJEBSnPkqG55Nc8UsLLAmVM6bEA==}
+  '@formatjs/cli-native-darwin-arm64@1.1.26':
+    resolution: {integrity: sha512-NWngBSWyhM5BPi2wOZznDdZG5rCVJceWwNoOhYwn2mTyNMkjxYOuZaBta8/sdaVsLoQMdFCa9A0iLl6H1Rse0Q==}
     cpu: [arm64]
     os: [darwin]
 
-  '@formatjs/cli-native-linux-arm64-musl@1.0.18':
-    resolution: {integrity: sha512-5Pl4GQ4XJhPGFvDyzK7DelGzYzcdVr0idSYANNf4R47wMRyrE3IOZJVmuyKHTa4Ltb8SbLa0gdNN9zqafUEs/w==}
+  '@formatjs/cli-native-linux-arm64-musl@1.0.24':
+    resolution: {integrity: sha512-FQ64DANaY/bOP8GDt/gTylXoTNVmPEP0x6BkH0fqtJ9CeNmAfzXX6cfmvGq32tpP9hLoRFWDOD+Nf0J9u+7AKg==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@formatjs/cli-native-linux-arm64@1.2.20':
-    resolution: {integrity: sha512-dsPzYDVxKim8R9I/kICRvqk9C+E87lfTx0Tys+oWIOL6Ws5IjWCAE1iTh0VOA/1SFf9lOCyMS5HMpdj3154sBA==}
+  '@formatjs/cli-native-linux-arm64@1.2.26':
+    resolution: {integrity: sha512-kxBNVqBkzIrD5zcj6s26mh4I0eYFKG8sS+Z6gURtjQvGIAn70Rd513ueKKPM7Bi0myUj3Xmmuu6JrR1AoFNBEw==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@formatjs/cli-native-linux-x64-musl@1.0.18':
-    resolution: {integrity: sha512-Tp6BBmx57kXJXrffoRnw8KPy1CklIO3nUfoUyNtlz1VvKLg2gEJeKQPosq69odKVX7ddd4fNjr5VCb1H3/fpBw==}
+  '@formatjs/cli-native-linux-x64-musl@1.0.24':
+    resolution: {integrity: sha512-BoGbW8mstaiyBEccnN1+oEymuk1UfUyiXv0P2i6UkQ/Ebe9eme/S40cEZCAJV9RfkCAplEmjKzFXvSyYttPuYw==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@formatjs/cli-native-linux-x64@1.1.20':
-    resolution: {integrity: sha512-ECzaAAJgAQk4pX9i7bsXrhAcehVjTtJvwTQnXhHkHk1/L5tGfx0UC7O7AA1PFYdHL4sv+y3qWwYYkHbepcERvA==}
+  '@formatjs/cli-native-linux-x64@1.1.26':
+    resolution: {integrity: sha512-WKG+IX95QvK3Dp2ZAtLDDqZTJJeEXMdlvH+9odJLfRYOF3C9R5J/uXkRKgNLwstI7HZH6FXDZN9eY3rL2l+lwg==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@formatjs/cli-native-win32-x64@1.1.21':
-    resolution: {integrity: sha512-3+nz6m9hBrmhNTKuMKd7xCv9/FyprGtltitDfHhOJ89H1kzMFA8O8dM7OTZb8fHQSJ915kl3MTirN90PNUAb6g==}
+  '@formatjs/cli-native-win32-x64@1.1.27':
+    resolution: {integrity: sha512-3zVqRflzXHW4ZiFfCgo4vniVCDy6zcKU/kc700bBioK0ohnpOuUxH+8T72RdftDQLxf8iTGig66zARYkcI30Ow==}
     cpu: [x64]
     os: [win32]
 
-  '@formatjs/cli@6.16.26':
-    resolution: {integrity: sha512-y/cc3TkvbLcWZNgav6QguIYz7C94UaxFfjmofXQ/Ow+t+TSkfl3L3KeBBg7uajguuf7p5moyD0Zhs4ccRI5BPg==}
+  '@formatjs/cli@6.16.32':
+    resolution: {integrity: sha512-b+juh9s0edVpdZg39g+8WyZthNWf2N4xjBfcJpKfk0pz5Mfc0IriObDJC2r9BW7EzPknHjC5QpeBcMDRJfgWUA==}
     engines: {node: '>= 20.12.0'}
     hasBin: true
     peerDependencies:
@@ -2316,9 +2306,6 @@ packages:
   '@formatjs/icu-messageformat-parser@2.9.4':
     resolution: {integrity: sha512-Tbvp5a9IWuxUcpWNIW6GlMQYEc4rwNHR259uUFoKWNN1jM9obf9Ul0e+7r7MvFOBNcN+13K7NuKCKqQiAn1QEg==}
 
-  '@formatjs/icu-messageformat-parser@3.5.17':
-    resolution: {integrity: sha512-cN9jhVqT7u0K9tix43fhjoUwL0nazyW6zsNIXs2QdPADr+nurPfYyssUiMqcSCGlPcCiqnYVxgSn7zBSuI+5Bg==}
-
   '@formatjs/icu-messageformat-parser@3.5.18':
     resolution: {integrity: sha512-wX1efcL8d7K5QapOTRsP/OLTA/kpwe4LwqWyNxDNg5iRs8i9jJbCyxB5P8jc4KOW5oiLzz2DJr+BRY5xMV9+bA==}
 
@@ -2364,8 +2351,8 @@ packages:
       ts-jest:
         optional: true
 
-  '@formatjs/ts-transformer@4.4.19':
-    resolution: {integrity: sha512-TWxL1btx29333yEQc1/eJsU9SUjDJBruzkrR4TVXBLgPaCWbhxg7haOztGXTLgLx+X3ONat7F0kRzcCHksyJyA==}
+  '@formatjs/ts-transformer@4.4.20':
+    resolution: {integrity: sha512-HldiUf2XjTn0cETXpjGATYwaiI9lwjZzIlBtJmfuD9Glr786FC3FdzvjBg7tFWIcz4xQdsvwDXfHEehP3kWUOg==}
     engines: {node: '>= 20.12.0'}
     peerDependencies:
       ts-jest: '29'
@@ -6279,8 +6266,8 @@ packages:
       eslint-import-resolver-webpack:
         optional: true
 
-  eslint-plugin-formatjs@6.6.2:
-    resolution: {integrity: sha512-wDdCQvbs/NB2N4i2PkJGRIHZFZDDpVKkGaW8pMwzhtq2u2GXlVmBuMk5dcZ/dP7RN/N0rDKntK96xTJDCg+Evw==}
+  eslint-plugin-formatjs@6.6.3:
+    resolution: {integrity: sha512-m+DbgTDAaPBxGuJSaERGBYutoqhWHpTLUz4q7TZ4UKiLVTuNwwZXPcrm4MmY38gMwlB7jT6mIocS3Ori1Pk+Ag==}
     peerDependencies:
       eslint: 9 || 10
 
@@ -9606,8 +9593,8 @@ packages:
     resolution: {integrity: sha512-qMCMfhY040cVHT43K9BFygqYbUPFZKHOg7K73mtTWJRb8pyP3fzf4Ixd5SzdEJQ6MRUg/WBnOLxghZtKKurENQ==}
     engines: {node: '>=10'}
 
-  smartling-api-sdk-nodejs@2.35.2:
-    resolution: {integrity: sha512-IbTGMvDKLjY1lSp63d3aK856M/OQfUkNHbl4BLl7b4D+fHaZ/LM6CuBRCX5LZp3zqKnHFSNr6OwJdOwbMEADdQ==}
+  smartling-api-sdk-nodejs@2.35.3:
+    resolution: {integrity: sha512-Tuim5HR2YkLbZ6LJMDp/DnnUwTnec8x84NcGFQZNt80LzBezlDGNcWxn/Ghblv+JST+KzWFUEn+8oAYZA/t0iw==}
     engines: {node: '>=18'}
 
   snake-case@3.0.4:
@@ -12175,6 +12162,7 @@ snapshots:
   '@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3)':
     dependencies:
       '@cultureamp/frontend-env': 2.1.7
+      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))
       '@cultureamp/redirect-to-login': 2.0.3
       '@readme/openapi-parser': 2.7.0(openapi-types@12.1.3)
       '@tanstack/react-query': 5.76.2(react@19.2.8)
@@ -12189,6 +12177,7 @@ snapshots:
       js-yaml: 4.3.0
       jsrsasign: 11.1.0
       msw: 2.2.14(typescript@5.9.3)
+      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
       openapi-types: 12.1.3
       openapi-typescript: 6.7.6
       react: 19.2.8
@@ -12197,9 +12186,6 @@ snapshots:
       url-parse: 1.5.10
       uuid: 9.0.1
       yargs: 17.7.3
-    optionalDependencies:
-      '@cultureamp/next-head-hook': 1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))
-      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12212,29 +12198,28 @@ snapshots:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
 
-  '@cultureamp/i18n-react-intl@4.6.4(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.5(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
+  '@cultureamp/i18n-react-intl@4.6.5(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.5(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
       '@calm/eslint-plugin-react-intl': 1.4.1
       '@cultureamp/frontend-apis': 13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3)
       '@cultureamp/frontend-env': 2.1.7
-      '@formatjs/cli': 6.16.26
+      '@formatjs/cli': 6.16.32
       '@formatjs/cli-lib': 6.6.6(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
       babel-plugin-formatjs: 10.5.41(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
       date-fns: 3.6.0
-      eslint-plugin-formatjs: 6.6.2(eslint@9.39.5(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
+      eslint: 9.39.5(jiti@1.21.7)
+      eslint-plugin-formatjs: 6.6.3(eslint@9.39.5(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
       fast-glob: 3.3.3
       form-data: 4.0.6
       intl-messageformat: 10.7.18
       isomorphic-resolve: 1.0.0
       json-stable-stringify: 1.3.0
       limiter-es6-compat: 2.1.2
+      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
       react: 19.2.8
       react-intl: 7.1.14(react@19.2.8)(typescript@5.9.3)
-      smartling-api-sdk-nodejs: 2.35.2(encoding@0.1.13)
+      smartling-api-sdk-nodejs: 2.35.3(encoding@0.1.13)
       yargs: 17.7.3
-    optionalDependencies:
-      eslint: 9.39.5(jiti@1.21.7)
-      next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
     transitivePeerDependencies:
       - '@chromatic-com/cypress'
       - '@chromatic-com/playwright'
@@ -12255,7 +12240,6 @@ snapshots:
     dependencies:
       next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
       react: 19.2.8
-    optional: true
 
   '@cultureamp/package-bundler@4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.5.3(postcss@8.5.28))(postcss@8.5.28)(rollup@4.63.4)(tslib@2.8.1)(typescript@5.9.3)':
     dependencies:
@@ -12617,32 +12601,32 @@ snapshots:
     transitivePeerDependencies:
       - ts-jest
 
-  '@formatjs/cli-native-darwin-arm64@1.1.20':
+  '@formatjs/cli-native-darwin-arm64@1.1.26':
     optional: true
 
-  '@formatjs/cli-native-linux-arm64-musl@1.0.18':
+  '@formatjs/cli-native-linux-arm64-musl@1.0.24':
     optional: true
 
-  '@formatjs/cli-native-linux-arm64@1.2.20':
+  '@formatjs/cli-native-linux-arm64@1.2.26':
     optional: true
 
-  '@formatjs/cli-native-linux-x64-musl@1.0.18':
+  '@formatjs/cli-native-linux-x64-musl@1.0.24':
     optional: true
 
-  '@formatjs/cli-native-linux-x64@1.1.20':
+  '@formatjs/cli-native-linux-x64@1.1.26':
     optional: true
 
-  '@formatjs/cli-native-win32-x64@1.1.21':
+  '@formatjs/cli-native-win32-x64@1.1.27':
     optional: true
 
-  '@formatjs/cli@6.16.26':
+  '@formatjs/cli@6.16.32':
     optionalDependencies:
-      '@formatjs/cli-native-darwin-arm64': 1.1.20
-      '@formatjs/cli-native-linux-arm64': 1.2.20
-      '@formatjs/cli-native-linux-arm64-musl': 1.0.18
-      '@formatjs/cli-native-linux-x64': 1.1.20
-      '@formatjs/cli-native-linux-x64-musl': 1.0.18
-      '@formatjs/cli-native-win32-x64': 1.1.21
+      '@formatjs/cli-native-darwin-arm64': 1.1.26
+      '@formatjs/cli-native-linux-arm64': 1.2.26
+      '@formatjs/cli-native-linux-arm64-musl': 1.0.24
+      '@formatjs/cli-native-linux-x64': 1.1.26
+      '@formatjs/cli-native-linux-x64-musl': 1.0.24
+      '@formatjs/cli-native-win32-x64': 1.1.27
 
   '@formatjs/ecma402-abstract@2.2.4':
     dependencies:
@@ -12678,10 +12662,6 @@ snapshots:
       '@formatjs/ecma402-abstract': 2.2.4
       '@formatjs/icu-skeleton-parser': 1.8.8
       tslib: 2.8.1
-
-  '@formatjs/icu-messageformat-parser@3.5.17':
-    dependencies:
-      '@formatjs/icu-skeleton-parser': 2.1.11
 
   '@formatjs/icu-messageformat-parser@3.5.18':
     dependencies:
@@ -12746,9 +12726,9 @@ snapshots:
     optionalDependencies:
       ts-jest: 29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3)
 
-  '@formatjs/ts-transformer@4.4.19(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))':
+  '@formatjs/ts-transformer@4.4.20(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))':
     dependencies:
-      '@formatjs/icu-messageformat-parser': 3.5.17
+      '@formatjs/icu-messageformat-parser': 3.5.18
       '@types/babel__core': 7.20.5
       '@types/node': 22.20.4
       json-stable-stringify: 1.3.0
@@ -13286,8 +13266,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@next/env@15.2.5':
-    optional: true
+  '@next/env@15.2.5': {}
 
   '@next/swc-darwin-arm64@15.2.5':
     optional: true
@@ -16374,7 +16353,6 @@ snapshots:
   busboy@1.6.0:
     dependencies:
       streamsearch: 1.1.0
-    optional: true
 
   cac@6.7.14: {}
 
@@ -17429,10 +17407,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-formatjs@6.6.2(eslint@9.39.5(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3)):
+  eslint-plugin-formatjs@6.6.3(eslint@9.39.5(jiti@1.21.7))(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3)):
     dependencies:
-      '@formatjs/icu-messageformat-parser': 3.5.17
-      '@formatjs/ts-transformer': 4.4.19(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
+      '@formatjs/icu-messageformat-parser': 3.5.18
+      '@formatjs/ts-transformer': 4.4.20(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.4)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.4)(typescript@5.9.3)))(typescript@5.9.3))
       '@types/estree-jsx': 1.0.5
       '@types/picomatch': 4.0.3
       '@unicode/unicode-17.0.0': 2.0.7
@@ -19891,7 +19869,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
 
   no-case@3.0.4:
     dependencies:
@@ -20893,7 +20870,6 @@ snapshots:
       nanoid: 3.3.18
       picocolors: 1.1.1
       source-map-js: 1.2.1
-    optional: true
 
   postcss@8.5.28:
     dependencies:
@@ -21834,7 +21810,7 @@ snapshots:
       astral-regex: 2.0.0
       is-fullwidth-code-point: 3.0.0
 
-  smartling-api-sdk-nodejs@2.35.2(encoding@0.1.13):
+  smartling-api-sdk-nodejs@2.35.3(encoding@0.1.13):
     dependencies:
       '@types/mocha': 9.1.1
       '@types/node': 18.19.130
@@ -21962,8 +21938,7 @@ snapshots:
       readable-stream: 3.6.2
       xtend: 4.0.2
 
-  streamsearch@1.1.0:
-    optional: true
+  streamsearch@1.1.0: {}
 
   strict-event-emitter@0.5.1: {}
 
@@ -22108,7 +22083,6 @@ snapshots:
       react: 19.2.8
     optionalDependencies:
       '@babel/core': 7.29.7
-    optional: true
 
   stylehacks@7.0.11(postcss@8.5.28):
     dependencies:
