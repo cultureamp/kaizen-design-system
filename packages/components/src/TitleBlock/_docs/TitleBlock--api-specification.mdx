@@ -17,12 +17,12 @@ import * as TitleBlockStories from './TitleBlock.stories'
 
 `TitleBlock` A consistent pattern to allow users to navigate and complete tasks easily.
 
-<Canvas of={TitleBlockStories.Playground} />
+<Canvas of={TitleBlockStories.LightVariant} />
 
 ## Props
 
 <Controls
-  of={TitleBlockStories.Playground}
+  of={TitleBlockStories.LightVariant}
   include={[
     'avatar',
     'breadcrumb',
@@ -32,12 +32,29 @@ import * as TitleBlockStories from './TitleBlock.stories'
     'primaryAction',
     'secondaryActions',
     'secondaryOverflowMenuItems',
+    'sticky',
     'surveyStatus',
     'title',
+    'variant',
   ]}
 />
 
 ## Options
+
+### variant
+
+```
+variant?: 'light' | 'admin' | 'education'
+```
+
+Controls the TitleBlock's background and text colour. `light`
+is the recommended value. Without passing it, the UI renders as the default
+purple variant. See
+[Usage Guidelines](/docs/components-titleblock-usage-guidelines--docs)
+for the full guidance.
+
+If you're rendering `NavigationTab`s alongside the TitleBlock, set the same
+`variant` on each tab. Tabs don't inherit from the TitleBlock.
 
 ### primaryAction
 
@@ -65,6 +82,18 @@ If you want it to be a Menu, pass in this object of type `MenuGroup`:
 
 Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
 in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
+
+### defaultAction
+
+```
+type DefaultActionProps = TitleBlockButtonProps | TitleBlockCustomButtonProps
+```
+
+Renders a Button immediately to the left of `primaryAction`, in the same top
+row. Pass the Button's props as an object, same as `primaryAction`.
+
+Unlike `primaryAction`, `defaultAction` **can't be a menu group** There's no
+dropdown variant of the default action, so passing `menuItems` is invalid. It can, however, take a `badge`, same as `primaryAction`.
 
 ### secondaryActions & secondaryOverflowMenuItems
 
