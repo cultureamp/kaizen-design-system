@@ -290,27 +290,6 @@ export const EducationVariant: Story = {
   },
 }
 
-/**
- * Legacy: purple
- */
-export const DefaultVariant: Story = {
-  parameters: {
-    viewport: viewports,
-    chromatic: chromaticViewports,
-  },
-  args: {
-    variant: undefined,
-    navigationTabs: [
-      <NavigationTab key="1" text="Label" href="#" active />,
-      <NavigationTab key="2" text="Label" href="#" />,
-      <NavigationTab key="3" text="Label" href="#" />,
-      <NavigationTab key="4" text="Label" href="#" />,
-      <NavigationTab key="5" text="Label" href="#" />,
-      <NavigationTab key="6" text="Label" href="#" />,
-    ],
-  },
-}
-
 export const StickerSheetVariants: Story = {
   name: 'Sticker Sheet (Variants)',
   render: () => (
