@@ -40,11 +40,20 @@ const StickerSheetTemplate: StickerSheetStory = {
         </StickerSheet.Row>
       </StickerSheet>
       <StickerSheet title="Autogrow">
-        <TextArea
-          rows={1}
-          value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mattis nisi sit amet consectetur ultricies. Vestibulum porta arcu vitae erat egestas pulvinar. Proin tincidunt mi ultricies risus ultrices semper. Donec consequat, mi at tincidunt mattis, felis metus semper metus, a imperdiet justo odio ac elit. Nulla et lacinia enim. Donec placerat, arcu a hendrerit iaculis, massa ante venenatis urna, vitae vestibulum massa orci et erat. Sed in cursus arcu. Fusce fringilla urna tincidunt risus sodales mollis. Ut sit amet mi vitae justo aliquam congue eget eu nisl. Mauris sit amet dolor fermentum, rutrum orci eget, feugiat mi. Etiam feugiat auctor augue, non volutpat nisi aliquet non. Praesent dignissim, lacus id iaculis porttitor, purus libero fermentum urna, in faucibus massa enim sed dui. Maecenas et nisi in nulla condimentum dictum. Maecenas tincidunt turpis non consequat pharetra. Suspendisse in auctor erat, vel ullamcorper elit. Nullam rutrum pharetra turpis, id luctus nisi sollicitudin ac. Maecenas sodales malesuada orci. Integer ultrices, nisi non blandit commodo, turpis enim iaculis ante, vel blandit diam sapien eget justo. Mauris scelerisque euismod quam, nec accumsan lorem venenatis vel. Sed rhoncus purus turpis, vel efficitur metus placerat et."
-          autogrow
-        />
+        <StickerSheet.Row header="Wraps on whitespace (container 320px)">
+          <div style={{ maxWidth: '320px', border: '1px dashed currentcolor' }}>
+            <TextArea
+              rows={1}
+              value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque mattis nisi sit amet consectetur ultricies. Vestibulum porta arcu vitae erat egestas pulvinar."
+              autogrow
+            />
+          </div>
+        </StickerSheet.Row>
+        <StickerSheet.Row header="Long unbroken word (container 320px)">
+          <div style={{ maxWidth: '320px', border: '1px dashed currentcolor' }}>
+            <TextArea rows={1} value={'A'.repeat(100)} autogrow />
+          </div>
+        </StickerSheet.Row>
       </StickerSheet>
     </>
   ),

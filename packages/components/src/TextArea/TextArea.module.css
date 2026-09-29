@@ -27,6 +27,7 @@
     box-sizing: border-box;
     width: 100%;
     font: inherit;
+    overflow-wrap: anywhere;
   }
 
   .textareaAutogrow,
