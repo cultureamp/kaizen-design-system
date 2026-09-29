@@ -93,7 +93,7 @@ Renders a Button immediately to the left of `primaryAction`, in the same top
 row. Pass the Button's props as an object, same as `primaryAction`.
 
 Unlike `primaryAction`, `defaultAction` **can't be a menu group** There's no
-dropdown variant of the default action, so passing `menuItems` is invalid. It can, however, take a `badge`, same as `primaryAction`.
+dropdown variant of the default action, so passing `menuItems` is invalid. It can take a `badge`, but the badge only renders on the full-width button: at tablet and ≤360px widths the default action collapses into a menu item and the badge isn't shown.
 
 ### secondaryActions & secondaryOverflowMenuItems
 
