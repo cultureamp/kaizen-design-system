@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.3.15
+
+### Patch Changes
+
+- [#7270](https://github.com/cultureamp/kaizen-design-system/pull/7270) [`039a659`](https://github.com/cultureamp/kaizen-design-system/commit/039a659ca8e9d38f97dd727c6235540957791134) - chore(deps): dependencies update
+
+- [#7239](https://github.com/cultureamp/kaizen-design-system/pull/7239) [`158d144`](https://github.com/cultureamp/kaizen-design-system/commit/158d14488f644cd0a3b5a8a48a6bb8dfca8cea14) - fix: remove stale axe a11y rule disables on TitleBlock and Filter stickersheet stories
+
+  Both were confirmed via manual re-testing to no longer reproduce — `color-contrast`/`landmark-unique` on `TitleBlock.stickersheet.stories.tsx`, and `aria-dialog-name` on `Filter.stickersheet.stories.tsx`. No component code changed, only story-level test config.
+
+- [#7206](https://github.com/cultureamp/kaizen-design-system/pull/7206) [`59f9d33`](https://github.com/cultureamp/kaizen-design-system/commit/59f9d3322f994ff2dfe7f1175e1433e86b657aef) - fix: wrap long unbroken words in `TextArea` and `TextAreaField` instead of overflowing their container
+
 ## 3.3.14
 
 ### Patch Changes
