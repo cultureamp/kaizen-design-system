@@ -57,6 +57,14 @@ const StickerSheetTemplate: StickerSheetStory = {
             </StickerSheet.Row>
           ))}
         </StickerSheet>
+
+        <StickerSheet title="Autogrow" isReversed={isReversed}>
+          <StickerSheet.Row header="Long unbroken word (container 320px)">
+            <div style={{ width: '320px', border: '1px dashed currentcolor' }}>
+              <TextAreaField {...defaultProps} autogrow rows={1} value={'A'.repeat(150)} />
+            </div>
+          </StickerSheet.Row>
+        </StickerSheet>
       </>
     )
   },
