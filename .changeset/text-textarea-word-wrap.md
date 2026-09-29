@@ -2,4 +2,4 @@
 '@kaizen/components': patch
 ---
 
-fix: wrap long unbroken words in `Text` and `TextArea` instead of overflowing their container
+fix: wrap long unbroken words in `TextArea` and `TextAreaField` instead of overflowing their container
