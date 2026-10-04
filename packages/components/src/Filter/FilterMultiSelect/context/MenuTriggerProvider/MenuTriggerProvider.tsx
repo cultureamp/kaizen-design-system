@@ -15,7 +15,9 @@ export type MenuTriggerProviderProps = {
 export type MenuTriggerProviderContextType = {
   menuTriggerProps: HTMLAttributes<HTMLElement>
   buttonProps: ButtonHTMLAttributes<HTMLButtonElement>
-  menuProps: AriaMenuOptions<ItemType>
+  // useMenuTrigger never populates `onAction`; omitting it keeps these props
+  // compatible with useListBox, whose `onAction` signature differs from useMenu's.
+  menuProps: Omit<AriaMenuOptions<ItemType>, 'onAction'>
   menuTriggerState: MenuTriggerState
   buttonRef: React.RefObject<HTMLButtonElement>
 }
