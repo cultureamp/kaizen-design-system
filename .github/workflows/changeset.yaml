@@ -18,7 +18,7 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: ./.github/actions/setup
       - name: Create Release Pull Request or Publish to npm
         run: |
