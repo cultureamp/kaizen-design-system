@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.16
+
+### Patch Changes
+
+- [#7304](https://github.com/cultureamp/kaizen-design-system/pull/7304) [`1be04a7`](https://github.com/cultureamp/kaizen-design-system/commit/1be04a7b5204c867b12f43ad94f6eb9785460cbf) - chore(deps): dependencies update
+
+- [#7271](https://github.com/cultureamp/kaizen-design-system/pull/7271) [`5fe94b1`](https://github.com/cultureamp/kaizen-design-system/commit/5fe94b1d34b0cb9462b0cd02534d57263bf4b0f8) - docs(TitleBlock): add JSDoc to `variant` prop recommending `light` for new implementations
+
 ## 3.3.15
 
 ### Patch Changes
