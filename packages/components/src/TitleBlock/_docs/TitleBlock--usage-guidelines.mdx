@@ -1,5 +1,6 @@
-import { Canvas, DocsStory, Meta, Controls } from '@storybook/blocks'
-import { ResourceLinks, KAIOInstallation, DosAndDonts, DoOrDont } from '~storybook/components'
+import { Canvas, DocsStory, Meta, Controls, Unstyled } from '@storybook/blocks'
+import { ResourceLinks, KAIOInstallation } from '~storybook/components'
+import { InlineNotification } from '~components/Notification'
 import * as TitleBlockStories from './TitleBlock.stories'
 
 <Meta title="Components/TitleBlock/Usage Guidelines" />
@@ -18,31 +19,106 @@ import * as TitleBlockStories from './TitleBlock.stories'
 
 A consistent pattern to allow users to navigate and complete tasks easily.
 
-<Canvas of={TitleBlockStories.Playground} />
+<Canvas of={TitleBlockStories.LightVariant} sourceState="hidden" />
 
 <Controls
-  of={TitleBlockStories.Playground}
-  include={['avatar', 'defaultAction', 'navigationTabs', 'primaryAction', 'title']}
+  of={TitleBlockStories.LightVariant}
+  include={[
+    'avatar',
+    'defaultAction',
+    'navigationTabs',
+    'primaryAction',
+    'sticky',
+    'title',
+    'variant',
+  ]}
 />
+
+## Variants
+
+<Unstyled>
+  <InlineNotification persistent variant="cautionary">
+    {
+      <>
+        <strong>
+          Passing <code>variant="light"</code> is the ongoing recommendation.
+        </strong>{' '}
+        When a variant isn't passed, TitleBlock falls back to the default purple variant.
+      </>
+    }
+  </InlineNotification>
+</Unstyled>
+
+### Light (recommended)
+
+<Canvas of={TitleBlockStories.LightVariant} sourceState="hidden" />
+
+**If you're using navigation tabs, set `variant="light"` on each
+`NavigationTab`** Tabs don't inherit the variant from the TitleBlock. set
+it in both places, or the tabs keep their purple background.
+
+```tsx
+<TitleBlock
+  variant="light"
+  title="Page title"
+  navigationTabs={[
+    <NavigationTab key="1" variant="light" text="Label" href="#" active />,
+    <NavigationTab key="2" variant="light" text="Label" href="#" />,
+  ]}
+/>
+```
+
+### Default (purple)
+
+Shown for recognition only. Don't reach for this on new surfaces.
+
+<Canvas of={TitleBlockStories.Playground} sourceState="hidden" />
+
+## Sticky behavior
+
+Setting `sticky` pins the TitleBlock's top strip to the top of its scroll
+container as the page scrolls, instead of letting it scroll away. Full
+mechanism, structure, and code for reserving space above the strip (for
+example, a banner) are covered in the
+[Sticky Banner guide](/docs/components-titleblock-sticky-banner--docs).
+
+**If your surface is adding Coach, turn `sticky` on.** A pinned top strip is a
+requirement when the header carries a Coach button.
+
+### Coach button placement
+
+For teams adding Coach to a surface that already has a primary Call to action CTA:
+
+- **Coach is the primary action.** Pass it as `primaryAction`.
+- **Demote the existing primary CTA to `defaultAction`.** This is the slot
+  that renders immediately to the left of `primaryAction`, in the same top
+  row. Don't use `secondaryActions` or `secondaryOverflowMenuItems` for this.
+  Those render in a separate row below, alongside the navigation tabs, not
+  next to the primary and default actions.
+
+  TitleBlock predates current naming conventions, so `defaultAction` is
+  its term for what a modern component would call a secondary action: a
+  non-primary button rendered next to the primary one.
+
+- **Coach sits furthest right**, closest to the side panel. TitleBlock is
+  props-based and its action slots aren't reorderable, so passing Coach as
+  `primaryAction` gives you this placement automatically.
 
 ## Examples
 
-### Viewports
-
-<Canvas of={TitleBlockStories.Viewports} />
-
 ### Long titles
 
-<Canvas of={TitleBlockStories.HasLongTitle} />
+<Canvas of={TitleBlockStories.HasLongTitleLightVariant} sourceState="hidden" />
 
-### Light Variant
+### Default action limitations
 
-<Canvas of={TitleBlockStories.LightVariant} />
+`primaryAction` and `defaultAction` both render in the top row, but they don't
+accept the same props:
 
-### Admin Variant
+- **`defaultAction` accepts a `badge`.** Pass `badge: { text: '3' }` alongside
+  the label. It reaches the underlying button, so you also get its optional
+  `variant` and `reversed` fields.
+- **`defaultAction` can't be a dropdown.** Only `primaryAction` accepts a menu
+  group (`{ label, menuItems }`) and renders a button that opens a menu.
 
-<Canvas of={TitleBlockStories.AdminVariant} />
-
-### Education Variant
-
-<Canvas of={TitleBlockStories.EducationVariant} />
+<Canvas of={TitleBlockStories.WithDefaultActionBadge} sourceState="hidden" />

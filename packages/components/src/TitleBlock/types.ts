@@ -17,6 +17,11 @@ import { type NavigationTabProps } from './subcomponents/NavigationTabs'
 export type TitleBlockProps = {
   children?: React.ReactNode
   title: string
+  /**
+   * `light` is the recommended variant for new implementations. Leaving `variant`
+   * unset falls back to the default purple background.
+   *
+   */
   variant?: TitleBlockVariant
   breadcrumb?: TitleBlockBreadcrumbType
   avatar?: JSX.Element | TitleBlockAvatarProps

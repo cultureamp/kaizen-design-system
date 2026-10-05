@@ -30,6 +30,15 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
+const LIGHT_NAVIGATION_TABS = [
+  <NavigationTab key="1" variant="light" text="Label" href="#" active />,
+  <NavigationTab key="2" variant="light" text="Label" href="#" />,
+  <NavigationTab key="3" variant="light" text="Label" href="#" />,
+  <NavigationTab key="4" variant="light" text="Label" href="#" />,
+  <NavigationTab key="5" variant="light" text="Label" href="#" />,
+  <NavigationTab key="6" variant="light" text="Label" href="#" />,
+]
+
 const viewports = {
   viewports: {
     default: {
@@ -181,12 +190,6 @@ export const Playground: Story = {
   },
 }
 
-export const Viewports: Story = {
-  parameters: {
-    viewport: viewports,
-    chromatic: chromaticViewports,
-  },
-}
 export const WithTabNavigation: Story = {
   parameters: {
     viewport: viewports,
@@ -222,6 +225,18 @@ export const HasLongTitle: Story = {
   args: { title: 'A long title with over thirty characters' },
 }
 
+export const HasLongTitleLightVariant: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: { disable: true },
+  },
+  args: {
+    variant: 'light',
+    title: 'A long title with over thirty characters',
+    navigationTabs: LIGHT_NAVIGATION_TABS,
+  },
+}
+
 export const LightVariant: Story = {
   parameters: {
     docs: {
@@ -235,14 +250,7 @@ export const LightVariant: Story = {
   args: {
     variant: 'light',
     title: 'Light TitleBlock',
-    navigationTabs: [
-      <NavigationTab key="1" variant="light" text="Label" href="#" active />,
-      <NavigationTab key="2" variant="light" text="Label" href="#" />,
-      <NavigationTab key="3" variant="light" text="Label" href="#" />,
-      <NavigationTab key="4" variant="light" text="Label" href="#" />,
-      <NavigationTab key="5" variant="light" text="Label" href="#" />,
-      <NavigationTab key="6" variant="light" text="Label" href="#" />,
-    ],
+    navigationTabs: LIGHT_NAVIGATION_TABS,
   },
 }
 
@@ -722,6 +730,34 @@ export const WithOnlySecondaryActions: Story = {
     sectionTitleDescription: undefined,
     breadcrumb: undefined,
     avatar: undefined,
+  },
+}
+
+export const WithDefaultActionBadge: Story = {
+  parameters: {
+    viewport: viewports,
+    chromatic: { disable: true },
+  },
+  args: {
+    variant: 'light',
+    title: 'Goals',
+    surveyStatus: undefined,
+    avatar: undefined,
+    breadcrumb: undefined,
+    secondaryActions: undefined,
+    secondaryOverflowMenuItems: undefined,
+    // Badge is supported: it passes through to the underlying button.
+    defaultAction: {
+      label: 'View drafts',
+      href: '#',
+      badge: { text: '3' },
+    },
+    // Only the primary action can be a menu group (label + menuItems).
+    primaryAction: {
+      label: 'Create goal',
+      menuItems: [{ label: 'Create a single goal' }, { label: 'Bulk create goals' }],
+    },
+    navigationTabs: LIGHT_NAVIGATION_TABS,
   },
 }
 
