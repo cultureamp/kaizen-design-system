@@ -11,7 +11,7 @@
     line-height: var(--typography-paragraph-extra-small-line-height);
     border-radius: var(--border-solid-border-radius);
     box-shadow: var(--shadow-small-box-shadow);
-    background-color: var(--color-purple-800);
+    background-color: var(--bg-primary-solid);
     text-wrap: pretty;
 
     /* fixes FF gap */
@@ -19,7 +19,7 @@
 
     &.reversed {
       background-color: var(--color-white);
-      color: var(--color-purple-800);
+      color: var(--text-primary);
     }
 
     &[data-placement='top'] {

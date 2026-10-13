@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/layout';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '../GenericModal/GenericModal.module';
@@ -32,7 +33,7 @@
   }
 
   .header {
-    color: $color-purple-800;
+    color: $text-primary;
     text-align: start;
 
     &.padded {

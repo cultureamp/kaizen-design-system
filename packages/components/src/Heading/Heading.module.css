@@ -70,12 +70,12 @@
   }
 
   .dark {
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     opacity: 1;
   }
 
   .dark-reduced-opacity {
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     opacity: 0.7;
   }
 
@@ -91,7 +91,7 @@
 
   .positive {
     &.small {
-      color: var(--color-green-600);
+      color: var(--text-success-primary);
     }
 
     &.large {
@@ -101,7 +101,7 @@
 
   .negative {
     &.small {
-      color: var(--color-red-600);
+      color: var(--text-error-primary);
     }
 
     &.large {

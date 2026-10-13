@@ -1,16 +1,17 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '../../../ButtonV1/utils/mixins';
 @import '../../../ButtonV1/utils/variables';
 
 @layer kz-components {
   %directional-link {
-    border: $border-solid-border-width solid $color-blue-300;
+    border: $border-solid-border-width solid $border-brand_alt;
 
     @include enabled-pseudo-states-variant($color-blue-100, $color-blue-400);
 
     &:disabled {
-      border-color: $color-blue-300;
+      border-color: $border-brand_alt;
     }
 
     &.reversed {

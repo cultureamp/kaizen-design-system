@@ -42,6 +42,9 @@ export function makeCSSVariableTheme<ThemeType extends Record<string | number, u
   const augmentedTheme: Record<string, unknown> = {}
 
   const mapper = (leafPath: string[], value: unknown): void => {
+    // Semantic tokens with no confident mapping yet are `null`. A null token has
+    // no value, so emit nothing for it (rather than a literal `null` fallback).
+    if (value === null) return
     const leafKey = leafPath[leafPath.length - 1]
     const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
     const leafObject = pathWithoutLast.reduce(

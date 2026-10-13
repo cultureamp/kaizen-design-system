@@ -36,12 +36,12 @@
       border-color: transparent;
       outline: 2px solid var(--color-blue-500);
       outline-offset: var(--focus-ring-offset);
-      background-color: var(--color-gray-600);
+      background-color: var(--bg-secondary-solid);
     }
 
     .checkbox:not(.disabled) + &:hover,
     label:hover .checkbox:not(.disabled) + & {
-      background-color: var(--color-gray-600);
+      background-color: var(--bg-secondary-solid);
     }
 
     /* stylelint-enable no-descending-specificity */
@@ -76,7 +76,7 @@
 
     .checkbox:focus + .track {
       border-color: transparent;
-      background-color: var(--color-green-600);
+      background-color: var(--bg-success-solid);
     }
 
     .thumb {
@@ -93,7 +93,7 @@
 
     .checkbox:not(.disabled) + .track:hover,
     label:hover & .checkbox:not(.disabled) + .track {
-      background-color: var(--color-green-600);
+      background-color: var(--bg-success-solid);
     }
   }
 

@@ -15,7 +15,7 @@
   }
 
   .child:not(.firstChild) {
-    border-inline-start: 1px solid var(--color-blue-300);
+    border-inline-start: 1px solid var(--border-brand_alt);
   }
 
   .child:not(.firstChild, .lastChild) {

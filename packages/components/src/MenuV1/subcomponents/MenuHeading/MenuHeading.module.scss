@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/spacing';
 
 @layer kz-components {
@@ -6,7 +7,7 @@
 
   .heading {
     padding: 10px $spacing-sm 5px;
-    color: $color-purple-800;
+    color: $text-primary;
     margin: 0 $gutter;
     display: block;
   }

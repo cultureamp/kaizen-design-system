@@ -1,4 +1,5 @@
 @import '~@kaizen/design-tokens/sass/border';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/color';
 @import '~@kaizen/design-tokens/sass/shadow';
 
@@ -17,7 +18,7 @@
     }
 
     &:focus-visible {
-      border-color: $color-blue-500;
+      border-color: $border-brand;
     }
   }
 }

@@ -2,7 +2,7 @@
   .wrapper {
     --avatar-x-y: 1.5rem;
 
-    background: var(--color-gray-300);
+    background: var(--bg-tertiary);
     border-radius: 100%;
     box-sizing: border-box;
     overflow: hidden;
@@ -44,7 +44,7 @@
   }
 
   .otherUser {
-    background: var(--color-gray-300);
+    background: var(--bg-tertiary);
   }
 
   .company {
@@ -86,7 +86,7 @@
 
   .initials {
     box-sizing: border-box;
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     padding-left: 5px;
     padding-right: 5px;
     text-align: center;

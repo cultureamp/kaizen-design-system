@@ -1,6 +1,6 @@
 @layer kz-components {
   .menu {
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     width: 248px;
     flex: 1 1 auto;
     min-height: 0;

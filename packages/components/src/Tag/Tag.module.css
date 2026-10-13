@@ -7,7 +7,7 @@
     font-size: var(--typography-paragraph-small-font-size);
     font-weight: var(--typography-paragraph-small-font-weight);
     letter-spacing: var(--typography-paragraph-small-letter-spacing);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
     display: inline-block;
     border: var(--border-borderless-border-width) var(--border-borderless-border-style)
       var(--border-borderless-border-color);
@@ -76,11 +76,11 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--color-purple-800);
+      color: var(--text-primary);
     }
 
     &:active {
-      color: var(--color-purple-800);
+      color: var(--text-primary);
     }
 
     svg {
@@ -92,7 +92,7 @@
     }
 
     &:focus-visible .iconWrapper {
-      color: var(--color-purple-800);
+      color: var(--text-primary);
 
       &::after {
         --focus-ring-offset: calc((var(--border-focus-ring-border-width)));
@@ -103,7 +103,7 @@
         border-radius: 50%;
         border-width: var(--border-focus-ring-border-width);
         border-style: var(--border-focus-ring-border-style);
-        border-color: var(--color-blue-500);
+        border-color: var(--border-brand);
         inset: calc(-1 * var(--focus-ring-offset));
       }
     }
@@ -144,28 +144,28 @@
   }
 
   .default {
-    background-color: var(--color-gray-300);
+    background-color: var(--bg-tertiary);
   }
 
   .sentimentPositive {
-    background-color: var(--color-green-100);
+    background-color: var(--bg-success-primary);
   }
 
   .sentimentNeutral {
-    background-color: var(--color-gray-300);
+    background-color: var(--bg-tertiary);
   }
 
   .sentimentNegative {
-    background-color: var(--color-red-100);
+    background-color: var(--bg-error-primary);
   }
 
   .sentimentNone {
     background-color: var(--color-white);
-    border-color: var(--color-gray-300);
+    border-color: var(--border-tertiary);
   }
 
   .validationPositive {
-    background-color: var(--color-green-100);
+    background-color: var(--bg-success-primary);
 
     .validationIcon {
       color: var(--color-green-500);
@@ -173,15 +173,15 @@
   }
 
   .validationInformative {
-    background-color: var(--color-blue-100);
+    background-color: var(--bg-brand-primary);
 
     .validationIcon {
-      color: var(--color-blue-500);
+      color: var(--text-brand-primary);
     }
   }
 
   .validationNegative {
-    background-color: var(--color-red-100);
+    background-color: var(--bg-error-primary);
 
     .validationIcon {
       color: var(--color-red-500);
@@ -189,7 +189,7 @@
   }
 
   .validationCautionary {
-    background-color: var(--color-yellow-100);
+    background-color: var(--bg-warning-primary);
 
     .validationIcon {
       color: var(--color-yellow-700);
@@ -197,21 +197,21 @@
   }
 
   .statusLive {
-    background-color: var(--color-green-100);
-    color: var(--color-purple-800);
+    background-color: var(--bg-success-primary);
+    color: var(--text-primary);
   }
 
   .statusAction {
     background-color: var(--color-orange-100);
-    color: var(--color-purple-800);
+    color: var(--text-primary);
   }
 
   .statusClosed {
-    background-color: var(--color-red-100);
+    background-color: var(--bg-error-primary);
   }
 
   .statusDraft {
-    background-color: var(--color-blue-100);
-    color: var(--color-purple-800);
+    background-color: var(--bg-brand-primary);
+    color: var(--text-primary);
   }
 }

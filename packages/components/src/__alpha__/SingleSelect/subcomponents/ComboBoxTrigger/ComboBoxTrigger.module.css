@@ -14,7 +14,7 @@
     width: 100%;
     background-color: var(--color-white);
     border-radius: 0.4375rem;
-    border: var(--spacing-2) solid var(--color-gray-500);
+    border: var(--spacing-2) solid var(--border-secondary);
     box-sizing: border-box;
   }
 
@@ -33,12 +33,12 @@
   }
 
   .secondary:not(.disabled, .readOnly):hover {
-    border: var(--spacing-2) solid var(--color-gray-600);
+    border: var(--spacing-2) solid var(--border-primary);
     border-radius: 0.4375rem;
   }
 
   .secondary:not(.disabled, .readOnly):focus-within {
-    border: var(--spacing-2) solid var(--color-gray-600);
+    border: var(--spacing-2) solid var(--border-primary);
     border-radius: 0.4375rem;
   }
 
@@ -59,7 +59,7 @@
 
   .disabled {
     pointer-events: none;
-    border: var(--spacing-2) solid var(--color-gray-300);
+    border: var(--spacing-2) solid var(--border-tertiary);
     background-color: var(--color-gray-100);
 
     .input {
@@ -71,7 +71,7 @@
   .readOnly {
     pointer-events: none;
     background-color: var(--color-gray-200);
-    border: var(--spacing-2) solid var(--color-gray-200);
+    border: var(--spacing-2) solid var(--border-secondary_alt);
 
     .input {
       background-color: var(--color-gray-200);
@@ -90,7 +90,7 @@
   }
 
   .trigger:hover:not(:focus-within) {
-    border-color: var(--color-gray-600);
+    border-color: var(--border-primary);
     background-color: var(--color-gray-200);
 
     .input {

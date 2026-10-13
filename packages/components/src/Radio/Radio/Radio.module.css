@@ -18,7 +18,7 @@
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 50%;
-    background: var(--color-gray-600);
+    background: var(--bg-secondary-solid);
     position: absolute;
 
     &.reversed {
@@ -46,19 +46,20 @@
     height: var(--radio-size);
     width: var(--radio-size);
     top: 0;
-    border: var(--border-solid-border-width) var(--border-solid-border-style) var(--color-gray-500);
+    border: var(--border-solid-border-width) var(--border-solid-border-style)
+      var(--border-secondary);
     box-sizing: border-box;
     border-radius: 50%;
 
     .radioInput:focus:not([disabled]) + & {
-      border-color: var(--color-gray-600);
+      border-color: var(--border-primary);
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-500);
       outline-offset: 1px;
     }
 
     .radioInput:not([disabled]) + &:hover {
-      border-color: var(--color-gray-600);
+      border-color: var(--border-primary);
       background-color: var(--color-gray-200);
     }
 

@@ -28,7 +28,7 @@
 
     &:hover,
     &:focus-visible {
-      color: var(--color-purple-800);
+      color: var(--text-primary);
     }
   }
 

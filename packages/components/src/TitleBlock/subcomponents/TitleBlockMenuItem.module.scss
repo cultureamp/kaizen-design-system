@@ -1,11 +1,12 @@
 @import '~@kaizen/design-tokens/sass/color';
+@import '~@kaizen/design-tokens/sass/semantic-color';
 @import '~@kaizen/design-tokens/sass/spacing';
 @import '~@kaizen/design-tokens/sass/typography';
 
 /* stylelint-disable no-descending-specificity */
 
 @layer kz-components {
-  // We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props
+  /* We're duplicating the CSS instead of manipulating the Menu package to accept the alternate props */
   .menuListItem {
     display: flex;
   }
@@ -28,7 +29,7 @@
     line-height: $typography-paragraph-body-line-height;
     letter-spacing: $typography-paragraph-body-letter-spacing;
     text-decoration: none;
-    color: $color-purple-800;
+    color: $text-primary;
 
     &:hover {
       text-decoration: none;
@@ -36,19 +37,19 @@
 
     &:not(.menuItem--disabled):hover,
     &:focus {
-      background: $color-blue-100;
-      color: $color-blue-500;
+      background: $bg-brand-primary;
+      color: $text-brand-primary;
 
       .menuItem__Icon {
-        color: $color-blue-500;
+        color: $text-brand-primary;
       }
 
       &.menuItem--destructive {
-        background: $color-red-100;
-        color: $color-red-600;
+        background: $bg-error-primary;
+        color: $text-error-primary;
 
         .menuItem__Icon {
-          color: $color-red-600;
+          color: $text-error-primary;
         }
       }
     }
@@ -58,7 +59,7 @@
     }
 
     &:focus-visible {
-      border-color: $color-blue-500;
+      border-color: $border-brand;
     }
   }
 
@@ -71,15 +72,15 @@
   }
 
   .menuItem--active {
-    color: $color-blue-500;
+    color: $text-brand-primary;
     font-weight: $typography-paragraph-bold-font-weight;
   }
 
   .menuItem--destructive {
-    color: $color-red-600;
+    color: $text-error-primary;
 
     .menuItem__Icon {
-      color: $color-red-600;
+      color: $text-error-primary;
     }
   }
 
