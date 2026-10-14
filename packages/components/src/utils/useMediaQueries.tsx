@@ -118,8 +118,8 @@ export const useMediaQueries = (
       })
     }
 
-    smallMatchMedia.addEventListener('change', updateMatches, true)
-    largeMatchMedia.addEventListener('change', updateMatches, true)
+    smallMatchMedia.addEventListener('change', updateMatches)
+    largeMatchMedia.addEventListener('change', updateMatches)
 
     return () => {
       smallMatchMedia.removeEventListener('change', updateMatches)
@@ -165,7 +165,7 @@ export const useMediaQueries = (
       allEventListeners.set(matchMedia, updateCustomMatchesForQuery)
 
       // Add the event listener
-      matchMedia.addEventListener('change', updateCustomMatchesForQuery, true)
+      matchMedia.addEventListener('change', updateCustomMatchesForQuery)
     })
 
     return () => {
