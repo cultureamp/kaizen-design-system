@@ -70,6 +70,36 @@ describe('useMediaQueries()', () => {
     expect(screen.queryByRole('button', { name: /Prefers reduced component/i })).toBeInTheDocument()
   })
 
+  it('removes every listener it adds on unmount', () => {
+    const mediaQueryLists: MediaQueryList[] = []
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: vi.fn().mockImplementation((query) => {
+        const mediaQueryList = {
+          matches: false,
+          media: query,
+          addEventListener: vi.fn(),
+          removeEventListener: vi.fn(),
+        } as unknown as MediaQueryList
+        mediaQueryLists.push(mediaQueryList)
+        return mediaQueryList
+      }),
+    })
+
+    const { unmount } = render(<ExampleComponent />)
+    unmount()
+
+    const listenedTo = mediaQueryLists.filter(
+      (mediaQueryList) => vi.mocked(mediaQueryList.addEventListener).mock.calls.length > 0,
+    )
+    expect(listenedTo).toHaveLength(3)
+    listenedTo.forEach((mediaQueryList) => {
+      expect(vi.mocked(mediaQueryList.removeEventListener).mock.calls).toEqual(
+        vi.mocked(mediaQueryList.addEventListener).mock.calls,
+      )
+    })
+  })
+
   it('subtracts 1px correctly', () => {
     expect(subtractOnePixel('1080px')).toEqual('1079px')
   })
