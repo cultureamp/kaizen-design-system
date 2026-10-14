@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.3.17
+
+### Patch Changes
+
+- [#7337](https://github.com/cultureamp/kaizen-design-system/pull/7337) [`e0231a9`](https://github.com/cultureamp/kaizen-design-system/commit/e0231a9deb1cbb65dbc3f2c4562242e04958defe) - fix(useMediaQueries): remove media query listeners on unmount
+
+  Listeners are now removed when the component unmounts.
+
+- [#7335](https://github.com/cultureamp/kaizen-design-system/pull/7335) [`ea51ab0`](https://github.com/cultureamp/kaizen-design-system/commit/ea51ab09b9bd7d79a767fffcdfcbe5b6db1d4dd9) - chore: deps update
+
 ## 3.3.16
 
 ### Patch Changes
