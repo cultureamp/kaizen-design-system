@@ -3,7 +3,9 @@ import type { Selection } from '@react-types/shared'
 import type { Meta, StoryObj } from '@storybook/react'
 import { expect, userEvent, waitFor, within } from '@storybook/test'
 import isChromatic from 'chromatic'
+import { Button } from '~components/Button'
 import { Card } from '~components/Card'
+import { Menu, MenuItem, MenuPopover, MenuTrigger } from '~components/Menu'
 import { InlineNotification } from '~components/Notification'
 import { TextField } from '~components/TextField'
 import { FilterMultiSelect, getSelectedOptionLabels } from '..'
@@ -416,6 +418,72 @@ export const ShouldResize: Story = {
     await step('Trigger opens the FilterMultiSelect dialog', async () => {
       await userEvent.click(triggerButton)
       await waitFor(() => expect(canvas.getByRole('dialog')).toBeVisible())
+    })
+  },
+}
+
+/**
+ * A react-aria popover placed above its trigger is positioned by `bottom`. Scroll-locking the page
+ * makes `body` `position: relative`, re-anchoring that `bottom` to the foot of the page, so the
+ * whole popover jumps off-screen as soon as the FilterMultiSelect opens.
+ */
+export const InsideMenuPopoverAboveTrigger: Story = {
+  args: {
+    customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
+  },
+  render: (args) => {
+    const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(args.selectedKeys)
+
+    return (
+      <div>
+        <div style={{ height: '50vh' }} />
+        <MenuTrigger>
+          <Button>Open menu</Button>
+          <MenuPopover placement="top start" shouldFlip={false}>
+            <Menu aria-label="Actions">
+              <MenuItem>An action</MenuItem>
+            </Menu>
+            <div className="p-16">
+              <FilterMultiSelect
+                {...args}
+                onSelectionChange={setSelectedKeys}
+                selectedKeys={selectedKeys}
+                trigger={(): JSX.Element => (
+                  <FilterMultiSelect.TriggerButton
+                    selectedOptionLabels={getSelectedOptionLabels(selectedKeys, args.items)}
+                    label={args.label}
+                  />
+                )}
+              />
+            </div>
+          </MenuPopover>
+        </MenuTrigger>
+        {/* Content below makes the page taller than the viewport, as on a real report page */}
+        <div style={{ height: '200vh' }} />
+      </div>
+    )
+  },
+  parameters: {
+    // Interaction coverage only — the open popovers make for an unstable visual baseline.
+    chromatic: { disable: true },
+    docs: { source: { type: 'code' } },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement.parentElement!)
+
+    await userEvent.click(canvas.getByRole('button', { name: 'Open menu' }))
+    const menuItem = await canvas.findByRole('menuitem', { name: 'An action' })
+    const menuPopover = menuItem.closest<HTMLElement>('[data-placement]')!
+    const topBefore = menuPopover.getBoundingClientRect().top
+
+    await step('Opening the FilterMultiSelect leaves the menu popover in place', async () => {
+      await userEvent.click(canvas.getByRole('button', { name: /Engineer/i }))
+      await canvas.findByRole('listbox')
+
+      await waitFor(() => {
+        expect(menuPopover.getBoundingClientRect().top).toBeCloseTo(topBefore, 0)
+        expect(menuItem).toBeVisible()
+      })
     })
   },
 }
