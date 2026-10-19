@@ -473,7 +473,8 @@ export const InsideMenuPopoverAboveTrigger: Story = {
 
     await userEvent.click(canvas.getByRole('button', { name: 'Open menu' }))
     const menuItem = await canvas.findByRole('menuitem', { name: 'An action' })
-    const menuPopover = menuItem.closest<HTMLElement>('[data-placement]')!
+    const menuPopover = menuItem.closest<HTMLElement>('[data-placement]')
+    if (!menuPopover) throw new Error('MenuPopover root has no data-placement attribute')
     const topBefore = menuPopover.getBoundingClientRect().top
 
     await step('Opening the FilterMultiSelect leaves the menu popover in place', async () => {

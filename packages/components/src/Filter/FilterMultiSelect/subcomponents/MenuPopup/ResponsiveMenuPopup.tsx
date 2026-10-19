@@ -70,6 +70,8 @@ export const ResponsiveMenuPopup = ({
         }),
     ],
     ...floatingConfig,
+    // Without a scroll lock the page can scroll, so a custom config must still follow its trigger
+    whileElementsMounted: floatingConfig.whileElementsMounted ?? autoUpdate,
   })
 
   const handleReturnFocus = (): void => {
