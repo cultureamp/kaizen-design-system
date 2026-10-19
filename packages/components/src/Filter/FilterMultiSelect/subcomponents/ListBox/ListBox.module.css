@@ -6,6 +6,9 @@
     display: grid;
     max-height: 22rem;
     overflow-y: auto;
+
+    /* The popup no longer locks page scroll, so stop the list's scroll chaining to the page */
+    overscroll-behavior: contain;
   }
 
   .overflown {
