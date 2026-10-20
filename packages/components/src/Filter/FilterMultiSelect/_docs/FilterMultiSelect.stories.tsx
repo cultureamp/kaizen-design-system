@@ -428,41 +428,31 @@ export const ShouldResize: Story = {
  * whole popover jumps off-screen as soon as the FilterMultiSelect opens.
  */
 export const InsideMenuPopoverAboveTrigger: Story = {
+  ...FilterMultiSelectTemplate,
   args: {
+    isOpen: IS_CHROMATIC || undefined,
     customMenuPopup: (props): JSX.Element => <FilterMultiSelect.ResponsiveMenuPopup {...props} />,
   },
-  render: (args) => {
-    const [selectedKeys, setSelectedKeys] = useState<Selection | undefined>(args.selectedKeys)
-
-    return (
+  decorators: [
+    (Story) => (
       <div>
         <div style={{ height: '50vh' }} />
-        <MenuTrigger>
+        <MenuTrigger defaultOpen={IS_CHROMATIC || undefined}>
           <Button>Open menu</Button>
-          <MenuPopover placement="top start" shouldFlip={false}>
+          <MenuPopover placement="top start" shouldFlip={false} className="flex-col md:flex-row">
             <Menu aria-label="Actions">
               <MenuItem>An action</MenuItem>
             </Menu>
             <div className="p-16">
-              <FilterMultiSelect
-                {...args}
-                onSelectionChange={setSelectedKeys}
-                selectedKeys={selectedKeys}
-                trigger={(): JSX.Element => (
-                  <FilterMultiSelect.TriggerButton
-                    selectedOptionLabels={getSelectedOptionLabels(selectedKeys, args.items)}
-                    label={args.label}
-                  />
-                )}
-              />
+              <Story />
             </div>
           </MenuPopover>
         </MenuTrigger>
         {/* Content below makes the page taller than the viewport, as on a real report page */}
         <div style={{ height: '200vh' }} />
       </div>
-    )
-  },
+    ),
+  ],
   parameters: {
     // Interaction coverage only — the open popovers make for an unstable visual baseline.
     chromatic: { disable: true },
