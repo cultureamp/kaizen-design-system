@@ -70,6 +70,8 @@ export const ResponsiveMenuPopup = ({
         }),
     ],
     ...floatingConfig,
+    // Without a scroll lock the page can scroll, so a custom config must still follow its trigger
+    whileElementsMounted: floatingConfig.whileElementsMounted ?? autoUpdate,
   })
 
   const handleReturnFocus = (): void => {
@@ -88,7 +90,10 @@ export const ResponsiveMenuPopup = ({
   return menuTriggerState.isOpen ? (
     <FocusOn
       enabled={menuTriggerState.isOpen}
-      scrollLock={true}
+      // A scroll lock makes body `position: relative`, which moves any react-aria popover placed
+      // above its trigger (positioned by `bottom`) off-screen. floating-ui keeps the popup
+      // anchored on scroll, so no lock is needed.
+      scrollLock={false}
       returnFocus={false}
       onClickOutside={menuTriggerState.close}
       onEscapeKey={menuTriggerState.close}
