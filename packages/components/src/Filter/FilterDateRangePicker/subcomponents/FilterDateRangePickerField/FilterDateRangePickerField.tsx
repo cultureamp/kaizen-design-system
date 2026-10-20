@@ -21,6 +21,7 @@ import { filterDatePickerFieldReducer } from './filterDateRangePickerFieldReduce
 import { useEndDateValidation } from './hooks/useEndDateValidation'
 import { useStartDateValidation } from './hooks/useStartDateValidation'
 import { type DateRangeFieldValidationMessage } from './types'
+import { addDateToRange } from './utils/addDateToRange'
 import { isValidRange } from './utils/isValidRange'
 import styles from './FilterDateRangePickerField.module.scss'
 
@@ -220,7 +221,12 @@ export const FilterDateRangePickerField = ({
     ...inputEndDateProps,
   })
 
-  const handleCalendarSelectRange: CalendarRangeProps['onSelect'] = (range) => {
+  // DayPicker's own range never lets a complete range's start move later
+  const handleCalendarSelectRange: CalendarRangeProps['onSelect'] = (_, triggerDate) => {
+    const range = addDateToRange(
+      { from: state.selectedStartDate, to: state.selectedEndDate },
+      triggerDate,
+    )
     const inputStartValue = transformDateToInputValue(range?.from)
     const inputEndValue = transformDateToInputValue(range?.to)
 
