@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.0.21
+
+### Patch Changes
+
+- [#7335](https://github.com/cultureamp/kaizen-design-system/pull/7335) [`ea51ab0`](https://github.com/cultureamp/kaizen-design-system/commit/ea51ab09b9bd7d79a767fffcdfcbe5b6db1d4dd9) - chore: deps update
+
 ## 11.0.20
 
 ### Patch Changes
