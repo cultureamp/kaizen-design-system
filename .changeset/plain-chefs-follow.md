@@ -5,4 +5,4 @@
 '@docs/storybook': patch
 ---
 
-chore: deps update
+chore(deps): update dependencies
