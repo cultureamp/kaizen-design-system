@@ -541,8 +541,8 @@ importers:
         specifier: ^4.1.1
         version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.30))(postcss@8.5.30)(rollup@4.65.0)(tslib@2.8.1)(typescript@5.9.3)
       '@types/color-string':
-        specifier: ^1.5.5
-        version: 1.5.5
+        specifier: ^2.1.4
+        version: 2.1.4
       '@types/lodash.flatmap':
         specifier: ^4.5.9
         version: 4.5.9
@@ -4471,8 +4471,9 @@ packages:
     resolution: {integrity: sha512-1zzPV9FDe1I/WHhRkf9SNgqtRJWZqrBWgu7JGveuHmmyR9CnAPCie2N/x+iHrgnpYBIcCJWHBoMRv2TRWktsvw==}
     deprecated: This is a stub types definition for chalk (https://github.com/chalk/chalk). chalk provides its own type definitions, so you don't need @types/chalk installed!
 
-  '@types/color-string@1.5.5':
-    resolution: {integrity: sha512-p9+C1ssJsjnHV8nn96rkimm2h90LclLIwgBfiMCHW0oUr6jLmB+wzZUEGJPduB/D2RzI2Ahoe69xKNOawX6jgw==}
+  '@types/color-string@2.1.4':
+    resolution: {integrity: sha512-BxxFR9i6oavGY8frHECm6bUOY5WeTG8vU2UrNdqk+cVbA+GLVL0RCw0MDzbJT9Y8hFlzSnGHT5+E6eany4dLPw==}
+    deprecated: This is a stub types definition. color-string provides its own type definitions, so you do not need this installed.
 
   '@types/commander@2.12.2':
     resolution: {integrity: sha512-0QEFiR8ljcHp9bAbWxecjVRuAMr16ivPiGOw6KFQBVrVd0RQIcM3xKdRisH2EDWgVWujiYtHwhSkSUoAAGzH7Q==}
@@ -15435,7 +15436,9 @@ snapshots:
     dependencies:
       chalk: 5.6.2
 
-  '@types/color-string@1.5.5': {}
+  '@types/color-string@2.1.4':
+    dependencies:
+      color-string: 1.9.1
 
   '@types/commander@2.12.2':
     dependencies:
