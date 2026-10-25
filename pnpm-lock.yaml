@@ -104,8 +104,8 @@ importers:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-mdx:
-        specifier: ^3.8.1
-        version: 3.8.1(eslint@9.39.5(jiti@1.21.7))
+        specifier: ^3.8.2
+        version: 3.8.2(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: ^5.5.7
         version: 5.5.7(@types/eslint@8.56.10)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@1.21.7)))(eslint@9.39.5(jiti@1.21.7))(prettier@3.9.10)
@@ -4839,6 +4839,11 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  acorn@8.19.0:
+    resolution: {integrity: sha512-oJlA3XiRm7Cyk6qFD2Jn8ak9B7jSy0qy00ADO3+8dpT0LSjFihQYv4C02LFCSYJV3Q37xYwwRy5m+IpIiUzqWw==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
@@ -6149,8 +6154,8 @@ packages:
       eslint-plugin-import-x:
         optional: true
 
-  eslint-mdx@3.8.1:
-    resolution: {integrity: sha512-hnsqWwMOHqUANwxWEGt8XbwABPEr5sTOolAzqyUDFdlERpqjFE/icylb+mJl60VICL+kLbbvXWbnFLWZdTqJ2g==}
+  eslint-mdx@3.8.2:
+    resolution: {integrity: sha512-mgHCDubLWobY6hMbBTSOTCn6YBw3BcnCt5Qp8OaoE9UdJHm5+d7Ai+5rY1tpsziCo+VVUrAGCfcTtapPVApkIg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -6201,8 +6206,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-mdx@3.8.1:
-    resolution: {integrity: sha512-4OLgotfBxUDc1f6ihXSagT/1+JCCUABA/2r6Kzl6gqFftg4dCV0wBfdwFo6X6UO/FzTHr3g6mVt+6prRXffc/Q==}
+  eslint-plugin-mdx@3.8.2:
+    resolution: {integrity: sha512-A0rcLaVZTwDovNrPBCDWzcNe4Mzu9rW+C/uLeF/j7/aDOlviRlqOowCe6ntjVnlIyUGAjnKv5EW5UoQY4UlbYg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -7709,8 +7714,8 @@ packages:
   md5.js@1.3.5:
     resolution: {integrity: sha512-xitP+WxNPcTTOgnTJcrhM0xvdPepipPSf3I8EIpGKeFLjt3PlJLIDG3u8EX53ZIubkb+5U2+3rELYpEhHhzdkg==}
 
-  mdast-util-from-markdown@2.0.3:
-    resolution: {integrity: sha512-W4mAWTvSlKvf8L6J+VN9yLSqQ9AOAAvHuoDAmPkz4dHf553m5gVj2ejadHJhoJmcmxEnOv6Pa8XJhpxE93kb8Q==}
+  mdast-util-from-markdown@2.1.0:
+    resolution: {integrity: sha512-KRLgmPaP2H1ul2bpoJkOS+9pAcDAAj9Nu1mqLnh8NLeJG5tlvj42TH80PIGBpROWlRXLk0lDrWNuZCFy/tsB4A==}
 
   mdast-util-mdx-expression@2.0.1:
     resolution: {integrity: sha512-J6f+9hUp+ldTZqKRSg7Vw5V6MqjATc+3E4gf3CFNcuZNWD8XdyI6zQ8GqH7f8169MM6P7hMBRDVGnn7oHB9kXQ==}
@@ -15729,12 +15734,18 @@ snapshots:
     dependencies:
       acorn: 8.18.0
 
+  acorn-jsx@5.3.2(acorn@8.19.0):
+    dependencies:
+      acorn: 8.19.0
+
   acorn-walk@8.3.5:
     dependencies:
       acorn: 8.18.0
     optional: true
 
   acorn@8.18.0: {}
+
+  acorn@8.19.0: {}
 
   agent-base@6.0.2:
     dependencies:
@@ -17283,17 +17294,17 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-mdx@3.8.1(eslint@9.39.5(jiti@1.21.7)):
+  eslint-mdx@3.8.2(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
-      acorn: 8.18.0
-      acorn-jsx: 5.3.2(acorn@8.18.0)
+      acorn: 8.19.0
+      acorn-jsx: 5.3.2(acorn@8.19.0)
       eslint: 9.39.5(jiti@1.21.7)
       espree: 10.4.0
       estree-util-visit: 2.0.0
       remark-mdx: 3.1.1
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      synckit: 0.11.13
+      synckit: 0.12.3
       unified: 11.0.5
       unified-engine: 11.2.2
       unist-util-visit: 5.1.0
@@ -17374,17 +17385,17 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-mdx@3.8.1(eslint@9.39.5(jiti@1.21.7)):
+  eslint-plugin-mdx@3.8.2(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
       eslint: 9.39.5(jiti@1.21.7)
-      eslint-mdx: 3.8.1(eslint@9.39.5(jiti@1.21.7))
-      mdast-util-from-markdown: 2.0.3
+      eslint-mdx: 3.8.2(eslint@9.39.5(jiti@1.21.7))
+      mdast-util-from-markdown: 2.1.0
       mdast-util-mdx: 3.0.0
       micromark-extension-mdxjs: 3.0.0
       remark-mdx: 3.1.1
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      synckit: 0.11.13
+      synckit: 0.12.3
       unified: 11.0.5
       vfile: 6.0.3
     transitivePeerDependencies:
@@ -19316,7 +19327,7 @@ snapshots:
       inherits: 2.0.4
       safe-buffer: 5.2.1
 
-  mdast-util-from-markdown@2.0.3:
+  mdast-util-from-markdown@2.1.0:
     dependencies:
       '@types/mdast': 4.0.4
       '@types/unist': 3.0.3
@@ -19339,7 +19350,7 @@ snapshots:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
       devlop: 1.1.0
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.1.0
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
@@ -19352,7 +19363,7 @@ snapshots:
       '@types/unist': 3.0.3
       ccount: 2.0.1
       devlop: 1.1.0
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.1.0
       mdast-util-to-markdown: 2.1.2
       parse-entities: 4.0.2
       stringify-entities: 4.0.4
@@ -19363,7 +19374,7 @@ snapshots:
 
   mdast-util-mdx@3.0.0:
     dependencies:
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.1.0
       mdast-util-mdx-expression: 2.0.1
       mdast-util-mdx-jsx: 3.2.0
       mdast-util-mdxjs-esm: 2.0.1
@@ -19377,7 +19388,7 @@ snapshots:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
       devlop: 1.1.0
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.1.0
       mdast-util-to-markdown: 2.1.2
     transitivePeerDependencies:
       - supports-color
@@ -21352,7 +21363,7 @@ snapshots:
   remark-parse@11.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-      mdast-util-from-markdown: 2.0.3
+      mdast-util-from-markdown: 2.1.0
       micromark-util-types: 2.0.2
       unified: 11.0.5
     transitivePeerDependencies:
