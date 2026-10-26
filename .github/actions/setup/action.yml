@@ -16,7 +16,7 @@ runs:
     - name: Cache pnpm store
       uses: actions/setup-node@v4
       with:
-        node-version-file: package.json
+        node-version-file: .nvmrc
         registry-url: https://npm.pkg.github.com/
         cache: 'pnpm'
 
