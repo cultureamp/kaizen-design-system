@@ -12,7 +12,7 @@ steps:
     agent_query_rules: ['queue=build-unrestricted-large']
     plugins:
       - docker#v5.9.0:
-          image: node:22-bullseye
+          image: node:22.23.4-bookworm
           propagate-environment: true
           propagate-aws-auth-tokens: true
           environment:
