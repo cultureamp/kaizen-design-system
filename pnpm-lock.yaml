@@ -484,8 +484,8 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.31)
       query-string:
-        specifier: ^9.5.1
-        version: 9.5.1
+        specifier: ^10.0.0
+        version: 10.0.0
       react:
         specifier: 19.2.8
         version: 19.2.8
@@ -6436,6 +6436,10 @@ packages:
     resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}
     engines: {node: '>=14.16'}
 
+  filter-obj@6.1.0:
+    resolution: {integrity: sha512-xdMtCAODmPloU9qtmPcdBV9Kd27NtMse+4ayThxqIHUES5Z2S6bGpap5PpdmNM56ub7y3i1eyr+vJJIIgWGKmA==}
+    engines: {node: '>=18'}
+
   find-cache-dir@3.3.2:
     resolution: {integrity: sha512-wXZV5emFEjrridIgED11OoUKLxiYjAcqot/NJdAkOhlJ+vGzwhOAfcG5OX1jP+S0PcjEn8bdMJv+g2jwQ3Onig==}
     engines: {node: '>=8'}
@@ -9080,6 +9084,10 @@ packages:
   quansync@0.2.11:
     resolution: {integrity: sha512-AifT7QEbW9Nri4tAwR5M/uzpBuqfZf+zwaEM/QkzEjj7NBuFD2rBuy0K3dE+8wltbezDV7JMA0WfnCPYRSYbXA==}
 
+  query-string@10.0.0:
+    resolution: {integrity: sha512-QYodx/Ywk8lCcOmsyupXVN91yWPAdjq0xVqE2FE2BHFYnma71C8txR8JCBptjzoUpkfAK7Qjua9VjYRTru4LYg==}
+    engines: {node: '>=22'}
+
   query-string@9.5.1:
     resolution: {integrity: sha512-/zO3RwuRCMTIcEgq6YMv4OrtEE1XzBG7w5N6zc6ydYnkWYOWsnLI/5894hYEzfESfMOT4cHCsRTIdxsSl1KjGg==}
     engines: {node: '>=18'}
@@ -9655,6 +9663,10 @@ packages:
   split-on-first@3.0.0:
     resolution: {integrity: sha512-qxQJTx2ryR0Dw0ITYyekNQWpz6f8dGd7vffGNflQQ3Iqj9NJ6qiZ7ELpZsJ/QBhIVAiDfXdag3+Gp8RvWa62AA==}
     engines: {node: '>=12'}
+
+  split-on-first@4.0.0:
+    resolution: {integrity: sha512-pyrgNqiEBHA9KlEtg9quYGagtrlTyukL3ryQ+RmjRn9SYmcNQmfa+sWIsI+hlcL4WrmFdrt7IfM6o8ktBAooDQ==}
+    engines: {node: '>=20'}
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -17758,6 +17770,8 @@ snapshots:
 
   filter-obj@5.1.0: {}
 
+  filter-obj@6.1.0: {}
+
   find-cache-dir@3.3.2:
     dependencies:
       commondir: 1.0.1
@@ -21110,6 +21124,11 @@ snapshots:
 
   quansync@0.2.11: {}
 
+  query-string@10.0.0:
+    dependencies:
+      filter-obj: 6.1.0
+      split-on-first: 4.0.0
+
   query-string@9.5.1:
     dependencies:
       decode-uri-component: 0.5.0
@@ -21938,6 +21957,8 @@ snapshots:
   spdx-license-ids@3.0.23: {}
 
   split-on-first@3.0.0: {}
+
+  split-on-first@4.0.0: {}
 
   sprintf-js@1.0.3: {}
 
