@@ -422,7 +422,7 @@ importers:
         version: 4.6.6(@cultureamp/frontend-apis@13.3.0(@cultureamp/next-head-hook@1.1.11(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(typescript@5.9.3))(encoding@0.1.13)(eslint@9.39.5(jiti@1.21.7))(next@15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6))(react@19.2.8)(ts-jest@29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.5)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.5)(typescript@5.9.3)))(typescript@5.9.3))(typescript@5.9.3)
       '@cultureamp/package-bundler':
         specifier: ^4.1.1
-        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)
+        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)
       '@kaizen/design-tokens':
         specifier: workspace:*
         version: link:../design-tokens
@@ -514,8 +514,8 @@ importers:
         specifier: ^3.3.0
         version: 3.3.0
       tslib:
-        specifier: ^2.8.1
-        version: 2.8.1
+        specifier: ^2.9.1
+        version: 2.9.1
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
@@ -539,7 +539,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^4.1.1
-        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)
+        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)
       '@types/color-string':
         specifier: ^1.5.5
         version: 1.5.5
@@ -580,8 +580,8 @@ importers:
         specifier: ^4.67.2
         version: 4.67.2
       tslib:
-        specifier: ^2.8.1
-        version: 2.8.1
+        specifier: ^2.9.1
+        version: 2.9.1
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
@@ -594,7 +594,7 @@ importers:
     devDependencies:
       '@cultureamp/package-bundler':
         specifier: ^4.1.1
-        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)
+        version: 4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.19(tsx@4.23.15))
@@ -614,8 +614,8 @@ importers:
         specifier: ^3.4.19
         version: 3.4.19(tsx@4.23.15)
       tslib:
-        specifier: ^2.8.1
-        version: 2.8.1
+        specifier: ^2.9.1
+        version: 2.9.1
 
 packages:
 
@@ -10289,8 +10289,8 @@ packages:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
 
-  tslib@2.8.1:
-    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+  tslib@2.9.1:
+    resolution: {integrity: sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==}
 
   tsx@4.23.15:
     resolution: {integrity: sha512-Yiex1Ovn8z2xPpOWckIiysV1SSyRMY9BkLF++q0yKiDxCqRhosKfMg3janKkiLBwZ5c/YryloKwGZcrEmtwxKw==}
@@ -12431,7 +12431,7 @@ snapshots:
       next: 15.2.5(@babel/core@7.29.7)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(sass@1.79.6)
       react: 19.2.8
 
-  '@cultureamp/package-bundler@4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)':
+  '@cultureamp/package-bundler@4.1.1(@babel/core@7.29.7)(@types/babel__core@7.20.5)(postcss-preset-env@11.6.1(postcss@8.5.31))(postcss@8.5.31)(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)':
     dependencies:
       '@babel/plugin-transform-react-pure-annotations': 7.29.7(@babel/core@7.29.7)
       '@rollup/plugin-alias': 5.1.1(rollup@4.67.2)
@@ -12439,7 +12439,7 @@ snapshots:
       '@rollup/plugin-commonjs': 28.0.9(rollup@4.67.2)
       '@rollup/plugin-json': 6.1.0(rollup@4.67.2)
       '@rollup/plugin-node-resolve': 16.0.3(rollup@4.67.2)
-      '@rollup/plugin-typescript': 12.1.4(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)
+      '@rollup/plugin-typescript': 12.1.4(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)
       babel-plugin-pure-static-props: 0.2.0(@babel/core@7.29.7)
       concat-cli: 4.0.0
       postcss: 8.5.31
@@ -12450,7 +12450,7 @@ snapshots:
       rollup-plugin-node-externals: 8.1.2(rollup@4.67.2)
       rollup-plugin-styler: 2.0.0(patch_hash=d041494a2966814d88e1e74ad7560eb52db499dcc7fcb0ae666a57a0b242f5a3)(rollup@4.67.2)(typescript@5.9.3)
       ts-patch: 3.3.0
-      tslib: 2.8.1
+      tslib: 2.9.1
       typescript: 5.9.3
       typescript-transform-paths: 3.5.5(typescript@5.9.3)
     transitivePeerDependencies:
@@ -12467,17 +12467,17 @@ snapshots:
   '@emnapi/core@1.10.0':
     dependencies:
       '@emnapi/wasi-threads': 1.2.1
-      tslib: 2.8.1
+      tslib: 2.9.1
     optional: true
 
   '@emnapi/runtime@1.11.3':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
     optional: true
 
   '@emnapi/wasi-threads@1.2.1':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
     optional: true
 
   '@emotion/babel-plugin@11.11.0':
@@ -12788,7 +12788,7 @@ snapshots:
       fs-extra: 11.2.0
       json-stable-stringify: 1.3.0
       loud-rejection: 2.2.0
-      tslib: 2.8.1
+      tslib: 2.9.1
       typescript: 5.9.3
     transitivePeerDependencies:
       - ts-jest
@@ -12824,22 +12824,22 @@ snapshots:
     dependencies:
       '@formatjs/fast-memoize': 2.2.3
       '@formatjs/intl-localematcher': 0.5.8
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/ecma402-abstract@2.3.6':
     dependencies:
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/intl-localematcher': 0.6.2
       decimal.js: 10.6.0
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/fast-memoize@2.2.3':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/fast-memoize@2.2.7':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/fast-memoize@3.1.7': {}
 
@@ -12847,13 +12847,13 @@ snapshots:
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
       '@formatjs/icu-skeleton-parser': 1.8.16
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/icu-messageformat-parser@2.9.4':
     dependencies:
       '@formatjs/ecma402-abstract': 2.2.4
       '@formatjs/icu-skeleton-parser': 1.8.8
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/icu-messageformat-parser@3.5.18':
     dependencies:
@@ -12862,22 +12862,22 @@ snapshots:
   '@formatjs/icu-skeleton-parser@1.8.16':
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/icu-skeleton-parser@1.8.8':
     dependencies:
       '@formatjs/ecma402-abstract': 2.2.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/icu-skeleton-parser@2.1.11': {}
 
   '@formatjs/intl-localematcher@0.5.8':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/intl-localematcher@0.6.2':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@formatjs/intl@3.1.8(typescript@5.9.3)':
     dependencies:
@@ -12885,7 +12885,7 @@ snapshots:
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/icu-messageformat-parser': 2.11.4
       intl-messageformat: 10.7.18
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       typescript: 5.9.3
 
@@ -12902,7 +12902,7 @@ snapshots:
       '@types/node': 22.20.5
       chalk: 4.1.2
       json-stable-stringify: 1.3.0
-      tslib: 2.8.1
+      tslib: 2.9.1
       typescript: 5.9.3
     optionalDependencies:
       ts-jest: 29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.5)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.5)(typescript@5.9.3)))(typescript@5.9.3)
@@ -12913,7 +12913,7 @@ snapshots:
       '@types/node': 22.20.5
       chalk: 4.1.2
       json-stable-stringify: 1.3.0
-      tslib: 2.8.1
+      tslib: 2.9.1
       typescript: 5.9.3
     optionalDependencies:
       ts-jest: 29.2.4(@babel/core@7.29.7)(@jest/transform@29.7.0)(@jest/types@29.6.3)(babel-jest@29.7.0(@babel/core@7.29.7))(esbuild@0.28.0)(jest@30.2.0(@types/node@22.20.5)(esbuild-register@3.6.0(esbuild@0.28.0))(ts-node@10.9.2(@swc/core@1.7.10(@swc/helpers@0.5.15))(@types/node@22.20.5)(typescript@5.9.3)))(typescript@5.9.3)
@@ -14781,14 +14781,14 @@ snapshots:
     optionalDependencies:
       rollup: 4.67.2
 
-  '@rollup/plugin-typescript@12.1.4(rollup@4.67.2)(tslib@2.8.1)(typescript@5.9.3)':
+  '@rollup/plugin-typescript@12.1.4(rollup@4.67.2)(tslib@2.9.1)(typescript@5.9.3)':
     dependencies:
       '@rollup/pluginutils': 5.4.0(rollup@4.67.2)
       resolve: 1.22.12
       typescript: 5.9.3
     optionalDependencies:
       rollup: 4.67.2
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@rollup/pluginutils@5.4.0(rollup@4.67.2)':
     dependencies:
@@ -15392,7 +15392,7 @@ snapshots:
 
   '@swc/helpers@0.5.15':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   '@swc/jest@0.2.39(@swc/core@1.7.10(@swc/helpers@0.5.15))':
     dependencies:
@@ -15521,7 +15521,7 @@ snapshots:
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
     optional: true
 
   '@types/aria-query@5.0.4': {}
@@ -15582,7 +15582,7 @@ snapshots:
 
   '@types/eslint@8.56.10':
     dependencies:
-      '@types/estree': 1.0.9
+      '@types/estree': 1.0.10
       '@types/json-schema': 7.0.15
     optional: true
 
@@ -16173,7 +16173,7 @@ snapshots:
 
   aria-hidden@1.2.6:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   aria-query@5.3.0:
     dependencies:
@@ -16276,7 +16276,7 @@ snapshots:
 
   ast-types@0.16.1:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   astral-regex@2.0.0: {}
 
@@ -16371,7 +16371,7 @@ snapshots:
       '@types/babel__core': 7.20.5
       '@types/babel__helper-plugin-utils': 7.10.3
       '@types/babel__traverse': 7.28.0
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - supports-color
       - ts-jest
@@ -16652,7 +16652,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   camelcase-css@2.0.1: {}
 
@@ -16674,7 +16674,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
       upper-case-first: 2.0.2
 
   ccount@2.0.1: {}
@@ -16726,7 +16726,7 @@ snapshots:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   change-case@5.4.4: {}
 
@@ -16893,7 +16893,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
       upper-case: 2.0.2
 
   constants-browserify@1.0.0: {}
@@ -17332,7 +17332,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   dotenv@16.6.1: {}
 
@@ -18061,7 +18061,7 @@ snapshots:
 
   focus-lock@1.3.6:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   follow-redirects@1.15.6: {}
 
@@ -18363,7 +18363,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   headers-polyfill@4.0.3: {}
 
@@ -18533,7 +18533,7 @@ snapshots:
       '@formatjs/ecma402-abstract': 2.3.6
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/icu-messageformat-parser': 2.11.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   intl-messageformat@11.2.15:
     dependencies:
@@ -19513,7 +19513,7 @@ snapshots:
     dependencies:
       copy-anything: 2.0.6
       parse-node-version: 1.0.1
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       errno: 0.1.8
       graceful-fs: 4.2.11
@@ -19664,7 +19664,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   lru-cache@10.4.3: {}
 
@@ -20186,7 +20186,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   node-addon-api@7.1.1: {}
 
@@ -20538,7 +20538,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   parent-module@1.0.1:
     dependencies:
@@ -20597,14 +20597,14 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   path-browserify@1.0.1: {}
 
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   path-exists@4.0.0: {}
 
@@ -21521,7 +21521,7 @@ snapshots:
       react-focus-lock: 2.13.7(@types/react@18.3.31)(react@19.2.8)
       react-remove-scroll: 2.7.0(@types/react@18.3.31)(react@19.2.8)
       react-style-singleton: 2.2.3(@types/react@18.3.31)(react@19.2.8)
-      tslib: 2.8.1
+      tslib: 2.9.1
       use-sidecar: 1.1.3(@types/react@18.3.31)(react@19.2.8)
     optionalDependencies:
       '@types/react': 18.3.31
@@ -21548,7 +21548,7 @@ snapshots:
       hoist-non-react-statics: 3.3.2
       intl-messageformat: 10.7.18
       react: 19.2.8
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       typescript: 5.9.3
 
@@ -21575,7 +21575,7 @@ snapshots:
     dependencies:
       react: 19.2.8
       react-style-singleton: 2.2.3(@types/react@18.3.31)(react@19.2.8)
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       '@types/react': 18.3.31
 
@@ -21584,7 +21584,7 @@ snapshots:
       react: 19.2.8
       react-remove-scroll-bar: 2.3.8(@types/react@18.3.31)(react@19.2.8)
       react-style-singleton: 2.2.3(@types/react@18.3.31)(react@19.2.8)
-      tslib: 2.8.1
+      tslib: 2.9.1
       use-callback-ref: 1.3.3(@types/react@18.3.31)(react@19.2.8)
       use-sidecar: 1.1.3(@types/react@18.3.31)(react@19.2.8)
     optionalDependencies:
@@ -21641,7 +21641,7 @@ snapshots:
     dependencies:
       get-nonce: 1.0.1
       react: 19.2.8
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       '@types/react': 18.3.31
 
@@ -21707,7 +21707,7 @@ snapshots:
       esprima: 4.0.1
       source-map: 0.6.1
       tiny-invariant: 1.3.3
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   rechoir@0.8.0:
     dependencies:
@@ -21884,7 +21884,7 @@ snapshots:
       resolve.exports: 2.0.3
       rollup: 4.67.2
       source-map-js: 1.2.2
-      tslib: 2.8.1
+      tslib: 2.9.1
     transitivePeerDependencies:
       - typescript
 
@@ -21963,7 +21963,7 @@ snapshots:
 
   rxjs@7.8.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   safe-array-concat@1.1.4:
     dependencies:
@@ -22018,7 +22018,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
       upper-case-first: 2.0.2
 
   serialize-query-params@2.0.4: {}
@@ -22157,7 +22157,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   source-map-js@1.2.2: {}
 
@@ -22817,7 +22817,7 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tslib@2.8.1: {}
+  tslib@2.9.1: {}
 
   tsx@4.23.15:
     dependencies:
@@ -23065,11 +23065,11 @@ snapshots:
 
   upper-case-first@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   upper-case@2.0.2:
     dependencies:
-      tslib: 2.8.1
+      tslib: 2.9.1
 
   uri-js@4.4.1:
     dependencies:
@@ -23090,7 +23090,7 @@ snapshots:
   use-callback-ref@1.3.3(@types/react@18.3.31)(react@19.2.8):
     dependencies:
       react: 19.2.8
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       '@types/react': 18.3.31
 
@@ -23108,7 +23108,7 @@ snapshots:
     dependencies:
       detect-node-es: 1.1.0
       react: 19.2.8
-      tslib: 2.8.1
+      tslib: 2.9.1
     optionalDependencies:
       '@types/react': 18.3.31
 
