@@ -363,8 +363,8 @@ importers:
         specifier: ^1.2.5
         version: 1.2.5
       prosemirror-schema-list:
-        specifier: ^1.5.1
-        version: 1.5.1
+        specifier: ^1.6.0
+        version: 1.6.0
       prosemirror-state:
         specifier: ^1.4.4
         version: 1.4.4
@@ -375,7 +375,7 @@ importers:
         specifier: ^1.2.2
         version: 1.2.2(prosemirror-model@1.25.12)(prosemirror-state@1.4.4)
       prosemirror-view:
-        specifier: ^1.42.7
+        specifier: ^1.42.8
         version: 1.42.8
       react-animate-height:
         specifier: ^3.2.4
@@ -9175,8 +9175,8 @@ packages:
   prosemirror-schema-basic@1.2.5:
     resolution: {integrity: sha512-McBWhfgOfThyu3Nltbs8SOUbM4t/h0pxteibaaHd1QR4S+F1t0u7M1ETaCE6/cveFoF+2fowTIBNkJOyeZQjNg==}
 
-  prosemirror-schema-list@1.5.1:
-    resolution: {integrity: sha512-927lFx/uwyQaGwJxLWCZRkjXG0p48KpMj6ueoYiu4JX05GGuGcgzAy62dfiV8eFZftgyBUvLx76RsMe20fJl+Q==}
+  prosemirror-schema-list@1.6.0:
+    resolution: {integrity: sha512-G1srDtan+VqWn+qpmWFj/6j0YsZ5zMU+ZIlGVIW41a5JF2jAI3jzfMRWmSABmEH2Qoq1PmAG/o2mucMMdLOsLg==}
 
   prosemirror-state@1.4.4:
     resolution: {integrity: sha512-6jiYHH2CIGbCfnxdHbXZ12gySFY/fz/ulZE333G6bPqIZ4F+TXo9ifiR86nAHpWnfoNjOb3o5ESi7J8Uz1jXHw==}
@@ -15582,7 +15582,7 @@ snapshots:
 
   '@types/eslint@8.56.10':
     dependencies:
-      '@types/estree': 1.0.9
+      '@types/estree': 1.0.10
       '@types/json-schema': 7.0.15
     optional: true
 
@@ -21289,7 +21289,7 @@ snapshots:
     dependencies:
       prosemirror-model: 1.25.12
 
-  prosemirror-schema-list@1.5.1:
+  prosemirror-schema-list@1.6.0:
     dependencies:
       prosemirror-model: 1.25.12
       prosemirror-state: 1.4.4
