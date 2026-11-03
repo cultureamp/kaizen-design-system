@@ -48,25 +48,42 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
 
     const fallbackRef = useRef<HTMLDivElement>(null)
     const containerRef = isRefObject(ref) ? ref : fallbackRef
+    const entranceFrame = useRef<number>()
 
     useEffect(() => {
-      requestAnimationFrame(() => {
+      entranceFrame.current = requestAnimationFrame(() => {
+        entranceFrame.current = undefined
         if (containerRef.current) {
           setIsHidden(false)
         }
       })
+      return () => {
+        if (entranceFrame.current !== undefined) {
+          cancelAnimationFrame(entranceFrame.current)
+        }
+      }
     }, [containerRef])
 
-    const getMarginTop = (): string => {
-      if (isHidden && containerRef.current) {
-        return -containerRef.current.clientHeight + 'px'
+    const dismiss = (): void => {
+      if (entranceFrame.current !== undefined) {
+        cancelAnimationFrame(entranceFrame.current)
+        entranceFrame.current = undefined
       }
-      return '0'
+      if (containerRef.current) {
+        // Individual CSSOM writes are permitted by CSP style-src-attr 'none'.
+        containerRef.current.style.marginTop = -containerRef.current.clientHeight + 'px'
+      }
+      setIsHidden(true)
     }
 
     const onTransitionEnd = (e: React.TransitionEvent<HTMLDivElement>): void => {
       // Be careful: this assumes the final CSS property to be animated is "margin-top".
-      if (isHidden && e.propertyName === 'margin-top') {
+      if (
+        isHidden &&
+        !isRemoved &&
+        e.target === e.currentTarget &&
+        e.propertyName === 'margin-top'
+      ) {
         setIsRemoved(true)
         onHide?.()
       }
@@ -88,7 +105,6 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
           classNameOverride,
           persistent && styles.persistent,
         )}
-        style={{ marginTop: getMarginTop() }}
         onTransitionEnd={onTransitionEnd}
         {...restProps}
       >
@@ -101,7 +117,7 @@ export const GenericNotification = forwardRef<HTMLDivElement, GenericNotificatio
           )}
           {children && <div className={styles.text}>{children}</div>}
         </div>
-        {!persistent && <CancelButton onClick={() => setIsHidden(true)} />}
+        {!persistent && <CancelButton onClick={dismiss} />}
       </div>
     )
   },
