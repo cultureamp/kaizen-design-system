@@ -1,7 +1,12 @@
 [[packages]]
 name = "@kaizen/components"
 language = "typescript"
-folder_paths = ["packages/components/src"]
+folder_paths = [
+  "packages/components/src",
+  "agents-managed-docs/adr",
+  "agents-managed-docs/reference/rac-foundations.md",
+  "agents-managed-docs/a11y/composition-catalogue.md",
+]
 context_files = "packages/components/.enchiridion/context.md"
 structure_context_files = "packages/components/.enchiridion/structure-context.md"
 
