@@ -264,7 +264,7 @@ describe('<FilterDateRangePickerField />', () => {
       })
     })
 
-    it('updates the range end input when changing the end date', async () => {
+    it('moves the start date later than the current start date', async () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -275,24 +275,31 @@ describe('<FilterDateRangePickerField />', () => {
       )
       await waitForI18nContent()
 
+      const inputStartDate = screen.getByLabelText('Date from')
       const inputEndDate = screen.getByLabelText('Date to')
-      expect(inputEndDate).toHaveValue('15 Jun 2022')
 
-      const targetMonth = screen.getByRole('grid', { name: 'June 2022' })
-      const targetDay = within(targetMonth).getByRole('gridcell', {
-        name: '23',
+      const mayGrid = screen.getByRole('grid', { name: 'May 2022' })
+      await user.click(
+        within(within(mayGrid).getByRole('gridcell', { name: '20' })).getByRole('button'),
+      )
+
+      await waitFor(() => {
+        expect(inputStartDate).toHaveValue('20 May 2022')
+        expect(inputEndDate).toHaveValue('')
       })
-      expect(targetDay).not.toHaveAttribute('aria-selected')
-      const targetBtn = within(targetDay).getByRole('button')
-      await user.click(targetBtn)
+
+      const juneGrid = screen.getByRole('grid', { name: 'June 2022' })
+      const targetDay = within(juneGrid).getByRole('gridcell', { name: '23' })
+      await user.click(within(targetDay).getByRole('button'))
 
       await waitFor(() => {
         expect(targetDay).toHaveAttribute('aria-selected', 'true')
+        expect(inputStartDate).toHaveValue('20 May 2022')
         expect(inputEndDate).toHaveValue('23 Jun 2022')
       })
     })
 
-    it('sets the range end date to match the start date when clicking on the start date with an active range', async () => {
+    it('selects a single day when clicking the same day twice', async () => {
       render(
         <FilterDateRangePickerFieldWrapper
           selectedRange={{
@@ -305,20 +312,15 @@ describe('<FilterDateRangePickerField />', () => {
 
       const inputStartDate = screen.getByLabelText('Date from')
       const inputEndDate = screen.getByLabelText('Date to')
-      const startDate = '15 May 2022'
-      expect(inputStartDate).toHaveValue(startDate)
-      expect(inputEndDate).toHaveValue('22 May 2022')
 
       const targetMonth = screen.getByRole('grid', { name: 'May 2022' })
-      const firstSelectedDay = within(targetMonth).getByRole('gridcell', {
-        name: '15',
-      })
-      const firstSelectedDayBtn = within(firstSelectedDay).getByRole('button')
-      await user.click(firstSelectedDayBtn)
+      const targetDay = within(targetMonth).getByRole('gridcell', { name: '18' })
+      await user.click(within(targetDay).getByRole('button'))
+      await user.click(within(targetDay).getByRole('button'))
 
       await waitFor(() => {
-        expect(inputStartDate).toHaveValue(startDate)
-        expect(inputEndDate).toHaveValue(startDate)
+        expect(inputStartDate).toHaveValue('18 May 2022')
+        expect(inputEndDate).toHaveValue('18 May 2022')
       })
     })
   })
