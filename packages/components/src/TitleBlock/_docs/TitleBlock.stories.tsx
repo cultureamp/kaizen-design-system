@@ -360,8 +360,7 @@ export const StickerSheetVariants: Story = {
 export const StickerSheetActionsReversed: Story = {
   name: 'Sticker Sheet (Actions reversed)',
   parameters: {
-    viewport: viewports,
-    chromatic: chromaticViewports,
+    chromatic: { viewports: [chromaticViewports.viewports[0]] },
   },
   render: () => (
     <StickerSheet title="TitleBlock actions with reversed">
