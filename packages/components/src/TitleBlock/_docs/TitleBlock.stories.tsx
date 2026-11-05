@@ -356,6 +356,7 @@ export const StickerSheetVariants: Story = {
     </StickerSheet>
   ),
 }
+
 export const StickerSheetActionsReversed: Story = {
   name: 'Sticker Sheet (Actions reversed)',
   parameters: {
@@ -372,10 +373,6 @@ export const StickerSheetActionsReversed: Story = {
             primaryAction={{ label: 'Primary action', href: '#', reversed: true }}
             defaultAction={{ label: 'Default action', href: '#', reversed: true }}
             secondaryActions={[{ label: 'Secondary action', href: '#', reversed: true }]}
-            navigationTabs={[
-              <NavigationTab key="1" variant={variant} text="Label" href="#" active />,
-              <NavigationTab key="2" variant={variant} text="Label" href="#" />,
-            ]}
           />
         </StickerSheet.Row>
       ))}
