@@ -162,8 +162,8 @@ export const SecondaryActions = ({
               <div className={styles.secondaryButtonContainer}>
                 <Button
                   secondary
-                  reversed={reversed}
                   {...action}
+                  reversed={reversed && action.reversed !== false}
                   data-automation-id="title-block-secondary-actions-button"
                   data-testid="title-block-secondary-actions-button"
                 />

@@ -356,6 +356,29 @@ export const StickerSheetVariants: Story = {
     </StickerSheet>
   ),
 }
+
+export const StickerSheetActionsReversed: Story = {
+  name: 'Sticker Sheet (Actions reversed)',
+  parameters: {
+    chromatic: { viewports: [chromaticViewports.viewports[0]] },
+  },
+  render: () => (
+    <StickerSheet title="TitleBlock actions with reversed">
+      {([undefined, 'light', 'admin', 'education'] as const).map((variant) => (
+        <StickerSheet.Row key={variant ?? 'default'} header={variant ?? 'default'}>
+          <TitleBlock
+            variant={variant}
+            title={`${variant ?? 'default'} TitleBlock`}
+            primaryAction={{ label: 'Primary action', href: '#', reversed: true }}
+            defaultAction={{ label: 'Default action', href: '#', reversed: true }}
+            secondaryActions={[{ label: 'Secondary action', href: '#', reversed: true }]}
+          />
+        </StickerSheet.Row>
+      ))}
+    </StickerSheet>
+  ),
+}
+
 export const StickerSheetWithDefaultAvatar: Story = {
   name: 'Sticker Sheet (DefaultAvatar)',
   render: () => (
