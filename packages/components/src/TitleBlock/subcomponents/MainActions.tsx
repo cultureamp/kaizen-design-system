@@ -119,7 +119,7 @@ export const MainActions = ({
               classNameOverride={styles.defaultActionButton}
               {...{
                 ...defaultAction,
-                reversed: defaultAction.reversed ?? reversed,
+                reversed: reversed && defaultAction.reversed !== false,
               }}
               data-automation-id="title-block-default-action-button"
               data-testid="title-block-default-action-button"
@@ -221,7 +221,7 @@ export const MainActions = ({
                   {...{
                     ...primaryAction,
                     primary: primaryAction.primary ?? true,
-                    reversed: primaryAction.reversed ?? reversed,
+                    reversed: reversed && primaryAction.reversed !== false,
                   }}
                   data-automation-id="title-block-primary-action-button"
                   data-testid="title-block-primary-action-button"
