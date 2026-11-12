@@ -19,6 +19,11 @@ import * as GlobalNotificationExamples from './GlobalNotification.stories'
 
 `<GlobalNotification>` is used to inform the user of system level messages.
 
+Server-rendered notifications do not emit inline style attributes. Load the Kaizen stylesheet
+as usual; dismissal measures each notification's current height and updates its margin through
+the CSSOM, which is compatible with a Content Security Policy containing `style-src-attr 'none'`.
+This also applies to inline and toast notifications, which share the same animation.
+
 <Canvas of={GlobalNotificationExamples.Playground} />
 
 ## API

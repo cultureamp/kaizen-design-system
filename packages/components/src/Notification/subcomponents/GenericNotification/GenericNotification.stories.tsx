@@ -45,16 +45,15 @@ export const GenericNotificationTest: Story = {
 
     await waitFor(() => {
       expect(element).toBeInTheDocument()
+      expect(getComputedStyle(element).opacity).toBe('1')
       expect(hiddenState).toHaveTextContent('Shown')
     })
 
     await userEvent.click(canvas.getByTestId('close-button'))
 
     await waitFor(() => {
-      setTimeout(() => {
-        expect(hiddenState).toHaveTextContent('Hidden')
-        expect(element).not.toBeInTheDocument()
-      }, 1000)
+      expect(hiddenState).toHaveTextContent('Hidden')
+      expect(element).not.toBeInTheDocument()
     })
   },
 }
@@ -88,16 +87,15 @@ export const RefTest: Story = {
 
     await waitFor(() => {
       expect(element).toBeInTheDocument()
+      expect(getComputedStyle(element).opacity).toBe('1')
       expect(hiddenState).toHaveTextContent('Shown')
     })
 
     await userEvent.click(canvas.getByTestId('close-button'))
 
     await waitFor(() => {
-      setTimeout(() => {
-        expect(hiddenState).toHaveTextContent('Hidden')
-        expect(element).not.toBeInTheDocument()
-      }, 1000)
+      expect(hiddenState).toHaveTextContent('Hidden')
+      expect(element).not.toBeInTheDocument()
     })
   },
 }
