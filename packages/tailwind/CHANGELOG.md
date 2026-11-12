@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.5.26
+
+### Patch Changes
+
+- [#7466](https://github.com/cultureamp/kaizen-design-system/pull/7466) [`921345c`](https://github.com/cultureamp/kaizen-design-system/commit/921345c0d398c458cd7c90e7e573b8011acb76e8) - chore(deps): dependencies update
+
+- Updated dependencies [[`921345c`](https://github.com/cultureamp/kaizen-design-system/commit/921345c0d398c458cd7c90e7e573b8011acb76e8)]:
+  - @kaizen/design-tokens@11.0.24
+
 ## 1.5.25
 
 ### Patch Changes
