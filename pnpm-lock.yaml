@@ -104,8 +104,8 @@ importers:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-mdx:
-        specifier: ^3.9.1
-        version: 3.9.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
+        specifier: ^3.9.5
+        version: 3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: ^5.5.7
         version: 5.5.7(@types/eslint@8.56.10)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@1.21.7)))(eslint@9.39.5(jiti@1.21.7))(prettier@3.10.1)
@@ -6273,8 +6273,8 @@ packages:
       eslint-plugin-import-x:
         optional: true
 
-  eslint-mdx@3.9.1:
-    resolution: {integrity: sha512-PNO+iBG9s0ERe53glwh987Ab96gY94xX9i3hpE04fto16na1n6ilZA+3UzNTRy6LkmxYX4yObpihJbQAlEpjBQ==}
+  eslint-mdx@3.9.5:
+    resolution: {integrity: sha512-pxkzWADqcf/5F4XkQx+5YmhGxlQ9Q3BmOT0CYnuMPm9G3y4DJ3lPc8gHicUowA8fKJDpfrmSJ3TsxMUmXt0GpA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@types/estree': ^1.0.10
@@ -6328,8 +6328,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-mdx@3.9.1:
-    resolution: {integrity: sha512-rekc3S2KkRna/W2gwjXtLvNo7qgbSY/7l+EnuhLzmO9iBCR9aD2mu3/8FmWh/zI9ku0bUpqP3CIlet5BWHhF6w==}
+  eslint-plugin-mdx@3.9.5:
+    resolution: {integrity: sha512-EuIymT7/NL3+XuDtOp202l8FRIhCEOYgakNegd/NaMPsZpSxSXpQ8rAvs2DnZEvEKmvo6J6UUP58KQEFQvBHsA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -17591,7 +17591,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-mdx@3.9.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
+  eslint-mdx@3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
       acorn: 8.19.0
       acorn-jsx: 5.3.2(acorn@8.19.0)
@@ -17689,10 +17689,10 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-mdx@3.9.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
+  eslint-plugin-mdx@3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
       eslint: 9.39.5(jiti@1.21.7)
-      eslint-mdx: 3.9.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
+      eslint-mdx: 3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
       mdast-util-mdx: 3.0.0
       prettier-linter-helpers: 1.0.1
       remark-mdx: 3.1.1
