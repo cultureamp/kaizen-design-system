@@ -5,7 +5,7 @@ import { renderToString } from 'react-dom/server'
 import { GlobalNotification } from '../../GlobalNotification'
 import { GenericNotification } from './GenericNotification'
 
-describe('notification SSR and hydration', () => {
+describe('notification SSR, hydration and lifecycle', () => {
   afterEach(() => {
     vi.restoreAllMocks()
   })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import { GenericNotification } from './GenericNotification'
@@ -42,6 +42,25 @@ export const MeasuredDismissal: Story = {
       await waitFor(() => expect(notification).not.toBeInTheDocument())
     }
     expect(args.onHide).toHaveBeenCalledTimes(3)
+  },
+}
+
+export const RefTest: Story = {
+  args: { style: 'inline' },
+  render: (args) => {
+    const ref = useRef<HTMLDivElement>(null)
+    return <GenericNotification {...args} ref={ref} data-testid="notification" />
+  },
+  name: 'Dismisses with a supplied ref',
+  play: async ({ canvasElement, args }) => {
+    const notification = within(canvasElement).getByTestId('notification')
+    await waitFor(() => expect(notification).not.toHaveClass(styles.hidden))
+    const height = notification.clientHeight
+    expect(height).toBeGreaterThan(0)
+    await userEvent.click(within(notification).getByRole('button', { name: 'Close notification' }))
+    expect(notification.style.marginTop).toBe(`${-height}px`)
+    await waitFor(() => expect(notification).not.toBeInTheDocument())
+    expect(args.onHide).toHaveBeenCalledTimes(1)
   },
 }
 
