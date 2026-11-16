@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/components",
-  "version": "3.3.21",
+  "version": "3.3.22",
   "description": "Kaizen component library",
   "author": "Geoffrey Chong <geoff.chong@cultureamp.com>",
   "homepage": "https://cultureamp.design",
@@ -166,8 +166,8 @@
     "postcss-preset-env": "^11.6.2",
     "postcss-scss": "^4.0.9",
     "query-string": "^10.0.0",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-highlight": "^0.15.0",
     "react-intl": "^10.2.2",
     "rollup": "^4.68.3",
@@ -185,8 +185,8 @@
   },
   "peerDependencies": {
     "@cultureamp/i18n-react-intl": "^2.5.9 || ^3.0.0 || ^4.0.0",
-    "react": "19.2.8",
-    "react-dom": "19.2.8",
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0",
     "react-intl": "^6.6.8 || ^7.0.0",
     "typescript": "5.x"
   },
