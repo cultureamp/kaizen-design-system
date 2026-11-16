@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.22
+
+### Patch Changes
+
+- [#7503](https://github.com/cultureamp/kaizen-design-system/pull/7503) [`0d23b13`](https://github.com/cultureamp/kaizen-design-system/commit/0d23b134a4f1b3ccffd57a53ebca638a332d6c5c) - fix: restore `react` and `react-dom` peer dependency range to `^18.3.1 || ^19.0.0`
+
 ## 3.3.21
 
 ### Patch Changes
