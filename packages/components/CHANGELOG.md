@@ -1,5 +1,25 @@
 # Change Log
 
+## 3.3.21
+
+### Patch Changes
+
+- [#7501](https://github.com/cultureamp/kaizen-design-system/pull/7501) [`ed2cb9a`](https://github.com/cultureamp/kaizen-design-system/commit/ed2cb9a7419bf621a987aeee379056f4bf58a3e7) - chore(deps): dependency update
+
+## 3.3.20
+
+### Patch Changes
+
+- [#7437](https://github.com/cultureamp/kaizen-design-system/pull/7437) [`a7d3c51`](https://github.com/cultureamp/kaizen-design-system/commit/a7d3c51224f757ed2d9b8dbe233b6542c7779618) - fix(TitleBlock): keep action buttons non-reversed in light, admin and education variants when `reversed` is set
+
+- [#7466](https://github.com/cultureamp/kaizen-design-system/pull/7466) [`921345c`](https://github.com/cultureamp/kaizen-design-system/commit/921345c0d398c458cd7c90e7e573b8011acb76e8) - chore(deps): dependencies update
+
+## 3.3.19
+
+### Patch Changes
+
+- [#7435](https://github.com/cultureamp/kaizen-design-system/pull/7435) [`6362b1a`](https://github.com/cultureamp/kaizen-design-system/commit/6362b1aaac0ceca8d2d2d1c164cfa4b3e04eabdd) - dependencies update
+
 ## 3.3.18
 
 ### Patch Changes
