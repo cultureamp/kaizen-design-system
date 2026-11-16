@@ -54,6 +54,7 @@
     "postcss": "^8.5.33",
     "prettier": "^3.10.1",
     "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-highlight": "^0.15.0",
     "react-map-interaction": "^2.1.0",
     "rollup": "^4.68.3",
