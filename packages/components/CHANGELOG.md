@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.23
+
+### Patch Changes
+
+- [#7407](https://github.com/cultureamp/kaizen-design-system/pull/7407) [`daf7812`](https://github.com/cultureamp/kaizen-design-system/commit/daf78129e287b2565a21f6583fa74b534f23d9eb) - fix: avoid server-rendered inline margin styles in global, inline and toast notifications for strict CSP compatibility
+
 ## 3.3.22
 
 ### Patch Changes
