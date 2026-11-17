@@ -24,6 +24,14 @@ Loading skeleton for <LinkTo pageId="components-text">Text</LinkTo>.
 
 ## API
 
+### Width and Content Security Policy
+
+The `width` prop is currently known to interfere with strict Content Security
+Policies that use `style-src-attr 'none'`, which disallows `style` attributes in
+server-rendered HTML. To use LoadingParagraph under these constraints, omit
+`width` and control the width with an external CSS class supplied through
+`classNameOverride` instead. The application's CSP must allow the stylesheet.
+
 <DocsStory of={LoadingParagraphStories.Animated} />
 
 <DocsStory of={LoadingParagraphStories.Reversed} />

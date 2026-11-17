@@ -12,7 +12,8 @@ export type LoadingParagraphProps = {
   isLink?: boolean
   inheritBaseline?: boolean
   /**
-   * Width as a percentage.
+   * Width as a percentage. Uses an inline style; for strict CSP, omit width
+   * and set the width through an external CSS class instead.
    */
   width?: number
 } & OverrideClassName<HTMLAttributes<HTMLDivElement>>
@@ -45,7 +46,7 @@ export const LoadingParagraph = ({
       isInline && styles.isInline,
       noBottomMargin && styles.noBottomMargin,
     )}
-    style={{ width: `${width}%` }}
+    style={width === undefined ? undefined : { width: `${width}%` }}
     {...restProps}
   />
 )
