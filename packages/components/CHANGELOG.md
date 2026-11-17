@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.3.24
+
+### Patch Changes
+
+- [#7508](https://github.com/cultureamp/kaizen-design-system/pull/7508) [`dd25b12`](https://github.com/cultureamp/kaizen-design-system/commit/dd25b12437eea8641b8efa77cd5ee3b8e0e08e26) - fix: avoid generating an inline style on LoadingParagraph when width is omitted, allowing the default skeleton and external CSS widths to work under strict CSP. Explicit widths retain their existing inline styles; caller-supplied style props still replace width styling.
+
 ## 3.3.23
 
 ### Patch Changes
