@@ -67,6 +67,51 @@ export const TestBase: Story = {
   },
 }
 
+export const PreservesStickyPositionWhenScrollLocked: Story = {
+  ...TestBase,
+  args: { isOpen: false },
+  decorators: [
+    (Story) => (
+      <div style={{ minHeight: '250vh' }}>
+        <div style={{ position: 'sticky', top: 0 }}>Sticky header</div>
+        <div style={{ paddingTop: 400 }}>
+          <Story />
+        </div>
+      </div>
+    ),
+  ],
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const stickyHeader = canvas.getByText('Sticky header')
+    const scrollOffset = 300
+    const expectHeaderPinned = (): void => {
+      expect(window.scrollY).toBe(scrollOffset)
+      expect(stickyHeader.getBoundingClientRect().top).toBe(0)
+    }
+
+    try {
+      await step('Scroll past the sticky element', async () => {
+        window.scrollTo(0, scrollOffset)
+        await waitFor(expectHeaderPinned)
+      })
+
+      await step('Keep the sticky element fixed when the modal opens', async () => {
+        await userEvent.click(canvas.getByRole('button', { name: 'Open Modal' }))
+        await waitFor(() => expect(document.body).toHaveAttribute('data-scroll-locked'))
+        expectHeaderPinned()
+      })
+
+      await step('Restore scrolling without moving the sticky element', async () => {
+        await userEvent.keyboard('{Escape}')
+        await waitFor(() => expect(document.body).not.toHaveAttribute('data-scroll-locked'))
+        expectHeaderPinned()
+      })
+    } finally {
+      window.scrollTo(0, 0)
+    }
+  },
+}
+
 export const ModalAccessibleLabelRetainsFocus: Story = {
   ...TestBase,
   name: 'ModalAccessibleLabel retains focus if onAfterEnter is called',
