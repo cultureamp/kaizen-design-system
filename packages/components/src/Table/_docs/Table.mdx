@@ -61,6 +61,12 @@ To ensure there appropriate context for users of assistive technologies, when us
 
 <Canvas of={TableStories.CheckboxVariant} />
 
+#### Read-only
+
+If a `checkable` `TableHeaderRowCell` has no `onCheck`, its checkbox is read-only. It shows its `checkedStatus` but can't be changed, and screen readers announce "Read only" after the label. A `Checkbox` with no `onCheck` in a row cell behaves the same way. Pass `onCheck` whenever the person should be able to change the value.
+
+<Canvas of={TableStories.CheckboxReadOnly} />
+
 ### Icon
 
 When using providing `icon` to `TableHeaderRowCell` the `labelText` will be passed to the `aria-label` of the SVG.

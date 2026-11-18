@@ -31,3 +31,49 @@ Removes the margin from below the Checkbox Field.
 **Note** This is a bit of an antiquated pattern, we advise you to keep this on by default and use flex containers to apply spacing
 
 <Canvas of={CheckboxFieldStories.NoBottomMargin} />
+
+## States
+
+Pick the state from what the person can do with the checkbox. Do not use disabled to show a value that can't be changed.
+
+### Enabled
+
+Pass an `onCheck` handler. Use when the person can change the value.
+
+```tsx
+<CheckboxField
+  labelText="Submit quarterly goals"
+  checkedStatus={isCompleted ? 'on' : 'off'}
+  onCheck={(event) => setIsCompleted(event.target.checked)}
+/>
+```
+
+**Use when:** the person can select or clear the option.
+
+**Don't use when:** the value is only displayed. Use read-only instead.
+
+### Read-only
+
+Omit `onCheck`. The label and checkbox look the same as enabled, so the text stays readable. The input gets a translated "Read only" accessible description, which screen readers announce after the label and state. The checkbox can still receive keyboard focus, but its value can't be changed.
+
+```tsx
+<CheckboxField labelText="Submit quarterly goals" checkedStatus={isCompleted ? 'on' : 'off'} />
+```
+
+Any `aria-describedby` you pass is kept, and "Read only" is added after it.
+
+**Use when:** the person needs to see a value but can't change it, for example in a confirmation summary.
+
+**Don't use when:** the value is a status that doesn't need a checkbox. Use plain text with an icon instead.
+
+### Disabled
+
+Pass `disabled`. The label and box fade to 30% opacity, so the label text is hard to read. WCAG exempts disabled controls from contrast requirements, but people still can't read faded text easily. The control is removed from keyboard focus and announced as unavailable.
+
+```tsx
+<CheckboxField labelText="Send reminders" checkedStatus="off" disabled />
+```
+
+**Use when:** the control is temporarily unavailable and the person can't act on it.
+
+**Don't use when:** the value is only displayed, or the text needs to be read. Use read-only instead.

@@ -316,6 +316,37 @@ export const CheckboxVariant: StoryObj<TableStoryProps> = {
   },
 }
 
+export const CheckboxReadOnly: StoryObj<TableStoryProps> = {
+  ...CheckboxVariant,
+  name: 'Checkbox (read-only)',
+  args: {
+    ...CheckboxVariant.args,
+    // No onCheck handlers: the checkboxes are read-only
+    headerRowCells: [
+      {
+        checkable: true,
+        checkedStatus: 'mixed',
+        checkboxLabel: 'Select all Employees',
+        labelText: 'Employee',
+        width: 5 / 12,
+      },
+      ...(CheckboxVariant.args?.headerRowCells ?? []).slice(1),
+    ],
+    rowCells: [
+      {
+        width: 5 / 12,
+        children: (
+          <span className="flex gap-12">
+            <Checkbox aria-label="Employee x" checkedStatus="on" />
+            <span>Employee name</span>
+          </span>
+        ),
+      },
+      ...(CheckboxVariant.args?.rowCells ?? []).slice(1),
+    ],
+  },
+}
+
 export const LinkVariant: StoryObj<TableStoryProps> = {
   ...TableTemplate,
   args: { tableCards: [{ href: '#?foo=bar' }, { href: '#?bar=foo' }] },
