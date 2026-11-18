@@ -1,5 +1,11 @@
-/* Fix: react-remove-scroll-bar only locks body, but the scrollbar is on html element.
-   We need to lock both html and body to properly remove the scrollbar. */
+/* react-remove-scroll-bar locks body, but the scrollbar is on the html element.
+   Lock html instead and keep body from becoming a scroll container, which
+   breaks sticky descendants at non-zero document scroll offsets. */
 html:has(body[data-scroll-locked]) {
   overflow: hidden;
+}
+
+html body[data-scroll-locked] {
+  /* stylelint-disable-next-line declaration-no-important */
+  overflow: visible !important;
 }
