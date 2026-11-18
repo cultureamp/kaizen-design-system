@@ -10,9 +10,9 @@ const meta = {
     labelText: 'Label',
     children: (
       <>
-        <CheckboxField labelText="Checkbox one" />
-        <CheckboxField labelText="Checkbox two" />
-        <CheckboxField labelText="Checkbox three" />
+        <CheckboxField labelText="Checkbox one" onCheck={() => undefined} />
+        <CheckboxField labelText="Checkbox two" onCheck={() => undefined} />
+        <CheckboxField labelText="Checkbox three" onCheck={() => undefined} />
       </>
     ),
   },
@@ -95,4 +95,19 @@ export const NoBottomMargin: Story = {
       </div>
     </div>
   ),
+}
+
+export const ReadOnly: Story = {
+  name: 'Read-only',
+  args: {
+    labelText: 'Completed steps',
+    // No onCheck handlers: the checkboxes are read-only
+    children: (
+      <>
+        <CheckboxField labelText="Checkbox one" checkedStatus="off" />
+        <CheckboxField labelText="Checkbox two" checkedStatus="on" />
+        <CheckboxField labelText="Checkbox three" checkedStatus="mixed" />
+      </>
+    ),
+  },
 }

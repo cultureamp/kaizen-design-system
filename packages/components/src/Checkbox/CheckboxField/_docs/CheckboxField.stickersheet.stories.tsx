@@ -28,7 +28,10 @@ const StickerSheetTemplate: StickerSheetStory = {
     }[]
 
     return (
-      <StickerSheet isReversed={isReversed} headers={['Default', 'Hover', 'Focus', 'Disabled']}>
+      <StickerSheet
+        isReversed={isReversed}
+        headers={['Default', 'Hover', 'Focus', 'Disabled', 'Read-only', 'Read-only focus']}
+      >
         {rows.map(({ title, checkedStatus }) => (
           <StickerSheet.Row key={title} header={title}>
             <CheckboxField {...defaultProps} labelText="Checkbox" checkedStatus={checkedStatus} />
@@ -49,6 +52,18 @@ const StickerSheetTemplate: StickerSheetStory = {
               labelText="Disabled"
               checkedStatus={checkedStatus}
               disabled
+            />
+            {/* No onCheck handler: the checkbox is read-only */}
+            <CheckboxField
+              labelText="Read-only"
+              checkedStatus={checkedStatus}
+              reversed={isReversed}
+            />
+            <CheckboxField
+              labelText="Read-only focus"
+              checkedStatus={checkedStatus}
+              reversed={isReversed}
+              data-sb-pseudo-styles="focus"
             />
           </StickerSheet.Row>
         ))}

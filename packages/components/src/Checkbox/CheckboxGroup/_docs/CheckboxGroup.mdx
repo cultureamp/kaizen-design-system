@@ -31,3 +31,9 @@ Removes the margin from below the Checkbox Field.
 **Note** This is a bit of an antiquated pattern, we advise you to keep this on by default and use flex containers to apply spacing
 
 <Canvas of={CheckboxGroupStories.NoBottomMargin} />
+
+### Read-only
+
+`CheckboxGroup` doesn't control its checkboxes. Each `CheckboxField` inside it is read-only when it has no `onCheck`. It shows its `checkedStatus` but can't be changed, and screen readers announce "Read only" after the label. Pass `onCheck` to each field the person should be able to change.
+
+<Canvas of={CheckboxGroupStories.ReadOnly} />
