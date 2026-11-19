@@ -19,9 +19,19 @@ const CheckboxGroupWrapped = ({
   ...props
 }: CheckboxGroupProps): JSX.Element => (
   <CheckboxGroup labelText={labelText} reversed={reversed} {...props}>
-    <CheckboxField labelText="Checkbox one" reversed={reversed} />
-    <CheckboxField labelText="Checkbox two" reversed={reversed} checkedStatus="on" />
-    <CheckboxField labelText="Checkbox three" reversed={reversed} checkedStatus="mixed" />
+    <CheckboxField labelText="Checkbox one" reversed={reversed} onCheck={() => undefined} />
+    <CheckboxField
+      labelText="Checkbox two"
+      reversed={reversed}
+      checkedStatus="on"
+      onCheck={() => undefined}
+    />
+    <CheckboxField
+      labelText="Checkbox three"
+      reversed={reversed}
+      checkedStatus="mixed"
+      onCheck={() => undefined}
+    />
   </CheckboxGroup>
 )
 

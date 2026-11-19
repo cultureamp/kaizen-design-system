@@ -86,6 +86,10 @@
     "description": "Label for the clear search button",
     "message": "Clear search"
   },
+  "kz.checkbox.readOnly": {
+    "description": "Screen reader description for a checkbox whose value can be seen but not changed. Announced after the checkbox label.",
+    "message": "Read only"
+  },
   "kz.rte.bold": {
     "description": "Label for the \"Bold\" button in a text editor",
     "message": "Bold"

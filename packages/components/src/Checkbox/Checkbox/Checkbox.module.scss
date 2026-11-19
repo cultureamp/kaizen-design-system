@@ -76,6 +76,26 @@
     }
   }
 
+  // Read only
+  .box.readOnly:not(.reversed) {
+    &,
+    .checkbox:hover + &,
+    .checkbox:checked + &,
+    .checkbox:indeterminate + &,
+    .checkbox:focus + &,
+    .checkbox:checked:focus + &,
+    .checkbox:indeterminate:focus + &,
+    .checkbox:checked:hover + &,
+    .checkbox:indeterminate:hover + & {
+      background: $color-gray-300;
+      border: 1px solid $color-gray-500;
+    }
+  }
+
+  .icon.readOnly {
+    color: $color-purple-800;
+  }
+
   .box.reversed {
     border: $border-solid-border-width $border-solid-border-style rgba($color-white-rgb, 0.65);
     background: transparent;
@@ -105,6 +125,25 @@
     .checkbox:checked:hover + & {
       background: $color-white;
       border-color: $color-white;
+    }
+  }
+
+  .box.reversed.readOnly {
+    &,
+    .checkbox:hover + &,
+    .checkbox:focus + & {
+      background: transparent;
+      border-color: rgba($color-white-rgb, 0.65);
+    }
+
+    .checkbox:checked + &,
+    .checkbox:indeterminate + &,
+    .checkbox:checked:hover + &,
+    .checkbox:indeterminate:hover + &,
+    .checkbox:checked:focus + &,
+    .checkbox:indeterminate:focus + & {
+      background: rgba($color-white-rgb, 0.65);
+      border-color: rgba($color-white-rgb, 0.65);
     }
   }
 }
