@@ -2,6 +2,7 @@ import React, { useId, type InputHTMLAttributes } from 'react'
 import { useIntl } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Icon } from '~components/Icon'
+import { VisuallyHidden } from '~components/VisuallyHidden'
 import { type OverrideClassName } from '~components/types/OverrideClassName'
 import styles from './Checkbox.module.scss'
 
@@ -90,11 +91,7 @@ export const Checkbox = ({
       >
         {renderCheckOrMixedIcon(checkedStatus, reversed, isReadOnly && !reversed)}
       </span>
-      {isReadOnly && (
-        <span id={readOnlyId} hidden>
-          {readOnlyText}
-        </span>
-      )}
+      {isReadOnly && <VisuallyHidden id={readOnlyId}>{readOnlyText}</VisuallyHidden>}
     </span>
   )
 }

@@ -62,25 +62,13 @@ export const ReadOnlyWithConsumerOnClick: Story = {
   },
 }
 
-export const ReadOnlyDescription: Story = {
-  render: (args) => (
-    <>
-      <p id="extra-description">Extra description</p>
-      <Checkbox {...args} aria-describedby="extra-description" />
-    </>
-  ),
+export const ReadOnlyHasVisuallyHiddenDescription: Story = {
   play: async ({ canvasElement }) => {
-    const checkbox = within(canvasElement).getByRole('checkbox')
+    const canvas = within(canvasElement)
+    const checkbox = canvas.getByRole('checkbox')
+    const description = canvas.getByText('Read only')
 
-    await expect(checkbox).toHaveAccessibleDescription('Extra description Read only')
-  },
-}
-
-export const InteractiveHasNoReadOnlyDescription: Story = {
-  args: { onCheck: fn() },
-  play: async ({ canvasElement }) => {
-    const checkbox = within(canvasElement).getByRole('checkbox')
-
-    await expect(checkbox).not.toHaveAccessibleDescription()
+    await expect(description).toHaveAttribute('id')
+    await expect(checkbox).toHaveAttribute('aria-describedby', description.id)
   },
 }
