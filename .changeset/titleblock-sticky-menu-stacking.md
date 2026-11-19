@@ -4,4 +4,4 @@
 
 fix(TitleBlock): stop sticky TitleBlock menus rendering behind page content
 
-Removes the `z-index: 0` on the sticky row below the separator, which created a stacking context that trapped its menu dropdowns.
+Raises the sticky row below the separator from `z-index: 0` to `z-index: 1`, so its menu dropdowns paint above later page content while still scrolling under the sticky title row.
