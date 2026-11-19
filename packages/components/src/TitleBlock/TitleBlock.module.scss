@@ -77,9 +77,9 @@
       }
     }
 
-    .rowBelowSeparator {
-      z-index: 0;
-    }
+    // Do not give .rowBelowSeparator a z-index: it would create a stacking
+    // context that traps its (non-portalled) menu dropdowns behind later
+    // page content. The sticky .titleRow (z-index: 5) already paints above it.
   }
 
   .sticky .titleRow,

@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, waitFor, within } from '@storybook/test'
+import { expect, userEvent, waitFor, within } from '@storybook/test'
 import { Heading } from 'react-aria-components'
 import { Icon } from '~components/Icon'
 import { GlobalNotification } from '~components/Notification'
@@ -974,6 +974,48 @@ export const WithGlobalNotificationAbove: Story = {
           expect(scrollContainer.scrollTop).toBeGreaterThan(0)
         })
       })
+    })
+  },
+}
+
+/**
+ * Regression: menus in the row below the separator of a sticky TitleBlock must
+ * paint above positioned page content that follows the TitleBlock.
+ */
+export const StickyMenuAbovePageContent: Story = {
+  args: {
+    sticky: true,
+  },
+  render: (args) => (
+    // No app-chrome nav above the TitleBlock here, so zero the offset (as
+    // AppChrome does) to stop the sticky title row covering the row below.
+    <div style={{ display: 'contents', ['--app-chrome-sticky-offset' as string]: '0px' }}>
+      <TitleBlock {...args} />
+      <div
+        data-testid="page-content"
+        style={{
+          position: 'relative',
+          height: '400px',
+          backgroundColor: 'var(--color-blue-100)',
+        }}
+      >
+        Positioned page content
+      </div>
+    </div>
+  ),
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+
+    await step('open the secondary menu', async () => {
+      await userEvent.click(canvas.getByRole('button', { name: 'Secondary menu' }))
+    })
+
+    await step('the menu paints above the page content', async () => {
+      const menuItem = await canvas.findByRole('button', { name: 'Secondary menu action 2' })
+      const { left, top, width, height } = menuItem.getBoundingClientRect()
+      const topElement = document.elementFromPoint(left + width / 2, top + height / 2)
+
+      expect(menuItem.contains(topElement)).toBe(true)
     })
   },
 }
