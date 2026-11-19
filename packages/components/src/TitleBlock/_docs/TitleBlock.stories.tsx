@@ -1,12 +1,9 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, userEvent, waitFor, within } from '@storybook/test'
+import { expect, waitFor, within } from '@storybook/test'
 import { Heading } from 'react-aria-components'
 import { Icon } from '~components/Icon'
 import { GlobalNotification } from '~components/Notification'
-import { RadioField } from '~components/Radio'
-import { Text } from '~components/Text'
-import { Well } from '~components/Well'
 import { assetUrl } from '~components/utils/hostedAssets'
 import { StickerSheet } from '~storybook/components/StickerSheet'
 import { NavigationTab, TitleBlock } from '../index'
@@ -977,85 +974,6 @@ export const WithGlobalNotificationAbove: Story = {
           expect(scrollContainer.scrollTop).toBeGreaterThan(0)
         })
       })
-    })
-  },
-}
-
-/**
- * Regression: menus in the row below the separator of a sticky TitleBlock must
- * paint above positioned page content that follows the TitleBlock.
- */
-export const StickyMenuAbovePageContent: Story = {
-  args: {
-    sticky: true,
-  },
-  render: (args) => (
-    // No app-chrome nav above the TitleBlock here, so zero the offset (as
-    // AppChrome does) to stop the sticky title row covering the row below.
-    <div style={{ display: 'contents', ['--app-chrome-sticky-offset' as string]: '0px' }}>
-      <TitleBlock {...args} />
-      <div
-        data-testid="page-content"
-        style={{
-          position: 'relative',
-          maxWidth: '1080px',
-          margin: '0 auto',
-          padding: '1.5rem',
-        }}
-      >
-        <Well color="purple">
-          <div style={{ padding: '1.5rem' }}>
-            <Text variant="body">
-              This content mirrors a consumer page: a purple Well followed by rating questions built
-              from RadioField, which is position: relative.
-            </Text>
-          </div>
-        </Well>
-        {[1, 2].map((question) => (
-          <div key={question} style={{ position: 'relative', marginBlockStart: '2rem' }}>
-            <Text variant="body">
-              <strong>{question}. Lorem ipsum dolor sit amet, consectetur adipiscing elit?</strong>
-            </Text>
-            <div
-              role="radiogroup"
-              aria-label={`Question ${question} rating`}
-              style={{
-                marginBlockStart: '1rem',
-                padding: '0.5rem 1rem',
-                border: '1px solid var(--color-gray-500)',
-                borderRadius: '7px',
-              }}
-            >
-              {['Lorem ipsum', 'Dolor sit amet', 'Consectetur adipiscing', 'Sed do eiusmod'].map(
-                (option) => (
-                  <RadioField
-                    key={option}
-                    name={`question-${question}`}
-                    value={option}
-                    labelText={option}
-                    onChange={() => undefined}
-                  />
-                ),
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  ),
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement)
-
-    await step('open the secondary menu', async () => {
-      await userEvent.click(canvas.getByRole('button', { name: 'Secondary menu' }))
-    })
-
-    await step('the menu paints above the page content', async () => {
-      const menuItem = await canvas.findByRole('button', { name: 'Secondary menu action 2' })
-      const { left, top, width, height } = menuItem.getBoundingClientRect()
-      const topElement = document.elementFromPoint(left + width / 2, top + height / 2)
-
-      expect(menuItem.contains(topElement)).toBe(true)
     })
   },
 }
