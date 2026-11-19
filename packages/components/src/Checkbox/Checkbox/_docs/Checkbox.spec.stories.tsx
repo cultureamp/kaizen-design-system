@@ -64,11 +64,11 @@ export const ReadOnlyWithConsumerOnClick: Story = {
 
 export const ReadOnlyHasVisuallyHiddenDescription: Story = {
   play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const checkbox = canvas.getByRole('checkbox')
-    const description = canvas.getByText('Read only')
+    const checkbox = within(canvasElement).getByRole('checkbox')
+    const id = checkbox.getAttribute('aria-describedby')
 
-    await expect(description).toHaveAttribute('id')
-    await expect(checkbox).toHaveAttribute('aria-describedby', description.id)
+    await expect(id).toBeTruthy()
+    // `useId` ids (e.g. `_r_4_`) are unsafe in `#id` selectors, so use an attribute selector
+    await expect(canvasElement.querySelector(`[id="${id}"]`)).toBeInTheDocument()
   },
 }
