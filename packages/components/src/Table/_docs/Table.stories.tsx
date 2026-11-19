@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { Checkbox } from '~components/Checkbox'
+import { Checkbox, type CheckedStatus } from '~components/Checkbox'
 import { Divider } from '~components/Divider'
 import { Icon } from '~components/Icon'
 import { Text } from '~components/Text'
@@ -60,6 +60,79 @@ const TableTemplate: StoryObj<TableStoryProps> = {
       ))}
     </TableContainer>
   ),
+}
+
+const getSelectAllStatus = (selected: boolean[]): CheckedStatus => {
+  if (selected.every(Boolean)) return 'on'
+  if (selected.some(Boolean)) return 'mixed'
+  return 'off'
+}
+
+/** Header checkbox reflects the rows: on when all are selected, mixed when some are */
+const SelectableTable = ({
+  container,
+  headerRowCells,
+  tableCards,
+  row,
+  rowCells,
+}: TableStoryProps): JSX.Element => {
+  const [selected, setSelected] = useState<boolean[]>(() => tableCards.map(() => false))
+  const selectAllStatus = getSelectAllStatus(selected)
+
+  return (
+    <TableContainer {...container}>
+      <TableHeader>
+        <TableRow>
+          <TableHeaderRowCell
+            labelText="Employee"
+            width={5 / 12}
+            checkable
+            checkboxLabel="Select all Employees"
+            checkedStatus={selectAllStatus}
+            onCheck={(event) => {
+              setSelected(selected.map(() => selectAllStatus !== 'on'))
+              action('onCheck header')(event)
+            }}
+          />
+          {headerRowCells.slice(1).map((headerRowCellProps, index) => (
+            <TableHeaderRowCell key={index} {...headerRowCellProps} />
+          ))}
+        </TableRow>
+      </TableHeader>
+      {tableCards.map((tableCardProps, cardIndex) => (
+        <TableCard {...tableCardProps} key={cardIndex}>
+          <TableRow {...row}>
+            <TableRowCell width={5 / 12}>
+              <Text tag="div" variant="body">
+                <span className="flex gap-12">
+                  <Checkbox
+                    aria-label={`Select Employee ${cardIndex + 1}`}
+                    checkedStatus={selected[cardIndex] ? 'on' : 'off'}
+                    onCheck={(event) => {
+                      setSelected(
+                        selected.map((isSelected, index) =>
+                          index === cardIndex ? event.target.checked : isSelected,
+                        ),
+                      )
+                      action('onCheck row')(event)
+                    }}
+                  />
+                  <span>Employee name</span>
+                </span>
+              </Text>
+            </TableRowCell>
+            {rowCells.slice(1).map(({ children, ...otherProps }, rowCellIndex) => (
+              <TableRowCell {...otherProps} key={rowCellIndex}>
+                <Text tag="div" variant="body">
+                  {children}
+                </Text>
+              </TableRowCell>
+            ))}
+          </TableRow>
+        </TableCard>
+      ))}
+    </TableContainer>
+  )
 }
 
 export default {
@@ -263,11 +336,11 @@ export const Default: StoryObj<TableStoryProps> = {
 
 export const CheckboxVariant: StoryObj<TableStoryProps> = {
   ...TableTemplate,
+  render: (args) => <SelectableTable {...args} />,
   args: {
     headerRowCells: [
       {
         checkable: true,
-        onCheck: action('onCheck header-1'),
         checkboxLabel: 'Select all Employees',
         labelText: 'Employee',
         width: 5 / 12,
@@ -288,12 +361,7 @@ export const CheckboxVariant: StoryObj<TableStoryProps> = {
     rowCells: [
       {
         width: 5 / 12,
-        children: (
-          <span className="flex gap-12">
-            <Checkbox aria-label="Employee x" />
-            <span>Employee name</span>
-          </span>
-        ),
+        children: 'Employee name',
       },
       {
         width: 3 / 12,
@@ -318,6 +386,7 @@ export const CheckboxVariant: StoryObj<TableStoryProps> = {
 
 export const CheckboxReadOnly: StoryObj<TableStoryProps> = {
   ...CheckboxVariant,
+  render: TableTemplate.render,
   name: 'Checkbox (read-only)',
   args: {
     ...CheckboxVariant.args,
@@ -325,7 +394,7 @@ export const CheckboxReadOnly: StoryObj<TableStoryProps> = {
     headerRowCells: [
       {
         checkable: true,
-        checkedStatus: 'mixed',
+        checkedStatus: 'on',
         checkboxLabel: 'Select all Employees',
         labelText: 'Employee',
         width: 5 / 12,
