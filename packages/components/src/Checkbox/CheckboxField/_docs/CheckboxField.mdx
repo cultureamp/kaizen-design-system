@@ -54,7 +54,7 @@ Pass an `onCheck` handler. Use when the person can change the value.
 
 ### Read-only
 
-Omit `onCheck`. The label and checkbox look the same as enabled, so the text stays readable. The input gets a translated "Read only" accessible description, which screen readers announce after the label and state. The checkbox can still receive keyboard focus, but its value can't be changed.
+Omit `onCheck`. The label looks the same as enabled, so the text stays readable. The checkbox uses a muted gray fill and border that don't change on hover or when checked. The input gets a translated "Read only" accessible description, which screen readers announce after the label and state. The checkbox can still receive keyboard focus, but its value can't be changed.
 
 ```tsx
 <CheckboxField labelText="Submit quarterly goals" checkedStatus={isCompleted ? 'on' : 'off'} />
