@@ -77,8 +77,12 @@
       }
     }
 
+    // Must be z-index: 4 so the row below the separator sits above later page
+    // content, but below the
+    // sticky top row of the TitleBlock (.titleRow, z-index: 5) so its menus
+    // scroll under it.
     .rowBelowSeparator {
-      z-index: 0;
+      z-index: 4;
     }
   }
 
