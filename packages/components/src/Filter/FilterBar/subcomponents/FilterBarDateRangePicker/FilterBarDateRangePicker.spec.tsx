@@ -136,15 +136,17 @@ describe('<FilterBarDateRangePicker />', () => {
       expect(getByText('May 2022')).toBeVisible()
     })
 
+    const startMonth = screen.getByRole('grid', { name: 'May 2022' })
+    const startDay = within(startMonth).getByRole('gridcell', { name: '10' })
     const targetMonth = screen.getByRole('grid', { name: 'June 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '23' })
-    const targetBtn = within(targetDay).getByRole('button')
 
-    await user.click(targetBtn)
+    await user.click(within(startDay).getByRole('button'))
+    await user.click(within(targetDay).getByRole('button'))
     await user.click(document.body) // Exit the focus lock
 
     await waitFor(() => {
-      expect(getByRole('button', { name: 'Dates : 1 May 2022 - 23 Jun 2022' })).toBeInTheDocument()
+      expect(getByRole('button', { name: 'Dates : 10 May 2022 - 23 Jun 2022' })).toBeInTheDocument()
     })
   }, 10000)
 
@@ -170,15 +172,17 @@ describe('<FilterBarDateRangePicker />', () => {
       expect(getByText('May 2022')).toBeVisible()
     })
 
+    const startMonth = screen.getByRole('grid', { name: 'May 2022' })
+    const startDay = within(startMonth).getByRole('gridcell', { name: '10' })
     const targetMonth = screen.getByRole('grid', { name: 'June 2022' })
     const targetDay = within(targetMonth).getByRole('gridcell', { name: '23' })
-    const targetBtn = within(targetDay).getByRole('button')
 
-    await user.click(targetBtn)
+    await user.click(within(startDay).getByRole('button'))
+    await user.click(within(targetDay).getByRole('button'))
 
     await waitFor(() => {
       expect(onChange).toHaveBeenCalledWith({
-        from: new Date('2022-05-01'),
+        from: new Date('2022-05-10'),
         to: new Date('2022-06-23'),
       })
     })
