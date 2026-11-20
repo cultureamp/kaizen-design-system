@@ -17,3 +17,7 @@ body {
   container-type: inline-size;
   min-height: 100vh;
 }
+
+:where(body) {
+  background-color: var(--color-gray-100);
+}
