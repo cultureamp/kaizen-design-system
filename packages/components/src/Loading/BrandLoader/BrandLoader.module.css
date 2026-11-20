@@ -1,0 +1,86 @@
+@layer kz-components {
+  .brandLoader {
+    --brand-loader-size: 72px;
+    --brand-loader-duration: 3200ms;
+
+    display: flex;
+    inline-size: var(--brand-loader-size);
+    block-size: var(--brand-loader-size);
+    color: var(--color-purple-800);
+  }
+
+  .reversed {
+    color: var(--color-white);
+  }
+
+  .sm {
+    --brand-loader-size: 48px;
+  }
+
+  .md {
+    --brand-loader-size: 72px;
+  }
+
+  .lg {
+    --brand-loader-size: 96px;
+  }
+
+  .slow {
+    --brand-loader-duration: 4000ms;
+  }
+
+  .normal {
+    --brand-loader-duration: 3200ms;
+  }
+
+  .fast {
+    --brand-loader-duration: 2400ms;
+  }
+
+  .icon {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+
+  .enso {
+    fill: currentcolor;
+  }
+
+  .brush {
+    animation: paint var(--brand-loader-duration) var(--animation-easing-function-ease-in-out)
+      infinite;
+    fill: none;
+    stroke: white;
+    stroke-width: 15;
+    stroke-linecap: round;
+    stroke-dasharray: 100 400;
+    stroke-dashoffset: 101;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brush {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+@keyframes paint {
+  0% {
+    stroke-dashoffset: 101;
+  }
+
+  42%,
+  56% {
+    stroke-dashoffset: 0;
+  }
+
+  78% {
+    stroke-dashoffset: -70;
+  }
+
+  87.5%,
+  100% {
+    stroke-dashoffset: -101;
+  }
+}
