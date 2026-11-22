@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@cultureamp/package-bundler": "^4.1.1",
-    "@types/color-string": "^1.5.5",
+    "@types/color-string": "^2.1.4",
     "@types/lodash.flatmap": "^4.5.9",
     "@types/lodash.kebabcase": "^4.1.9",
     "@types/react-highlight": "^0.12.8",
