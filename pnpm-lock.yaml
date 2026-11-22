@@ -102,8 +102,8 @@ importers:
         specifier: ^6.10.2
         version: 6.10.2(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-mdx:
-        specifier: ^3.9.5
-        version: 3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
+        specifier: ^3.10.1
+        version: 3.10.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-prettier:
         specifier: ^5.5.7
         version: 5.5.7(@types/eslint@8.56.10)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@1.21.7)))(eslint@9.39.5(jiti@1.21.7))(prettier@3.10.1)
@@ -5628,6 +5628,9 @@ packages:
     resolution: {integrity: sha512-RpAVKQA5T63xEj6/giIbUEtZwJ4UFIc3ZtvEkiaUERylqe8xb5IvqcgOurZLahv93CLKfxcw5YI+DZcUBRyLXA==}
     engines: {node: '>=0.10.0'}
 
+  collapse-white-space@2.1.0:
+    resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
+
   collect-v8-coverage@1.0.2:
     resolution: {integrity: sha512-lHl4d5/ONEbLlJvaJNtsF/Lz+WvB07u2ycqTYbdrq7UypDXailES4valYb2eWiJFxZlVmpGekfqoxQhzyFdT4Q==}
 
@@ -6307,17 +6310,14 @@ packages:
       eslint-plugin-import-x:
         optional: true
 
-  eslint-mdx@3.9.5:
-    resolution: {integrity: sha512-pxkzWADqcf/5F4XkQx+5YmhGxlQ9Q3BmOT0CYnuMPm9G3y4DJ3lPc8gHicUowA8fKJDpfrmSJ3TsxMUmXt0GpA==}
+  eslint-mdx@3.10.1:
+    resolution: {integrity: sha512-p3VF4TFmNLOnX3yHnVw+FFQWZUdbi+Q4+xAdrcZA8pgPnWrY3ntpwF83oiMCyQE2hJh2kRZYjCdP7H+AigbSwg==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       '@types/estree': ^1.0.10
       eslint: '>=8.0.0'
-      remark-lint-file-extension: '*'
     peerDependenciesMeta:
       '@types/estree':
-        optional: true
-      remark-lint-file-extension:
         optional: true
 
   eslint-module-utils@2.12.1:
@@ -6362,8 +6362,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-mdx@3.9.5:
-    resolution: {integrity: sha512-EuIymT7/NL3+XuDtOp202l8FRIhCEOYgakNegd/NaMPsZpSxSXpQ8rAvs2DnZEvEKmvo6J6UUP58KQEFQvBHsA==}
+  eslint-plugin-mdx@3.10.1:
+    resolution: {integrity: sha512-WR2W6Xj5kkZisjYy4ftJR/eXasgSUEEU980iEVN2DUJqNwBKCCKjizr8nSqB+aCblDNEkmx3HJFWCFnplyrwuA==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -16826,6 +16826,8 @@ snapshots:
 
   code-point-at@1.1.0: {}
 
+  collapse-white-space@2.1.0: {}
+
   collect-v8-coverage@1.0.2: {}
 
   color-convert@1.9.3:
@@ -17641,7 +17643,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-mdx@3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
+  eslint-mdx@3.10.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
       acorn: 8.19.0
       acorn-jsx: 5.3.2(acorn@8.19.0)
@@ -17739,21 +17741,21 @@ snapshots:
       safe-regex-test: 1.1.0
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-mdx@3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
+  eslint-plugin-mdx@3.10.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7)):
     dependencies:
+      collapse-white-space: 2.1.0
       eslint: 9.39.5(jiti@1.21.7)
-      eslint-mdx: 3.9.5(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
+      eslint-mdx: 3.10.1(@types/estree@1.0.10)(eslint@9.39.5(jiti@1.21.7))
       mdast-util-mdx: 3.0.0
+      micromark-util-normalize-identifier: 2.0.1
       prettier-linter-helpers: 1.0.1
       remark-mdx: 3.1.1
       remark-parse: 11.0.0
-      remark-stringify: 11.0.0
       unified: 11.0.5
       vfile: 6.0.3
     transitivePeerDependencies:
       - '@types/estree'
       - bluebird
-      - remark-lint-file-extension
       - supports-color
 
   eslint-plugin-prettier@5.5.7(@types/eslint@8.56.10)(eslint-config-prettier@10.1.8(eslint@9.39.5(jiti@1.21.7)))(eslint@9.39.5(jiti@1.21.7))(prettier@3.10.1):
