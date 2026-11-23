@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.25
+
+### Patch Changes
+
+- [#7510](https://github.com/cultureamp/kaizen-design-system/pull/7510) [`5dffcd2`](https://github.com/cultureamp/kaizen-design-system/commit/5dffcd23a618cd65f65205ff75d696c59a9cc35a) - fix(GenericModal): preserve sticky positioning while page scrolling is locked
+
+- [#7546](https://github.com/cultureamp/kaizen-design-system/pull/7546) [`787b0ef`](https://github.com/cultureamp/kaizen-design-system/commit/787b0efba444bdf6afdc1c6ad5d1b185b3f1b5cf) - chore(deps): dependencies update
+
 ## 3.3.24
 
 ### Patch Changes
