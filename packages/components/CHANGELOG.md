@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.3.26
+
+### Patch Changes
+
+- [#7513](https://github.com/cultureamp/kaizen-design-system/pull/7513) [`5fbab08`](https://github.com/cultureamp/kaizen-design-system/commit/5fbab082804a036a63a96e991cf054c1005b5ae4) - fix(TitleBlock): stop sticky TitleBlock menus rendering behind page content
+
+  Raises the sticky row below the separator from `z-index: 0` to `z-index: 4`, so its menu dropdowns paint above later page content while still scrolling under the sticky title row.
+
 ## 3.3.25
 
 ### Patch Changes
