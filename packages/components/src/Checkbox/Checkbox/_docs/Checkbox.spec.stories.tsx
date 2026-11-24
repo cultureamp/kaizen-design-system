@@ -4,6 +4,7 @@ import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import { Checkbox } from '../index'
 
 const onClick = fn()
+const onCheck = fn()
 
 const meta = {
   title: 'Components/Checkboxes/Checkbox (primitive)/Checkbox tests',
@@ -93,5 +94,53 @@ export const ReadOnlyHasVisuallyHiddenDescription: Story = {
     await expect(
       canvas.getByRole('checkbox', { name: 'Disabled' }),
     ).not.toHaveAccessibleDescription()
+  },
+}
+
+export const InteractiveSpaceCallsOnCheck: Story = {
+  args: { onCheck },
+  play: async ({ canvasElement }) => {
+    onCheck.mockClear()
+    const checkbox = within(canvasElement).getByRole('checkbox')
+
+    checkbox.focus()
+    await userEvent.keyboard(' ')
+    await expect(onCheck).toHaveBeenCalledTimes(1)
+  },
+}
+
+export const InteractiveMixedCanChange: Story = {
+  args: { checkedStatus: 'mixed', onCheck },
+  play: async ({ canvasElement }) => {
+    onCheck.mockClear()
+    const checkbox = within(canvasElement).getByRole('checkbox') as HTMLInputElement
+
+    await userEvent.click(checkbox)
+    await expect(onCheck).toHaveBeenCalledTimes(1)
+    // The click is not cancelled, so the native toggle clears `indeterminate`
+    await expect(checkbox.indeterminate).toBe(false)
+  },
+}
+
+export const ReadOnlyPropWithOnCheckIsReadOnly: Story = {
+  args: { readOnly: true, onCheck },
+  play: async ({ canvasElement }) => {
+    onCheck.mockClear()
+    const checkbox = within(canvasElement).getByRole('checkbox')
+
+    await userEvent.click(checkbox)
+    await expect(onCheck).not.toHaveBeenCalled()
+    await expect(checkbox).not.toBeChecked()
+    await waitFor(() => expect(checkbox).toHaveAccessibleDescription('Read only'))
+  },
+}
+
+export const InteractiveHasNoReadOnlyDescription: Story = {
+  args: { onCheck },
+  play: async ({ canvasElement }) => {
+    const checkbox = within(canvasElement).getByRole('checkbox')
+
+    await expect(checkbox).not.toHaveAttribute('readonly')
+    await expect(checkbox).not.toHaveAccessibleDescription()
   },
 }
