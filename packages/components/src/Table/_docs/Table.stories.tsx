@@ -68,6 +68,18 @@ const getSelectAllStatus = (selected: boolean[]): CheckedStatus => {
   return 'off'
 }
 
+const checkboxTableTrailingHeaderCells: TableHeaderRowCellProps[] = [
+  { labelText: 'Job title', width: 3 / 12 },
+  { labelText: 'Date', width: 2 / 12 },
+  { labelText: 'Score', width: 2 / 12 },
+]
+
+const checkboxTableTrailingRowCells: TableRowCellProps[] = [
+  { width: 3 / 12, children: 'Engineer' },
+  { width: 2 / 12, children: 'Today' },
+  { width: 2 / 12, children: '100' },
+]
+
 /** Header checkbox reflects the rows: on when all are selected, mixed when some are */
 const SelectableTable = ({
   container,
@@ -94,7 +106,7 @@ const SelectableTable = ({
               action('onCheck header')(event)
             }}
           />
-          {headerRowCells.slice(1).map((headerRowCellProps, index) => (
+          {headerRowCells.map((headerRowCellProps, index) => (
             <TableHeaderRowCell key={index} {...headerRowCellProps} />
           ))}
         </TableRow>
@@ -121,7 +133,7 @@ const SelectableTable = ({
                 </span>
               </Text>
             </TableRowCell>
-            {rowCells.slice(1).map(({ children, ...otherProps }, rowCellIndex) => (
+            {rowCells.map(({ children, ...otherProps }, rowCellIndex) => (
               <TableRowCell {...otherProps} key={rowCellIndex}>
                 <Text tag="div" variant="body">
                   {children}
@@ -338,44 +350,8 @@ export const CheckboxVariant: StoryObj<TableStoryProps> = {
   ...TableTemplate,
   render: (args) => <SelectableTable {...args} />,
   args: {
-    headerRowCells: [
-      {
-        checkable: true,
-        checkboxLabel: 'Select all Employees',
-        labelText: 'Employee',
-        width: 5 / 12,
-      },
-      {
-        labelText: 'Job title',
-        width: 3 / 12,
-      },
-      {
-        labelText: 'Date',
-        width: 2 / 12,
-      },
-      {
-        labelText: 'Score',
-        width: 2 / 12,
-      },
-    ],
-    rowCells: [
-      {
-        width: 5 / 12,
-        children: 'Employee name',
-      },
-      {
-        width: 3 / 12,
-        children: 'Engineer',
-      },
-      {
-        width: 2 / 12,
-        children: 'Today',
-      },
-      {
-        width: 2 / 12,
-        children: '100',
-      },
-    ],
+    headerRowCells: checkboxTableTrailingHeaderCells,
+    rowCells: checkboxTableTrailingRowCells,
   },
   parameters: {
     docs: {
@@ -399,7 +375,7 @@ export const CheckboxReadOnly: StoryObj<TableStoryProps> = {
         labelText: 'Employee',
         width: 5 / 12,
       },
-      ...(CheckboxVariant.args?.headerRowCells ?? []).slice(1),
+      ...checkboxTableTrailingHeaderCells,
     ],
     rowCells: [
       {
@@ -411,7 +387,7 @@ export const CheckboxReadOnly: StoryObj<TableStoryProps> = {
           </span>
         ),
       },
-      ...(CheckboxVariant.args?.rowCells ?? []).slice(1),
+      ...checkboxTableTrailingRowCells,
     ],
   },
 }

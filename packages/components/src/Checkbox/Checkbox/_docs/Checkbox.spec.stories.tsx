@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
-import { expect, fn, userEvent, within } from '@storybook/test'
+import { expect, fn, userEvent, waitFor, within } from '@storybook/test'
 import { Checkbox } from '../index'
 
 const onClick = fn()
@@ -54,6 +54,7 @@ export const ReadOnlyCheckedAndUncheckedIgnoreClick: Story = {
 export const ReadOnlyWithConsumerOnClick: Story = {
   args: { checkedStatus: 'mixed', onClick },
   play: async ({ canvasElement }) => {
+    onClick.mockClear()
     const checkbox = within(canvasElement).getByRole('checkbox') as HTMLInputElement
 
     await userEvent.click(checkbox)
@@ -63,12 +64,34 @@ export const ReadOnlyWithConsumerOnClick: Story = {
 }
 
 export const ReadOnlyHasVisuallyHiddenDescription: Story = {
+  render: (args) => (
+    <>
+      <Checkbox {...args} aria-label="Read-only" />
+      <Checkbox
+        {...args}
+        aria-label="Read-only with description"
+        aria-describedby="checkbox-helper-text"
+      />
+      <span id="checkbox-helper-text">Helper text</span>
+      <Checkbox {...args} aria-label="Disabled" disabled />
+    </>
+  ),
   play: async ({ canvasElement }) => {
-    const checkbox = within(canvasElement).getByRole('checkbox')
-    const id = checkbox.getAttribute('aria-describedby')
+    const canvas = within(canvasElement)
 
-    await expect(id).toBeTruthy()
-    // `useId` ids (e.g. `_r_4_`) are unsafe in `#id` selectors, so use an attribute selector
-    await expect(canvasElement.querySelector(`[id="${id}"]`)).toBeInTheDocument()
+    // KaizenProvider loads messages async, so the translated text appears after first render
+    await waitFor(() =>
+      expect(canvas.getByRole('checkbox', { name: 'Read-only' })).toHaveAccessibleDescription(
+        'Read only',
+      ),
+    )
+    await waitFor(() =>
+      expect(
+        canvas.getByRole('checkbox', { name: 'Read-only with description' }),
+      ).toHaveAccessibleDescription('Helper text Read only'),
+    )
+    await expect(
+      canvas.getByRole('checkbox', { name: 'Disabled' }),
+    ).not.toHaveAccessibleDescription()
   },
 }

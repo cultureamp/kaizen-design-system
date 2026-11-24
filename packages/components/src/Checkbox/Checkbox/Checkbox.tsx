@@ -1,5 +1,5 @@
 import React, { useId, type InputHTMLAttributes } from 'react'
-import { useIntl } from '@cultureamp/i18n-react-intl'
+import { FormattedMessage } from '@cultureamp/i18n-react-intl'
 import classnames from 'classnames'
 import { Icon } from '~components/Icon'
 import { VisuallyHidden } from '~components/VisuallyHidden'
@@ -15,18 +15,14 @@ export type CheckboxProps = {
   value?: string
 } & OverrideClassName<Omit<InputHTMLAttributes<HTMLInputElement>, 'type' | 'onChange' | 'checked'>>
 
-const renderCheckOrMixedIcon = (
-  status: CheckedStatus,
-  reversed: boolean,
-  readOnly: boolean,
-): React.ReactNode => {
+const renderCheckOrMixedIcon = (status: CheckedStatus, reversed: boolean): React.ReactNode => {
   if (status === 'off') return
 
   return (
     <Icon
       name={status === 'on' ? 'check' : 'remove'}
       isPresentational
-      className={classnames(styles.icon, reversed && styles.reversed, readOnly && styles.readOnly)}
+      className={classnames(styles.icon, reversed && styles.reversed)}
     />
   )
 }
@@ -40,19 +36,13 @@ export const Checkbox = ({
   value,
   classNameOverride,
   disabled,
+  readOnly,
   'aria-describedby': ariaDescribedBy,
   onClick,
   ...restProps
 }: CheckboxProps): JSX.Element => {
-  const { formatMessage } = useIntl()
   const readOnlyId = useId()
-  const isReadOnly = onCheck === undefined && !disabled
-  const readOnlyText = formatMessage({
-    id: 'kz.checkbox.readOnly',
-    defaultMessage: 'Read only',
-    description:
-      'Screen reader description for a checkbox whose value can be seen but not changed. Announced after the checkbox label.',
-  })
+  const isReadOnly = (Boolean(readOnly) || onCheck === undefined) && !disabled
   const describedBy =
     [ariaDescribedBy, isReadOnly ? readOnlyId : undefined].filter(Boolean).join(' ') || undefined
 
@@ -69,7 +59,7 @@ export const Checkbox = ({
         type="checkbox"
         className={classnames(styles.checkbox, classNameOverride, reversed && styles.reversed)}
         checked={getCheckedFromStatus(checkedStatus)}
-        onChange={onCheck}
+        onChange={isReadOnly ? undefined : onCheck}
         value={value ?? checkedStatus}
         readOnly={isReadOnly}
         disabled={disabled}
@@ -82,16 +72,18 @@ export const Checkbox = ({
         {...restProps}
       />
       {/* .box must directly follow the input: its styles use `.checkbox:checked + .box` */}
-      <span
-        className={classnames(
-          styles.box,
-          reversed && styles.reversed,
-          isReadOnly && styles.readOnly,
-        )}
-      >
-        {renderCheckOrMixedIcon(checkedStatus, reversed, isReadOnly && !reversed)}
+      <span className={classnames(styles.box, reversed && styles.reversed)}>
+        {renderCheckOrMixedIcon(checkedStatus, reversed)}
       </span>
-      {isReadOnly && <VisuallyHidden id={readOnlyId}>{readOnlyText}</VisuallyHidden>}
+      {isReadOnly && (
+        <VisuallyHidden id={readOnlyId}>
+          <FormattedMessage
+            id="kz.checkbox.readOnly"
+            defaultMessage="Read only"
+            description="Screen reader description for a checkbox whose value can be seen but not changed. Announced after the checkbox label."
+          />
+        </VisuallyHidden>
+      )}
     </span>
   )
 }

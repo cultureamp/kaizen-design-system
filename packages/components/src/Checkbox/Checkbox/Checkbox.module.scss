@@ -23,7 +23,6 @@
   }
 
   .icon {
-    position: absolute;
     color: $color-white;
   }
 
@@ -32,7 +31,8 @@
   }
 
   .box {
-    display: block;
+    display: grid;
+    place-items: center;
     position: relative;
     pointer-events: none;
     background: $color-white;
@@ -45,55 +45,44 @@
     background-color: white;
     border-color: $dt-color-form-border-color;
 
-    .checkbox:hover + & {
-      border-color: $dt-color-form-border-color-hover;
-    }
-
-    .checkbox:checked + &,
-    .checkbox:indeterminate + & {
-      background: $dt-color-checkbox-background-color-checked;
-      background-color: $dt-color-form-border-color;
-    }
-
     .checkbox:focus + & {
-      background: white;
-      border-color: $dt-color-form-border-color-hover;
       outline: var(--border-focus-ring-border-width) var(--border-focus-ring-border-style)
         var(--color-blue-500);
       outline-offset: 1px;
     }
 
-    .checkbox:checked:focus + &,
-    .checkbox:indeterminate:focus + & {
-      background: $dt-color-form-border-color-hover;
+    // Read only (uses [readonly] rather than :read-only, which matches all checkboxes)
+    .checkbox[readonly] + &:not(.reversed) {
+      background: var(--color-gray-300);
+      border: 1px solid var(--color-gray-500);
+
+      .icon {
+        color: var(--color-purple-800);
+      }
+    }
+
+    .checkbox:not([readonly]):hover + & {
       border-color: $dt-color-form-border-color-hover;
     }
 
-    .checkbox:checked:hover + &,
-    .checkbox:indeterminate:hover + & {
+    .checkbox:not([readonly]):checked + &,
+    .checkbox:not([readonly]):indeterminate + & {
+      background: $dt-color-checkbox-background-color-checked;
+      background-color: $dt-color-form-border-color;
+    }
+
+    .checkbox:not([readonly]):focus + & {
+      background: white;
+      border-color: $dt-color-form-border-color-hover;
+    }
+
+    .checkbox:not([readonly]):checked:focus + &,
+    .checkbox:not([readonly]):indeterminate:focus + &,
+    .checkbox:not([readonly]):checked:hover + &,
+    .checkbox:not([readonly]):indeterminate:hover + & {
       background: $dt-color-form-border-color-hover;
       border-color: $dt-color-form-border-color-hover;
     }
-  }
-
-  // Read only
-  .box.readOnly:not(.reversed) {
-    &,
-    .checkbox:hover + &,
-    .checkbox:checked + &,
-    .checkbox:indeterminate + &,
-    .checkbox:focus + &,
-    .checkbox:checked:focus + &,
-    .checkbox:indeterminate:focus + &,
-    .checkbox:checked:hover + &,
-    .checkbox:indeterminate:hover + & {
-      background: $color-gray-300;
-      border: 1px solid $color-gray-500;
-    }
-  }
-
-  .icon.readOnly {
-    color: $color-purple-800;
   }
 
   .box.reversed {
@@ -109,41 +98,18 @@
       outline-color: var(--color-blue-300);
     }
 
-    .checkbox:not([checked]):hover + &,
-    .checkbox:not([checked]):focus + & {
+    .checkbox:not([readonly], [checked]):hover + &,
+    .checkbox:not([readonly], [checked]):focus + & {
       border-color: $color-white;
       background: rgba($color-white-rgb, 0.1);
     }
 
-    .checkbox:checked:focus + &,
-    .checkbox:indeterminate:focus + & {
+    .checkbox:not([readonly]):checked:focus + &,
+    .checkbox:not([readonly]):indeterminate:focus + &,
+    .checkbox:not([readonly]):indeterminate:hover + &,
+    .checkbox:not([readonly]):checked:hover + & {
       background: $color-white;
       border-color: $color-white;
-    }
-
-    .checkbox:indeterminate:hover + &,
-    .checkbox:checked:hover + & {
-      background: $color-white;
-      border-color: $color-white;
-    }
-  }
-
-  .box.reversed.readOnly {
-    &,
-    .checkbox:hover + &,
-    .checkbox:focus + & {
-      background: transparent;
-      border-color: rgba($color-white-rgb, 0.65);
-    }
-
-    .checkbox:checked + &,
-    .checkbox:indeterminate + &,
-    .checkbox:checked:hover + &,
-    .checkbox:indeterminate:hover + &,
-    .checkbox:checked:focus + &,
-    .checkbox:indeterminate:focus + & {
-      background: rgba($color-white-rgb, 0.65);
-      border-color: rgba($color-white-rgb, 0.65);
     }
   }
 }
