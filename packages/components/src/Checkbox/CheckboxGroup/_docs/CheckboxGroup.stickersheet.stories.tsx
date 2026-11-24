@@ -1,6 +1,6 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
-import { CheckboxField } from '~components/Checkbox/CheckboxField'
+import { InteractiveCheckboxField } from '~components/Checkbox/CheckboxField/_docs/InteractiveCheckboxField'
 import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
 import { CheckboxGroup, type CheckboxGroupProps } from '../index'
@@ -19,18 +19,12 @@ const CheckboxGroupWrapped = ({
   ...props
 }: CheckboxGroupProps): JSX.Element => (
   <CheckboxGroup labelText={labelText} reversed={reversed} {...props}>
-    <CheckboxField labelText="Checkbox one" reversed={reversed} onCheck={() => undefined} />
-    <CheckboxField
-      labelText="Checkbox two"
-      reversed={reversed}
-      checkedStatus="on"
-      onCheck={() => undefined}
-    />
-    <CheckboxField
+    <InteractiveCheckboxField labelText="Checkbox one" reversed={reversed} />
+    <InteractiveCheckboxField labelText="Checkbox two" reversed={reversed} checkedStatus="on" />
+    <InteractiveCheckboxField
       labelText="Checkbox three"
       reversed={reversed}
       checkedStatus="mixed"
-      onCheck={() => undefined}
     />
   </CheckboxGroup>
 )

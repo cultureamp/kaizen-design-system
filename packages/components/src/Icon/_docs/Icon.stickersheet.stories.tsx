@@ -1,7 +1,7 @@
 import React from 'react'
 import { type Meta } from '@storybook/react'
 import { Button } from '~components/Button'
-import { CheckboxField } from '~components/Checkbox'
+import { InteractiveCheckboxField } from '~components/Checkbox/CheckboxField/_docs/InteractiveCheckboxField'
 import { Label } from '~components/Label'
 import { Text } from '~components/Text'
 import { StickerSheet, type StickerSheetStory } from '~storybook/components/StickerSheet'
@@ -77,7 +77,7 @@ const StickerSheetTemplate: StickerSheetStory = {
             </Label>
           </StickerSheet.Row>
           <StickerSheet.Row header="CheckboxField">
-            <CheckboxField
+            <InteractiveCheckboxField
               labelText={
                 <>
                   Checkbox label <Icon {...defaultProps} />

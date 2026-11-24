@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { CheckboxField, type CheckboxFieldProps } from '../index'
+import { InteractiveCheckboxField } from './InteractiveCheckboxField'
 
 const meta = {
   title: 'Components/Checkboxes/CheckboxField',
@@ -49,12 +50,12 @@ export const NoBottomMargin: Story = {
   render: (args) => (
     <div className="flex gap-16">
       <div>
-        <CheckboxField {...args} labelText="Default" />
-        <CheckboxField {...args} labelText="Default" />
+        <InteractiveCheckboxField {...args} labelText="Default" />
+        <InteractiveCheckboxField {...args} labelText="Default" />
       </div>
       <div>
-        <CheckboxField {...args} labelText="NoBottomMargin" noBottomMargin />
-        <CheckboxField {...args} labelText="NoBottomMargin" noBottomMargin />
+        <InteractiveCheckboxField {...args} labelText="NoBottomMargin" noBottomMargin />
+        <InteractiveCheckboxField {...args} labelText="NoBottomMargin" noBottomMargin />
       </div>
     </div>
   ),

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { action } from '@storybook/addon-actions'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { Icon } from '~components/Icon'
@@ -11,6 +11,7 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
+  type TableHeaderRowCellProps,
 } from '../index'
 
 export default {
@@ -50,6 +51,21 @@ export default {
     ),
   ],
 } satisfies Meta
+
+const InteractiveTableHeaderRowCell = ({
+  checkedStatus = 'off',
+  ...props
+}: TableHeaderRowCellProps): JSX.Element => {
+  const [status, setStatus] = useState(checkedStatus)
+
+  return (
+    <TableHeaderRowCell
+      {...props}
+      checkedStatus={status}
+      onCheck={() => setStatus(status === 'on' ? 'off' : 'on')}
+    />
+  )
+}
 
 const TableTemplate: StoryObj<StickerSheetStory> = {
   render: ({ isReversed }) => (
@@ -268,14 +284,14 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
       <TableContainer>
         <TableHeader>
           <TableRow>
-            <TableHeaderRowCell
+            <InteractiveTableHeaderRowCell
               reversed={isReversed}
               labelText="Default"
               width={4 / 12}
               checkable
               checkboxLabel="Select all default"
             />
-            <TableHeaderRowCell
+            <InteractiveTableHeaderRowCell
               reversed={isReversed}
               labelText="Hover"
               width={4 / 12}
@@ -283,7 +299,7 @@ const TableTemplate: StoryObj<StickerSheetStory> = {
               checkable
               checkboxLabel="Select all hover"
             />
-            <TableHeaderRowCell
+            <InteractiveTableHeaderRowCell
               reversed={isReversed}
               labelText="Focus"
               width={4 / 12}

@@ -1,6 +1,7 @@
 import React, { useState, type ChangeEventHandler } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { CheckboxField, type CheckboxFieldProps } from '~components/Checkbox/CheckboxField'
+import { InteractiveCheckboxField } from '~components/Checkbox/CheckboxField/_docs/InteractiveCheckboxField'
 import { CheckboxGroup } from '../index'
 
 const meta = {
@@ -10,9 +11,9 @@ const meta = {
     labelText: 'Label',
     children: (
       <>
-        <CheckboxField labelText="Checkbox one" onCheck={() => undefined} />
-        <CheckboxField labelText="Checkbox two" onCheck={() => undefined} />
-        <CheckboxField labelText="Checkbox three" onCheck={() => undefined} />
+        <InteractiveCheckboxField labelText="Checkbox one" />
+        <InteractiveCheckboxField labelText="Checkbox two" />
+        <InteractiveCheckboxField labelText="Checkbox three" />
       </>
     ),
   },
