@@ -36,3 +36,38 @@ Control the open state using a `useState` (or similar) by setting the `controlle
 and defining the `open` and `onToggle` props.
 
 <Canvas of={CollapsibleStories.Controlled} />
+
+### Programmatic Focus
+
+Use a `ref` to programmatically focus the toggle button. This is useful when you need to restore focus after an async operation, such as in sortable lists where items are saved or deleted.
+
+The `ref` exposes a `CollapsibleRef` interface with a `.focus()` method that focuses the underlying toggle button element.
+
+<Canvas of={CollapsibleStories.WithProgrammaticFocus} />
+
+**Example usage:**
+
+```tsx
+import { useRef } from 'react'
+import { Collapsible, type CollapsibleRef } from '@kaizen/components'
+
+export const MyComponent = () => {
+  const collapsibleRef = useRef<CollapsibleRef>(null)
+
+  const handleSaveAndFocus = async () => {
+    // Perform async operation (e.g., API call)
+    await saveData()
+    // Focus the toggle button after the operation completes
+    collapsibleRef.current?.focus()
+  }
+
+  return (
+    <>
+      <button onClick={handleSaveAndFocus}>Save Changes</button>
+      <Collapsible ref={collapsibleRef} title="Settings">
+        {/* Collapsible content */}
+      </Collapsible>
+    </>
+  )
+}
+```
