@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useCallback, useContext, useMemo, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import { type GenericNotificationVariant } from '~components/Notification/subcomponents/GenericNotification'
 import { type ToastNotificationObj, type ToastNotificationObjBase } from '../types'
@@ -38,42 +38,62 @@ export const ToastNotificationProvider = ({
 }: ToastNotificationProviderProps): JSX.Element | null => {
   const [notifications, setNotifications] = useState<ToastNotificationObj[]>([])
 
-  const addToastNotification: ToastNotificationContextValue['addToastNotification'] = (
-    notification,
-  ) => {
-    const uuid = uuidv4()
-    const notificationWithId = { id: uuid, ...notification }
+  const addToastNotification = useCallback<ToastNotificationContextValue['addToastNotification']>(
+    (notification) => {
+      const notificationWithId = { ...notification, id: notification.id ?? uuidv4() }
 
+      setNotifications((existing) => {
+        const notificationExists = existing.some(({ id }) => id === notificationWithId.id)
+
+        return notificationExists ? existing : [...existing, notificationWithId]
+      })
+    },
+    [],
+  )
+
+  const updateToastNotification = useCallback<
+    ToastNotificationContextValue['updateToastNotification']
+  >((notification) => {
     setNotifications((existing) => {
-      const notificationExists = existing.find(({ id }) => id === notification.id)
+      const notificationIndex = existing.findIndex(({ id }) => id === notification.id)
 
-      return notificationExists ? existing : [...existing, notificationWithId]
+      if (notificationIndex === -1) return existing
+
+      const updated = existing.slice()
+      updated[notificationIndex] = notification
+      return updated
     })
-  }
+  }, [])
 
-  const updateToastNotification = (notification: ToastNotificationObj): void => {
-    const notificationIndex = notifications.findIndex(({ id }) => id === notification.id)
+  const removeToastNotification = useCallback<
+    ToastNotificationContextValue['removeToastNotification']
+  >((notificationId) => {
+    setNotifications((existing) => existing.filter(({ id }) => id !== notificationId))
+  }, [])
 
-    const copy = notifications.slice()
-    copy.splice(notificationIndex, 1, notification) // Mutation to insert notification over itself
-    setNotifications(copy)
-  }
-
-  const removeToastNotification = (notificationID: string): void => {
-    setNotifications((prev) => prev.filter(({ id }) => id !== notificationID))
-  }
-
-  const clearToastNotifications = (): void => {
+  const clearToastNotifications = useCallback<
+    ToastNotificationContextValue['clearToastNotifications']
+  >(() => {
     setNotifications([])
-  }
+  }, [])
 
-  const value = {
-    notifications,
-    addToastNotification,
-    updateToastNotification,
-    removeToastNotification,
-    clearToastNotifications,
-  } satisfies ToastNotificationContextValue
+  const value = useMemo(
+    () =>
+      ({
+        notifications,
+        addToastNotification,
+        updateToastNotification,
+        removeToastNotification,
+        clearToastNotifications,
+      }) satisfies ToastNotificationContextValue,
+    [
+      notifications,
+      addToastNotification,
+      updateToastNotification,
+      removeToastNotification,
+      clearToastNotifications,
+    ],
+  )
 
   return (
     <ToastNotificationContext.Provider value={value}>{children}</ToastNotificationContext.Provider>
