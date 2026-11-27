@@ -2,7 +2,7 @@ import React from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { ButtonGroup } from '~components/ButtonGroup'
 import { Button, IconButton } from '~components/ButtonV1'
-import { CheckboxField } from '~components/Checkbox'
+import { InteractiveCheckboxField } from '~components/Checkbox/CheckboxField/_docs/InteractiveCheckboxField'
 import { FilterButtonBase } from '~components/Filter/FilterButton/subcomponents/FilterButtonBase'
 import { Icon } from '~components/Icon'
 import { TableContainer, TableHeader, TableHeaderRowCell, TableRow } from '~components/Table'
@@ -257,7 +257,7 @@ export const TagWithCheckboxField: Story = {
   render: () => (
     <>
       <Tooltip text="Select all users">
-        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+        <InteractiveCheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
       </Tooltip>
     </>
   ),
@@ -272,7 +272,7 @@ export const CheckboxFieldTooltip: Story = {
   render: () => (
     <>
       <Tooltip text="Select all users">
-        <CheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
+        <InteractiveCheckboxField labelText="Users" id="sb-checkbox-tooltip--id" />
       </Tooltip>
     </>
   ),
@@ -287,7 +287,7 @@ export const CheckboxFieldWithDescriptionTooltip: Story = {
   render: () => (
     <>
       <Tooltip text="Select all users">
-        <CheckboxField
+        <InteractiveCheckboxField
           labelText="Users"
           id="sb-checkbox-tooltip--id"
           aria-describedby="sb-checkbox-description--id"

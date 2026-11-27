@@ -1,6 +1,7 @@
 import React, { useState, type ChangeEventHandler } from 'react'
 import { type Meta, type StoryObj } from '@storybook/react'
 import { CheckboxField, type CheckboxFieldProps } from '~components/Checkbox/CheckboxField'
+import { InteractiveCheckboxField } from '~components/Checkbox/CheckboxField/_docs/InteractiveCheckboxField'
 import { CheckboxGroup } from '../index'
 
 const meta = {
@@ -10,9 +11,9 @@ const meta = {
     labelText: 'Label',
     children: (
       <>
-        <CheckboxField labelText="Checkbox one" />
-        <CheckboxField labelText="Checkbox two" />
-        <CheckboxField labelText="Checkbox three" />
+        <InteractiveCheckboxField labelText="Checkbox one" />
+        <InteractiveCheckboxField labelText="Checkbox two" />
+        <InteractiveCheckboxField labelText="Checkbox three" />
       </>
     ),
   },
@@ -95,4 +96,19 @@ export const NoBottomMargin: Story = {
       </div>
     </div>
   ),
+}
+
+export const ReadOnly: Story = {
+  name: 'Read-only',
+  args: {
+    labelText: 'Completed steps',
+    // No onCheck handlers: the checkboxes are read-only
+    children: (
+      <>
+        <CheckboxField labelText="Checkbox one" checkedStatus="off" />
+        <CheckboxField labelText="Checkbox two" checkedStatus="on" />
+        <CheckboxField labelText="Checkbox three" checkedStatus="mixed" />
+      </>
+    ),
+  },
 }
